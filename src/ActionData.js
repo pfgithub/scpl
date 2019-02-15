@@ -1,7 +1,7 @@
-const {Text, Action} = require("./converter3");
-const {CharsParse, IdentifierParse, InputArgParse, ActionParse, ParamListParse} = require("./converter4");
+const {Text, Action} = require("./OutputData");
+const {CharsParse, IdentifierParse, InputArgParse, ActionParse, ParamListParse} = require("./ParserData");
 
-const actionList = require("../actions/WFActions.json")[0];
+const actionList = require("./WFActions.json")[0];
 
 const types = {};
 

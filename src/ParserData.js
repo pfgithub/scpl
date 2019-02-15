@@ -1,5 +1,6 @@
 const {Shortcut, Action, Parameters, DictionaryItem, Text, MagicVariable, NamedVariable, Variable, Attachment, DictionaryFieldValue, Parameter, Aggrandizements, DictionaryKeyAggrandizement, CoercionAggrandizement, Aggrandizement} = require("./OutputData");
 
+
 class Parse {
 	constructor() {
 	}
@@ -68,11 +69,11 @@ class ParamListParse extends DictionaryParse {
 
 }
 class ActionParse extends Parse {
-	asVariable(context) { // returns the Variable for this ActionParse
-		
-	}
-	asAction(context) { // returns an Action for this ActionParse
+	asVariable(cc) { // returns the Variable for this ActionParse
 
+	}
+	asAction(cc) { // returns an Action for this ActionParse
+		//
 	}
 }
 class VariableParse extends Parse {
