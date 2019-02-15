@@ -1,0 +1,19 @@
+{
+	"name": "shortcutslang",
+	"version": "1.0.0",
+	"main": "index.js",
+	"license": "MIT",
+	"scripts": {
+		"test": "nyc mocha"
+	},
+	"dependencies": {
+		"bplist-creator": "^0.0.7",
+		"bplist-parser": "^0.1.1",
+		"plist": "^3.0.1",
+		"uuid": "^3.3.2"
+	},
+	"devDependencies": {
+		"mocha": "^5.2.0",
+		"nyc": "^13.1.0"
+	}
+}

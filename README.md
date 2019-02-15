@@ -1,0 +1,5 @@
+# shortcutslang
+
+```bash
+yarn install
+```
