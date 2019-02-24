@@ -493,7 +493,7 @@ ${completedActions}/${totalActions} completed\\* \\*\\*
 
 ## All Actions:
 
-${Object.values(actionsByID).sort().map(action => `- [${action.name}](actions/${action.shortName})${action.isComplete ? "" : " (Incomplete)"}`).join`\n`}
+${Object.values(actionsByID).sort((a, b)=>a.name>b.name?1:(a.name<b.name?-1:0)).map(action => `- [${action.name}](actions/${action.shortName})${action.isComplete ? "" : " (Incomplete)"}`).join`\n`}
 
 ## Missing Parameter Types:
 
