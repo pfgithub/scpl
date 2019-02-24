@@ -3,14 +3,15 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
+
+> This action requires that Shortcuts has permission to use WFMainThreadResource,WFLocationAccessResource.
+
 ### usage
-`getdistance [???][???][???][???]`
+`getdistance from=[string <${strInfo}>|variable] undefined=[???] routetype=[string <${strInfo}>] undefined=[???]`
 
 ### arguments
 ### Enumeration: From / from (internally WFGetDirectionsFrom)
-**Placeholder**: undefined
 **Default Value**: Current Location
-**Allows Variables**: false
 
 
 Accepts a string 
@@ -19,10 +20,9 @@ containing one of the options:
 - `Current Location`
 - `Custom Location`
 ---
-unknown parameter type This paramtype is not implemented. WFLocationFieldParameter
+This paramtype is not implemented. WFLocationFieldParameter
 ---
 ### Enumeration: Route Type / routetype (internally WFGetDirectionsActionMode)
-**Placeholder**: undefined
 **Default Value**: Direct
 **Allows Variables**: true
 
@@ -35,4 +35,4 @@ containing one of the options:
 - `Driving`
 - `Walking`
 ---
-unknown parameter type This paramtype is not implemented. WFGetDistanceUnitPickerParameter
+This paramtype is not implemented. WFGetDistanceUnitPickerParameter

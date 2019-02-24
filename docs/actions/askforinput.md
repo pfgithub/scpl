@@ -3,13 +3,15 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
+
+> This action requires that Shortcuts has permission to use WFUserInteractionResource.
+
 ### usage
-`askforinput [???][???][???][???][???][???]`
+`askforinput question=[string|text] defaultanswer=[string|text] undefined=[???] inputtype=[string <${strInfo}>] granularity=[string <${strInfo}>] skiptowatchdictation=[string|variable]`
 
 ### arguments
 ### Text Input: Question / question (internally WFAskActionPrompt)
 **Placeholder**: Enter text
-**Default Value**: undefined
 **Allows Variables**: true
 
 
@@ -19,7 +21,6 @@ with the text.
 ---
 ### Text Input: Default Answer / defaultanswer (internally WFAskActionDefaultAnswer)
 **Placeholder**: optional
-**Default Value**: undefined
 **Allows Variables**: true
 
 
@@ -27,10 +28,9 @@ Accepts a string
 or text
 with the text.
 ---
-unknown parameter type This paramtype is not implemented. WFDateFieldParameter
+This paramtype is not implemented. WFDateFieldParameter
 ---
 ### Enumeration: Input Type / inputtype (internally WFInputType)
-**Placeholder**: undefined
 **Default Value**: Text
 **Allows Variables**: true
 
@@ -45,7 +45,6 @@ containing one of the options:
 - `Date`
 ---
 ### Enumeration: Granularity / granularity (internally WFAskActionDateGranularity)
-**Placeholder**: undefined
 **Default Value**: Date
 **Allows Variables**: true
 
@@ -59,8 +58,6 @@ containing one of the options:
 - `Date and Time`
 ---
 ### Switch: Skip to Watch Dictation / skiptowatchdictation (internally WFAskActionImmediateDictation)
-**Placeholder**: undefined
-**Default Value**: undefined
 **Allows Variables**: true
 
 

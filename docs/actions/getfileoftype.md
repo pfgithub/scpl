@@ -1,8 +1,9 @@
 
 ## Get File of Type / getfileoftype (internally is.workflow.actions.gettypeaction)
 
+
 ### usage
-`getfileoftype [???]`
+`getfileoftype type=[string|text]`
 
 ### arguments
 ### Text Input: Type / type (internally WFFileType)

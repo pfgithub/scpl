@@ -3,13 +3,15 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
+
+> This action requires that Shortcuts has permission to use WFSiriAccessResource.
+
 ### usage
-`createalarm [???][???][???]`
+`createalarm label=[string|text] undefined=[???] undefined=[???]`
 
 ### arguments
 ### Text Input: Label / label (internally WFLabel)
 **Placeholder**: Alarm
-**Default Value**: undefined
 **Allows Variables**: true
 
 
@@ -17,6 +19,6 @@ Accepts a string
 or text
 with the text.
 ---
-unknown parameter type This paramtype is not implemented. WFDateFieldParameter
+This paramtype is not implemented. WFDateFieldParameter
 ---
-unknown parameter type This paramtype is not implemented. WFAlarmFrequencyPickerParameter
+This paramtype is not implemented. WFAlarmFrequencyPickerParameter

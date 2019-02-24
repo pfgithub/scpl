@@ -1,12 +1,12 @@
 
 ## Delete Files / deletefiles (internally is.workflow.actions.file.delete)
 
+
 ### usage
-`deletefiles [???]`
+`deletefiles confirmbeforedeleting=[string|variable]`
 
 ### arguments
 ### Switch: Confirm Before Deleting / confirmbeforedeleting (internally WFDeleteFileConfirmDeletion)
-**Placeholder**: undefined
 **Default Value**: true
 **Allows Variables**: true
 

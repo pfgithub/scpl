@@ -1,13 +1,12 @@
 
 ## Count / count (internally is.workflow.actions.count)
 
+
 ### usage
-`count [???]`
+`count count=[string <${strInfo}>]`
 
 ### arguments
 ### Enumeration: Count / count (internally WFCountType)
-**Placeholder**: undefined
-**Default Value**: undefined
 **Allows Variables**: true
 
 

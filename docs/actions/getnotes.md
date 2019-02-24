@@ -3,13 +3,15 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
+
+> This action requires that Shortcuts has permission to use WFEvernoteAccessResource.
+
 ### usage
-`getnotes [???][???][???][???]`
+`getnotes titlesearch=[string|text] undefined=[???] undefined=[???] noname=[string integer]`
 
 ### arguments
 ### Text Input: Title Search / titlesearch (internally WFEvernoteNotesTitleSearch)
 **Placeholder**: optional
-**Default Value**: undefined
 **Allows Variables**: true
 
 
@@ -17,12 +19,11 @@ Accepts a string
 or text
 with the text.
 ---
-unknown parameter type This paramtype is not implemented. WFEvernoteTagsTagFieldParameter
+This paramtype is not implemented. WFEvernoteTagsTagFieldParameter
 ---
-unknown parameter type This paramtype is not implemented. WFEvernoteNotebookPickerParameter
+This paramtype is not implemented. WFEvernoteNotebookPickerParameter
 ---
 ### Stepper Number: No Name / noname (internally WFEvernoteNotesCount)
-**Placeholder**: undefined
 **Default Value**: 1
 **Allows Variables**: true
 

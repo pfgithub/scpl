@@ -1,12 +1,12 @@
 
 ## Flip Image / flipimage (internally is.workflow.actions.image.flip)
 
+
 ### usage
-`flipimage [???]`
+`flipimage direction=[string <${strInfo}>]`
 
 ### arguments
 ### Enumeration: Direction / direction (internally WFImageFlipDirection)
-**Placeholder**: undefined
 **Default Value**: Horizontal
 **Allows Variables**: true
 

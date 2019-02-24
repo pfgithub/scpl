@@ -3,14 +3,16 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
+
+> This action requires that Shortcuts has permission to use WFContactAccessResource,WFUserInteractionResource.
+
 ### usage
-`sendmessage [???][???][???][???][???]`
+`sendmessage undefined=[???] showwhenrun=[string|variable] undefined=[???] noname=[string|text] prefix=[string|text]`
 
 ### arguments
-unknown parameter type This paramtype is not implemented. WFIntentAppPickerParameter
+This paramtype is not implemented. WFIntentAppPickerParameter
 ---
 ### Switch: Show When Run / showwhenrun (internally ShowWhenRun)
-**Placeholder**: undefined
 **Default Value**: true
 **Allows Variables**: true
 
@@ -18,11 +20,10 @@ unknown parameter type This paramtype is not implemented. WFIntentAppPickerParam
 Accepts a string with either true or false
 or a variable.
 ---
-unknown parameter type This paramtype is not implemented. WFContactHandleFieldParameter
+This paramtype is not implemented. WFContactHandleFieldParameter
 ---
 ### Text Input: No Name / noname (internally WFSendMessageContent)
 **Placeholder**: Message
-**Default Value**: undefined
 **Allows Variables**: true
 
 
@@ -31,8 +32,6 @@ or text
 with the text.
 ---
 ### Text Input: Prefix / prefix (internally WFSendMessagePrefix)
-**Placeholder**: undefined
-**Default Value**: undefined
 **Allows Variables**: true
 
 

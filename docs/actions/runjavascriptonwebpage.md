@@ -1,8 +1,11 @@
 
 ## Run JavaScript on Web Page / runjavascriptonwebpage (internally is.workflow.actions.runjavascriptonwebpage)
 
+
+> This action requires that Shortcuts has permission to use [object Object].
+
 ### usage
-`runjavascriptonwebpage [???]`
+`runjavascriptonwebpage javascript=[string|text]`
 
 ### arguments
 ### Text Input: JavaScript / javascript (internally WFJavaScript)

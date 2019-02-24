@@ -1,13 +1,14 @@
 
 ## Select Contact / selectcontact (internally is.workflow.actions.selectcontacts)
 
+
+> This action requires that Shortcuts has permission to use WFUserInteractionResource,WFContactAccessResource.
+
 ### usage
-`selectcontact [???]`
+`selectcontact selectmultiple=[string|variable]`
 
 ### arguments
 ### Switch: Select Multiple / selectmultiple (internally WFSelectMultiple)
-**Placeholder**: undefined
-**Default Value**: undefined
 **Allows Variables**: true
 
 

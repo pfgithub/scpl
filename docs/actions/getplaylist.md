@@ -3,8 +3,11 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
+
+> This action requires that Shortcuts has permission to use WFAppleMusicAccessResource.
+
 ### usage
-`getplaylist [???]`
+`getplaylist undefined=[???]`
 
 ### arguments
-unknown parameter type This paramtype is not implemented. WFPlaylistPickerParameter
+This paramtype is not implemented. WFPlaylistPickerParameter

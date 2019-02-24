@@ -1,8 +1,9 @@
 
 ## Get Object of Class / getobjectofclass (internally is.workflow.actions.getclassaction)
 
+
 ### usage
-`getobjectofclass [???]`
+`getobjectofclass class=[string|text]`
 
 ### arguments
 ### Text Input: Class / class (internally Class)

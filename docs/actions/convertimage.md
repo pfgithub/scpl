@@ -3,16 +3,16 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
+
 ### usage
-`convertimage [???][???][???]`
+`convertimage undefined=[???] undefined=[???] preservemetadata=[string|variable]`
 
 ### arguments
-unknown parameter type This paramtype is not implemented. WFImageConvertFormatPickerParameter
+This paramtype is not implemented. WFImageConvertFormatPickerParameter
 ---
-unknown parameter type This paramtype is not implemented. WFSliderParameter
+This paramtype is not implemented. WFSliderParameter
 ---
 ### Switch: Preserve Metadata / preservemetadata (internally WFImagePreserveMetadata)
-**Placeholder**: undefined
 **Default Value**: true
 **Allows Variables**: true
 

@@ -3,8 +3,11 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
+
+> This action requires that Shortcuts has permission to use WFContactAccessResource.
+
 ### usage
-`phonenumber [???]`
+`phonenumber undefined=[???]`
 
 ### arguments
-unknown parameter type This paramtype is not implemented. WFPhoneNumberFieldParameter
+This paramtype is not implemented. WFPhoneNumberFieldParameter

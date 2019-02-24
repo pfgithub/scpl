@@ -3,14 +3,13 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
+
 ### usage
-`gettimebetweendates [???][???][???]`
+`gettimebetweendates gettimefrom=[string <${strInfo}>|variable] undefined=[???] in=[string <${strInfo}>]`
 
 ### arguments
 ### Enumeration: Get Time From / gettimefrom (internally WFTimeUntilReferenceDate)
-**Placeholder**: undefined
 **Default Value**: Right Now
-**Allows Variables**: false
 
 
 Accepts a string 
@@ -19,10 +18,9 @@ containing one of the options:
 - `Right Now`
 - `Other`
 ---
-unknown parameter type This paramtype is not implemented. WFDateFieldParameter
+This paramtype is not implemented. WFDateFieldParameter
 ---
 ### Enumeration: In / in (internally WFTimeUntilUnit)
-**Placeholder**: undefined
 **Default Value**: Minutes
 **Allows Variables**: true
 

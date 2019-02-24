@@ -3,12 +3,12 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
+
 ### usage
-`setflashlight [???][???]`
+`setflashlight flashlight=[string <${strInfo}>] undefined=[???]`
 
 ### arguments
 ### Enumeration: Flashlight / flashlight (internally WFFlashlightSetting)
-**Placeholder**: undefined
 **Default Value**: On
 **Allows Variables**: true
 
@@ -21,4 +21,4 @@ containing one of the options:
 - `On`
 - `Toggle`
 ---
-unknown parameter type This paramtype is not implemented. WFSliderParameter
+This paramtype is not implemented. WFSliderParameter

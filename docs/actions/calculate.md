@@ -1,12 +1,12 @@
 
 ## Calculate / calculate (internally is.workflow.actions.math)
 
+
 ### usage
-`calculate [???][???][???][???]`
+`calculate operation=[string <${strInfo}>] scientificoperation=[string <${strInfo}>] operand=[string number] operand=[string number]`
 
 ### arguments
 ### Enumeration: Operation / operation (internally WFMathOperation)
-**Placeholder**: undefined
 **Default Value**: +
 **Allows Variables**: true
 
@@ -22,8 +22,6 @@ containing one of the options:
 - `…`
 ---
 ### Enumeration: Scientific Operation / scientificoperation (internally WFScientificMathOperation)
-**Placeholder**: undefined
-**Default Value**: undefined
 **Allows Variables**: true
 
 
@@ -49,7 +47,6 @@ containing one of the options:
 ---
 ### Number: Operand / operand (internally WFMathOperand)
 **Placeholder**: 0
-**Default Value**: undefined
 **Allows Variables**: true
 
 
@@ -59,7 +56,6 @@ with a number.
 ---
 ### Number: Operand / operand (internally WFScientificMathOperand)
 **Placeholder**: 3
-**Default Value**: undefined
 **Allows Variables**: true
 
 

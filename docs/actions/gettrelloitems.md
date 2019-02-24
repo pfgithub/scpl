@@ -3,12 +3,14 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
+
+> This action requires that Shortcuts has permission to use WFTrelloAccessResource.
+
 ### usage
-`gettrelloitems [???][???][???]`
+`gettrelloitems get=[string <${strInfo}>] undefined=[???] undefined=[???]`
 
 ### arguments
 ### Enumeration: Get / get (internally WFTrelloItemType)
-**Placeholder**: undefined
 **Default Value**: Boards
 **Allows Variables**: true
 
@@ -21,6 +23,6 @@ containing one of the options:
 - `Lists`
 - `Cards`
 ---
-unknown parameter type This paramtype is not implemented. WFTrelloBoardPickerParameter
+This paramtype is not implemented. WFTrelloBoardPickerParameter
 ---
-unknown parameter type This paramtype is not implemented. WFTrelloListPickerParameter
+This paramtype is not implemented. WFTrelloListPickerParameter

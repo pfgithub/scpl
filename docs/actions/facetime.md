@@ -3,14 +3,16 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
+
+> This action requires that Shortcuts has permission to use WFContactAccessResource.
+
 ### usage
-`facetime [???][???]`
+`facetime undefined=[???] calltype=[string <${strInfo}>]`
 
 ### arguments
-unknown parameter type This paramtype is not implemented. WFIntentAppPickerParameter
+This paramtype is not implemented. WFIntentAppPickerParameter
 ---
 ### Enumeration: Call Type / calltype (internally WFFaceTimeType)
-**Placeholder**: undefined
 **Default Value**: Video
 **Allows Variables**: true
 

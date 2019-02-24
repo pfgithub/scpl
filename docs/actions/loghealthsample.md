@@ -3,22 +3,25 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
+
+> This action requires that Shortcuts has permission to use WFHealthKitResource,[object Object].
+
 ### usage
-`loghealthsample [???][???][???][???][???][???][???][???]`
+`loghealthsample undefined=[???] undefined=[???] undefined=[???] undefined=[???] undefined=[???] undefined=[???] undefined=[???] undefined=[???]`
 
 ### arguments
-unknown parameter type This paramtype is not implemented. WFQuantityTypePickerParameter
+This paramtype is not implemented. WFQuantityTypePickerParameter
 ---
-unknown parameter type This paramtype is not implemented. WFHealthQuantityFieldParameter
+This paramtype is not implemented. WFHealthQuantityFieldParameter
 ---
-unknown parameter type This paramtype is not implemented. WFHealthQuantityAdditionalFieldParameter
+This paramtype is not implemented. WFHealthQuantityAdditionalFieldParameter
 ---
-unknown parameter type This paramtype is not implemented. WFHealthQuantityAdditionalPickerParameter
+This paramtype is not implemented. WFHealthQuantityAdditionalPickerParameter
 ---
-unknown parameter type This paramtype is not implemented. WFHealthCategoryPickerParameter
+This paramtype is not implemented. WFHealthCategoryPickerParameter
 ---
-unknown parameter type This paramtype is not implemented. WFHealthCategoryAdditionalPickerParameter
+This paramtype is not implemented. WFHealthCategoryAdditionalPickerParameter
 ---
-unknown parameter type This paramtype is not implemented. WFHealthCategoryStartDateFieldParameter
+This paramtype is not implemented. WFHealthCategoryStartDateFieldParameter
 ---
-unknown parameter type This paramtype is not implemented. WFHealthCategoryEndDateFieldParameter
+This paramtype is not implemented. WFHealthCategoryEndDateFieldParameter

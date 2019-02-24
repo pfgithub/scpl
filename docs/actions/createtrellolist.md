@@ -3,13 +3,15 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
+
+> This action requires that Shortcuts has permission to use WFTrelloAccessResource.
+
 ### usage
-`createtrellolist [???][???][???]`
+`createtrellolist name=[string|text] undefined=[???] position=[string <${strInfo}>]`
 
 ### arguments
 ### Text Input: Name / name (internally WFTrelloName)
 **Placeholder**: Shortcut Ideas
-**Default Value**: undefined
 **Allows Variables**: true
 
 
@@ -17,10 +19,9 @@ Accepts a string
 or text
 with the text.
 ---
-unknown parameter type This paramtype is not implemented. WFTrelloBoardPickerParameter
+This paramtype is not implemented. WFTrelloBoardPickerParameter
 ---
 ### Enumeration: Position / position (internally WFTrelloPosition)
-**Placeholder**: undefined
 **Default Value**: Top
 **Allows Variables**: true
 

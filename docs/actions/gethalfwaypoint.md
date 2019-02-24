@@ -3,10 +3,11 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
+
 ### usage
-`gethalfwaypoint [???][???]`
+`gethalfwaypoint undefined=[???] undefined=[???]`
 
 ### arguments
-unknown parameter type This paramtype is not implemented. WFLocationFieldParameter
+This paramtype is not implemented. WFLocationFieldParameter
 ---
-unknown parameter type This paramtype is not implemented. WFLocationFieldParameter
+This paramtype is not implemented. WFLocationFieldParameter

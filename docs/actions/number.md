@@ -1,13 +1,13 @@
 
 ## Number / number (internally is.workflow.actions.number)
 
+
 ### usage
-`number [???]`
+`number number=[string number]`
 
 ### arguments
 ### Number: Number / number (internally WFNumberActionNumber)
 **Placeholder**: 42
-**Default Value**: undefined
 **Allows Variables**: true
 
 

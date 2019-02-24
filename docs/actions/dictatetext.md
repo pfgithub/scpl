@@ -3,14 +3,16 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
+
+> This action requires that Shortcuts has permission to use [object Object],WFUserInteractionResource,WFSpeechRecognitionAccessResource,WFMicrophoneAccessResource.
+
 ### usage
-`dictatetext [???][???]`
+`dictatetext undefined=[???] stoplistening=[string <${strInfo}>]`
 
 ### arguments
-unknown parameter type This paramtype is not implemented. WFDictateTextLanguagePickerParameter
+This paramtype is not implemented. WFDictateTextLanguagePickerParameter
 ---
 ### Enumeration: Stop Listening / stoplistening (internally WFDictateTextStopListening)
-**Placeholder**: undefined
 **Default Value**: After Pause
 **Allows Variables**: true
 

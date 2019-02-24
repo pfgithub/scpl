@@ -3,15 +3,16 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
+
+> This action requires that Shortcuts has permission to use WFURLOpenResource.
+
 ### usage
-`openapp [???][???]`
+`openapp undefined=[???] noname=[string|text]`
 
 ### arguments
-unknown parameter type This paramtype is not implemented. WFAppPickerParameter
+This paramtype is not implemented. WFAppPickerParameter
 ---
 ### Text Input: No Name / noname (internally WFAppName)
-**Placeholder**: undefined
-**Default Value**: undefined
 **Allows Variables**: true
 
 

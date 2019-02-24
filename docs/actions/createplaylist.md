@@ -1,13 +1,15 @@
 
 ## Create Playlist / createplaylist (internally is.workflow.actions.createplaylist)
 
+
+> This action requires that Shortcuts has permission to use WFAppleMusicAccessResource,[object Object].
+
 ### usage
-`createplaylist [???][???][???]`
+`createplaylist name=[string|text] author=[string|text] description=[string|text]`
 
 ### arguments
 ### Text Input: Name / name (internally WFPlaylistName)
 **Placeholder**: Greatest Hits
-**Default Value**: undefined
 **Allows Variables**: true
 
 
@@ -17,7 +19,6 @@ with the text.
 ---
 ### Text Input: Author / author (internally WFPlaylistAuthor)
 **Placeholder**: Shortcuts
-**Default Value**: undefined
 **Allows Variables**: true
 
 
@@ -27,7 +28,6 @@ with the text.
 ---
 ### Text Input: Description / description (internally WFPlaylistDescription)
 **Placeholder**: All of my favorites
-**Default Value**: undefined
 **Allows Variables**: true
 
 

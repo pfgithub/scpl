@@ -1,12 +1,12 @@
 
 ## Get Component of URL / getcomponentofurl (internally is.workflow.actions.geturlcomponent)
 
+
 ### usage
-`getcomponentofurl [???]`
+`getcomponentofurl component=[string <${strInfo}>]`
 
 ### arguments
 ### Enumeration: Component / component (internally WFURLComponent)
-**Placeholder**: undefined
 **Default Value**: Scheme
 **Allows Variables**: true
 

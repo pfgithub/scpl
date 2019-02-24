@@ -1,12 +1,14 @@
 
 ## Set Airplane Mode / setairplanemode (internally is.workflow.actions.airplanemode.set)
 
+
+> This action requires that Shortcuts has permission to use WFSiriAccessResource.
+
 ### usage
-`setairplanemode [???]`
+`setairplanemode airplanemode=[string|variable]`
 
 ### arguments
 ### Switch: Airplane Mode / airplanemode (internally OnValue)
-**Placeholder**: undefined
 **Default Value**: true
 **Allows Variables**: true
 

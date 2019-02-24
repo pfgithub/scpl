@@ -3,10 +3,13 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
+
+> This action requires that Shortcuts has permission to use WFUnavailableResource,[object Object].
+
 ### usage
-`posttoslack [???][???]`
+`posttoslack undefined=[???] undefined=[???]`
 
 ### arguments
-unknown parameter type This paramtype is not implemented. WFAccountPickerParameter
+This paramtype is not implemented. WFAccountPickerParameter
 ---
-unknown parameter type This paramtype is not implemented. WFSlackChannelPickerParameter
+This paramtype is not implemented. WFSlackChannelPickerParameter

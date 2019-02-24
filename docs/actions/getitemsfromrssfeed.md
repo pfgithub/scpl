@@ -1,12 +1,12 @@
 
 ## Get Items from RSS Feed / getitemsfromrssfeed (internally is.workflow.actions.rss)
 
+
 ### usage
-`getitemsfromrssfeed [???][???]`
+`getitemsfromrssfeed url=[string|text] noname=[string integer]`
 
 ### arguments
 ### Text Input: URL / url (internally WFRSSFeedURL)
-**Placeholder**: undefined
 **Default Value**: https://www.apple.com/newsroom/rss-feed.rss
 **Allows Variables**: true
 
@@ -16,7 +16,6 @@ or text
 with the text.
 ---
 ### Stepper Number: No Name / noname (internally WFRSSItemQuantity)
-**Placeholder**: undefined
 **Default Value**: 10
 **Allows Variables**: true
 

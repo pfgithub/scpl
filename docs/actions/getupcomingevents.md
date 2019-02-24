@@ -3,14 +3,16 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
+
+> This action requires that Shortcuts has permission to use WFCalendarAccessResource.
+
 ### usage
-`getupcomingevents [???][???][???][???]`
+`getupcomingevents undefined=[???] noname=[string integer] day=[string <${strInfo}>] undefined=[???]`
 
 ### arguments
-unknown parameter type This paramtype is not implemented. WFCalendarPickerParameter
+This paramtype is not implemented. WFCalendarPickerParameter
 ---
 ### Stepper Number: No Name / noname (internally WFGetUpcomingItemCount)
-**Placeholder**: undefined
 **Default Value**: 1
 **Allows Variables**: true
 
@@ -20,7 +22,6 @@ or variable
 containing an integer value.
 ---
 ### Enumeration: Day / day (internally WFDateSpecifier)
-**Placeholder**: undefined
 **Default Value**: Any Day
 **Allows Variables**: true
 
@@ -34,4 +35,4 @@ containing one of the options:
 - `Tomorrow`
 - `Specified Day`
 ---
-unknown parameter type This paramtype is not implemented. WFDateFieldParameter
+This paramtype is not implemented. WFDateFieldParameter

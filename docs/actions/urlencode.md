@@ -1,12 +1,12 @@
 
 ## URL Encode / urlencode (internally is.workflow.actions.urlencode)
 
+
 ### usage
-`urlencode [???]`
+`urlencode mode=[string <${strInfo}>]`
 
 ### arguments
 ### Enumeration: Mode / mode (internally WFEncodeMode)
-**Placeholder**: undefined
 **Default Value**: Encode
 **Allows Variables**: true
 

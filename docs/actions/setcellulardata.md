@@ -1,12 +1,14 @@
 
 ## Set Cellular Data / setcellulardata (internally is.workflow.actions.cellulardata.set)
 
+
+> This action requires that Shortcuts has permission to use WFSiriAccessResource.
+
 ### usage
-`setcellulardata [???]`
+`setcellulardata cellulardata=[string|variable]`
 
 ### arguments
 ### Switch: Cellular Data / cellulardata (internally OnValue)
-**Placeholder**: undefined
 **Default Value**: true
 **Allows Variables**: true
 

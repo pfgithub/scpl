@@ -25,11 +25,11 @@ types.WFParameter = class {
 		this.typeName = typeName;
 	}
 	genDocs() {
-		return `### ${this.typeName}: ${this.name} / ${this.shortName} (internally ${this.internalName})
-**Placeholder**: ${this._data.Placeholder}
-**Default Value**: ${this._data.DefaultValue}
-**Allows Variables**: ${this.allowsVariables}
-`;
+		let docs = `### ${this.typeName}: ${this.name} / ${this.shortName} (internally ${this.internalName})\n`;
+		if(this._data.Placeholder) {docs += `**Placeholder**: ${this._data.Placeholder}\n`;}
+		if(this._data.DefaultValue) {docs += `**Default Value**: ${this._data.DefaultValue}\n`;}
+		if(this.allowsVariables) {docs += `**Allows Variables**: ${this.allowsVariables}\n`;}
+		return docs;
 	}
 };
 
@@ -288,11 +288,14 @@ class WFAction {
 ${this.isComplete ? "" : `
 > This action is not yet complete. Some arguments may be missing.
 `}
+${this._data.RequiredResources ? `
+> This action requires that Shortcuts has permission to use ${this._data.RequiredResources}.
+` : ""}
 ### usage
-\`${this.shortName} ${this._parameters.map(param => `${param.shortName}=${typeof param === "string"}` ? "[???]" : param.genDocsArgName()).join``}\`
+\`${this.shortName} ${this._parameters.map(param => `${param.shortName}=${typeof param === "string" ? `[???]` : param.genDocsArgName()}`).join` `}\`
 
 ### arguments
-${this._parameters.map(param => (typeof param === "string") ? `unknown parameter type ${param}` : param.genDocs()).join`
+${this._parameters.map(param => (typeof param === "string") ? `${param}` : param.genDocs()).join`
 ---
 `}
 `;

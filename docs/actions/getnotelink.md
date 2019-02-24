@@ -1,13 +1,14 @@
 
 ## Get Note Link / getnotelink (internally is.workflow.actions.evernote.getlink)
 
+
+> This action requires that Shortcuts has permission to use WFEvernoteAccessResource.
+
 ### usage
-`getnotelink [???]`
+`getnotelink inapplink=[string|variable]`
 
 ### arguments
 ### Switch: In-App Link / inapplink (internally WFEvernoteShareInAppLink)
-**Placeholder**: undefined
-**Default Value**: false
 **Allows Variables**: true
 
 

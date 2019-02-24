@@ -3,14 +3,15 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
+
+> This action requires that Shortcuts has permission to use WFMainThreadResource,WFLocationAccessResource.
+
 ### usage
-`gettraveltime [???][???][???]`
+`gettraveltime from=[string <${strInfo}>|variable] undefined=[???] transportationmode=[string <${strInfo}>]`
 
 ### arguments
 ### Enumeration: From / from (internally WFGetDirectionsFrom)
-**Placeholder**: undefined
 **Default Value**: Current Location
-**Allows Variables**: false
 
 
 Accepts a string 
@@ -19,10 +20,9 @@ containing one of the options:
 - `Current Location`
 - `Custom Location`
 ---
-unknown parameter type This paramtype is not implemented. WFLocationFieldParameter
+This paramtype is not implemented. WFLocationFieldParameter
 ---
 ### Enumeration: Transportation Mode / transportationmode (internally WFGetDirectionsActionMode)
-**Placeholder**: undefined
 **Default Value**: Driving
 **Allows Variables**: true
 

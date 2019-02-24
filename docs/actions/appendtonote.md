@@ -3,13 +3,15 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
+
+> This action requires that Shortcuts has permission to use WFEvernoteAccessResource.
+
 ### usage
-`appendtonote [???][???][???]`
+`appendtonote notetitle=[string|text] mode=[string <${strInfo}>] undefined=[???]`
 
 ### arguments
 ### Text Input: Note Title / notetitle (internally WFEvernoteNotesTitleSearch)
 **Placeholder**: example note
-**Default Value**: undefined
 **Allows Variables**: true
 
 
@@ -18,7 +20,6 @@ or text
 with the text.
 ---
 ### Enumeration: Mode / mode (internally WFEvernoteWriteMode)
-**Placeholder**: undefined
 **Default Value**: Append
 **Allows Variables**: true
 
@@ -30,4 +31,4 @@ containing one of the options:
 - `Append`
 - `Prepend`
 ---
-unknown parameter type This paramtype is not implemented. WFEvernoteNotebookPickerParameter
+This paramtype is not implemented. WFEvernoteNotebookPickerParameter

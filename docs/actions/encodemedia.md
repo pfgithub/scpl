@@ -3,13 +3,12 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
+
 ### usage
-`encodemedia [???][???][???][???][???][???][???][???][???][???][???][???]`
+`encodemedia audioonly=[string|variable] format=[string <${strInfo}>] size=[string <${strInfo}>] speed=[string <${strInfo}>] customspeed=[string number] undefined=[???] title=[string|text] artist=[string|text] album=[string|text] genre=[string|text] year=[string|text] artwork=[variable]`
 
 ### arguments
 ### Switch: Audio Only / audioonly (internally WFMediaAudioOnly)
-**Placeholder**: undefined
-**Default Value**: false
 **Allows Variables**: true
 
 
@@ -17,7 +16,6 @@ Accepts a string with either true or false
 or a variable.
 ---
 ### Enumeration: Format / format (internally WFMediaAudioFormat)
-**Placeholder**: undefined
 **Default Value**: M4A
 **Allows Variables**: true
 
@@ -30,7 +28,6 @@ containing one of the options:
 - `AIFF`
 ---
 ### Enumeration: Size / size (internally WFMediaSize)
-**Placeholder**: undefined
 **Default Value**: Passthrough
 **Allows Variables**: true
 
@@ -48,7 +45,6 @@ containing one of the options:
 - `Passthrough`
 ---
 ### Enumeration: Speed / speed (internally WFMediaSpeed)
-**Placeholder**: undefined
 **Default Value**: Normal
 **Allows Variables**: true
 
@@ -64,7 +60,6 @@ containing one of the options:
 ---
 ### Number: Custom Speed / customspeed (internally WFMediaCustomSpeed)
 **Placeholder**: 1.0
-**Default Value**: undefined
 **Allows Variables**: true
 
 
@@ -72,11 +67,10 @@ Accepts a string
 or variable
 with a number.
 ---
-unknown parameter type This paramtype is not implemented. WFExpandingParameter
+This paramtype is not implemented. WFExpandingParameter
 ---
 ### Text Input: Title / title (internally WFMetadataTitle)
 **Placeholder**: My Great Track
-**Default Value**: undefined
 **Allows Variables**: true
 
 
@@ -86,7 +80,6 @@ with the text.
 ---
 ### Text Input: Artist / artist (internally WFMetadataArtist)
 **Placeholder**: Nicholas Fryingpan
-**Default Value**: undefined
 **Allows Variables**: true
 
 
@@ -96,7 +89,6 @@ with the text.
 ---
 ### Text Input: Album / album (internally WFMetadataAlbum)
 **Placeholder**: Abbey Road
-**Default Value**: undefined
 **Allows Variables**: true
 
 
@@ -106,7 +98,6 @@ with the text.
 ---
 ### Text Input: Genre / genre (internally WFMetadataGenre)
 **Placeholder**: Indie
-**Default Value**: undefined
 **Allows Variables**: true
 
 
@@ -116,7 +107,6 @@ with the text.
 ---
 ### Text Input: Year / year (internally WFMetadataYear)
 **Placeholder**: 2001
-**Default Value**: undefined
 **Allows Variables**: true
 
 
@@ -125,8 +115,6 @@ or text
 with the text.
 ---
 ### Variable Picker: Artwork / artwork (internally WFMetadataArtwork)
-**Placeholder**: undefined
-**Default Value**: undefined
 **Allows Variables**: true
 
 

@@ -3,8 +3,11 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
+
+> This action requires that Shortcuts has permission to use WFSiriAccessResource.
+
 ### usage
-`setbrightness [???]`
+`setbrightness undefined=[???]`
 
 ### arguments
-unknown parameter type This paramtype is not implemented. WFSliderParameter
+This paramtype is not implemented. WFSliderParameter

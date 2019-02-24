@@ -1,12 +1,14 @@
 
 ## Upload to Imgur / uploadtoimgur (internally is.workflow.actions.imgur.upload)
 
+
+> This action requires that Shortcuts has permission to use [object Object].
+
 ### usage
-`uploadtoimgur [???][???][???][???][???][???][???]`
+`uploadtoimgur uploadanonymously=[string|variable] directlink=[string|variable] createalbum=[string|variable] albumlayout=[string <${strInfo}>] albumprivacy=[string <${strInfo}>] title=[string|text] description=[string|text]`
 
 ### arguments
 ### Switch: Upload Anonymously / uploadanonymously (internally WFImgurAnonymous)
-**Placeholder**: undefined
 **Default Value**: true
 **Allows Variables**: true
 
@@ -15,8 +17,6 @@ Accepts a string with either true or false
 or a variable.
 ---
 ### Switch: Direct Link / directlink (internally WFImgurDirectLink)
-**Placeholder**: undefined
-**Default Value**: undefined
 **Allows Variables**: true
 
 
@@ -24,8 +24,6 @@ Accepts a string with either true or false
 or a variable.
 ---
 ### Switch: Create Album / createalbum (internally WFImgurAlbum)
-**Placeholder**: undefined
-**Default Value**: false
 **Allows Variables**: true
 
 
@@ -33,7 +31,6 @@ Accepts a string with either true or false
 or a variable.
 ---
 ### Enumeration: Album Layout / albumlayout (internally WFImgurAlbumLayout)
-**Placeholder**: undefined
 **Default Value**: Blog
 **Allows Variables**: true
 
@@ -48,7 +45,6 @@ containing one of the options:
 - `Vertical`
 ---
 ### Enumeration: Album Privacy / albumprivacy (internally WFImgurAlbumPrivacy)
-**Placeholder**: undefined
 **Default Value**: Hidden
 **Allows Variables**: true
 
@@ -63,7 +59,6 @@ containing one of the options:
 ---
 ### Text Input: Title / title (internally WFImgurTitle)
 **Placeholder**: optional
-**Default Value**: undefined
 **Allows Variables**: true
 
 
@@ -73,7 +68,6 @@ with the text.
 ---
 ### Text Input: Description / description (internally WFImgurDescription)
 **Placeholder**: Description
-**Default Value**: undefined
 **Allows Variables**: true
 
 

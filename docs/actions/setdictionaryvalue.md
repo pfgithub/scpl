@@ -1,13 +1,13 @@
 
 ## Set Dictionary Value / setdictionaryvalue (internally is.workflow.actions.setvalueforkey)
 
+
 ### usage
-`setdictionaryvalue [???][???]`
+`setdictionaryvalue key=[string|text] value=[string|text]`
 
 ### arguments
 ### Text Input: Key / key (internally WFDictionaryKey)
 **Placeholder**: name
-**Default Value**: undefined
 **Allows Variables**: true
 
 
@@ -17,7 +17,6 @@ with the text.
 ---
 ### Text Input: Value / value (internally WFDictionaryValue)
 **Placeholder**: example
-**Default Value**: undefined
 **Allows Variables**: true
 
 

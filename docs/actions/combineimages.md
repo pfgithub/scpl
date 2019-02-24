@@ -1,12 +1,12 @@
 
 ## Combine Images / combineimages (internally is.workflow.actions.image.combine)
 
+
 ### usage
-`combineimages [???][???][???]`
+`combineimages mode=[string <${strInfo}>] direction=[string <${strInfo}>] spacing=[string number]`
 
 ### arguments
 ### Enumeration: Mode / mode (internally WFImageCombineMode)
-**Placeholder**: undefined
 **Default Value**: Side-by-Side
 **Allows Variables**: true
 
@@ -19,7 +19,6 @@ containing one of the options:
 - `Grid`
 ---
 ### Enumeration: Direction / direction (internally WFImageCombineDirection)
-**Placeholder**: undefined
 **Default Value**: Horizontal
 **Allows Variables**: true
 
@@ -33,7 +32,6 @@ containing one of the options:
 ---
 ### Number: Spacing / spacing (internally WFImageCombineSpacing)
 **Placeholder**: 0
-**Default Value**: 0
 **Allows Variables**: true
 
 

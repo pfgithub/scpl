@@ -1,13 +1,15 @@
 
 ## Show Notification / shownotification (internally is.workflow.actions.notification)
 
+
+> This action requires that Shortcuts has permission to use WFUserInteractionResource,WFMainThreadResource,WFLocalNotificationAccessResource.
+
 ### usage
-`shownotification [???][???][???]`
+`shownotification title=[string|text] body=[string|text] playsound=[string|variable]`
 
 ### arguments
 ### Text Input: Title / title (internally WFNotificationActionTitle)
 **Placeholder**: optional
-**Default Value**: undefined
 **Allows Variables**: true
 
 
@@ -26,7 +28,6 @@ or text
 with the text.
 ---
 ### Switch: Play Sound / playsound (internally WFNotificationActionSound)
-**Placeholder**: undefined
 **Default Value**: true
 **Allows Variables**: true
 

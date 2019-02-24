@@ -1,12 +1,12 @@
 
 ## List / list (internally is.workflow.actions.list)
 
+
 ### usage
-`list [???]`
+`list items=[list]`
 
 ### arguments
 ### List: Items / items (internally WFItems)
-**Placeholder**: undefined
 **Default Value**: One,Two
 **Allows Variables**: true
 

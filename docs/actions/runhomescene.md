@@ -3,10 +3,13 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
+
+> This action requires that Shortcuts has permission to use WFHomeKitAccessResource.
+
 ### usage
-`runhomescene [???][???]`
+`runhomescene undefined=[???] undefined=[???]`
 
 ### arguments
-unknown parameter type This paramtype is not implemented. WFHomePickerParameter
+This paramtype is not implemented. WFHomePickerParameter
 ---
-unknown parameter type This paramtype is not implemented. WFHomeScenePickerParameter
+This paramtype is not implemented. WFHomeScenePickerParameter

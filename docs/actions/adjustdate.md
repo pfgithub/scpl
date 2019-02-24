@@ -3,8 +3,11 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
+
+> This action requires that Shortcuts has permission to use [object Object].
+
 ### usage
-`adjustdate [???]`
+`adjustdate undefined=[???]`
 
 ### arguments
-unknown parameter type This paramtype is not implemented. WFTimeOffsetParameter
+This paramtype is not implemented. WFTimeOffsetParameter

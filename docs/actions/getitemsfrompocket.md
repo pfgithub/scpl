@@ -1,13 +1,14 @@
 
 ## Get Items from Pocket / getitemsfrompocket (internally is.workflow.actions.pocket.get)
 
+
+> This action requires that Shortcuts has permission to use WFPocketAccessResource.
+
 ### usage
-`getitemsfrompocket [???][???][???][???]`
+`getitemsfrompocket noname=[string integer] type=[string <${strInfo}>] search=[string|text] tag=[string|text]`
 
 ### arguments
 ### Stepper Number: No Name / noname (internally WFPocketItemCount)
-**Placeholder**: undefined
-**Default Value**: undefined
 **Allows Variables**: true
 
 
@@ -16,7 +17,6 @@ or variable
 containing an integer value.
 ---
 ### Enumeration: Type / type (internally WFPocketItemState)
-**Placeholder**: undefined
 **Default Value**: All
 **Allows Variables**: true
 
@@ -31,7 +31,6 @@ containing one of the options:
 ---
 ### Text Input: Search / search (internally WFPocketItemSearchTerm)
 **Placeholder**: optional
-**Default Value**: undefined
 **Allows Variables**: true
 
 
@@ -41,7 +40,6 @@ with the text.
 ---
 ### Text Input: Tag / tag (internally WFPocketItemSearchTags)
 **Placeholder**: optional
-**Default Value**: undefined
 **Allows Variables**: true
 
 

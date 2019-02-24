@@ -3,14 +3,16 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
+
+> This action requires that Shortcuts has permission to use WFInstapaperAccessResource.
+
 ### usage
-`getinstapaperbookmarks [???][???]`
+`getinstapaperbookmarks undefined=[???] noname=[string integer]`
 
 ### arguments
-unknown parameter type This paramtype is not implemented. WFDynamicEnumerationParameter
+This paramtype is not implemented. WFDynamicEnumerationParameter
 ---
 ### Stepper Number: No Name / noname (internally WFBookmarkCount)
-**Placeholder**: undefined
 **Default Value**: 5
 **Allows Variables**: true
 

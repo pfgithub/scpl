@@ -5,7 +5,7 @@ Comment
 
 Text "hello there, how are you doing?"
 Number 5
-Calculate "+" "x^2" 2
+Calculate "+" "x^2" 2 // The second argument should not be required here. I know how to fix that but haven't implemented the fix yet
 
 Number 5.2
 

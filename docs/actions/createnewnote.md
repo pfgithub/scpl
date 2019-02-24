@@ -3,13 +3,15 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
+
+> This action requires that Shortcuts has permission to use WFEvernoteAccessResource.
+
 ### usage
-`createnewnote [???][???][???]`
+`createnewnote notetitle=[string|text] undefined=[???] undefined=[???]`
 
 ### arguments
 ### Text Input: Note Title / notetitle (internally WFEvernoteNoteTitle)
 **Placeholder**: optional
-**Default Value**: undefined
 **Allows Variables**: true
 
 
@@ -17,6 +19,6 @@ Accepts a string
 or text
 with the text.
 ---
-unknown parameter type This paramtype is not implemented. WFEvernoteNotebookPickerParameter
+This paramtype is not implemented. WFEvernoteNotebookPickerParameter
 ---
-unknown parameter type This paramtype is not implemented. WFEvernoteTagsTagFieldParameter
+This paramtype is not implemented. WFEvernoteTagsTagFieldParameter

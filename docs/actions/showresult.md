@@ -1,13 +1,15 @@
 
 ## Show Result / showresult (internally is.workflow.actions.showresult)
 
+
+> This action requires that Shortcuts has permission to use WFMainThreadResource.
+
 ### usage
-`showresult [???]`
+`showresult noname=[string|text]`
 
 ### arguments
 ### Text Input: No Name / noname (internally Text)
 **Placeholder**: Enter text...
-**Default Value**: 
 **Allows Variables**: true
 
 

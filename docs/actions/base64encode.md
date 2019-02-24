@@ -1,12 +1,12 @@
 
 ## Base64 Encode / base64encode (internally is.workflow.actions.base64encode)
 
+
 ### usage
-`base64encode [???][???]`
+`base64encode mode=[string <${strInfo}>] linebreaks=[string <${strInfo}>]`
 
 ### arguments
 ### Enumeration: Mode / mode (internally WFEncodeMode)
-**Placeholder**: undefined
 **Default Value**: Encode
 **Allows Variables**: true
 
@@ -19,7 +19,6 @@ containing one of the options:
 - `Decode`
 ---
 ### Enumeration: Line Breaks / linebreaks (internally WFBase64LineBreakMode)
-**Placeholder**: undefined
 **Default Value**: Every 76 Characters
 **Allows Variables**: true
 

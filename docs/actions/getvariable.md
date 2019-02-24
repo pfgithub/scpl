@@ -1,13 +1,12 @@
 
 ## Get Variable / getvariable (internally is.workflow.actions.getvariable)
 
+
 ### usage
-`getvariable [???]`
+`getvariable variable=[variable]`
 
 ### arguments
 ### Variable Picker: Variable / variable (internally WFVariable)
-**Placeholder**: undefined
-**Default Value**: undefined
 **Allows Variables**: true
 
 

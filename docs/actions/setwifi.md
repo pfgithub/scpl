@@ -1,12 +1,14 @@
 
 ## Set Wi-Fi / setwifi (internally is.workflow.actions.wifi.set)
 
+
+> This action requires that Shortcuts has permission to use WFSiriAccessResource.
+
 ### usage
-`setwifi [???]`
+`setwifi wifi=[string|variable]`
 
 ### arguments
 ### Switch: Wi-Fi / wifi (internally OnValue)
-**Placeholder**: undefined
 **Default Value**: true
 **Allows Variables**: true
 

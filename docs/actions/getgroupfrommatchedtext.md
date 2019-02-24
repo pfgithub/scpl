@@ -1,12 +1,12 @@
 
 ## Get Group from Matched Text / getgroupfrommatchedtext (internally is.workflow.actions.text.match.getgroup)
 
+
 ### usage
-`getgroupfrommatchedtext [???][???]`
+`getgroupfrommatchedtext get=[string <${strInfo}>] groupindex=[string number]`
 
 ### arguments
 ### Enumeration: Get / get (internally WFGetGroupType)
-**Placeholder**: undefined
 **Default Value**: Group At Index
 **Allows Variables**: true
 

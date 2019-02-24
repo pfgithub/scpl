@@ -3,12 +3,12 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
+
 ### usage
-`date [???][???]`
+`date use=[string <${strInfo}>] undefined=[???]`
 
 ### arguments
 ### Enumeration: Use / use (internally WFDateActionMode)
-**Placeholder**: undefined
 **Default Value**: Current Date
 **Allows Variables**: true
 
@@ -20,4 +20,4 @@ containing one of the options:
 - `Current Date`
 - `Specified Date`
 ---
-unknown parameter type This paramtype is not implemented. WFDateFieldParameter
+This paramtype is not implemented. WFDateFieldParameter

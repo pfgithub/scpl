@@ -3,17 +3,18 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
+
+> This action requires that Shortcuts has permission to use WFMainThreadResource.
+
 ### usage
-`copytoclipboard [???][???]`
+`copytoclipboard localonly=[string|variable] undefined=[???]`
 
 ### arguments
 ### Switch: Local Only / localonly (internally WFLocalOnly)
-**Placeholder**: undefined
-**Default Value**: false
 **Allows Variables**: true
 
 
 Accepts a string with either true or false
 or a variable.
 ---
-unknown parameter type This paramtype is not implemented. WFDateFieldParameter
+This paramtype is not implemented. WFDateFieldParameter

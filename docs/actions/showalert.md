@@ -1,8 +1,11 @@
 
 ## Show Alert / showalert (internally is.workflow.actions.alert)
 
+
+> This action requires that Shortcuts has permission to use WFUserInteractionResource.
+
 ### usage
-`showalert [???][???][???]`
+`showalert title=[string|text] message=[string|text] showcancelbutton=[string|variable]`
 
 ### arguments
 ### Text Input: Title / title (internally WFAlertActionTitle)
@@ -26,7 +29,6 @@ or text
 with the text.
 ---
 ### Switch: Show Cancel Button / showcancelbutton (internally WFAlertActionCancelButtonShown)
-**Placeholder**: undefined
 **Default Value**: true
 **Allows Variables**: true
 

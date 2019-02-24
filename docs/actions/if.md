@@ -1,14 +1,13 @@
 
 ## If / if (internally is.workflow.actions.conditional)
 
+
 ### usage
-`if [???][???][???]`
+`if input=[string <${strInfo}>|variable] number=[string number] value=[string|text]`
 
 ### arguments
 ### Enumeration: Input / input (internally WFCondition)
-**Placeholder**: undefined
 **Default Value**: Contains
-**Allows Variables**: false
 
 
 Accepts a string 
@@ -21,7 +20,6 @@ containing one of the options:
 ---
 ### Number: Number / number (internally WFNumberValue)
 **Placeholder**: 7
-**Default Value**: undefined
 **Allows Variables**: true
 
 
@@ -31,7 +29,6 @@ with a number.
 ---
 ### Text Input: Value / value (internally WFConditionalActionString)
 **Placeholder**: example
-**Default Value**: 
 **Allows Variables**: true
 
 

@@ -1,12 +1,14 @@
 
 ## Get Latest Bursts / getlatestbursts (internally is.workflow.actions.getlatestbursts)
 
+
+> This action requires that Shortcuts has permission to use WFPhotoAccessResource.
+
 ### usage
-`getlatestbursts [???]`
+`getlatestbursts noname=[string integer]`
 
 ### arguments
 ### Stepper Number: No Name / noname (internally WFGetLatestPhotoCount)
-**Placeholder**: undefined
 **Default Value**: 1
 **Allows Variables**: true
 

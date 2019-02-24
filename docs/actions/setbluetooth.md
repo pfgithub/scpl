@@ -1,12 +1,14 @@
 
 ## Set Bluetooth / setbluetooth (internally is.workflow.actions.bluetooth.set)
 
+
+> This action requires that Shortcuts has permission to use WFSiriAccessResource.
+
 ### usage
-`setbluetooth [???]`
+`setbluetooth bluetooth=[string|variable]`
 
 ### arguments
 ### Switch: Bluetooth / bluetooth (internally OnValue)
-**Placeholder**: undefined
 **Default Value**: true
 **Allows Variables**: true
 

@@ -1,12 +1,12 @@
 
 ## Crop Image / cropimage (internally is.workflow.actions.image.crop)
 
+
 ### usage
-`cropimage [???][???][???][???][???]`
+`cropimage position=[string <${strInfo}>] xcoordinate=[string number] ycoordinate=[string number] width=[string number] height=[string number]`
 
 ### arguments
 ### Enumeration: Position / position (internally WFImageCropPosition)
-**Placeholder**: undefined
 **Default Value**: Center
 **Allows Variables**: true
 
@@ -24,7 +24,6 @@ containing one of the options:
 ---
 ### Number: X Coordinate / xcoordinate (internally WFImageCropX)
 **Placeholder**: 0
-**Default Value**: undefined
 **Allows Variables**: true
 
 
@@ -34,7 +33,6 @@ with a number.
 ---
 ### Number: Y Coordinate / ycoordinate (internally WFImageCropY)
 **Placeholder**: 0
-**Default Value**: undefined
 **Allows Variables**: true
 
 

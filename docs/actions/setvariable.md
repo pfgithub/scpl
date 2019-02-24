@@ -1,13 +1,13 @@
 
 ## Set Variable / setvariable (internally is.workflow.actions.setvariable)
 
+
 ### usage
-`setvariable [???]`
+`setvariable variable=[string|variable v:variableName]`
 
 ### arguments
 ### Variable Field: Variable / variable (internally WFVariableName)
 **Placeholder**: Variable Name
-**Default Value**: undefined
 **Allows Variables**: true
 
 

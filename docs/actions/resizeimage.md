@@ -1,8 +1,9 @@
 
 ## Resize Image / resizeimage (internally is.workflow.actions.image.resize)
 
+
 ### usage
-`resizeimage [???][???]`
+`resizeimage width=[string number] height=[string number]`
 
 ### arguments
 ### Number: Width / width (internally WFImageResizeWidth)
@@ -17,7 +18,6 @@ with a number.
 ---
 ### Number: Height / height (internally WFImageResizeHeight)
 **Placeholder**: Auto
-**Default Value**: undefined
 **Allows Variables**: true
 
 

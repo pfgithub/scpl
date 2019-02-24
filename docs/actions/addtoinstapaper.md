@@ -3,8 +3,11 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
+
+> This action requires that Shortcuts has permission to use WFInstapaperAccessResource,WFMainThreadResource.
+
 ### usage
-`addtoinstapaper [???]`
+`addtoinstapaper undefined=[???]`
 
 ### arguments
-unknown parameter type This paramtype is not implemented. WFDynamicEnumerationParameter
+This paramtype is not implemented. WFDynamicEnumerationParameter

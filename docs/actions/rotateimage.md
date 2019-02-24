@@ -1,8 +1,9 @@
 
 ## Rotate Image / rotateimage (internally is.workflow.actions.image.rotate)
 
+
 ### usage
-`rotateimage [???]`
+`rotateimage degrees=[string number]`
 
 ### arguments
 ### Number: Degrees / degrees (internally WFImageRotateAmount)

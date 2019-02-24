@@ -3,15 +3,16 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
+
+> This action requires that Shortcuts has permission to use WFSiriAccessResource.
+
 ### usage
-`togglealarm [???][???]`
+`togglealarm undefined=[???] enabled=[string|variable]`
 
 ### arguments
-unknown parameter type This paramtype is not implemented. WFAlarmPickerParameter
+This paramtype is not implemented. WFAlarmPickerParameter
 ---
 ### Switch: Enabled / enabled (internally WFEnabled)
-**Placeholder**: undefined
-**Default Value**: false
 **Allows Variables**: true
 
 

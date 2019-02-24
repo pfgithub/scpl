@@ -3,12 +3,14 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
+
+> This action requires that Shortcuts has permission to use WFUserInteractionResource,WFMicrophoneAccessResource.
+
 ### usage
-`recordaudio [???][???][???][???]`
+`recordaudio audioquality=[string <${strInfo}>] startrecording=[string <${strInfo}>] finishrecording=[string <${strInfo}>] undefined=[???]`
 
 ### arguments
 ### Enumeration: Audio Quality / audioquality (internally WFRecordingCompression)
-**Placeholder**: undefined
 **Default Value**: Normal
 **Allows Variables**: true
 
@@ -21,7 +23,6 @@ containing one of the options:
 - `Very High`
 ---
 ### Enumeration: Start Recording / startrecording (internally WFRecordingStart)
-**Placeholder**: undefined
 **Default Value**: On Tap
 **Allows Variables**: true
 
@@ -34,7 +35,6 @@ containing one of the options:
 - `Immediately`
 ---
 ### Enumeration: Finish Recording / finishrecording (internally WFRecordingEnd)
-**Placeholder**: undefined
 **Default Value**: On Tap
 **Allows Variables**: true
 
@@ -46,4 +46,4 @@ containing one of the options:
 - `On Tap`
 - `After Time`
 ---
-unknown parameter type This paramtype is not implemented. WFTimeIntervalParameter
+This paramtype is not implemented. WFTimeIntervalParameter

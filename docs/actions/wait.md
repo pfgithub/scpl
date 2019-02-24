@@ -1,12 +1,14 @@
 
 ## Wait / wait (internally is.workflow.actions.delay)
 
+
+> This action requires that Shortcuts has permission to use WFMainThreadResource.
+
 ### usage
-`wait [???]`
+`wait noname=[string integer]`
 
 ### arguments
 ### Stepper Number: No Name / noname (internally WFDelayTime)
-**Placeholder**: 0
 **Default Value**: 1
 **Allows Variables**: true
 

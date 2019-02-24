@@ -3,8 +3,9 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
+
 ### usage
-`showinmaps [???]`
+`showinmaps undefined=[???]`
 
 ### arguments
-unknown parameter type This paramtype is not implemented. WFMapsAppPickerParameter
+This paramtype is not implemented. WFMapsAppPickerParameter

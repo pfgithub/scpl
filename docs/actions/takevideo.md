@@ -1,12 +1,14 @@
 
 ## Take Video / takevideo (internally is.workflow.actions.takevideo)
 
+
+> This action requires that Shortcuts has permission to use WFUserInteractionResource,WFCameraAccessResource.
+
 ### usage
-`takevideo [???][???][???]`
+`takevideo camera=[string <${strInfo}>] quality=[string <${strInfo}>] startrecording=[string <${strInfo}>]`
 
 ### arguments
 ### Enumeration: Camera / camera (internally WFCameraCaptureDevice)
-**Placeholder**: undefined
 **Default Value**: Back
 **Allows Variables**: true
 
@@ -19,7 +21,6 @@ containing one of the options:
 - `Back`
 ---
 ### Enumeration: Quality / quality (internally WFCameraCaptureQuality)
-**Placeholder**: undefined
 **Default Value**: Medium
 **Allows Variables**: true
 
@@ -33,7 +34,6 @@ containing one of the options:
 - `High`
 ---
 ### Enumeration: Start Recording / startrecording (internally WFRecordingStart)
-**Placeholder**: undefined
 **Default Value**: Immediately
 **Allows Variables**: true
 

@@ -1,12 +1,12 @@
 
 ## Format Number / formatnumber (internally is.workflow.actions.format.number)
 
+
 ### usage
-`formatnumber [???]`
+`formatnumber noname=[string integer]`
 
 ### arguments
 ### Stepper Number: No Name / noname (internally WFNumberFormatDecimalPlaces)
-**Placeholder**: undefined
 **Default Value**: 2
 **Allows Variables**: true
 

@@ -1,13 +1,15 @@
 
 ## Get Pinboard Bookmarks / getpinboardbookmarks (internally is.workflow.actions.pinboard.get)
 
+
+> This action requires that Shortcuts has permission to use WFPinboardAccessResource.
+
 ### usage
-`getpinboardbookmarks [???][???]`
+`getpinboardbookmarks tags=[string|text] noname=[string integer]`
 
 ### arguments
 ### Text Input: Tags / tags (internally WFPinTags)
 **Placeholder**: apple longread
-**Default Value**: undefined
 **Allows Variables**: true
 
 
@@ -16,7 +18,6 @@ or text
 with the text.
 ---
 ### Stepper Number: No Name / noname (internally WFBookmarkCount)
-**Placeholder**: undefined
 **Default Value**: 5
 **Allows Variables**: true
 

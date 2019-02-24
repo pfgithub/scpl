@@ -3,15 +3,15 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
+
 ### usage
-`appendtofile [???][???][???][???]`
+`appendtofile undefined=[???] filepath=[string|text] mode=[string <${strInfo}>] makenewline=[string|variable]`
 
 ### arguments
-unknown parameter type This paramtype is not implemented. WFStorageServicePickerParameter
+This paramtype is not implemented. WFStorageServicePickerParameter
 ---
 ### Text Input: File Path / filepath (internally WFFilePath)
 **Placeholder**: example.txt
-**Default Value**: undefined
 **Allows Variables**: true
 
 
@@ -20,7 +20,6 @@ or text
 with the text.
 ---
 ### Enumeration: Mode / mode (internally WFAppendFileWriteMode)
-**Placeholder**: undefined
 **Default Value**: Append
 **Allows Variables**: true
 
@@ -33,7 +32,6 @@ containing one of the options:
 - `Prepend`
 ---
 ### Switch: Make New Line / makenewline (internally WFAppendOnNewLine)
-**Placeholder**: undefined
 **Default Value**: true
 **Allows Variables**: true
 

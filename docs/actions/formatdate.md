@@ -3,12 +3,12 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
+
 ### usage
-`formatdate [???][???][???][???][???]`
+`formatdate dateformat=[string <${strInfo}>] alternateformat=[string <${strInfo}>] timeformat=[string <${strInfo}>] includeiso8601time=[string|variable] undefined=[???]`
 
 ### arguments
 ### Enumeration: Date Format / dateformat (internally WFDateFormatStyle)
-**Placeholder**: undefined
 **Default Value**: Short
 **Allows Variables**: true
 
@@ -27,7 +27,6 @@ containing one of the options:
 - `Custom`
 ---
 ### Enumeration: Alternate Format / alternateformat (internally WFRelativeDateFormatStyle)
-**Placeholder**: undefined
 **Default Value**: Medium
 **Allows Variables**: true
 
@@ -41,7 +40,6 @@ containing one of the options:
 - `Long`
 ---
 ### Enumeration: Time Format / timeformat (internally WFTimeFormatStyle)
-**Placeholder**: undefined
 **Default Value**: Short
 **Allows Variables**: true
 
@@ -57,12 +55,10 @@ containing one of the options:
 - `Relative`
 ---
 ### Switch: Include ISO 8601 Time / includeiso8601time (internally WFISO8601IncludeTime)
-**Placeholder**: undefined
-**Default Value**: undefined
 **Allows Variables**: true
 
 
 Accepts a string with either true or false
 or a variable.
 ---
-unknown parameter type This paramtype is not implemented. WFCustomDateFormatParameter
+This paramtype is not implemented. WFCustomDateFormatParameter

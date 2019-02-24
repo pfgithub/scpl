@@ -3,15 +3,14 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
+
 ### usage
-`createfolder [???][???]`
+`createfolder undefined=[???] path=[string|text]`
 
 ### arguments
-unknown parameter type This paramtype is not implemented. WFStorageServicePickerParameter
+This paramtype is not implemented. WFStorageServicePickerParameter
 ---
 ### Text Input: Path / path (internally WFFilePath)
-**Placeholder**: undefined
-**Default Value**: undefined
 **Allows Variables**: true
 
 

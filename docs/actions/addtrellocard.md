@@ -3,13 +3,15 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
+
+> This action requires that Shortcuts has permission to use WFTrelloAccessResource.
+
 ### usage
-`addtrellocard [???][???][???][???][???][???][???]`
+`addtrellocard name=[string|text] undefined=[???] undefined=[???] undefined=[???] position=[string <${strInfo}>] attachments=[variable] noname=[string|text]`
 
 ### arguments
 ### Text Input: Name / name (internally WFTrelloName)
 **Placeholder**: Be productive
-**Default Value**: undefined
 **Allows Variables**: true
 
 
@@ -17,14 +19,13 @@ Accepts a string
 or text
 with the text.
 ---
-unknown parameter type This paramtype is not implemented. WFTrelloBoardPickerParameter
+This paramtype is not implemented. WFTrelloBoardPickerParameter
 ---
-unknown parameter type This paramtype is not implemented. WFTrelloListPickerParameter
+This paramtype is not implemented. WFTrelloListPickerParameter
 ---
-unknown parameter type This paramtype is not implemented. WFDateFieldParameter
+This paramtype is not implemented. WFDateFieldParameter
 ---
 ### Enumeration: Position / position (internally WFTrelloCardPosition)
-**Placeholder**: undefined
 **Default Value**: Top
 **Allows Variables**: true
 
@@ -37,8 +38,6 @@ containing one of the options:
 - `Bottom`
 ---
 ### Variable Picker: Attachments / attachments (internally WFTrelloAttachments)
-**Placeholder**: undefined
-**Default Value**: undefined
 **Allows Variables**: true
 
 
@@ -46,7 +45,6 @@ Accepts a variable.
 ---
 ### Text Input: No Name / noname (internally WFTrelloDescription)
 **Placeholder**: Description
-**Default Value**: undefined
 **Allows Variables**: true
 
 

@@ -3,13 +3,15 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
+
+> This action requires that Shortcuts has permission to use [object Object].
+
 ### usage
-`addwunderlisttask [???][???][???][???][???][???]`
+`addwunderlisttask title=[string|text] undefined=[???] undefined=[???] undefined=[???] starred=[string|variable] notes=[string|text]`
 
 ### arguments
 ### Text Input: Title / title (internally WFWunderlistTitle)
 **Placeholder**: Buy some milk
-**Default Value**: undefined
 **Allows Variables**: true
 
 
@@ -17,15 +19,13 @@ Accepts a string
 or text
 with the text.
 ---
-unknown parameter type This paramtype is not implemented. WFWunderlistListPickerParameter
+This paramtype is not implemented. WFWunderlistListPickerParameter
 ---
-unknown parameter type This paramtype is not implemented. WFDateFieldParameter
+This paramtype is not implemented. WFDateFieldParameter
 ---
-unknown parameter type This paramtype is not implemented. WFDateFieldParameter
+This paramtype is not implemented. WFDateFieldParameter
 ---
 ### Switch: Starred / starred (internally WFWunderlistStarred)
-**Placeholder**: undefined
-**Default Value**: undefined
 **Allows Variables**: true
 
 
@@ -34,7 +34,6 @@ or a variable.
 ---
 ### Text Input: Notes / notes (internally WFWunderlistNotes)
 **Placeholder**: Notes
-**Default Value**: undefined
 **Allows Variables**: true
 
 

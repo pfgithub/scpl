@@ -1,12 +1,12 @@
 
 ## Generate QR Code / generateqrcode (internally is.workflow.actions.generatebarcode)
 
+
 ### usage
-`generateqrcode [???]`
+`generateqrcode errorcorrection=[string <${strInfo}>]`
 
 ### arguments
 ### Enumeration: Error Correction / errorcorrection (internally WFQRErrorCorrectionLevel)
-**Placeholder**: undefined
 **Default Value**: Medium
 **Allows Variables**: true
 

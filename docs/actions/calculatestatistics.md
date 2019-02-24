@@ -1,12 +1,12 @@
 
 ## Calculate Statistics / calculatestatistics (internally is.workflow.actions.statistics)
 
+
 ### usage
-`calculatestatistics [???]`
+`calculatestatistics operation=[string <${strInfo}>]`
 
 ### arguments
 ### Enumeration: Operation / operation (internally WFStatisticsOperation)
-**Placeholder**: undefined
 **Default Value**: Average
 **Allows Variables**: true
 

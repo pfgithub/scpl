@@ -3,16 +3,19 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
+
+> This action requires that Shortcuts has permission to use WFHealthKitResource,[object Object].
+
 ### usage
-`logworkout [???][???][???][???][???]`
+`logworkout undefined=[???] undefined=[???] undefined=[???] undefined=[???] undefined=[???]`
 
 ### arguments
-unknown parameter type This paramtype is not implemented. WFWorkoutTypePickerParameter
+This paramtype is not implemented. WFWorkoutTypePickerParameter
 ---
-unknown parameter type This paramtype is not implemented. WFDateFieldParameter
+This paramtype is not implemented. WFDateFieldParameter
 ---
-unknown parameter type This paramtype is not implemented. WFDurationQuantityFieldParameter
+This paramtype is not implemented. WFDurationQuantityFieldParameter
 ---
-unknown parameter type This paramtype is not implemented. WFHealthQuantityFieldParameter
+This paramtype is not implemented. WFHealthQuantityFieldParameter
 ---
-unknown parameter type This paramtype is not implemented. WFHealthQuantityFieldParameter
+This paramtype is not implemented. WFHealthQuantityFieldParameter

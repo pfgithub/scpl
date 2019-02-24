@@ -3,14 +3,16 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
+
+> This action requires that Shortcuts has permission to use WFMainThreadResource,[object Object].
+
 ### usage
-`runshortcut [???][???]`
+`runshortcut undefined=[???] showwhilerunning=[string|variable]`
 
 ### arguments
-unknown parameter type This paramtype is not implemented. WFWorkflowPickerParameter
+This paramtype is not implemented. WFWorkflowPickerParameter
 ---
 ### Switch: Show While Running / showwhilerunning (internally WFShowWorkflow)
-**Placeholder**: undefined
 **Default Value**: true
 **Allows Variables**: true
 

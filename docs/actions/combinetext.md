@@ -1,12 +1,12 @@
 
 ## Combine Text / combinetext (internally is.workflow.actions.text.combine)
 
+
 ### usage
-`combinetext [???][???]`
+`combinetext separator=[string <${strInfo}>] custom=[string|text]`
 
 ### arguments
 ### Enumeration: Separator / separator (internally WFTextSeparator)
-**Placeholder**: undefined
 **Default Value**: Spaces
 **Allows Variables**: true
 
@@ -21,7 +21,6 @@ containing one of the options:
 ---
 ### Text Input: Custom / custom (internally WFTextCustomSeparator)
 **Placeholder**: Text
-**Default Value**: undefined
 **Allows Variables**: true
 
 

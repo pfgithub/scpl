@@ -1,12 +1,12 @@
 
 ## Get Item from List / getitemfromlist (internally is.workflow.actions.getitemfromlist)
 
+
 ### usage
-`getitemfromlist [???][???][???][???]`
+`getitemfromlist get=[string <${strInfo}>] index=[string number] getitemsfromindex=[string number] toindex=[string number]`
 
 ### arguments
 ### Enumeration: Get / get (internally WFItemSpecifier)
-**Placeholder**: undefined
 **Default Value**: First Item
 **Allows Variables**: true
 
@@ -23,7 +23,6 @@ containing one of the options:
 ---
 ### Number: Index / index (internally WFItemIndex)
 **Placeholder**: 1
-**Default Value**: undefined
 **Allows Variables**: true
 
 
@@ -43,7 +42,6 @@ with a number.
 ---
 ### Number: To Index / toindex (internally WFItemRangeEnd)
 **Placeholder**: optional
-**Default Value**: undefined
 **Allows Variables**: true
 
 

@@ -1,13 +1,15 @@
 
 ## Search Local Businesses / searchlocalbusinesses (internally is.workflow.actions.searchlocalbusinesses)
 
+
+> This action requires that Shortcuts has permission to use WFMainThreadResource,WFLocationAccessResource.
+
 ### usage
-`searchlocalbusinesses [???][???]`
+`searchlocalbusinesses search=[string|text] radiuskm=[string number]`
 
 ### arguments
 ### Text Input: Search / search (internally WFSearchQuery)
 **Placeholder**: coffee shops
-**Default Value**: undefined
 **Allows Variables**: true
 
 

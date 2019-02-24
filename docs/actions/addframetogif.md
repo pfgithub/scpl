@@ -1,13 +1,12 @@
 
 ## Add Frame to GIF / addframetogif (internally is.workflow.actions.addframetogif)
 
+
 ### usage
-`addframetogif [???][???][???][???][???]`
+`addframetogif image=[variable] delaytime=[string number] autosize=[string|variable] width=[string number] height=[string number]`
 
 ### arguments
 ### Variable Picker: Image / image (internally WFImage)
-**Placeholder**: undefined
-**Default Value**: undefined
 **Allows Variables**: true
 
 
@@ -24,7 +23,6 @@ or variable
 with a number.
 ---
 ### Switch: Auto Size / autosize (internally WFGIFAutoSize)
-**Placeholder**: undefined
 **Default Value**: true
 **Allows Variables**: true
 
@@ -34,7 +32,6 @@ or a variable.
 ---
 ### Number: Width / width (internally WFGIFManualSizeWidth)
 **Placeholder**: 500
-**Default Value**: undefined
 **Allows Variables**: true
 
 
@@ -44,7 +41,6 @@ with a number.
 ---
 ### Number: Height / height (internally WFGIFManualSizeHeight)
 **Placeholder**: 500
-**Default Value**: undefined
 **Allows Variables**: true
 
 

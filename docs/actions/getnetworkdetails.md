@@ -3,14 +3,14 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
+
 ### usage
-`getnetworkdetails [???][???][???]`
+`getnetworkdetails undefined=[???] get=[string <${strInfo}>] get=[string <${strInfo}>]`
 
 ### arguments
-unknown parameter type This paramtype is not implemented. WFNetworkPickerParameter
+This paramtype is not implemented. WFNetworkPickerParameter
 ---
 ### Enumeration: Get / get (internally WFWiFiDetail)
-**Placeholder**: undefined
 **Default Value**: Network Name
 **Allows Variables**: true
 
@@ -23,7 +23,6 @@ containing one of the options:
 - `BSSID`
 ---
 ### Enumeration: Get / get (internally WFCellularDetail)
-**Placeholder**: undefined
 **Default Value**: Carrier Name
 **Allows Variables**: true
 

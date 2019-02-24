@@ -1,14 +1,13 @@
 
 ## Comment / comment (internally is.workflow.actions.comment)
 
+
 ### usage
-`comment [???]`
+`comment noname=[string]`
 
 ### arguments
 ### Text Input: No Name / noname (internally WFCommentActionText)
 **Placeholder**: Enter comment...
-**Default Value**: undefined
-**Allows Variables**: false
 
 
 Accepts a string 

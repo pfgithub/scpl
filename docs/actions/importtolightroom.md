@@ -3,13 +3,12 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
+
 ### usage
-`importtolightroom [???][???][???]`
+`importtolightroom applypreset=[string|variable] presetgroup=[string <${strInfo}>] undefined=[???]`
 
 ### arguments
 ### Switch: Apply Preset / applypreset (internally applyPreset)
-**Placeholder**: undefined
-**Default Value**: false
 **Allows Variables**: true
 
 
@@ -17,7 +16,6 @@ Accepts a string with either true or false
 or a variable.
 ---
 ### Enumeration: Preset Group / presetgroup (internally presetGroup)
-**Placeholder**: undefined
 **Default Value**: Color
 **Allows Variables**: true
 
@@ -34,4 +32,4 @@ containing one of the options:
 - `Sharpening`
 - `Vignetting`
 ---
-unknown parameter type This paramtype is not implemented. WFLightroomPresetPickerParameter
+This paramtype is not implemented. WFLightroomPresetPickerParameter
