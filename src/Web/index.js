@@ -3,9 +3,13 @@ const bplistc = require("bplist-creator");
 
 const parser = require("../ShortcutsParser");
 
+const defaultText = require("./demo.shorttxt");
+
 const inputArea = document.getElementById("inputArea");
 const messageArea = document.getElementById("messageArea");
 const outputArea = document.getElementById("outputArea");
+
+inputArea.value = defaultText;
 
 const downloadShortcutBtn = document.getElementById("downloadShortcutBtn");
 
@@ -36,25 +40,31 @@ inputArea.addEventListener("change", () => {
 	downloadShortcutBtn.setAttribute("disabled", "true");
 });
 
+const time = () => (new Date).getTime();
+
 document.getElementById("convertBtn").addEventListener("click", () => {
+	const startedConversion = time();
+
 	const parsed = parser.parse(`${inputArea.value}\n`);
 	if(parsed.remainingStr) {
 		bufferToDownload = undefined;
-		messageArea.value = (`Error, could not parse. Remaining str:\n\`\`\`\n...${parsed.remainingStr}\`\`\``);
+		messageArea.value = (`Error, could not parse. Took ${time() - parsed}ms. Remaining str:\n\`\`\`\n...${parsed.remainingStr}\`\`\``);
 		outputArea.value = "Error!";
 		throw new Error("Str remaining");
 	}
+
+	const finishedParsing = time();
 
 	let shortcut;
 	try{
 		shortcut = parsed.data.asShortcut();
 	}catch(er) {
-		messageArea.value = (`Error! ${er.message}`);
+		messageArea.value = (`Error, could not convert. Took ${time() - startedConversion}ms. ${er.message}`);
 		outputArea.value = "Error!";
 		return;
 	}
 	const shortcutData = shortcut.build();
-	messageArea.value = "Success in ??ms";
+	messageArea.value = `Success in ${time() - startedConversion}ms. Parsed in ${finishedParsing - startedConversion}ms. Converted in ${time() - finishedParsing}ms.`;
 	outputArea.value = JSON.stringify(shortcutData, null, "\t");
 	const buffer = bplistc(shortcutData);
 	bufferToDownload = buffer;
