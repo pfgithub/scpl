@@ -215,7 +215,7 @@ class Text extends Parameter {
 			}
 			throw new Error("Invalid component type. This should never happen.");
 		});
-		if(!this.hasAttachments) {return result.string;}
+		// if(!this.hasAttachments) {return result.string;}
 		return result;
 	}
 }
@@ -278,10 +278,10 @@ class Action {
 		return new MagicVariable(this);
 	}
 	build() {
-		return [...this.actionsAbove, {
+		return {
 			WFWorkflowActionIdentifier: this.id,
 			WFWorkflowActionParameters: this.parameters.build()
-		}, ...this.actionsBelow];
+		};
 	}
 }
 

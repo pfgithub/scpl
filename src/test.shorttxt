@@ -7,6 +7,9 @@ Text "hello there, how are you doing?"
 Number 5
 Calculate "+" "x^2" 2
 
+Wait 5
+Number 5.2
+
 setVariable (v:"hello there")
 
 getVariable (v:"hello there")

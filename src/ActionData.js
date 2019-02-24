@@ -57,7 +57,29 @@ types.WFNumberFieldParameter = class extends types.WFParameter {
 			const res = parse.asString(); // asString returns a string like "" <-- that's a string
 			const num = +res;
 			if(isNaN(num)) {throw new Error(`This number field only accepts numbers. The value \`${res}\` could not be converted to a number`);}
+			return num;
+		}
+		throw new Error("This number field only accepts strings or numbers");
+	}
+};
+
+types.WFStepperParameter = class extends types.WFParameter {
+	constructor(data) {
+		super(data);
+	}
+	build(cc, parse) {
+		if(parse.asVariable) {
+			const res = parse.asVariable(cc);
+			if(this._allowsVariables) {
+				throw new Error("This number field does not allow variables.");
+			}
 			return res;
+		}else if(parse.asString) {
+			const res = parse.asString(); // asString returns a string like "" <-- that's a string
+			const num = +res;
+			if(isNaN(num)) {throw new Error(`This number field only accepts integers. The value \`${res}\` could not be converted to a number`);}
+			if(!Number.isInteger(num)) {throw new Error(`This number field only accepts integers. The number \`${num}\` is not an integer.`);}
+			return num;
 		}
 		throw new Error("This number field only accepts strings or numbers");
 	}

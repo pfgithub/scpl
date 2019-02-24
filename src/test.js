@@ -1,4 +1,5 @@
 const fs = require("fs");
+const bplistc = require("bplist-creator");
 
 const parser = require("./ShortcutsParser");
 
@@ -9,4 +10,7 @@ if(parsed.remainingStr) {
 }
 
 const shortcut = parsed.data.asShortcut();
-console.log(shortcut.build());
+const shortcutData = shortcut.build();
+console.log(shortcutData);
+const buffer = bplistc(shortcutData);
+fs.writeFileSync("./src/test.shortcut", buffer);
