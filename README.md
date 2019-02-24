@@ -2,7 +2,7 @@
 
 [View Documentation](https://pfgithub.github.io/shortcutslang/)
 
-[Try Shortcutslang](https://pfgithub.github.io/shortcutslang/tryit)
+[Try Shortcutslang Online](https://pfgithub.github.io/shortcutslang/tryit)
 
 ```bash
 yarn install
