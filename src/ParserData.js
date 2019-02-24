@@ -1,7 +1,7 @@
 const {Shortcut, Action, Parameters, DictionaryItem, Text, MagicVariable, NamedVariable, Variable, Attachment, DictionaryFieldValue, Parameter, Aggrandizements, DictionaryKeyAggrandizement, CoercionAggrandizement, Aggrandizement, List} = require("./OutputData");
 const {actionsByName} = require("./ActionData");
 const {ConvertingContext} = require("./Converter.js");
-const {setVariable} = require("./HelpfulActions");
+const {setVariable, getVariable} = require("./HelpfulActions");
 
 class Parse {
 	constructor() {
@@ -187,7 +187,9 @@ class VariableParse extends Parse {
 		return variable;
 	}
 	asAction(cc) {
-		throw new Error("Variables cannot be used as actions yet. TODO");
+		const action = getVariable(this.asVariable(cc));
+		cc.add(action);
+		return action;
 	}
 }
 
