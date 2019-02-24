@@ -45,7 +45,14 @@ document.getElementById("convertBtn").addEventListener("click", () => {
 		throw new Error("Str remaining");
 	}
 
-	const shortcut = parsed.data.asShortcut();
+	let shortcut;
+	try{
+		shortcut = parsed.data.asShortcut();
+	}catch(er) {
+		messageArea.value = (`Error! ${er.message}`);
+		outputArea.value = "Error!";
+		return;
+	}
 	const shortcutData = shortcut.build();
 	messageArea.value = "Success in ??ms";
 	outputArea.value = JSON.stringify(shortcutData, null, "\t");
