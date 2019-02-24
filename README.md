@@ -1,5 +1,9 @@
 # shortcutslang
 
+[View Documentation](https://pfgithub.github.io/shortcutslang/)
+
+[Try Shortcutslang Online](https://pfgithub.github.io/shortcutslang/tryit)
+
 ```bash
 yarn install
 yarn docs # generate documentation
