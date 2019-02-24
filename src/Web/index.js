@@ -37,7 +37,7 @@ inputArea.addEventListener("change", () => {
 });
 
 document.getElementById("convertBtn").addEventListener("click", () => {
-	const parsed = parser.parse(inputArea.value);
+	const parsed = parser.parse(`${inputArea.value}\n`);
 	if(parsed.remainingStr) {
 		bufferToDownload = undefined;
 		messageArea.value = (`Error, could not parse. Remaining str:\n\`\`\`\n...${parsed.remainingStr}\`\`\``);
