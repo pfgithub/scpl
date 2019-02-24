@@ -301,6 +301,7 @@ or a named variable (v:) that you want to set.
 // WFNumberFieldParameter: Number || Variable
 
 const _debugMissingTypes = {};
+const _debugTypes = {};
 
 class WFAction {
 	constructor(data, id) {
@@ -310,6 +311,13 @@ class WFAction {
 		this._parameters = [];
 		if(this._data.Parameters) {
 			this._parameters = this._data.Parameters.map(param => {
+				_debugTypes[param.Class] = {
+					paramClass: param.Class,
+					missing: !types[param.Class],
+					count: _debugTypes[param.Class]
+						? _debugTypes[param.Class].count + 1
+						: 1
+				};
 				if(types[param.Class]) {
 					const type = types[param.Class];
 					return new type(param);
@@ -434,7 +442,9 @@ function genReadme() {
 		.map(a=>[a, _debugMissingTypes[a]])
 		.sort((a, b) => a[1] - b[1])
 		.map(([a, b])=>`${b}: ${a}`);
-
+	const typeList = Object.values(_debugTypes)
+		.sort((a, b) => a.count - b.count)
+		.map(({paramClass, count, missing})=>`- [${missing?" ":"x"}] ${count}: ${paramClass}`);
 	return `
 # Shortcutslang
 
@@ -444,7 +454,7 @@ ${completedActions}/${totalActions} completed\\* \\*\\*
 
 \\# actions used in: parameter type
 
-- \`${missingTypeList.join`\`\n- \``}\`
+${typeList.join`\n`}
 
 \\*Block actions such as if and repeat are not completed yet.
 \\*\\*Parameters with RequiredResources such as Get Contents Of URL and Calculate have unneeded arguments.
