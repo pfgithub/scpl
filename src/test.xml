@@ -10,7 +10,7 @@
 			<key>WFWorkflowActionParameters</key>
 			<dict>
 				<key>UUID</key>
-				<string>fa3b2020-047c-41f9-85f0-46e9dd9986a9</string>
+				<string>3a2f30ec-b5f4-4410-a17c-3cba196a7c68</string>
 				<key>WFCommentActionText</key>
 				<string>Made by pfg
 pfg
@@ -23,7 +23,7 @@ pfg</string>
 			<key>WFWorkflowActionParameters</key>
 			<dict>
 				<key>UUID</key>
-				<string>84bf904c-7fc9-4e1d-923a-7695373075c9</string>
+				<string>a85335be-1d5a-48cd-8311-46e05f88de96</string>
 				<key>WFTextActionText</key>
 				<string>hello there, how are you doing?</string>
 			</dict>
@@ -34,7 +34,7 @@ pfg</string>
 			<key>WFWorkflowActionParameters</key>
 			<dict>
 				<key>UUID</key>
-				<string>a1d90138-8240-44c4-a848-6b968395b066</string>
+				<string>db89da4f-af12-4f1f-ba63-ea3eb4da5968</string>
 				<key>WFNumberActionNumber</key>
 				<integer>5</integer>
 			</dict>
@@ -45,7 +45,7 @@ pfg</string>
 			<key>WFWorkflowActionParameters</key>
 			<dict>
 				<key>UUID</key>
-				<string>fcedfd48-1796-4813-9138-8c21031cd4a3</string>
+				<string>bad1dac9-81e4-47ce-a781-45d8f57c0743</string>
 				<key>WFMathOperand</key>
 				<integer>2</integer>
 				<key>WFMathOperation</key>
@@ -60,7 +60,7 @@ pfg</string>
 			<key>WFWorkflowActionParameters</key>
 			<dict>
 				<key>UUID</key>
-				<string>9dfd8327-6636-4e47-9dc1-8d55840a9e61</string>
+				<string>ea53c0bc-8e8b-4482-9779-dd6a62b89a20</string>
 				<key>WFNumberActionNumber</key>
 				<real>5.2000000000000002</real>
 			</dict>
@@ -71,7 +71,7 @@ pfg</string>
 			<key>WFWorkflowActionParameters</key>
 			<dict>
 				<key>UUID</key>
-				<string>8778772b-ac91-435a-87c2-b951f4a85837</string>
+				<string>4b45e443-6f87-46df-a45d-55a8e2f3922f</string>
 				<key>WFVariableName</key>
 				<string>hello there</string>
 			</dict>
@@ -82,7 +82,7 @@ pfg</string>
 			<key>WFWorkflowActionParameters</key>
 			<dict>
 				<key>UUID</key>
-				<string>37d10e51-a6df-42a1-b2c2-6aa8db3bf21c</string>
+				<string>268dc0fe-7d4c-4e43-bd6c-57c6c3178900</string>
 				<key>WFVariable</key>
 				<dict>
 					<key>Value</key>
@@ -103,7 +103,7 @@ pfg</string>
 			<key>WFWorkflowActionParameters</key>
 			<dict>
 				<key>UUID</key>
-				<string>dedee0cc-6d5a-4883-b3cf-8e6b66c683bc</string>
+				<string>64a09222-0b66-41c4-be4c-09752ba388ae</string>
 				<key>WFTextActionText</key>
 				<string>Text action</string>
 			</dict>
@@ -114,7 +114,7 @@ pfg</string>
 			<key>WFWorkflowActionParameters</key>
 			<dict>
 				<key>UUID</key>
-				<string>61bcacce-f70f-4eec-baa2-5d818e8122a7</string>
+				<string>7048aeb1-8dab-402b-9c6c-0b3cdab3db45</string>
 				<key>WFVariable</key>
 				<dict>
 					<key>Value</key>
@@ -122,7 +122,7 @@ pfg</string>
 						<key>OutputName</key>
 						<string>Get Variable</string>
 						<key>OutputUUID</key>
-						<string>37d10e51-a6df-42a1-b2c2-6aa8db3bf21c</string>
+						<string>268dc0fe-7d4c-4e43-bd6c-57c6c3178900</string>
 						<key>Type</key>
 						<string>ActionOutput</string>
 					</dict>
@@ -137,7 +137,7 @@ pfg</string>
 			<key>WFWorkflowActionParameters</key>
 			<dict>
 				<key>UUID</key>
-				<string>f2b6520e-370b-44e9-8c8d-7f97c80a1dcd</string>
+				<string>20b47fbe-c7ed-49dd-b9da-9e670e951403</string>
 				<key>WFTextActionText</key>
 				<dict>
 					<key>Value</key>
@@ -156,7 +156,7 @@ pfg</string>
 								<key>OutputName</key>
 								<string>Text</string>
 								<key>OutputUUID</key>
-								<string>dedee0cc-6d5a-4883-b3cf-8e6b66c683bc</string>
+								<string>64a09222-0b66-41c4-be4c-09752ba388ae</string>
 								<key>Type</key>
 								<string>ActionOutput</string>
 							</dict>
@@ -175,7 +175,7 @@ pfg</string>
 			<key>WFWorkflowActionParameters</key>
 			<dict>
 				<key>UUID</key>
-				<string>2bbdffcb-bea6-43e6-86f9-6e6c074bc2ad</string>
+				<string>baef2b18-c83b-469c-802d-18747374778c</string>
 				<key>WFTextActionText</key>
 				<string>My other text</string>
 			</dict>
@@ -186,7 +186,7 @@ pfg</string>
 			<key>WFWorkflowActionParameters</key>
 			<dict>
 				<key>UUID</key>
-				<string>fcb16998-ba1d-462c-9aaa-28c22ca8c2dc</string>
+				<string>e70c9ca6-4815-4b42-92ab-087c90b50d51</string>
 				<key>WFVariable</key>
 				<dict>
 					<key>Value</key>
@@ -194,7 +194,7 @@ pfg</string>
 						<key>OutputName</key>
 						<string>Text</string>
 						<key>OutputUUID</key>
-						<string>f2b6520e-370b-44e9-8c8d-7f97c80a1dcd</string>
+						<string>20b47fbe-c7ed-49dd-b9da-9e670e951403</string>
 						<key>Type</key>
 						<string>ActionOutput</string>
 					</dict>
@@ -209,7 +209,7 @@ pfg</string>
 			<key>WFWorkflowActionParameters</key>
 			<dict>
 				<key>UUID</key>
-				<string>c19f3a07-270f-4465-909b-c0816bd6576a</string>
+				<string>7e83ce6c-d03d-4c79-8521-e6aa334182d3</string>
 				<key>WFItems</key>
 				<array>
 					<string>item 1</string>
@@ -227,7 +227,7 @@ pfg</string>
 										<key>OutputName</key>
 										<string>Text</string>
 										<key>OutputUUID</key>
-										<string>2bbdffcb-bea6-43e6-86f9-6e6c074bc2ad</string>
+										<string>baef2b18-c83b-469c-802d-18747374778c</string>
 										<key>Type</key>
 										<string>ActionOutput</string>
 									</dict>
@@ -248,7 +248,7 @@ pfg</string>
 			<key>WFWorkflowActionParameters</key>
 			<dict>
 				<key>UUID</key>
-				<string>1419767f-8804-42f9-917d-68d64cf2d632</string>
+				<string>62772ca8-d605-42d6-9c31-5d4226cb699e</string>
 				<key>WFTextActionText</key>
 				<string>My text</string>
 			</dict>
@@ -259,7 +259,7 @@ pfg</string>
 			<key>WFWorkflowActionParameters</key>
 			<dict>
 				<key>UUID</key>
-				<string>6cafe9c9-c75f-4645-8d71-a2ef8086b02d</string>
+				<string>e5d4d596-c59d-4dc4-b555-e2cba1b3d34d</string>
 				<key>WFVariable</key>
 				<dict>
 					<key>Value</key>
@@ -267,7 +267,7 @@ pfg</string>
 						<key>OutputName</key>
 						<string>List</string>
 						<key>OutputUUID</key>
-						<string>c19f3a07-270f-4465-909b-c0816bd6576a</string>
+						<string>7e83ce6c-d03d-4c79-8521-e6aa334182d3</string>
 						<key>Type</key>
 						<string>ActionOutput</string>
 					</dict>
@@ -282,7 +282,7 @@ pfg</string>
 			<key>WFWorkflowActionParameters</key>
 			<dict>
 				<key>UUID</key>
-				<string>9d981237-14bf-47a8-94f8-f5fc99caec9f</string>
+				<string>24b7c8ca-936f-4d73-b5ca-ca4ac4190229</string>
 				<key>WFItems</key>
 				<array>
 					<string>Item 1</string>
@@ -300,7 +300,7 @@ pfg</string>
 										<key>OutputName</key>
 										<string>Text</string>
 										<key>OutputUUID</key>
-										<string>1419767f-8804-42f9-917d-68d64cf2d632</string>
+										<string>62772ca8-d605-42d6-9c31-5d4226cb699e</string>
 										<key>Type</key>
 										<string>ActionOutput</string>
 									</dict>
@@ -345,7 +345,7 @@ pfg</string>
 			<key>WFWorkflowActionParameters</key>
 			<dict>
 				<key>UUID</key>
-				<string>9053fc83-bbd3-4313-95d7-244469a24f18</string>
+				<string>24f07c7c-e709-4391-9ec8-3db310e060de</string>
 				<key>WFTextActionText</key>
 				<string>Make pick</string>
 			</dict>
@@ -356,7 +356,7 @@ pfg</string>
 			<key>WFWorkflowActionParameters</key>
 			<dict>
 				<key>UUID</key>
-				<string>5a2006e6-0651-45be-83e0-be766d4751b4</string>
+				<string>ad2f13b1-28ec-4676-8c37-8a2e4d555c79</string>
 				<key>WFVariable</key>
 				<dict>
 					<key>Value</key>
@@ -364,7 +364,7 @@ pfg</string>
 						<key>OutputName</key>
 						<string>List</string>
 						<key>OutputUUID</key>
-						<string>9d981237-14bf-47a8-94f8-f5fc99caec9f</string>
+						<string>24b7c8ca-936f-4d73-b5ca-ca4ac4190229</string>
 						<key>Type</key>
 						<string>ActionOutput</string>
 					</dict>
@@ -379,7 +379,7 @@ pfg</string>
 			<key>WFWorkflowActionParameters</key>
 			<dict>
 				<key>UUID</key>
-				<string>edee2670-cc5a-49aa-91ba-5962f044a815</string>
+				<string>7b760a55-7bad-4ba2-b177-5545931104ce</string>
 				<key>WFChooseFromListActionPrompt</key>
 				<dict>
 					<key>Value</key>
@@ -391,7 +391,7 @@ pfg</string>
 								<key>OutputName</key>
 								<string>Text</string>
 								<key>OutputUUID</key>
-								<string>9053fc83-bbd3-4313-95d7-244469a24f18</string>
+								<string>24f07c7c-e709-4391-9ec8-3db310e060de</string>
 								<key>Type</key>
 								<string>ActionOutput</string>
 							</dict>
@@ -410,7 +410,7 @@ pfg</string>
 			<key>WFWorkflowActionParameters</key>
 			<dict>
 				<key>UUID</key>
-				<string>7366a6c8-bf9e-4204-bf52-61bf6bfef4bb</string>
+				<string>7abf9c2b-7c5b-496f-a206-1590ddab850e</string>
 				<key>WFTextActionText</key>
 				<string>my text</string>
 			</dict>
@@ -421,7 +421,7 @@ pfg</string>
 			<key>WFWorkflowActionParameters</key>
 			<dict>
 				<key>UUID</key>
-				<string>0f26a55e-41cd-4a5d-8104-c9ead615b893</string>
+				<string>20f2f100-d283-460b-a75e-35d485675845</string>
 				<key>WFVariable</key>
 				<dict>
 					<key>Value</key>
@@ -429,7 +429,7 @@ pfg</string>
 						<key>OutputName</key>
 						<string>Choose from List</string>
 						<key>OutputUUID</key>
-						<string>edee2670-cc5a-49aa-91ba-5962f044a815</string>
+						<string>7b760a55-7bad-4ba2-b177-5545931104ce</string>
 						<key>Type</key>
 						<string>ActionOutput</string>
 					</dict>
@@ -444,7 +444,7 @@ pfg</string>
 			<key>WFWorkflowActionParameters</key>
 			<dict>
 				<key>UUID</key>
-				<string>7b5a2770-5c8c-442b-a07e-78ae6c1beb7a</string>
+				<string>f741f339-d76d-433e-a2f5-8cc65dc976dc</string>
 				<key>WFItems</key>
 				<array>
 					<string>item 1</string>
@@ -462,7 +462,7 @@ pfg</string>
 										<key>OutputName</key>
 										<string>Text</string>
 										<key>OutputUUID</key>
-										<string>7366a6c8-bf9e-4204-bf52-61bf6bfef4bb</string>
+										<string>7abf9c2b-7c5b-496f-a206-1590ddab850e</string>
 										<key>Type</key>
 										<string>ActionOutput</string>
 									</dict>
@@ -483,7 +483,7 @@ pfg</string>
 			<key>WFWorkflowActionParameters</key>
 			<dict>
 				<key>UUID</key>
-				<string>10c3a344-5d95-4809-8d2b-4c4e02f1dd41</string>
+				<string>6a6ea842-f5ca-400d-8729-3a3f7c7ff894</string>
 				<key>WFTextActionText</key>
 				<string>list prompt</string>
 			</dict>
@@ -494,7 +494,7 @@ pfg</string>
 			<key>WFWorkflowActionParameters</key>
 			<dict>
 				<key>UUID</key>
-				<string>de3b6a91-2079-477c-a355-372108f5447c</string>
+				<string>d69cfda4-68ff-4093-8280-894af47ab106</string>
 				<key>WFVariable</key>
 				<dict>
 					<key>Value</key>
@@ -502,7 +502,7 @@ pfg</string>
 						<key>OutputName</key>
 						<string>List</string>
 						<key>OutputUUID</key>
-						<string>7b5a2770-5c8c-442b-a07e-78ae6c1beb7a</string>
+						<string>f741f339-d76d-433e-a2f5-8cc65dc976dc</string>
 						<key>Type</key>
 						<string>ActionOutput</string>
 					</dict>
@@ -517,7 +517,7 @@ pfg</string>
 			<key>WFWorkflowActionParameters</key>
 			<dict>
 				<key>UUID</key>
-				<string>1dc4d93c-bcec-4e94-b7f3-4d798a1fd216</string>
+				<string>37a129e9-8563-4640-9dc2-04b9069ccba1</string>
 				<key>WFChooseFromListActionPrompt</key>
 				<dict>
 					<key>Value</key>
@@ -529,7 +529,7 @@ pfg</string>
 								<key>OutputName</key>
 								<string>Text</string>
 								<key>OutputUUID</key>
-								<string>10c3a344-5d95-4809-8d2b-4c4e02f1dd41</string>
+								<string>6a6ea842-f5ca-400d-8729-3a3f7c7ff894</string>
 								<key>Type</key>
 								<string>ActionOutput</string>
 							</dict>
@@ -548,7 +548,7 @@ pfg</string>
 			<key>WFWorkflowActionParameters</key>
 			<dict>
 				<key>UUID</key>
-				<string>25594e5f-6fb8-414d-92c8-c53db19100a0</string>
+				<string>406bc51c-b19b-4fd3-b4d3-5f2c8f827b4f</string>
 				<key>WFTextActionText</key>
 				<string>hello world</string>
 			</dict>
@@ -559,7 +559,7 @@ pfg</string>
 			<key>WFWorkflowActionParameters</key>
 			<dict>
 				<key>UUID</key>
-				<string>60da5ae5-58c1-421d-ae0a-a6d4c7874af9</string>
+				<string>b18a3138-9fba-44a6-b943-9d1e40fe441c</string>
 				<key>WFTextActionText</key>
 				<string>My favorite text is hello world</string>
 			</dict>
@@ -570,7 +570,7 @@ pfg</string>
 			<key>WFWorkflowActionParameters</key>
 			<dict>
 				<key>UUID</key>
-				<string>0288cc8e-235f-4f13-8e64-96ab5661b905</string>
+				<string>43ca85e3-ec12-4789-a2c1-b3169632ca54</string>
 				<key>WFVariable</key>
 				<dict>
 					<key>Value</key>
@@ -578,7 +578,7 @@ pfg</string>
 						<key>OutputName</key>
 						<string>Text</string>
 						<key>OutputUUID</key>
-						<string>25594e5f-6fb8-414d-92c8-c53db19100a0</string>
+						<string>406bc51c-b19b-4fd3-b4d3-5f2c8f827b4f</string>
 						<key>Type</key>
 						<string>ActionOutput</string>
 					</dict>
@@ -593,7 +593,7 @@ pfg</string>
 			<key>WFWorkflowActionParameters</key>
 			<dict>
 				<key>UUID</key>
-				<string>2ba706b4-0a70-465f-9ec6-0f6ac6ed6503</string>
+				<string>3e1ce1b6-eed6-4502-958a-c4a7b3eb94b8</string>
 				<key>WFTextActionText</key>
 				<dict>
 					<key>Value</key>
@@ -605,7 +605,7 @@ pfg</string>
 								<key>OutputName</key>
 								<string>Text</string>
 								<key>OutputUUID</key>
-								<string>60da5ae5-58c1-421d-ae0a-a6d4c7874af9</string>
+								<string>b18a3138-9fba-44a6-b943-9d1e40fe441c</string>
 								<key>Type</key>
 								<string>ActionOutput</string>
 							</dict>
@@ -624,7 +624,7 @@ pfg</string>
 			<key>WFWorkflowActionParameters</key>
 			<dict>
 				<key>UUID</key>
-				<string>b099a584-3ed6-405b-aca2-c8753dddf73d</string>
+				<string>8bedb98f-5285-4856-a63f-abf6d1bc525c</string>
 				<key>WFTextActionText</key>
 				<string>Hello there</string>
 			</dict>
@@ -635,7 +635,7 @@ pfg</string>
 			<key>WFWorkflowActionParameters</key>
 			<dict>
 				<key>UUID</key>
-				<string>6eb4abfd-63ff-4277-a771-2c09de2aff5d</string>
+				<string>c780e128-0dae-433d-9ee7-b276d4c41922</string>
 				<key>WFTextActionText</key>
 				<string>Hola</string>
 			</dict>
@@ -646,7 +646,7 @@ pfg</string>
 			<key>WFWorkflowActionParameters</key>
 			<dict>
 				<key>UUID</key>
-				<string>c23decb0-3de4-415d-bb39-4ad74f2b4312</string>
+				<string>db5ab4e3-bb25-47c0-973f-871ed3070e0d</string>
 				<key>WFVariableName</key>
 				<string>mytext2</string>
 			</dict>
@@ -657,7 +657,7 @@ pfg</string>
 			<key>WFWorkflowActionParameters</key>
 			<dict>
 				<key>UUID</key>
-				<string>20b6e600-11e8-461a-a07f-2d1d62026b4b</string>
+				<string>7a43aea3-40e7-4147-a5c5-f30d000195e2</string>
 				<key>WFTextActionText</key>
 				<dict>
 					<key>Value</key>
@@ -676,7 +676,7 @@ pfg</string>
 								<key>OutputName</key>
 								<string>Text</string>
 								<key>OutputUUID</key>
-								<string>b099a584-3ed6-405b-aca2-c8753dddf73d</string>
+								<string>8bedb98f-5285-4856-a63f-abf6d1bc525c</string>
 								<key>Type</key>
 								<string>ActionOutput</string>
 							</dict>
@@ -695,7 +695,7 @@ pfg</string>
 			<key>WFWorkflowActionParameters</key>
 			<dict>
 				<key>UUID</key>
-				<string>b3f974b3-6628-431c-b6c5-3282362d1b66</string>
+				<string>82df74ea-434a-483b-9df4-5d609e791bc9</string>
 				<key>WFVariable</key>
 				<dict>
 					<key>Value</key>
@@ -703,7 +703,7 @@ pfg</string>
 						<key>OutputName</key>
 						<string>Text</string>
 						<key>OutputUUID</key>
-						<string>b099a584-3ed6-405b-aca2-c8753dddf73d</string>
+						<string>8bedb98f-5285-4856-a63f-abf6d1bc525c</string>
 						<key>Type</key>
 						<string>ActionOutput</string>
 					</dict>
@@ -718,9 +718,31 @@ pfg</string>
 			<key>WFWorkflowActionParameters</key>
 			<dict>
 				<key>UUID</key>
-				<string>11b1dcde-49b1-4350-b656-70330b7a45aa</string>
+				<string>b997a661-8bb0-46b6-8e73-47150956c2ed</string>
 				<key>WFTextActionText</key>
 				<string>my text</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>WFWorkflowActionIdentifier</key>
+			<string>is.workflow.actions.wifi.set</string>
+			<key>WFWorkflowActionParameters</key>
+			<dict>
+				<key>OnValue</key>
+				<true/>
+				<key>UUID</key>
+				<string>1f24368c-5b69-4a05-a5ef-b81d0a43562d</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>WFWorkflowActionIdentifier</key>
+			<string>is.workflow.actions.wifi.set</string>
+			<key>WFWorkflowActionParameters</key>
+			<dict>
+				<key>OnValue</key>
+				<false/>
+				<key>UUID</key>
+				<string>9fc1cdd8-f55a-4510-9b88-382aa81aa1dc</string>
 			</dict>
 		</dict>
 	</array>

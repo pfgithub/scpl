@@ -34,3 +34,6 @@ v:mytext2 = text "Hola"
 text "mv: \(mv:mytext) normal v: \(v:mytext2)"
 
 text ^(mv:mytext) "my text"
+
+SetWifi true
+SetWifi false
