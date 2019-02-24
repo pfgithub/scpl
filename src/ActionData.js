@@ -5,15 +5,31 @@ const actionList = require("./WFActions.json")[0];
 
 const types = {};
 
+function genShortName(longName) {
+	// lower case
+	let shortName = longName.toLowerCase();
+	// remove special characters
+	shortName = shortName.replace(/[^A-Za-z0-9]/g, "");
+	return shortName;
+}
+
 types.WFParameter = class {
-	constructor(data) {
+	constructor(data, typeName) {
 		this._data = data;
 		this.defaultValue = this._data.DefaultValue;
 		this.requiredResources = this._data.RequiredResources;
-		this.allowsVariables = (this._data.DisallowedVariableTypes || []).join`` === "AskVariable";
+		this.allowsVariables = (this._data.DisallowedVariableTypes || []).join`` !== "AskVariable";
+		this.name = this._data.Label || "No Name";
+		this.internalName = this._data.Key;
+		this.shortName = genShortName(this.name);
+		this.typeName = typeName;
 	}
-	get internalName() {
-		return this._data.Key;
+	genDocs() {
+		return `### ${this.typeName}: ${this.name} / ${this.shortName} (internally ${this.internalName})
+**Placeholder**: ${this._data.Placeholder}
+**Default Value**: ${this._data.DefaultValue}
+**Allows Variables**: ${this.allowsVariables}
+`;
 	}
 };
 
@@ -24,12 +40,25 @@ types.WFEnumerationParameter = class extends types.WFParameter {
 		super(data);
 		this.options = this._data.Items;
 	}
+	genDocsArgName() {
+		const strInfo = this.options.join` | `;
+		return this.allowsVariables ? `[string <\${strInfo}>]` : `[string <\${strInfo}>|variable]`;
+	}
+	genDocs() {
+		return `${super.genDocs()}
+
+Accepts a string ${this.allowsVariables ? `
+or variable`: ""}
+containing one of the options:
+
+- \`${this.options.join`\`\n- \``}\``;
+	}
 	build(cc, parse) {
 		// asVariable may require additional actions to be inserted above this one.
 		// for example, if ^("hello") (v:comparison) "hi"
 		if(parse.asVariable) {
 			const res = parse.asVariable(cc);
-			if(this.allowsVariables) {
+			if(!this.allowsVariables) {
 				throw new Error("This enumeration field does not allow variables.");
 			}
 			return res;
@@ -45,12 +74,22 @@ types.WFEnumerationParameter = class extends types.WFParameter {
 
 types.WFNumberFieldParameter = class extends types.WFParameter {
 	constructor(data) {
-		super(data);
+		super(data, "Number");
+	}
+	genDocsArgName() {
+		return this.allowsVariables ? `[string number]` : `[string number|variable]`;
+	}
+	genDocs() {
+		return `${super.genDocs()}
+
+Accepts a string ${this.allowsVariables ? `
+or variable`: ""}
+with a number.`;
 	}
 	build(cc, parse) {
 		if(parse.asVariable) {
 			const res = parse.asVariable(cc);
-			if(this._allowsVariables) {
+			if(!this.allowsVariables) {
 				throw new Error("This number field does not allow variables.");
 			}
 			return res;
@@ -66,7 +105,15 @@ types.WFNumberFieldParameter = class extends types.WFParameter {
 
 types.WFContentArrayParameter = class extends types.WFParameter {
 	constructor(data) {
-		super(data);
+		super(data, "List");
+	}
+	genDocsArgName() {
+		return `[list]`;
+	}
+	genDocs() {
+		return `${super.genDocs()}
+
+Accepts a list.`;
 	}
 	build(cc, parse) {
 		const list = parse.asList(cc);
@@ -78,12 +125,22 @@ types.WFArrayParameter = class extends types.WFContentArrayParameter {};
 
 types.WFStepperParameter = class extends types.WFParameter {
 	constructor(data) {
-		super(data);
+		super(data, "Stepper Number");
+	}
+	genDocsArgName() {
+		return this.allowsVariables ? `[string integer]` : `[string integer|variable]`;
+	}
+	genDocs() {
+		return `${super.genDocs()}
+
+Accepts a string ${this.allowsVariables ? `
+or variable`: ""}
+containing an integer value.`;
 	}
 	build(cc, parse) {
 		if(parse.asVariable) {
 			const res = parse.asVariable(cc);
-			if(this._allowsVariables) {
+			if(!this.allowsVariables) {
 				throw new Error("This number field does not allow variables.");
 			}
 			return res;
@@ -100,7 +157,15 @@ types.WFStepperParameter = class extends types.WFParameter {
 
 types.WFVariablePickerParameter = class extends types.WFParameter {
 	constructor(data) {
-		super(data);
+		super(data, "Variable Picker");
+	}
+	genDocsArgName() {
+		return `[variable]`;
+	}
+	genDocs() {
+		return `${super.genDocs()}
+
+Accepts a variable.`;
 	}
 	build(cc, parse) {
 		const variable = parse.asVariable(cc);
@@ -110,10 +175,20 @@ types.WFVariablePickerParameter = class extends types.WFParameter {
 
 types.WFTextInputParameter = class extends types.WFParameter {
 	constructor(data) {
-		super(data);
+		super(data, "Text Input");
+	}
+	genDocsArgName() {
+		return !this.allowsVariables ? `[string]` : `[string|text]`;
+	}
+	genDocs() {
+		return `${super.genDocs()}
+
+Accepts a string ${this.allowsVariables ? `
+or text`: ""}
+with the text.`;
 	}
 	build(cc, parse) {
-		if(this.allowsVariables) {
+		if(!this.allowsVariables) {
 			return parse.asString();
 		}
 		return parse.asText(cc);
@@ -122,15 +197,43 @@ types.WFTextInputParameter = class extends types.WFParameter {
 
 types.WFSwitchParameter = class extends types.WFParameter {
 	constructor(data) {
-		super(data);
+		super(data, "Switch");
+	}
+	genDocsArgName() {
+		return this.allowsVariables ? `[string|variable]` : `[string]`;
+	}
+	genDocs() {
+		return `${super.genDocs()}
+
+Accepts a string with either true or false${this.allowsVariables ? `
+or a variable.`: ""}`;
 	}
 	build(cc, parse) {
-		return parse.asBoolean(cc);
+		if(parse.asVariable) {
+			if(!this.allowsVariables) {throw new Error("This boolean field does not accept variables");}
+			return parse.asVariable(cc);
+		}else if(parse.asString) {
+			const string = parse.asString();
+			if(string !== "true" && string !== "false") {throw new Error("This boolean field must be either true or false");}
+			return string === "true";
+		}
+		throw new Error("This boolean field only accepts strings or variables");
 	}
 };
 types.WFVariableFieldParameter = class extends types.WFParameter {
 	constructor(data) {
-		super(data);
+		super(data, "Variable Field");
+	}
+	genDocsArgName() {
+		return `[string|variable v:variableName]`;
+	}
+	genDocs() {
+		const docs = `${super.genDocs()}
+
+Accepts a string with the name of the named variable (v:) you want to set,
+or a named variable (v:) that you want to set.
+`;
+		return docs;
 	}
 	build(cc, parse) {
 		// -> string I assume
@@ -163,13 +266,12 @@ class WFAction {
 				return `This paramtype is not implemented. ${param.Class}`;
 			});
 		}
+		this.name = this._data.Name || "Undefined Action";
+		this.shortName = genShortName(this.name);
 	}
 	get actionOutputType() {
 		// TODO !!! used for the default output type in variables
 		return this._data.Output.Types[0];
-	}
-	get name() {
-		return this._data.Name || "undefinedaction";
 	}
 	get inputPassthrough() {
 		return this._data.InputPassthrough;
@@ -182,8 +284,17 @@ class WFAction {
 	}
 	genDocs() {
 		const docs = `
+## ${this.name} / ${this.shortName} (internally ${this.id})
+${this.isComplete ? "" : `
+> This action is not yet complete. Some arguments may be missing.
+`}
 ### usage
-\`${this.name} <arguments...>\`
+\`${this.shortName} ${this._parameters.map(param => `${param.shortName}=${typeof param === "string"}` ? "[???]" : param.genDocsArgName()).join``}\`
+
+### arguments
+${this._parameters.map(param => (typeof param === "string") ? `unknown parameter type ${param}` : param.genDocs()).join`
+---
+`}
 `;
 		return docs;
 	}
@@ -243,12 +354,17 @@ Object.keys(actionList).forEach(key => {
 	const action = new WFAction(value, key);
 	if(action.name === undefined) {console.log("UNDEFINED||", value, key);}
 
+	if(actionsByName[action.shortName]) {
+		console.warn(`WARNING, ${action.shortName} (${action.internalName}) is already defined`);
+		return;
+	}
+
 	actionsByID[key] = action;
-	actionsByName[action.name.toLowerCase().split` `.join``] = action;
+	actionsByName[action.shortName] = action;
 	// actions[action.name.toLowerCase().split` `.join``] = action;
 });
 
-
+/*
 console.log("All Actions:", Object.keys(actionsByID).length);
 console.log("Complete   :", Object.values(actionsByID).filter(action=>action.isComplete).length);
 console.log("Missing    :", Object.keys(_debugMissingTypes).length);
@@ -257,8 +373,16 @@ console.log("List:", Object.keys(_debugMissingTypes)
 	.sort((a, b) => a[1] - b[1])
 	.map(([a, b])=>`${a}: ${b}`)
 );
+*/
 
-module.exports = {actionsByID, actionsByName};
+module.exports = {actionsByID: id => {
+	if(!actionsByID[id]) {throw new Error(`There is no action with the id \`${id}\``);}
+	return actionsByID[id];
+}, actionsByName: name => {
+	name = name.toLowerCase();
+	if(!actionsByName[name]) {throw new Error(`There is no action with the short name \`${name}\``);}
+	return actionsByName[name];
+}, allActions: Object.values(actionsByID)};
 
 // let getValueForKeyAction = new WFAction(actionList[0]["is.workflow.actions.getvalueforkey"], "is.workflow.acitons.getvalueforkey");
 // console.log(

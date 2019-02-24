@@ -119,7 +119,7 @@ class ActionParse extends Parse {
 	}
 	asAction(cc) { // returns an Action for this ActionParse
 		const actionName = this.name.asString();
-		const wfAction = actionsByName[actionName.toLowerCase()];
+		const wfAction = actionsByName(actionName);
 		if(!wfAction) {
 			throw new Error(`The action named ${actionName.toLowerCase()} could not be found.`);
 		}

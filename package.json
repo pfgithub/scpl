@@ -15,5 +15,8 @@
 	"devDependencies": {
 		"mocha": "^5.2.0",
 		"nyc": "^13.1.0"
+	},
+	"scripts": {
+		"docs": "node ./src/GenDocs"
 	}
 }
