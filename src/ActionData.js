@@ -383,7 +383,6 @@ Object.keys(actionList).forEach(key => {
 	// console.log(key);
 	const value = actionList[key];
 	const action = new WFAction(value, key);
-	if(action.name === undefined) {console.log("UNDEFINED||", value, key);}
 
 	if(actionsByName[action.shortName]) {
 		console.warn(`WARNING, ${action.shortName} (${action.internalName}) is already defined`);
