@@ -1,5 +1,5 @@
 
-const {ActionParse, DictionaryParse, CharsParse, IdentifierParse, ListParse, BarlistParse, VariableParse, ActionsParse} = require("./ParserData.js");
+const {ActionParse, DictionaryParse, CharsParse, IdentifierParse, ListParse, BarlistParse, VariableParse, ActionsParse, VariableFlagParse} = require("./ParserData.js");
 
 const {p, regex, star, plus, optional, or, not, c, o} = require("./ParserHelper.js");
 
@@ -63,7 +63,7 @@ o.barlist = plus(o.barlistitem)
 	.scb(items => new BarlistParse(items));
 o.argflagarrow = or(c`->`, c`=>`).scb(_=>null);
 o.argflag = p(o.argflagarrow, _, o.variable)
-	.scb(([,, variable]) => ({type: "argflag", variable: variable}));
+	.scb(([,, variable]) => (new VariableFlagParse(variable)));
 o.argument = or(o.value, o.inputarg, o.barlist, o.argflag);
 o.action = or(
 	o.flaggedaction,
@@ -74,7 +74,8 @@ o.inputarg = p(c`^`, o.parenthesis).scb(([, paren]) => {paren.special = "InputAr
 o.flaggedaction = p(o.variable, _, c`=`, _, o.action)
 	.scb(([variable, , , , action]) => {
 		if(action.variable) {throw new Error("Actions cannot output to multiple variables");}
-		return Object.assign({}, action, {variable: variable});
+		action.variable = variable;
+		return action;
 	});
 o.onlyaction = p(o.identifier, _, o.args)
 	.scb(([actionIdentifier, _, args]) => {
@@ -82,14 +83,14 @@ o.onlyaction = p(o.identifier, _, o.args)
 		args = args.filter(
 			arg =>
 				arg &&
-					arg.type === "argflag"
+					arg instanceof VariableFlagParse
 					? flags.push(arg) && false
 					: true
 		);
 		if(flags.length > 1) {throw new Error("Actions cannot output to multiple variables");}
 		const res = {type: "action", action: actionIdentifier, args: args};
 		if(flags[0]) {Object.assign(res, {variable: flags[0].variable});}
-		const actionParse = new ActionParse(res.action, res.args);
+		const actionParse = new ActionParse(res.action, res.args, res.variable);
 		return actionParse;
 	});
 

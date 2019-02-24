@@ -1,6 +1,7 @@
 const {Shortcut, Action, Parameters, DictionaryItem, Text, MagicVariable, NamedVariable, Variable, Attachment, DictionaryFieldValue, Parameter, Aggrandizements, DictionaryKeyAggrandizement, CoercionAggrandizement, Aggrandizement, List} = require("./OutputData");
 const {actionsByName} = require("./ActionData");
 const {ConvertingContext} = require("./Converter.js");
+const {setVariable} = require("./HelpfulActions");
 
 class Parse {
 	constructor() {
@@ -88,11 +89,18 @@ class IdentifierParse extends Parse {
 class ParamListParse extends DictionaryParse {
 
 }
+class VariableFlagParse extends Parse {
+	constructor(variable) {
+		super();
+		this.variable = variable;
+	}
+}
 class ActionParse extends Parse {
-	constructor(name, args) {
+	constructor(name, args, variable) {
 		super();
 		this.name = name;
 		this.args = args;
+		this.variable = variable;
 	}
 	// Action[Argument,Argument...]
 	asText(cc) { // Gets a text containing this action as a variable
@@ -117,6 +125,16 @@ class ActionParse extends Parse {
 		}
 		const action = wfAction.build(cc, ...this.args);
 		// WFAction adds it to cc for us, no need to do it ourselves.
+		// now add any required set variable actions
+		if(this.variable) {
+			const {name, type} = this.variable.asNameType(); // TODO not this
+			if(type === "v") {
+				cc.add(setVariable(name));
+				cc.vardata[name] = cc.lastVariableAction;
+			}else if(type === "mv") {
+				cc.magicvardata[name] = {action: cc.lastVariableAction};
+			}
+		}
 		return action;
 	}
 }
@@ -133,8 +151,17 @@ class VariableParse extends Parse {
 		const name = this.name.asString();
 		const type = this.type.asString();
 
-		if(type !== "v") {throw new Error(`Only ${type} variables can be used in this field.`);}
+		if(type !== "v") {throw new Error(`Only named (v:) variables can be used in this field.`);}
 		return name;
+	}
+	asNameType() {
+		let variable;
+
+		const name = this.name.asString();
+		const type = this.type.asString();
+
+		if(type !== "v" && type !== "mv") {throw new Error(`Only v:and mv: variables can be used in an arrow.`);}
+		return {name, type};
 	}
 	asVariable(cc) { //Converts this v:variable to a variable
 		let variable;
@@ -163,12 +190,6 @@ class VariableParse extends Parse {
 		throw new Error("Variables cannot be used as actions yet. TODO");
 	}
 }
-class ArgflagParse extends Parse {
-	// VariableParse
-	constructor() {
-		super();
-	}
-}
 
 class ActionsParse {
 	constructor(actions) {
@@ -192,5 +213,6 @@ module.exports = {
 	BarlistParse,
 	ListParse,
 	VariableParse,
-	ActionsParse
+	ActionsParse,
+	VariableFlagParse
 };

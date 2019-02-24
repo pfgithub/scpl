@@ -1,4 +1,5 @@
 const {Text, Action} = require("./OutputData");
+const {getVariable} = require("./HelpfulActions");
 
 const actionList = require("./WFActions.json")[0];
 
@@ -133,7 +134,7 @@ types.WFVariableFieldParameter = class extends types.WFParameter {
 	}
 	build(cc, parse) {
 		// -> string I assume
-		const varname = parse.asStringVariable();
+		const varname = parse.asString ? parse.asString() : parse.asStringVariable();
 		cc.vardata[varname] = cc.lastVariableAction;
 		return varname;
 	}
@@ -220,9 +221,7 @@ class WFAction {
 			action.parameters.set(paramtype.internalName, paramtype.build(cc, param));
 		});
 		if(actionAbove && this.requiresInput && actionAbove.uuid !== cc.lastVariableAction.uuid) {
-			const getVariableAction = new Action("get variable", "is.workflow.actions.getvariable", {});
-			getVariableAction.parameters.set("WFVariable", actionAbove.variable);
-			cc.add(getVariableAction);
+			cc.add(getVariable(actionAbove.variable));
 		}
 		// TODO if(actionAbove) cc.add(getVariableAction(actionAbove))
 		cc.add(action);

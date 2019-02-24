@@ -27,3 +27,8 @@ chooseFromList (text "Make pick")
 
 chooseFromList ^(list ["item 1", "\(text "my text")"]) "\(text "list prompt")"
 text ^(text "hello world") "\(text "My favorite text is hello world")"
+
+text "Hello there" -> mv:mytext
+v:mytext2 = text "Hola"
+
+text "mv: \(mv:mytext) normal v: \(v:mytext2)"
