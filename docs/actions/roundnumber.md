@@ -3,7 +3,7 @@
 
 
 ### usage
-`roundnumber round=[string <${strInfo}>] mode=[string <${strInfo}>] noname=[string integer]`
+`roundnumber round=[string <${strInfo}>] mode=[string <${strInfo}>] wfrounddecimalplaces=[string integer]`
 
 ### arguments
 ### Enumeration: Round / round (internally WFRoundType)
@@ -31,7 +31,7 @@ containing one of the options:
 - `Always Round Up`
 - `Always Round Down`
 ---
-### Stepper Number: No Name / noname (internally WFRoundDecimalPlaces)
+### Stepper Number: wfrounddecimalplaces / wfrounddecimalplaces (internally WFRoundDecimalPlaces)
 **Allows Variables**: true
 
 

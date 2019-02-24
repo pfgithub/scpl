@@ -7,12 +7,12 @@
 > This action requires that Shortcuts has permission to use WFURLOpenResource.
 
 ### usage
-`openapp undefined=[???] noname=[string|text]`
+`openapp undefined=[???] wfappname=[string|text]`
 
 ### arguments
 This paramtype is not implemented. WFAppPickerParameter
 ---
-### Text Input: No Name / noname (internally WFAppName)
+### Text Input: wfappname / wfappname (internally WFAppName)
 **Allows Variables**: true
 
 

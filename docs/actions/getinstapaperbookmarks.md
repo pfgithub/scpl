@@ -7,12 +7,12 @@
 > This action requires that Shortcuts has permission to use WFInstapaperAccessResource.
 
 ### usage
-`getinstapaperbookmarks undefined=[???] noname=[string integer]`
+`getinstapaperbookmarks undefined=[???] wfbookmarkcount=[string integer]`
 
 ### arguments
 This paramtype is not implemented. WFDynamicEnumerationParameter
 ---
-### Stepper Number: No Name / noname (internally WFBookmarkCount)
+### Stepper Number: wfbookmarkcount / wfbookmarkcount (internally WFBookmarkCount)
 **Default Value**: 5
 **Allows Variables**: true
 

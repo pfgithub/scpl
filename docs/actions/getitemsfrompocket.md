@@ -5,10 +5,10 @@
 > This action requires that Shortcuts has permission to use WFPocketAccessResource.
 
 ### usage
-`getitemsfrompocket noname=[string integer] type=[string <${strInfo}>] search=[string|text] tag=[string|text]`
+`getitemsfrompocket wfpocketitemcount=[string integer] type=[string <${strInfo}>] search=[string|text] tag=[string|text]`
 
 ### arguments
-### Stepper Number: No Name / noname (internally WFPocketItemCount)
+### Stepper Number: wfpocketitemcount / wfpocketitemcount (internally WFPocketItemCount)
 **Allows Variables**: true
 
 

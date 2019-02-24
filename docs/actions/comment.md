@@ -3,10 +3,10 @@
 
 
 ### usage
-`comment noname=[string]`
+`comment wfcommentactiontext=[string]`
 
 ### arguments
-### Text Input: No Name / noname (internally WFCommentActionText)
+### Text Input: wfcommentactiontext / wfcommentactiontext (internally WFCommentActionText)
 **Placeholder**: Enter comment...
 
 

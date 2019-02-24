@@ -5,7 +5,7 @@
 
 
 ### usage
-`searchitunesstore search=[string|text] undefined=[???] undefined=[???] undefined=[???] undefined=[???] noname=[string integer]`
+`searchitunesstore search=[string|text] undefined=[???] undefined=[???] undefined=[???] undefined=[???] wfitemlimit=[string integer]`
 
 ### arguments
 ### Text Input: Search / search (internally WFSearchTerm)
@@ -25,7 +25,7 @@ This paramtype is not implemented. WFDynamicEnumerationParameter
 ---
 This paramtype is not implemented. WFiTunesStoreCountryPickerParameter
 ---
-### Stepper Number: No Name / noname (internally WFItemLimit)
+### Stepper Number: wfitemlimit / wfitemlimit (internally WFItemLimit)
 **Default Value**: 25
 **Allows Variables**: true
 

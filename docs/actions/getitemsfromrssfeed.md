@@ -3,7 +3,7 @@
 
 
 ### usage
-`getitemsfromrssfeed url=[string|text] noname=[string integer]`
+`getitemsfromrssfeed url=[string|text] wfrssitemquantity=[string integer]`
 
 ### arguments
 ### Text Input: URL / url (internally WFRSSFeedURL)
@@ -15,7 +15,7 @@ Accepts a string
 or text
 with the text.
 ---
-### Stepper Number: No Name / noname (internally WFRSSItemQuantity)
+### Stepper Number: wfrssitemquantity / wfrssitemquantity (internally WFRSSItemQuantity)
 **Default Value**: 10
 **Allows Variables**: true
 

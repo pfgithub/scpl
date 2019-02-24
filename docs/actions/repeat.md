@@ -3,10 +3,10 @@
 
 
 ### usage
-`repeat noname=[string integer]`
+`repeat wfrepeatcount=[string integer]`
 
 ### arguments
-### Stepper Number: No Name / noname (internally WFRepeatCount)
+### Stepper Number: wfrepeatcount / wfrepeatcount (internally WFRepeatCount)
 **Allows Variables**: true
 
 

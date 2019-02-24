@@ -7,7 +7,7 @@
 > This action requires that Shortcuts has permission to use WFEvernoteAccessResource.
 
 ### usage
-`getnotes titlesearch=[string|text] undefined=[???] undefined=[???] noname=[string integer]`
+`getnotes titlesearch=[string|text] undefined=[???] undefined=[???] wfevernotenotescount=[string integer]`
 
 ### arguments
 ### Text Input: Title Search / titlesearch (internally WFEvernoteNotesTitleSearch)
@@ -23,7 +23,7 @@ This paramtype is not implemented. WFEvernoteTagsTagFieldParameter
 ---
 This paramtype is not implemented. WFEvernoteNotebookPickerParameter
 ---
-### Stepper Number: No Name / noname (internally WFEvernoteNotesCount)
+### Stepper Number: wfevernotenotescount / wfevernotenotescount (internally WFEvernoteNotesCount)
 **Default Value**: 1
 **Allows Variables**: true
 

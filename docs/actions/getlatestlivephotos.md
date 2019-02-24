@@ -5,10 +5,10 @@
 > This action requires that Shortcuts has permission to use WFPhotoAccessResource.
 
 ### usage
-`getlatestlivephotos noname=[string integer]`
+`getlatestlivephotos wfgetlatestphotocount=[string integer]`
 
 ### arguments
-### Stepper Number: No Name / noname (internally WFGetLatestPhotoCount)
+### Stepper Number: wfgetlatestphotocount / wfgetlatestphotocount (internally WFGetLatestPhotoCount)
 **Default Value**: 1
 **Allows Variables**: true
 

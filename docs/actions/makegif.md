@@ -3,7 +3,7 @@
 
 
 ### usage
-`makegif secondsperphoto=[string number] loopforever=[string|variable] noname=[string integer] autosize=[string|variable] width=[string number] height=[string number]`
+`makegif secondsperphoto=[string number] loopforever=[string|variable] wfmakegifactionloopcount=[string integer] autosize=[string|variable] width=[string number] height=[string number]`
 
 ### arguments
 ### Number: Seconds Per Photo / secondsperphoto (internally WFMakeGIFActionDelayTime)
@@ -24,7 +24,7 @@ with a number.
 Accepts a string with either true or false
 or a variable.
 ---
-### Stepper Number: No Name / noname (internally WFMakeGIFActionLoopCount)
+### Stepper Number: wfmakegifactionloopcount / wfmakegifactionloopcount (internally WFMakeGIFActionLoopCount)
 **Allows Variables**: true
 
 

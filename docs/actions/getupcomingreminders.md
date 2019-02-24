@@ -7,12 +7,12 @@
 > This action requires that Shortcuts has permission to use WFReminderAccessResource.
 
 ### usage
-`getupcomingreminders undefined=[???] noname=[string integer]`
+`getupcomingreminders undefined=[???] wfgetupcomingitemcount=[string integer]`
 
 ### arguments
 This paramtype is not implemented. WFCalendarPickerParameter
 ---
-### Stepper Number: No Name / noname (internally WFGetUpcomingItemCount)
+### Stepper Number: wfgetupcomingitemcount / wfgetupcomingitemcount (internally WFGetUpcomingItemCount)
 **Default Value**: 1
 **Allows Variables**: true
 

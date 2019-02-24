@@ -3,10 +3,10 @@
 
 
 ### usage
-`text noname=[string|text]`
+`text wftextactiontext=[string|text]`
 
 ### arguments
-### Text Input: No Name / noname (internally WFTextActionText)
+### Text Input: wftextactiontext / wftextactiontext (internally WFTextActionText)
 **Placeholder**: Enter text...
 **Allows Variables**: true
 

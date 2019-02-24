@@ -3,10 +3,10 @@
 
 
 ### usage
-`makevideofromgif noname=[string integer]`
+`makevideofromgif wfmakevideofromgifactionloopcount=[string integer]`
 
 ### arguments
-### Stepper Number: No Name / noname (internally WFMakeVideoFromGIFActionLoopCount)
+### Stepper Number: wfmakevideofromgifactionloopcount / wfmakevideofromgifactionloopcount (internally WFMakeVideoFromGIFActionLoopCount)
 **Default Value**: 1
 **Allows Variables**: true
 

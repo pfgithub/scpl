@@ -5,10 +5,10 @@
 > This action requires that Shortcuts has permission to use WFMainThreadResource.
 
 ### usage
-`showresult noname=[string|text]`
+`showresult text=[string|text]`
 
 ### arguments
-### Text Input: No Name / noname (internally Text)
+### Text Input: text / text (internally Text)
 **Placeholder**: Enter text...
 **Allows Variables**: true
 

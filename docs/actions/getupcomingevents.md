@@ -7,12 +7,12 @@
 > This action requires that Shortcuts has permission to use WFCalendarAccessResource.
 
 ### usage
-`getupcomingevents undefined=[???] noname=[string integer] day=[string <${strInfo}>] undefined=[???]`
+`getupcomingevents undefined=[???] wfgetupcomingitemcount=[string integer] day=[string <${strInfo}>] undefined=[???]`
 
 ### arguments
 This paramtype is not implemented. WFCalendarPickerParameter
 ---
-### Stepper Number: No Name / noname (internally WFGetUpcomingItemCount)
+### Stepper Number: wfgetupcomingitemcount / wfgetupcomingitemcount (internally WFGetUpcomingItemCount)
 **Default Value**: 1
 **Allows Variables**: true
 

@@ -5,7 +5,7 @@
 > This action requires that Shortcuts has permission to use WFUserInteractionResource,WFCameraAccessResource.
 
 ### usage
-`takephoto showcamerapreview=[string|variable] noname=[string integer] camera=[string <${strInfo}>]`
+`takephoto showcamerapreview=[string|variable] wfphotocount=[string integer] camera=[string <${strInfo}>]`
 
 ### arguments
 ### Switch: Show Camera Preview / showcamerapreview (internally WFCameraCaptureShowPreview)
@@ -16,7 +16,7 @@
 Accepts a string with either true or false
 or a variable.
 ---
-### Stepper Number: No Name / noname (internally WFPhotoCount)
+### Stepper Number: wfphotocount / wfphotocount (internally WFPhotoCount)
 **Default Value**: 1
 **Allows Variables**: true
 

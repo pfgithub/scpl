@@ -7,15 +7,15 @@
 > This action requires that Shortcuts has permission to use WFUnavailableResource.
 
 ### usage
-`triggeriftttapplet undefined=[???] noname=[string integer|variable] ingredient1=[string|text] ingredient2=[string|text] ingredient3=[string|text] ingredient4=[string|text] ingredient5=[string|text] ingredient6=[string|text] ingredient7=[string|text] ingredient8=[string|text] ingredient9=[string|text] ingredient10=[string|text] undefined=[???]`
+`triggeriftttapplet undefined=[???] wfiftttextraingredients=[string integer|variable] ingredient1=[string|text] ingredient2=[string|text] ingredient3=[string|text] ingredient4=[string|text] ingredient5=[string|text] ingredient6=[string|text] ingredient7=[string|text] ingredient8=[string|text] ingredient9=[string|text] ingredient10=[string|text] undefined=[???]`
 
 ### arguments
 This paramtype is not implemented. WFIFTTTTriggerNameParameter
 ---
-### Stepper Number: No Name / noname (internally WFIFTTTExtraIngredients)
+### Stepper Number: wfiftttextraingredients / wfiftttextraingredients (internally WFIFTTTExtraIngredients)
 
 
-Accepts a string
+Accepts a string 
 containing an integer value.
 ---
 ### Text Input: Ingredient 1 / ingredient1 (internally WFIFTTTExtraIngredient1)
@@ -23,7 +23,7 @@ containing an integer value.
 **Allows Variables**: true
 
 
-Accepts a string
+Accepts a string 
 or text
 with the text.
 ---
@@ -32,7 +32,7 @@ with the text.
 **Allows Variables**: true
 
 
-Accepts a string
+Accepts a string 
 or text
 with the text.
 ---
@@ -41,7 +41,7 @@ with the text.
 **Allows Variables**: true
 
 
-Accepts a string
+Accepts a string 
 or text
 with the text.
 ---
@@ -50,7 +50,7 @@ with the text.
 **Allows Variables**: true
 
 
-Accepts a string
+Accepts a string 
 or text
 with the text.
 ---
@@ -59,7 +59,7 @@ with the text.
 **Allows Variables**: true
 
 
-Accepts a string
+Accepts a string 
 or text
 with the text.
 ---
@@ -68,7 +68,7 @@ with the text.
 **Allows Variables**: true
 
 
-Accepts a string
+Accepts a string 
 or text
 with the text.
 ---
@@ -77,7 +77,7 @@ with the text.
 **Allows Variables**: true
 
 
-Accepts a string
+Accepts a string 
 or text
 with the text.
 ---
@@ -86,7 +86,7 @@ with the text.
 **Allows Variables**: true
 
 
-Accepts a string
+Accepts a string 
 or text
 with the text.
 ---
@@ -95,7 +95,7 @@ with the text.
 **Allows Variables**: true
 
 
-Accepts a string
+Accepts a string 
 or text
 with the text.
 ---
@@ -104,7 +104,7 @@ with the text.
 **Allows Variables**: true
 
 
-Accepts a string
+Accepts a string 
 or text
 with the text.
 ---

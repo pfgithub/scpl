@@ -7,7 +7,7 @@
 > This action requires that Shortcuts has permission to use WFTrelloAccessResource.
 
 ### usage
-`addtrellocard name=[string|text] undefined=[???] undefined=[???] undefined=[???] position=[string <${strInfo}>] attachments=[variable] noname=[string|text]`
+`addtrellocard name=[string|text] undefined=[???] undefined=[???] undefined=[???] position=[string <${strInfo}>] attachments=[variable] wftrellodescription=[string|text]`
 
 ### arguments
 ### Text Input: Name / name (internally WFTrelloName)
@@ -43,7 +43,7 @@ containing one of the options:
 
 Accepts a variable.
 ---
-### Text Input: No Name / noname (internally WFTrelloDescription)
+### Text Input: wftrellodescription / wftrellodescription (internally WFTrelloDescription)
 **Placeholder**: Description
 **Allows Variables**: true
 

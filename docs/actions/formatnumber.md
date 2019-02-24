@@ -3,10 +3,10 @@
 
 
 ### usage
-`formatnumber noname=[string integer]`
+`formatnumber wfnumberformatdecimalplaces=[string integer]`
 
 ### arguments
-### Stepper Number: No Name / noname (internally WFNumberFormatDecimalPlaces)
+### Stepper Number: wfnumberformatdecimalplaces / wfnumberformatdecimalplaces (internally WFNumberFormatDecimalPlaces)
 **Default Value**: 2
 **Allows Variables**: true
 

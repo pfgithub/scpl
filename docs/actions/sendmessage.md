@@ -7,7 +7,7 @@
 > This action requires that Shortcuts has permission to use WFContactAccessResource,WFUserInteractionResource.
 
 ### usage
-`sendmessage undefined=[???] showwhenrun=[string|variable] undefined=[???] noname=[string|text] prefix=[string|text]`
+`sendmessage undefined=[???] showwhenrun=[string|variable] undefined=[???] wfsendmessagecontent=[string|text] prefix=[string|text]`
 
 ### arguments
 This paramtype is not implemented. WFIntentAppPickerParameter
@@ -22,7 +22,7 @@ or a variable.
 ---
 This paramtype is not implemented. WFContactHandleFieldParameter
 ---
-### Text Input: No Name / noname (internally WFSendMessageContent)
+### Text Input: wfsendmessagecontent / wfsendmessagecontent (internally WFSendMessageContent)
 **Placeholder**: Message
 **Allows Variables**: true
 

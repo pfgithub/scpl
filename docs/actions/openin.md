@@ -7,7 +7,7 @@
 > This action requires that Shortcuts has permission to use WFUserInteractionResource.
 
 ### usage
-`openin showopeninmenu=[string|variable] undefined=[???] noname=[string|text]`
+`openin showopeninmenu=[string|variable] undefined=[???] wfappname=[string|text]`
 
 ### arguments
 ### Switch: Show Open In Menu / showopeninmenu (internally WFOpenInAskWhenRun)
@@ -20,7 +20,7 @@ or a variable.
 ---
 This paramtype is not implemented. WFAppPickerParameter
 ---
-### Text Input: No Name / noname (internally WFAppName)
+### Text Input: wfappname / wfappname (internally WFAppName)
 **Allows Variables**: true
 
 

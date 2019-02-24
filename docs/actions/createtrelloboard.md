@@ -5,7 +5,7 @@
 > This action requires that Shortcuts has permission to use WFTrelloAccessResource.
 
 ### usage
-`createtrelloboard name=[string|text] noname=[string|text]`
+`createtrelloboard name=[string|text] wftrellodescription=[string|text]`
 
 ### arguments
 ### Text Input: Name / name (internally WFTrelloName)
@@ -17,7 +17,7 @@ Accepts a string
 or text
 with the text.
 ---
-### Text Input: No Name / noname (internally WFTrelloDescription)
+### Text Input: wftrellodescription / wftrellodescription (internally WFTrelloDescription)
 **Placeholder**: Description
 **Allows Variables**: true
 

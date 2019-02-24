@@ -5,9 +5,9 @@ const actionList = require("./WFActions.json")[0];
 
 const types = {};
 
-function genShortName(longName) {
+function genShortName(longName, internalName) {
 	// lower case
-	let shortName = longName.toLowerCase();
+	let shortName = (longName || internalName || "nameless").toLowerCase();
 	// remove special characters
 	shortName = shortName.replace(/[^A-Za-z0-9]/g, "");
 	return shortName;
@@ -19,9 +19,10 @@ types.WFParameter = class {
 		this.defaultValue = this._data.DefaultValue;
 		this.requiredResources = this._data.RequiredResources;
 		this.allowsVariables = (this._data.DisallowedVariableTypes || []).join`` !== "AskVariable";
-		this.name = this._data.Label || "No Name";
+		this.name = this._data.Label;
 		this.internalName = this._data.Key;
-		this.shortName = genShortName(this.name);
+		this.shortName = genShortName(this.name, this.internalName);
+		this.name = this.name || this.shortName;
 		this.typeName = typeName;
 	}
 	genDocs() {
@@ -266,8 +267,10 @@ class WFAction {
 				return `This paramtype is not implemented. ${param.Class}`;
 			});
 		}
-		this.name = this._data.Name || "Undefined Action";
-		this.shortName = genShortName(this.name);
+		this.internalName = this.id;
+		this.name = this._data.Name;
+		this.shortName = genShortName(this.name, this.internalName);
+		this.name = this.name || this.shortName;
 	}
 	get actionOutputType() {
 		// TODO !!! used for the default output type in variables
@@ -284,7 +287,7 @@ class WFAction {
 	}
 	genDocs() {
 		const docs = `
-## ${this.name} / ${this.shortName} (internally ${this.id})
+## ${this.name} / ${this.shortName} (internally ${this.internalName})
 ${this.isComplete ? "" : `
 > This action is not yet complete. Some arguments may be missing.
 `}

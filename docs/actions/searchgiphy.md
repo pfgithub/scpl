@@ -5,7 +5,7 @@
 > This action requires that Shortcuts has permission to use [object Object].
 
 ### usage
-`searchgiphy search=[string|text] showgifpicker=[string|variable] noname=[string integer] selectmultiple=[string|variable]`
+`searchgiphy search=[string|text] showgifpicker=[string|variable] wfgiphylimit=[string integer] selectmultiple=[string|variable]`
 
 ### arguments
 ### Text Input: Search / search (internally WFGiphyQuery)
@@ -25,7 +25,7 @@ with the text.
 Accepts a string with either true or false
 or a variable.
 ---
-### Stepper Number: No Name / noname (internally WFGiphyLimit)
+### Stepper Number: wfgiphylimit / wfgiphylimit (internally WFGiphyLimit)
 **Default Value**: 1
 **Allows Variables**: true
 

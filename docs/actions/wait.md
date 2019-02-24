@@ -5,10 +5,10 @@
 > This action requires that Shortcuts has permission to use WFMainThreadResource.
 
 ### usage
-`wait noname=[string integer]`
+`wait wfdelaytime=[string integer]`
 
 ### arguments
-### Stepper Number: No Name / noname (internally WFDelayTime)
+### Stepper Number: wfdelaytime / wfdelaytime (internally WFDelayTime)
 **Default Value**: 1
 **Allows Variables**: true
 
