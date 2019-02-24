@@ -17,3 +17,40 @@ Starts a timer in the Clock app for the specified amount of time.
 
 ### arguments
 This paramtype is not implemented. WFDurationQuantityFieldParameter
+
+### for developers
+
+<details><summary>source json</summary>
+<p>
+```json
+{
+	"ActionClass": "WFStartTimerAction",
+	"ActionKeywords": [
+		"timer",
+		"set",
+		"clock",
+		"stopwatch",
+		"watch"
+	],
+	"AppIdentifier": "com.apple.mobiletimer",
+	"Category": "Calendar",
+	"Description": {
+		"DescriptionSummary": "Starts a timer in the Clock app for the specified amount of time."
+	},
+	"InputPassthrough": true,
+	"Name": "Start Timer",
+	"Parameters": [
+		{
+			"Class": "WFDurationQuantityFieldParameter",
+			"Key": "WFDuration",
+			"Label": "Duration",
+			"Placeholder": "30",
+			"TextAlignment": "Right"
+		}
+	],
+	"RequiredResources": [
+		"WFSiriAccessResource"
+	]
+}
+```
+</p></details>

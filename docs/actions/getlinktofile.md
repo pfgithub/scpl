@@ -13,3 +13,39 @@ Gets a public link to the file passed into the action.
 
 ### arguments
 
+
+### for developers
+
+<details><summary>source json</summary>
+<p>
+```json
+{
+	"ActionClass": "WFGetFileLinkAction",
+	"ActionKeywords": [
+		"url",
+		"share"
+	],
+	"Category": "Documents",
+	"CreationDate": "2017-03-13T05:00:00.000Z",
+	"Description": {
+		"DescriptionSummary": "Gets a public link to the file passed into the action."
+	},
+	"IconName": "Documents.png",
+	"Input": {
+		"Multiple": true,
+		"Required": true,
+		"Types": []
+	},
+	"Name": "Get Link to File",
+	"Output": {
+		"Multiple": true,
+		"Types": [
+			"NSURL"
+		]
+	},
+	"OutputName": "Link to File",
+	"ShortName": "Get Link",
+	"Subcategory": "File Storage"
+}
+```
+</p></details>

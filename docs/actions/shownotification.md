@@ -47,3 +47,78 @@ with the text.
 
 Accepts a string with either true or false
 or a variable.
+
+### for developers
+
+<details><summary>source json</summary>
+<p>
+```json
+{
+	"ActionClass": "WFNotificationAction",
+	"ActionKeywords": [
+		"local",
+		"notification",
+		"show",
+		"alert",
+		"reminder",
+		"push"
+	],
+	"Category": "Scripting",
+	"Description": {
+		"DescriptionInput": "An image or video to include in the notification",
+		"DescriptionSummary": "Displays a local notification."
+	},
+	"IconName": "Notification.png",
+	"Input": {
+		"Multiple": true,
+		"Required": false,
+		"Types": [
+			"UIImage",
+			"AVAsset"
+		]
+	},
+	"InputPassthrough": true,
+	"LastModifiedDate": "2016-09-10T07:00:00.000Z",
+	"Name": "Show Notification",
+	"Parameters": [
+		{
+			"Class": "WFTextInputParameter",
+			"DisallowedVariableTypes": [
+				"Ask"
+			],
+			"Key": "WFNotificationActionTitle",
+			"Label": "Title",
+			"Placeholder": "optional"
+		},
+		{
+			"Class": "WFTextInputParameter",
+			"DefaultValue": "Hello World",
+			"DisallowedVariableTypes": [
+				"Ask"
+			],
+			"Key": "WFNotificationActionBody",
+			"Label": "Body",
+			"Multiline": true,
+			"Placeholder": "Charming notification message"
+		},
+		{
+			"Class": "WFSwitchParameter",
+			"DefaultValue": true,
+			"Key": "WFNotificationActionSound",
+			"Label": "Play Sound"
+		}
+	],
+	"RequiredResources": [
+		"WFUserInteractionResource",
+		"WFMainThreadResource",
+		"WFLocalNotificationAccessResource"
+	],
+	"Subcategory": "Notification",
+	"UserInterfaces": [
+		"UIKit",
+		"UIKitWidget",
+		"WatchKit"
+	]
+}
+```
+</p></details>

@@ -15,3 +15,49 @@ Passes the specified list of key-value pairs to the next action as a dictionary.
 
 ### arguments
 This paramtype is not implemented. WFDictionaryParameter
+
+### for developers
+
+<details><summary>source json</summary>
+<p>
+```json
+{
+	"ActionClass": "WFDictionaryAction",
+	"ActionKeywords": [
+		"json",
+		"plist"
+	],
+	"Category": "Scripting",
+	"CreationDate": "2016-11-10T20:00:00.000Z",
+	"Description": {
+		"DescriptionNote": "When coerced to text, the dictionary is represented as JSON.",
+		"DescriptionSummary": "Passes the specified list of key-value pairs to the next action as a dictionary."
+	},
+	"IconName": "Scripting.png",
+	"Name": "Dictionary",
+	"Output": {
+		"Multiple": false,
+		"OutputName": "Dictionary",
+		"Types": [
+			"NSDictionary"
+		]
+	},
+	"Parameters": [
+		{
+			"AllowedValueTypes": [
+				0,
+				1,
+				2,
+				3,
+				4
+			],
+			"Class": "WFDictionaryParameter",
+			"Key": "WFItems",
+			"Label": "Items"
+		}
+	],
+	"Subcategory": "Dictionaries",
+	"SuggestedNever": true
+}
+```
+</p></details>

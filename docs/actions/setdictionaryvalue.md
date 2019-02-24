@@ -31,3 +31,69 @@ with the text.
 Accepts a string 
 or text
 with the text.
+
+### for developers
+
+<details><summary>source json</summary>
+<p>
+```json
+{
+	"ActionClass": "WFSetDictionaryValueAction",
+	"ActionKeywords": [
+		"json",
+		"plist",
+		"xml",
+		"urlencoded",
+		"query",
+		"string",
+		"for",
+		"key",
+		"update",
+		"merge"
+	],
+	"Category": "Scripting",
+	"CreationDate": "2016-10-04T05:00:00.000Z",
+	"Description": {
+		"DescriptionSummary": "Sets a value in the dictionary passed into the action. "
+	},
+	"IconName": "Scripting.png",
+	"Input": {
+		"Multiple": false,
+		"Required": true,
+		"Types": [
+			"WFDictionaryContentItem"
+		]
+	},
+	"InputPassthrough": false,
+	"Name": "Set Dictionary Value",
+	"Output": {
+		"Multiple": false,
+		"OutputName": "Dictionary",
+		"Types": [
+			"WFDictionaryContentItem"
+		]
+	},
+	"Parameters": [
+		{
+			"AutocapitalizationType": "None",
+			"Class": "WFTextInputParameter",
+			"DisableAutocorrection": true,
+			"Key": "WFDictionaryKey",
+			"Label": "Key",
+			"Placeholder": "name",
+			"TextAlignment": "Right"
+		},
+		{
+			"AutocapitalizationType": "None",
+			"Class": "WFTextInputParameter",
+			"DisableAutocorrection": true,
+			"Key": "WFDictionaryValue",
+			"Label": "Value",
+			"Placeholder": "example",
+			"TextAlignment": "Right"
+		}
+	],
+	"Subcategory": "Dictionaries"
+}
+```
+</p></details>

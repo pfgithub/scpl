@@ -37,3 +37,71 @@ This paramtype is not implemented. WFAppPickerParameter
 Accepts a string 
 or text
 with the text.
+
+### for developers
+
+<details><summary>source json</summary>
+<p>
+```json
+{
+	"ActionClass": "WFOpenInAction",
+	"ActionKeywords": [
+		"open",
+		"file",
+		"document",
+		"in",
+		"app",
+		"application",
+		"uidocumentinteractioncontroller"
+	],
+	"Category": "Documents",
+	"Description": {
+		"DescriptionSummary": "Opens the input as a file in the specified app."
+	},
+	"IconName": "Apps.png",
+	"Input": {
+		"Multiple": false,
+		"Required": true,
+		"Types": [
+			"public.data"
+		]
+	},
+	"InputPassthrough": true,
+	"Name": "Open In...",
+	"Parameters": [
+		{
+			"Class": "WFSwitchParameter",
+			"DefaultValue": true,
+			"Key": "WFOpenInAskWhenRun",
+			"Label": "Show Open In Menu"
+		},
+		{
+			"AppSearchType": "OpenIn",
+			"Class": "WFAppPickerParameter",
+			"Key": "WFOpenInAppIdentifier",
+			"Label": "App",
+			"RequiredResources": [
+				{
+					"WFParameterKey": "WFOpenInAskWhenRun",
+					"WFParameterValue": false,
+					"WFResourceClass": "WFParameterRelationResource"
+				}
+			]
+		},
+		{
+			"Class": "WFTextInputParameter",
+			"Hidden": true,
+			"Key": "WFAppName"
+		}
+	],
+	"RequiredResources": [
+		"WFUserInteractionResource"
+	],
+	"Subcategory": "Files",
+	"UserInterfaces": [
+		"UIKit",
+		"UIKitWidget"
+	]
+}
+```
+</p></details>

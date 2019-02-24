@@ -22,3 +22,43 @@ Waits for the specified number of seconds before continuing with the next action
 Accepts a string 
 or variable
 containing an integer value.
+
+### for developers
+
+<details><summary>source json</summary>
+<p>
+```json
+{
+	"ActionClass": "WFDelayAction",
+	"ActionKeywords": [
+		"time",
+		"delay",
+		"script",
+		"wait",
+		"second"
+	],
+	"Category": "Scripting",
+	"Description": {
+		"DescriptionSummary": "Waits for the specified number of seconds before continuing with the next action."
+	},
+	"IconName": "Scripting.png",
+	"InputPassthrough": true,
+	"Name": "Wait",
+	"Parameters": [
+		{
+			"Class": "WFStepperParameter",
+			"DefaultValue": 1,
+			"Key": "WFDelayTime",
+			"Placeholder": 0,
+			"StepperDescription": "Number of Seconds",
+			"StepperNoun": "Second",
+			"StepperPluralNoun": "Seconds"
+		}
+	],
+	"RequiredResources": [
+		"WFMainThreadResource"
+	],
+	"Subcategory": "Control Flow"
+}
+```
+</p></details>

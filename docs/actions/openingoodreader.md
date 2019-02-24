@@ -15,3 +15,41 @@ Opens a file in GoodReader.
 
 ### arguments
 
+
+### for developers
+
+<details><summary>source json</summary>
+<p>
+```json
+{
+	"ActionClass": "WFSendToGoodReaderAction",
+	"ActionKeywords": [
+		"save",
+		"file",
+		"document"
+	],
+	"AppIdentifier": "com.goodiware.goodreader4",
+	"Category": "Documents",
+	"CreationDate": "2015-02-03T08:00:00.000Z",
+	"Description": {
+		"DescriptionSummary": "Opens a file in GoodReader."
+	},
+	"Input": {
+		"Multiple": false,
+		"Required": true,
+		"Types": [
+			"public.data"
+		]
+	},
+	"InputPassthrough": true,
+	"Name": "Open in GoodReader",
+	"RequiredResources": [
+		"WFURLOpenResource",
+		{
+			"AppIdentifier": "com.goodiware.goodreader4",
+			"WFResourceClass": "WFAppInstalledResource"
+		}
+	]
+}
+```
+</p></details>

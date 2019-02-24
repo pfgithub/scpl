@@ -45,3 +45,65 @@ with the text.
 
 Accepts a string with either true or false
 or a variable.
+
+### for developers
+
+<details><summary>source json</summary>
+<p>
+```json
+{
+	"ActionClass": "WFAlertAction",
+	"ActionKeywords": [
+		"message",
+		"ask",
+		"display",
+		"prompt",
+		"show",
+		"confirmation"
+	],
+	"Category": "Scripting",
+	"Description": {
+		"DescriptionSummary": "Displays an alert with a title, a message, and two buttons. If the user selects the OK button, the shortcut continues. The cancel button stops the shortcut."
+	},
+	"IconName": "Scripting.png",
+	"InputPassthrough": true,
+	"Name": "Show Alert",
+	"Parameters": [
+		{
+			"Class": "WFTextInputParameter",
+			"DefaultValue": "Alert",
+			"DisallowedVariableTypes": [
+				"Ask"
+			],
+			"Key": "WFAlertActionTitle",
+			"Label": "Title",
+			"Placeholder": "Attention-grabbing title"
+		},
+		{
+			"Class": "WFTextInputParameter",
+			"DefaultValue": "Do you want to continue?",
+			"DisallowedVariableTypes": [
+				"Ask"
+			],
+			"Key": "WFAlertActionMessage",
+			"Label": "Message",
+			"Multiline": true,
+			"Placeholder": "Informational message"
+		},
+		{
+			"Class": "WFSwitchParameter",
+			"DefaultValue": true,
+			"DisallowedVariableTypes": [
+				"Ask"
+			],
+			"Key": "WFAlertActionCancelButtonShown",
+			"Label": "Show Cancel Button"
+		}
+	],
+	"RequiredResources": [
+		"WFUserInteractionResource"
+	],
+	"Subcategory": "Notification"
+}
+```
+</p></details>

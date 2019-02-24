@@ -41,3 +41,63 @@ containing one of the options:
 - `None`
 - `One`
 - `All`
+
+### for developers
+
+<details><summary>source json</summary>
+<p>
+```json
+{
+	"ActionClass": "WFPlayMusicAction",
+	"ActionKeywords": [
+		"play",
+		"song",
+		"ipod",
+		"track",
+		"music",
+		"itunes",
+		"library"
+	],
+	"AppIdentifier": "com.apple.Music",
+	"Category": "Music",
+	"Description": {
+		"DescriptionInput": "The music to be played",
+		"DescriptionSummary": "Plays music using the Music app."
+	},
+	"Input": {
+		"Multiple": true,
+		"Types": [
+			"MPMediaItem"
+		]
+	},
+	"InputPassthrough": true,
+	"Name": "Play Music",
+	"Parameters": [
+		{
+			"Class": "WFEnumerationParameter",
+			"Items": [
+				"Off",
+				"Songs"
+			],
+			"Key": "WFPlayMusicActionShuffle",
+			"Label": "Shuffle"
+		},
+		{
+			"Class": "WFEnumerationParameter",
+			"Items": [
+				"None",
+				"One",
+				"All"
+			],
+			"Key": "WFPlayMusicActionRepeat",
+			"Label": "Repeat"
+		}
+	],
+	"RequiredResources": [
+		"WFAppleMusicAccessResource",
+		"WFMainThreadResource"
+	],
+	"Subcategory": "Playback"
+}
+```
+</p></details>

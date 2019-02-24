@@ -25,3 +25,45 @@ containing one of the options:
 
 - `Beginning`
 - `Previous Song`
+
+### for developers
+
+<details><summary>source json</summary>
+<p>
+```json
+{
+	"ActionClass": "WFSkipSongAction",
+	"ActionKeywords": [
+		"ipod",
+		"track",
+		"music",
+		"itunes",
+		"previous"
+	],
+	"Category": "Music",
+	"Description": {
+		"DescriptionSummary": "Skips to the previous song in the current music queue."
+	},
+	"IconName": "Rewind.png",
+	"InputPassthrough": true,
+	"Name": "Skip Back",
+	"Parameters": [
+		{
+			"Class": "WFEnumerationParameter",
+			"DefaultValue": "Beginning",
+			"Items": [
+				"Beginning",
+				"Previous Song"
+			],
+			"Key": "WFSkipBackBehavior",
+			"Label": "Skip To"
+		}
+	],
+	"RequiredResources": [
+		"WFMainThreadResource"
+	],
+	"Subcategory": "Playback",
+	"WFSkipSongActionMode": "Back"
+}
+```
+</p></details>

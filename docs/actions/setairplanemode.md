@@ -21,3 +21,44 @@ Sets the device’s Airplane Mode to on or off.
 
 Accepts a string with either true or false
 or a variable.
+
+### for developers
+
+<details><summary>source json</summary>
+<p>
+```json
+{
+	"ACECommandClass": "SASettingSetAirplaneMode",
+	"ACESettingValueKey": "OnValue",
+	"ActionClass": "WFACESetSettingAction",
+	"ActionKeywords": [
+		"airport",
+		"wi-fi",
+		"bluetooth",
+		"cellular"
+	],
+	"Category": "Scripting",
+	"Description": {
+		"DescriptionSummary": "Sets the device’s Airplane Mode to on or off."
+	},
+	"IconName": "AirplaneMode.png",
+	"InputPassthrough": true,
+	"Name": "Set Airplane Mode",
+	"Parameters": [
+		{
+			"Class": "WFSwitchParameter",
+			"DefaultValue": true,
+			"Key": "OnValue",
+			"Label": "Airplane Mode"
+		}
+	],
+	"RequiredResources": [
+		"WFSiriAccessResource"
+	],
+	"Subcategory": "Device",
+	"UnsupportedEnvironments": [
+		"WatchOS"
+	]
+}
+```
+</p></details>

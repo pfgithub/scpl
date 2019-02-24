@@ -17,3 +17,43 @@ Passes the specified email addresses to the next action.
 
 ### arguments
 This paramtype is not implemented. WFEmailAddressFieldParameter
+
+### for developers
+
+<details><summary>source json</summary>
+<p>
+```json
+{
+	"ActionClass": "WFEmailAddressAction",
+	"ActionKeywords": [
+		"emails",
+		"e-mails",
+		"address"
+	],
+	"AppIdentifier": "com.apple.mobilemail",
+	"Category": "Contacts",
+	"Description": {
+		"DescriptionSummary": "Passes the specified email addresses to the next action."
+	},
+	"Name": "Email Address",
+	"Output": {
+		"Multiple": true,
+		"OutputName": "Email Address",
+		"Types": [
+			"WFEmailAddress"
+		]
+	},
+	"Parameters": [
+		{
+			"Class": "WFEmailAddressFieldParameter",
+			"Key": "WFEmailAddress",
+			"Placeholder": "Type in an email address"
+		}
+	],
+	"RequiredResources": [
+		"WFContactAccessResource"
+	],
+	"Subcategory": "Email"
+}
+```
+</p></details>

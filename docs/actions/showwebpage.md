@@ -20,3 +20,56 @@ Shows the web URL passed into the action in a Safari View Controller, allowing y
 
 Accepts a string with either true or false
 or a variable.
+
+### for developers
+
+<details><summary>source json</summary>
+<p>
+```json
+{
+	"ActionClass": "WFShowWebPageAction",
+	"ActionKeywords": [
+		"safari",
+		"view",
+		"controller",
+		"open",
+		"website",
+		"preview",
+		"quick",
+		"look"
+	],
+	"AppIdentifier": "com.apple.mobilesafari",
+	"Category": "Web",
+	"CreationDate": "2016-05-17T22:30:00.000Z",
+	"Description": {
+		"DescriptionSummary": "Shows the web URL passed into the action in a Safari View Controller, allowing you to view the web page without switching apps."
+	},
+	"Input": {
+		"Multiple": false,
+		"Required": true,
+		"Types": [
+			"WFURLContentItem",
+			"WFRichTextContentItem"
+		]
+	},
+	"InputPassthrough": true,
+	"Name": "Show Web Page",
+	"Parameters": [
+		{
+			"Class": "WFSwitchParameter",
+			"DefaultValue": false,
+			"Description": "Enter Safari Reader mode if it’s available for the given web page.",
+			"Key": "WFEnterSafariReader",
+			"Label": "Enter Safari Reader"
+		}
+	],
+	"RequiredResources": [
+		"WFUserInteractionResource"
+	],
+	"Subcategory": "Web",
+	"UserInterfaces": [
+		"UIKit"
+	]
+}
+```
+</p></details>

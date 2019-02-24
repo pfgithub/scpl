@@ -20,3 +20,44 @@ Passes the specified text to the next action.
 Accepts a string 
 or text
 with the text.
+
+### for developers
+
+<details><summary>source json</summary>
+<p>
+```json
+{
+	"ActionClass": "WFTextAction",
+	"ActionKeywords": [
+		"text",
+		"such text",
+		"very speech",
+		"much words",
+		"so wow",
+		"string"
+	],
+	"Category": "Text",
+	"Description": {
+		"DescriptionSummary": "Passes the specified text to the next action."
+	},
+	"IconName": "Text.png",
+	"Name": "Text",
+	"Output": {
+		"Multiple": false,
+		"OutputName": "Text",
+		"Types": [
+			"NSString"
+		]
+	},
+	"Parameters": [
+		{
+			"Class": "WFTextInputParameter",
+			"DefaultValue": "",
+			"Key": "WFTextActionText",
+			"Multiline": true,
+			"Placeholder": "Enter text..."
+		}
+	]
+}
+```
+</p></details>

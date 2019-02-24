@@ -15,3 +15,33 @@ Pauses the currently playing music.
 
 ### arguments
 
+
+### for developers
+
+<details><summary>source json</summary>
+<p>
+```json
+{
+	"ActionClass": "WFPauseMusicAction",
+	"ActionKeywords": [
+		"pause",
+		"song",
+		"ipod",
+		"track",
+		"music",
+		"itunes"
+	],
+	"Category": "Music",
+	"Description": {
+		"DescriptionSummary": "Pauses the currently playing music."
+	},
+	"IconName": "Pause.png",
+	"InputPassthrough": true,
+	"Name": "Pause Music",
+	"RequiredResources": [
+		"WFMainThreadResource"
+	],
+	"Subcategory": "Playback"
+}
+```
+</p></details>

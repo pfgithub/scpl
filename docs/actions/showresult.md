@@ -22,3 +22,41 @@ Shows the specified text in Siri or in an alert.
 Accepts a string 
 or text
 with the text.
+
+### for developers
+
+<details><summary>source json</summary>
+<p>
+```json
+{
+	"ActionClass": "WFShowResultAction",
+	"ActionKeywords": [
+		"text",
+		"such text",
+		"very speech",
+		"much words",
+		"so wow",
+		"string"
+	],
+	"Category": "Scripting",
+	"Description": {
+		"DescriptionSummary": "Shows the specified text in Siri or in an alert."
+	},
+	"IconName": "Scripting",
+	"InputPassthrough": true,
+	"Name": "Show Result",
+	"Parameters": [
+		{
+			"Class": "WFTextInputParameter",
+			"DefaultValue": "",
+			"Key": "Text",
+			"Multiline": true,
+			"Placeholder": "Enter text..."
+		}
+	],
+	"RequiredResources": [
+		"WFMainThreadResource"
+	]
+}
+```
+</p></details>

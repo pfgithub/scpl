@@ -15,3 +15,37 @@ Deletes the photos passed as input from the device's photo library. This action 
 
 ### arguments
 
+
+### for developers
+
+<details><summary>source json</summary>
+<p>
+```json
+{
+	"ActionClass": "WFDeletePhotosAction",
+	"ActionKeywords": [
+		"remove",
+		"trash",
+		"picture"
+	],
+	"AppIdentifier": "com.apple.mobileslideshow",
+	"Category": "Photos & Video",
+	"Description": {
+		"DescriptionSummary": "Deletes the photos passed as input from the device's photo library. This action asks for confirmation before performing the deletion."
+	},
+	"Input": {
+		"Multiple": true,
+		"Required": true,
+		"Types": [
+			"PHAsset"
+		]
+	},
+	"InputPassthrough": false,
+	"Name": "Delete Photos",
+	"RequiredResources": [
+		"WFPhotoAccessResource"
+	],
+	"Subcategory": "Photos"
+}
+```
+</p></details>

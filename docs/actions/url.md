@@ -20,3 +20,47 @@ Passes the specified URL to the next action.
 Accepts a string 
 or text
 with the text.
+
+### for developers
+
+<details><summary>source json</summary>
+<p>
+```json
+{
+	"ActionClass": "WFURLAction",
+	"ActionKeywords": [
+		"text",
+		"such text",
+		"very speech",
+		"much words",
+		"so wow"
+	],
+	"Category": "Web",
+	"Description": {
+		"DescriptionSummary": "Passes the specified URL to the next action."
+	},
+	"IconName": "URL.png",
+	"Name": "URL",
+	"Output": {
+		"Multiple": false,
+		"OutputName": "URL",
+		"Types": [
+			"NSURL"
+		]
+	},
+	"Parameters": [
+		{
+			"AutocapitalizationType": "None",
+			"Class": "WFTextInputParameter",
+			"DisableAutocorrection": true,
+			"Key": "WFURLActionURL",
+			"KeyboardType": "URL",
+			"Label": "URL",
+			"Placeholder": "example.com",
+			"TextContentType": "URL"
+		}
+	],
+	"Subcategory": "URLs"
+}
+```
+</p></details>

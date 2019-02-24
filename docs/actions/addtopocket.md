@@ -22,3 +22,40 @@ Adds the input to Pocket.
 Accepts a string 
 or text
 with the text.
+
+### for developers
+
+<details><summary>source json</summary>
+<p>
+```json
+{
+	"ActionClass": "WFPocketAddAction",
+	"AppIdentifier": "com.ideashower.ReadItLaterPro",
+	"Category": "Web",
+	"Description": {
+		"DescriptionSummary": "Adds the input to Pocket."
+	},
+	"Input": {
+		"Multiple": true,
+		"Required": true,
+		"Types": [
+			"WFURLContentItem"
+		]
+	},
+	"InputPassthrough": true,
+	"Name": "Add to Pocket",
+	"Parameters": [
+		{
+			"Class": "WFTextInputParameter",
+			"Description": "A comma-separated list of tags to apply to the items added to Pocket.",
+			"Key": "WFPocketTags",
+			"Label": "Tags",
+			"Placeholder": "example, tags"
+		}
+	],
+	"RequiredResources": [
+		"WFPocketAccessResource"
+	]
+}
+```
+</p></details>

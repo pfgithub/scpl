@@ -15,3 +15,38 @@ Stops execution of the current shortcut and dismisses the shortcut on screen. No
 
 ### arguments
 
+
+### for developers
+
+<details><summary>source json</summary>
+<p>
+```json
+{
+	"ActionClass": "WFExitAction",
+	"ActionKeywords": [
+		"quit",
+		"return",
+		"workflow"
+	],
+	"Category": "Scripting",
+	"Description": {
+		"DescriptionSummary": "Stops execution of the current shortcut and dismisses the shortcut on screen. No more actions will be run after this action."
+	},
+	"IconName": "Scripting.png",
+	"Input": {
+		"Multiple": true,
+		"Required": false,
+		"Types": [
+			"WFContentItem"
+		]
+	},
+	"LastModifiedDate": "2015-08-20T07:00:00.000Z",
+	"Name": "Exit Shortcut",
+	"RequiredResources": [
+		"WFMainThreadResource"
+	],
+	"Subcategory": "Control Flow",
+	"SuggestedNever": true
+}
+```
+</p></details>

@@ -22,3 +22,51 @@ The selected photos/videos
 
 Accepts a string with either true or false
 or a variable.
+
+### for developers
+
+<details><summary>source json</summary>
+<p>
+```json
+{
+	"ActionClass": "WFSelectPhotoAction",
+	"ActionKeywords": [
+		"select",
+		"photo",
+		"from",
+		"library",
+		"picture"
+	],
+	"AppIdentifier": "com.apple.mobileslideshow",
+	"Category": "Photos & Video",
+	"Description": {
+		"DescriptionResult": "The selected photos/videos",
+		"DescriptionSummary": "Prompts to choose photos and videos from your photo library."
+	},
+	"Name": "Select Photos",
+	"Output": {
+		"Multiple": true,
+		"OutputName": "Photos",
+		"Types": [
+			"PHAsset"
+		]
+	},
+	"Parameters": [
+		{
+			"Class": "WFSwitchParameter",
+			"Key": "WFSelectMultiplePhotos",
+			"Label": "Select Multiple"
+		}
+	],
+	"RequiredResources": [
+		"WFPhotoAccessResource",
+		"WFUserInteractionResource"
+	],
+	"Subcategory": "Photos",
+	"UserInterfaces": [
+		"WatchKit",
+		"UIKit"
+	]
+}
+```
+</p></details>

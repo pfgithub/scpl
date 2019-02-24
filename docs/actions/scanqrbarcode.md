@@ -15,3 +15,39 @@ Scans a QR code or bar code using the camera, and returns the text/URL that is f
 
 ### arguments
 
+
+### for developers
+
+<details><summary>source json</summary>
+<p>
+```json
+{
+	"ActionClass": "WFScanMachineReadableCodeAction",
+	"Category": "Text",
+	"Description": {
+		"DescriptionSummary": "Scans a QR code or bar code using the camera, and returns the text/URL that is found."
+	},
+	"IconName": "QRCode.png",
+	"LastModifiedDate": "2015-01-11T06:00:00.000Z",
+	"Name": "Scan QR/Bar Code",
+	"Output": {
+		"Multiple": false,
+		"OutputName": "QR/Bar Code",
+		"Types": [
+			"AVMetadataMachineReadableCodeObject"
+		]
+	},
+	"RequiredResources": [
+		"WFUserInteractionResource",
+		"WFCameraAccessResource"
+	],
+	"ShortName": "Scan Bar Code",
+	"UnsupportedEnvironments": [
+		"Extension"
+	],
+	"UserInterfaces": [
+		"UIKit"
+	]
+}
+```
+</p></details>

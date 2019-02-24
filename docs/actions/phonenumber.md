@@ -17,3 +17,47 @@ Passes the specified phone numbers to the next action.
 
 ### arguments
 This paramtype is not implemented. WFPhoneNumberFieldParameter
+
+### for developers
+
+<details><summary>source json</summary>
+<p>
+```json
+{
+	"ActionClass": "WFPhoneNumberAction",
+	"ActionKeywords": [
+		"phone",
+		"number",
+		"mobile",
+		"home",
+		"cellular",
+		"telephone"
+	],
+	"Category": "Contacts",
+	"Description": {
+		"DescriptionSummary": "Passes the specified phone numbers to the next action."
+	},
+	"IconName": "PhoneNumber.png",
+	"LastModifiedDate": "2015-01-11T06:00:00.000Z",
+	"Name": "Phone Number",
+	"Output": {
+		"Multiple": true,
+		"OutputName": "Phone Number",
+		"Types": [
+			"WFPhoneNumber"
+		]
+	},
+	"Parameters": [
+		{
+			"Class": "WFPhoneNumberFieldParameter",
+			"Key": "WFPhoneNumber",
+			"Placeholder": "Type in a phone number"
+		}
+	],
+	"RequiredResources": [
+		"WFContactAccessResource"
+	],
+	"Subcategory": "Phone"
+}
+```
+</p></details>

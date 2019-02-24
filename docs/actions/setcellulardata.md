@@ -21,3 +21,43 @@ Sets the device’s Cellular Data to on or off.
 
 Accepts a string with either true or false
 or a variable.
+
+### for developers
+
+<details><summary>source json</summary>
+<p>
+```json
+{
+	"ACECommandClass": "SASettingSetCellularData",
+	"ACESettingValueKey": "OnValue",
+	"ActionClass": "WFACESetSettingAction",
+	"ActionKeywords": [
+		"service",
+		"phone",
+		"airplane"
+	],
+	"Category": "Scripting",
+	"Description": {
+		"DescriptionSummary": "Sets the device’s Cellular Data to on or off."
+	},
+	"IconName": "CellularData.png",
+	"InputPassthrough": true,
+	"Name": "Set Cellular Data",
+	"Parameters": [
+		{
+			"Class": "WFSwitchParameter",
+			"DefaultValue": true,
+			"Key": "OnValue",
+			"Label": "Cellular Data"
+		}
+	],
+	"RequiredResources": [
+		"WFSiriAccessResource"
+	],
+	"Subcategory": "Device",
+	"UnsupportedEnvironments": [
+		"WatchOS"
+	]
+}
+```
+</p></details>

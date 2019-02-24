@@ -24,3 +24,49 @@ The updated contents of the variable.
 Accepts a string with the name of the named variable (v:) you want to set,
 or a named variable (v:) that you want to set.
 
+
+### for developers
+
+<details><summary>source json</summary>
+<p>
+```json
+{
+	"ActionClass": "WFAppendVariableAction",
+	"ActionKeywords": [
+		"add"
+	],
+	"Category": "Scripting",
+	"Description": {
+		"DescriptionResult": "The updated contents of the variable.",
+		"DescriptionSummary": "Appends this action's input to the specified variable, creating the variable if it does not exist.\n\nThis allows you to make a variable hold multiple items."
+	},
+	"IconName": "Variable.png",
+	"Input": {
+		"Multiple": true,
+		"Required": true,
+		"TypePassthrough": true,
+		"Types": [
+			"WFContentItem"
+		]
+	},
+	"Name": "Add to Variable",
+	"Output": {
+		"Multiple": true,
+		"OutputName": "Variable",
+		"Types": [
+			"WFContentItem"
+		]
+	},
+	"Parameters": [
+		{
+			"Class": "WFVariableFieldParameter",
+			"Key": "WFVariableName",
+			"Label": "Variable",
+			"Placeholder": "Variable Name",
+			"TextAlignment": "Right"
+		}
+	],
+	"Subcategory": "Variables"
+}
+```
+</p></details>

@@ -48,3 +48,75 @@ containing one of the options:
 Accepts a string 
 or variable
 containing an integer value.
+
+### for developers
+
+<details><summary>source json</summary>
+<p>
+```json
+{
+	"ActionClass": "WFRoundNumberAction",
+	"ActionKeywords": [
+		"calculator",
+		"calculate",
+		"number",
+		"ceiling",
+		"floor"
+	],
+	"Category": "Scripting",
+	"CreationDate": "2015-01-11T06:00:00.000Z",
+	"Description": {
+		"DescriptionSummary": "Rounds the number(s) passed into the action."
+	},
+	"IconName": "Calculator.png",
+	"Input": {
+		"Multiple": true,
+		"Required": true,
+		"Types": [
+			"WFNumberContentItem"
+		]
+	},
+	"Name": "Round Number",
+	"Output": {
+		"Multiple": true,
+		"OutputName": "Rounded Number",
+		"Types": [
+			"NSDecimalNumber"
+		]
+	},
+	"Parameters": [
+		{
+			"Class": "WFEnumerationParameter",
+			"DefaultValue": "Left of Decimal",
+			"Items": [
+				"Left of Decimal",
+				"Right of Decimal"
+			],
+			"Key": "WFRoundType",
+			"Label": "Round"
+		},
+		{
+			"Class": "WFEnumerationParameter",
+			"DefaultValue": "Normal",
+			"Items": [
+				"Normal",
+				"Always Round Up",
+				"Always Round Down"
+			],
+			"Key": "WFRoundMode",
+			"Label": "Mode"
+		},
+		{
+			"Class": "WFStepperParameter",
+			"DefaultValue": 0,
+			"Key": "WFRoundDecimalPlaces",
+			"MinimumValue": 0,
+			"StepperDescription": "Decimal Places",
+			"StepperNoun": "Decimal Place",
+			"StepperPluralNoun": "Decimal Places"
+		}
+	],
+	"Subcategory": "Math"
+}
+```
+</p></details>

@@ -17,3 +17,28 @@ This action might be useful after an action that switches apps, to pause executi
 
 ### arguments
 
+
+### for developers
+
+<details><summary>source json</summary>
+<p>
+```json
+{
+	"ActionClass": "WFWaitToReturnAction",
+	"ActionKeywords": [
+		"wait"
+	],
+	"Category": "Scripting",
+	"Description": {
+		"DescriptionSummary": "Pauses execution until you leave the Shortcuts app and return to it.\n\nThis action might be useful after an action that switches apps, to pause execution until you return to the Shortcuts app."
+	},
+	"IconName": "Scripting.png",
+	"InputPassthrough": true,
+	"Name": "Wait to Return",
+	"RequiredResources": [
+		"WFMainThreadResource"
+	],
+	"Subcategory": "Control Flow"
+}
+```
+</p></details>

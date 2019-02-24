@@ -15,3 +15,33 @@ Skips to the next song in the current music queue.
 
 ### arguments
 
+
+### for developers
+
+<details><summary>source json</summary>
+<p>
+```json
+{
+	"ActionClass": "WFSkipSongAction",
+	"ActionKeywords": [
+		"ipod",
+		"track",
+		"music",
+		"itunes",
+		"next"
+	],
+	"Category": "Music",
+	"Description": {
+		"DescriptionSummary": "Skips to the next song in the current music queue."
+	},
+	"IconName": "FastForward.png",
+	"InputPassthrough": true,
+	"Name": "Skip Forward",
+	"RequiredResources": [
+		"WFMainThreadResource"
+	],
+	"Subcategory": "Playback",
+	"WFSkipSongActionMode": "Forward"
+}
+```
+</p></details>

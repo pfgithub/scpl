@@ -9,3 +9,33 @@
 
 ### arguments
 
+
+### for developers
+
+<details><summary>source json</summary>
+<p>
+```json
+{
+	"ActionClass": "WFContentItemPropertiesAction",
+	"ActionKeywords": [
+		"photo",
+		"video",
+		"media"
+	],
+	"Category": "Photos & Video",
+	"CreationDate": "2015-01-22T08:00:00.000Z",
+	"IconName": "Image.png",
+	"Input": {
+		"Types": [
+			"WFPhotoMediaContentItem",
+			"WFImageContentItem",
+			"WFAVAssetContentItem"
+		]
+	},
+	"LastModifiedDate": "2015-12-14T08:00:00.000Z",
+	"Name": "Get Details of Images",
+	"Subcategory": "Images",
+	"WFContentItemClass": "WFImageContentItem"
+}
+```
+</p></details>

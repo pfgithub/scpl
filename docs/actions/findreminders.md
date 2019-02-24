@@ -11,3 +11,25 @@
 
 ### arguments
 
+
+### for developers
+
+<details><summary>source json</summary>
+<p>
+```json
+{
+	"ActionClass": "WFContentItemFilterAction",
+	"AppIdentifier": "com.apple.reminders",
+	"Category": "Calendar",
+	"CreationDate": "2015-01-22T08:00:00.000Z",
+	"Name": "Find Reminders",
+	"RequiredResources": [
+		"WFReminderAccessResource"
+	],
+	"Subcategory": "Reminders",
+	"SuggestedAsInitialAction": false,
+	"WFContentItemClass": "WFReminderContentItem",
+	"WFContentItemDefaultProperty": "List"
+}
+```
+</p></details>

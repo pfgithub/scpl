@@ -17,3 +17,52 @@ Calls the phone number passed in as input.
 
 ### arguments
 This paramtype is not implemented. WFIntentAppPickerParameter
+
+### for developers
+
+<details><summary>source json</summary>
+<p>
+```json
+{
+	"ActionClass": "WFStartCallAction",
+	"ActionKeywords": [
+		"phone",
+		"number",
+		"dial",
+		"mobile",
+		"telephone"
+	],
+	"AppIdentifier": "com.apple.mobilephone",
+	"Category": "Contacts",
+	"Description": {
+		"DescriptionSummary": "Calls the phone number passed in as input."
+	},
+	"Input": {
+		"Multiple": false,
+		"Required": true,
+		"Types": [
+			"WFPhoneNumber",
+			"NSString"
+		]
+	},
+	"InputPassthrough": true,
+	"LastModifiedDate": "2018-10-09T05:00:00.000Z",
+	"Name": "Call",
+	"Parameters": [
+		{
+			"Class": "WFIntentAppPickerParameter",
+			"DefaultValue": "com.apple.TelephonyUtilities.PhoneIntentHandler",
+			"Hidden": true,
+			"IntentName": "INStartAudioCallIntent",
+			"Key": "IntentAppIdentifier",
+			"Label": "App"
+		}
+	],
+	"RequiredResources": [
+		"WFContactAccessResource"
+	],
+	"Subcategory": "Phone",
+	"WFStartCallActionType": "Phone"
+}
+```
+</p></details>

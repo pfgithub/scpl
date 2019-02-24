@@ -47,3 +47,83 @@ with the text.
 Accepts a string 
 or text
 with the text.
+
+### for developers
+
+<details><summary>source json</summary>
+<p>
+```json
+{
+	"ActionClass": "WFCreatePlaylistAction",
+	"ActionKeywords": [
+		"song",
+		"music",
+		"itunes",
+		"playlist",
+		"apple",
+		"album"
+	],
+	"AppIdentifier": "com.apple.Music",
+	"Category": "Music",
+	"CreationDate": "2016-03-15T07:00:00.000Z",
+	"Description": {
+		"DescriptionInput": "Items in your music library or items from the Search iTunes action.",
+		"DescriptionSummary": "Creates a new playlist in the Music app, adding any items passed as input to the new playlist."
+	},
+	"Input": {
+		"Multiple": true,
+		"Required": false,
+		"Types": [
+			"WFiTunesProductContentItem",
+			"WFMPMediaContentItem"
+		]
+	},
+	"InputPassthrough": false,
+	"Name": "Create Playlist",
+	"Output": {
+		"Multiple": true,
+		"OutputName": "New Playlist",
+		"Types": [
+			"MPMediaItem"
+		]
+	},
+	"Parameters": [
+		{
+			"Class": "WFTextInputParameter",
+			"Key": "WFPlaylistName",
+			"Label": "Name",
+			"Placeholder": "Greatest Hits",
+			"TextAlignment": "Right"
+		},
+		{
+			"Class": "WFTextInputParameter",
+			"Key": "WFPlaylistAuthor",
+			"Label": "Author",
+			"Placeholder": "Shortcuts",
+			"TextAlignment": "Right"
+		},
+		{
+			"Class": "WFTextInputParameter",
+			"Key": "WFPlaylistDescription",
+			"Label": "Description",
+			"Placeholder": "All of my favorites",
+			"TextAlignment": "Right"
+		}
+	],
+	"RequiredResources": [
+		"WFAppleMusicAccessResource",
+		{
+			"WFDeviceAttributes": {
+				"WFDeviceAttributeSystemVersion": {
+					"WFSystemVersion": "9.3",
+					"WFSystemVersionRelation": ">="
+				}
+			},
+			"WFResourceClass": "WFDeviceAttributesResource"
+		}
+	],
+	"Subcategory": "Playlists",
+	"SuggestedAsInitialAction": false
+}
+```
+</p></details>

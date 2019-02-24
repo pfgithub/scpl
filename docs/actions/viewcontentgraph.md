@@ -15,3 +15,36 @@ Shows the results of the previous action in the Content Graph.
 
 ### arguments
 
+
+### for developers
+
+<details><summary>source json</summary>
+<p>
+```json
+{
+	"ActionClass": "WFViewContentGraphAction",
+	"Category": "Scripting",
+	"Description": {
+		"DescriptionSummary": "Shows the results of the previous action in the Content Graph."
+	},
+	"IconName": "Graph.png",
+	"Input": {
+		"Multiple": true,
+		"Required": true,
+		"Types": [
+			"WFContentItem"
+		]
+	},
+	"InputPassthrough": true,
+	"Name": "View Content Graph",
+	"RequiredResources": [
+		"WFUserInteractionResource"
+	],
+	"ShortName": "Content Graph",
+	"Subcategory": "Content",
+	"UserInterfaces": [
+		"UIKit"
+	]
+}
+```
+</p></details>

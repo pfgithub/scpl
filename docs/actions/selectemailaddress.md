@@ -15,3 +15,49 @@ Prompts to pick an email address from your contacts and passes the selection to 
 
 ### arguments
 
+
+### for developers
+
+<details><summary>source json</summary>
+<p>
+```json
+{
+	"ActionClass": "WFSelectContactsAction",
+	"ActionKeywords": [
+		"select",
+		"email",
+		"address",
+		"e-mail",
+		"addressbook"
+	],
+	"AppIdentifier": "com.apple.mobilemail",
+	"Category": "Contacts",
+	"ContactProperties": [
+		"Email"
+	],
+	"Description": {
+		"DescriptionSummary": "Prompts to pick an email address from your contacts and passes the selection to the next action."
+	},
+	"InputPassthrough": false,
+	"Name": "Select Email Address",
+	"Output": {
+		"Multiple": true,
+		"OutputName": "Email Addresses",
+		"Types": [
+			"WFEmailAddress"
+		]
+	},
+	"RequiredResources": [
+		"WFUserInteractionResource",
+		"WFContactAccessResource"
+	],
+	"ShortName": "Select Email",
+	"Subcategory": "Email",
+	"SuggestedAsInitialAction": false,
+	"UserInterfaces": [
+		"UIKit",
+		"WatchKit"
+	]
+}
+```
+</p></details>

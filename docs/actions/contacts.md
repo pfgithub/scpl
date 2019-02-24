@@ -17,3 +17,44 @@ Passes the specified contacts to the next action.
 
 ### arguments
 This paramtype is not implemented. WFContactFieldParameter
+
+### for developers
+
+<details><summary>source json</summary>
+<p>
+```json
+{
+	"ActionClass": "WFContactsAction",
+	"ActionKeywords": [
+		"contact",
+		"person",
+		"people"
+	],
+	"AppIdentifier": "com.apple.MobileAddressBook",
+	"Category": "Contacts",
+	"Description": {
+		"DescriptionSummary": "Passes the specified contacts to the next action."
+	},
+	"Name": "Contacts",
+	"Output": {
+		"Multiple": true,
+		"OutputName": "Contacts",
+		"Types": [
+			"WFContact"
+		]
+	},
+	"Parameters": [
+		{
+			"AllowsTextEntry": false,
+			"Class": "WFContactFieldParameter",
+			"Key": "WFContact",
+			"Placeholder": "Press + to add contacts"
+		}
+	],
+	"RequiredResources": [
+		"WFContactAccessResource"
+	],
+	"Subcategory": "Contacts"
+}
+```
+</p></details>

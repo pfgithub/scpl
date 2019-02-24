@@ -27,3 +27,43 @@ This paramtype is not implemented. WFAppPickerParameter
 Accepts a string 
 or text
 with the text.
+
+### for developers
+
+<details><summary>source json</summary>
+<p>
+```json
+{
+	"ActionClass": "WFOpenAppAction",
+	"ActionKeywords": [
+		"launch",
+		"run",
+		"switch"
+	],
+	"Category": "Apps",
+	"Description": {
+		"DescriptionSummary": "Opens the specified app."
+	},
+	"IconName": "Apps.png",
+	"InputPassthrough": true,
+	"Name": "Open App",
+	"Parameters": [
+		{
+			"AppSearchType": "OpenApp",
+			"Class": "WFAppPickerParameter",
+			"Key": "WFAppIdentifier",
+			"Label": "App"
+		},
+		{
+			"Class": "WFTextInputParameter",
+			"Hidden": true,
+			"Key": "WFAppName"
+		}
+	],
+	"RequiredResources": [
+		"WFURLOpenResource"
+	],
+	"SuggestedNever": true
+}
+```
+</p></details>

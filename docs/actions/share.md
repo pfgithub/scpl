@@ -15,3 +15,42 @@ Prompts to share the input.
 
 ### arguments
 
+
+### for developers
+
+<details><summary>source json</summary>
+<p>
+```json
+{
+	"ActionClass": "WFShareAction",
+	"ActionKeywords": [
+		"share",
+		"file",
+		"document",
+		"send"
+	],
+	"Category": "Sharing",
+	"Description": {
+		"DescriptionSummary": "Prompts to share the input."
+	},
+	"IconName": "Sharing.png",
+	"Input": {
+		"Multiple": true,
+		"Required": true,
+		"Types": [
+			"WFContentItem"
+		]
+	},
+	"InputPassthrough": true,
+	"Name": "Share",
+	"RequiredResources": [
+		"WFUserInteractionResource"
+	],
+	"Subcategory": "System",
+	"UserInterfaces": [
+		"UIKit",
+		"WatchKit"
+	]
+}
+```
+</p></details>

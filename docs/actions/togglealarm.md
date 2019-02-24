@@ -26,3 +26,46 @@ This paramtype is not implemented. WFAlarmPickerParameter
 
 Accepts a string with either true or false
 or a variable.
+
+### for developers
+
+<details><summary>source json</summary>
+<p>
+```json
+{
+	"ActionClass": "WFToggleAlarmAction",
+	"ActionKeywords": [
+		"alarm",
+		"set",
+		"clock",
+		"timer",
+		"turn",
+		"on",
+		"off"
+	],
+	"AppIdentifier": "com.apple.mobiletimer",
+	"Category": "Calendar",
+	"Description": {
+		"DescriptionSummary": "Enables or disables an alarm in the Clock app."
+	},
+	"InputPassthrough": true,
+	"Name": "Toggle Alarm",
+	"Parameters": [
+		{
+			"Class": "WFAlarmPickerParameter",
+			"Key": "WFAlarm",
+			"Label": "Alarm"
+		},
+		{
+			"Class": "WFSwitchParameter",
+			"DefaultValue": false,
+			"Key": "WFEnabled",
+			"Label": "Enabled"
+		}
+	],
+	"RequiredResources": [
+		"WFSiriAccessResource"
+	]
+}
+```
+</p></details>

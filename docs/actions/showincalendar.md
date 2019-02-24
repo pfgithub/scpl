@@ -15,3 +15,41 @@ Shows the date or calendar event passed as input in the Calendar app.
 
 ### arguments
 
+
+### for developers
+
+<details><summary>source json</summary>
+<p>
+```json
+{
+	"ActionClass": "WFShowInCalendarAction",
+	"ActionKeywords": [
+		"date",
+		"event",
+		"show",
+		"reveal"
+	],
+	"AppIdentifier": "com.apple.mobilecal",
+	"Category": "Calendar",
+	"CreationDate": "2015-01-11T06:00:00.000Z",
+	"Description": {
+		"DescriptionSummary": "Shows the date or calendar event passed as input in the Calendar app."
+	},
+	"Input": {
+		"Multiple": false,
+		"Required": true,
+		"Types": [
+			"WFDateContentItem",
+			"WFCalendarEventContentItem",
+			"WFTimeIntervalContentItem"
+		]
+	},
+	"InputPassthrough": true,
+	"Name": "Show in Calendar",
+	"RequiredResources": [
+		"WFURLOpenResource"
+	],
+	"Subcategory": "Calendar"
+}
+```
+</p></details>

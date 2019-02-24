@@ -9,3 +9,17 @@
 
 ### arguments
 
+
+### for developers
+
+<details><summary>source json</summary>
+<p>
+```json
+{
+	"ActionClass": "WFOpenUserActivityAction",
+	"Discoverable": false,
+	"InputPassthrough": true,
+	"Name": "Unknown User Activity"
+}
+```
+</p></details>

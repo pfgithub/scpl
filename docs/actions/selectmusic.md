@@ -20,3 +20,51 @@ Prompts to select music from your local music library.
 
 Accepts a string with either true or false
 or a variable.
+
+### for developers
+
+<details><summary>source json</summary>
+<p>
+```json
+{
+	"ActionClass": "WFSelectMusicAction",
+	"ActionKeywords": [
+		"export",
+		"song",
+		"music",
+		"itunes",
+		"library"
+	],
+	"AppIdentifier": "com.apple.Music",
+	"Category": "Music",
+	"Description": {
+		"DescriptionSummary": "Prompts to select music from your local music library."
+	},
+	"InputPassthrough": false,
+	"LastModifiedDate": "2015-05-12T07:00:00.000Z",
+	"Name": "Select Music",
+	"Output": {
+		"Multiple": true,
+		"OutputName": "Music",
+		"Types": [
+			"MPMediaItem"
+		]
+	},
+	"Parameters": [
+		{
+			"Class": "WFSwitchParameter",
+			"Key": "WFExportSongActionSelectMultiple",
+			"Label": "Select Multiple Songs"
+		}
+	],
+	"RequiredResources": [
+		"WFAppleMusicAccessResource",
+		"WFUserInteractionResource"
+	],
+	"Subcategory": "Music",
+	"UserInterfaces": [
+		"UIKit"
+	]
+}
+```
+</p></details>

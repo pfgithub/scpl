@@ -50,3 +50,74 @@ or a variable.
 
 Accepts a string with either true or false
 or a variable.
+
+### for developers
+
+<details><summary>source json</summary>
+<p>
+```json
+{
+	"ActionClass": "WFReplaceTextAction",
+	"ActionKeywords": [
+		"finding",
+		"matching",
+		"searching",
+		"regular",
+		"expression",
+		"regexp"
+	],
+	"Category": "Text",
+	"Description": {
+		"DescriptionSummary": "Replaces some text passed into the action with other text."
+	},
+	"IconName": "Text.png",
+	"Input": {
+		"Multiple": true,
+		"Required": true,
+		"Types": [
+			"NSString"
+		]
+	},
+	"InputPassthrough": false,
+	"Name": "Replace Text",
+	"Output": {
+		"Multiple": true,
+		"OutputName": "Replace Text",
+		"Types": [
+			"NSString"
+		]
+	},
+	"Parameters": [
+		{
+			"Class": "WFTextInputParameter",
+			"Description": "The text to be replaced.",
+			"Key": "WFReplaceTextFind",
+			"Label": "Find Text",
+			"Placeholder": "hello"
+		},
+		{
+			"Class": "WFTextInputParameter",
+			"Description": "The text to replace all occurrences of Find Text.",
+			"Key": "WFReplaceTextReplace",
+			"Label": "Replace With",
+			"Placeholder": "world"
+		},
+		{
+			"Class": "WFSwitchParameter",
+			"DefaultValue": true,
+			"Description": "When disabled, the capitalization of letters is ignored.",
+			"Key": "WFReplaceTextCaseSensitive",
+			"Label": "Case Sensitive"
+		},
+		{
+			"Class": "WFSwitchParameter",
+			"DefaultValue": false,
+			"Description": "When enabled, Find Text is treated as a regular expression.",
+			"Key": "WFReplaceTextRegularExpression",
+			"Label": "Regular Expression"
+		}
+	],
+	"Subcategory": "Text Editing"
+}
+```
+</p></details>

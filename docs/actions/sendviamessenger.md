@@ -15,3 +15,52 @@ Sends the input via Facebook Messenger
 
 ### arguments
 
+
+### for developers
+
+<details><summary>source json</summary>
+<p>
+```json
+{
+	"ActionClass": "WFFBMessengerSendAction",
+	"ActionKeywords": [
+		"messenger",
+		"facebook",
+		"fb",
+		"send",
+		"text",
+		"gif",
+		"image",
+		"video"
+	],
+	"AppIdentifier": "com.facebook.Messenger",
+	"Category": "Sharing",
+	"CreationDate": "2015-04-01T05:00:00.000Z",
+	"Description": {
+		"DescriptionSummary": "Sends the input via Facebook Messenger"
+	},
+	"Input": {
+		"Multiple": false,
+		"Required": true,
+		"Types": [
+			"WFImageContentItem",
+			"WFAVAssetContentItem",
+			"com.compuserve.gif"
+		]
+	},
+	"InputPassthrough": true,
+	"Name": "Send via Messenger",
+	"RequiredResources": [
+		"WFUserInteractionResource",
+		{
+			"AppIdentifier": "com.facebook.Messenger",
+			"WFResourceClass": "WFAppInstalledResource"
+		}
+	],
+	"Subcategory": "Messaging",
+	"UserInterfaces": [
+		"UIKit"
+	]
+}
+```
+</p></details>

@@ -13,3 +13,36 @@ Outputs the percentage of battery remaining as a number from 0 to 100.
 
 ### arguments
 
+
+### for developers
+
+<details><summary>source json</summary>
+<p>
+```json
+{
+	"ActionClass": "WFBatteryLevelAction",
+	"ActionKeywords": [
+		"remaining",
+		"percentage",
+		"left",
+		"power"
+	],
+	"Category": "Scripting",
+	"CreationDate": "2015-01-11T06:00:00.000Z",
+	"Description": {
+		"DescriptionSummary": "Outputs the percentage of battery remaining as a number from 0 to 100."
+	},
+	"IconName": "Battery.png",
+	"Name": "Get Battery Level",
+	"Output": {
+		"Multiple": false,
+		"OutputName": "Battery Level",
+		"Types": [
+			"NSDecimalNumber"
+		]
+	},
+	"Subcategory": "Device",
+	"SuggestedNever": true
+}
+```
+</p></details>

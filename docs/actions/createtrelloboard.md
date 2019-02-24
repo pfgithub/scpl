@@ -33,3 +33,47 @@ with the text.
 Accepts a string 
 or text
 with the text.
+
+### for developers
+
+<details><summary>source json</summary>
+<p>
+```json
+{
+	"ActionClass": "WFTrelloCreateBoardAction",
+	"AppIdentifier": "com.fogcreek.trello",
+	"Category": "Text",
+	"CreationDate": "2016-05-12T05:00:00.000Z",
+	"Description": {
+		"DescriptionSummary": "Creates a new board in your Trello account."
+	},
+	"Name": "Create Trello Board",
+	"Output": {
+		"Multiple": false,
+		"OutputName": "Trello Board",
+		"Types": [
+			"WFTrelloBoard"
+		]
+	},
+	"Parameters": [
+		{
+			"Class": "WFTextInputParameter",
+			"Key": "WFTrelloName",
+			"Label": "Name",
+			"Placeholder": "Shortcuts",
+			"TextAlignment": "Right"
+		},
+		{
+			"Class": "WFTextInputParameter",
+			"Key": "WFTrelloDescription",
+			"Multiline": true,
+			"Placeholder": "Description"
+		}
+	],
+	"RequiredResources": [
+		"WFTrelloAccessResource"
+	],
+	"ShortName": "Create Board"
+}
+```
+</p></details>

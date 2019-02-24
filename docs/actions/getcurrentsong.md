@@ -15,3 +15,44 @@ Returns the song that is currently playing in the Music app, if any.
 
 ### arguments
 
+
+### for developers
+
+<details><summary>source json</summary>
+<p>
+```json
+{
+	"ActionClass": "WFGetCurrentSongAction",
+	"ActionKeywords": [
+		"current",
+		"song",
+		"ipod",
+		"track",
+		"music",
+		"itunes",
+		"library",
+		"listening",
+		"playing"
+	],
+	"AppIdentifier": "com.apple.Music",
+	"Category": "Music",
+	"Description": {
+		"DescriptionSummary": "Returns the song that is currently playing in the Music app, if any."
+	},
+	"InputPassthrough": false,
+	"Name": "Get Current Song",
+	"Output": {
+		"Multiple": false,
+		"OutputName": "Current Song",
+		"Types": [
+			"MPMediaItem"
+		]
+	},
+	"RequiredResources": [
+		"WFMainThreadResource",
+		"WFAppleMusicAccessResource"
+	],
+	"Subcategory": "Music"
+}
+```
+</p></details>

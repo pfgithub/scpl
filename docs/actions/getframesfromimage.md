@@ -18,3 +18,50 @@ The frames
 
 ### arguments
 
+
+### for developers
+
+<details><summary>source json</summary>
+<p>
+```json
+{
+	"ActionClass": "WFGetFramesFromImageAction",
+	"ActionKeywords": [
+		"animated",
+		"gif",
+		"burst",
+		"split",
+		"individual",
+		"explode",
+		"separate"
+	],
+	"Category": "Photos & Video",
+	"CreationDate": "2015-12-08T08:00:00.000Z",
+	"Description": {
+		"DescriptionInput": "An animated GIF or photo burst",
+		"DescriptionResult": "The frames",
+		"DescriptionSummary": "Splits an animated GIF or a photo burst into individual frames."
+	},
+	"IconName": "GIF.png",
+	"Input": {
+		"Multiple": false,
+		"Required": true,
+		"Types": [
+			"com.compuserve.gif"
+		]
+	},
+	"InputPassthrough": false,
+	"Name": "Get Frames from Image",
+	"Output": {
+		"Multiple": true,
+		"OutputName": "Frames from Image",
+		"Types": [
+			"WFImageContentItem",
+			"WFPhotoMediaContentItem"
+		]
+	},
+	"ShortName": "Get Frames",
+	"Subcategory": "GIFs"
+}
+```
+</p></details>

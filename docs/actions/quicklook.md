@@ -20,3 +20,60 @@ Displays a preview of the input.
 
 Accepts a string with either true or false
 or a variable.
+
+### for developers
+
+<details><summary>source json</summary>
+<p>
+```json
+{
+	"ActionClass": "WFQuickLookAction",
+	"ActionKeywords": [
+		"preview",
+		"show",
+		"file",
+		"document",
+		"quicklook",
+		"quick",
+		"look"
+	],
+	"Category": "Documents",
+	"Description": {
+		"DescriptionSummary": "Displays a preview of the input."
+	},
+	"IconName": "Quick Look.png",
+	"Input": {
+		"Multiple": true,
+		"Required": true,
+		"Types": [
+			"public.data"
+		]
+	},
+	"InputPassthrough": true,
+	"Name": "Quick Look",
+	"Parameters": [
+		{
+			"Class": "WFSwitchParameter",
+			"Key": "WFQuickLookActionFullScreen",
+			"Label": "Full Screen",
+			"RequiredResources": [
+				{
+					"WFDeviceAttributes": {
+						"WFDeviceAttributeIdiom": "Pad"
+					},
+					"WFResourceClass": "WFDeviceAttributesResource"
+				}
+			]
+		}
+	],
+	"RequiredResources": [
+		"WFUserInteractionResource"
+	],
+	"Subcategory": "Previewing",
+	"UserInterfaces": [
+		"WatchKit",
+		"UIKit"
+	]
+}
+```
+</p></details>
