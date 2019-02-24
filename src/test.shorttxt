@@ -38,3 +38,9 @@ text ^(mv:mytext) "my text"
 SetWifi true
 SetWifi false
 setBrightness 1.0
+
+If ^(Text "test") "Equals" 5 "test" >c:0:gid:myif
+	showalert "Alert" "Test equals test"
+If >c:1:gid:myif
+	showalert "Alert" "Test does not equal test"
+If >c:2:gid:myif

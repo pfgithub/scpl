@@ -64,12 +64,13 @@ o.barlist = plus(o.barlistitem)
 o.argflagarrow = or(c`->`, c`=>`).scb(_=>null);
 o.argflag = p(o.argflagarrow, _, o.variable)
 	.scb(([,, variable]) => (new VariableFlagParse(variable)));
-o.argument = or(o.value, o.inputarg, o.barlist, o.argflag);
+o.argument = or(o.value, o.inputarg, o.barlist, o.argflag, o.controlFlowMode);
 o.action = or(
 	o.flaggedaction,
 	o.variable,
 	o.onlyaction
 );
+o.controlFlowMode = p(c`>c:`, o.identifier, c`:gid:`, o.identifier).scb(([, controlFlowMode, , groupingIdentifier]) => {return {special: "ControlFlowMode", controlFlowMode, groupingIdentifier};}); // TEMP >c:1
 o.inputarg = p(c`^`, o.parenthesis).scb(([, paren]) => {paren.special = "InputArg"; return paren;});
 o.flaggedaction = p(o.variable, _, c`=`, _, o.action)
 	.scb(([variable, , , , action]) => {

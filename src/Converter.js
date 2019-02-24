@@ -7,6 +7,7 @@ class ConvertingContext {
 	constructor() {
 		this.vardata = {};
 		this.magicvardata = {};
+		this.groupingIdentifiers = {};
 		this.shortcut = new Shortcut("My Great Shortcut");
 		this.lastVariableAction = undefined;
 		///

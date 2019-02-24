@@ -1,3 +1,5 @@
+const uuidv4 = require("uuid/v4");
+
 const {Text, Action} = require("./OutputData");
 const {getVariable} = require("./HelpfulActions");
 
@@ -379,6 +381,16 @@ ${this._parameters.map(param => (typeof param === "string") ? `${param}` : param
 			if(param.special === "InputArg") {
 				param.asAction(cc);
 				actionAbove = cc.lastVariableAction;
+				return;
+			}
+			if(param.special === "ControlFlowMode") {
+				const num = +param.controlFlowMode.asString();
+				if(isNaN(num)) {throw new Error("ControlFlowMode could not be converted to an integer");}
+				if(!Number.isInteger(num)) {throw new Error("ControlFlowMode must be an integer");}
+				action.parameters.set("WFControlFlowMode", num);
+				const groupingIdentifier = param.groupingIdentifier.asString();
+				if(!cc.groupingIdentifiers[groupingIdentifier]) {cc.groupingIdentifiers[groupingIdentifier] = uuidv4();}
+				action.parameters.set("GroupingIdentifier", cc.groupingIdentifiers[groupingIdentifier]);
 				return;
 			}
 			// if(param instanceof InputArgParse) { // TODO (avoid circular dependency)
