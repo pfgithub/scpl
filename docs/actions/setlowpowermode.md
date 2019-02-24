@@ -5,7 +5,7 @@
 > This action requires that Shortcuts has permission to use WFSiriAccessResource,[object Object].
 
 ### usage
-`setlowpowermode lowpowermode=[string|variable]`
+`setlowpowermode lowpowermode=[string boolean|variable]`
 
 ### arguments
 ### Switch: Low Power Mode / lowpowermode (internally `OnValue`)

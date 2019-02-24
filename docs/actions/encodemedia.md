@@ -1,11 +1,9 @@
 
 ## Encode Media / encodemedia (internally `is.workflow.actions.encodemedia`)
 
-> This action is not yet complete. Some arguments may be missing.
-
 
 ### usage
-`encodemedia audioonly=[string|variable] format=[string <${strInfo}>] size=[string <${strInfo}>] speed=[string <${strInfo}>] customspeed=[string number] undefined=[???] title=[string|text] artist=[string|text] album=[string|text] genre=[string|text] year=[string|text] artwork=[variable]`
+`encodemedia audioonly=[string boolean|variable] format=[string <${strInfo}>] size=[string <${strInfo}>] speed=[string <${strInfo}>] customspeed=[string number] metadata=[string boolean] title=[string|text] artist=[string|text] album=[string|text] genre=[string|text] year=[string|text] artwork=[variable]`
 
 ### arguments
 ### Switch: Audio Only / audioonly (internally `WFMediaAudioOnly`)
@@ -77,7 +75,11 @@ with a number.
 
 ---
 
-This paramtype is not implemented. WFExpandingParameter
+### Expand Arrow: Metadata / metadata (internally `Metadata`)
+
+
+Accepts a string with either true or false for if this
+parameter is expanded or not.
 
 ---
 

@@ -3,7 +3,7 @@
 
 
 ### usage
-`makegif secondsperphoto=[string number] loopforever=[string|variable] wfmakegifactionloopcount=[string integer] autosize=[string|variable] width=[string number] height=[string number]`
+`makegif secondsperphoto=[string number] loopforever=[string boolean|variable] wfmakegifactionloopcount=[string integer] autosize=[string boolean|variable] width=[string number] height=[string number]`
 
 ### arguments
 ### Number: Seconds Per Photo / secondsperphoto (internally `WFMakeGIFActionDelayTime`)

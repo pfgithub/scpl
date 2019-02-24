@@ -5,7 +5,7 @@
 > This action requires that Shortcuts has permission to use WFPhotoAccessResource,WFUserInteractionResource.
 
 ### usage
-`selectphotos selectmultiple=[string|variable]`
+`selectphotos selectmultiple=[string boolean|variable]`
 
 ### arguments
 ### Switch: Select Multiple / selectmultiple (internally `WFSelectMultiplePhotos`)

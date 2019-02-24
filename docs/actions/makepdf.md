@@ -3,7 +3,7 @@
 
 
 ### usage
-`makepdf includemargin=[string|variable] include=[string <${strInfo}>] page=[string number] startpage=[string number] endpage=[string number]`
+`makepdf includemargin=[string boolean|variable] include=[string <${strInfo}>] page=[string number] startpage=[string number] endpage=[string number]`
 
 ### arguments
 ### Switch: Include Margin / includemargin (internally `WFPDFIncludeMargin`)

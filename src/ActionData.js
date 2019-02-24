@@ -201,7 +201,7 @@ types.WFSwitchParameter = class extends types.WFParameter {
 		super(data, "Switch");
 	}
 	genDocsArgName() {
-		return this.allowsVariables ? `[string|variable]` : `[string]`;
+		return this.allowsVariables ? `[string boolean|variable]` : `[string boolean]`;
 	}
 	genDocs() {
 		return `${super.genDocs()}
@@ -219,6 +219,29 @@ or a variable.`: ""}`;
 			return string === "true";
 		}
 		throw new Error("This boolean field only accepts strings or variables");
+	}
+};
+types.WFExpandingParameter = class extends types.WFParameter {
+	constructor(data) {
+		super(data, "Expand Arrow");
+		this.allowsVariables = undefined;
+	}
+	genDocsArgName() {
+		return `[string boolean]`;
+	}
+	genDocs() {
+		return `${super.genDocs()}
+
+Accepts a string with either true or false for if this
+parameter is expanded or not.`;
+	}
+	build(cc, parse) {
+		if(parse.asString) {
+			const string = parse.asString();
+			if(string !== "true" && string !== "false") {throw new Error("This expanding field must be either true or false");}
+			return string === "true";
+		}
+		throw new Error("This expanding field only accepts strings");
 	}
 };
 types.WFVariableFieldParameter = class extends types.WFParameter {

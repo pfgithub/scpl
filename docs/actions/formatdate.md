@@ -5,7 +5,7 @@
 
 
 ### usage
-`formatdate dateformat=[string <${strInfo}>] alternateformat=[string <${strInfo}>] timeformat=[string <${strInfo}>] includeiso8601time=[string|variable] undefined=[???]`
+`formatdate dateformat=[string <${strInfo}>] alternateformat=[string <${strInfo}>] timeformat=[string <${strInfo}>] includeiso8601time=[string boolean|variable] undefined=[???]`
 
 ### arguments
 ### Enumeration: Date Format / dateformat (internally `WFDateFormatStyle`)

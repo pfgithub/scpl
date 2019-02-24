@@ -5,7 +5,7 @@
 > This action requires that Shortcuts has permission to use WFURLOpenResource.
 
 ### usage
-`openxcallbackurl customcallback=[string|variable] successkey=[string|text] cancelkey=[string|text] errorkey=[string|text] customxsuccessurl=[string|variable] xsuccessurl=[string|text]`
+`openxcallbackurl customcallback=[string boolean|variable] successkey=[string|text] cancelkey=[string|text] errorkey=[string|text] customxsuccessurl=[string boolean|variable] xsuccessurl=[string|text]`
 
 ### arguments
 ### Switch: Custom Callback / customcallback (internally `WFXCallbackCustomCallbackEnabled`)

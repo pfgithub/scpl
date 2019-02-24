@@ -3,7 +3,7 @@
 
 
 ### usage
-`formatfilesize format=[string <${strInfo}>] includeunits=[string|variable]`
+`formatfilesize format=[string <${strInfo}>] includeunits=[string boolean|variable]`
 
 ### arguments
 ### Enumeration: Format / format (internally `WFFileSizeFormat`)

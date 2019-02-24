@@ -5,7 +5,7 @@
 > This action requires that Shortcuts has permission to use [object Object].
 
 ### usage
-`uploadtoimgur uploadanonymously=[string|variable] directlink=[string|variable] createalbum=[string|variable] albumlayout=[string <${strInfo}>] albumprivacy=[string <${strInfo}>] title=[string|text] description=[string|text]`
+`uploadtoimgur uploadanonymously=[string boolean|variable] directlink=[string boolean|variable] createalbum=[string boolean|variable] albumlayout=[string <${strInfo}>] albumprivacy=[string <${strInfo}>] title=[string|text] description=[string|text]`
 
 ### arguments
 ### Switch: Upload Anonymously / uploadanonymously (internally `WFImgurAnonymous`)

@@ -5,7 +5,7 @@
 > This action requires that Shortcuts has permission to use WFPinboardAccessResource.
 
 ### usage
-`addtopinboard title=[string|text] tags=[string|text] public=[string|variable] unread=[string|variable] description=[string|text]`
+`addtopinboard title=[string|text] tags=[string|text] public=[string boolean|variable] unread=[string boolean|variable] description=[string|text]`
 
 ### arguments
 ### Text Input: Title / title (internally `WFPinTitle`)

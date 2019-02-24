@@ -7,7 +7,7 @@
 > This action requires that Shortcuts has permission to use WFUserInteractionResource.
 
 ### usage
-`askforinput question=[string|text] defaultanswer=[string|text] undefined=[???] inputtype=[string <${strInfo}>] granularity=[string <${strInfo}>] skiptowatchdictation=[string|variable]`
+`askforinput question=[string|text] defaultanswer=[string|text] undefined=[???] inputtype=[string <${strInfo}>] granularity=[string <${strInfo}>] skiptowatchdictation=[string boolean|variable]`
 
 ### arguments
 ### Text Input: Question / question (internally `WFAskActionPrompt`)

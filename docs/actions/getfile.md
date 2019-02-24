@@ -7,7 +7,7 @@
 > This action requires that Shortcuts has permission to use [object Object].
 
 ### usage
-`getfile undefined=[???] showdocumentpicker=[string|variable] selectmultiple=[string|variable] filepath=[string|text] initialpath=[string|text] errorifnotfound=[string|variable]`
+`getfile undefined=[???] showdocumentpicker=[string boolean|variable] selectmultiple=[string boolean|variable] filepath=[string|text] initialpath=[string|text] errorifnotfound=[string boolean|variable]`
 
 ### arguments
 This paramtype is not implemented. WFStorageServicePickerParameter

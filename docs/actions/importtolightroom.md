@@ -5,7 +5,7 @@
 
 
 ### usage
-`importtolightroom applypreset=[string|variable] presetgroup=[string <${strInfo}>] undefined=[???]`
+`importtolightroom applypreset=[string boolean|variable] presetgroup=[string <${strInfo}>] undefined=[???]`
 
 ### arguments
 ### Switch: Apply Preset / applypreset (internally `applyPreset`)

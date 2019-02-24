@@ -5,7 +5,7 @@
 > This action requires that Shortcuts has permission to use WFUserInteractionResource.
 
 ### usage
-`quicklook fullscreen=[string|variable]`
+`quicklook fullscreen=[string boolean|variable]`
 
 ### arguments
 ### Switch: Full Screen / fullscreen (internally `WFQuickLookActionFullScreen`)

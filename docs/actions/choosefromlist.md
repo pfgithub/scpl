@@ -5,7 +5,7 @@
 > This action requires that Shortcuts has permission to use WFUserInteractionResource.
 
 ### usage
-`choosefromlist prompt=[string|text] selectmultiple=[string|variable] selectallinitially=[string|variable]`
+`choosefromlist prompt=[string|text] selectmultiple=[string boolean|variable] selectallinitially=[string boolean|variable]`
 
 ### arguments
 ### Text Input: Prompt / prompt (internally `WFChooseFromListActionPrompt`)

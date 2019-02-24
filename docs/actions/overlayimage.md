@@ -5,7 +5,7 @@
 > This action requires that Shortcuts has permission to use [object Object].
 
 ### usage
-`overlayimage image=[variable] showimageeditor=[string|variable] position=[string <${strInfo}>] width=[string number] height=[string number] xcoordinate=[string number] ycoordinate=[string number] rotationdegrees=[string number] opacity=[string number]`
+`overlayimage image=[variable] showimageeditor=[string boolean|variable] position=[string <${strInfo}>] width=[string number] height=[string number] xcoordinate=[string number] ycoordinate=[string number] rotationdegrees=[string number] opacity=[string number]`
 
 ### arguments
 ### Variable Picker: Image / image (internally `WFImage`)

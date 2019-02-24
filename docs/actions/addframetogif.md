@@ -3,7 +3,7 @@
 
 
 ### usage
-`addframetogif image=[variable] delaytime=[string number] autosize=[string|variable] width=[string number] height=[string number]`
+`addframetogif image=[variable] delaytime=[string number] autosize=[string boolean|variable] width=[string number] height=[string number]`
 
 ### arguments
 ### Variable Picker: Image / image (internally `WFImage`)

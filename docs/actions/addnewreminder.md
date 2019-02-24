@@ -7,7 +7,7 @@
 > This action requires that Shortcuts has permission to use WFReminderAccessResource.
 
 ### usage
-`addnewreminder title=[string|text] undefined=[???] undefined=[???] remind=[string <${strInfo}>] wheni=[string <${strInfo}>] radius=[string number] undefined=[???] undefined=[???] notes=[string|text]`
+`addnewreminder title=[string|text] undefined=[???] remindme=[string boolean] remind=[string <${strInfo}>] wheni=[string <${strInfo}>] radius=[string number] undefined=[???] undefined=[???] notes=[string|text]`
 
 ### arguments
 ### Text Input: Title / title (internally `WFCalendarItemTitle`)
@@ -25,7 +25,11 @@ This paramtype is not implemented. WFCalendarPickerParameter
 
 ---
 
-This paramtype is not implemented. WFExpandingParameter
+### Expand Arrow: Remind Me / remindme (internally `WFCalendarItemAlert`)
+
+
+Accepts a string with either true or false for if this
+parameter is expanded or not.
 
 ---
 

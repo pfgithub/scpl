@@ -5,10 +5,14 @@
 
 
 ### usage
-`getcontentsofurl undefined=[???] method=[string <${strInfo}>] undefined=[???] undefined=[???] requestbody=[string <${strInfo}>|variable] undefined=[???] undefined=[???] file=[variable]`
+`getcontentsofurl advanced=[string boolean] method=[string <${strInfo}>] headers=[string boolean] undefined=[???] requestbody=[string <${strInfo}>|variable] undefined=[???] undefined=[???] file=[variable]`
 
 ### arguments
-This paramtype is not implemented. WFExpandingParameter
+### Expand Arrow: Advanced / advanced (internally `Advanced`)
+
+
+Accepts a string with either true or false for if this
+parameter is expanded or not.
 
 ---
 
@@ -29,7 +33,11 @@ containing one of the options:
 
 ---
 
-This paramtype is not implemented. WFExpandingParameter
+### Expand Arrow: Headers / headers (internally `ShowHeaders`)
+
+
+Accepts a string with either true or false for if this
+parameter is expanded or not.
 
 ---
 

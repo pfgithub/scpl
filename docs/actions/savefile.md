@@ -7,7 +7,7 @@
 > This action requires that Shortcuts has permission to use [object Object].
 
 ### usage
-`savefile undefined=[???] askwheretosave=[string|variable] destinationpath=[string|text] overwriteiffileexists=[string|variable]`
+`savefile undefined=[???] askwheretosave=[string boolean|variable] destinationpath=[string|text] overwriteiffileexists=[string boolean|variable]`
 
 ### arguments
 This paramtype is not implemented. WFStorageServicePickerParameter

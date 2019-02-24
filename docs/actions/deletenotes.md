@@ -5,7 +5,7 @@
 > This action requires that Shortcuts has permission to use WFEvernoteAccessResource.
 
 ### usage
-`deletenotes confirmbeforedeleting=[string|variable]`
+`deletenotes confirmbeforedeleting=[string boolean|variable]`
 
 ### arguments
 ### Switch: Confirm Before Deleting / confirmbeforedeleting (internally `WFEvernoteConfirmDeletion`)

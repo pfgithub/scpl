@@ -3,7 +3,7 @@
 
 
 ### usage
-`matchtext pattern=[string|text] casesensitive=[string|variable]`
+`matchtext pattern=[string|text] casesensitive=[string boolean|variable]`
 
 ### arguments
 ### Text Input: Pattern / pattern (internally `WFMatchTextPattern`)

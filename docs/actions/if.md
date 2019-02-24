@@ -10,7 +10,7 @@
 **Default Value**: Contains
 
 
-Accepts a string
+Accepts a string 
 containing one of the options:
 
 - `Equals`
@@ -25,7 +25,7 @@ containing one of the options:
 **Allows Variables**: true
 
 
-Accepts a string
+Accepts a string 
 or variable
 with a number.
 
@@ -36,6 +36,6 @@ with a number.
 **Allows Variables**: true
 
 
-Accepts a string
+Accepts a string 
 or text
 with the text.

@@ -5,7 +5,7 @@
 
 
 ### usage
-`setdonotdisturb donotdisturb=[string|variable] until=[string <${strInfo}>] event=[variable] undefined=[???]`
+`setdonotdisturb donotdisturb=[string boolean|variable] until=[string <${strInfo}>] event=[variable] undefined=[???]`
 
 ### arguments
 ### Switch: Do Not Disturb / donotdisturb (internally `Enabled`)

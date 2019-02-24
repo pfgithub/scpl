@@ -5,7 +5,7 @@
 > This action requires that Shortcuts has permission to use WFSiriAccessResource.
 
 ### usage
-`setwifi wifi=[string|variable]`
+`setwifi wifi=[string boolean|variable]`
 
 ### arguments
 ### Switch: Wi-Fi / wifi (internally `OnValue`)

@@ -3,7 +3,7 @@
 
 
 ### usage
-`makehtmlfromrichtext makefulldocument=[string|variable]`
+`makehtmlfromrichtext makefulldocument=[string boolean|variable]`
 
 ### arguments
 ### Switch: Make Full Document / makefulldocument (internally `WFMakeFullDocument`)

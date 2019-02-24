@@ -5,7 +5,7 @@
 > This action requires that Shortcuts has permission to use WFUserInteractionResource.
 
 ### usage
-`showwebpage entersafarireader=[string|variable]`
+`showwebpage entersafarireader=[string boolean|variable]`
 
 ### arguments
 ### Switch: Enter Safari Reader / entersafarireader (internally `WFEnterSafariReader`)

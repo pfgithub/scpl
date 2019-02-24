@@ -5,7 +5,7 @@
 > This action requires that Shortcuts has permission to use WFPhotoAccessResource.
 
 ### usage
-`getlatestphotos wfgetlatestphotocount=[string integer] includescreenshots=[string|variable]`
+`getlatestphotos wfgetlatestphotocount=[string integer] includescreenshots=[string boolean|variable]`
 
 ### arguments
 ### Stepper Number: wfgetlatestphotocount / wfgetlatestphotocount (internally `WFGetLatestPhotoCount`)

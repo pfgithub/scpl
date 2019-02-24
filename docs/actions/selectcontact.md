@@ -5,7 +5,7 @@
 > This action requires that Shortcuts has permission to use WFUserInteractionResource,WFContactAccessResource.
 
 ### usage
-`selectcontact selectmultiple=[string|variable]`
+`selectcontact selectmultiple=[string boolean|variable]`
 
 ### arguments
 ### Switch: Select Multiple / selectmultiple (internally `WFSelectMultiple`)

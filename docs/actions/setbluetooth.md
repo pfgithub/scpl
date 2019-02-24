@@ -5,7 +5,7 @@
 > This action requires that Shortcuts has permission to use WFSiriAccessResource.
 
 ### usage
-`setbluetooth bluetooth=[string|variable]`
+`setbluetooth bluetooth=[string boolean|variable]`
 
 ### arguments
 ### Switch: Bluetooth / bluetooth (internally `OnValue`)

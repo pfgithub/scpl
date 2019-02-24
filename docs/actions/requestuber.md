@@ -7,7 +7,7 @@
 > This action requires that Shortcuts has permission to use [object Object].
 
 ### usage
-`requestuber showestimate=[string|variable] undefined=[???] undefined=[???] pickupat=[string <${strInfo}>] undefined=[???]`
+`requestuber showestimate=[string boolean|variable] undefined=[???] undefined=[???] pickupat=[string <${strInfo}>] undefined=[???]`
 
 ### arguments
 ### Switch: Show Estimate / showestimate (internally `UberShowEstimate`)

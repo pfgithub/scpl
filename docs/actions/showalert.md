@@ -5,7 +5,7 @@
 > This action requires that Shortcuts has permission to use WFUserInteractionResource.
 
 ### usage
-`showalert title=[string|text] message=[string|text] showcancelbutton=[string|variable]`
+`showalert title=[string|text] message=[string|text] showcancelbutton=[string boolean|variable]`
 
 ### arguments
 ### Text Input: Title / title (internally `WFAlertActionTitle`)

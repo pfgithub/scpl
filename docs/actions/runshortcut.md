@@ -7,7 +7,7 @@
 > This action requires that Shortcuts has permission to use WFMainThreadResource,[object Object].
 
 ### usage
-`runshortcut undefined=[???] showwhilerunning=[string|variable]`
+`runshortcut undefined=[???] showwhilerunning=[string boolean|variable]`
 
 ### arguments
 This paramtype is not implemented. WFWorkflowPickerParameter

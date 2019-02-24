@@ -7,7 +7,7 @@
 > This action requires that Shortcuts has permission to use WFMainThreadResource.
 
 ### usage
-`copytoclipboard localonly=[string|variable] undefined=[???]`
+`copytoclipboard localonly=[string boolean|variable] undefined=[???]`
 
 ### arguments
 ### Switch: Local Only / localonly (internally `WFLocalOnly`)

@@ -5,7 +5,7 @@
 > This action requires that Shortcuts has permission to use WFAppleMusicAccessResource,WFUserInteractionResource.
 
 ### usage
-`selectmusic selectmultiplesongs=[string|variable]`
+`selectmusic selectmultiplesongs=[string boolean|variable]`
 
 ### arguments
 ### Switch: Select Multiple Songs / selectmultiplesongs (internally `WFExportSongActionSelectMultiple`)

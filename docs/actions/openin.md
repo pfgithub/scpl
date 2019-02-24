@@ -7,7 +7,7 @@
 > This action requires that Shortcuts has permission to use WFUserInteractionResource.
 
 ### usage
-`openin showopeninmenu=[string|variable] undefined=[???] wfappname=[string|text]`
+`openin showopeninmenu=[string boolean|variable] undefined=[???] wfappname=[string|text]`
 
 ### arguments
 ### Switch: Show Open In Menu / showopeninmenu (internally `WFOpenInAskWhenRun`)

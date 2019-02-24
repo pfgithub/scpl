@@ -5,7 +5,7 @@
 > This action requires that Shortcuts has permission to use WFCalendarAccessResource,WFUserInteractionResource.
 
 ### usage
-`removeevents includefutureevents=[string|variable]`
+`removeevents includefutureevents=[string boolean|variable]`
 
 ### arguments
 ### Switch: Include Future Events / includefutureevents (internally `WFCalendarIncludeFutureEvents`)

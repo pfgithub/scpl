@@ -5,7 +5,7 @@
 > This action requires that Shortcuts has permission to use [object Object].
 
 ### usage
-`searchgiphy search=[string|text] showgifpicker=[string|variable] wfgiphylimit=[string integer] selectmultiple=[string|variable]`
+`searchgiphy search=[string|text] showgifpicker=[string boolean|variable] wfgiphylimit=[string integer] selectmultiple=[string boolean|variable]`
 
 ### arguments
 ### Text Input: Search / search (internally `WFGiphyQuery`)

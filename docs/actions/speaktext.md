@@ -5,7 +5,7 @@
 
 
 ### usage
-`speaktext waituntilfinished=[string|variable] undefined=[???] undefined=[???] undefined=[???] undefined=[???]`
+`speaktext waituntilfinished=[string boolean|variable] undefined=[???] undefined=[???] undefined=[???] undefined=[???]`
 
 ### arguments
 ### Switch: Wait Until Finished / waituntilfinished (internally `WFSpeakTextWait`)

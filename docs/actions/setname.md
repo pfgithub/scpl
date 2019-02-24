@@ -1,11 +1,9 @@
 
 ## Set Name / setname (internally `is.workflow.actions.setitemname`)
 
-> This action is not yet complete. Some arguments may be missing.
-
 
 ### usage
-`setname name=[string|text] undefined=[???] dontincludefileextension=[string|variable]`
+`setname name=[string|text] advanced=[string boolean] dontincludefileextension=[string boolean|variable]`
 
 ### arguments
 ### Text Input: Name / name (internally `WFName`)
@@ -19,7 +17,11 @@ with the text.
 
 ---
 
-This paramtype is not implemented. WFExpandingParameter
+### Expand Arrow: Advanced / advanced (internally `Advanced`)
+
+
+Accepts a string with either true or false for if this
+parameter is expanded or not.
 
 ---
 

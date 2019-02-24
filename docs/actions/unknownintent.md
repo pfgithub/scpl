@@ -3,7 +3,7 @@
 
 
 ### usage
-`unknownintent showwhenrun=[string|variable]`
+`unknownintent showwhenrun=[string boolean|variable]`
 
 ### arguments
 ### Switch: Show When Run / showwhenrun (internally `ShowWhenRun`)

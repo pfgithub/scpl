@@ -5,7 +5,7 @@
 > This action requires that Shortcuts has permission to use WFEvernoteAccessResource.
 
 ### usage
-`getnotelink inapplink=[string|variable]`
+`getnotelink inapplink=[string boolean|variable]`
 
 ### arguments
 ### Switch: In-App Link / inapplink (internally `WFEvernoteShareInAppLink`)

@@ -7,7 +7,7 @@
 > This action requires that Shortcuts has permission to use [object Object].
 
 ### usage
-`addwunderlisttask title=[string|text] undefined=[???] undefined=[???] undefined=[???] starred=[string|variable] notes=[string|text]`
+`addwunderlisttask title=[string|text] undefined=[???] undefined=[???] undefined=[???] starred=[string boolean|variable] notes=[string|text]`
 
 ### arguments
 ### Text Input: Title / title (internally `WFWunderlistTitle`)

@@ -5,7 +5,7 @@
 > This action requires that Shortcuts has permission to use WFUserInteractionResource,WFMainThreadResource,WFLocalNotificationAccessResource.
 
 ### usage
-`shownotification title=[string|text] body=[string|text] playsound=[string|variable]`
+`shownotification title=[string|text] body=[string|text] playsound=[string boolean|variable]`
 
 ### arguments
 ### Text Input: Title / title (internally `WFNotificationActionTitle`)

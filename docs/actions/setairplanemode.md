@@ -5,7 +5,7 @@
 > This action requires that Shortcuts has permission to use WFSiriAccessResource.
 
 ### usage
-`setairplanemode airplanemode=[string|variable]`
+`setairplanemode airplanemode=[string boolean|variable]`
 
 ### arguments
 ### Switch: Airplane Mode / airplanemode (internally `OnValue`)

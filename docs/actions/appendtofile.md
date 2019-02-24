@@ -5,7 +5,7 @@
 
 
 ### usage
-`appendtofile undefined=[???] filepath=[string|text] mode=[string <${strInfo}>] makenewline=[string|variable]`
+`appendtofile undefined=[???] filepath=[string|text] mode=[string <${strInfo}>] makenewline=[string boolean|variable]`
 
 ### arguments
 This paramtype is not implemented. WFStorageServicePickerParameter

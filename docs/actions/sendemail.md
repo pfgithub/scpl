@@ -7,7 +7,7 @@
 > This action requires that Shortcuts has permission to use [object Object],[object Object],[object Object].
 
 ### usage
-`sendemail showcomposesheet=[string|variable] undefined=[???] from=[string|text] undefined=[???] undefined=[???] undefined=[???] subject=[string|text]`
+`sendemail showcomposesheet=[string boolean|variable] undefined=[???] from=[string|text] undefined=[???] undefined=[???] undefined=[???] subject=[string|text]`
 
 ### arguments
 ### Switch: Show Compose Sheet / showcomposesheet (internally `WFSendEmailActionShowComposeSheet`)

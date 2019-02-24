@@ -7,7 +7,7 @@
 > This action requires that Shortcuts has permission to use WFContactAccessResource.
 
 ### usage
-`requestpayment undefined=[???] undefined=[???] amount=[string number] openinapp=[string|variable] note=[string|text]`
+`requestpayment undefined=[???] undefined=[???] amount=[string number] openinapp=[string boolean|variable] note=[string|text]`
 
 ### arguments
 This paramtype is not implemented. WFIntentAppPickerParameter

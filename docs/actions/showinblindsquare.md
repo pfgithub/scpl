@@ -5,7 +5,7 @@
 > This action requires that Shortcuts has permission to use WFURLOpenResource,[object Object].
 
 ### usage
-`showinblindsquare startsimulation=[string|variable]`
+`showinblindsquare startsimulation=[string boolean|variable]`
 
 ### arguments
 ### Switch: Start Simulation / startsimulation (internally `WFBlindSquareSimulation`)

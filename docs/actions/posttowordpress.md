@@ -7,7 +7,7 @@
 > This action requires that Shortcuts has permission to use [object Object].
 
 ### usage
-`posttowordpress undefined=[???] undefined=[???] title=[string|text] undefined=[???] undefined=[???] undefined=[???] undefined=[???] undefined=[???] undefined=[???] allowcomments=[string|variable] slug=[string|text] excerpt=[string|text] undefined=[???] undefined=[???] featuredimage=[variable] undefined=[???] undefined=[???]`
+`posttowordpress undefined=[???] undefined=[???] title=[string|text] undefined=[???] undefined=[???] undefined=[???] undefined=[???] undefined=[???] advanced=[string boolean] allowcomments=[string boolean|variable] slug=[string|text] excerpt=[string|text] undefined=[???] undefined=[???] featuredimage=[variable] customfields=[string boolean] undefined=[???]`
 
 ### arguments
 This paramtype is not implemented. WFAccountPickerParameter
@@ -49,7 +49,11 @@ This paramtype is not implemented. WFDynamicTagFieldParameter
 
 ---
 
-This paramtype is not implemented. WFExpandingParameter
+### Expand Arrow: Advanced / advanced (internally `Advanced`)
+
+
+Accepts a string with either true or false for if this
+parameter is expanded or not.
 
 ---
 
@@ -100,7 +104,11 @@ Accepts a variable.
 
 ---
 
-This paramtype is not implemented. WFExpandingParameter
+### Expand Arrow: Custom Fields / customfields (internally `ShowCustomFields`)
+
+
+Accepts a string with either true or false for if this
+parameter is expanded or not.
 
 ---
 

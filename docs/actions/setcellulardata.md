@@ -5,7 +5,7 @@
 > This action requires that Shortcuts has permission to use WFSiriAccessResource.
 
 ### usage
-`setcellulardata cellulardata=[string|variable]`
+`setcellulardata cellulardata=[string boolean|variable]`
 
 ### arguments
 ### Switch: Cellular Data / cellulardata (internally `OnValue`)

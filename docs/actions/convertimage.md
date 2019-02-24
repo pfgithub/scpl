@@ -5,7 +5,7 @@
 
 
 ### usage
-`convertimage undefined=[???] undefined=[???] preservemetadata=[string|variable]`
+`convertimage undefined=[???] undefined=[???] preservemetadata=[string boolean|variable]`
 
 ### arguments
 This paramtype is not implemented. WFImageConvertFormatPickerParameter

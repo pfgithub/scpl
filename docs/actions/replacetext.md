@@ -3,7 +3,7 @@
 
 
 ### usage
-`replacetext findtext=[string|text] replacewith=[string|text] casesensitive=[string|variable] regularexpression=[string|variable]`
+`replacetext findtext=[string|text] replacewith=[string|text] casesensitive=[string boolean|variable] regularexpression=[string boolean|variable]`
 
 ### arguments
 ### Text Input: Find Text / findtext (internally `WFReplaceTextFind`)

@@ -3,7 +3,7 @@
 
 
 ### usage
-`deletefiles confirmbeforedeleting=[string|variable]`
+`deletefiles confirmbeforedeleting=[string boolean|variable]`
 
 ### arguments
 ### Switch: Confirm Before Deleting / confirmbeforedeleting (internally `WFDeleteFileConfirmDeletion`)
