@@ -16,9 +16,8 @@ Prompts to share the input via AirDrop.
 ### arguments
 
 
-### other info
+### source json
 
-<details><summary>source json</summary>
 ```json
 {
 	"ActionClass": "WFAirDropAction",
@@ -52,4 +51,3 @@ Prompts to share the input via AirDrop.
 	]
 }
 ```
-</details>

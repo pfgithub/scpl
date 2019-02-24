@@ -30,9 +30,8 @@ containing one of the options:
 - `Range`
 - `Standard Deviation`
 
-### other info
+### source json
 
-<details><summary>source json</summary>
 ```json
 {
 	"ActionClass": "WFCalculateStatisticsAction",
@@ -89,4 +88,3 @@ containing one of the options:
 	"Subcategory": "Math"
 }
 ```
-</details>

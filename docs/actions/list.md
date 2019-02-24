@@ -19,9 +19,8 @@ Allows you to specify a list of items to be passed to the next action.
 
 Accepts a list.
 
-### other info
+### source json
 
-<details><summary>source json</summary>
 ```json
 {
 	"ActionClass": "WFListAction",
@@ -57,4 +56,3 @@ Accepts a list.
 	"SuggestedNever": true
 }
 ```
-</details>

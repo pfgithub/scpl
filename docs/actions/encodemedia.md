@@ -150,9 +150,8 @@ with the text.
 
 Accepts a variable.
 
-### other info
+### source json
 
-<details><summary>source json</summary>
 ```json
 {
 	"ActionClass": "WFEncodeMediaAction",
@@ -353,4 +352,3 @@ Accepts a variable.
 	"Subcategory": "Video"
 }
 ```
-</details>

@@ -23,9 +23,8 @@ The contents of the updated playlist
 ### arguments
 This paramtype is not implemented. WFPlaylistPickerParameter
 
-### other info
+### source json
 
-<details><summary>source json</summary>
 ```json
 {
 	"ActionClass": "WFAddToPlaylistAction",
@@ -85,4 +84,3 @@ This paramtype is not implemented. WFPlaylistPickerParameter
 	"Subcategory": "Playlists"
 }
 ```
-</details>

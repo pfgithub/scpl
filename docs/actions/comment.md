@@ -19,9 +19,8 @@ This action lets you explain how part of a shortcut works. When run, this action
 Accepts a string 
 with the text.
 
-### other info
+### source json
 
-<details><summary>source json</summary>
 ```json
 {
 	"ActionClass": "WFCommentAction",
@@ -52,4 +51,3 @@ with the text.
 	"SuggestedNever": true
 }
 ```
-</details>

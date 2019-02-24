@@ -44,9 +44,8 @@ containing one of the options:
 
 This paramtype is not implemented. WFLightroomPresetPickerParameter
 
-### other info
+### source json
 
-<details><summary>source json</summary>
 ```json
 {
 	"ActionClass": "WFImportToLightroomAction",
@@ -123,4 +122,3 @@ This paramtype is not implemented. WFLightroomPresetPickerParameter
 	]
 }
 ```
-</details>

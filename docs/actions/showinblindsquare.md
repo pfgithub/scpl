@@ -21,9 +21,8 @@ Opens BlindSquare showing information about the place passed as input, so you ca
 Accepts a string with either true or false
 or a variable.
 
-### other info
+### source json
 
-<details><summary>source json</summary>
 ```json
 {
 	"ActionClass": "WFShowInBlindSquareAction",
@@ -62,4 +61,3 @@ or a variable.
 	"Subcategory": "Maps"
 }
 ```
-</details>

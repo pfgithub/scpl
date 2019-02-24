@@ -14,9 +14,8 @@ Extracts any RSS feed URLs from the given web URLs or web page.
 ### arguments
 
 
-### other info
+### source json
 
-<details><summary>source json</summary>
 ```json
 {
 	"ActionClass": "WFRSSFeedExtractAction",
@@ -52,4 +51,3 @@ Extracts any RSS feed URLs from the given web URLs or web page.
 	"Subcategory": "URLs"
 }
 ```
-</details>

@@ -33,9 +33,8 @@ with the text.
 Accepts a string with either true or false
 or a variable.
 
-### other info
+### source json
 
-<details><summary>source json</summary>
 ```json
 {
 	"ActionClass": "WFMatchTextAction",
@@ -88,4 +87,3 @@ or a variable.
 	"Subcategory": "Text Editing"
 }
 ```
-</details>

@@ -20,9 +20,8 @@ Delete the files passed in as input.
 Accepts a string with either true or false
 or a variable.
 
-### other info
+### source json
 
-<details><summary>source json</summary>
 ```json
 {
 	"ActionClass": "WFDeleteFileAction",
@@ -58,4 +57,3 @@ or a variable.
 	"Subcategory": "File Storage"
 }
 ```
-</details>

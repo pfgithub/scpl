@@ -14,9 +14,8 @@ Gets the shortcuts stored on this device. For example, you could use this action
 ### arguments
 
 
-### other info
+### source json
 
-<details><summary>source json</summary>
 ```json
 {
 	"ActionClass": "WFGetMyWorkflowsAction",
@@ -43,4 +42,3 @@ Gets the shortcuts stored on this device. For example, you could use this action
 	"SuggestedNever": true
 }
 ```
-</details>

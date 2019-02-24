@@ -26,9 +26,8 @@ containing one of the options:
 - `Sentences`
 - `Lines`
 
-### other info
+### source json
 
-<details><summary>source json</summary>
 ```json
 {
 	"ActionClass": "WFCountAction",
@@ -77,4 +76,3 @@ containing one of the options:
 	"Subcategory": "Content"
 }
 ```
-</details>

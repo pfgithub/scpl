@@ -16,9 +16,8 @@ Gets photos of the locations passed as input, using Google Street View.
 ### arguments
 
 
-### other info
+### source json
 
-<details><summary>source json</summary>
 ```json
 {
 	"ActionClass": "WFStreetViewImageAction",
@@ -60,4 +59,3 @@ Gets photos of the locations passed as input, using Google Street View.
 	"ShortName": "Get Street View"
 }
 ```
-</details>

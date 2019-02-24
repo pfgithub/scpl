@@ -44,9 +44,8 @@ containing one of the options:
 - `Hourly`
 - `Daily`
 
-### other info
+### source json
 
-<details><summary>source json</summary>
 ```json
 {
 	"ActionClass": "WFGetWeatherForecastAction",
@@ -133,4 +132,3 @@ containing one of the options:
 	]
 }
 ```
-</details>

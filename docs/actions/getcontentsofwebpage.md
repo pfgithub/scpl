@@ -14,9 +14,8 @@ Extracts the contents of the web pages passed into the action.
 ### arguments
 
 
-### other info
+### source json
 
-<details><summary>source json</summary>
 ```json
 {
 	"ActionClass": "WFGetWebPageAction",
@@ -47,4 +46,3 @@ Extracts the contents of the web pages passed into the action.
 	]
 }
 ```
-</details>

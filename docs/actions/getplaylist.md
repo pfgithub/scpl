@@ -18,9 +18,8 @@ Gets every song in the specified playlist.
 ### arguments
 This paramtype is not implemented. WFPlaylistPickerParameter
 
-### other info
+### source json
 
-<details><summary>source json</summary>
 ```json
 {
 	"ActionClass": "WFGetPlaylistAction",
@@ -55,4 +54,3 @@ This paramtype is not implemented. WFPlaylistPickerParameter
 	"Subcategory": "Playlists"
 }
 ```
-</details>

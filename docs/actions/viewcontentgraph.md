@@ -16,9 +16,8 @@ Shows the results of the previous action in the Content Graph.
 ### arguments
 
 
-### other info
+### source json
 
-<details><summary>source json</summary>
 ```json
 {
 	"ActionClass": "WFViewContentGraphAction",
@@ -46,4 +45,3 @@ Shows the results of the previous action in the Content Graph.
 	]
 }
 ```
-</details>

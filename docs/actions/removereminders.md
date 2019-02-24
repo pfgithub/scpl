@@ -16,9 +16,8 @@ Removes all reminders passed into the action from the lists they are contained i
 ### arguments
 
 
-### other info
+### source json
 
-<details><summary>source json</summary>
 ```json
 {
 	"ActionClass": "WFRemoveCalendarItemsAction",
@@ -50,4 +49,3 @@ Removes all reminders passed into the action from the lists they are contained i
 	"WFCalendarItemEntityType": "Reminder"
 }
 ```
-</details>

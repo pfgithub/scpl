@@ -16,9 +16,8 @@ Prompts to share the input.
 ### arguments
 
 
-### other info
+### source json
 
-<details><summary>source json</summary>
 ```json
 {
 	"ActionClass": "WFShareAction",
@@ -52,4 +51,3 @@ Prompts to share the input.
 	]
 }
 ```
-</details>

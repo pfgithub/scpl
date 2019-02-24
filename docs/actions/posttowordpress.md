@@ -122,9 +122,8 @@ parameter is expanded or not.
 
 This paramtype is not implemented. WFDictionaryParameter
 
-### other info
+### source json
 
-<details><summary>source json</summary>
 ```json
 {
 	"ActionClass": "WFWordPressPostAction",
@@ -330,4 +329,3 @@ This paramtype is not implemented. WFDictionaryParameter
 	]
 }
 ```
-</details>

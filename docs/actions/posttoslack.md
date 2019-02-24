@@ -22,9 +22,8 @@ This paramtype is not implemented. WFAccountPickerParameter
 
 This paramtype is not implemented. WFSlackChannelPickerParameter
 
-### other info
+### source json
 
-<details><summary>source json</summary>
 ```json
 {
 	"ActionClass": "WFSlackPostAction",
@@ -82,4 +81,3 @@ This paramtype is not implemented. WFSlackChannelPickerParameter
 	"Subcategory": "Messaging"
 }
 ```
-</details>

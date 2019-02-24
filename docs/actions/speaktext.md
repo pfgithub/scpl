@@ -45,9 +45,8 @@ This paramtype is not implemented. WFSpeakTextLanguagePickerParameter
 
 This paramtype is not implemented. WFSpeakTextVoicePickerParameter
 
-### other info
+### source json
 
-<details><summary>source json</summary>
 ```json
 {
 	"ActionClass": "WFSpeakTextAction",
@@ -120,4 +119,3 @@ This paramtype is not implemented. WFSpeakTextVoicePickerParameter
 	]
 }
 ```
-</details>

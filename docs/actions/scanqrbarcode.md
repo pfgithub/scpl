@@ -16,9 +16,8 @@ Scans a QR code or bar code using the camera, and returns the text/URL that is f
 ### arguments
 
 
-### other info
+### source json
 
-<details><summary>source json</summary>
 ```json
 {
 	"ActionClass": "WFScanMachineReadableCodeAction",
@@ -49,4 +48,3 @@ Scans a QR code or bar code using the camera, and returns the text/URL that is f
 	]
 }
 ```
-</details>

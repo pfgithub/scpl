@@ -54,9 +54,8 @@ containing one of the options:
 
 This paramtype is not implemented. WFGetDistanceUnitPickerParameter
 
-### other info
+### source json
 
-<details><summary>source json</summary>
 ```json
 {
 	"ActionClass": "WFGetDistanceAction",
@@ -150,4 +149,3 @@ This paramtype is not implemented. WFGetDistanceUnitPickerParameter
 	]
 }
 ```
-</details>

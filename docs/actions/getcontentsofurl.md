@@ -80,9 +80,8 @@ This paramtype is not implemented. WFDictionaryParameter
 
 Accepts a variable.
 
-### other info
+### source json
 
-<details><summary>source json</summary>
 ```json
 {
 	"ActionClass": "WFDownloadURLAction",
@@ -308,4 +307,3 @@ Accepts a variable.
 	"Subcategory": "URLs"
 }
 ```
-</details>

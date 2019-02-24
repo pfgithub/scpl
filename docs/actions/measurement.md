@@ -20,9 +20,8 @@ This paramtype is not implemented. WFUnitTypePickerParameter
 
 This paramtype is not implemented. WFUnitPickerParameter
 
-### other info
+### source json
 
-<details><summary>source json</summary>
 ```json
 {
 	"ActionClass": "WFMeasurementCreateAction",
@@ -78,4 +77,3 @@ This paramtype is not implemented. WFUnitPickerParameter
 	"Subcategory": "Math"
 }
 ```
-</details>

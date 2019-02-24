@@ -43,9 +43,8 @@ containing one of the options:
 - `Top`
 - `Bottom`
 
-### other info
+### source json
 
-<details><summary>source json</summary>
 ```json
 {
 	"ActionClass": "WFTrelloCreateListAction",
@@ -93,4 +92,3 @@ containing one of the options:
 	"ShortName": "Create List"
 }
 ```
-</details>

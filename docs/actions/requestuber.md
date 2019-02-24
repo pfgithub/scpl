@@ -54,9 +54,8 @@ containing one of the options:
 
 This paramtype is not implemented. WFLocationFieldParameter
 
-### other info
+### source json
 
-<details><summary>source json</summary>
 ```json
 {
 	"ActionClass": "WFRequestUberAction",
@@ -155,4 +154,3 @@ This paramtype is not implemented. WFLocationFieldParameter
 	]
 }
 ```
-</details>

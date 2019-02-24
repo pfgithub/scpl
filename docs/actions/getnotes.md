@@ -44,9 +44,8 @@ Accepts a string
 or variable
 containing an integer value.
 
-### other info
+### source json
 
-<details><summary>source json</summary>
 ```json
 {
 	"ActionClass": "WFEvernoteGetNotesAction",
@@ -103,4 +102,3 @@ containing an integer value.
 	]
 }
 ```
-</details>

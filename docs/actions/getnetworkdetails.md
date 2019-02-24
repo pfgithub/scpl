@@ -45,9 +45,8 @@ containing one of the options:
 - `Radio Technology`
 - `Country Code`
 
-### other info
+### source json
 
-<details><summary>source json</summary>
 ```json
 {
 	"ActionClass": "WFGetNetworkDetailsAction",
@@ -125,4 +124,3 @@ containing one of the options:
 	"SuggestedNever": true
 }
 ```
-</details>

@@ -23,9 +23,8 @@ The selected photos/videos
 Accepts a string with either true or false
 or a variable.
 
-### other info
+### source json
 
-<details><summary>source json</summary>
 ```json
 {
 	"ActionClass": "WFSelectPhotoAction",
@@ -68,4 +67,3 @@ or a variable.
 	]
 }
 ```
-</details>

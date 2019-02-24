@@ -77,9 +77,8 @@ or a variable.
 
 This paramtype is not implemented. WFCustomDateFormatParameter
 
-### other info
+### source json
 
-<details><summary>source json</summary>
 ```json
 {
 	"ActionClass": "WFFormatDateAction",
@@ -211,4 +210,3 @@ This paramtype is not implemented. WFCustomDateFormatParameter
 	"Subcategory": "Dates"
 }
 ```
-</details>

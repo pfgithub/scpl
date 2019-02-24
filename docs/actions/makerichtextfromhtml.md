@@ -17,9 +17,8 @@ HTML
 ### arguments
 
 
-### other info
+### source json
 
-<details><summary>source json</summary>
 ```json
 {
 	"ActionClass": "WFRichTextFromHTMLAction",
@@ -55,4 +54,3 @@ HTML
 	"SuggestedNever": true
 }
 ```
-</details>

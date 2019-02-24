@@ -21,9 +21,8 @@ Gets a link to the Evernote note passed into the action, which can be shared.
 Accepts a string with either true or false
 or a variable.
 
-### other info
+### source json
 
-<details><summary>source json</summary>
 ```json
 {
 	"ActionClass": "WFEvernoteGetLinkAction",
@@ -65,4 +64,3 @@ or a variable.
 	]
 }
 ```
-</details>

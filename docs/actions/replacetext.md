@@ -51,9 +51,8 @@ or a variable.
 Accepts a string with either true or false
 or a variable.
 
-### other info
+### source json
 
-<details><summary>source json</summary>
 ```json
 {
 	"ActionClass": "WFReplaceTextAction",
@@ -119,4 +118,3 @@ or a variable.
 	"Subcategory": "Text Editing"
 }
 ```
-</details>

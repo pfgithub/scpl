@@ -47,9 +47,8 @@ with a number.
 
 Accepts a variable.
 
-### other info
+### source json
 
-<details><summary>source json</summary>
 ```json
 {
 	"ActionClass": "WFMaskImageAction",
@@ -133,4 +132,3 @@ Accepts a variable.
 	"Subcategory": "Editing"
 }
 ```
-</details>

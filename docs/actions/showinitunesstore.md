@@ -16,9 +16,8 @@ Shows the iTunes products or App Store apps passed as input in a store sheet. Th
 ### arguments
 
 
-### other info
+### source json
 
-<details><summary>source json</summary>
 ```json
 {
 	"ActionClass": "WFShowInStoreAction",
@@ -58,4 +57,3 @@ Shows the iTunes products or App Store apps passed as input in a store sheet. Th
 	]
 }
 ```
-</details>

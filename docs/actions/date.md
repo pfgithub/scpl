@@ -30,9 +30,8 @@ containing one of the options:
 
 This paramtype is not implemented. WFDateFieldParameter
 
-### other info
+### source json
 
-<details><summary>source json</summary>
 ```json
 {
 	"ActionClass": "WFDateAction",
@@ -87,4 +86,3 @@ This paramtype is not implemented. WFDateFieldParameter
 	"SuggestedNever": true
 }
 ```
-</details>

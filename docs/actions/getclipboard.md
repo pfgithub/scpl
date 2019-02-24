@@ -16,9 +16,8 @@ Passes the contents of the clipboard to the next action.
 ### arguments
 
 
-### other info
+### source json
 
-<details><summary>source json</summary>
 ```json
 {
 	"ActionClass": "WFGetClipboardAction",
@@ -52,4 +51,3 @@ Passes the contents of the clipboard to the next action.
 	]
 }
 ```
-</details>

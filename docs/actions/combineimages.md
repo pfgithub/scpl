@@ -49,9 +49,8 @@ Accepts a string
 or variable
 with a number.
 
-### other info
+### source json
 
-<details><summary>source json</summary>
 ```json
 {
 	"ActionClass": "WFImageCombineAction",
@@ -129,4 +128,3 @@ with a number.
 	"Subcategory": "Editing"
 }
 ```
-</details>

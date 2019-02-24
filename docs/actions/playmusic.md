@@ -42,9 +42,8 @@ containing one of the options:
 - `One`
 - `All`
 
-### other info
+### source json
 
-<details><summary>source json</summary>
 ```json
 {
 	"ActionClass": "WFPlayMusicAction",
@@ -99,4 +98,3 @@ containing one of the options:
 	"Subcategory": "Playback"
 }
 ```
-</details>

@@ -18,9 +18,8 @@ The edited content
 ### arguments
 
 
-### other info
+### source json
 
-<details><summary>source json</summary>
 ```json
 {
 	"ActionClass": "WFMarkupAction",
@@ -71,4 +70,3 @@ The edited content
 	]
 }
 ```
-</details>

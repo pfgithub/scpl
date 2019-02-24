@@ -25,9 +25,8 @@ Accepts a string with the name of the named variable (v:) you want to set,
 or a named variable (v:) that you want to set.
 
 
-### other info
+### source json
 
-<details><summary>source json</summary>
 ```json
 {
 	"ActionClass": "WFAppendVariableAction",
@@ -68,4 +67,3 @@ or a named variable (v:) that you want to set.
 	"Subcategory": "Variables"
 }
 ```
-</details>

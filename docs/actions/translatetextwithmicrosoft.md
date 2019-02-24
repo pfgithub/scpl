@@ -20,9 +20,8 @@ This paramtype is not implemented. WFTranslateTextLanguagePickerParameter
 
 This paramtype is not implemented. WFTranslateTextLanguagePickerParameter
 
-### other info
+### source json
 
-<details><summary>source json</summary>
 ```json
 {
 	"ActionClass": "WFTranslateTextAction",
@@ -70,4 +69,3 @@ This paramtype is not implemented. WFTranslateTextLanguagePickerParameter
 	]
 }
 ```
-</details>

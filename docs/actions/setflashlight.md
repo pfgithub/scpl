@@ -36,9 +36,8 @@ Accepts a string
 or variable
 containing a number value from 0 to 1.
 
-### other info
+### source json
 
-<details><summary>source json</summary>
 ```json
 {
 	"ACECommandClass": "SASettingSetFlashlight",
@@ -87,4 +86,3 @@ containing a number value from 0 to 1.
 	"Subcategory": "Device"
 }
 ```
-</details>

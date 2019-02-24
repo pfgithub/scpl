@@ -34,9 +34,8 @@ This paramtype is not implemented. WFHealthQuantityFieldParameter
 
 This paramtype is not implemented. WFHealthQuantityFieldParameter
 
-### other info
+### source json
 
-<details><summary>source json</summary>
 ```json
 {
 	"ActionClass": "WFLogWorkoutAction",
@@ -129,4 +128,3 @@ This paramtype is not implemented. WFHealthQuantityFieldParameter
 	"Subcategory": "Log"
 }
 ```
-</details>

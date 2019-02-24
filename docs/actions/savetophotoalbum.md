@@ -23,9 +23,8 @@ The saved items
 ### arguments
 This paramtype is not implemented. WFPhotoAlbumPickerParameter
 
-### other info
+### source json
 
-<details><summary>source json</summary>
 ```json
 {
 	"ActionClass": "WFSaveToCameraRollAction",
@@ -80,4 +79,3 @@ This paramtype is not implemented. WFPhotoAlbumPickerParameter
 	"Subcategory": "Camera"
 }
 ```
-</details>

@@ -16,9 +16,8 @@ Gets the current location of the device.
 ### arguments
 
 
-### other info
+### source json
 
-<details><summary>source json</summary>
 ```json
 {
 	"ActionClass": "WFGetCurrentLocationAction",
@@ -51,4 +50,3 @@ Gets the current location of the device.
 	]
 }
 ```
-</details>

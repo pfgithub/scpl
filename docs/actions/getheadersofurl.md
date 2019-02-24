@@ -14,9 +14,8 @@ Retrieves the HTTP headers of the URL passed as input using a HEAD request.
 ### arguments
 
 
-### other info
+### source json
 
-<details><summary>source json</summary>
 ```json
 {
 	"ActionClass": "WFGetURLHeadersAction",
@@ -52,4 +51,3 @@ Retrieves the HTTP headers of the URL passed as input using a HEAD request.
 	"SuggestedNever": true
 }
 ```
-</details>

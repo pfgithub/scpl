@@ -14,9 +14,8 @@ Returns any email addresses found in the output from the previous action.
 ### arguments
 
 
-### other info
+### source json
 
-<details><summary>source json</summary>
 ```json
 {
 	"ActionClass": "WFCoercionAction",
@@ -53,4 +52,3 @@ Returns any email addresses found in the output from the previous action.
 	"Subcategory": "Email"
 }
 ```
-</details>

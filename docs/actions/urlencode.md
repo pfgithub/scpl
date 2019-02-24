@@ -24,9 +24,8 @@ containing one of the options:
 - `Encode`
 - `Decode`
 
-### other info
+### source json
 
-<details><summary>source json</summary>
 ```json
 {
 	"ActionClass": "WFURLEncodeAction",
@@ -76,4 +75,3 @@ containing one of the options:
 	"SuggestedNever": true
 }
 ```
-</details>

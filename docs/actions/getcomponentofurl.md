@@ -30,9 +30,8 @@ containing one of the options:
 - `Query`
 - `Fragment`
 
-### other info
+### source json
 
-<details><summary>source json</summary>
 ```json
 {
 	"ActionClass": "WFURLGetComponentAction",
@@ -91,4 +90,3 @@ containing one of the options:
 	"SuggestedNever": true
 }
 ```
-</details>

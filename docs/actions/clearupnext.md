@@ -16,9 +16,8 @@ Clears all the music in your Up Next queue.
 ### arguments
 
 
-### other info
+### source json
 
-<details><summary>source json</summary>
 ```json
 {
 	"ActionClass": "WFClearUpNextAction",
@@ -56,4 +55,3 @@ Clears all the music in your Up Next queue.
 	"Subcategory": "Up Next"
 }
 ```
-</details>

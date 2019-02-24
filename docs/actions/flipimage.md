@@ -24,9 +24,8 @@ containing one of the options:
 - `Horizontal`
 - `Vertical`
 
-### other info
+### source json
 
-<details><summary>source json</summary>
 ```json
 {
 	"ActionClass": "WFImageFlipAction",
@@ -74,4 +73,3 @@ containing one of the options:
 	"SuggestedNever": true
 }
 ```
-</details>

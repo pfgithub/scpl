@@ -16,9 +16,8 @@ Sends the input via Facebook Messenger
 ### arguments
 
 
-### other info
+### source json
 
-<details><summary>source json</summary>
 ```json
 {
 	"ActionClass": "WFFBMessengerSendAction",
@@ -62,4 +61,3 @@ Sends the input via Facebook Messenger
 	]
 }
 ```
-</details>

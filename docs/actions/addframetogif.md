@@ -67,9 +67,8 @@ Accepts a string
 or variable
 with a number.
 
-### other info
+### source json
 
-<details><summary>source json</summary>
 ```json
 {
 	"ActionClass": "WFAddFrameToGIFAction",
@@ -156,4 +155,3 @@ with a number.
 	"Subcategory": "GIFs"
 }
 ```
-</details>

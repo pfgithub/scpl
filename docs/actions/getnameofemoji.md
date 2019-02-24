@@ -14,9 +14,8 @@ Gets the names of emoji passed into the action.
 ### arguments
 
 
-### other info
+### source json
 
-<details><summary>source json</summary>
 ```json
 {
 	"ActionClass": "WFGetEmojiNameAction",
@@ -45,4 +44,3 @@ Gets the names of emoji passed into the action.
 	"SuggestedNever": true
 }
 ```
-</details>

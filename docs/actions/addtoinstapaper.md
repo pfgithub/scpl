@@ -18,9 +18,8 @@ Adds the input to Instapaper.
 ### arguments
 This paramtype is not implemented. WFDynamicEnumerationParameter
 
-### other info
+### source json
 
-<details><summary>source json</summary>
 ```json
 {
 	"ActionClass": "WFInstapaperAddAction",
@@ -56,4 +55,3 @@ This paramtype is not implemented. WFDynamicEnumerationParameter
 	"ShortName": "Add"
 }
 ```
-</details>

@@ -12,9 +12,8 @@
 ### arguments
 
 
-### other info
+### source json
 
-<details><summary>source json</summary>
 ```json
 {
 	"ActionClass": "WFContentItemPropertiesAction",
@@ -37,4 +36,3 @@
 	"WFContentItemClass": "WFTrelloItemContentItem"
 }
 ```
-</details>

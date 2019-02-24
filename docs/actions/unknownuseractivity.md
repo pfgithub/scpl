@@ -10,9 +10,8 @@
 ### arguments
 
 
-### other info
+### source json
 
-<details><summary>source json</summary>
 ```json
 {
 	"ActionClass": "WFOpenUserActivityAction",
@@ -21,4 +20,3 @@
 	"Name": "Unknown User Activity"
 }
 ```
-</details>

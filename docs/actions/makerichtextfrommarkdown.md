@@ -17,9 +17,8 @@ Markdown
 ### arguments
 
 
-### other info
+### source json
 
-<details><summary>source json</summary>
 ```json
 {
 	"ActionClass": "WFRichTextFromMarkdownAction",
@@ -53,4 +52,3 @@ Markdown
 	"SuggestedNever": true
 }
 ```
-</details>

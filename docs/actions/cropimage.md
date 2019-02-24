@@ -74,9 +74,8 @@ Accepts a string
 or variable
 with a number.
 
-### other info
+### source json
 
-<details><summary>source json</summary>
 ```json
 {
 	"ActionClass": "WFImageCropAction",
@@ -177,4 +176,3 @@ with a number.
 	"SuggestedNever": true
 }
 ```
-</details>

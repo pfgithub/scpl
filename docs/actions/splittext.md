@@ -37,9 +37,8 @@ Accepts a string
 or text
 with the text.
 
-### other info
+### source json
 
-<details><summary>source json</summary>
 ```json
 {
 	"ActionClass": "WFTextComponentsAction",
@@ -101,4 +100,3 @@ with the text.
 	"WFTextComponentsMode": "Split"
 }
 ```
-</details>

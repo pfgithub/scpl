@@ -21,9 +21,8 @@ Prompts to select music from your local music library.
 Accepts a string with either true or false
 or a variable.
 
-### other info
+### source json
 
-<details><summary>source json</summary>
 ```json
 {
 	"ActionClass": "WFSelectMusicAction",
@@ -66,4 +65,3 @@ or a variable.
 	]
 }
 ```
-</details>

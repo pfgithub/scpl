@@ -16,9 +16,8 @@ The full, expanded URL, or the original URL if the URL was not shortened
 ### arguments
 
 
-### other info
+### source json
 
-<details><summary>source json</summary>
 ```json
 {
 	"ActionClass": "WFExpandURLAction",
@@ -55,4 +54,3 @@ The full, expanded URL, or the original URL if the URL was not shortened
 	"Subcategory": "URLs"
 }
 ```
-</details>

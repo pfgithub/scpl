@@ -38,9 +38,8 @@ containing one of the options:
 - `IPv4`
 - `IPv6`
 
-### other info
+### source json
 
-<details><summary>source json</summary>
 ```json
 {
 	"ActionClass": "WFGetIPAddressAction",
@@ -92,4 +91,3 @@ containing one of the options:
 	"SuggestedNever": true
 }
 ```
-</details>

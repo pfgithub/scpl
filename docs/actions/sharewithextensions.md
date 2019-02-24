@@ -16,9 +16,8 @@ Prompts to share the input using action extensions and sharing extensions provid
 ### arguments
 
 
-### other info
+### source json
 
-<details><summary>source json</summary>
 ```json
 {
 	"ActionClass": "WFRunExtensionAction",
@@ -54,4 +53,3 @@ Prompts to share the input using action extensions and sharing extensions provid
 	]
 }
 ```
-</details>

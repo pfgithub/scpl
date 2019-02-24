@@ -16,9 +16,8 @@ Prompts to pick a phone number from your contacts and passes the selection to th
 ### arguments
 
 
-### other info
+### source json
 
-<details><summary>source json</summary>
 ```json
 {
 	"ActionClass": "WFSelectContactsAction",
@@ -59,4 +58,3 @@ Prompts to pick a phone number from your contacts and passes the selection to th
 	]
 }
 ```
-</details>

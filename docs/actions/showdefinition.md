@@ -16,9 +16,8 @@ Shows the definition of the word passed into the action.
 ### arguments
 
 
-### other info
+### source json
 
-<details><summary>source json</summary>
 ```json
 {
 	"ActionClass": "WFShowDefinitionAction",
@@ -53,4 +52,3 @@ Shows the definition of the word passed into the action.
 	]
 }
 ```
-</details>

@@ -14,9 +14,8 @@ Gets article details, including body text, author, publish date, and more, from 
 ### arguments
 
 
-### other info
+### source json
 
-<details><summary>source json</summary>
 ```json
 {
 	"ActionClass": "WFCoercionAction",
@@ -58,4 +57,3 @@ Gets article details, including body text, author, publish date, and more, from 
 	"Subcategory": "Articles"
 }
 ```
-</details>

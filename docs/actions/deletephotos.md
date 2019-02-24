@@ -16,9 +16,8 @@ Deletes the photos passed as input from the device's photo library. This action 
 ### arguments
 
 
-### other info
+### source json
 
-<details><summary>source json</summary>
 ```json
 {
 	"ActionClass": "WFDeletePhotosAction",
@@ -47,4 +46,3 @@ Deletes the photos passed as input from the device's photo library. This action 
 	"Subcategory": "Photos"
 }
 ```
-</details>

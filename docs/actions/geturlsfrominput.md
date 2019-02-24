@@ -14,9 +14,8 @@ Returns any links found in the output from the previous action.
 ### arguments
 
 
-### other info
+### source json
 
-<details><summary>source json</summary>
 ```json
 {
 	"ActionClass": "WFCoercionAction",
@@ -52,4 +51,3 @@ Returns any links found in the output from the previous action.
 	"Subcategory": "URLs"
 }
 ```
-</details>

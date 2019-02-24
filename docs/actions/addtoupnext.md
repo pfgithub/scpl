@@ -29,9 +29,8 @@ containing one of the options:
 - `Next`
 - `Later`
 
-### other info
+### source json
 
-<details><summary>source json</summary>
 ```json
 {
 	"ActionClass": "WFAddMusicToUpNextAction",
@@ -92,4 +91,3 @@ containing one of the options:
 	"Subcategory": "Up Next"
 }
 ```
-</details>

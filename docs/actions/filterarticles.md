@@ -10,9 +10,8 @@
 ### arguments
 
 
-### other info
+### source json
 
-<details><summary>source json</summary>
 ```json
 {
 	"ActionClass": "WFContentItemFilterAction",
@@ -24,4 +23,3 @@
 	"WFContentItemClass": "WFArticleContentItem"
 }
 ```
-</details>

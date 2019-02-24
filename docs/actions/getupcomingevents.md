@@ -49,9 +49,8 @@ containing one of the options:
 
 This paramtype is not implemented. WFDateFieldParameter
 
-### other info
+### source json
 
-<details><summary>source json</summary>
 ```json
 {
 	"ActionClass": "WFGetUpcomingCalendarItemsAction",
@@ -129,4 +128,3 @@ This paramtype is not implemented. WFDateFieldParameter
 	"WFGetUpcomingItemType": 0
 }
 ```
-</details>

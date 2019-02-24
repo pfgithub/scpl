@@ -53,9 +53,8 @@ containing an integer value.
 Accepts a string with either true or false
 or a variable.
 
-### other info
+### source json
 
-<details><summary>source json</summary>
 ```json
 {
 	"ActionClass": "WFGiphyAction",
@@ -140,4 +139,3 @@ or a variable.
 	]
 }
 ```
-</details>

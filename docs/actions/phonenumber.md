@@ -18,9 +18,8 @@ Passes the specified phone numbers to the next action.
 ### arguments
 This paramtype is not implemented. WFPhoneNumberFieldParameter
 
-### other info
+### source json
 
-<details><summary>source json</summary>
 ```json
 {
 	"ActionClass": "WFPhoneNumberAction",
@@ -59,4 +58,3 @@ This paramtype is not implemented. WFPhoneNumberFieldParameter
 	"Subcategory": "Phone"
 }
 ```
-</details>
