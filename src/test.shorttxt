@@ -37,3 +37,4 @@ text ^(mv:mytext) "my text"
 
 SetWifi true
 SetWifi false
+setBrightness 1.0

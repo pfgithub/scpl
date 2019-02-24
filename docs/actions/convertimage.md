@@ -5,14 +5,21 @@
 
 
 ### usage
-`convertimage undefined=[???] undefined=[???] preservemetadata=[string boolean|variable]`
+`convertimage undefined=[???] quality=[string number] preservemetadata=[string boolean|variable]`
 
 ### arguments
 This paramtype is not implemented. WFImageConvertFormatPickerParameter
 
 ---
 
-This paramtype is not implemented. WFSliderParameter
+### Slider Number: Quality / quality (internally `WFImageCompressionQuality`)
+**Default Value**: 0.75
+**Allows Variables**: true
+
+
+Accepts a string 
+or variable
+containing a number value from 0 to 1.
 
 ---
 

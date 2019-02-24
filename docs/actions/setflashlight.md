@@ -1,11 +1,9 @@
 
 ## Set Flashlight / setflashlight (internally `is.workflow.actions.flashlight`)
 
-> This action is not yet complete. Some arguments may be missing.
-
 
 ### usage
-`setflashlight flashlight=[string <${strInfo}>] undefined=[???]`
+`setflashlight flashlight=[string <${strInfo}>] brightness=[string number]`
 
 ### arguments
 ### Enumeration: Flashlight / flashlight (internally `WFFlashlightSetting`)
@@ -23,4 +21,11 @@ containing one of the options:
 
 ---
 
-This paramtype is not implemented. WFSliderParameter
+### Slider Number: Brightness / brightness (internally `WFFlashlightLevel`)
+**Default Value**: 1
+**Allows Variables**: true
+
+
+Accepts a string 
+or variable
+containing a number value from 0 to 1.

@@ -1,7 +1,7 @@
 
 # Shortcutslang
 
-190/266 completed\* \*\*
+193/266 completed\* \*\*
 
 ## Missing Parameter Types:
 
@@ -68,7 +68,6 @@
 - `4: WFEmailAddressFieldParameter`
 - `5: WFIntentAppPickerParameter`
 - `5: WFDictionaryParameter`
-- `5: WFSliderParameter`
 - `8: WFLocationFieldParameter`
 - `14: WFDynamicEnumerationParameter`
 - `17: WFDateFieldParameter`

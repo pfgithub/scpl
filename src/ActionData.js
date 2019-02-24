@@ -152,7 +152,39 @@ containing an integer value.`;
 			if(!Number.isInteger(num)) {throw new Error(`This number field only accepts integers. The number \`${num}\` is not an integer.`);}
 			return num;
 		}
-		throw new Error("This number field only accepts strings or numbers");
+		throw new Error("This number field only accepts strings or variables");
+	}
+};
+
+types.WFSliderParameter = class extends types.WFParameter {
+	constructor(data) {
+		super(data, "Slider Number");
+	}
+	genDocsArgName() {
+		return this.allowsVariables ? `[string number]` : `[string number|variable]`;
+	}
+	genDocs() {
+		return `${super.genDocs()}
+
+Accepts a string ${this.allowsVariables ? `
+or variable`: ""}
+containing a number value from 0 to 1.`;
+	}
+	build(cc, parse) {
+		if(parse.asVariable) {
+			const res = parse.asVariable(cc);
+			if(!this.allowsVariables) {
+				throw new Error("This slider field does not allow variables.");
+			}
+			return res;
+		}else if(parse.asString) {
+			const res = parse.asString(); // asString returns a string like "" <-- that's a string
+			const num = +res;
+			if(isNaN(num)) {throw new Error(`This slider field only accepts numbers. The value \`${res}\` could not be converted to a number`);}
+			if(num > 1 || num < 0) {throw new Error(`This slider field only accepts numbers from 0 to 1. The number \`${num}\` is not in this range..`);}
+			return num;
+		}
+		throw new Error("This number field only accepts strings or variables");
 	}
 };
 

@@ -5,7 +5,7 @@
 
 
 ### usage
-`speaktext waituntilfinished=[string boolean|variable] undefined=[???] undefined=[???] undefined=[???] undefined=[???]`
+`speaktext waituntilfinished=[string boolean|variable] undefined=[???] pitch=[string number] undefined=[???] undefined=[???]`
 
 ### arguments
 ### Switch: Wait Until Finished / waituntilfinished (internally `WFSpeakTextWait`)
@@ -22,7 +22,14 @@ This paramtype is not implemented. WFSpeakTextRateParameter
 
 ---
 
-This paramtype is not implemented. WFSliderParameter
+### Slider Number: Pitch / pitch (internally `WFSpeakTextPitch`)
+**Default Value**: 1
+**Allows Variables**: true
+
+
+Accepts a string 
+or variable
+containing a number value from 0 to 1.
 
 ---
 

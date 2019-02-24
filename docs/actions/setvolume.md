@@ -1,11 +1,16 @@
 
 ## Set Volume / setvolume (internally `is.workflow.actions.setvolume`)
 
-> This action is not yet complete. Some arguments may be missing.
-
 
 ### usage
-`setvolume undefined=[???]`
+`setvolume volume=[string number]`
 
 ### arguments
-This paramtype is not implemented. WFSliderParameter
+### Slider Number: Volume / volume (internally `WFVolume`)
+**Default Value**: 0.5
+**Allows Variables**: true
+
+
+Accepts a string 
+or variable
+containing a number value from 0 to 1.
