@@ -491,14 +491,19 @@ function genReadme() {
 
 ${completedActions}/${totalActions} completed\\* \\*\\*
 
+## All Actions:
+
+${Object.values(actionsByID).sort().map(action => `- [${action.name}](actions/${action.shortName})${action.complete ? " (complete)" : ""}`).join`\n`}
+
 ## Missing Parameter Types:
 
 \\# actions used in: parameter type
 
 ${typeList.join`\n`}
 
-\\*Block actions such as if and repeat are not completed yet.
+\\*Block actions such as if and repeat do not have very nice syntax.
 \\*\\*Parameters with RequiredResources such as Get Contents Of URL and Calculate have unneeded arguments.
+
 `;
 }
 /*
