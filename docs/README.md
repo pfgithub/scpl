@@ -272,7 +272,7 @@
 - [isworkflowactionspostonfacebook](actions/isworkflowactionspostonfacebook)
 - [isworkflowactionstweet](actions/isworkflowactionstweet)
 
-## Missing Parameter Types:
+## Parameter Types:
 
 \# actions used in: parameter type
 
