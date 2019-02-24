@@ -1,5 +1,5 @@
 
-## Run Shortcut / runshortcut (internally is.workflow.actions.runworkflow)
+## Run Shortcut / runshortcut (internally `is.workflow.actions.runworkflow`)
 
 > This action is not yet complete. Some arguments may be missing.
 
@@ -11,8 +11,10 @@
 
 ### arguments
 This paramtype is not implemented. WFWorkflowPickerParameter
+
 ---
-### Switch: Show While Running / showwhilerunning (internally WFShowWorkflow)
+
+### Switch: Show While Running / showwhilerunning (internally `WFShowWorkflow`)
 **Default Value**: true
 **Allows Variables**: true
 

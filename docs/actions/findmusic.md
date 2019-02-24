@@ -1,5 +1,5 @@
 
-## Find Music / findmusic (internally is.workflow.actions.filter.music)
+## Find Music / findmusic (internally `is.workflow.actions.filter.music`)
 
 
 > This action requires that Shortcuts has permission to use WFAppleMusicAccessResource.

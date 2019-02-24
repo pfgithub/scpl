@@ -1,5 +1,5 @@
 
-## Delete Notes / deletenotes (internally is.workflow.actions.evernote.delete)
+## Delete Notes / deletenotes (internally `is.workflow.actions.evernote.delete`)
 
 
 > This action requires that Shortcuts has permission to use WFEvernoteAccessResource.
@@ -8,7 +8,7 @@
 `deletenotes confirmbeforedeleting=[string|variable]`
 
 ### arguments
-### Switch: Confirm Before Deleting / confirmbeforedeleting (internally WFEvernoteConfirmDeletion)
+### Switch: Confirm Before Deleting / confirmbeforedeleting (internally `WFEvernoteConfirmDeletion`)
 **Default Value**: true
 **Allows Variables**: true
 

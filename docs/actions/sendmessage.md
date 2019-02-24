@@ -1,5 +1,5 @@
 
-## Send Message / sendmessage (internally is.workflow.actions.sendmessage)
+## Send Message / sendmessage (internally `is.workflow.actions.sendmessage`)
 
 > This action is not yet complete. Some arguments may be missing.
 
@@ -11,18 +11,24 @@
 
 ### arguments
 This paramtype is not implemented. WFIntentAppPickerParameter
+
 ---
-### Switch: Show When Run / showwhenrun (internally ShowWhenRun)
+
+### Switch: Show When Run / showwhenrun (internally `ShowWhenRun`)
 **Default Value**: true
 **Allows Variables**: true
 
 
 Accepts a string with either true or false
 or a variable.
+
 ---
+
 This paramtype is not implemented. WFContactHandleFieldParameter
+
 ---
-### Text Input: wfsendmessagecontent / wfsendmessagecontent (internally WFSendMessageContent)
+
+### Text Input: wfsendmessagecontent / wfsendmessagecontent (internally `WFSendMessageContent`)
 **Placeholder**: Message
 **Allows Variables**: true
 
@@ -30,8 +36,10 @@ This paramtype is not implemented. WFContactHandleFieldParameter
 Accepts a string 
 or text
 with the text.
+
 ---
-### Text Input: Prefix / prefix (internally WFSendMessagePrefix)
+
+### Text Input: Prefix / prefix (internally `WFSendMessagePrefix`)
 **Allows Variables**: true
 
 

@@ -1,5 +1,5 @@
 
-## Set Low Power Mode / setlowpowermode (internally is.workflow.actions.lowpowermode.set)
+## Set Low Power Mode / setlowpowermode (internally `is.workflow.actions.lowpowermode.set`)
 
 
 > This action requires that Shortcuts has permission to use WFSiriAccessResource,[object Object].
@@ -8,7 +8,7 @@
 `setlowpowermode lowpowermode=[string|variable]`
 
 ### arguments
-### Switch: Low Power Mode / lowpowermode (internally OnValue)
+### Switch: Low Power Mode / lowpowermode (internally `OnValue`)
 **Default Value**: true
 **Allows Variables**: true
 

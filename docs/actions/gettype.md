@@ -1,5 +1,5 @@
 
-## Get Type / gettype (internally is.workflow.actions.getitemtype)
+## Get Type / gettype (internally `is.workflow.actions.getitemtype`)
 
 
 ### usage

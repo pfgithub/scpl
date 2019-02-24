@@ -1,5 +1,5 @@
 
-## Show Web Page / showwebpage (internally is.workflow.actions.showwebpage)
+## Show Web Page / showwebpage (internally `is.workflow.actions.showwebpage`)
 
 
 > This action requires that Shortcuts has permission to use WFUserInteractionResource.
@@ -8,7 +8,7 @@
 `showwebpage entersafarireader=[string|variable]`
 
 ### arguments
-### Switch: Enter Safari Reader / entersafarireader (internally WFEnterSafariReader)
+### Switch: Enter Safari Reader / entersafarireader (internally `WFEnterSafariReader`)
 **Allows Variables**: true
 
 

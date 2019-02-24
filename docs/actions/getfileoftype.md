@@ -1,12 +1,12 @@
 
-## Get File of Type / getfileoftype (internally is.workflow.actions.gettypeaction)
+## Get File of Type / getfileoftype (internally `is.workflow.actions.gettypeaction`)
 
 
 ### usage
 `getfileoftype type=[string|text]`
 
 ### arguments
-### Text Input: Type / type (internally WFFileType)
+### Text Input: Type / type (internally `WFFileType`)
 **Placeholder**: UTI
 **Default Value**: public.rtf
 **Allows Variables**: true

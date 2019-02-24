@@ -1,5 +1,5 @@
 
-## Share / share (internally is.workflow.actions.share)
+## Share / share (internally `is.workflow.actions.share`)
 
 
 > This action requires that Shortcuts has permission to use WFUserInteractionResource.

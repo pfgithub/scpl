@@ -1,12 +1,12 @@
 
-## Get Dictionary Value / getdictionaryvalue (internally is.workflow.actions.getvalueforkey)
+## Get Dictionary Value / getdictionaryvalue (internally `is.workflow.actions.getvalueforkey`)
 
 
 ### usage
 `getdictionaryvalue get=[string <${strInfo}>|variable] key=[string|text]`
 
 ### arguments
-### Enumeration: Get / get (internally WFGetDictionaryValueType)
+### Enumeration: Get / get (internally `WFGetDictionaryValueType`)
 **Default Value**: Value
 
 
@@ -16,8 +16,10 @@ containing one of the options:
 - `Value`
 - `All Keys`
 - `All Values`
+
 ---
-### Text Input: Key / key (internally WFDictionaryKey)
+
+### Text Input: Key / key (internally `WFDictionaryKey`)
 **Placeholder**: example
 **Allows Variables**: true
 

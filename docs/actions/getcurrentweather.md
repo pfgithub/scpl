@@ -1,5 +1,5 @@
 
-## Get Current Weather / getcurrentweather (internally is.workflow.actions.weather.currentconditions)
+## Get Current Weather / getcurrentweather (internally `is.workflow.actions.weather.currentconditions`)
 
 > This action is not yet complete. Some arguments may be missing.
 
@@ -10,7 +10,7 @@
 `getcurrentweather at=[string <${strInfo}>|variable] undefined=[???]`
 
 ### arguments
-### Enumeration: At / at (internally WFWeatherLocation)
+### Enumeration: At / at (internally `WFWeatherLocation`)
 **Default Value**: Current Location
 
 
@@ -19,5 +19,7 @@ containing one of the options:
 
 - `Current Location`
 - `Custom Location`
+
 ---
+
 This paramtype is not implemented. WFLocationFieldParameter

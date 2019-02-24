@@ -1,5 +1,5 @@
 
-## Get Details of Contacts / getdetailsofcontacts (internally is.workflow.actions.properties.contacts)
+## Get Details of Contacts / getdetailsofcontacts (internally `is.workflow.actions.properties.contacts`)
 
 
 ### usage

@@ -1,12 +1,12 @@
 
-## Change Case / changecase (internally is.workflow.actions.text.changecase)
+## Change Case / changecase (internally `is.workflow.actions.text.changecase`)
 
 
 ### usage
 `changecase case=[string <${strInfo}>]`
 
 ### arguments
-### Enumeration: Case / case (internally WFCaseType)
+### Enumeration: Case / case (internally `WFCaseType`)
 **Default Value**: UPPERCASE
 **Allows Variables**: true
 

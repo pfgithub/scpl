@@ -1,5 +1,5 @@
 
-## Filter Files / filterfiles (internally is.workflow.actions.filter.files)
+## Filter Files / filterfiles (internally `is.workflow.actions.filter.files`)
 
 
 ### usage

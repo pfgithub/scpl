@@ -1,5 +1,5 @@
 
-## Filter Locations / filterlocations (internally is.workflow.actions.filter.locations)
+## Filter Locations / filterlocations (internally `is.workflow.actions.filter.locations`)
 
 
 ### usage

@@ -1,5 +1,5 @@
 
-## Adjust Date / adjustdate (internally is.workflow.actions.adjustdate)
+## Adjust Date / adjustdate (internally `is.workflow.actions.adjustdate`)
 
 > This action is not yet complete. Some arguments may be missing.
 

@@ -1,5 +1,5 @@
 
-## Toggle Alarm / togglealarm (internally is.workflow.actions.alarm.toggle)
+## Toggle Alarm / togglealarm (internally `is.workflow.actions.alarm.toggle`)
 
 > This action is not yet complete. Some arguments may be missing.
 
@@ -11,8 +11,10 @@
 
 ### arguments
 This paramtype is not implemented. WFAlarmPickerParameter
+
 ---
-### Switch: Enabled / enabled (internally WFEnabled)
+
+### Switch: Enabled / enabled (internally `WFEnabled`)
 **Allows Variables**: true
 
 

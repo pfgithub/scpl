@@ -1,5 +1,5 @@
 
-## Contacts / contacts (internally is.workflow.actions.contacts)
+## Contacts / contacts (internally `is.workflow.actions.contacts`)
 
 > This action is not yet complete. Some arguments may be missing.
 

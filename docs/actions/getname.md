@@ -1,5 +1,5 @@
 
-## Get Name / getname (internally is.workflow.actions.getitemname)
+## Get Name / getname (internally `is.workflow.actions.getitemname`)
 
 
 ### usage

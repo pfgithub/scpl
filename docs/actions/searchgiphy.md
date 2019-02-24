@@ -1,5 +1,5 @@
 
-## Search Giphy / searchgiphy (internally is.workflow.actions.giphy)
+## Search Giphy / searchgiphy (internally `is.workflow.actions.giphy`)
 
 
 > This action requires that Shortcuts has permission to use [object Object].
@@ -8,7 +8,7 @@
 `searchgiphy search=[string|text] showgifpicker=[string|variable] wfgiphylimit=[string integer] selectmultiple=[string|variable]`
 
 ### arguments
-### Text Input: Search / search (internally WFGiphyQuery)
+### Text Input: Search / search (internally `WFGiphyQuery`)
 **Placeholder**: leave blank for trending
 **Allows Variables**: true
 
@@ -16,16 +16,20 @@
 Accepts a string 
 or text
 with the text.
+
 ---
-### Switch: Show GIF Picker / showgifpicker (internally WFGiphyShowPicker)
+
+### Switch: Show GIF Picker / showgifpicker (internally `WFGiphyShowPicker`)
 **Default Value**: true
 **Allows Variables**: true
 
 
 Accepts a string with either true or false
 or a variable.
+
 ---
-### Stepper Number: wfgiphylimit / wfgiphylimit (internally WFGiphyLimit)
+
+### Stepper Number: wfgiphylimit / wfgiphylimit (internally `WFGiphyLimit`)
 **Default Value**: 1
 **Allows Variables**: true
 
@@ -33,8 +37,10 @@ or a variable.
 Accepts a string 
 or variable
 containing an integer value.
+
 ---
-### Switch: Select Multiple / selectmultiple (internally WFGiphySelectMultiple)
+
+### Switch: Select Multiple / selectmultiple (internally `WFGiphySelectMultiple`)
 **Allows Variables**: true
 
 

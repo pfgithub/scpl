@@ -1,5 +1,5 @@
 
-## Play Sound / playsound (internally is.workflow.actions.playsound)
+## Play Sound / playsound (internally `is.workflow.actions.playsound`)
 
 
 ### usage

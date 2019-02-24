@@ -1,5 +1,5 @@
 
-## Show in BlindSquare / showinblindsquare (internally is.workflow.actions.showinblindsquare)
+## Show in BlindSquare / showinblindsquare (internally `is.workflow.actions.showinblindsquare`)
 
 
 > This action requires that Shortcuts has permission to use WFURLOpenResource,[object Object].
@@ -8,7 +8,7 @@
 `showinblindsquare startsimulation=[string|variable]`
 
 ### arguments
-### Switch: Start Simulation / startsimulation (internally WFBlindSquareSimulation)
+### Switch: Start Simulation / startsimulation (internally `WFBlindSquareSimulation`)
 **Allows Variables**: true
 
 

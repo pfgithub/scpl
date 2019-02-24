@@ -1,5 +1,5 @@
 
-## Add to Reading List / addtoreadinglist (internally is.workflow.actions.readinglist)
+## Add to Reading List / addtoreadinglist (internally `is.workflow.actions.readinglist`)
 
 
 ### usage

@@ -1,5 +1,5 @@
 
-## Get Travel Time / gettraveltime (internally is.workflow.actions.gettraveltime)
+## Get Travel Time / gettraveltime (internally `is.workflow.actions.gettraveltime`)
 
 > This action is not yet complete. Some arguments may be missing.
 
@@ -10,7 +10,7 @@
 `gettraveltime from=[string <${strInfo}>|variable] undefined=[???] transportationmode=[string <${strInfo}>]`
 
 ### arguments
-### Enumeration: From / from (internally WFGetDirectionsFrom)
+### Enumeration: From / from (internally `WFGetDirectionsFrom`)
 **Default Value**: Current Location
 
 
@@ -19,10 +19,14 @@ containing one of the options:
 
 - `Current Location`
 - `Custom Location`
+
 ---
+
 This paramtype is not implemented. WFLocationFieldParameter
+
 ---
-### Enumeration: Transportation Mode / transportationmode (internally WFGetDirectionsActionMode)
+
+### Enumeration: Transportation Mode / transportationmode (internally `WFGetDirectionsActionMode`)
 **Default Value**: Driving
 **Allows Variables**: true
 

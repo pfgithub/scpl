@@ -1,5 +1,5 @@
 
-## Find Photos / findphotos (internally is.workflow.actions.filter.photos)
+## Find Photos / findphotos (internally `is.workflow.actions.filter.photos`)
 
 
 > This action requires that Shortcuts has permission to use WFPhotoAccessResource.

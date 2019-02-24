@@ -1,5 +1,5 @@
 
-## Get Addresses from Input / getaddressesfrominput (internally is.workflow.actions.detect.address)
+## Get Addresses from Input / getaddressesfrominput (internally `is.workflow.actions.detect.address`)
 
 
 ### usage

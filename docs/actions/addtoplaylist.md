@@ -1,5 +1,5 @@
 
-## Add to Playlist / addtoplaylist (internally is.workflow.actions.addtoplaylist)
+## Add to Playlist / addtoplaylist (internally `is.workflow.actions.addtoplaylist`)
 
 > This action is not yet complete. Some arguments may be missing.
 

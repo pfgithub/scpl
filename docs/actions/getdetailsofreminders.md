@@ -1,5 +1,5 @@
 
-## Get Details of Reminders / getdetailsofreminders (internally is.workflow.actions.properties.reminders)
+## Get Details of Reminders / getdetailsofreminders (internally `is.workflow.actions.properties.reminders`)
 
 
 ### usage

@@ -1,5 +1,5 @@
 
-## Get Weather Forecast / getweatherforecast (internally is.workflow.actions.weather.forecast)
+## Get Weather Forecast / getweatherforecast (internally `is.workflow.actions.weather.forecast`)
 
 > This action is not yet complete. Some arguments may be missing.
 
@@ -10,7 +10,7 @@
 `getweatherforecast at=[string <${strInfo}>|variable] undefined=[???] type=[string <${strInfo}>]`
 
 ### arguments
-### Enumeration: At / at (internally WFWeatherLocation)
+### Enumeration: At / at (internally `WFWeatherLocation`)
 **Default Value**: Current Location
 
 
@@ -19,10 +19,14 @@ containing one of the options:
 
 - `Current Location`
 - `Custom Location`
+
 ---
+
 This paramtype is not implemented. WFLocationFieldParameter
+
 ---
-### Enumeration: Type / type (internally WFWeatherForecastType)
+
+### Enumeration: Type / type (internally `WFWeatherForecastType`)
 **Default Value**: Daily
 **Allows Variables**: true
 

@@ -1,5 +1,5 @@
 
-## Filter Images / filterimages (internally is.workflow.actions.filter.images)
+## Filter Images / filterimages (internally `is.workflow.actions.filter.images`)
 
 
 ### usage

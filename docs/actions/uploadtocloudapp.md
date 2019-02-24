@@ -1,5 +1,5 @@
 
-## Upload to CloudApp / uploadtocloudapp (internally is.workflow.actions.cloudapp.upload)
+## Upload to CloudApp / uploadtocloudapp (internally `is.workflow.actions.cloudapp.upload`)
 
 
 > This action requires that Shortcuts has permission to use WFCloudAppAccessResource.
@@ -8,7 +8,7 @@
 `uploadtocloudapp linkprivacy=[string <${strInfo}>]`
 
 ### arguments
-### Enumeration: Link Privacy / linkprivacy (internally WFCloudAppPrivacyType)
+### Enumeration: Link Privacy / linkprivacy (internally `WFCloudAppPrivacyType`)
 **Default Value**: Private
 **Allows Variables**: true
 

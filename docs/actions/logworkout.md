@@ -1,5 +1,5 @@
 
-## Log Workout / logworkout (internally is.workflow.actions.health.workout.log)
+## Log Workout / logworkout (internally `is.workflow.actions.health.workout.log`)
 
 > This action is not yet complete. Some arguments may be missing.
 
@@ -11,11 +11,19 @@
 
 ### arguments
 This paramtype is not implemented. WFWorkoutTypePickerParameter
+
 ---
+
 This paramtype is not implemented. WFDateFieldParameter
+
 ---
+
 This paramtype is not implemented. WFDurationQuantityFieldParameter
+
 ---
+
 This paramtype is not implemented. WFHealthQuantityFieldParameter
+
 ---
+
 This paramtype is not implemented. WFHealthQuantityFieldParameter

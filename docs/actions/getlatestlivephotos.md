@@ -1,5 +1,5 @@
 
-## Get Latest Live Photos / getlatestlivephotos (internally is.workflow.actions.getlatestlivephotos)
+## Get Latest Live Photos / getlatestlivephotos (internally `is.workflow.actions.getlatestlivephotos`)
 
 
 > This action requires that Shortcuts has permission to use WFPhotoAccessResource.
@@ -8,7 +8,7 @@
 `getlatestlivephotos wfgetlatestphotocount=[string integer]`
 
 ### arguments
-### Stepper Number: wfgetlatestphotocount / wfgetlatestphotocount (internally WFGetLatestPhotoCount)
+### Stepper Number: wfgetlatestphotocount / wfgetlatestphotocount (internally `WFGetLatestPhotoCount`)
 **Default Value**: 1
 **Allows Variables**: true
 

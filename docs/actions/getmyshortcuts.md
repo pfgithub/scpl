@@ -1,5 +1,5 @@
 
-## Get My Shortcuts / getmyshortcuts (internally is.workflow.actions.getmyworkflows)
+## Get My Shortcuts / getmyshortcuts (internally `is.workflow.actions.getmyworkflows`)
 
 
 ### usage

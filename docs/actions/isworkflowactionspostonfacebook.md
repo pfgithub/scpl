@@ -1,5 +1,5 @@
 
-## isworkflowactionspostonfacebook / isworkflowactionspostonfacebook (internally is.workflow.actions.postonfacebook)
+## isworkflowactionspostonfacebook / isworkflowactionspostonfacebook (internally `is.workflow.actions.postonfacebook`)
 
 
 ### usage

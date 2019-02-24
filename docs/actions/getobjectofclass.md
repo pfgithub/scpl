@@ -1,12 +1,12 @@
 
-## Get Object of Class / getobjectofclass (internally is.workflow.actions.getclassaction)
+## Get Object of Class / getobjectofclass (internally `is.workflow.actions.getclassaction`)
 
 
 ### usage
 `getobjectofclass class=[string|text]`
 
 ### arguments
-### Text Input: Class / class (internally Class)
+### Text Input: Class / class (internally `Class`)
 **Placeholder**: NSString
 **Default Value**: NSURL
 **Allows Variables**: true

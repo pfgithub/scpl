@@ -1,5 +1,5 @@
 
-## Trigger IFTTT Applet / triggeriftttapplet (internally is.workflow.actions.ifttt)
+## Trigger IFTTT Applet / triggeriftttapplet (internally `is.workflow.actions.ifttt`)
 
 > This action is not yet complete. Some arguments may be missing.
 
@@ -11,14 +11,18 @@
 
 ### arguments
 This paramtype is not implemented. WFIFTTTTriggerNameParameter
+
 ---
-### Stepper Number: wfiftttextraingredients / wfiftttextraingredients (internally WFIFTTTExtraIngredients)
+
+### Stepper Number: wfiftttextraingredients / wfiftttextraingredients (internally `WFIFTTTExtraIngredients`)
 
 
 Accepts a string 
 containing an integer value.
+
 ---
-### Text Input: Ingredient 1 / ingredient1 (internally WFIFTTTExtraIngredient1)
+
+### Text Input: Ingredient 1 / ingredient1 (internally `WFIFTTTExtraIngredient1`)
 **Placeholder**: optional
 **Allows Variables**: true
 
@@ -26,8 +30,10 @@ containing an integer value.
 Accepts a string 
 or text
 with the text.
+
 ---
-### Text Input: Ingredient 2 / ingredient2 (internally WFIFTTTExtraIngredient2)
+
+### Text Input: Ingredient 2 / ingredient2 (internally `WFIFTTTExtraIngredient2`)
 **Placeholder**: optional
 **Allows Variables**: true
 
@@ -35,8 +41,10 @@ with the text.
 Accepts a string 
 or text
 with the text.
+
 ---
-### Text Input: Ingredient 3 / ingredient3 (internally WFIFTTTExtraIngredient3)
+
+### Text Input: Ingredient 3 / ingredient3 (internally `WFIFTTTExtraIngredient3`)
 **Placeholder**: optional
 **Allows Variables**: true
 
@@ -44,8 +52,10 @@ with the text.
 Accepts a string 
 or text
 with the text.
+
 ---
-### Text Input: Ingredient 4 / ingredient4 (internally WFIFTTTExtraIngredient4)
+
+### Text Input: Ingredient 4 / ingredient4 (internally `WFIFTTTExtraIngredient4`)
 **Placeholder**: optional
 **Allows Variables**: true
 
@@ -53,8 +63,10 @@ with the text.
 Accepts a string 
 or text
 with the text.
+
 ---
-### Text Input: Ingredient 5 / ingredient5 (internally WFIFTTTExtraIngredient5)
+
+### Text Input: Ingredient 5 / ingredient5 (internally `WFIFTTTExtraIngredient5`)
 **Placeholder**: optional
 **Allows Variables**: true
 
@@ -62,8 +74,10 @@ with the text.
 Accepts a string 
 or text
 with the text.
+
 ---
-### Text Input: Ingredient 6 / ingredient6 (internally WFIFTTTExtraIngredient6)
+
+### Text Input: Ingredient 6 / ingredient6 (internally `WFIFTTTExtraIngredient6`)
 **Placeholder**: optional
 **Allows Variables**: true
 
@@ -71,8 +85,10 @@ with the text.
 Accepts a string 
 or text
 with the text.
+
 ---
-### Text Input: Ingredient 7 / ingredient7 (internally WFIFTTTExtraIngredient7)
+
+### Text Input: Ingredient 7 / ingredient7 (internally `WFIFTTTExtraIngredient7`)
 **Placeholder**: optional
 **Allows Variables**: true
 
@@ -80,8 +96,10 @@ with the text.
 Accepts a string 
 or text
 with the text.
+
 ---
-### Text Input: Ingredient 8 / ingredient8 (internally WFIFTTTExtraIngredient8)
+
+### Text Input: Ingredient 8 / ingredient8 (internally `WFIFTTTExtraIngredient8`)
 **Placeholder**: optional
 **Allows Variables**: true
 
@@ -89,8 +107,10 @@ with the text.
 Accepts a string 
 or text
 with the text.
+
 ---
-### Text Input: Ingredient 9 / ingredient9 (internally WFIFTTTExtraIngredient9)
+
+### Text Input: Ingredient 9 / ingredient9 (internally `WFIFTTTExtraIngredient9`)
 **Placeholder**: optional
 **Allows Variables**: true
 
@@ -98,8 +118,10 @@ with the text.
 Accepts a string 
 or text
 with the text.
+
 ---
-### Text Input: Ingredient 10 / ingredient10 (internally WFIFTTTExtraIngredient10)
+
+### Text Input: Ingredient 10 / ingredient10 (internally `WFIFTTTExtraIngredient10`)
 **Placeholder**: optional
 **Allows Variables**: true
 
@@ -107,5 +129,7 @@ with the text.
 Accepts a string 
 or text
 with the text.
+
 ---
+
 This paramtype is not implemented. WFIFTTTAddRecipeParameter

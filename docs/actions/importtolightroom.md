@@ -1,5 +1,5 @@
 
-## Import to Lightroom / importtolightroom (internally is.workflow.actions.lightroom.import)
+## Import to Lightroom / importtolightroom (internally `is.workflow.actions.lightroom.import`)
 
 > This action is not yet complete. Some arguments may be missing.
 
@@ -8,14 +8,16 @@
 `importtolightroom applypreset=[string|variable] presetgroup=[string <${strInfo}>] undefined=[???]`
 
 ### arguments
-### Switch: Apply Preset / applypreset (internally applyPreset)
+### Switch: Apply Preset / applypreset (internally `applyPreset`)
 **Allows Variables**: true
 
 
 Accepts a string with either true or false
 or a variable.
+
 ---
-### Enumeration: Preset Group / presetgroup (internally presetGroup)
+
+### Enumeration: Preset Group / presetgroup (internally `presetGroup`)
 **Default Value**: Color
 **Allows Variables**: true
 
@@ -31,5 +33,7 @@ containing one of the options:
 - `Grain`
 - `Sharpening`
 - `Vignetting`
+
 ---
+
 This paramtype is not implemented. WFLightroomPresetPickerParameter

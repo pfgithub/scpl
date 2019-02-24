@@ -1,12 +1,12 @@
 
-## URL / url (internally is.workflow.actions.url)
+## URL / url (internally `is.workflow.actions.url`)
 
 
 ### usage
 `url url=[string|text]`
 
 ### arguments
-### Text Input: URL / url (internally WFURLActionURL)
+### Text Input: URL / url (internally `WFURLActionURL`)
 **Placeholder**: example.com
 **Allows Variables**: true
 

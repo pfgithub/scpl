@@ -1,5 +1,5 @@
 
-## Open App / openapp (internally is.workflow.actions.openapp)
+## Open App / openapp (internally `is.workflow.actions.openapp`)
 
 > This action is not yet complete. Some arguments may be missing.
 
@@ -11,8 +11,10 @@
 
 ### arguments
 This paramtype is not implemented. WFAppPickerParameter
+
 ---
-### Text Input: wfappname / wfappname (internally WFAppName)
+
+### Text Input: wfappname / wfappname (internally `WFAppName`)
 **Allows Variables**: true
 
 

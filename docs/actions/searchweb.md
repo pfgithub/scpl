@@ -1,5 +1,5 @@
 
-## Search Web / searchweb (internally is.workflow.actions.searchweb)
+## Search Web / searchweb (internally `is.workflow.actions.searchweb`)
 
 
 > This action requires that Shortcuts has permission to use WFURLOpenResource.
@@ -8,7 +8,7 @@
 `searchweb search=[string <${strInfo}>]`
 
 ### arguments
-### Enumeration: Search / search (internally WFSearchWebDestination)
+### Enumeration: Search / search (internally `WFSearchWebDestination`)
 **Default Value**: Google
 **Allows Variables**: true
 

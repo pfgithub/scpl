@@ -1,12 +1,12 @@
 
-## Split Text / splittext (internally is.workflow.actions.text.split)
+## Split Text / splittext (internally `is.workflow.actions.text.split`)
 
 
 ### usage
 `splittext separator=[string <${strInfo}>] custom=[string|text]`
 
 ### arguments
-### Enumeration: Separator / separator (internally WFTextSeparator)
+### Enumeration: Separator / separator (internally `WFTextSeparator`)
 **Default Value**: New Lines
 **Allows Variables**: true
 
@@ -19,8 +19,10 @@ containing one of the options:
 - `Spaces`
 - `Every Character`
 - `Custom`
+
 ---
-### Text Input: Custom / custom (internally WFTextCustomSeparator)
+
+### Text Input: Custom / custom (internally `WFTextCustomSeparator`)
 **Placeholder**: Text
 **Allows Variables**: true
 

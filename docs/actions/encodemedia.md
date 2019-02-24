@@ -1,5 +1,5 @@
 
-## Encode Media / encodemedia (internally is.workflow.actions.encodemedia)
+## Encode Media / encodemedia (internally `is.workflow.actions.encodemedia`)
 
 > This action is not yet complete. Some arguments may be missing.
 
@@ -8,14 +8,16 @@
 `encodemedia audioonly=[string|variable] format=[string <${strInfo}>] size=[string <${strInfo}>] speed=[string <${strInfo}>] customspeed=[string number] undefined=[???] title=[string|text] artist=[string|text] album=[string|text] genre=[string|text] year=[string|text] artwork=[variable]`
 
 ### arguments
-### Switch: Audio Only / audioonly (internally WFMediaAudioOnly)
+### Switch: Audio Only / audioonly (internally `WFMediaAudioOnly`)
 **Allows Variables**: true
 
 
 Accepts a string with either true or false
 or a variable.
+
 ---
-### Enumeration: Format / format (internally WFMediaAudioFormat)
+
+### Enumeration: Format / format (internally `WFMediaAudioFormat`)
 **Default Value**: M4A
 **Allows Variables**: true
 
@@ -26,8 +28,10 @@ containing one of the options:
 
 - `M4A`
 - `AIFF`
+
 ---
-### Enumeration: Size / size (internally WFMediaSize)
+
+### Enumeration: Size / size (internally `WFMediaSize`)
 **Default Value**: Passthrough
 **Allows Variables**: true
 
@@ -43,8 +47,10 @@ containing one of the options:
 - `HEVC 1920x1080`
 - `HEVC 3840x2160`
 - `Passthrough`
+
 ---
-### Enumeration: Speed / speed (internally WFMediaSpeed)
+
+### Enumeration: Speed / speed (internally `WFMediaSpeed`)
 **Default Value**: Normal
 **Allows Variables**: true
 
@@ -57,8 +63,10 @@ containing one of the options:
 - `Normal`
 - `2X`
 - `Custom`
+
 ---
-### Number: Custom Speed / customspeed (internally WFMediaCustomSpeed)
+
+### Number: Custom Speed / customspeed (internally `WFMediaCustomSpeed`)
 **Placeholder**: 1.0
 **Allows Variables**: true
 
@@ -66,10 +74,14 @@ containing one of the options:
 Accepts a string 
 or variable
 with a number.
+
 ---
+
 This paramtype is not implemented. WFExpandingParameter
+
 ---
-### Text Input: Title / title (internally WFMetadataTitle)
+
+### Text Input: Title / title (internally `WFMetadataTitle`)
 **Placeholder**: My Great Track
 **Allows Variables**: true
 
@@ -77,8 +89,10 @@ This paramtype is not implemented. WFExpandingParameter
 Accepts a string 
 or text
 with the text.
+
 ---
-### Text Input: Artist / artist (internally WFMetadataArtist)
+
+### Text Input: Artist / artist (internally `WFMetadataArtist`)
 **Placeholder**: Nicholas Fryingpan
 **Allows Variables**: true
 
@@ -86,8 +100,10 @@ with the text.
 Accepts a string 
 or text
 with the text.
+
 ---
-### Text Input: Album / album (internally WFMetadataAlbum)
+
+### Text Input: Album / album (internally `WFMetadataAlbum`)
 **Placeholder**: Abbey Road
 **Allows Variables**: true
 
@@ -95,8 +111,10 @@ with the text.
 Accepts a string 
 or text
 with the text.
+
 ---
-### Text Input: Genre / genre (internally WFMetadataGenre)
+
+### Text Input: Genre / genre (internally `WFMetadataGenre`)
 **Placeholder**: Indie
 **Allows Variables**: true
 
@@ -104,8 +122,10 @@ with the text.
 Accepts a string 
 or text
 with the text.
+
 ---
-### Text Input: Year / year (internally WFMetadataYear)
+
+### Text Input: Year / year (internally `WFMetadataYear`)
 **Placeholder**: 2001
 **Allows Variables**: true
 
@@ -113,8 +133,10 @@ with the text.
 Accepts a string 
 or text
 with the text.
+
 ---
-### Variable Picker: Artwork / artwork (internally WFMetadataArtwork)
+
+### Variable Picker: Artwork / artwork (internally `WFMetadataArtwork`)
 **Allows Variables**: true
 
 

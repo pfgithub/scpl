@@ -1,5 +1,5 @@
 
-## Get Frames from Image / getframesfromimage (internally is.workflow.actions.getframesfromimage)
+## Get Frames from Image / getframesfromimage (internally `is.workflow.actions.getframesfromimage`)
 
 
 ### usage

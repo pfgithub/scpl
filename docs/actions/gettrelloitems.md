@@ -1,5 +1,5 @@
 
-## Get Trello Items / gettrelloitems (internally is.workflow.actions.trello.get)
+## Get Trello Items / gettrelloitems (internally `is.workflow.actions.trello.get`)
 
 > This action is not yet complete. Some arguments may be missing.
 
@@ -10,7 +10,7 @@
 `gettrelloitems get=[string <${strInfo}>] undefined=[???] undefined=[???]`
 
 ### arguments
-### Enumeration: Get / get (internally WFTrelloItemType)
+### Enumeration: Get / get (internally `WFTrelloItemType`)
 **Default Value**: Boards
 **Allows Variables**: true
 
@@ -22,7 +22,11 @@ containing one of the options:
 - `Boards`
 - `Lists`
 - `Cards`
+
 ---
+
 This paramtype is not implemented. WFTrelloBoardPickerParameter
+
 ---
+
 This paramtype is not implemented. WFTrelloListPickerParameter

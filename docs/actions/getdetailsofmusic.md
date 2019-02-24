@@ -1,5 +1,5 @@
 
-## Get Details of Music / getdetailsofmusic (internally is.workflow.actions.properties.music)
+## Get Details of Music / getdetailsofmusic (internally `is.workflow.actions.properties.music`)
 
 
 ### usage

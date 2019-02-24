@@ -1,5 +1,5 @@
 
-## Get Details of Diffbot Article / getdetailsofdiffbotarticle (internally is.workflow.actions.properties.articles)
+## Get Details of Diffbot Article / getdetailsofdiffbotarticle (internally `is.workflow.actions.properties.articles`)
 
 
 ### usage

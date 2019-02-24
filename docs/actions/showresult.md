@@ -1,5 +1,5 @@
 
-## Show Result / showresult (internally is.workflow.actions.showresult)
+## Show Result / showresult (internally `is.workflow.actions.showresult`)
 
 
 > This action requires that Shortcuts has permission to use WFMainThreadResource.
@@ -8,7 +8,7 @@
 `showresult text=[string|text]`
 
 ### arguments
-### Text Input: text / text (internally Text)
+### Text Input: text / text (internally `Text`)
 **Placeholder**: Enter text...
 **Allows Variables**: true
 

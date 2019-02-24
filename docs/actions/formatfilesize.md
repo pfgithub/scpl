@@ -1,12 +1,12 @@
 
-## Format File Size / formatfilesize (internally is.workflow.actions.format.filesize)
+## Format File Size / formatfilesize (internally `is.workflow.actions.format.filesize`)
 
 
 ### usage
 `formatfilesize format=[string <${strInfo}>] includeunits=[string|variable]`
 
 ### arguments
-### Enumeration: Format / format (internally WFFileSizeFormat)
+### Enumeration: Format / format (internally `WFFileSizeFormat`)
 **Default Value**: Automatic
 **Allows Variables**: true
 
@@ -25,8 +25,10 @@ containing one of the options:
 - `EB`
 - `ZB`
 - `YB or Higher`
+
 ---
-### Switch: Include Units / includeunits (internally WFFileSizeIncludeUnits)
+
+### Switch: Include Units / includeunits (internally `WFFileSizeIncludeUnits`)
 **Default Value**: true
 **Allows Variables**: true
 

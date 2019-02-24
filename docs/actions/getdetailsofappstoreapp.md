@@ -1,5 +1,5 @@
 
-## Get Details of App Store App / getdetailsofappstoreapp (internally is.workflow.actions.properties.appstore)
+## Get Details of App Store App / getdetailsofappstoreapp (internally `is.workflow.actions.properties.appstore`)
 
 
 ### usage

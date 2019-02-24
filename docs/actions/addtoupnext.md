@@ -1,5 +1,5 @@
 
-## Add to Up Next / addtoupnext (internally is.workflow.actions.addmusictoupnext)
+## Add to Up Next / addtoupnext (internally `is.workflow.actions.addmusictoupnext`)
 
 
 > This action requires that Shortcuts has permission to use WFAppleMusicAccessResource,[object Object].
@@ -8,7 +8,7 @@
 `addtoupnext play=[string <${strInfo}>]`
 
 ### arguments
-### Enumeration: Play / play (internally WFWhenToPlay)
+### Enumeration: Play / play (internally `WFWhenToPlay`)
 **Default Value**: Next
 **Allows Variables**: true
 

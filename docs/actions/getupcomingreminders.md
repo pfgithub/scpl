@@ -1,5 +1,5 @@
 
-## Get Upcoming Reminders / getupcomingreminders (internally is.workflow.actions.getupcomingreminders)
+## Get Upcoming Reminders / getupcomingreminders (internally `is.workflow.actions.getupcomingreminders`)
 
 > This action is not yet complete. Some arguments may be missing.
 
@@ -11,8 +11,10 @@
 
 ### arguments
 This paramtype is not implemented. WFCalendarPickerParameter
+
 ---
-### Stepper Number: wfgetupcomingitemcount / wfgetupcomingitemcount (internally WFGetUpcomingItemCount)
+
+### Stepper Number: wfgetupcomingitemcount / wfgetupcomingitemcount (internally `WFGetUpcomingItemCount`)
 **Default Value**: 1
 **Allows Variables**: true
 

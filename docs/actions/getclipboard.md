@@ -1,5 +1,5 @@
 
-## Get Clipboard / getclipboard (internally is.workflow.actions.getclipboard)
+## Get Clipboard / getclipboard (internally `is.workflow.actions.getclipboard`)
 
 
 > This action requires that Shortcuts has permission to use WFMainThreadResource.

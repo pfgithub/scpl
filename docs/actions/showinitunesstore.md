@@ -1,5 +1,5 @@
 
-## Show in iTunes Store / showinitunesstore (internally is.workflow.actions.showinstore)
+## Show in iTunes Store / showinitunesstore (internally `is.workflow.actions.showinstore`)
 
 
 > This action requires that Shortcuts has permission to use WFUserInteractionResource.

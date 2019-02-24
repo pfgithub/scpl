@@ -1,5 +1,5 @@
 
-## Play Music / playmusic (internally is.workflow.actions.playmusic)
+## Play Music / playmusic (internally `is.workflow.actions.playmusic`)
 
 
 > This action requires that Shortcuts has permission to use WFAppleMusicAccessResource,WFMainThreadResource.
@@ -8,7 +8,7 @@
 `playmusic shuffle=[string <${strInfo}>] repeat=[string <${strInfo}>]`
 
 ### arguments
-### Enumeration: Shuffle / shuffle (internally WFPlayMusicActionShuffle)
+### Enumeration: Shuffle / shuffle (internally `WFPlayMusicActionShuffle`)
 **Allows Variables**: true
 
 
@@ -18,8 +18,10 @@ containing one of the options:
 
 - `Off`
 - `Songs`
+
 ---
-### Enumeration: Repeat / repeat (internally WFPlayMusicActionRepeat)
+
+### Enumeration: Repeat / repeat (internally `WFPlayMusicActionRepeat`)
 **Allows Variables**: true
 
 

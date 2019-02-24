@@ -1,5 +1,5 @@
 
-## isworkflowactionstweet / isworkflowactionstweet (internally is.workflow.actions.tweet)
+## isworkflowactionstweet / isworkflowactionstweet (internally `is.workflow.actions.tweet`)
 
 
 ### usage

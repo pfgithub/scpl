@@ -1,5 +1,5 @@
 
-## Append to Note / appendtonote (internally is.workflow.actions.evernote.append)
+## Append to Note / appendtonote (internally `is.workflow.actions.evernote.append`)
 
 > This action is not yet complete. Some arguments may be missing.
 
@@ -10,7 +10,7 @@
 `appendtonote notetitle=[string|text] mode=[string <${strInfo}>] undefined=[???]`
 
 ### arguments
-### Text Input: Note Title / notetitle (internally WFEvernoteNotesTitleSearch)
+### Text Input: Note Title / notetitle (internally `WFEvernoteNotesTitleSearch`)
 **Placeholder**: example note
 **Allows Variables**: true
 
@@ -18,8 +18,10 @@
 Accepts a string 
 or text
 with the text.
+
 ---
-### Enumeration: Mode / mode (internally WFEvernoteWriteMode)
+
+### Enumeration: Mode / mode (internally `WFEvernoteWriteMode`)
 **Default Value**: Append
 **Allows Variables**: true
 
@@ -30,5 +32,7 @@ containing one of the options:
 
 - `Append`
 - `Prepend`
+
 ---
+
 This paramtype is not implemented. WFEvernoteNotebookPickerParameter

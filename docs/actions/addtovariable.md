@@ -1,12 +1,12 @@
 
-## Add to Variable / addtovariable (internally is.workflow.actions.appendvariable)
+## Add to Variable / addtovariable (internally `is.workflow.actions.appendvariable`)
 
 
 ### usage
 `addtovariable variable=[string|variable v:variableName]`
 
 ### arguments
-### Variable Field: Variable / variable (internally WFVariableName)
+### Variable Field: Variable / variable (internally `WFVariableName`)
 **Placeholder**: Variable Name
 **Allows Variables**: true
 

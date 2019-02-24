@@ -1,5 +1,5 @@
 
-## Get Dates from Input / getdatesfrominput (internally is.workflow.actions.detect.date)
+## Get Dates from Input / getdatesfrominput (internally `is.workflow.actions.detect.date`)
 
 
 ### usage

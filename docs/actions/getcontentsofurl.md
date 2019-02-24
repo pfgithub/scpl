@@ -1,5 +1,5 @@
 
-## Get Contents of URL / getcontentsofurl (internally is.workflow.actions.downloadurl)
+## Get Contents of URL / getcontentsofurl (internally `is.workflow.actions.downloadurl`)
 
 > This action is not yet complete. Some arguments may be missing.
 
@@ -9,8 +9,10 @@
 
 ### arguments
 This paramtype is not implemented. WFExpandingParameter
+
 ---
-### Enumeration: Method / method (internally WFHTTPMethod)
+
+### Enumeration: Method / method (internally `WFHTTPMethod`)
 **Default Value**: GET
 **Allows Variables**: true
 
@@ -24,12 +26,18 @@ containing one of the options:
 - `PUT`
 - `PATCH`
 - `DELETE`
+
 ---
+
 This paramtype is not implemented. WFExpandingParameter
+
 ---
+
 This paramtype is not implemented. WFDictionaryParameter
+
 ---
-### Enumeration: Request Body / requestbody (internally WFHTTPBodyType)
+
+### Enumeration: Request Body / requestbody (internally `WFHTTPBodyType`)
 **Default Value**: JSON
 
 
@@ -39,12 +47,18 @@ containing one of the options:
 - `JSON`
 - `Form`
 - `File`
+
 ---
+
 This paramtype is not implemented. WFDictionaryParameter
+
 ---
+
 This paramtype is not implemented. WFDictionaryParameter
+
 ---
-### Variable Picker: File / file (internally WFRequestVariable)
+
+### Variable Picker: File / file (internally `WFRequestVariable`)
 **Allows Variables**: true
 
 

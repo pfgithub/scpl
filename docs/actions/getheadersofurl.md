@@ -1,5 +1,5 @@
 
-## Get Headers of URL / getheadersofurl (internally is.workflow.actions.url.getheaders)
+## Get Headers of URL / getheadersofurl (internally `is.workflow.actions.url.getheaders`)
 
 
 ### usage

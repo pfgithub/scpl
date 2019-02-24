@@ -1,12 +1,12 @@
 
-## Make HTML from Rich Text / makehtmlfromrichtext (internally is.workflow.actions.gethtmlfromrichtext)
+## Make HTML from Rich Text / makehtmlfromrichtext (internally `is.workflow.actions.gethtmlfromrichtext`)
 
 
 ### usage
 `makehtmlfromrichtext makefulldocument=[string|variable]`
 
 ### arguments
-### Switch: Make Full Document / makefulldocument (internally WFMakeFullDocument)
+### Switch: Make Full Document / makefulldocument (internally `WFMakeFullDocument`)
 **Allows Variables**: true
 
 

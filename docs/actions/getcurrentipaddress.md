@@ -1,12 +1,12 @@
 
-## Get Current IP Address / getcurrentipaddress (internally is.workflow.actions.getipaddress)
+## Get Current IP Address / getcurrentipaddress (internally `is.workflow.actions.getipaddress`)
 
 
 ### usage
 `getcurrentipaddress address=[string <${strInfo}>] type=[string <${strInfo}>]`
 
 ### arguments
-### Enumeration: Address / address (internally WFIPAddressSourceOption)
+### Enumeration: Address / address (internally `WFIPAddressSourceOption`)
 **Default Value**: External
 **Allows Variables**: true
 
@@ -17,8 +17,10 @@ containing one of the options:
 
 - `External`
 - `Local`
+
 ---
-### Enumeration: Type / type (internally WFIPAddressTypeOption)
+
+### Enumeration: Type / type (internally `WFIPAddressTypeOption`)
 **Default Value**: IPv4
 **Allows Variables**: true
 

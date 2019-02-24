@@ -1,5 +1,5 @@
 
-## Expand URL / expandurl (internally is.workflow.actions.url.expand)
+## Expand URL / expandurl (internally `is.workflow.actions.url.expand`)
 
 
 ### usage

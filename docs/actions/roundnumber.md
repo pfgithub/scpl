@@ -1,12 +1,12 @@
 
-## Round Number / roundnumber (internally is.workflow.actions.round)
+## Round Number / roundnumber (internally `is.workflow.actions.round`)
 
 
 ### usage
 `roundnumber round=[string <${strInfo}>] mode=[string <${strInfo}>] wfrounddecimalplaces=[string integer]`
 
 ### arguments
-### Enumeration: Round / round (internally WFRoundType)
+### Enumeration: Round / round (internally `WFRoundType`)
 **Default Value**: Left of Decimal
 **Allows Variables**: true
 
@@ -17,8 +17,10 @@ containing one of the options:
 
 - `Left of Decimal`
 - `Right of Decimal`
+
 ---
-### Enumeration: Mode / mode (internally WFRoundMode)
+
+### Enumeration: Mode / mode (internally `WFRoundMode`)
 **Default Value**: Normal
 **Allows Variables**: true
 
@@ -30,8 +32,10 @@ containing one of the options:
 - `Normal`
 - `Always Round Up`
 - `Always Round Down`
+
 ---
-### Stepper Number: wfrounddecimalplaces / wfrounddecimalplaces (internally WFRoundDecimalPlaces)
+
+### Stepper Number: wfrounddecimalplaces / wfrounddecimalplaces (internally `WFRoundDecimalPlaces`)
 **Allows Variables**: true
 
 

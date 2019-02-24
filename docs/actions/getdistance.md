@@ -1,5 +1,5 @@
 
-## Get Distance / getdistance (internally is.workflow.actions.getdistance)
+## Get Distance / getdistance (internally `is.workflow.actions.getdistance`)
 
 > This action is not yet complete. Some arguments may be missing.
 
@@ -10,7 +10,7 @@
 `getdistance from=[string <${strInfo}>|variable] undefined=[???] routetype=[string <${strInfo}>] undefined=[???]`
 
 ### arguments
-### Enumeration: From / from (internally WFGetDirectionsFrom)
+### Enumeration: From / from (internally `WFGetDirectionsFrom`)
 **Default Value**: Current Location
 
 
@@ -19,10 +19,14 @@ containing one of the options:
 
 - `Current Location`
 - `Custom Location`
+
 ---
+
 This paramtype is not implemented. WFLocationFieldParameter
+
 ---
-### Enumeration: Route Type / routetype (internally WFGetDirectionsActionMode)
+
+### Enumeration: Route Type / routetype (internally `WFGetDirectionsActionMode`)
 **Default Value**: Direct
 **Allows Variables**: true
 
@@ -34,5 +38,7 @@ containing one of the options:
 - `Direct`
 - `Driving`
 - `Walking`
+
 ---
+
 This paramtype is not implemented. WFGetDistanceUnitPickerParameter

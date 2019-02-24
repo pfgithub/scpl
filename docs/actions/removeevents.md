@@ -1,5 +1,5 @@
 
-## Remove Events / removeevents (internally is.workflow.actions.removeevents)
+## Remove Events / removeevents (internally `is.workflow.actions.removeevents`)
 
 
 > This action requires that Shortcuts has permission to use WFCalendarAccessResource,WFUserInteractionResource.
@@ -8,7 +8,7 @@
 `removeevents includefutureevents=[string|variable]`
 
 ### arguments
-### Switch: Include Future Events / includefutureevents (internally WFCalendarIncludeFutureEvents)
+### Switch: Include Future Events / includefutureevents (internally `WFCalendarIncludeFutureEvents`)
 **Allows Variables**: true
 
 

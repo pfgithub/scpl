@@ -1,5 +1,5 @@
 
-## Post to WordPress / posttowordpress (internally is.workflow.actions.wordpress.post)
+## Post to WordPress / posttowordpress (internally `is.workflow.actions.wordpress.post`)
 
 > This action is not yet complete. Some arguments may be missing.
 
@@ -11,10 +11,14 @@
 
 ### arguments
 This paramtype is not implemented. WFAccountPickerParameter
+
 ---
+
 This paramtype is not implemented. WFDynamicEnumerationParameter
+
 ---
-### Text Input: Title / title (internally Title)
+
+### Text Input: Title / title (internally `Title`)
 **Placeholder**: Quarterly Results
 **Allows Variables**: true
 
@@ -22,27 +26,43 @@ This paramtype is not implemented. WFDynamicEnumerationParameter
 Accepts a string 
 or text
 with the text.
+
 ---
+
 This paramtype is not implemented. WFDynamicEnumerationParameter
+
 ---
+
 This paramtype is not implemented. WFDynamicEnumerationParameter
+
 ---
+
 This paramtype is not implemented. WFDynamicEnumerationParameter
+
 ---
+
 This paramtype is not implemented. WFDynamicTagFieldParameter
+
 ---
+
 This paramtype is not implemented. WFDynamicTagFieldParameter
+
 ---
+
 This paramtype is not implemented. WFExpandingParameter
+
 ---
-### Switch: Allow Comments / allowcomments (internally AllowComments)
+
+### Switch: Allow Comments / allowcomments (internally `AllowComments`)
 **Allows Variables**: true
 
 
 Accepts a string with either true or false
 or a variable.
+
 ---
-### Text Input: Slug / slug (internally Slug)
+
+### Text Input: Slug / slug (internally `Slug`)
 **Placeholder**: quarterly-results
 **Allows Variables**: true
 
@@ -50,8 +70,10 @@ or a variable.
 Accepts a string 
 or text
 with the text.
+
 ---
-### Text Input: Excerpt / excerpt (internally Excerpt)
+
+### Text Input: Excerpt / excerpt (internally `Excerpt`)
 **Placeholder**: An overall great quarter
 **Allows Variables**: true
 
@@ -59,17 +81,27 @@ with the text.
 Accepts a string 
 or text
 with the text.
+
 ---
+
 This paramtype is not implemented. WFDateFieldParameter
+
 ---
+
 This paramtype is not implemented. WFDynamicEnumerationParameter
+
 ---
-### Variable Picker: Featured Image / featuredimage (internally ThumbnailImage)
+
+### Variable Picker: Featured Image / featuredimage (internally `ThumbnailImage`)
 **Allows Variables**: true
 
 
 Accepts a variable.
+
 ---
+
 This paramtype is not implemented. WFExpandingParameter
+
 ---
+
 This paramtype is not implemented. WFDictionaryParameter

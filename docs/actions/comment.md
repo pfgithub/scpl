@@ -1,12 +1,12 @@
 
-## Comment / comment (internally is.workflow.actions.comment)
+## Comment / comment (internally `is.workflow.actions.comment`)
 
 
 ### usage
 `comment wfcommentactiontext=[string]`
 
 ### arguments
-### Text Input: wfcommentactiontext / wfcommentactiontext (internally WFCommentActionText)
+### Text Input: wfcommentactiontext / wfcommentactiontext (internally `WFCommentActionText`)
 **Placeholder**: Enter comment...
 
 

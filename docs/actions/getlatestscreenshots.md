@@ -1,5 +1,5 @@
 
-## Get Latest Screenshots / getlatestscreenshots (internally is.workflow.actions.getlastscreenshot)
+## Get Latest Screenshots / getlatestscreenshots (internally `is.workflow.actions.getlastscreenshot`)
 
 
 > This action requires that Shortcuts has permission to use WFPhotoAccessResource.
@@ -8,7 +8,7 @@
 `getlatestscreenshots wfgetlatestphotocount=[string integer]`
 
 ### arguments
-### Stepper Number: wfgetlatestphotocount / wfgetlatestphotocount (internally WFGetLatestPhotoCount)
+### Stepper Number: wfgetlatestphotocount / wfgetlatestphotocount (internally `WFGetLatestPhotoCount`)
 **Default Value**: 1
 **Allows Variables**: true
 

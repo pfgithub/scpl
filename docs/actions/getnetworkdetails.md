@@ -1,5 +1,5 @@
 
-## Get Network Details / getnetworkdetails (internally is.workflow.actions.getwifi)
+## Get Network Details / getnetworkdetails (internally `is.workflow.actions.getwifi`)
 
 > This action is not yet complete. Some arguments may be missing.
 
@@ -9,8 +9,10 @@
 
 ### arguments
 This paramtype is not implemented. WFNetworkPickerParameter
+
 ---
-### Enumeration: Get / get (internally WFWiFiDetail)
+
+### Enumeration: Get / get (internally `WFWiFiDetail`)
 **Default Value**: Network Name
 **Allows Variables**: true
 
@@ -21,8 +23,10 @@ containing one of the options:
 
 - `Network Name`
 - `BSSID`
+
 ---
-### Enumeration: Get / get (internally WFCellularDetail)
+
+### Enumeration: Get / get (internally `WFCellularDetail`)
 **Default Value**: Carrier Name
 **Allows Variables**: true
 

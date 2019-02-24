@@ -1,5 +1,5 @@
 
-## Convert Image / convertimage (internally is.workflow.actions.image.convert)
+## Convert Image / convertimage (internally `is.workflow.actions.image.convert`)
 
 > This action is not yet complete. Some arguments may be missing.
 
@@ -9,10 +9,14 @@
 
 ### arguments
 This paramtype is not implemented. WFImageConvertFormatPickerParameter
+
 ---
+
 This paramtype is not implemented. WFSliderParameter
+
 ---
-### Switch: Preserve Metadata / preservemetadata (internally WFImagePreserveMetadata)
+
+### Switch: Preserve Metadata / preservemetadata (internally `WFImagePreserveMetadata`)
 **Default Value**: true
 **Allows Variables**: true
 

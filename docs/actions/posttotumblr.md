@@ -1,5 +1,5 @@
 
-## Post to Tumblr / posttotumblr (internally is.workflow.actions.tumblr.post)
+## Post to Tumblr / posttotumblr (internally `is.workflow.actions.tumblr.post`)
 
 > This action is not yet complete. Some arguments may be missing.
 
@@ -11,12 +11,18 @@
 
 ### arguments
 This paramtype is not implemented. WFTumblrComposeInAppParameter
+
 ---
+
 This paramtype is not implemented. WFTumblrBlogPickerParameter
+
 ---
+
 This paramtype is not implemented. WFDynamicEnumerationParameter
+
 ---
-### Enumeration: Post Status / poststatus (internally WFPostState)
+
+### Enumeration: Post Status / poststatus (internally `WFPostState`)
 **Default Value**: Post Now
 **Allows Variables**: true
 
@@ -29,8 +35,10 @@ containing one of the options:
 - `Add to Queue`
 - `Save as Draft`
 - `Post Privately`
+
 ---
-### Text Input: Title / title (internally WFPostTitle)
+
+### Text Input: Title / title (internally `WFPostTitle`)
 **Placeholder**: optional
 **Allows Variables**: true
 
@@ -38,8 +46,10 @@ containing one of the options:
 Accepts a string 
 or text
 with the text.
+
 ---
-### Text Input: Source / source (internally WFPostSource)
+
+### Text Input: Source / source (internally `WFPostSource`)
 **Placeholder**: optional
 **Allows Variables**: true
 
@@ -47,8 +57,10 @@ with the text.
 Accepts a string 
 or text
 with the text.
+
 ---
-### Text Input: Caption / caption (internally WFPostCaption)
+
+### Text Input: Caption / caption (internally `WFPostCaption`)
 **Placeholder**: optional
 **Allows Variables**: true
 
@@ -56,8 +68,10 @@ with the text.
 Accepts a string 
 or text
 with the text.
+
 ---
-### Text Input: Tags / tags (internally WFPostTags)
+
+### Text Input: Tags / tags (internally `WFPostTags`)
 **Placeholder**: shortcuts, apple
 **Allows Variables**: true
 
@@ -65,8 +79,10 @@ with the text.
 Accepts a string 
 or text
 with the text.
+
 ---
-### Text Input: Description / description (internally WFPostDescription)
+
+### Text Input: Description / description (internally `WFPostDescription`)
 **Placeholder**: Description
 **Allows Variables**: true
 

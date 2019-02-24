@@ -1,5 +1,5 @@
 
-## Select Music / selectmusic (internally is.workflow.actions.exportsong)
+## Select Music / selectmusic (internally `is.workflow.actions.exportsong`)
 
 
 > This action requires that Shortcuts has permission to use WFAppleMusicAccessResource,WFUserInteractionResource.
@@ -8,7 +8,7 @@
 `selectmusic selectmultiplesongs=[string|variable]`
 
 ### arguments
-### Switch: Select Multiple Songs / selectmultiplesongs (internally WFExportSongActionSelectMultiple)
+### Switch: Select Multiple Songs / selectmultiplesongs (internally `WFExportSongActionSelectMultiple`)
 **Allows Variables**: true
 
 

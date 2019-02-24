@@ -1,5 +1,5 @@
 
-## Record Audio / recordaudio (internally is.workflow.actions.recordaudio)
+## Record Audio / recordaudio (internally `is.workflow.actions.recordaudio`)
 
 > This action is not yet complete. Some arguments may be missing.
 
@@ -10,7 +10,7 @@
 `recordaudio audioquality=[string <${strInfo}>] startrecording=[string <${strInfo}>] finishrecording=[string <${strInfo}>] undefined=[???]`
 
 ### arguments
-### Enumeration: Audio Quality / audioquality (internally WFRecordingCompression)
+### Enumeration: Audio Quality / audioquality (internally `WFRecordingCompression`)
 **Default Value**: Normal
 **Allows Variables**: true
 
@@ -21,8 +21,10 @@ containing one of the options:
 
 - `Normal`
 - `Very High`
+
 ---
-### Enumeration: Start Recording / startrecording (internally WFRecordingStart)
+
+### Enumeration: Start Recording / startrecording (internally `WFRecordingStart`)
 **Default Value**: On Tap
 **Allows Variables**: true
 
@@ -33,8 +35,10 @@ containing one of the options:
 
 - `On Tap`
 - `Immediately`
+
 ---
-### Enumeration: Finish Recording / finishrecording (internally WFRecordingEnd)
+
+### Enumeration: Finish Recording / finishrecording (internally `WFRecordingEnd`)
 **Default Value**: On Tap
 **Allows Variables**: true
 
@@ -45,5 +49,7 @@ containing one of the options:
 
 - `On Tap`
 - `After Time`
+
 ---
+
 This paramtype is not implemented. WFTimeIntervalParameter

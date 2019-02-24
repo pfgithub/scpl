@@ -1,5 +1,5 @@
 
-## Date / date (internally is.workflow.actions.date)
+## Date / date (internally `is.workflow.actions.date`)
 
 > This action is not yet complete. Some arguments may be missing.
 
@@ -8,7 +8,7 @@
 `date use=[string <${strInfo}>] undefined=[???]`
 
 ### arguments
-### Enumeration: Use / use (internally WFDateActionMode)
+### Enumeration: Use / use (internally `WFDateActionMode`)
 **Default Value**: Current Date
 **Allows Variables**: true
 
@@ -19,5 +19,7 @@ containing one of the options:
 
 - `Current Date`
 - `Specified Date`
+
 ---
+
 This paramtype is not implemented. WFDateFieldParameter

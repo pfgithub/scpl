@@ -1,5 +1,5 @@
 
-## Get File / getfile (internally is.workflow.actions.documentpicker.open)
+## Get File / getfile (internally `is.workflow.actions.documentpicker.open`)
 
 > This action is not yet complete. Some arguments may be missing.
 
@@ -11,23 +11,29 @@
 
 ### arguments
 This paramtype is not implemented. WFStorageServicePickerParameter
+
 ---
-### Switch: Show Document Picker / showdocumentpicker (internally WFShowFilePicker)
+
+### Switch: Show Document Picker / showdocumentpicker (internally `WFShowFilePicker`)
 **Default Value**: true
 **Allows Variables**: true
 
 
 Accepts a string with either true or false
 or a variable.
+
 ---
-### Switch: Select Multiple / selectmultiple (internally SelectMultiple)
+
+### Switch: Select Multiple / selectmultiple (internally `SelectMultiple`)
 **Allows Variables**: true
 
 
 Accepts a string with either true or false
 or a variable.
+
 ---
-### Text Input: File Path / filepath (internally WFGetFilePath)
+
+### Text Input: File Path / filepath (internally `WFGetFilePath`)
 **Placeholder**: example.txt
 **Allows Variables**: true
 
@@ -35,8 +41,10 @@ or a variable.
 Accepts a string 
 or text
 with the text.
+
 ---
-### Text Input: Initial Path / initialpath (internally WFGetFileInitialDirectoryPath)
+
+### Text Input: Initial Path / initialpath (internally `WFGetFileInitialDirectoryPath`)
 **Placeholder**: optional
 **Allows Variables**: true
 
@@ -44,8 +52,10 @@ with the text.
 Accepts a string 
 or text
 with the text.
+
 ---
-### Switch: Error If Not Found / errorifnotfound (internally WFFileErrorIfNotFound)
+
+### Switch: Error If Not Found / errorifnotfound (internally `WFFileErrorIfNotFound`)
 **Default Value**: true
 **Allows Variables**: true
 

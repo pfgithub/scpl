@@ -1,5 +1,5 @@
 
-## Select Photos / selectphotos (internally is.workflow.actions.selectphoto)
+## Select Photos / selectphotos (internally `is.workflow.actions.selectphoto`)
 
 
 > This action requires that Shortcuts has permission to use WFPhotoAccessResource,WFUserInteractionResource.
@@ -8,7 +8,7 @@
 `selectphotos selectmultiple=[string|variable]`
 
 ### arguments
-### Switch: Select Multiple / selectmultiple (internally WFSelectMultiplePhotos)
+### Switch: Select Multiple / selectmultiple (internally `WFSelectMultiplePhotos`)
 **Allows Variables**: true
 
 

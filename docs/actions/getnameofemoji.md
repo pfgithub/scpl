@@ -1,5 +1,5 @@
 
-## Get Name of Emoji / getnameofemoji (internally is.workflow.actions.getnameofemoji)
+## Get Name of Emoji / getnameofemoji (internally `is.workflow.actions.getnameofemoji`)
 
 
 ### usage

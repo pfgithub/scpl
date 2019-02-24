@@ -1,5 +1,5 @@
 
-## Get Notes / getnotes (internally is.workflow.actions.evernote.get)
+## Get Notes / getnotes (internally `is.workflow.actions.evernote.get`)
 
 > This action is not yet complete. Some arguments may be missing.
 
@@ -10,7 +10,7 @@
 `getnotes titlesearch=[string|text] undefined=[???] undefined=[???] wfevernotenotescount=[string integer]`
 
 ### arguments
-### Text Input: Title Search / titlesearch (internally WFEvernoteNotesTitleSearch)
+### Text Input: Title Search / titlesearch (internally `WFEvernoteNotesTitleSearch`)
 **Placeholder**: optional
 **Allows Variables**: true
 
@@ -18,12 +18,18 @@
 Accepts a string 
 or text
 with the text.
+
 ---
+
 This paramtype is not implemented. WFEvernoteTagsTagFieldParameter
+
 ---
+
 This paramtype is not implemented. WFEvernoteNotebookPickerParameter
+
 ---
-### Stepper Number: wfevernotenotescount / wfevernotenotescount (internally WFEvernoteNotesCount)
+
+### Stepper Number: wfevernotenotescount / wfevernotenotescount (internally `WFEvernoteNotesCount`)
 **Default Value**: 1
 **Allows Variables**: true
 

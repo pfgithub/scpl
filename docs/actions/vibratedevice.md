@@ -1,5 +1,5 @@
 
-## Vibrate Device / vibratedevice (internally is.workflow.actions.vibrate)
+## Vibrate Device / vibratedevice (internally `is.workflow.actions.vibrate`)
 
 
 > This action requires that Shortcuts has permission to use [object Object].
@@ -8,7 +8,7 @@
 `vibratedevice hapticpattern=[string <${strInfo}>]`
 
 ### arguments
-### Enumeration: Haptic Pattern / hapticpattern (internally WFVibrateHapticType)
+### Enumeration: Haptic Pattern / hapticpattern (internally `WFVibrateHapticType`)
 **Default Value**: Default
 **Allows Variables**: true
 

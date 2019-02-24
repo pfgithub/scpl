@@ -1,5 +1,5 @@
 
-## Get Battery Level / getbatterylevel (internally is.workflow.actions.getbatterylevel)
+## Get Battery Level / getbatterylevel (internally `is.workflow.actions.getbatterylevel`)
 
 
 ### usage

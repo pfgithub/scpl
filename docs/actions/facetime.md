@@ -1,5 +1,5 @@
 
-## FaceTime / facetime (internally com.apple.facetime.facetime)
+## FaceTime / facetime (internally `com.apple.facetime.facetime`)
 
 > This action is not yet complete. Some arguments may be missing.
 
@@ -11,8 +11,10 @@
 
 ### arguments
 This paramtype is not implemented. WFIntentAppPickerParameter
+
 ---
-### Enumeration: Call Type / calltype (internally WFFaceTimeType)
+
+### Enumeration: Call Type / calltype (internally `WFFaceTimeType`)
 **Default Value**: Video
 **Allows Variables**: true
 

@@ -1,5 +1,5 @@
 
-## Filter Event Attendees / filtereventattendees (internally is.workflow.actions.filter.eventattendees)
+## Filter Event Attendees / filtereventattendees (internally `is.workflow.actions.filter.eventattendees`)
 
 
 ### usage

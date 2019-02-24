@@ -1,5 +1,5 @@
 
-## Show Directions / showdirections (internally is.workflow.actions.getdirections)
+## Show Directions / showdirections (internally `is.workflow.actions.getdirections`)
 
 > This action is not yet complete. Some arguments may be missing.
 
@@ -11,5 +11,7 @@
 
 ### arguments
 This paramtype is not implemented. WFMapsAppPickerParameter
+
 ---
+
 This paramtype is not implemented. WFDynamicEnumerationParameter

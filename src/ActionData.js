@@ -26,7 +26,7 @@ types.WFParameter = class {
 		this.typeName = typeName;
 	}
 	genDocs() {
-		let docs = `### ${this.typeName}: ${this.name} / ${this.shortName} (internally ${this.internalName})\n`;
+		let docs = `### ${this.typeName}: ${this.name} / ${this.shortName} (internally \`${this.internalName}\`)\n`;
 		if(this._data.Placeholder) {docs += `**Placeholder**: ${this._data.Placeholder}\n`;}
 		if(this._data.DefaultValue) {docs += `**Default Value**: ${this._data.DefaultValue}\n`;}
 		if(this.allowsVariables) {docs += `**Allows Variables**: ${this.allowsVariables}\n`;}
@@ -287,7 +287,7 @@ class WFAction {
 	}
 	genDocs() {
 		const docs = `
-## ${this.name} / ${this.shortName} (internally ${this.internalName})
+## ${this.name} / ${this.shortName} (internally \`${this.internalName}\`)
 ${this.isComplete ? "" : `
 > This action is not yet complete. Some arguments may be missing.
 `}
@@ -299,7 +299,9 @@ ${this._data.RequiredResources ? `
 
 ### arguments
 ${this._parameters.map(param => (typeof param === "string") ? `${param}` : param.genDocs()).join`
+
 ---
+
 `}
 `;
 		return docs;

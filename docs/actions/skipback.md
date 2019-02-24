@@ -1,5 +1,5 @@
 
-## Skip Back / skipback (internally is.workflow.actions.skipback)
+## Skip Back / skipback (internally `is.workflow.actions.skipback`)
 
 
 > This action requires that Shortcuts has permission to use WFMainThreadResource.
@@ -8,7 +8,7 @@
 `skipback skipto=[string <${strInfo}>]`
 
 ### arguments
-### Enumeration: Skip To / skipto (internally WFSkipBackBehavior)
+### Enumeration: Skip To / skipto (internally `WFSkipBackBehavior`)
 **Default Value**: Beginning
 **Allows Variables**: true
 

@@ -1,5 +1,5 @@
 
-## Take Video / takevideo (internally is.workflow.actions.takevideo)
+## Take Video / takevideo (internally `is.workflow.actions.takevideo`)
 
 
 > This action requires that Shortcuts has permission to use WFUserInteractionResource,WFCameraAccessResource.
@@ -8,7 +8,7 @@
 `takevideo camera=[string <${strInfo}>] quality=[string <${strInfo}>] startrecording=[string <${strInfo}>]`
 
 ### arguments
-### Enumeration: Camera / camera (internally WFCameraCaptureDevice)
+### Enumeration: Camera / camera (internally `WFCameraCaptureDevice`)
 **Default Value**: Back
 **Allows Variables**: true
 
@@ -19,8 +19,10 @@ containing one of the options:
 
 - `Front`
 - `Back`
+
 ---
-### Enumeration: Quality / quality (internally WFCameraCaptureQuality)
+
+### Enumeration: Quality / quality (internally `WFCameraCaptureQuality`)
 **Default Value**: Medium
 **Allows Variables**: true
 
@@ -32,8 +34,10 @@ containing one of the options:
 - `Low`
 - `Medium`
 - `High`
+
 ---
-### Enumeration: Start Recording / startrecording (internally WFRecordingStart)
+
+### Enumeration: Start Recording / startrecording (internally `WFRecordingStart`)
 **Default Value**: Immediately
 **Allows Variables**: true
 

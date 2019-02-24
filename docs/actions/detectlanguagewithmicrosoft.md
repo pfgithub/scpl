@@ -1,5 +1,5 @@
 
-## Detect Language with Microsoft / detectlanguagewithmicrosoft (internally is.workflow.actions.detectlanguage)
+## Detect Language with Microsoft / detectlanguagewithmicrosoft (internally `is.workflow.actions.detectlanguage`)
 
 
 ### usage

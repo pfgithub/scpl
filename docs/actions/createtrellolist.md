@@ -1,5 +1,5 @@
 
-## Create Trello List / createtrellolist (internally is.workflow.actions.trello.add.list)
+## Create Trello List / createtrellolist (internally `is.workflow.actions.trello.add.list`)
 
 > This action is not yet complete. Some arguments may be missing.
 
@@ -10,7 +10,7 @@
 `createtrellolist name=[string|text] undefined=[???] position=[string <${strInfo}>]`
 
 ### arguments
-### Text Input: Name / name (internally WFTrelloName)
+### Text Input: Name / name (internally `WFTrelloName`)
 **Placeholder**: Shortcut Ideas
 **Allows Variables**: true
 
@@ -18,10 +18,14 @@
 Accepts a string 
 or text
 with the text.
+
 ---
+
 This paramtype is not implemented. WFTrelloBoardPickerParameter
+
 ---
-### Enumeration: Position / position (internally WFTrelloPosition)
+
+### Enumeration: Position / position (internally `WFTrelloPosition`)
 **Default Value**: Top
 **Allows Variables**: true
 

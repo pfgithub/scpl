@@ -1,5 +1,5 @@
 
-## Set Brightness / setbrightness (internally is.workflow.actions.setbrightness)
+## Set Brightness / setbrightness (internally `is.workflow.actions.setbrightness`)
 
 > This action is not yet complete. Some arguments may be missing.
 

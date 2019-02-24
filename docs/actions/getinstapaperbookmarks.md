@@ -1,5 +1,5 @@
 
-## Get Instapaper Bookmarks / getinstapaperbookmarks (internally is.workflow.actions.instapaper.get)
+## Get Instapaper Bookmarks / getinstapaperbookmarks (internally `is.workflow.actions.instapaper.get`)
 
 > This action is not yet complete. Some arguments may be missing.
 
@@ -11,8 +11,10 @@
 
 ### arguments
 This paramtype is not implemented. WFDynamicEnumerationParameter
+
 ---
-### Stepper Number: wfbookmarkcount / wfbookmarkcount (internally WFBookmarkCount)
+
+### Stepper Number: wfbookmarkcount / wfbookmarkcount (internally `WFBookmarkCount`)
 **Default Value**: 5
 **Allows Variables**: true
 

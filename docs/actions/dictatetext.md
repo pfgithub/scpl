@@ -1,5 +1,5 @@
 
-## Dictate Text / dictatetext (internally is.workflow.actions.dictatetext)
+## Dictate Text / dictatetext (internally `is.workflow.actions.dictatetext`)
 
 > This action is not yet complete. Some arguments may be missing.
 
@@ -11,8 +11,10 @@
 
 ### arguments
 This paramtype is not implemented. WFDictateTextLanguagePickerParameter
+
 ---
-### Enumeration: Stop Listening / stoplistening (internally WFDictateTextStopListening)
+
+### Enumeration: Stop Listening / stoplistening (internally `WFDictateTextStopListening`)
 **Default Value**: After Pause
 **Allows Variables**: true
 

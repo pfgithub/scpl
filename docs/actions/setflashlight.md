@@ -1,5 +1,5 @@
 
-## Set Flashlight / setflashlight (internally is.workflow.actions.flashlight)
+## Set Flashlight / setflashlight (internally `is.workflow.actions.flashlight`)
 
 > This action is not yet complete. Some arguments may be missing.
 
@@ -8,7 +8,7 @@
 `setflashlight flashlight=[string <${strInfo}>] undefined=[???]`
 
 ### arguments
-### Enumeration: Flashlight / flashlight (internally WFFlashlightSetting)
+### Enumeration: Flashlight / flashlight (internally `WFFlashlightSetting`)
 **Default Value**: On
 **Allows Variables**: true
 
@@ -20,5 +20,7 @@ containing one of the options:
 - `Off`
 - `On`
 - `Toggle`
+
 ---
+
 This paramtype is not implemented. WFSliderParameter

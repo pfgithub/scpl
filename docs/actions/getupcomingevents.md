@@ -1,5 +1,5 @@
 
-## Get Upcoming Events / getupcomingevents (internally is.workflow.actions.getupcomingevents)
+## Get Upcoming Events / getupcomingevents (internally `is.workflow.actions.getupcomingevents`)
 
 > This action is not yet complete. Some arguments may be missing.
 
@@ -11,8 +11,10 @@
 
 ### arguments
 This paramtype is not implemented. WFCalendarPickerParameter
+
 ---
-### Stepper Number: wfgetupcomingitemcount / wfgetupcomingitemcount (internally WFGetUpcomingItemCount)
+
+### Stepper Number: wfgetupcomingitemcount / wfgetupcomingitemcount (internally `WFGetUpcomingItemCount`)
 **Default Value**: 1
 **Allows Variables**: true
 
@@ -20,8 +22,10 @@ This paramtype is not implemented. WFCalendarPickerParameter
 Accepts a string 
 or variable
 containing an integer value.
+
 ---
-### Enumeration: Day / day (internally WFDateSpecifier)
+
+### Enumeration: Day / day (internally `WFDateSpecifier`)
 **Default Value**: Any Day
 **Allows Variables**: true
 
@@ -34,5 +38,7 @@ containing one of the options:
 - `Today`
 - `Tomorrow`
 - `Specified Day`
+
 ---
+
 This paramtype is not implemented. WFDateFieldParameter

@@ -1,5 +1,5 @@
 
-## Email Address / emailaddress (internally is.workflow.actions.email)
+## Email Address / emailaddress (internally `is.workflow.actions.email`)
 
 > This action is not yet complete. Some arguments may be missing.
 

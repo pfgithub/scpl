@@ -1,12 +1,12 @@
 
-## Generate Hash / generatehash (internally is.workflow.actions.hash)
+## Generate Hash / generatehash (internally `is.workflow.actions.hash`)
 
 
 ### usage
 `generatehash type=[string <${strInfo}>]`
 
 ### arguments
-### Enumeration: Type / type (internally WFHashType)
+### Enumeration: Type / type (internally `WFHashType`)
 **Default Value**: MD5
 **Allows Variables**: true
 

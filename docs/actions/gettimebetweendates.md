@@ -1,5 +1,5 @@
 
-## Get Time Between Dates / gettimebetweendates (internally is.workflow.actions.gettimebetweendates)
+## Get Time Between Dates / gettimebetweendates (internally `is.workflow.actions.gettimebetweendates`)
 
 > This action is not yet complete. Some arguments may be missing.
 
@@ -8,7 +8,7 @@
 `gettimebetweendates gettimefrom=[string <${strInfo}>|variable] undefined=[???] in=[string <${strInfo}>]`
 
 ### arguments
-### Enumeration: Get Time From / gettimefrom (internally WFTimeUntilReferenceDate)
+### Enumeration: Get Time From / gettimefrom (internally `WFTimeUntilReferenceDate`)
 **Default Value**: Right Now
 
 
@@ -17,10 +17,14 @@ containing one of the options:
 
 - `Right Now`
 - `Other`
+
 ---
+
 This paramtype is not implemented. WFDateFieldParameter
+
 ---
-### Enumeration: In / in (internally WFTimeUntilUnit)
+
+### Enumeration: In / in (internally `WFTimeUntilUnit`)
 **Default Value**: Minutes
 **Allows Variables**: true
 

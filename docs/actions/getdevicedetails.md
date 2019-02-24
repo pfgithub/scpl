@@ -1,12 +1,12 @@
 
-## Get Device Details / getdevicedetails (internally is.workflow.actions.getdevicedetails)
+## Get Device Details / getdevicedetails (internally `is.workflow.actions.getdevicedetails`)
 
 
 ### usage
 `getdevicedetails get=[string <${strInfo}>]`
 
 ### arguments
-### Enumeration: Get / get (internally WFDeviceDetail)
+### Enumeration: Get / get (internally `WFDeviceDetail`)
 **Default Value**: Device Name
 **Allows Variables**: true
 
