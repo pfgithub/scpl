@@ -418,21 +418,25 @@ ${JSON.stringify(this._data, null, "\t")}
 				action.parameters.set("GroupingIdentifier", cc.groupingIdentifiers[groupingIdentifier]);
 				return;
 			}
-			// if(param instanceof InputArgParse) { // TODO (avoid circular dependency)
-			// 	// this param should be ignored and instead used as an inputarg
-			// 	return;
-			// }
-			// if(param instanceof ParamListParse) {
-			// 	// this param contains a mapping of paramnames = paramvalues instead of being ordered.
-			// 	// ignore and merge at the end.
-			// 	return;
-			// }
+			if(param.special === "Arglist") {
+				const dictionary = param.asRawKeyedDictionary();
+				Object.keys(dictionary).forEach(key => {
+					const value = dictionary[key];
+					const shortKey = genShortName(key);
+					const paramtype = this._parameters.find(param => param.shortName === shortKey);
+					if(!paramtype) {throw new Error(`This action does not have a parameter named ${shortKey}.`);}
+					if(action.parameters.has(paramtype.internalName)) {throw new Error(`The parameter named ${shortKey} was already set.`);}
+					action.parameters.set(paramtype.internalName, paramtype.build(cc, value));
+				});
+				return;
+			}
 
 			let paramtype;
 			while(!paramtype) {
 				paramtype = this._parameters[parami];
 
 				if(typeof paramtype === "string") {throw new Error(`This action is not supported yet. Reason: ${paramtype}`);}
+				if(action.parameters.has(paramtype.internalName)) {paramtype = undefined;} // Param [name] was already set
 
 				parami++;
 			}

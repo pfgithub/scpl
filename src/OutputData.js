@@ -265,6 +265,9 @@ class Parameters {
 		this.values[internalName] = value.build();
 		return this;
 	}
+	has(internalName) {
+		return !!this.values[internalName];
+	}
 	build() {
 		return this.values;
 	}

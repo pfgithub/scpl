@@ -9,10 +9,21 @@ class Parse {
 }
 
 class DictionaryParse extends Parse {
-	asRawDictionary() {
-		// returns a raw dictionary for this DictionaryParse
+	constructor(keyvaluepairs) {
+		super();
+		this.keyvaluepairs = keyvaluepairs;
 	}
-	asDictionary() {
+	asRawKeyedDictionary() {
+		// returns a raw dictionary (keys are raw, not values) for this DictionaryParse
+		const dictionary = {};
+		this.keyvaluepairs.forEach(({key, value}) => {
+			const stringKey = key.asString();
+			if(dictionary[stringKey]) {throw new Error(`Key ${stringKey} is already defined in this dictionary.`);}
+			dictionary[stringKey] = value;
+		});
+		return dictionary;
+	}
+	asDictionary(cc) {
 		// returns an Output Dictionary for this DictionaryParse
 
 	}
@@ -88,6 +99,11 @@ class IdentifierParse extends Parse {
 }
 class ParamListParse extends DictionaryParse {
 
+}
+class ArglistParse extends DictionaryParse {
+	get special() {
+		return "Arglist";
+	}
 }
 class VariableFlagParse extends Parse {
 	constructor(variable) {
@@ -216,5 +232,6 @@ module.exports = {
 	ListParse,
 	VariableParse,
 	ActionsParse,
-	VariableFlagParse
+	VariableFlagParse,
+	ArglistParse
 };

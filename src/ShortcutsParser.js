@@ -1,5 +1,5 @@
 
-const {ActionParse, DictionaryParse, CharsParse, IdentifierParse, ListParse, BarlistParse, VariableParse, ActionsParse, VariableFlagParse} = require("./ParserData.js");
+const {ActionParse, DictionaryParse, CharsParse, IdentifierParse, ListParse, BarlistParse, VariableParse, ActionsParse, VariableFlagParse, ArglistParse} = require("./ParserData.js");
 
 const {p, regex, star, plus, optional, or, not, c, o} = require("./ParserHelper.js");
 
@@ -64,12 +64,23 @@ o.barlist = plus(o.barlistitem)
 o.argflagarrow = or(c`->`, c`=>`).scb(_=>null);
 o.argflag = p(o.argflagarrow, _, o.variable)
 	.scb(([,, variable]) => (new VariableFlagParse(variable)));
-o.argument = or(o.value, o.inputarg, o.barlist, o.argflag, o.controlFlowMode);
+o.argument = or(
+	o.arglist,
+	o.value,
+	o.inputarg,
+	o.barlist,
+	o.argflag,
+	o.controlFlowMode);
 o.action = or(
 	o.flaggedaction,
 	o.variable,
 	o.onlyaction
 );
+o.arglist = p(
+	c`a{`,
+	star(p(_, o.keyvaluepair, _).scb(([, v])=>v)),
+	c`}`
+).scb(([, kvps, ]) => new ArglistParse(kvps));
 o.controlFlowMode = p(c`>c:`, o.identifier, c`:gid:`, o.identifier).scb(([, controlFlowMode, , groupingIdentifier]) => {return {special: "ControlFlowMode", controlFlowMode, groupingIdentifier};}); // TEMP >c:1
 o.inputarg = p(c`^`, o.parenthesis).scb(([, paren]) => {paren.special = "InputArg"; return paren;});
 o.flaggedaction = p(o.variable, _, c`=`, _, o.action)
@@ -102,7 +113,7 @@ o.value = or(o.string, o.identifier, o.parenthesis, o.dictionary, o.list);
 o.dictionary = p(
 	c`{`,
 	star( o.keyvaluepair ).scb(items => items),
-	c`}`).scb(([, dictionary, ]) => ({type: "dictionary", data: dictionary}));
+	c`}`).scb(([, kvps, ]) => (new DictionaryParse(kvps)));
 o.list = p(
 	c`[`,
 	_n,
