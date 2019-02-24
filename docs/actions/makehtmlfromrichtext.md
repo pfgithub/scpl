@@ -2,6 +2,14 @@
 ## Make HTML from Rich Text / makehtmlfromrichtext (internally `is.workflow.actions.gethtmlfromrichtext`)
 
 
+
+## description
+### summary
+Converts the rich text passed as input to HTML text.
+
+### output
+HTML
+
 ### usage
 `makehtmlfromrichtext makefulldocument=[string boolean|variable]`
 

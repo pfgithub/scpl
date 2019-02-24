@@ -4,6 +4,12 @@
 > This action is not yet complete. Some arguments may be missing.
 
 
+
+## description
+### summary
+Searches the iTunes Store, returning the items that match the specified search terms. You can get more details about the results using the Get Details of iTunes Product action.
+
+
 ### usage
 `searchitunesstore search=[string|text] undefined=[???] undefined=[???] undefined=[???] undefined=[???] wfitemlimit=[string integer]`
 

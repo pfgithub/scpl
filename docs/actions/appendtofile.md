@@ -4,6 +4,14 @@
 > This action is not yet complete. Some arguments may be missing.
 
 
+
+## description
+### summary
+Adds the text passed as input to the end of the specified file.
+
+### output
+The file that was appended to
+
 ### usage
 `appendtofile undefined=[???] filepath=[string|text] mode=[string <${strInfo}>] makenewline=[string boolean|variable]`
 

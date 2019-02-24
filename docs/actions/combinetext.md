@@ -2,6 +2,12 @@
 ## Combine Text / combinetext (internally `is.workflow.actions.text.combine`)
 
 
+
+## description
+### summary
+Joins text together, inserting the separator between each join.
+
+
 ### usage
 `combinetext separator=[string <${strInfo}>] custom=[string|text]`
 

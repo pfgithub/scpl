@@ -2,6 +2,12 @@
 ## Flip Image / flipimage (internally `is.workflow.actions.image.flip`)
 
 
+
+## description
+### summary
+Reverses the direction of images either horizontally or vertically.
+
+
 ### usage
 `flipimage direction=[string <${strInfo}>]`
 

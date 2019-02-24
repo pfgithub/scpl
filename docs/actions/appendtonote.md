@@ -6,6 +6,15 @@
 
 > This action requires that Shortcuts has permission to use WFEvernoteAccessResource.
 
+
+## description
+### summary
+Finds a note using the specified criteria and appends the input to the note.
+
+### input
+The content to add to your note
+
+
 ### usage
 `appendtonote notetitle=[string|text] mode=[string <${strInfo}>] undefined=[???]`
 

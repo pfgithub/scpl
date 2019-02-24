@@ -6,6 +6,12 @@
 
 > This action requires that Shortcuts has permission to use WFEvernoteAccessResource.
 
+
+## description
+### summary
+Get recent notes from Evernote, optionally filtering based on criteria.
+
+
 ### usage
 `getnotes titlesearch=[string|text] undefined=[???] undefined=[???] wfevernotenotescount=[string integer]`
 

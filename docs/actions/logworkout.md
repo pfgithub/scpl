@@ -6,6 +6,12 @@
 
 > This action requires that Shortcuts has permission to use WFHealthKitResource,[object Object].
 
+
+## description
+### summary
+Adds a workout into the Health app. You can log all kinds of activities, from running and cycling to playing a sport.
+
+
 ### usage
 `logworkout undefined=[???] undefined=[???] undefined=[???] undefined=[???] undefined=[???]`
 

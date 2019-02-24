@@ -4,6 +4,12 @@
 
 > This action requires that Shortcuts has permission to use WFSiriAccessResource,[object Object].
 
+
+## description
+### summary
+Sets the device’s Low Power Mode to on or off.
+
+
 ### usage
 `setlowpowermode lowpowermode=[string boolean|variable]`
 

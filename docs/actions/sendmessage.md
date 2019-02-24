@@ -6,6 +6,12 @@
 
 > This action requires that Shortcuts has permission to use WFContactAccessResource,WFUserInteractionResource.
 
+
+## description
+### summary
+Sends an iMessage or SMS. Pass images, videos, or other files as input to include attachments.
+
+
 ### usage
 `sendmessage undefined=[???] showwhenrun=[string boolean|variable] undefined=[???] wfsendmessagecontent=[string|text] prefix=[string|text]`
 

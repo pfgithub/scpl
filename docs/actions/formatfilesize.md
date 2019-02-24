@@ -2,6 +2,15 @@
 ## Format File Size / formatfilesize (internally `is.workflow.actions.format.filesize`)
 
 
+
+## description
+### summary
+Formats a file size into text.
+
+### input
+A file size from another action, or a number of bytes
+
+
 ### usage
 `formatfilesize format=[string <${strInfo}>] includeunits=[string boolean|variable]`
 

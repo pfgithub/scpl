@@ -4,6 +4,12 @@
 > This action is not yet complete. Some arguments may be missing.
 
 
+
+## description
+### summary
+Makes a new folder in the specified file storage service.
+
+
 ### usage
 `createfolder undefined=[???] path=[string|text]`
 

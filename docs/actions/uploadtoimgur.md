@@ -4,6 +4,12 @@
 
 > This action requires that Shortcuts has permission to use [object Object].
 
+
+## description
+### summary
+Uploads the input to Imgur.
+
+
 ### usage
 `uploadtoimgur uploadanonymously=[string boolean|variable] directlink=[string boolean|variable] createalbum=[string boolean|variable] albumlayout=[string <${strInfo}>] albumprivacy=[string <${strInfo}>] title=[string|text] description=[string|text]`
 

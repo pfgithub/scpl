@@ -2,6 +2,12 @@
 ## Get File of Type / getfileoftype (internally `is.workflow.actions.gettypeaction`)
 
 
+
+## description
+### summary
+Returns a particular file type from the input.
+
+
 ### usage
 `getfileoftype type=[string|text]`
 

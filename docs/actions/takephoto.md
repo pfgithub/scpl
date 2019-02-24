@@ -4,6 +4,14 @@
 
 > This action requires that Shortcuts has permission to use WFUserInteractionResource,WFCameraAccessResource.
 
+
+## description
+### summary
+Uses the camera to take photos.
+
+### output
+Photo from the camera.
+
 ### usage
 `takephoto showcamerapreview=[string boolean|variable] wfphotocount=[string integer] camera=[string <${strInfo}>]`
 

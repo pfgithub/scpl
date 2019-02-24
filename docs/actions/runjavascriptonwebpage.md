@@ -4,6 +4,17 @@
 
 > This action requires that Shortcuts has permission to use [object Object].
 
+
+## description
+### summary
+Runs JavaScript on a Safari web page passed in as input
+
+### input
+Safari web pages
+
+### output
+The output from the JavaScript (JSON)
+
 ### usage
 `runjavascriptonwebpage javascript=[string|text]`
 

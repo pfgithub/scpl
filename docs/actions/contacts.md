@@ -6,6 +6,12 @@
 
 > This action requires that Shortcuts has permission to use WFContactAccessResource.
 
+
+## description
+### summary
+Passes the specified contacts to the next action.
+
+
 ### usage
 `contacts undefined=[???]`
 

@@ -4,6 +4,14 @@
 
 > This action requires that Shortcuts has permission to use WFCloudAppAccessResource.
 
+
+## description
+### summary
+Uploads the input to CloudApp and returns the CloudApp URL.
+
+### output
+CloudApp URL
+
 ### usage
 `uploadtocloudapp linkprivacy=[string <${strInfo}>]`
 

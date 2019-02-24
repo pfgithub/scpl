@@ -2,6 +2,12 @@
 ## Split Text / splittext (internally `is.workflow.actions.text.split`)
 
 
+
+## description
+### summary
+Separates text passed into the action into a list.
+
+
 ### usage
 `splittext separator=[string <${strInfo}>] custom=[string|text]`
 

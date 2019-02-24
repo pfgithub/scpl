@@ -6,6 +6,12 @@
 
 > This action requires that Shortcuts has permission to use WFTrelloAccessResource.
 
+
+## description
+### summary
+Creates a new list on the specified board in your Trello account.
+
+
 ### usage
 `createtrellolist name=[string|text] undefined=[???] position=[string <${strInfo}>]`
 

@@ -6,6 +6,12 @@
 
 > This action requires that Shortcuts has permission to use WFInstapaperAccessResource,WFMainThreadResource.
 
+
+## description
+### summary
+Adds the input to Instapaper.
+
+
 ### usage
 `addtoinstapaper undefined=[???]`
 

@@ -6,6 +6,12 @@
 
 > This action requires that Shortcuts has permission to use WFHomeKitAccessResource.
 
+
+## description
+### summary
+Sets a Home scene.
+
+
 ### usage
 `runhomescene undefined=[???] undefined=[???]`
 

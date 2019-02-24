@@ -6,6 +6,14 @@
 
 > This action requires that Shortcuts has permission to use [object Object].
 
+
+## description
+### summary
+Save files to iCloud Drive or Dropbox. Turn off “Ask Where to Save” in order to specify a destination path.
+
+### output
+The saved files
+
 ### usage
 `savefile undefined=[???] askwheretosave=[string boolean|variable] destinationpath=[string|text] overwriteiffileexists=[string boolean|variable]`
 

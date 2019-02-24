@@ -2,6 +2,12 @@
 ## Format Number / formatnumber (internally `is.workflow.actions.format.number`)
 
 
+
+## description
+### summary
+Formats a number into text.
+
+
 ### usage
 `formatnumber wfnumberformatdecimalplaces=[string integer]`
 

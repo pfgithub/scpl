@@ -4,6 +4,12 @@
 > This action is not yet complete. Some arguments may be missing.
 
 
+
+## description
+### summary
+Gets the halfway point between two locations.
+
+
 ### usage
 `gethalfwaypoint undefined=[???] undefined=[???]`
 

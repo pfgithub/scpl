@@ -6,6 +6,12 @@
 
 > This action requires that Shortcuts has permission to use WFSiriAccessResource.
 
+
+## description
+### summary
+Enables or disables an alarm in the Clock app.
+
+
 ### usage
 `togglealarm undefined=[???] enabled=[string boolean|variable]`
 

@@ -6,6 +6,12 @@
 
 > This action requires that Shortcuts has permission to use WFCalendarAccessResource.
 
+
+## description
+### summary
+Gets upcoming calendar events, ordered from nearest to farthest away in time.
+
+
 ### usage
 `getupcomingevents undefined=[???] wfgetupcomingitemcount=[string integer] day=[string <${strInfo}>] undefined=[???]`
 

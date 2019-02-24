@@ -4,6 +4,15 @@
 
 > This action requires that Shortcuts has permission to use WFAppleMusicAccessResource,WFMainThreadResource.
 
+
+## description
+### summary
+Plays music using the Music app.
+
+### input
+The music to be played
+
+
 ### usage
 `playmusic shuffle=[string <${strInfo}>] repeat=[string <${strInfo}>]`
 

@@ -2,6 +2,12 @@
 ## Get Items from RSS Feed / getitemsfromrssfeed (internally `is.workflow.actions.rss`)
 
 
+
+## description
+### summary
+Downloads the latest items from an RSS feed.
+
+
 ### usage
 `getitemsfromrssfeed url=[string|text] wfrssitemquantity=[string integer]`
 

@@ -4,6 +4,12 @@
 
 > This action requires that Shortcuts has permission to use WFCalendarAccessResource,WFUserInteractionResource.
 
+
+## description
+### summary
+Removes all events passed into the action from the calendars they are contained in.
+
+
 ### usage
 `removeevents includefutureevents=[string boolean|variable]`
 

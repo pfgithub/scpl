@@ -4,6 +4,12 @@
 
 > This action requires that Shortcuts has permission to use WFSiriAccessResource.
 
+
+## description
+### summary
+Sets the device brightness.
+
+
 ### usage
 `setbrightness brightness=[string number]`
 

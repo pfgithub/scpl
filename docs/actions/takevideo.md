@@ -4,6 +4,14 @@
 
 > This action requires that Shortcuts has permission to use WFUserInteractionResource,WFCameraAccessResource.
 
+
+## description
+### summary
+Uses the camera to take a video clip.
+
+### output
+Video from the camera.
+
 ### usage
 `takevideo camera=[string <${strInfo}>] quality=[string <${strInfo}>] startrecording=[string <${strInfo}>]`
 

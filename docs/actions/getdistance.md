@@ -6,6 +6,17 @@
 
 > This action requires that Shortcuts has permission to use WFMainThreadResource,WFLocationAccessResource.
 
+
+## description
+### summary
+Calculates the distance to the location passed into this action.
+
+### input
+The destination
+
+### output
+The distance to the location in miles or kilometers.
+
 ### usage
 `getdistance from=[string <${strInfo}>|variable] undefined=[???] routetype=[string <${strInfo}>] undefined=[???]`
 

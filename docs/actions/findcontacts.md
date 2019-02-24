@@ -4,6 +4,8 @@
 
 > This action requires that Shortcuts has permission to use WFContactAccessResource.
 
+
+
 ### usage
 `findcontacts `
 

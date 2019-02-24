@@ -2,6 +2,12 @@
 ## Get Object of Class / getobjectofclass (internally `is.workflow.actions.getclassaction`)
 
 
+
+## description
+### summary
+Returns a particular object class from the input.
+
+
 ### usage
 `getobjectofclass class=[string|text]`
 

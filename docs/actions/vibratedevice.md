@@ -4,6 +4,12 @@
 
 > This action requires that Shortcuts has permission to use [object Object].
 
+
+## description
+### summary
+Vibrates the device for a short amount of time.
+
+
 ### usage
 `vibratedevice hapticpattern=[string <${strInfo}>]`
 

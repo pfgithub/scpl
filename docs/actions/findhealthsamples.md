@@ -4,6 +4,9 @@
 
 > This action requires that Shortcuts has permission to use WFHealthKitResource,[object Object],[object Object].
 
+
+## description
+
 ### usage
 `findhealthsamples `
 

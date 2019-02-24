@@ -4,6 +4,12 @@
 
 > This action requires that Shortcuts has permission to use [object Object].
 
+
+## description
+### summary
+Searches for GIFs representing the text specified using Giphy.
+
+
 ### usage
 `searchgiphy search=[string|text] showgifpicker=[string boolean|variable] wfgiphylimit=[string integer] selectmultiple=[string boolean|variable]`
 

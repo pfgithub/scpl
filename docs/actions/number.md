@@ -2,6 +2,12 @@
 ## Number / number (internally `is.workflow.actions.number`)
 
 
+
+## description
+### summary
+Passes a number to the next action.
+
+
 ### usage
 `number number=[string number]`
 

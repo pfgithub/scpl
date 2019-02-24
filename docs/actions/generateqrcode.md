@@ -2,6 +2,12 @@
 ## Generate QR Code / generateqrcode (internally `is.workflow.actions.generatebarcode`)
 
 
+
+## description
+### summary
+Generates a QR code from the input text.
+
+
 ### usage
 `generateqrcode errorcorrection=[string <${strInfo}>]`
 

@@ -6,6 +6,12 @@
 
 > This action requires that Shortcuts has permission to use WFUserInteractionResource.
 
+
+## description
+### summary
+Displays a dialog prompting the user to enter a piece of information.
+
+
 ### usage
 `askforinput question=[string|text] defaultanswer=[string|text] undefined=[???] inputtype=[string <${strInfo}>] granularity=[string <${strInfo}>] skiptowatchdictation=[string boolean|variable]`
 

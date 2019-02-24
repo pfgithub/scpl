@@ -6,6 +6,17 @@
 
 > This action requires that Shortcuts has permission to use [object Object].
 
+
+## description
+### summary
+Adds a new task to Wunderlist.
+
+### input
+Files to attach to the task
+
+### output
+The URL of the newly created task
+
 ### usage
 `addwunderlisttask title=[string|text] undefined=[???] undefined=[???] undefined=[???] starred=[string boolean|variable] notes=[string|text]`
 

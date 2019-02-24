@@ -6,6 +6,12 @@
 
 > This action requires that Shortcuts has permission to use WFSiriAccessResource.
 
+
+## description
+### summary
+Starts a timer in the Clock app for the specified amount of time.
+
+
 ### usage
 `starttimer undefined=[???]`
 

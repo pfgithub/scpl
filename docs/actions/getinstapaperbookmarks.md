@@ -6,6 +6,12 @@
 
 > This action requires that Shortcuts has permission to use WFInstapaperAccessResource.
 
+
+## description
+### summary
+Gets the contents of a folder in Instapaper. Requires Instapaper Premium.
+
+
 ### usage
 `getinstapaperbookmarks undefined=[???] wfbookmarkcount=[string integer]`
 

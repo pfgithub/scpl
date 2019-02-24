@@ -4,6 +4,17 @@
 
 > This action requires that Shortcuts has permission to use [object Object].
 
+
+## description
+### summary
+Overlays an image on top of another image.
+
+### input
+Background images
+
+### output
+The combined images
+
 ### usage
 `overlayimage image=[variable] showimageeditor=[string boolean|variable] position=[string <${strInfo}>] width=[string number] height=[string number] xcoordinate=[string number] ycoordinate=[string number] rotationdegrees=[string number] opacity=[string number]`
 

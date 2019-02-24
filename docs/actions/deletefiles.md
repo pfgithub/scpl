@@ -2,6 +2,12 @@
 ## Delete Files / deletefiles (internally `is.workflow.actions.file.delete`)
 
 
+
+## description
+### summary
+Delete the files passed in as input.
+
+
 ### usage
 `deletefiles confirmbeforedeleting=[string boolean|variable]`
 

@@ -2,6 +2,12 @@
 ## URL / url (internally `is.workflow.actions.url`)
 
 
+
+## description
+### summary
+Passes the specified URL to the next action.
+
+
 ### usage
 `url url=[string|text]`
 

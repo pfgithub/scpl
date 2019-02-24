@@ -4,6 +4,12 @@
 
 > This action requires that Shortcuts has permission to use WFEvernoteAccessResource.
 
+
+## description
+### summary
+Gets a link to the Evernote note passed into the action, which can be shared.
+
+
 ### usage
 `getnotelink inapplink=[string boolean|variable]`
 

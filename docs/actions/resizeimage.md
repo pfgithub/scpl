@@ -2,6 +2,12 @@
 ## Resize Image / resizeimage (internally `is.workflow.actions.image.resize`)
 
 
+
+## description
+### summary
+Scales images to a particular width and height.
+
+
 ### usage
 `resizeimage width=[string number] height=[string number]`
 

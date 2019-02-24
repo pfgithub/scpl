@@ -6,6 +6,12 @@
 
 > This action requires that Shortcuts has permission to use WFWeatherAttributionAccessResource,WFLocationAccessResource.
 
+
+## description
+### summary
+Gets the current weather conditions at the specified location.
+
+
 ### usage
 `getcurrentweather at=[string <${strInfo}>|variable] undefined=[???]`
 

@@ -6,6 +6,12 @@
 
 > This action requires that Shortcuts has permission to use WFHealthKitResource,[object Object].
 
+
+## description
+### summary
+Adds a data point into the Health app. You can log anything that the Health app supports, including your weight, steps taken, running distance, caloric intake and more.
+
+
 ### usage
 `loghealthsample undefined=[???] undefined=[???] undefined=[???] undefined=[???] undefined=[???] undefined=[???] undefined=[???] undefined=[???]`
 

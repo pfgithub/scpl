@@ -2,6 +2,12 @@
 ## Get Group from Matched Text / getgroupfrommatchedtext (internally `is.workflow.actions.text.match.getgroup`)
 
 
+
+## description
+### summary
+Gets the text that matched a particular capture group or all of the capture groups from the output of a Match Text action.
+
+
 ### usage
 `getgroupfrommatchedtext get=[string <${strInfo}>] groupindex=[string number]`
 

@@ -6,6 +6,14 @@
 
 > This action requires that Shortcuts has permission to use WFReminderAccessResource.
 
+
+## description
+### summary
+Creates a new reminder and adds it to the selected list of reminders.
+
+### output
+The new reminder
+
 ### usage
 `addnewreminder title=[string|text] undefined=[???] remindme=[string boolean] remind=[string <${strInfo}>] wheni=[string <${strInfo}>] radius=[string number] undefined=[???] undefined=[???] notes=[string|text]`
 

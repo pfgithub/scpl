@@ -6,6 +6,15 @@
 
 > This action requires that Shortcuts has permission to use WFEvernoteAccessResource.
 
+
+## description
+### summary
+Saves the input as a note in Evernote.
+
+### input
+The content to include in your new note
+
+
 ### usage
 `createnewnote notetitle=[string|text] undefined=[???] undefined=[???]`
 

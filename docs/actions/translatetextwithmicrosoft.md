@@ -4,6 +4,12 @@
 > This action is not yet complete. Some arguments may be missing.
 
 
+
+## description
+### summary
+Translates the text passed into the action into another language.
+
+
 ### usage
 `translatetextwithmicrosoft undefined=[???] undefined=[???]`
 

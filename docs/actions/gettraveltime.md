@@ -6,6 +6,17 @@
 
 > This action requires that Shortcuts has permission to use WFMainThreadResource,WFLocationAccessResource.
 
+
+## description
+### summary
+Estimates the amount of time it will take to travel to the location passed into this action.
+
+### input
+The destination
+
+### output
+The amount of time it will take to get to the destination. If passed into an action expecting a date, this will be the date and time of arrival if you leave now.
+
 ### usage
 `gettraveltime from=[string <${strInfo}>|variable] undefined=[???] transportationmode=[string <${strInfo}>]`
 

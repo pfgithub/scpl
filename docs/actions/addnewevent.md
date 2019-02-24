@@ -6,6 +6,14 @@
 
 > This action requires that Shortcuts has permission to use WFCalendarAccessResource.
 
+
+## description
+### summary
+Creates a new event and adds it to the selected calendar.
+
+### output
+The new event
+
 ### usage
 `addnewevent title=[string|text] location=[string|text] undefined=[???] date=[string boolean] undefined=[???] undefined=[???] allday=[string boolean|variable] alert=[string <${strInfo}>] alerttime=[string|text] notes=[string|text]`
 

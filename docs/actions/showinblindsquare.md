@@ -4,6 +4,12 @@
 
 > This action requires that Shortcuts has permission to use WFURLOpenResource,[object Object].
 
+
+## description
+### summary
+Opens BlindSquare showing information about the place passed as input, so you can save it as a favorite, start tracking it, or start simulation mode.
+
+
 ### usage
 `showinblindsquare startsimulation=[string boolean|variable]`
 

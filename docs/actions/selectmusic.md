@@ -4,6 +4,12 @@
 
 > This action requires that Shortcuts has permission to use WFAppleMusicAccessResource,WFUserInteractionResource.
 
+
+## description
+### summary
+Prompts to select music from your local music library.
+
+
 ### usage
 `selectmusic selectmultiplesongs=[string boolean|variable]`
 

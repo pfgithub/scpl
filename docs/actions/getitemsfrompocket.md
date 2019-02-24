@@ -4,6 +4,12 @@
 
 > This action requires that Shortcuts has permission to use WFPocketAccessResource.
 
+
+## description
+### summary
+Returns items in your Pocket account.
+
+
 ### usage
 `getitemsfrompocket wfpocketitemcount=[string integer] type=[string <${strInfo}>] search=[string|text] tag=[string|text]`
 

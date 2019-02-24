@@ -6,6 +6,12 @@
 
 > This action requires that Shortcuts has permission to use WFWeatherAttributionAccessResource,WFLocationAccessResource.
 
+
+## description
+### summary
+Gets an hourly or daily weather forecast at the specified location.
+
+
 ### usage
 `getweatherforecast at=[string <${strInfo}>|variable] undefined=[???] type=[string <${strInfo}>]`
 

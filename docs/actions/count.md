@@ -2,6 +2,12 @@
 ## Count / count (internally `is.workflow.actions.count`)
 
 
+
+## description
+### summary
+Counts the number of items, characters, words, sentences, or lines passed as input.
+
+
 ### usage
 `count count=[string <${strInfo}>]`
 

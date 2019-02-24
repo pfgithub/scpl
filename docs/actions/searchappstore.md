@@ -4,6 +4,12 @@
 > This action is not yet complete. Some arguments may be missing.
 
 
+
+## description
+### summary
+Searches the App Store, returning the apps that match the specified search terms. You can get more details about the results using the Get Details of App Store App action.
+
+
 ### usage
 `searchappstore search=[string|text] undefined=[???] undefined=[???] undefined=[???] wfitemlimit=[string integer]`
 

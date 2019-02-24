@@ -4,6 +4,15 @@
 
 > This action requires that Shortcuts has permission to use WFUserInteractionResource,WFMainThreadResource,WFLocalNotificationAccessResource.
 
+
+## description
+### summary
+Displays a local notification.
+
+### input
+An image or video to include in the notification
+
+
 ### usage
 `shownotification title=[string|text] body=[string|text] playsound=[string boolean|variable]`
 

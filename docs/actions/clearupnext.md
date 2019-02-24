@@ -4,6 +4,12 @@
 
 > This action requires that Shortcuts has permission to use WFAppleMusicAccessResource,[object Object].
 
+
+## description
+### summary
+Clears all the music in your Up Next queue.
+
+
 ### usage
 `clearupnext `
 

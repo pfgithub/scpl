@@ -359,6 +359,17 @@ ${this.isComplete ? "" : `
 ${this._data.RequiredResources ? `
 > This action requires that Shortcuts has permission to use ${this._data.RequiredResources}.
 ` : ""}
+${this._data.Description ? `
+## description${this._data.Description.DescriptionSummary ? `
+### summary
+${this._data.Description.DescriptionSummary}
+` : ""}${this._data.Description.DescriptionInput ? `
+### input
+${this._data.Description.DescriptionInput}
+` : ""}${this._data.Description.DescriptionResult ? `
+### output
+${this._data.Description.DescriptionResult}` : ""}` : ""}
+
 ### usage
 \`${this.shortName} ${this._parameters.map(param => `${param.shortName}=${typeof param === "string" ? `[???]` : param.genDocsArgName()}`).join` `}\`
 

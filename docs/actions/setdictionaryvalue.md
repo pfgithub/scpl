@@ -2,6 +2,12 @@
 ## Set Dictionary Value / setdictionaryvalue (internally `is.workflow.actions.setvalueforkey`)
 
 
+
+## description
+### summary
+Sets a value in the dictionary passed into the action. 
+
+
 ### usage
 `setdictionaryvalue key=[string|text] value=[string|text]`
 

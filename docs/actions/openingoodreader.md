@@ -4,6 +4,12 @@
 
 > This action requires that Shortcuts has permission to use WFURLOpenResource,[object Object].
 
+
+## description
+### summary
+Opens a file in GoodReader.
+
+
 ### usage
 `openingoodreader `
 

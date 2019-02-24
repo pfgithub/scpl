@@ -6,6 +6,17 @@
 
 > This action requires that Shortcuts has permission to use WFPhotoAccessResource.
 
+
+## description
+### summary
+Adds the photos and videos passed as input to the specified photo album.
+
+### input
+Photos, videos, or audio to save
+
+### output
+The saved items
+
 ### usage
 `savetophotoalbum undefined=[???]`
 

@@ -4,6 +4,14 @@
 > This action is not yet complete. Some arguments may be missing.
 
 
+
+## description
+### summary
+Gets the contents of URLs passed into the action. Useful for downloading files and web content, or for making API requests.
+
+### output
+The fetched data
+
 ### usage
 `getcontentsofurl advanced=[string boolean] method=[string <${strInfo}>] headers=[string boolean] undefined=[???] requestbody=[string <${strInfo}>|variable] undefined=[???] undefined=[???] file=[variable]`
 

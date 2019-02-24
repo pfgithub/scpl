@@ -4,6 +4,12 @@
 
 > This action requires that Shortcuts has permission to use WFPhotoAccessResource.
 
+
+## description
+### summary
+Gets the most recent videos from the camera roll.
+
+
 ### usage
 `getlatestvideos wfgetlatestphotocount=[string integer]`
 

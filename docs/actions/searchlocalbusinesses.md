@@ -4,6 +4,15 @@
 
 > This action requires that Shortcuts has permission to use WFMainThreadResource,WFLocationAccessResource.
 
+
+## description
+### summary
+Searches for nearby businesses.
+
+### input
+A location to search near.
+
+
 ### usage
 `searchlocalbusinesses search=[string|text] radiuskm=[string number]`
 

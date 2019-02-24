@@ -4,6 +4,12 @@
 > This action is not yet complete. Some arguments may be missing.
 
 
+
+## description
+### summary
+Imports the photos passed as input into Lightroom
+
+
 ### usage
 `importtolightroom applypreset=[string boolean|variable] presetgroup=[string <${strInfo}>] undefined=[???]`
 

@@ -2,6 +2,12 @@
 ## Set Flashlight / setflashlight (internally `is.workflow.actions.flashlight`)
 
 
+
+## description
+### summary
+Turns on or off the flashlight near the device's camera.
+
+
 ### usage
 `setflashlight flashlight=[string <${strInfo}>] brightness=[string number]`
 

@@ -2,6 +2,17 @@
 ## Make Video from GIF / makevideofromgif (internally `is.workflow.actions.makevideofromgif`)
 
 
+
+## description
+### summary
+Converts an animated GIF into a video.
+
+### input
+An animated GIF
+
+### output
+A video
+
 ### usage
 `makevideofromgif wfmakevideofromgifactionloopcount=[string integer]`
 

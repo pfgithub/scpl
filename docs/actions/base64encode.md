@@ -2,6 +2,12 @@
 ## Base64 Encode / base64encode (internally `is.workflow.actions.base64encode`)
 
 
+
+## description
+### summary
+Encodes or decodes text or files using Base64 encoding.
+
+
 ### usage
 `base64encode mode=[string <${strInfo}>] linebreaks=[string <${strInfo}>]`
 

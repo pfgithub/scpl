@@ -4,6 +4,14 @@
 
 > This action requires that Shortcuts has permission to use WFURLOpenResource.
 
+
+## description
+### summary
+Performs the specified x-callback-url action. The x-success, x-cancel, and x-error parameters will be added automatically.
+
+### output
+When the app that's opened calls back to Shortcuts using x-success, it may include parameters in the URL. These will be passed as output to the next action, as text if there is just one parameter, or as a dictionary if there are multiple (use Get Dictionary Value to access it).
+
 ### usage
 `openxcallbackurl customcallback=[string boolean|variable] successkey=[string|text] cancelkey=[string|text] errorkey=[string|text] customxsuccessurl=[string boolean|variable] xsuccessurl=[string|text]`
 

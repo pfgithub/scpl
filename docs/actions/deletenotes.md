@@ -4,6 +4,12 @@
 
 > This action requires that Shortcuts has permission to use WFEvernoteAccessResource.
 
+
+## description
+### summary
+Deletes the notes passed as input from Evernote.
+
+
 ### usage
 `deletenotes confirmbeforedeleting=[string boolean|variable]`
 

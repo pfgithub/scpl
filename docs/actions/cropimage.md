@@ -2,6 +2,12 @@
 ## Crop Image / cropimage (internally `is.workflow.actions.image.crop`)
 
 
+
+## description
+### summary
+Crops images to a smaller rectangle.
+
+
 ### usage
 `cropimage position=[string <${strInfo}>] xcoordinate=[string number] ycoordinate=[string number] width=[string number] height=[string number]`
 

@@ -2,6 +2,12 @@
 ## Get Device Details / getdevicedetails (internally `is.workflow.actions.getdevicedetails`)
 
 
+
+## description
+### summary
+Gets information about the current device.
+
+
 ### usage
 `getdevicedetails get=[string <${strInfo}>]`
 

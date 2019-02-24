@@ -2,6 +2,12 @@
 ## Get Component of URL / getcomponentofurl (internally `is.workflow.actions.geturlcomponent`)
 
 
+
+## description
+### summary
+Gets the specified part of the URL passed into the action.
+
+
 ### usage
 `getcomponentofurl component=[string <${strInfo}>]`
 

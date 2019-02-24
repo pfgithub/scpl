@@ -6,6 +6,12 @@
 
 > This action requires that Shortcuts has permission to use WFTrelloAccessResource.
 
+
+## description
+### summary
+Creates a new card on the specified list and board in your Trello account.
+
+
 ### usage
 `addtrellocard name=[string|text] undefined=[???] undefined=[???] undefined=[???] position=[string <${strInfo}>] attachments=[variable] wftrellodescription=[string|text]`
 

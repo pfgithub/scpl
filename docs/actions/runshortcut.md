@@ -6,6 +6,17 @@
 
 > This action requires that Shortcuts has permission to use WFMainThreadResource,[object Object].
 
+
+## description
+### summary
+Run a shortcut from your shortcut.
+
+### input
+The input to pass to the shortcut.
+
+### output
+The shortcut's result
+
 ### usage
 `runshortcut undefined=[???] showwhilerunning=[string boolean|variable]`
 

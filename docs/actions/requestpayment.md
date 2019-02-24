@@ -6,6 +6,12 @@
 
 > This action requires that Shortcuts has permission to use WFContactAccessResource.
 
+
+## description
+### summary
+Requests a payment from the specified people using a payment app on your device.
+
+
 ### usage
 `requestpayment undefined=[???] undefined=[???] amount=[string number] openinapp=[string boolean|variable] note=[string|text]`
 

@@ -2,6 +2,12 @@
 ## Make PDF / makepdf (internally `is.workflow.actions.makepdf`)
 
 
+
+## description
+### summary
+Makes a PDF out of the input. The resulting PDF can optionally include a quarter-inch margin for better printing.
+
+
 ### usage
 `makepdf includemargin=[string boolean|variable] include=[string <${strInfo}>] page=[string number] startpage=[string number] endpage=[string number]`
 

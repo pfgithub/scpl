@@ -6,6 +6,12 @@
 
 > This action requires that Shortcuts has permission to use WFURLOpenResource.
 
+
+## description
+### summary
+Opens the specified app.
+
+
 ### usage
 `openapp undefined=[???] wfappname=[string|text]`
 

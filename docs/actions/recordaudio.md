@@ -6,6 +6,12 @@
 
 > This action requires that Shortcuts has permission to use WFUserInteractionResource,WFMicrophoneAccessResource.
 
+
+## description
+### summary
+Uses the microphone to record audio.
+
+
 ### usage
 `recordaudio audioquality=[string <${strInfo}>] startrecording=[string <${strInfo}>] finishrecording=[string <${strInfo}>] undefined=[???]`
 

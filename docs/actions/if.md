@@ -2,6 +2,12 @@
 ## If / if (internally `is.workflow.actions.conditional`)
 
 
+
+## description
+### summary
+Tests if any item passed as input matches the specified condition, and if so, runs the actions inside. Otherwise, the actions under “Otherwise” are run.
+
+
 ### usage
 `if input=[string <${strInfo}>|variable] number=[string number] value=[string|text]`
 

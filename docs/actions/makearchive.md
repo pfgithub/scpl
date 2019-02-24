@@ -4,6 +4,14 @@
 > This action is not yet complete. Some arguments may be missing.
 
 
+
+## description
+### summary
+Makes an archive out of the files passed as input. Supports creating zip, tar.gz, tar.bz2, tar, gzip, cpio, or iso archives.
+
+### output
+Archive
+
 ### usage
 `makearchive archivename=[string|text] undefined=[???]`
 

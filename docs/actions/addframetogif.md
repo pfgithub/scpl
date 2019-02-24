@@ -2,6 +2,17 @@
 ## Add Frame to GIF / addframetogif (internally `is.workflow.actions.addframetogif`)
 
 
+
+## description
+### summary
+Adds an image to the existing animated GIF passed as input. If no GIF is passed as input, a new animated GIF is created.
+
+### input
+An existing animated GIF, if desired.
+
+### output
+An animated GIF
+
 ### usage
 `addframetogif image=[variable] delaytime=[string number] autosize=[string boolean|variable] width=[string number] height=[string number]`
 

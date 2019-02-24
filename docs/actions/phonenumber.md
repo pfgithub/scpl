@@ -6,6 +6,12 @@
 
 > This action requires that Shortcuts has permission to use WFContactAccessResource.
 
+
+## description
+### summary
+Passes the specified phone numbers to the next action.
+
+
 ### usage
 `phonenumber undefined=[???]`
 

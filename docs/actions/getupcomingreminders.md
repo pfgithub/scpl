@@ -6,6 +6,12 @@
 
 > This action requires that Shortcuts has permission to use WFReminderAccessResource.
 
+
+## description
+### summary
+Gets upcoming reminders, ordered from nearest to farthest away due date.
+
+
 ### usage
 `getupcomingreminders undefined=[???] wfgetupcomingitemcount=[string integer]`
 

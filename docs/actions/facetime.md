@@ -6,6 +6,12 @@
 
 > This action requires that Shortcuts has permission to use WFContactAccessResource.
 
+
+## description
+### summary
+Calls the contact passed in as input using FaceTime.
+
+
 ### usage
 `facetime undefined=[???] calltype=[string <${strInfo}>]`
 

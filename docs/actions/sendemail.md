@@ -6,6 +6,12 @@
 
 > This action requires that Shortcuts has permission to use [object Object],[object Object],[object Object].
 
+
+## description
+### summary
+Presents an email composer. Pass text into the action to set the email body. Other types of input are added as attachments.
+
+
 ### usage
 `sendemail showcomposesheet=[string boolean|variable] undefined=[???] from=[string|text] undefined=[???] undefined=[???] undefined=[???] subject=[string|text]`
 

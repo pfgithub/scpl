@@ -2,6 +2,12 @@
 ## Random Number / randomnumber (internally `is.workflow.actions.number.random`)
 
 
+
+## description
+### summary
+Passes a random number between the given minimum and maximum to the next action. The minimum and maximum numbers are included as possible results.
+
+
 ### usage
 `randomnumber minimum=[string number] maximum=[string number]`
 

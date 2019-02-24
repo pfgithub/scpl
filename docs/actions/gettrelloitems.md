@@ -6,6 +6,12 @@
 
 > This action requires that Shortcuts has permission to use WFTrelloAccessResource.
 
+
+## description
+### summary
+Gets cards, lists, or boards in your Trello account.
+
+
 ### usage
 `gettrelloitems get=[string <${strInfo}>] undefined=[???] undefined=[???]`
 

@@ -6,6 +6,12 @@
 
 > This action requires that Shortcuts has permission to use WFMainThreadResource.
 
+
+## description
+### summary
+Copies the result of the last action to the clipboard.
+
+
 ### usage
 `copytoclipboard localonly=[string boolean|variable] undefined=[???]`
 

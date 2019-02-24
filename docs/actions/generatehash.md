@@ -2,6 +2,12 @@
 ## Generate Hash / generatehash (internally `is.workflow.actions.hash`)
 
 
+
+## description
+### summary
+Generates a MD5/SHA1 hash from the input.
+
+
 ### usage
 `generatehash type=[string <${strInfo}>]`
 

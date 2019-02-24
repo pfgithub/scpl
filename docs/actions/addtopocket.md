@@ -4,6 +4,12 @@
 
 > This action requires that Shortcuts has permission to use WFPocketAccessResource.
 
+
+## description
+### summary
+Adds the input to Pocket.
+
+
 ### usage
 `addtopocket tags=[string|text]`
 

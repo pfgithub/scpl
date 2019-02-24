@@ -2,6 +2,12 @@
 ## Calculate Statistics / calculatestatistics (internally `is.workflow.actions.statistics`)
 
 
+
+## description
+### summary
+Calculates statistics on the numbers that are provided as input.
+
+
 ### usage
 `calculatestatistics operation=[string <${strInfo}>]`
 

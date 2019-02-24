@@ -2,6 +2,12 @@
 ## Set Volume / setvolume (internally `is.workflow.actions.setvolume`)
 
 
+
+## description
+### summary
+Sets the system volume.
+
+
 ### usage
 `setvolume volume=[string number]`
 

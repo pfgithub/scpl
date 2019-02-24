@@ -6,6 +6,12 @@
 
 > This action requires that Shortcuts has permission to use WFSiriAccessResource.
 
+
+## description
+### summary
+Creates an alarm in the Clock app.
+
+
 ### usage
 `createalarm label=[string|text] undefined=[???] undefined=[???]`
 

@@ -4,6 +4,12 @@
 
 > This action requires that Shortcuts has permission to use WFUserInteractionResource,WFContactAccessResource.
 
+
+## description
+### summary
+Prompts to pick a person from your contacts and passes the selection to the next action.
+
+
 ### usage
 `selectcontact selectmultiple=[string boolean|variable]`
 

@@ -4,6 +4,12 @@
 > This action is not yet complete. Some arguments may be missing.
 
 
+
+## description
+### summary
+Passes the specified date and time to the next action.
+
+
 ### usage
 `date use=[string <${strInfo}>] undefined=[???]`
 

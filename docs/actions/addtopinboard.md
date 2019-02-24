@@ -4,6 +4,12 @@
 
 > This action requires that Shortcuts has permission to use WFPinboardAccessResource.
 
+
+## description
+### summary
+Adds the URL passed into the action to your Pinboard.
+
+
 ### usage
 `addtopinboard title=[string|text] tags=[string|text] public=[string boolean|variable] unread=[string boolean|variable] description=[string|text]`
 

@@ -2,6 +2,12 @@
 ## Set Variable / setvariable (internally `is.workflow.actions.setvariable`)
 
 
+
+## description
+### summary
+Sets the value of the specified variable to the input of this action.
+
+
 ### usage
 `setvariable variable=[string|variable v:variableName]`
 

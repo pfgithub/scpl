@@ -2,6 +2,17 @@
 ## Mask Image / maskimage (internally `is.workflow.actions.image.mask`)
 
 
+
+## description
+### summary
+Applies a mask to each image passed into the action. For example, you can cut images into a rounded rectangle, ellipse or icon shape, or provide a custom alpha mask.
+
+### input
+Images to mask
+
+### output
+The masked images
+
 ### usage
 `maskimage type=[string <${strInfo}>|variable] cornerradius=[string number] imagemask=[variable]`
 

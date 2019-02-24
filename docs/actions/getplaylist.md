@@ -6,6 +6,12 @@
 
 > This action requires that Shortcuts has permission to use WFAppleMusicAccessResource.
 
+
+## description
+### summary
+Gets every song in the specified playlist.
+
+
 ### usage
 `getplaylist undefined=[???]`
 

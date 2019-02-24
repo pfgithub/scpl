@@ -2,6 +2,12 @@
 ## Round Number / roundnumber (internally `is.workflow.actions.round`)
 
 
+
+## description
+### summary
+Rounds the number(s) passed into the action.
+
+
 ### usage
 `roundnumber round=[string <${strInfo}>] mode=[string <${strInfo}>] wfrounddecimalplaces=[string integer]`
 

@@ -4,6 +4,12 @@
 
 > This action requires that Shortcuts has permission to use WFUserInteractionResource.
 
+
+## description
+### summary
+Displays a preview of the input.
+
+
 ### usage
 `quicklook fullscreen=[string boolean|variable]`
 

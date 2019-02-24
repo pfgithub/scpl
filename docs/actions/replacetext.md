@@ -2,6 +2,12 @@
 ## Replace Text / replacetext (internally `is.workflow.actions.text.replace`)
 
 
+
+## description
+### summary
+Replaces some text passed into the action with other text.
+
+
 ### usage
 `replacetext findtext=[string|text] replacewith=[string|text] casesensitive=[string boolean|variable] regularexpression=[string boolean|variable]`
 

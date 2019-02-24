@@ -6,6 +6,14 @@
 
 > This action requires that Shortcuts has permission to use [object Object],[object Object].
 
+
+## description
+### summary
+Posts the content passed into the action to Tumblr.
+
+### output
+The URL of the new post
+
 ### usage
 `posttotumblr undefined=[???] undefined=[???] undefined=[???] poststatus=[string <${strInfo}>] title=[string|text] source=[string|text] caption=[string|text] tags=[string|text] description=[string|text]`
 

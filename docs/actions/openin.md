@@ -6,6 +6,12 @@
 
 > This action requires that Shortcuts has permission to use WFUserInteractionResource.
 
+
+## description
+### summary
+Opens the input as a file in the specified app.
+
+
 ### usage
 `openin showopeninmenu=[string boolean|variable] undefined=[???] wfappname=[string|text]`
 

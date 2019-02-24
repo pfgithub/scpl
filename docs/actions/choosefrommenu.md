@@ -4,6 +4,12 @@
 
 > This action requires that Shortcuts has permission to use WFUserInteractionResource.
 
+
+## description
+### summary
+Presents a menu and runs different actions based on which menu item was chosen.
+
+
 ### usage
 `choosefrommenu prompt=[string|text] items=[list]`
 

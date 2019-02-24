@@ -4,6 +4,12 @@
 > This action is not yet complete. Some arguments may be missing.
 
 
+
+## description
+### summary
+Sets the device’s Do Not Disturb to on or off
+
+
 ### usage
 `setdonotdisturb donotdisturb=[string boolean|variable] until=[string <${strInfo}>] event=[variable] undefined=[???]`
 

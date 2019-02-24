@@ -4,6 +4,12 @@
 
 > This action requires that Shortcuts has permission to use WFTrelloAccessResource.
 
+
+## description
+### summary
+Creates a new board in your Trello account.
+
+
 ### usage
 `createtrelloboard name=[string|text] wftrellodescription=[string|text]`
 

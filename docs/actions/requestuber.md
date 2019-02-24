@@ -6,6 +6,17 @@
 
 > This action requires that Shortcuts has permission to use [object Object].
 
+
+## description
+### summary
+Requests an Uber from the specified location to the location passed as input.
+
+### input
+The destination
+
+### output
+The shareable link to your Uber ride
+
 ### usage
 `requestuber showestimate=[string boolean|variable] undefined=[???] undefined=[???] pickupat=[string <${strInfo}>] undefined=[???]`
 

@@ -4,6 +4,12 @@
 
 > This action requires that Shortcuts has permission to use WFURLOpenResource.
 
+
+## description
+### summary
+Searches the web for the text provided as input.
+
+
 ### usage
 `searchweb search=[string <${strInfo}>]`
 

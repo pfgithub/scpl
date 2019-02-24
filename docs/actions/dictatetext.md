@@ -6,6 +6,12 @@
 
 > This action requires that Shortcuts has permission to use [object Object],WFUserInteractionResource,WFSpeechRecognitionAccessResource,WFMicrophoneAccessResource.
 
+
+## description
+### summary
+Transcribes what you say aloud into text and passes the result to the next action.
+
+
 ### usage
 `dictatetext undefined=[???] stoplistening=[string <${strInfo}>]`
 

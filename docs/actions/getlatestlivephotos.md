@@ -4,6 +4,12 @@
 
 > This action requires that Shortcuts has permission to use WFPhotoAccessResource.
 
+
+## description
+### summary
+Gets the most recent Live Photos from the camera roll.
+
+
 ### usage
 `getlatestlivephotos wfgetlatestphotocount=[string integer]`
 

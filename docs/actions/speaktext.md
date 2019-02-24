@@ -4,6 +4,12 @@
 > This action is not yet complete. Some arguments may be missing.
 
 
+
+## description
+### summary
+Speaks the inputted text aloud.
+
+
 ### usage
 `speaktext waituntilfinished=[string boolean|variable] undefined=[???] pitch=[string number] undefined=[???] undefined=[???]`
 

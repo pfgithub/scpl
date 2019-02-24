@@ -4,6 +4,12 @@
 
 > This action requires that Shortcuts has permission to use WFSiriAccessResource.
 
+
+## description
+### summary
+Sets the device’s Airplane Mode to on or off.
+
+
 ### usage
 `setairplanemode airplanemode=[string boolean|variable]`
 

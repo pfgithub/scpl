@@ -2,6 +2,12 @@
 ## Encode Media / encodemedia (internally `is.workflow.actions.encodemedia`)
 
 
+
+## description
+### summary
+Re-encodes the media passed as input at the specified size, optionally converting to audio.
+
+
 ### usage
 `encodemedia audioonly=[string boolean|variable] format=[string <${strInfo}>] size=[string <${strInfo}>] speed=[string <${strInfo}>] customspeed=[string number] metadata=[string boolean] title=[string|text] artist=[string|text] album=[string|text] genre=[string|text] year=[string|text] artwork=[variable]`
 

@@ -4,6 +4,12 @@
 
 > This action requires that Shortcuts has permission to use WFPinboardAccessResource.
 
+
+## description
+### summary
+Gets bookmarks in your Pinboard account.
+
+
 ### usage
 `getpinboardbookmarks tags=[string|text] wfbookmarkcount=[string integer]`
 

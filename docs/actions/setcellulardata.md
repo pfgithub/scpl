@@ -4,6 +4,12 @@
 
 > This action requires that Shortcuts has permission to use WFSiriAccessResource.
 
+
+## description
+### summary
+Sets the device’s Cellular Data to on or off.
+
+
 ### usage
 `setcellulardata cellulardata=[string boolean|variable]`
 

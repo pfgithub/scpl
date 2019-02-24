@@ -4,6 +4,12 @@
 
 > This action requires that Shortcuts has permission to use WFMainThreadResource.
 
+
+## description
+### summary
+Shows the specified text in Siri or in an alert.
+
+
 ### usage
 `showresult text=[string|text]`
 

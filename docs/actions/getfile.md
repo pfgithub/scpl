@@ -6,6 +6,12 @@
 
 > This action requires that Shortcuts has permission to use [object Object].
 
+
+## description
+### summary
+Get files from iCloud Drive or Dropbox. Turn off “Show Document Picker” to specify a path to retrieve.
+
+
 ### usage
 `getfile undefined=[???] showdocumentpicker=[string boolean|variable] selectmultiple=[string boolean|variable] filepath=[string|text] initialpath=[string|text] errorifnotfound=[string boolean|variable]`
 

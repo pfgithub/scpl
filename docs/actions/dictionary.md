@@ -4,6 +4,12 @@
 > This action is not yet complete. Some arguments may be missing.
 
 
+
+## description
+### summary
+Passes the specified list of key-value pairs to the next action as a dictionary.
+
+
 ### usage
 `dictionary undefined=[???]`
 
