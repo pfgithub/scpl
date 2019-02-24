@@ -6,8 +6,15 @@ class ConvertingContext {
 	// actions, what compiletime variables have been set, ............
 	constructor() {
 		this.vardata = {};
-		this.shortcut = new Shortcut("my shortcut");
+		this.magicvardata = {};
+		this.shortcut = new Shortcut("My Great Shortcut");
+		this.lastVariableAction = undefined;
 		///
+	}
+	add(action) {
+		// Adds an action to a shortcut
+		this.shortcut.add(action);
+		if(action.info.hasVariable) {this.lastVariableAction = action.variable;}
 	}
 }
 

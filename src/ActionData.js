@@ -1,5 +1,4 @@
 const {Text, Action} = require("./OutputData");
-const {CharsParse, IdentifierParse, InputArgParse, ActionParse, ParamListParse} = require("./ParserData");
 
 const actionList = require("./WFActions.json")[0];
 
@@ -9,6 +8,8 @@ types.WFParameter = class {
 	constructor(data) {
 		this._data = data;
 		this.defaultValue = this._data.DefaultValue;
+		this.requiredResources = this._data.RequiredResources;
+		this.allowsVariables = (this._data.DisallowedVariableTypes || []).join`` === "AskVariable";
 	}
 	get internalName() {
 		return this._data.Key;
@@ -22,22 +23,53 @@ types.WFEnumerationParameter = class extends types.WFParameter {
 		super(data);
 		this.options = this._data.Items;
 	}
-	build(parse) {
-		// TODO DisallowedVariableTypes
-		// WARN Might not accept text types, may be variable||string only.
-		//      If that is the case, then get parse.asText || parse.asVariable (with error check not ||)
+	build(cc, parse) {
+		// asVariable may require additional actions to be inserted above this one.
+		// for example, if ^("hello") (v:comparison) "hi"
 		if(parse.asVariable) {
-			const res = parse.asVariable();
-			return res; // ¿ ?
-		}else if(parse.asText) {
-			const res = parse.asText();
-			if(res.hasAttachments) {throw new Error("enumeration types cannot have strings with attachments");}
-			const resString = res.rawString;
-			if(this.options.indexOf(resString) > -1) {return resString;}
+			const res = parse.asVariable(cc);
+			if(this.allowsVariables) {
+				throw new Error("This enumeration field does not allow variables.");
+			}
+			return res;
+		}else if(parse.asString) {
+			const res = parse.asString(); // asString returns a string like ""
+			if(this.options.indexOf(res) > -1) {return res;}
 			throw new Error(`This enumeration field can only be one of the following: ${this.options.join`, `}`);
 		}else{
-			throw new Error("enumeration types must be either a text or an attachment");
+			throw new Error("This enumeration field only accepts strings and variables.");
 		}
+	}
+};
+
+types.WFNumberFieldParameter = class extends types.WFParameter {
+	constructor(data) {
+		super(data);
+	}
+	build(cc, parse) {
+		if(parse.asVariable) {
+			const res = parse.asVariable(cc);
+			if(this._allowsVariables) {
+				throw new Error("This number field does not allow variables.");
+			}
+			return res;
+		}else if(parse.asString) {
+			const res = parse.asString(); // asString returns a string like "" <-- that's a string
+			const num = +res;
+			if(isNaN(num)) {throw new Error(`This number field only accepts numbers. The value \`${res}\` could not be converted to a number`);}
+			return res;
+		}
+		throw new Error("This number field only accepts strings or numbers");
+	}
+};
+
+types.WFVariablePickerParameter = class extends types.WFParameter {
+	constructor(data) {
+		super(data);
+	}
+	build(cc, parse) {
+		const variable = parse.asVariable(cc);
+		return variable;
 	}
 };
 
@@ -45,8 +77,11 @@ types.WFTextInputParameter = class extends types.WFParameter {
 	constructor(data) {
 		super(data);
 	}
-	build(parse) {
-		return parse.asText();
+	build(cc, parse) {
+		if(this.allowsVariables) {
+			return parse.asString();
+		}
+		return parse.asText(cc);
 	}
 };
 
@@ -54,8 +89,19 @@ types.WFSwitchParameter = class extends types.WFParameter {
 	constructor(data) {
 		super(data);
 	}
-	build(parse) {
-		return parse.asBoolean();
+	build(cc, parse) {
+		return parse.asBoolean(cc);
+	}
+};
+types.WFVariableFieldParameter = class extends types.WFParameter {
+	constructor(data) {
+		super(data);
+	}
+	build(cc, parse) {
+		// -> string I assume
+		const varname = parse.asStringVariable();
+		cc.vardata[varname] = cc.lastVariableAction;
+		return varname;
 	}
 };
 // WFNumberFieldParameter: Number || Variable
@@ -79,6 +125,7 @@ class WFAction {
 					_debugMissingTypes[param.Class] !== undefined
 						? _debugMissingTypes[param.Class] + 1
 						: 1;
+				return `This paramtype is not implemented. ${param.Class}`;
 			});
 		}
 	}
@@ -92,24 +139,45 @@ class WFAction {
 	get inputPassthrough() {
 		return this._data.InputPassthrough;
 	}
-	build(...params) {
+	get hasVariable() { // If this action has a magic variable
+		return !this.inputPassthrough;
+	}
+	genDocs() {
+		const docs = `
+### usage
+\`${this.name} <arguments...>\`
+`;
+		return docs;
+	}
+	build(cc, ...params) {
 		let parami = 0;
-		const action = new Action(this.name, this.id);
+		// TODO actionAbove = cc.lastVariableAction
+		//
+		const action = new Action(this.name, this.id, this);
 		params.forEach(param => {
-			if(param instanceof InputArgParse) {
-				// this param should be ignored and instead used as an inputarg
-				return;
-			}
-			if(param instanceof ParamListParse) {
-				// this param contains a mapping of paramnames = paramvalues instead of being ordered.
-				// ignore and merge at the end.
-				return;
+			// if(param instanceof InputArgParse) { // TODO (avoid circular dependency)
+			// 	// this param should be ignored and instead used as an inputarg
+			// 	return;
+			// }
+			// if(param instanceof ParamListParse) {
+			// 	// this param contains a mapping of paramnames = paramvalues instead of being ordered.
+			// 	// ignore and merge at the end.
+			// 	return;
+			// }
+
+			let paramtype;
+			while(!paramtype) {
+				paramtype = this._parameters[parami];
+
+				if(typeof paramtype === "string") {throw new Error(`This action is not supported yet. Reason: ${paramtype}`);}
+
+				parami++;
 			}
 
-			const paramtype = this._parameters[parami];
-			action.parameters.set(paramtype.internalName, paramtype.build(param));
-			parami++;
+			action.parameters.set(paramtype.internalName, paramtype.build(cc, param));
 		});
+		// TODO if(actionAbove) cc.add(getVariableAction(actionAbove))
+		cc.add(action);
 		return action;
 	}
 }
@@ -119,24 +187,31 @@ class WFAction {
 // 	textAction.build(new IdentifierParse("Hellothere"))
 // );
 
-const actions = {};
+const actionsByName = {};
+const actionsByID = {};
 
 Object.keys(actionList).forEach(key => {
-	console.log(key);
+	// console.log(key);
 	const value = actionList[key];
 	const action = new WFAction(value, key);
 	if(action.name === undefined) {console.log("UNDEFINED||", value, key);}
 
-	actions[action.name.toLowerCase().split` `.join``] = action;
+	actionsByID[key] = action;
+	actionsByName[action.name.toLowerCase().split` `.join``] = action;
+	// actions[action.name.toLowerCase().split` `.join``] = action;
 });
-console.log("All Actions:", Object.keys(actions).length);
-console.log("Complete   :", Object.values(actions).filter(action=>action.isComplete).length);
+
+
+console.log("All Actions:", Object.keys(actionsByID).length);
+console.log("Complete   :", Object.values(actionsByID).filter(action=>action.isComplete).length);
 console.log("Missing    :", Object.keys(_debugMissingTypes).length);
 console.log("List:", Object.keys(_debugMissingTypes)
 	.map(a=>[a, _debugMissingTypes[a]])
 	.sort((a, b) => a[1] - b[1])
 	.map(([a, b])=>`${a}: ${b}`)
 );
+
+module.exports = {actionsByID, actionsByName};
 
 // let getValueForKeyAction = new WFAction(actionList[0]["is.workflow.actions.getvalueforkey"], "is.workflow.acitons.getvalueforkey");
 // console.log(

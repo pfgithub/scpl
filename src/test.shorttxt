@@ -1,0 +1,12 @@
+Comment
+| Made by pfg
+| pfg
+| pfg
+
+Text "hello there, how are you doing?"
+Number 5
+Calculate "+" "x^2" 2
+
+setVariable (v:"hello there")
+
+getVariable (v:"hello there")

@@ -1,33 +1,7 @@
-/*global Proxy*/
 
-const {ManyProduction, StringProduction, OrderedProduction, RegexProduction, OrProduction, NotProduction, Performance} = require("./Production.js");
+const {ActionParse, DictionaryParse, CharsParse, IdentifierParse, ListParse, BarlistParse, VariableParse, ActionsParse} = require("./ParserData.js");
 
-const {ActionParse, DictionaryParse, CharsParse, IdentifierParse, ListParse, BarlistParse, VariableParse} = require("./ParserData.js");
-
-const items = {};
-const p = (...args) => new OrderedProduction(...args);
-const regex = (...args) => new RegexProduction(...args);
-
-const star = (thing) => new ManyProduction(thing, 0, undefined);
-const plus = (thing) => new ManyProduction(thing, 1, undefined);
-const optional = (thing) => new ManyProduction(thing, 0, 1);
-const or = (...args) => new OrProduction(...args);
-const not = (...args) => new NotProduction(...args);
-const c = (str) => new StringProduction(`${str}`);
-
-const _realo = {}; // todon't make this a proxy such that accessing o.a returns a {getProd:} might be interesting maybe
-
-
-const t = str => ({getProd: _ => _realo[`${str}`]}); // ...
-
-const o = new Proxy(_realo, {
-	get: (target, prop, reciever) => {
-		if(_realo[prop] === undefined) {
-			return t(prop);
-		}
-		return _realo[prop];
-	}
-});
+const {p, regex, star, plus, optional, or, not, c, o} = require("./ParserHelper.js");
 
 // THINGS TO NOTE:
 // https://github.com/no-context/moo
@@ -115,7 +89,8 @@ o.onlyaction = p(o.identifier, _, o.args)
 		if(flags.length > 1) {throw new Error("Actions cannot output to multiple variables");}
 		const res = {type: "action", action: actionIdentifier, args: args};
 		if(flags[0]) {Object.assign(res, {variable: flags[0].variable});}
-		return res;
+		const actionParse = new ActionParse(res.action, res.args);
+		return actionParse;
 	});
 
 o.args = star(p(o.argument, _).scb(data => data[0]));
@@ -146,17 +121,21 @@ o.keyvaluepair = p(
 ).scb( ([, key, , , , value]) => ({key: key, value: value}));
 
 
-o.variable = p(
-	o.identifier, c`:`, o.identifier,
-	optional(o.dictionary)
-).scb(([type, _, name, options = {}])=>new VariableParse(type, name, options));
+// o.canBeString
+// o.canBeText
+// ...
 
-o.parenthesis = p(c`(`, o.action, c`)`) .scb(([, action, ]) => action);
+o.variable = p(
+	o.identifier, c`:`, or(o.identifier, o.string),
+	optional(o.dictionary)
+).scb(([type, _, name, options])=>new VariableParse(type, name, options));
+
+o.parenthesis = p(c`(`, or(o.action, o.variable), c`)`) .scb(([, actionOrVariable, ]) => actionOrVariable);
 // TODO paramlistparens like (name=hi,value=hmm) for=things like Get Contents Of URL which have lots of complex parameters
 
 o.actions = star(
 	p(_n, o.action, newline).scb(([, action, ]) => action)
-);
+).scb(list => new ActionsParse(list));
 
 
 // TODO [arrays of things]
@@ -165,6 +144,6 @@ o.actions = star(
 
 // console.log(o.action.parse("v:test").data);
 
-module.exports = o;
+module.exports = o.actions.getProd();
 
 // would it be bad if this imported converter and handled the whole thing?

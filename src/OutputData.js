@@ -251,10 +251,10 @@ class Parameters {
 }
 
 class Action {
-	constructor(name, id, options = {}) { // options.hasUUID
+	constructor(name, id, info) { //
 		this.name = name; // used in magic vars
 		this.id = id;
-
+		this.info = info;
 		// Disabling the options.hasuuid thing for now, we're pretending every
 		// action has a uuid.
 		//if(options.hasUUID === undefined || options.hasUUID) {

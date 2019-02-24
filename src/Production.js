@@ -8,7 +8,7 @@ class Performance {
 		console.log(`Started parsing.`); //eslint-disable-line no-console
 	}
 	static stopMonitoring() {
-		let ended = new Date();
+		const ended = new Date();
 		console.log(`Parsed in ${totalSteps} steps over ${ended.getTime() - began.getTime()}ms.`); //eslint-disable-line no-console
 	}
 }
@@ -39,9 +39,9 @@ class OrderedProduction extends Production {
 	}
 	parse(string) {
 		super.parse(string);
-		let resdata = [];
-		let success = this.requirements.every(requirement => {
-			let {data, remainingStr, success} = requirement.getProd().parse(string);
+		const resdata = [];
+		const success = this.requirements.every(requirement => {
+			const {data, remainingStr, success} = requirement.getProd().parse(string);
 			// console.log("DRS", data, "R", remainingStr, "S", success);
 			if(!success) {return false;}
 			string = remainingStr;
@@ -60,8 +60,8 @@ class OrProduction extends Production {
 	parse(string) {
 		super.parse(string);
 		let resdata;
-		let success = this.options.some(option => { // find the first option that parses... might cause problems if things try to parse too deep only to realise the code is wrong... may want to have some number of depth or something idk
-			let {data, remainingStr, success} = option.getProd().parse(string);
+		const success = this.options.some(option => { // find the first option that parses... might cause problems if things try to parse too deep only to realise the code is wrong... may want to have some number of depth or something idk
+			const {data, remainingStr, success} = option.getProd().parse(string);
 			if(!success) {return false;}
 			string = remainingStr;
 			resdata = data;
@@ -81,8 +81,8 @@ class NotProduction extends Production {
 	parse(string) {
 		super.parse(string);
 		let resdata;
-		let success = this.options.every(option => { // ensure every option fails
-			let {data, remainingStr, success} = option.getProd().parse(string);
+		const success = this.options.every(option => { // ensure every option fails
+			const {data, remainingStr, success} = option.getProd().parse(string);
 			if(success) {return false;}  // if success, fail.
 			string = remainingStr;
 			resdata = data;
@@ -102,7 +102,7 @@ class RegexProduction extends Production {
 	}
 	parse(string) {
 		super.parse(string);
-		let match = string.match(this.regex);
+		const match = string.match(this.regex);
 		if(match &&  string.startsWith(match[0])) {
 			string = string.replace(match[0], ""); // replace does the first instance on a string. PERFORMANCE: substr could probably be used instead.
 			// console.log("MATCHED", match[0], "CB IS", this.cb);
@@ -146,14 +146,14 @@ class ManyProduction extends Production {
 
 	parse(string) {
 		super.parse(string);
-		let results = [];
+		const results = [];
 		let succeeding = true;
-		let errors = [];
+		const errors = [];
 		while(succeeding) {
 			if(results.length > this.end) {succeeding = false; continue;}
-			let {data, remainingStr, success, error} = this.prod.getProd().parse(string);
+			const {data, remainingStr, success, error} = this.prod.getProd().parse(string);
 			if(!success) {succeeding = false; errors.push(error); continue;}
-			let changed = string.length - remainingStr.length;
+			const changed = string.length - remainingStr.length;
 			if(changed === 0) {succeeding = false; continue;} // if it succeeds but matches nothing, count it as a failure (to avoid loops)
 			string = remainingStr;
 			results.push(data);
