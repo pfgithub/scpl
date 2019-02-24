@@ -13,8 +13,12 @@ Separates text passed into the action into a list.
 
 ### arguments
 ### Enumeration: Separator / separator (internally `WFTextSeparator`)
-**Default Value**: New Lines
+**Default Value**:
+```
+New Lines
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -29,8 +33,12 @@ containing one of the options:
 ---
 
 ### Text Input: Custom / custom (internally `WFTextCustomSeparator`)
-**Placeholder**: Text
+**Placeholder**:
+```
+Text
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

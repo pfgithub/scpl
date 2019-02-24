@@ -15,8 +15,12 @@ Sets the device’s Bluetooth to on or off.
 
 ### arguments
 ### Switch: Bluetooth / bluetooth (internally `OnValue`)
-**Default Value**: true
+**Default Value**:
+```
+true
+```
 **Allows Variables**: true
+
 
 
 Accepts a string with either true or false

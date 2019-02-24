@@ -22,7 +22,10 @@ The distance to the location in miles or kilometers.
 
 ### arguments
 ### Enumeration: From / from (internally `WFGetDirectionsFrom`)
-**Default Value**: Current Location
+**Default Value**:
+```
+Current Location
+```
 
 
 Accepts a string 
@@ -38,8 +41,12 @@ This paramtype is not implemented. WFLocationFieldParameter
 ---
 
 ### Enumeration: Route Type / routetype (internally `WFGetDirectionsActionMode`)
-**Default Value**: Direct
+**Default Value**:
+```
+Direct
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

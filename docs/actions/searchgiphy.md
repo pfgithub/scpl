@@ -15,8 +15,12 @@ Searches for GIFs representing the text specified using Giphy.
 
 ### arguments
 ### Text Input: Search / search (internally `WFGiphyQuery`)
-**Placeholder**: leave blank for trending
+**Placeholder**:
+```
+leave blank for trending
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -26,8 +30,12 @@ with the text.
 ---
 
 ### Switch: Show GIF Picker / showgifpicker (internally `WFGiphyShowPicker`)
-**Default Value**: true
+**Default Value**:
+```
+true
+```
 **Allows Variables**: true
+
 
 
 Accepts a string with either true or false
@@ -36,8 +44,12 @@ or a variable.
 ---
 
 ### Stepper Number: wfgiphylimit / wfgiphylimit (internally `WFGiphyLimit`)
-**Default Value**: 1
+**Default Value**:
+```
+1
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -48,6 +60,7 @@ containing an integer value.
 
 ### Switch: Select Multiple / selectmultiple (internally `WFGiphySelectMultiple`)
 **Allows Variables**: true
+
 
 
 Accepts a string with either true or false

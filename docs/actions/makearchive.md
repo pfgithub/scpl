@@ -17,8 +17,12 @@ Archive
 
 ### arguments
 ### Text Input: Archive Name / archivename (internally `WFZIPName`)
-**Placeholder**: optional
+**Placeholder**:
+```
+optional
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

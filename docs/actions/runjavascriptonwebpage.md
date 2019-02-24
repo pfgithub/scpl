@@ -20,8 +20,13 @@ The output from the JavaScript (JSON)
 
 ### arguments
 ### Text Input: JavaScript / javascript (internally `WFJavaScript`)
-**Placeholder**: JavaScript
-**Default Value**: var result = [];
+**Placeholder**:
+```
+JavaScript
+```
+**Default Value**:
+```
+var result = [];
 // Get all links from the page
 var elements = document.querySelectorAll("a");
 for (let element of elements) {
@@ -33,7 +38,9 @@ for (let element of elements) {
 
 // Call completion to finish
 completion(result);
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

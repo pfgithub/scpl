@@ -18,8 +18,12 @@ A location to search near.
 
 ### arguments
 ### Text Input: Search / search (internally `WFSearchQuery`)
-**Placeholder**: coffee shops
+**Placeholder**:
+```
+coffee shops
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -29,9 +33,16 @@ with the text.
 ---
 
 ### Number: Radius (km) / radiuskm (internally `WFSearchRadius`)
-**Placeholder**: 1.5
-**Default Value**: 1.5
+**Placeholder**:
+```
+1.5
+```
+**Default Value**:
+```
+1.5
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

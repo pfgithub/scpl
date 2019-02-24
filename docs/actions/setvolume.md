@@ -13,8 +13,12 @@ Sets the system volume.
 
 ### arguments
 ### Slider Number: Volume / volume (internally `WFVolume`)
-**Default Value**: 0.5
+**Default Value**:
+```
+0.5
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

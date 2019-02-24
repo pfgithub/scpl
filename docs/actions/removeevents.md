@@ -18,6 +18,7 @@ Removes all events passed into the action from the calendars they are contained 
 **Allows Variables**: true
 
 
+
 Accepts a string with either true or false
 or a variable.
 

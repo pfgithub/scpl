@@ -17,8 +17,12 @@ Creates an alarm in the Clock app.
 
 ### arguments
 ### Text Input: Label / label (internally `WFLabel`)
-**Placeholder**: Alarm
+**Placeholder**:
+```
+Alarm
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

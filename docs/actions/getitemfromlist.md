@@ -13,8 +13,12 @@ Returns one or more items from the list passed as input. You can get the first i
 
 ### arguments
 ### Enumeration: Get / get (internally `WFItemSpecifier`)
-**Default Value**: First Item
+**Default Value**:
+```
+First Item
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -30,8 +34,12 @@ containing one of the options:
 ---
 
 ### Number: Index / index (internally `WFItemIndex`)
-**Placeholder**: 1
+**Placeholder**:
+```
+1
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -41,9 +49,16 @@ with a number.
 ---
 
 ### Number: Get Items From Index / getitemsfromindex (internally `WFItemRangeStart`)
-**Placeholder**: optional
-**Default Value**: 1
+**Placeholder**:
+```
+optional
+```
+**Default Value**:
+```
+1
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -53,8 +68,12 @@ with a number.
 ---
 
 ### Number: To Index / toindex (internally `WFItemRangeEnd`)
-**Placeholder**: optional
+**Placeholder**:
+```
+optional
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

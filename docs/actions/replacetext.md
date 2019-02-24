@@ -13,8 +13,12 @@ Replaces some text passed into the action with other text.
 
 ### arguments
 ### Text Input: Find Text / findtext (internally `WFReplaceTextFind`)
-**Placeholder**: hello
+**Placeholder**:
+```
+hello
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -24,8 +28,12 @@ with the text.
 ---
 
 ### Text Input: Replace With / replacewith (internally `WFReplaceTextReplace`)
-**Placeholder**: world
+**Placeholder**:
+```
+world
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -35,8 +43,12 @@ with the text.
 ---
 
 ### Switch: Case Sensitive / casesensitive (internally `WFReplaceTextCaseSensitive`)
-**Default Value**: true
+**Default Value**:
+```
+true
+```
 **Allows Variables**: true
+
 
 
 Accepts a string with either true or false
@@ -46,6 +58,7 @@ or a variable.
 
 ### Switch: Regular Expression / regularexpression (internally `WFReplaceTextRegularExpression`)
 **Allows Variables**: true
+
 
 
 Accepts a string with either true or false

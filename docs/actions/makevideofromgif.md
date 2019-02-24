@@ -18,8 +18,12 @@ A video
 
 ### arguments
 ### Stepper Number: wfmakevideofromgifactionloopcount / wfmakevideofromgifactionloopcount (internally `WFMakeVideoFromGIFActionLoopCount`)
-**Default Value**: 1
+**Default Value**:
+```
+1
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

@@ -13,8 +13,12 @@ Reverses the direction of images either horizontally or vertically.
 
 ### arguments
 ### Enumeration: Direction / direction (internally `WFImageFlipDirection`)
-**Default Value**: Horizontal
+**Default Value**:
+```
+Horizontal
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

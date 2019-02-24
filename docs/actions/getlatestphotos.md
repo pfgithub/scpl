@@ -15,8 +15,12 @@ Gets the most recent photos from the camera roll.
 
 ### arguments
 ### Stepper Number: wfgetlatestphotocount / wfgetlatestphotocount (internally `WFGetLatestPhotoCount`)
-**Default Value**: 1
+**Default Value**:
+```
+1
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -26,8 +30,12 @@ containing an integer value.
 ---
 
 ### Switch: Include Screenshots / includescreenshots (internally `WFGetLatestPhotosActionIncludeScreenshots`)
-**Default Value**: true
+**Default Value**:
+```
+true
+```
 **Allows Variables**: true
+
 
 
 Accepts a string with either true or false

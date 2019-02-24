@@ -18,6 +18,7 @@ Shows the web URL passed into the action in a Safari View Controller, allowing y
 **Allows Variables**: true
 
 
+
 Accepts a string with either true or false
 or a variable.
 

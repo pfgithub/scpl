@@ -13,8 +13,12 @@ Downloads the latest items from an RSS feed.
 
 ### arguments
 ### Text Input: URL / url (internally `WFRSSFeedURL`)
-**Default Value**: https://www.apple.com/newsroom/rss-feed.rss
+**Default Value**:
+```
+https://www.apple.com/newsroom/rss-feed.rss
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -24,8 +28,12 @@ with the text.
 ---
 
 ### Stepper Number: wfrssitemquantity / wfrssitemquantity (internally `WFRSSItemQuantity`)
-**Default Value**: 10
+**Default Value**:
+```
+10
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

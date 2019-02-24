@@ -13,8 +13,12 @@ Passes the specified URL to the next action.
 
 ### arguments
 ### Text Input: URL / url (internally `WFURLActionURL`)
-**Placeholder**: example.com
+**Placeholder**:
+```
+example.com
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

@@ -29,8 +29,12 @@ containing an integer value.
 ---
 
 ### Text Input: Ingredient 1 / ingredient1 (internally `WFIFTTTExtraIngredient1`)
-**Placeholder**: optional
+**Placeholder**:
+```
+optional
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -40,8 +44,12 @@ with the text.
 ---
 
 ### Text Input: Ingredient 2 / ingredient2 (internally `WFIFTTTExtraIngredient2`)
-**Placeholder**: optional
+**Placeholder**:
+```
+optional
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -51,8 +59,12 @@ with the text.
 ---
 
 ### Text Input: Ingredient 3 / ingredient3 (internally `WFIFTTTExtraIngredient3`)
-**Placeholder**: optional
+**Placeholder**:
+```
+optional
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -62,8 +74,12 @@ with the text.
 ---
 
 ### Text Input: Ingredient 4 / ingredient4 (internally `WFIFTTTExtraIngredient4`)
-**Placeholder**: optional
+**Placeholder**:
+```
+optional
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -73,8 +89,12 @@ with the text.
 ---
 
 ### Text Input: Ingredient 5 / ingredient5 (internally `WFIFTTTExtraIngredient5`)
-**Placeholder**: optional
+**Placeholder**:
+```
+optional
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -84,8 +104,12 @@ with the text.
 ---
 
 ### Text Input: Ingredient 6 / ingredient6 (internally `WFIFTTTExtraIngredient6`)
-**Placeholder**: optional
+**Placeholder**:
+```
+optional
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -95,8 +119,12 @@ with the text.
 ---
 
 ### Text Input: Ingredient 7 / ingredient7 (internally `WFIFTTTExtraIngredient7`)
-**Placeholder**: optional
+**Placeholder**:
+```
+optional
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -106,8 +134,12 @@ with the text.
 ---
 
 ### Text Input: Ingredient 8 / ingredient8 (internally `WFIFTTTExtraIngredient8`)
-**Placeholder**: optional
+**Placeholder**:
+```
+optional
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -117,8 +149,12 @@ with the text.
 ---
 
 ### Text Input: Ingredient 9 / ingredient9 (internally `WFIFTTTExtraIngredient9`)
-**Placeholder**: optional
+**Placeholder**:
+```
+optional
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -128,8 +164,12 @@ with the text.
 ---
 
 ### Text Input: Ingredient 10 / ingredient10 (internally `WFIFTTTExtraIngredient10`)
-**Placeholder**: optional
+**Placeholder**:
+```
+optional
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

@@ -13,9 +13,16 @@ Turns an image clockwise by a particular number of degrees.
 
 ### arguments
 ### Number: Degrees / degrees (internally `WFImageRotateAmount`)
-**Placeholder**: 90
-**Default Value**: 90
+**Placeholder**:
+```
+90
+```
+**Default Value**:
+```
+90
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

@@ -15,8 +15,12 @@ Presents a menu and runs different actions based on which menu item was chosen.
 
 ### arguments
 ### Text Input: Prompt / prompt (internally `WFMenuPrompt`)
-**Placeholder**: optional
+**Placeholder**:
+```
+optional
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -26,8 +30,12 @@ with the text.
 ---
 
 ### List: Items / items (internally `WFMenuItems`)
-**Default Value**: One,Two
+**Default Value**:
+```
+One,Two
+```
 **Allows Variables**: true
+
 
 
 Accepts a list.

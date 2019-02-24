@@ -25,6 +25,7 @@ The shareable link to your Uber ride
 **Allows Variables**: true
 
 
+
 Accepts a string with either true or false
 or a variable.
 
@@ -39,8 +40,12 @@ This paramtype is not implemented. WFUberSeatCountPickerParameter
 ---
 
 ### Enumeration: Pick Up At / pickupat (internally `UberPickupAt`)
-**Default Value**: Current Location
+**Default Value**:
+```
+Current Location
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

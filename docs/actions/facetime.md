@@ -21,8 +21,12 @@ This paramtype is not implemented. WFIntentAppPickerParameter
 ---
 
 ### Enumeration: Call Type / calltype (internally `WFFaceTimeType`)
-**Default Value**: Video
+**Default Value**:
+```
+Video
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

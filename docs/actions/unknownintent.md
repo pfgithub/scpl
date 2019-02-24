@@ -9,8 +9,12 @@
 
 ### arguments
 ### Switch: Show When Run / showwhenrun (internally `ShowWhenRun`)
-**Default Value**: true
+**Default Value**:
+```
+true
+```
 **Allows Variables**: true
+
 
 
 Accepts a string with either true or false

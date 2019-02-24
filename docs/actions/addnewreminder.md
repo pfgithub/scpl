@@ -19,8 +19,12 @@ The new reminder
 
 ### arguments
 ### Text Input: Title / title (internally `WFCalendarItemTitle`)
-**Placeholder**: Buy some milk
+**Placeholder**:
+```
+Buy some milk
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -45,6 +49,7 @@ parameter is expanded or not.
 **Allows Variables**: true
 
 
+
 Accepts a string 
 or variable
 containing one of the options:
@@ -58,6 +63,7 @@ containing one of the options:
 **Allows Variables**: true
 
 
+
 Accepts a string 
 or variable
 containing one of the options:
@@ -68,9 +74,16 @@ containing one of the options:
 ---
 
 ### Number: Radius / radius (internally `WFAlertLocationRadius`)
-**Placeholder**: in meters
-**Default Value**: 300
+**Placeholder**:
+```
+in meters
+```
+**Default Value**:
+```
+300
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -88,8 +101,12 @@ This paramtype is not implemented. WFDateFieldParameter
 ---
 
 ### Text Input: Notes / notes (internally `WFCalendarItemNotes`)
-**Placeholder**: Notes
+**Placeholder**:
+```
+Notes
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

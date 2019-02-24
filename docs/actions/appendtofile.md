@@ -21,8 +21,12 @@ This paramtype is not implemented. WFStorageServicePickerParameter
 ---
 
 ### Text Input: File Path / filepath (internally `WFFilePath`)
-**Placeholder**: example.txt
+**Placeholder**:
+```
+example.txt
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -32,8 +36,12 @@ with the text.
 ---
 
 ### Enumeration: Mode / mode (internally `WFAppendFileWriteMode`)
-**Default Value**: Append
+**Default Value**:
+```
+Append
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -46,8 +54,12 @@ containing one of the options:
 ---
 
 ### Switch: Make New Line / makenewline (internally `WFAppendOnNewLine`)
-**Default Value**: true
+**Default Value**:
+```
+true
+```
 **Allows Variables**: true
+
 
 
 Accepts a string with either true or false

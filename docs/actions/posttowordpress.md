@@ -27,8 +27,12 @@ This paramtype is not implemented. WFDynamicEnumerationParameter
 ---
 
 ### Text Input: Title / title (internally `Title`)
-**Placeholder**: Quarterly Results
+**Placeholder**:
+```
+Quarterly Results
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -69,14 +73,19 @@ parameter is expanded or not.
 **Allows Variables**: true
 
 
+
 Accepts a string with either true or false
 or a variable.
 
 ---
 
 ### Text Input: Slug / slug (internally `Slug`)
-**Placeholder**: quarterly-results
+**Placeholder**:
+```
+quarterly-results
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -86,8 +95,12 @@ with the text.
 ---
 
 ### Text Input: Excerpt / excerpt (internally `Excerpt`)
-**Placeholder**: An overall great quarter
+**Placeholder**:
+```
+An overall great quarter
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -106,6 +119,7 @@ This paramtype is not implemented. WFDynamicEnumerationParameter
 
 ### Variable Picker: Featured Image / featuredimage (internally `ThumbnailImage`)
 **Allows Variables**: true
+
 
 
 Accepts a variable.

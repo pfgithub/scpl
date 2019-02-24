@@ -13,8 +13,12 @@ Gets information about the current device.
 
 ### arguments
 ### Enumeration: Get / get (internally `WFDeviceDetail`)
-**Default Value**: Device Name
+**Default Value**:
+```
+Device Name
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

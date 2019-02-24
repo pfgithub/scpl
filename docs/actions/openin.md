@@ -17,8 +17,12 @@ Opens the input as a file in the specified app.
 
 ### arguments
 ### Switch: Show Open In Menu / showopeninmenu (internally `WFOpenInAskWhenRun`)
-**Default Value**: true
+**Default Value**:
+```
+true
+```
 **Allows Variables**: true
+
 
 
 Accepts a string with either true or false
@@ -32,6 +36,7 @@ This paramtype is not implemented. WFAppPickerParameter
 
 ### Text Input: wfappname / wfappname (internally `WFAppName`)
 **Allows Variables**: true
+
 
 
 Accepts a string 

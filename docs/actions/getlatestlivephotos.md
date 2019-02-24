@@ -15,8 +15,12 @@ Gets the most recent Live Photos from the camera roll.
 
 ### arguments
 ### Stepper Number: wfgetlatestphotocount / wfgetlatestphotocount (internally `WFGetLatestPhotoCount`)
-**Default Value**: 1
+**Default Value**:
+```
+1
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

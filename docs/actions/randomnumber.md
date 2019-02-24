@@ -13,8 +13,12 @@ Passes a random number between the given minimum and maximum to the next action.
 
 ### arguments
 ### Number: Minimum / minimum (internally `WFRandomNumberMinimum`)
-**Placeholder**: 0
+**Placeholder**:
+```
+0
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -24,8 +28,12 @@ with a number.
 ---
 
 ### Number: Maximum / maximum (internally `WFRandomNumberMaximum`)
-**Placeholder**: 100
+**Placeholder**:
+```
+100
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

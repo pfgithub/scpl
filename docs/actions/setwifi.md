@@ -15,8 +15,12 @@ Sets the device’s Wi-Fi to on or off.
 
 ### arguments
 ### Switch: Wi-Fi / wifi (internally `OnValue`)
-**Default Value**: true
+**Default Value**:
+```
+true
+```
 **Allows Variables**: true
+
 
 
 Accepts a string with either true or false

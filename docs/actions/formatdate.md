@@ -15,8 +15,12 @@ Formats a date and time into text.
 
 ### arguments
 ### Enumeration: Date Format / dateformat (internally `WFDateFormatStyle`)
-**Default Value**: Short
+**Default Value**:
+```
+Short
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -35,8 +39,12 @@ containing one of the options:
 ---
 
 ### Enumeration: Alternate Format / alternateformat (internally `WFRelativeDateFormatStyle`)
-**Default Value**: Medium
+**Default Value**:
+```
+Medium
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -50,8 +58,12 @@ containing one of the options:
 ---
 
 ### Enumeration: Time Format / timeformat (internally `WFTimeFormatStyle`)
-**Default Value**: Short
+**Default Value**:
+```
+Short
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -68,6 +80,7 @@ containing one of the options:
 
 ### Switch: Include ISO 8601 Time / includeiso8601time (internally `WFISO8601IncludeTime`)
 **Allows Variables**: true
+
 
 
 Accepts a string with either true or false

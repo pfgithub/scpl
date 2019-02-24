@@ -13,8 +13,12 @@ Allows you to specify a list of items to be passed to the next action.
 
 ### arguments
 ### List: Items / items (internally `WFItems`)
-**Default Value**: One,Two
+**Default Value**:
+```
+One,Two
+```
 **Allows Variables**: true
+
 
 
 Accepts a list.

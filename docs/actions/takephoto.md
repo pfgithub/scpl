@@ -17,8 +17,12 @@ Photo from the camera.
 
 ### arguments
 ### Switch: Show Camera Preview / showcamerapreview (internally `WFCameraCaptureShowPreview`)
-**Default Value**: true
+**Default Value**:
+```
+true
+```
 **Allows Variables**: true
+
 
 
 Accepts a string with either true or false
@@ -27,8 +31,12 @@ or a variable.
 ---
 
 ### Stepper Number: wfphotocount / wfphotocount (internally `WFPhotoCount`)
-**Default Value**: 1
+**Default Value**:
+```
+1
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -38,8 +46,12 @@ containing an integer value.
 ---
 
 ### Enumeration: Camera / camera (internally `WFCameraCaptureDevice`)
-**Default Value**: Back
+**Default Value**:
+```
+Back
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

@@ -25,8 +25,12 @@ This paramtype is not implemented. WFContactHandleFieldParameter
 ---
 
 ### Number: Amount / amount (internally `WFVenmoActionAmount`)
-**Placeholder**: 7.00
+**Placeholder**:
+```
+7.00
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -39,14 +43,19 @@ with a number.
 **Allows Variables**: true
 
 
+
 Accepts a string with either true or false
 or a variable.
 
 ---
 
 ### Text Input: Note / note (internally `WFVenmoActionNote`)
-**Placeholder**: Note
+**Placeholder**:
+```
+Note
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

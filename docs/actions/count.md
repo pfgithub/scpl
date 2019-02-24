@@ -16,6 +16,7 @@ Counts the number of items, characters, words, sentences, or lines passed as inp
 **Allows Variables**: true
 
 
+
 Accepts a string 
 or variable
 containing one of the options:

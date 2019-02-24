@@ -15,8 +15,12 @@ Presents a menu of the items passed as input to the action and outputs the user'
 
 ### arguments
 ### Text Input: Prompt / prompt (internally `WFChooseFromListActionPrompt`)
-**Placeholder**: optional
+**Placeholder**:
+```
+optional
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -29,6 +33,7 @@ with the text.
 **Allows Variables**: true
 
 
+
 Accepts a string with either true or false
 or a variable.
 
@@ -36,6 +41,7 @@ or a variable.
 
 ### Switch: Select All Initially / selectallinitially (internally `WFChooseFromListActionSelectAll`)
 **Allows Variables**: true
+
 
 
 Accepts a string with either true or false

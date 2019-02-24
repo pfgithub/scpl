@@ -18,14 +18,19 @@ Sets the device’s Do Not Disturb to on or off
 **Allows Variables**: true
 
 
+
 Accepts a string with either true or false
 or a variable.
 
 ---
 
 ### Enumeration: Until / until (internally `AssertionType`)
-**Default Value**: Turned Off
+**Default Value**:
+```
+Turned Off
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -41,6 +46,7 @@ containing one of the options:
 
 ### Variable Picker: Event / event (internally `Event`)
 **Allows Variables**: true
+
 
 
 Accepts a variable.

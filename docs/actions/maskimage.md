@@ -31,8 +31,12 @@ containing one of the options:
 ---
 
 ### Number: Corner Radius / cornerradius (internally `WFMaskCornerRadius`)
-**Placeholder**: 0
+**Placeholder**:
+```
+0
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -43,6 +47,7 @@ with a number.
 
 ### Variable Picker: Image Mask / imagemask (internally `WFCustomMaskImage`)
 **Allows Variables**: true
+
 
 
 Accepts a variable.

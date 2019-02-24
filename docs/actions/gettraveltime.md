@@ -22,7 +22,10 @@ The amount of time it will take to get to the destination. If passed into an act
 
 ### arguments
 ### Enumeration: From / from (internally `WFGetDirectionsFrom`)
-**Default Value**: Current Location
+**Default Value**:
+```
+Current Location
+```
 
 
 Accepts a string 
@@ -38,8 +41,12 @@ This paramtype is not implemented. WFLocationFieldParameter
 ---
 
 ### Enumeration: Transportation Mode / transportationmode (internally `WFGetDirectionsActionMode`)
-**Default Value**: Driving
+**Default Value**:
+```
+Driving
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

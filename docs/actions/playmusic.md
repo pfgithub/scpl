@@ -21,6 +21,7 @@ The music to be played
 **Allows Variables**: true
 
 
+
 Accepts a string 
 or variable
 containing one of the options:
@@ -32,6 +33,7 @@ containing one of the options:
 
 ### Enumeration: Repeat / repeat (internally `WFPlayMusicActionRepeat`)
 **Allows Variables**: true
+
 
 
 Accepts a string 

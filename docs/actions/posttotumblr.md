@@ -31,8 +31,12 @@ This paramtype is not implemented. WFDynamicEnumerationParameter
 ---
 
 ### Enumeration: Post Status / poststatus (internally `WFPostState`)
-**Default Value**: Post Now
+**Default Value**:
+```
+Post Now
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -47,8 +51,12 @@ containing one of the options:
 ---
 
 ### Text Input: Title / title (internally `WFPostTitle`)
-**Placeholder**: optional
+**Placeholder**:
+```
+optional
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -58,8 +66,12 @@ with the text.
 ---
 
 ### Text Input: Source / source (internally `WFPostSource`)
-**Placeholder**: optional
+**Placeholder**:
+```
+optional
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -69,8 +81,12 @@ with the text.
 ---
 
 ### Text Input: Caption / caption (internally `WFPostCaption`)
-**Placeholder**: optional
+**Placeholder**:
+```
+optional
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -80,8 +96,12 @@ with the text.
 ---
 
 ### Text Input: Tags / tags (internally `WFPostTags`)
-**Placeholder**: shortcuts, apple
+**Placeholder**:
+```
+shortcuts, apple
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -91,8 +111,12 @@ with the text.
 ---
 
 ### Text Input: Description / description (internally `WFPostDescription`)
-**Placeholder**: Description
+**Placeholder**:
+```
+Description
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

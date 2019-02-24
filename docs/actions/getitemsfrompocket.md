@@ -18,6 +18,7 @@ Returns items in your Pocket account.
 **Allows Variables**: true
 
 
+
 Accepts a string 
 or variable
 containing an integer value.
@@ -25,8 +26,12 @@ containing an integer value.
 ---
 
 ### Enumeration: Type / type (internally `WFPocketItemState`)
-**Default Value**: All
+**Default Value**:
+```
+All
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -40,8 +45,12 @@ containing one of the options:
 ---
 
 ### Text Input: Search / search (internally `WFPocketItemSearchTerm`)
-**Placeholder**: optional
+**Placeholder**:
+```
+optional
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -51,8 +60,12 @@ with the text.
 ---
 
 ### Text Input: Tag / tag (internally `WFPocketItemSearchTags`)
-**Placeholder**: optional
+**Placeholder**:
+```
+optional
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

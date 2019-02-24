@@ -13,8 +13,12 @@ Rounds the number(s) passed into the action.
 
 ### arguments
 ### Enumeration: Round / round (internally `WFRoundType`)
-**Default Value**: Left of Decimal
+**Default Value**:
+```
+Left of Decimal
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -27,8 +31,12 @@ containing one of the options:
 ---
 
 ### Enumeration: Mode / mode (internally `WFRoundMode`)
-**Default Value**: Normal
+**Default Value**:
+```
+Normal
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -43,6 +51,7 @@ containing one of the options:
 
 ### Stepper Number: wfrounddecimalplaces / wfrounddecimalplaces (internally `WFRoundDecimalPlaces`)
 **Allows Variables**: true
+
 
 
 Accepts a string 

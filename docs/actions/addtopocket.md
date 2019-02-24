@@ -15,8 +15,12 @@ Adds the input to Pocket.
 
 ### arguments
 ### Text Input: Tags / tags (internally `WFPocketTags`)
-**Placeholder**: example, tags
+**Placeholder**:
+```
+example, tags
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

@@ -16,14 +16,19 @@ Re-encodes the media passed as input at the specified size, optionally convertin
 **Allows Variables**: true
 
 
+
 Accepts a string with either true or false
 or a variable.
 
 ---
 
 ### Enumeration: Format / format (internally `WFMediaAudioFormat`)
-**Default Value**: M4A
+**Default Value**:
+```
+M4A
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -36,8 +41,12 @@ containing one of the options:
 ---
 
 ### Enumeration: Size / size (internally `WFMediaSize`)
-**Default Value**: Passthrough
+**Default Value**:
+```
+Passthrough
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -55,8 +64,12 @@ containing one of the options:
 ---
 
 ### Enumeration: Speed / speed (internally `WFMediaSpeed`)
-**Default Value**: Normal
+**Default Value**:
+```
+Normal
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -71,8 +84,12 @@ containing one of the options:
 ---
 
 ### Number: Custom Speed / customspeed (internally `WFMediaCustomSpeed`)
-**Placeholder**: 1.0
+**Placeholder**:
+```
+1.0
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -90,8 +107,12 @@ parameter is expanded or not.
 ---
 
 ### Text Input: Title / title (internally `WFMetadataTitle`)
-**Placeholder**: My Great Track
+**Placeholder**:
+```
+My Great Track
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -101,8 +122,12 @@ with the text.
 ---
 
 ### Text Input: Artist / artist (internally `WFMetadataArtist`)
-**Placeholder**: Nicholas Fryingpan
+**Placeholder**:
+```
+Nicholas Fryingpan
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -112,8 +137,12 @@ with the text.
 ---
 
 ### Text Input: Album / album (internally `WFMetadataAlbum`)
-**Placeholder**: Abbey Road
+**Placeholder**:
+```
+Abbey Road
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -123,8 +152,12 @@ with the text.
 ---
 
 ### Text Input: Genre / genre (internally `WFMetadataGenre`)
-**Placeholder**: Indie
+**Placeholder**:
+```
+Indie
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -134,8 +167,12 @@ with the text.
 ---
 
 ### Text Input: Year / year (internally `WFMetadataYear`)
-**Placeholder**: 2001
+**Placeholder**:
+```
+2001
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -146,6 +183,7 @@ with the text.
 
 ### Variable Picker: Artwork / artwork (internally `WFMetadataArtwork`)
 **Allows Variables**: true
+
 
 
 Accepts a variable.

@@ -13,8 +13,12 @@ Encodes or decodes text passed into the action to be suitable for inclusion in a
 
 ### arguments
 ### Enumeration: Mode / mode (internally `WFEncodeMode`)
-**Default Value**: Encode
+**Default Value**:
+```
+Encode
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

@@ -15,8 +15,12 @@ Uploads the input to Imgur.
 
 ### arguments
 ### Switch: Upload Anonymously / uploadanonymously (internally `WFImgurAnonymous`)
-**Default Value**: true
+**Default Value**:
+```
+true
+```
 **Allows Variables**: true
+
 
 
 Accepts a string with either true or false
@@ -28,6 +32,7 @@ or a variable.
 **Allows Variables**: true
 
 
+
 Accepts a string with either true or false
 or a variable.
 
@@ -37,14 +42,19 @@ or a variable.
 **Allows Variables**: true
 
 
+
 Accepts a string with either true or false
 or a variable.
 
 ---
 
 ### Enumeration: Album Layout / albumlayout (internally `WFImgurAlbumLayout`)
-**Default Value**: Blog
+**Default Value**:
+```
+Blog
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -59,8 +69,12 @@ containing one of the options:
 ---
 
 ### Enumeration: Album Privacy / albumprivacy (internally `WFImgurAlbumPrivacy`)
-**Default Value**: Hidden
+**Default Value**:
+```
+Hidden
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -74,8 +88,12 @@ containing one of the options:
 ---
 
 ### Text Input: Title / title (internally `WFImgurTitle`)
-**Placeholder**: optional
+**Placeholder**:
+```
+optional
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -85,8 +103,12 @@ with the text.
 ---
 
 ### Text Input: Description / description (internally `WFImgurDescription`)
-**Placeholder**: Description
+**Placeholder**:
+```
+Description
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

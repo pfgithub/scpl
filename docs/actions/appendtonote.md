@@ -20,8 +20,12 @@ The content to add to your note
 
 ### arguments
 ### Text Input: Note Title / notetitle (internally `WFEvernoteNotesTitleSearch`)
-**Placeholder**: example note
+**Placeholder**:
+```
+example note
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -31,8 +35,12 @@ with the text.
 ---
 
 ### Enumeration: Mode / mode (internally `WFEvernoteWriteMode`)
-**Default Value**: Append
+**Default Value**:
+```
+Append
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

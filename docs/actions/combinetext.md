@@ -13,8 +13,12 @@ Joins text together, inserting the separator between each join.
 
 ### arguments
 ### Enumeration: Separator / separator (internally `WFTextSeparator`)
-**Default Value**: Spaces
+**Default Value**:
+```
+Spaces
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -28,8 +32,12 @@ containing one of the options:
 ---
 
 ### Text Input: Custom / custom (internally `WFTextCustomSeparator`)
-**Placeholder**: Text
+**Placeholder**:
+```
+Text
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

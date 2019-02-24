@@ -17,8 +17,12 @@ CloudApp URL
 
 ### arguments
 ### Enumeration: Link Privacy / linkprivacy (internally `WFCloudAppPrivacyType`)
-**Default Value**: Private
+**Default Value**:
+```
+Private
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

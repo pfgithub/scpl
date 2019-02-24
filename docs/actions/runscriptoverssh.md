@@ -18,8 +18,12 @@ The output from the shell script (stdout)
 
 ### arguments
 ### Text Input: Host / host (internally `WFSSHHost`)
-**Placeholder**: 192.168.1.100
+**Placeholder**:
+```
+192.168.1.100
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -29,9 +33,16 @@ with the text.
 ---
 
 ### Text Input: Port / port (internally `WFSSHPort`)
-**Placeholder**: 22
-**Default Value**: 22
+**Placeholder**:
+```
+22
+```
+**Default Value**:
+```
+22
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -41,8 +52,12 @@ with the text.
 ---
 
 ### Text Input: User / user (internally `WFSSHUser`)
-**Placeholder**: root
+**Placeholder**:
+```
+root
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -52,8 +67,12 @@ with the text.
 ---
 
 ### Text Input: Password / password (internally `WFSSHPassword`)
-**Placeholder**: ••••••••
+**Placeholder**:
+```
+••••••••
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -63,8 +82,12 @@ with the text.
 ---
 
 ### Text Input: Script / script (internally `WFSSHScript`)
-**Placeholder**: Script
+**Placeholder**:
+```
+Script
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

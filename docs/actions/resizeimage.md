@@ -13,9 +13,16 @@ Scales images to a particular width and height.
 
 ### arguments
 ### Number: Width / width (internally `WFImageResizeWidth`)
-**Placeholder**: Auto
-**Default Value**: 640
+**Placeholder**:
+```
+Auto
+```
+**Default Value**:
+```
+640
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -25,8 +32,12 @@ with a number.
 ---
 
 ### Number: Height / height (internally `WFImageResizeHeight`)
-**Placeholder**: Auto
+**Placeholder**:
+```
+Auto
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

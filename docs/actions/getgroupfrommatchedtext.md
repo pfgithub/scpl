@@ -13,8 +13,12 @@ Gets the text that matched a particular capture group or all of the capture grou
 
 ### arguments
 ### Enumeration: Get / get (internally `WFGetGroupType`)
-**Default Value**: Group At Index
+**Default Value**:
+```
+Group At Index
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -27,9 +31,16 @@ containing one of the options:
 ---
 
 ### Number: Group Index / groupindex (internally `WFGroupIndex`)
-**Placeholder**: 1
-**Default Value**: 1
+**Placeholder**:
+```
+1
+```
+**Default Value**:
+```
+1
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

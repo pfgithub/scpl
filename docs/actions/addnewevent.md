@@ -19,8 +19,12 @@ The new event
 
 ### arguments
 ### Text Input: Title / title (internally `WFCalendarItemTitle`)
-**Placeholder**: Lunch with Tim
+**Placeholder**:
+```
+Lunch with Tim
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -30,8 +34,12 @@ with the text.
 ---
 
 ### Text Input: Location / location (internally `WFCalendarItemLocation`)
-**Placeholder**: optional
+**Placeholder**:
+```
+optional
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -64,6 +72,7 @@ This paramtype is not implemented. WFDateFieldParameter
 **Allows Variables**: true
 
 
+
 Accepts a string with either true or false
 or a variable.
 
@@ -71,6 +80,7 @@ or a variable.
 
 ### Enumeration: Alert / alert (internally `WFAlertTime`)
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -91,8 +101,12 @@ containing one of the options:
 ---
 
 ### Text Input: Alert Time / alerttime (internally `WFAlertCustomTime`)
-**Placeholder**: Tomorrow at 4pm
+**Placeholder**:
+```
+Tomorrow at 4pm
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -102,8 +116,12 @@ with the text.
 ---
 
 ### Text Input: Notes / notes (internally `WFCalendarItemNotes`)
-**Placeholder**: Notes
+**Placeholder**:
+```
+Notes
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

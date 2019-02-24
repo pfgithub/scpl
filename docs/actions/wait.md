@@ -15,8 +15,12 @@ Waits for the specified number of seconds before continuing with the next action
 
 ### arguments
 ### Stepper Number: wfdelaytime / wfdelaytime (internally `WFDelayTime`)
-**Default Value**: 1
+**Default Value**:
+```
+1
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

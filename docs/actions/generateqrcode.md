@@ -13,8 +13,12 @@ Generates a QR code from the input text.
 
 ### arguments
 ### Enumeration: Error Correction / errorcorrection (internally `WFQRErrorCorrectionLevel`)
-**Default Value**: Medium
+**Default Value**:
+```
+Medium
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

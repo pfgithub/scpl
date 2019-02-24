@@ -13,8 +13,12 @@ Calculates statistics on the numbers that are provided as input.
 
 ### arguments
 ### Enumeration: Operation / operation (internally `WFStatisticsOperation`)
-**Default Value**: Average
+**Default Value**:
+```
+Average
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

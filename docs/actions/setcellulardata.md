@@ -15,8 +15,12 @@ Sets the device’s Cellular Data to on or off.
 
 ### arguments
 ### Switch: Cellular Data / cellulardata (internally `OnValue`)
-**Default Value**: true
+**Default Value**:
+```
+true
+```
 **Allows Variables**: true
+
 
 
 Accepts a string with either true or false

@@ -25,8 +25,12 @@ parameter is expanded or not.
 ---
 
 ### Enumeration: Method / method (internally `WFHTTPMethod`)
-**Default Value**: GET
+**Default Value**:
+```
+GET
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -54,7 +58,10 @@ This paramtype is not implemented. WFDictionaryParameter
 ---
 
 ### Enumeration: Request Body / requestbody (internally `WFHTTPBodyType`)
-**Default Value**: JSON
+**Default Value**:
+```
+JSON
+```
 
 
 Accepts a string 
@@ -76,6 +83,7 @@ This paramtype is not implemented. WFDictionaryParameter
 
 ### Variable Picker: File / file (internally `WFRequestVariable`)
 **Allows Variables**: true
+
 
 
 Accepts a variable.

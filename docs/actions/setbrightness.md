@@ -15,8 +15,12 @@ Sets the device brightness.
 
 ### arguments
 ### Slider Number: Brightness / brightness (internally `WFBrightness`)
-**Default Value**: 0.5
+**Default Value**:
+```
+0.5
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

@@ -15,8 +15,12 @@ Creates a new board in your Trello account.
 
 ### arguments
 ### Text Input: Name / name (internally `WFTrelloName`)
-**Placeholder**: Shortcuts
+**Placeholder**:
+```
+Shortcuts
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -26,8 +30,12 @@ with the text.
 ---
 
 ### Text Input: wftrellodescription / wftrellodescription (internally `WFTrelloDescription`)
-**Placeholder**: Description
+**Placeholder**:
+```
+Description
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

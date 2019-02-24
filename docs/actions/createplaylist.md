@@ -18,8 +18,12 @@ Items in your music library or items from the Search iTunes action.
 
 ### arguments
 ### Text Input: Name / name (internally `WFPlaylistName`)
-**Placeholder**: Greatest Hits
+**Placeholder**:
+```
+Greatest Hits
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -29,8 +33,12 @@ with the text.
 ---
 
 ### Text Input: Author / author (internally `WFPlaylistAuthor`)
-**Placeholder**: Shortcuts
+**Placeholder**:
+```
+Shortcuts
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -40,8 +48,12 @@ with the text.
 ---
 
 ### Text Input: Description / description (internally `WFPlaylistDescription`)
-**Placeholder**: All of my favorites
+**Placeholder**:
+```
+All of my favorites
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

@@ -17,8 +17,12 @@ Uses the microphone to record audio.
 
 ### arguments
 ### Enumeration: Audio Quality / audioquality (internally `WFRecordingCompression`)
-**Default Value**: Normal
+**Default Value**:
+```
+Normal
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -31,8 +35,12 @@ containing one of the options:
 ---
 
 ### Enumeration: Start Recording / startrecording (internally `WFRecordingStart`)
-**Default Value**: On Tap
+**Default Value**:
+```
+On Tap
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -45,8 +53,12 @@ containing one of the options:
 ---
 
 ### Enumeration: Finish Recording / finishrecording (internally `WFRecordingEnd`)
-**Default Value**: On Tap
+**Default Value**:
+```
+On Tap
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

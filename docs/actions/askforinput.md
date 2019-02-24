@@ -17,8 +17,12 @@ Displays a dialog prompting the user to enter a piece of information.
 
 ### arguments
 ### Text Input: Question / question (internally `WFAskActionPrompt`)
-**Placeholder**: Enter text
+**Placeholder**:
+```
+Enter text
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -28,8 +32,12 @@ with the text.
 ---
 
 ### Text Input: Default Answer / defaultanswer (internally `WFAskActionDefaultAnswer`)
-**Placeholder**: optional
+**Placeholder**:
+```
+optional
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -43,8 +51,12 @@ This paramtype is not implemented. WFDateFieldParameter
 ---
 
 ### Enumeration: Input Type / inputtype (internally `WFInputType`)
-**Default Value**: Text
+**Default Value**:
+```
+Text
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -59,8 +71,12 @@ containing one of the options:
 ---
 
 ### Enumeration: Granularity / granularity (internally `WFAskActionDateGranularity`)
-**Default Value**: Date
+**Default Value**:
+```
+Date
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -75,6 +91,7 @@ containing one of the options:
 
 ### Switch: Skip to Watch Dictation / skiptowatchdictation (internally `WFAskActionImmediateDictation`)
 **Allows Variables**: true
+
 
 
 Accepts a string with either true or false

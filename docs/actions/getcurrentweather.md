@@ -17,7 +17,10 @@ Gets the current weather conditions at the specified location.
 
 ### arguments
 ### Enumeration: At / at (internally `WFWeatherLocation`)
-**Default Value**: Current Location
+**Default Value**:
+```
+Current Location
+```
 
 
 Accepts a string 

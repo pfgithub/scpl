@@ -15,8 +15,12 @@ Searches the App Store, returning the apps that match the specified search terms
 
 ### arguments
 ### Text Input: Search / search (internally `WFSearchTerm`)
-**Placeholder**: Shortcuts
+**Placeholder**:
+```
+Shortcuts
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -38,8 +42,12 @@ This paramtype is not implemented. WFiTunesStoreCountryPickerParameter
 ---
 
 ### Stepper Number: wfitemlimit / wfitemlimit (internally `WFItemLimit`)
-**Default Value**: 25
+**Default Value**:
+```
+25
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

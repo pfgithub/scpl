@@ -22,8 +22,12 @@ The URL of the newly created item
 
 ### arguments
 ### Text Input: Content / content (internally `WFTodoistContent`)
-**Placeholder**: Buy some milk
+**Placeholder**:
+```
+Buy some milk
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -45,8 +49,12 @@ This paramtype is not implemented. WFDateFieldParameter
 ---
 
 ### Enumeration: Reminder Type / remindertype (internally `WFTodoistReminderType`)
-**Default Value**: Email
+**Default Value**:
+```
+Email
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -60,8 +68,12 @@ containing one of the options:
 ---
 
 ### Enumeration: Priority / priority (internally `WFTodoistPriority`)
-**Default Value**: 4
+**Default Value**:
+```
+4
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -76,8 +88,12 @@ containing one of the options:
 ---
 
 ### Text Input: Notes / notes (internally `WFTodoistNotes`)
-**Placeholder**: Notes
+**Placeholder**:
+```
+Notes
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

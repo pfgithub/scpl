@@ -13,8 +13,12 @@ Crops images to a smaller rectangle.
 
 ### arguments
 ### Enumeration: Position / position (internally `WFImageCropPosition`)
-**Default Value**: Center
+**Default Value**:
+```
+Center
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -31,8 +35,12 @@ containing one of the options:
 ---
 
 ### Number: X Coordinate / xcoordinate (internally `WFImageCropX`)
-**Placeholder**: 0
+**Placeholder**:
+```
+0
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -42,8 +50,12 @@ with a number.
 ---
 
 ### Number: Y Coordinate / ycoordinate (internally `WFImageCropY`)
-**Placeholder**: 0
+**Placeholder**:
+```
+0
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -53,9 +65,16 @@ with a number.
 ---
 
 ### Number: Width / width (internally `WFImageCropWidth`)
-**Placeholder**: 100
-**Default Value**: 100
+**Placeholder**:
+```
+100
+```
+**Default Value**:
+```
+100
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -65,9 +84,16 @@ with a number.
 ---
 
 ### Number: Height / height (internally `WFImageCropHeight`)
-**Placeholder**: 100
-**Default Value**: 100
+**Placeholder**:
+```
+100
+```
+**Default Value**:
+```
+100
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

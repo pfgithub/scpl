@@ -17,8 +17,12 @@ Creates a new card on the specified list and board in your Trello account.
 
 ### arguments
 ### Text Input: Name / name (internally `WFTrelloName`)
-**Placeholder**: Be productive
+**Placeholder**:
+```
+Be productive
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -40,8 +44,12 @@ This paramtype is not implemented. WFDateFieldParameter
 ---
 
 ### Enumeration: Position / position (internally `WFTrelloCardPosition`)
-**Default Value**: Top
+**Default Value**:
+```
+Top
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -57,13 +65,18 @@ containing one of the options:
 **Allows Variables**: true
 
 
+
 Accepts a variable.
 
 ---
 
 ### Text Input: wftrellodescription / wftrellodescription (internally `WFTrelloDescription`)
-**Placeholder**: Description
+**Placeholder**:
+```
+Description
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

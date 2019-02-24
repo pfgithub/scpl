@@ -18,6 +18,7 @@ Opens BlindSquare showing information about the place passed as input, so you ca
 **Allows Variables**: true
 
 
+
 Accepts a string with either true or false
 or a variable.
 

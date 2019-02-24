@@ -19,8 +19,12 @@ This paramtype is not implemented. WFNetworkPickerParameter
 ---
 
 ### Enumeration: Get / get (internally `WFWiFiDetail`)
-**Default Value**: Network Name
+**Default Value**:
+```
+Network Name
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -33,8 +37,12 @@ containing one of the options:
 ---
 
 ### Enumeration: Get / get (internally `WFCellularDetail`)
-**Default Value**: Carrier Name
+**Default Value**:
+```
+Carrier Name
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

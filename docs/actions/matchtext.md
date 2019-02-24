@@ -15,8 +15,12 @@ A list of text items that matched the regular expression
 
 ### arguments
 ### Text Input: Pattern / pattern (internally `WFMatchTextPattern`)
-**Default Value**: [0-9a-zA-Z]
+**Default Value**:
+```
+[0-9a-zA-Z]
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -26,8 +30,12 @@ with the text.
 ---
 
 ### Switch: Case Sensitive / casesensitive (internally `WFMatchTextCaseSensitive`)
-**Default Value**: true
+**Default Value**:
+```
+true
+```
 **Allows Variables**: true
+
 
 
 Accepts a string with either true or false

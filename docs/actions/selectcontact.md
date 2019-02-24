@@ -18,6 +18,7 @@ Prompts to pick a person from your contacts and passes the selection to the next
 **Allows Variables**: true
 
 
+
 Accepts a string with either true or false
 or a variable.
 

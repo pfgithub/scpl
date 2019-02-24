@@ -18,14 +18,19 @@ Imports the photos passed as input into Lightroom
 **Allows Variables**: true
 
 
+
 Accepts a string with either true or false
 or a variable.
 
 ---
 
 ### Enumeration: Preset Group / presetgroup (internally `presetGroup`)
-**Default Value**: Color
+**Default Value**:
+```
+Color
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

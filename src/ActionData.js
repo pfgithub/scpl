@@ -29,9 +29,17 @@ types.WFParameter = class {
 	}
 	genDocs() {
 		let docs = `### ${this.typeName}: ${this.name} / ${this.shortName} (internally \`${this.internalName}\`)\n`;
-		if(this._data.Placeholder) {docs += `**Placeholder**: ${this._data.Placeholder}\n`;}
-		if(this._data.DefaultValue) {docs += `**Default Value**: ${this._data.DefaultValue}\n`;}
-		if(this.allowsVariables) {docs += `**Allows Variables**: ${this.allowsVariables}\n`;}
+		if(this._data.Placeholder) {docs += `**Placeholder**:
+\`\`\`
+${this._data.Placeholder}
+\`\`\`
+`;}
+		if(this._data.DefaultValue) {docs += `**Default Value**:
+\`\`\`
+${this._data.DefaultValue}
+\`\`\`
+`;}
+		if(this.allowsVariables) {docs += `**Allows Variables**: ${this.allowsVariables}\n\n`;}
 		return docs;
 	}
 };

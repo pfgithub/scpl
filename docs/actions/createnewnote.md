@@ -20,8 +20,12 @@ The content to include in your new note
 
 ### arguments
 ### Text Input: Note Title / notetitle (internally `WFEvernoteNoteTitle`)
-**Placeholder**: optional
+**Placeholder**:
+```
+optional
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

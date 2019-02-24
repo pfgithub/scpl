@@ -26,8 +26,12 @@ This paramtype is not implemented. WFWorkflowPickerParameter
 ---
 
 ### Switch: Show While Running / showwhilerunning (internally `WFShowWorkflow`)
-**Default Value**: true
+**Default Value**:
+```
+true
+```
 **Allows Variables**: true
+
 
 
 Accepts a string with either true or false

@@ -17,8 +17,12 @@ Presents an email composer. Pass text into the action to set the email body. Oth
 
 ### arguments
 ### Switch: Show Compose Sheet / showcomposesheet (internally `WFSendEmailActionShowComposeSheet`)
-**Default Value**: true
+**Default Value**:
+```
+true
+```
 **Allows Variables**: true
+
 
 
 Accepts a string with either true or false
@@ -31,8 +35,12 @@ This paramtype is not implemented. WFEmailAccountPickerParameter
 ---
 
 ### Text Input: From / from (internally `WFSendEmailActionFrom`)
-**Placeholder**: optional
+**Placeholder**:
+```
+optional
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -54,8 +62,12 @@ This paramtype is not implemented. WFEmailAddressFieldParameter
 ---
 
 ### Text Input: Subject / subject (internally `WFSendEmailActionSubject`)
-**Placeholder**: optional
+**Placeholder**:
+```
+optional
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

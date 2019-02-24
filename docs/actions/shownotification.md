@@ -18,8 +18,12 @@ An image or video to include in the notification
 
 ### arguments
 ### Text Input: Title / title (internally `WFNotificationActionTitle`)
-**Placeholder**: optional
+**Placeholder**:
+```
+optional
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -29,9 +33,16 @@ with the text.
 ---
 
 ### Text Input: Body / body (internally `WFNotificationActionBody`)
-**Placeholder**: Charming notification message
-**Default Value**: Hello World
+**Placeholder**:
+```
+Charming notification message
+```
+**Default Value**:
+```
+Hello World
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -41,8 +52,12 @@ with the text.
 ---
 
 ### Switch: Play Sound / playsound (internally `WFNotificationActionSound`)
-**Default Value**: true
+**Default Value**:
+```
+true
+```
 **Allows Variables**: true
+
 
 
 Accepts a string with either true or false

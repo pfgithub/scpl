@@ -13,8 +13,12 @@ Sets a value in the dictionary passed into the action.
 
 ### arguments
 ### Text Input: Key / key (internally `WFDictionaryKey`)
-**Placeholder**: name
+**Placeholder**:
+```
+name
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -24,8 +28,12 @@ with the text.
 ---
 
 ### Text Input: Value / value (internally `WFDictionaryValue`)
-**Placeholder**: example
+**Placeholder**:
+```
+example
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

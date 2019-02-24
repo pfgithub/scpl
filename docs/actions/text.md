@@ -13,8 +13,12 @@ Passes the specified text to the next action.
 
 ### arguments
 ### Text Input: wftextactiontext / wftextactiontext (internally `WFTextActionText`)
-**Placeholder**: Enter text...
+**Placeholder**:
+```
+Enter text...
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

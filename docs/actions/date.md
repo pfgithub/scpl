@@ -15,8 +15,12 @@ Passes the specified date and time to the next action.
 
 ### arguments
 ### Enumeration: Use / use (internally `WFDateActionMode`)
-**Default Value**: Current Date
+**Default Value**:
+```
+Current Date
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

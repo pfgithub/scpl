@@ -17,8 +17,12 @@ Get recent notes from Evernote, optionally filtering based on criteria.
 
 ### arguments
 ### Text Input: Title Search / titlesearch (internally `WFEvernoteNotesTitleSearch`)
-**Placeholder**: optional
+**Placeholder**:
+```
+optional
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -36,8 +40,12 @@ This paramtype is not implemented. WFEvernoteNotebookPickerParameter
 ---
 
 ### Stepper Number: wfevernotenotescount / wfevernotenotescount (internally `WFEvernoteNotesCount`)
-**Default Value**: 1
+**Default Value**:
+```
+1
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

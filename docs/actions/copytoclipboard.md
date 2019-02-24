@@ -20,6 +20,7 @@ Copies the result of the last action to the clipboard.
 **Allows Variables**: true
 
 
+
 Accepts a string with either true or false
 or a variable.
 

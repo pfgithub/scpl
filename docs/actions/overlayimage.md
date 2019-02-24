@@ -23,13 +23,18 @@ The combined images
 **Allows Variables**: true
 
 
+
 Accepts a variable.
 
 ---
 
 ### Switch: Show Image Editor / showimageeditor (internally `WFShouldShowImageEditor`)
-**Default Value**: true
+**Default Value**:
+```
+true
+```
 **Allows Variables**: true
+
 
 
 Accepts a string with either true or false
@@ -38,8 +43,12 @@ or a variable.
 ---
 
 ### Enumeration: Position / position (internally `WFImagePosition`)
-**Default Value**: Center
+**Default Value**:
+```
+Center
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -56,8 +65,12 @@ containing one of the options:
 ---
 
 ### Number: Width / width (internally `WFImageWidth`)
-**Placeholder**: Auto
+**Placeholder**:
+```
+Auto
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -67,8 +80,12 @@ with a number.
 ---
 
 ### Number: Height / height (internally `WFImageHeight`)
-**Placeholder**: Auto
+**Placeholder**:
+```
+Auto
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -78,8 +95,12 @@ with a number.
 ---
 
 ### Number: X Coordinate / xcoordinate (internally `WFImageX`)
-**Placeholder**: 0
+**Placeholder**:
+```
+0
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -89,8 +110,12 @@ with a number.
 ---
 
 ### Number: Y Coordinate / ycoordinate (internally `WFImageY`)
-**Placeholder**: 0
+**Placeholder**:
+```
+0
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -100,8 +125,12 @@ with a number.
 ---
 
 ### Number: Rotation (Degrees) / rotationdegrees (internally `WFRotation`)
-**Placeholder**: 0
+**Placeholder**:
+```
+0
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -111,9 +140,16 @@ with a number.
 ---
 
 ### Number: Opacity / opacity (internally `WFOverlayImageOpacity`)
-**Placeholder**: 100%
-**Default Value**: 100
+**Placeholder**:
+```
+100%
+```
+**Default Value**:
+```
+100
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

@@ -21,14 +21,22 @@ An animated GIF
 **Allows Variables**: true
 
 
+
 Accepts a variable.
 
 ---
 
 ### Number: Delay Time / delaytime (internally `WFGIFDelayTime`)
-**Placeholder**: 0.25
-**Default Value**: 0.25
+**Placeholder**:
+```
+0.25
+```
+**Default Value**:
+```
+0.25
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -38,8 +46,12 @@ with a number.
 ---
 
 ### Switch: Auto Size / autosize (internally `WFGIFAutoSize`)
-**Default Value**: true
+**Default Value**:
+```
+true
+```
 **Allows Variables**: true
+
 
 
 Accepts a string with either true or false
@@ -48,8 +60,12 @@ or a variable.
 ---
 
 ### Number: Width / width (internally `WFGIFManualSizeWidth`)
-**Placeholder**: 500
+**Placeholder**:
+```
+500
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -59,8 +75,12 @@ with a number.
 ---
 
 ### Number: Height / height (internally `WFGIFManualSizeHeight`)
-**Placeholder**: 500
+**Placeholder**:
+```
+500
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

@@ -24,6 +24,7 @@ This paramtype is not implemented. WFAlarmPickerParameter
 **Allows Variables**: true
 
 
+
 Accepts a string with either true or false
 or a variable.
 

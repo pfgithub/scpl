@@ -15,8 +15,12 @@ Gets bookmarks in your Pinboard account.
 
 ### arguments
 ### Text Input: Tags / tags (internally `WFPinTags`)
-**Placeholder**: apple longread
+**Placeholder**:
+```
+apple longread
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -26,8 +30,12 @@ with the text.
 ---
 
 ### Stepper Number: wfbookmarkcount / wfbookmarkcount (internally `WFBookmarkCount`)
-**Default Value**: 5
+**Default Value**:
+```
+5
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

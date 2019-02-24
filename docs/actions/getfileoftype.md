@@ -13,9 +13,16 @@ Returns a particular file type from the input.
 
 ### arguments
 ### Text Input: Type / type (internally `WFFileType`)
-**Placeholder**: UTI
-**Default Value**: public.rtf
+**Placeholder**:
+```
+UTI
+```
+**Default Value**:
+```
+public.rtf
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

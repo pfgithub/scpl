@@ -15,8 +15,12 @@ Adds the URL passed into the action to your Pinboard.
 
 ### arguments
 ### Text Input: Title / title (internally `WFPinTitle`)
-**Placeholder**: optional
+**Placeholder**:
+```
+optional
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -26,8 +30,12 @@ with the text.
 ---
 
 ### Text Input: Tags / tags (internally `WFPinTags`)
-**Placeholder**: apple longread
+**Placeholder**:
+```
+apple longread
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -37,8 +45,12 @@ with the text.
 ---
 
 ### Switch: Public / public (internally `WFPinPublic`)
-**Default Value**: true
+**Default Value**:
+```
+true
+```
 **Allows Variables**: true
+
 
 
 Accepts a string with either true or false
@@ -47,8 +59,12 @@ or a variable.
 ---
 
 ### Switch: Unread / unread (internally `WFPinUnread`)
-**Default Value**: true
+**Default Value**:
+```
+true
+```
 **Allows Variables**: true
+
 
 
 Accepts a string with either true or false
@@ -57,8 +73,12 @@ or a variable.
 ---
 
 ### Text Input: Description / description (internally `WFPinDescription`)
-**Placeholder**: Description
+**Placeholder**:
+```
+Description
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

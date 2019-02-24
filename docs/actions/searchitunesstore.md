@@ -15,8 +15,12 @@ Searches the iTunes Store, returning the items that match the specified search t
 
 ### arguments
 ### Text Input: Search / search (internally `WFSearchTerm`)
-**Placeholder**: U2
+**Placeholder**:
+```
+U2
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -42,8 +46,12 @@ This paramtype is not implemented. WFiTunesStoreCountryPickerParameter
 ---
 
 ### Stepper Number: wfitemlimit / wfitemlimit (internally `WFItemLimit`)
-**Default Value**: 25
+**Default Value**:
+```
+25
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

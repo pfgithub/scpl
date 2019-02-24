@@ -17,8 +17,12 @@ The updated contents of the variable.
 
 ### arguments
 ### Variable Field: Variable / variable (internally `WFVariableName`)
-**Placeholder**: Variable Name
+**Placeholder**:
+```
+Variable Name
+```
 **Allows Variables**: true
+
 
 
 Accepts a string with the name of the named variable (v:) you want to set,

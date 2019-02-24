@@ -18,8 +18,12 @@ Items in your music library or items from the Search iTunes action.
 
 ### arguments
 ### Enumeration: Play / play (internally `WFWhenToPlay`)
-**Default Value**: Next
+**Default Value**:
+```
+Next
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

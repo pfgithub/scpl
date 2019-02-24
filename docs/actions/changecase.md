@@ -13,8 +13,12 @@ Changes the case of the text passed into the action to UPPERCASE, lowercase, or 
 
 ### arguments
 ### Enumeration: Case / case (internally `WFCaseType`)
-**Default Value**: UPPERCASE
+**Default Value**:
+```
+UPPERCASE
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

@@ -13,9 +13,16 @@ Returns a particular object class from the input.
 
 ### arguments
 ### Text Input: Class / class (internally `Class`)
-**Placeholder**: NSString
-**Default Value**: NSURL
+**Placeholder**:
+```
+NSString
+```
+**Default Value**:
+```
+NSURL
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

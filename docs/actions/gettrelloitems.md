@@ -17,8 +17,12 @@ Gets cards, lists, or boards in your Trello account.
 
 ### arguments
 ### Enumeration: Get / get (internally `WFTrelloItemType`)
-**Default Value**: Boards
+**Default Value**:
+```
+Boards
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

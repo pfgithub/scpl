@@ -22,8 +22,12 @@ The URL of the newly created task
 
 ### arguments
 ### Text Input: Title / title (internally `WFWunderlistTitle`)
-**Placeholder**: Buy some milk
+**Placeholder**:
+```
+Buy some milk
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -48,14 +52,19 @@ This paramtype is not implemented. WFDateFieldParameter
 **Allows Variables**: true
 
 
+
 Accepts a string with either true or false
 or a variable.
 
 ---
 
 ### Text Input: Notes / notes (internally `WFWunderlistNotes`)
-**Placeholder**: Notes
+**Placeholder**:
+```
+Notes
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

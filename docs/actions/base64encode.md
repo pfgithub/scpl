@@ -13,8 +13,12 @@ Encodes or decodes text or files using Base64 encoding.
 
 ### arguments
 ### Enumeration: Mode / mode (internally `WFEncodeMode`)
-**Default Value**: Encode
+**Default Value**:
+```
+Encode
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -27,8 +31,12 @@ containing one of the options:
 ---
 
 ### Enumeration: Line Breaks / linebreaks (internally `WFBase64LineBreakMode`)
-**Default Value**: Every 76 Characters
+**Default Value**:
+```
+Every 76 Characters
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

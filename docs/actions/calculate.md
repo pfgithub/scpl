@@ -13,8 +13,12 @@ Performs a number operation on the input and returns the result.
 
 ### arguments
 ### Enumeration: Operation / operation (internally `WFMathOperation`)
-**Default Value**: +
+**Default Value**:
+```
++
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -31,6 +35,7 @@ containing one of the options:
 
 ### Enumeration: Scientific Operation / scientificoperation (internally `WFScientificMathOperation`)
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -56,8 +61,12 @@ containing one of the options:
 ---
 
 ### Number: Operand / operand (internally `WFMathOperand`)
-**Placeholder**: 0
+**Placeholder**:
+```
+0
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -67,8 +76,12 @@ with a number.
 ---
 
 ### Number: Operand / operand (internally `WFScientificMathOperand`)
-**Placeholder**: 3
+**Placeholder**:
+```
+3
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

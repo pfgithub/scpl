@@ -13,7 +13,10 @@ Tests if any item passed as input matches the specified condition, and if so, ru
 
 ### arguments
 ### Enumeration: Input / input (internally `WFCondition`)
-**Default Value**: Contains
+**Default Value**:
+```
+Contains
+```
 
 
 Accepts a string 
@@ -27,8 +30,12 @@ containing one of the options:
 ---
 
 ### Number: Number / number (internally `WFNumberValue`)
-**Placeholder**: 7
+**Placeholder**:
+```
+7
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -38,8 +45,12 @@ with a number.
 ---
 
 ### Text Input: Value / value (internally `WFConditionalActionString`)
-**Placeholder**: example
+**Placeholder**:
+```
+example
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

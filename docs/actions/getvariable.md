@@ -16,6 +16,7 @@ Gets the value of the specified variable and passes it to the next action.
 **Allows Variables**: true
 
 
+
 Accepts a variable.
 
 ### source json

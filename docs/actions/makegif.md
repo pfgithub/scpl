@@ -15,9 +15,16 @@ An animated GIF
 
 ### arguments
 ### Number: Seconds Per Photo / secondsperphoto (internally `WFMakeGIFActionDelayTime`)
-**Placeholder**: 0.2
-**Default Value**: 0.2
+**Placeholder**:
+```
+0.2
+```
+**Default Value**:
+```
+0.2
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -27,8 +34,12 @@ with a number.
 ---
 
 ### Switch: Loop Forever / loopforever (internally `WFMakeGIFActionLoopEnabled`)
-**Default Value**: true
+**Default Value**:
+```
+true
+```
 **Allows Variables**: true
+
 
 
 Accepts a string with either true or false
@@ -40,6 +51,7 @@ or a variable.
 **Allows Variables**: true
 
 
+
 Accepts a string 
 or variable
 containing an integer value.
@@ -47,8 +59,12 @@ containing an integer value.
 ---
 
 ### Switch: Auto Size / autosize (internally `WFMakeGIFActionAutoSize`)
-**Default Value**: true
+**Default Value**:
+```
+true
+```
 **Allows Variables**: true
+
 
 
 Accepts a string with either true or false
@@ -57,8 +73,12 @@ or a variable.
 ---
 
 ### Number: Width / width (internally `WFMakeGIFActionManualSizeWidth`)
-**Placeholder**: 500
+**Placeholder**:
+```
+500
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -68,8 +88,12 @@ with a number.
 ---
 
 ### Number: Height / height (internally `WFMakeGIFActionManualSizeHeight`)
-**Placeholder**: 500
+**Placeholder**:
+```
+500
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

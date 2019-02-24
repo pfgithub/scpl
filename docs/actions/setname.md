@@ -13,8 +13,12 @@ Sets the name of the item passed as input.
 
 ### arguments
 ### Text Input: Name / name (internally `WFName`)
-**Placeholder**: example
+**Placeholder**:
+```
+example
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -33,6 +37,7 @@ parameter is expanded or not.
 
 ### Switch: Don't Include File Extension / dontincludefileextension (internally `WFDontIncludeFileExtension`)
 **Allows Variables**: true
+
 
 
 Accepts a string with either true or false

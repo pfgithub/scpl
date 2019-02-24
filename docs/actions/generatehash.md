@@ -13,8 +13,12 @@ Generates a MD5/SHA1 hash from the input.
 
 ### arguments
 ### Enumeration: Type / type (internally `WFHashType`)
-**Default Value**: MD5
+**Default Value**:
+```
+MD5
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

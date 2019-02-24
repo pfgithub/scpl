@@ -15,8 +15,12 @@ Searches the web for the text provided as input.
 
 ### arguments
 ### Enumeration: Search / search (internally `WFSearchWebDestination`)
-**Default Value**: Google
+**Default Value**:
+```
+Google
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

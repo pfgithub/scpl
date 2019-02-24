@@ -21,8 +21,12 @@ This paramtype is not implemented. WFStorageServicePickerParameter
 ---
 
 ### Switch: Show Document Picker / showdocumentpicker (internally `WFShowFilePicker`)
-**Default Value**: true
+**Default Value**:
+```
+true
+```
 **Allows Variables**: true
+
 
 
 Accepts a string with either true or false
@@ -34,14 +38,19 @@ or a variable.
 **Allows Variables**: true
 
 
+
 Accepts a string with either true or false
 or a variable.
 
 ---
 
 ### Text Input: File Path / filepath (internally `WFGetFilePath`)
-**Placeholder**: example.txt
+**Placeholder**:
+```
+example.txt
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -51,8 +60,12 @@ with the text.
 ---
 
 ### Text Input: Initial Path / initialpath (internally `WFGetFileInitialDirectoryPath`)
-**Placeholder**: optional
+**Placeholder**:
+```
+optional
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -62,8 +75,12 @@ with the text.
 ---
 
 ### Switch: Error If Not Found / errorifnotfound (internally `WFFileErrorIfNotFound`)
-**Default Value**: true
+**Default Value**:
+```
+true
+```
 **Allows Variables**: true
+
 
 
 Accepts a string with either true or false

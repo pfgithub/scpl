@@ -17,8 +17,12 @@ Creates a new list on the specified board in your Trello account.
 
 ### arguments
 ### Text Input: Name / name (internally `WFTrelloName`)
-**Placeholder**: Shortcut Ideas
+**Placeholder**:
+```
+Shortcut Ideas
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -32,8 +36,12 @@ This paramtype is not implemented. WFTrelloBoardPickerParameter
 ---
 
 ### Enumeration: Position / position (internally `WFTrelloPosition`)
-**Default Value**: Top
+**Default Value**:
+```
+Top
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

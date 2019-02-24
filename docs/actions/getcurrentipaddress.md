@@ -13,8 +13,12 @@ Returns the local or external IP address of the device.
 
 ### arguments
 ### Enumeration: Address / address (internally `WFIPAddressSourceOption`)
-**Default Value**: External
+**Default Value**:
+```
+External
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -27,8 +31,12 @@ containing one of the options:
 ---
 
 ### Enumeration: Type / type (internally `WFIPAddressTypeOption`)
-**Default Value**: IPv4
+**Default Value**:
+```
+IPv4
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

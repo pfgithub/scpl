@@ -21,8 +21,12 @@ This paramtype is not implemented. WFDynamicEnumerationParameter
 ---
 
 ### Stepper Number: wfbookmarkcount / wfbookmarkcount (internally `WFBookmarkCount`)
-**Default Value**: 5
+**Default Value**:
+```
+5
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

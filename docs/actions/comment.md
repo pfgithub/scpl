@@ -13,7 +13,10 @@ This action lets you explain how part of a shortcut works. When run, this action
 
 ### arguments
 ### Text Input: wfcommentactiontext / wfcommentactiontext (internally `WFCommentActionText`)
-**Placeholder**: Enter comment...
+**Placeholder**:
+```
+Enter comment...
+```
 
 
 Accepts a string 

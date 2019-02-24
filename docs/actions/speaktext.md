@@ -15,8 +15,12 @@ Speaks the inputted text aloud.
 
 ### arguments
 ### Switch: Wait Until Finished / waituntilfinished (internally `WFSpeakTextWait`)
-**Default Value**: true
+**Default Value**:
+```
+true
+```
 **Allows Variables**: true
+
 
 
 Accepts a string with either true or false
@@ -29,8 +33,12 @@ This paramtype is not implemented. WFSpeakTextRateParameter
 ---
 
 ### Slider Number: Pitch / pitch (internally `WFSpeakTextPitch`)
-**Default Value**: 1
+**Default Value**:
+```
+1
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

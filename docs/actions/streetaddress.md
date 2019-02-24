@@ -15,8 +15,12 @@ Passes the specified address to the next action.
 
 ### arguments
 ### Text Input: Line 1 / line1 (internally `WFAddressLine1`)
-**Placeholder**: One Apple Park Way
+**Placeholder**:
+```
+One Apple Park Way
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -29,6 +33,7 @@ with the text.
 **Allows Variables**: true
 
 
+
 Accepts a string 
 or text
 with the text.
@@ -36,8 +41,12 @@ with the text.
 ---
 
 ### Text Input: City / city (internally `WFCity`)
-**Placeholder**: Cupertino
+**Placeholder**:
+```
+Cupertino
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -47,8 +56,12 @@ with the text.
 ---
 
 ### Text Input: State / state (internally `WFState`)
-**Placeholder**: California
+**Placeholder**:
+```
+California
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -58,8 +71,12 @@ with the text.
 ---
 
 ### Text Input: Postal Code / postalcode (internally `WFPostalCode`)
-**Placeholder**: 95014
+**Placeholder**:
+```
+95014
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

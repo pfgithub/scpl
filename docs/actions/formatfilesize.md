@@ -16,8 +16,12 @@ A file size from another action, or a number of bytes
 
 ### arguments
 ### Enumeration: Format / format (internally `WFFileSizeFormat`)
-**Default Value**: Automatic
+**Default Value**:
+```
+Automatic
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -38,8 +42,12 @@ containing one of the options:
 ---
 
 ### Switch: Include Units / includeunits (internally `WFFileSizeIncludeUnits`)
-**Default Value**: true
+**Default Value**:
+```
+true
+```
 **Allows Variables**: true
+
 
 
 Accepts a string with either true or false

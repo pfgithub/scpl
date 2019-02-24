@@ -15,8 +15,12 @@ Sets the device’s Low Power Mode to on or off.
 
 ### arguments
 ### Switch: Low Power Mode / lowpowermode (internally `OnValue`)
-**Default Value**: true
+**Default Value**:
+```
+true
+```
 **Allows Variables**: true
+
 
 
 Accepts a string with either true or false

@@ -15,8 +15,12 @@ Vibrates the device for a short amount of time.
 
 ### arguments
 ### Enumeration: Haptic Pattern / hapticpattern (internally `WFVibrateHapticType`)
-**Default Value**: Default
+**Default Value**:
+```
+Default
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

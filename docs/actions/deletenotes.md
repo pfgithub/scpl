@@ -15,8 +15,12 @@ Deletes the notes passed as input from Evernote.
 
 ### arguments
 ### Switch: Confirm Before Deleting / confirmbeforedeleting (internally `WFEvernoteConfirmDeletion`)
-**Default Value**: true
+**Default Value**:
+```
+true
+```
 **Allows Variables**: true
+
 
 
 Accepts a string with either true or false

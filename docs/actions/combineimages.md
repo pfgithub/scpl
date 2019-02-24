@@ -13,8 +13,12 @@ Combines the images passed into the action horizontally, vertically, or in a gri
 
 ### arguments
 ### Enumeration: Mode / mode (internally `WFImageCombineMode`)
-**Default Value**: Side-by-Side
+**Default Value**:
+```
+Side-by-Side
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -27,8 +31,12 @@ containing one of the options:
 ---
 
 ### Enumeration: Direction / direction (internally `WFImageCombineDirection`)
-**Default Value**: Horizontal
+**Default Value**:
+```
+Horizontal
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -41,8 +49,12 @@ containing one of the options:
 ---
 
 ### Number: Spacing / spacing (internally `WFImageCombineSpacing`)
-**Placeholder**: 0
+**Placeholder**:
+```
+0
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

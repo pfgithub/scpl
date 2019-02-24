@@ -17,8 +17,12 @@ Video from the camera.
 
 ### arguments
 ### Enumeration: Camera / camera (internally `WFCameraCaptureDevice`)
-**Default Value**: Back
+**Default Value**:
+```
+Back
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -31,8 +35,12 @@ containing one of the options:
 ---
 
 ### Enumeration: Quality / quality (internally `WFCameraCaptureQuality`)
-**Default Value**: Medium
+**Default Value**:
+```
+Medium
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -46,8 +54,12 @@ containing one of the options:
 ---
 
 ### Enumeration: Start Recording / startrecording (internally `WFRecordingStart`)
-**Default Value**: Immediately
+**Default Value**:
+```
+Immediately
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

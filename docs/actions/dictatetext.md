@@ -21,8 +21,12 @@ This paramtype is not implemented. WFDictateTextLanguagePickerParameter
 ---
 
 ### Enumeration: Stop Listening / stoplistening (internally `WFDictateTextStopListening`)
-**Default Value**: After Pause
+**Default Value**:
+```
+After Pause
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

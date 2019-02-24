@@ -21,8 +21,12 @@ This paramtype is not implemented. WFCalendarPickerParameter
 ---
 
 ### Stepper Number: wfgetupcomingitemcount / wfgetupcomingitemcount (internally `WFGetUpcomingItemCount`)
-**Default Value**: 1
+**Default Value**:
+```
+1
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -32,8 +36,12 @@ containing an integer value.
 ---
 
 ### Enumeration: Day / day (internally `WFDateSpecifier`)
-**Default Value**: Any Day
+**Default Value**:
+```
+Any Day
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

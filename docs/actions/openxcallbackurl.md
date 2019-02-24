@@ -20,14 +20,19 @@ When the app that's opened calls back to Shortcuts using x-success, it may inclu
 **Allows Variables**: true
 
 
+
 Accepts a string with either true or false
 or a variable.
 
 ---
 
 ### Text Input: Success Key / successkey (internally `WFXCallbackCustomSuccessKey`)
-**Default Value**: x-success
+**Default Value**:
+```
+x-success
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -37,8 +42,12 @@ with the text.
 ---
 
 ### Text Input: Cancel Key / cancelkey (internally `WFXCallbackCustomCancelKey`)
-**Placeholder**: optional
+**Placeholder**:
+```
+optional
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -48,8 +57,12 @@ with the text.
 ---
 
 ### Text Input: Error Key / errorkey (internally `WFXCallbackCustomErrorKey`)
-**Placeholder**: optional
+**Placeholder**:
+```
+optional
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -62,14 +75,19 @@ with the text.
 **Allows Variables**: true
 
 
+
 Accepts a string with either true or false
 or a variable.
 
 ---
 
 ### Text Input: X-Success URL / xsuccessurl (internally `WFXCallbackCustomSuccessURL`)
-**Default Value**: shortcuts://callback
+**Default Value**:
+```
+shortcuts://callback
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

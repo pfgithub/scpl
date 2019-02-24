@@ -15,9 +15,16 @@ Displays an alert with a title, a message, and two buttons. If the user selects 
 
 ### arguments
 ### Text Input: Title / title (internally `WFAlertActionTitle`)
-**Placeholder**: Attention-grabbing title
-**Default Value**: Alert
+**Placeholder**:
+```
+Attention-grabbing title
+```
+**Default Value**:
+```
+Alert
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -27,9 +34,16 @@ with the text.
 ---
 
 ### Text Input: Message / message (internally `WFAlertActionMessage`)
-**Placeholder**: Informational message
-**Default Value**: Do you want to continue?
+**Placeholder**:
+```
+Informational message
+```
+**Default Value**:
+```
+Do you want to continue?
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -39,8 +53,12 @@ with the text.
 ---
 
 ### Switch: Show Cancel Button / showcancelbutton (internally `WFAlertActionCancelButtonShown`)
-**Default Value**: true
+**Default Value**:
+```
+true
+```
 **Allows Variables**: true
+
 
 
 Accepts a string with either true or false

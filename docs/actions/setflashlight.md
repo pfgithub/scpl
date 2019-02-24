@@ -13,8 +13,12 @@ Turns on or off the flashlight near the device's camera.
 
 ### arguments
 ### Enumeration: Flashlight / flashlight (internally `WFFlashlightSetting`)
-**Default Value**: On
+**Default Value**:
+```
+On
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -28,8 +32,12 @@ containing one of the options:
 ---
 
 ### Slider Number: Brightness / brightness (internally `WFFlashlightLevel`)
-**Default Value**: 1
+**Default Value**:
+```
+1
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

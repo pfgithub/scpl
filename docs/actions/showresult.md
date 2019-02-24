@@ -15,8 +15,12 @@ Shows the specified text in Siri or in an alert.
 
 ### arguments
 ### Text Input: text / text (internally `Text`)
-**Placeholder**: Enter text...
+**Placeholder**:
+```
+Enter text...
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

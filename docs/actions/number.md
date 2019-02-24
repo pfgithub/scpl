@@ -13,8 +13,12 @@ Passes a number to the next action.
 
 ### arguments
 ### Number: Number / number (internally `WFNumberActionNumber`)
-**Placeholder**: 42
+**Placeholder**:
+```
+42
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

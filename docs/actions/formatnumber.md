@@ -13,8 +13,12 @@ Formats a number into text.
 
 ### arguments
 ### Stepper Number: wfnumberformatdecimalplaces / wfnumberformatdecimalplaces (internally `WFNumberFormatDecimalPlaces`)
-**Default Value**: 2
+**Default Value**:
+```
+2
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

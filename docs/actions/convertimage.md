@@ -19,8 +19,12 @@ This paramtype is not implemented. WFImageConvertFormatPickerParameter
 ---
 
 ### Slider Number: Quality / quality (internally `WFImageCompressionQuality`)
-**Default Value**: 0.75
+**Default Value**:
+```
+0.75
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -30,8 +34,12 @@ containing a number value from 0 to 1.
 ---
 
 ### Switch: Preserve Metadata / preservemetadata (internally `WFImagePreserveMetadata`)
-**Default Value**: true
+**Default Value**:
+```
+true
+```
 **Allows Variables**: true
+
 
 
 Accepts a string with either true or false

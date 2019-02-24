@@ -21,8 +21,12 @@ This paramtype is not implemented. WFIntentAppPickerParameter
 ---
 
 ### Switch: Show When Run / showwhenrun (internally `ShowWhenRun`)
-**Default Value**: true
+**Default Value**:
+```
+true
+```
 **Allows Variables**: true
+
 
 
 Accepts a string with either true or false
@@ -35,8 +39,12 @@ This paramtype is not implemented. WFContactHandleFieldParameter
 ---
 
 ### Text Input: wfsendmessagecontent / wfsendmessagecontent (internally `WFSendMessageContent`)
-**Placeholder**: Message
+**Placeholder**:
+```
+Message
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -47,6 +55,7 @@ with the text.
 
 ### Text Input: Prefix / prefix (internally `WFSendMessagePrefix`)
 **Allows Variables**: true
+
 
 
 Accepts a string 

@@ -17,7 +17,10 @@ Gets an hourly or daily weather forecast at the specified location.
 
 ### arguments
 ### Enumeration: At / at (internally `WFWeatherLocation`)
-**Default Value**: Current Location
+**Default Value**:
+```
+Current Location
+```
 
 
 Accepts a string 
@@ -33,8 +36,12 @@ This paramtype is not implemented. WFLocationFieldParameter
 ---
 
 ### Enumeration: Type / type (internally `WFWeatherForecastType`)
-**Default Value**: Daily
+**Default Value**:
+```
+Daily
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

@@ -16,14 +16,19 @@ Makes a PDF out of the input. The resulting PDF can optionally include a quarter
 **Allows Variables**: true
 
 
+
 Accepts a string with either true or false
 or a variable.
 
 ---
 
 ### Enumeration: Include / include (internally `WFPDFIncludedPages`)
-**Default Value**: All Pages
+**Default Value**:
+```
+All Pages
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -37,8 +42,12 @@ containing one of the options:
 ---
 
 ### Number: Page # / page (internally `WFPDFSinglePage`)
-**Placeholder**: 1
+**Placeholder**:
+```
+1
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -48,8 +57,12 @@ with a number.
 ---
 
 ### Number: Start Page # / startpage (internally `WFPDFPageRangeStart`)
-**Placeholder**: 1
+**Placeholder**:
+```
+1
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 
@@ -59,8 +72,12 @@ with a number.
 ---
 
 ### Number: End Page # / endpage (internally `WFPDFPageRangeEnd`)
-**Placeholder**: 3
+**Placeholder**:
+```
+3
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

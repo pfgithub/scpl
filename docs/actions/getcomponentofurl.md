@@ -13,8 +13,12 @@ Gets the specified part of the URL passed into the action.
 
 ### arguments
 ### Enumeration: Component / component (internally `WFURLComponent`)
-**Default Value**: Scheme
+**Default Value**:
+```
+Scheme
+```
 **Allows Variables**: true
+
 
 
 Accepts a string 

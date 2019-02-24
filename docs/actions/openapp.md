@@ -24,6 +24,7 @@ This paramtype is not implemented. WFAppPickerParameter
 **Allows Variables**: true
 
 
+
 Accepts a string 
 or text
 with the text.
