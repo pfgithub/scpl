@@ -13,7 +13,7 @@
 - [ ] 1: WFTimeOffsetParameter
 - [ ] 1: WFAlarmFrequencyPickerParameter
 - [ ] 1: WFAlarmPickerParameter
-- [x] 1: WFArrayParameter
+- [x] Complete - 1: WFArrayParameter
 - [ ] 1: WFContactFieldParameter
 - [ ] 1: WFDictateTextLanguagePickerParameter
 - [ ] 1: WFCustomDateFormatParameter
@@ -31,7 +31,7 @@
 - [ ] 1: WFIFTTTAddRecipeParameter
 - [ ] 1: WFImageConvertFormatPickerParameter
 - [ ] 1: WFLightroomPresetPickerParameter
-- [x] 1: WFContentArrayParameter
+- [x] Complete - 1: WFContentArrayParameter
 - [ ] 1: WFArchiveFormatParameter
 - [ ] 1: WFMeasurementUnitPickerParameter
 - [ ] 1: WFUnitPickerParameter
@@ -51,7 +51,7 @@
 - [ ] 1: WFTumblrBlogPickerParameter
 - [ ] 1: WFWunderlistListPickerParameter
 - [ ] 2: WFPlaylistPickerParameter
-- [x] 2: WFVariableFieldParameter
+- [x] Complete - 2: WFVariableFieldParameter
 - [ ] 2: WFEvernoteTagsTagFieldParameter
 - [ ] 2: WFMapsAppPickerParameter
 - [ ] 2: WFDurationQuantityFieldParameter
@@ -71,17 +71,17 @@
 - [ ] 4: WFEmailAddressFieldParameter
 - [ ] 5: WFIntentAppPickerParameter
 - [ ] 5: WFDictionaryParameter
-- [x] 5: WFSliderParameter
+- [x] Complete - 5: WFSliderParameter
 - [ ] 8: WFLocationFieldParameter
-- [x] 8: WFExpandingParameter
-- [x] 9: WFVariablePickerParameter
+- [x] Complete - 8: WFExpandingParameter
+- [x] Complete - 9: WFVariablePickerParameter
 - [ ] 14: WFDynamicEnumerationParameter
 - [ ] 17: WFDateFieldParameter
-- [x] 23: WFStepperParameter
-- [x] 39: WFNumberFieldParameter
-- [x] 67: WFSwitchParameter
-- [x] 87: WFEnumerationParameter
-- [x] 112: WFTextInputParameter
+- [x] Complete - 23: WFStepperParameter
+- [x] Complete - 39: WFNumberFieldParameter
+- [x] Complete - 67: WFSwitchParameter
+- [x] Complete - 87: WFEnumerationParameter
+- [x] Complete - 112: WFTextInputParameter
 
 \*Block actions such as if and repeat are not completed yet.
 \*\*Parameters with RequiredResources such as Get Contents Of URL and Calculate have unneeded arguments.

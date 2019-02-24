@@ -444,7 +444,7 @@ function genReadme() {
 		.map(([a, b])=>`${b}: ${a}`);
 	const typeList = Object.values(_debugTypes)
 		.sort((a, b) => a.count - b.count)
-		.map(({paramClass, count, missing})=>`- [${missing?" ":"x"}] ${count}: ${paramClass}`);
+		.map(({paramClass, count, missing})=>`- [${missing?" ":"x"}] ${missing?"":"Complete - "}${count}: ${paramClass}`);
 	return `
 # Shortcutslang
 
