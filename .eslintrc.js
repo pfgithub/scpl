@@ -1,4 +1,4 @@
-{
+module.exports = {
   // http://eslint.org/docs/rules/
   //"parser": "esprima",
   "parser": "espree",
@@ -32,7 +32,7 @@
   },
 
   "env": {
-    "browser": false,     // browser global variables.
+    "browser": true,     // browser global variables.
     "node": true,        // Node.js global variables and Node.js-specific rules.
     "amd": false,         // defines require() and define() as global variables as per the amd spec.
     "mocha": false,       // adds all of the Mocha testing global variables.

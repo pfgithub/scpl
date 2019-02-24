@@ -1,5 +1,4 @@
 const uuidv4 = require("uuid/v4");
-const fs = require("fs");
 const bplistc = require("bplist-creator");
 
 const type = {

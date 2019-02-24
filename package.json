@@ -4,7 +4,7 @@
 	"main": "index.js",
 	"license": "MIT",
 	"scripts": {
-		"test": "nyc mocha"
+		"docs": "node ./src/GenDocs && webpack"
 	},
 	"dependencies": {
 		"bplist-creator": "^0.0.7",
@@ -14,9 +14,8 @@
 	},
 	"devDependencies": {
 		"mocha": "^5.2.0",
-		"nyc": "^13.1.0"
-	},
-	"scripts": {
-		"docs": "node ./src/GenDocs"
+		"nyc": "^13.1.0",
+		"webpack": "^4.29.5",
+		"webpack-cli": "^3.2.3"
 	}
 }
