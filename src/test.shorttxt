@@ -5,8 +5,7 @@ Comment
 
 Text "hello there, how are you doing?"
 Number 5
-Calculate "+" "x^2" 2 // The second argument should not be required here. I know how to fix that but haven't implemented the fix yet
-
+Calculate "+" 2
 Number 5.2
 
 setVariable (v:"hello there")
@@ -39,7 +38,7 @@ SetWifi true
 SetWifi false
 setBrightness 1.0
 
-If ^(Text "test") "Equals" 5 "test" >c:0:gid:myif
+If ^(Text "test") "Equals" "test" >c:0:gid:myif
 	showalert "Alert" "Test equals test"
 If >c:1:gid:myif
 	showalert "Alert" "Test does not equal test"

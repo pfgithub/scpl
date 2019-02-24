@@ -15,17 +15,109 @@ function genShortName(longName, internalName) {
 	return shortName;
 }
 
+types.WFResource = class {
+	constructor(data) {
+		this._data = data;
+	}
+};
+
+types.WFDeviceAttributesResource = class extends types.WFResource {
+	shouldEnable(action) {
+		return true;
+	}
+};
+types.WFWorkflowTypeResource = class extends types.WFResource {
+	shouldEnable(action) {
+		return true;
+	}
+};
+
+/*
+Example
+{
+	"WFParameterKey": "WFHTTPBodyType",
+	"WFParameterValue": "Form",
+	"WFResourceClass": "WFParameterRelationResource"
+},
+{
+	"WFParameterKey": "WFHTTPMethod",
+	"WFParameterRelation": "!=",
+	"WFParameterValues": [
+		"GET"
+	],
+	"WFResourceClass": "WFParameterRelationResource"
+}
+
+!= is an array
+>= is a single value number
+<= is a single value number
+> is a single value number
+< is a single value number
+= is a single value
+?? is... uuh... two question marks? just return true I guess
+ */
+
+types.WFParameterRelationResource = class extends types.WFResource {
+	constructor(data) {
+		super(data);
+		this.relation = this._data.WFParameterRelation || "=";
+		this.argInternalName = this._data.WFParameterKey;
+		this.argValue = this._data.WFParameterValue;
+		this.argValues = this._data.WFParameterValues || [this.argValue];
+		if(!({"=": 1, "!=": 1, ">=": 1, "<=": 1, ">": 1, "<": 1, "=": 1, "??": 1})[this.relation]) {
+			throw new Error(`RelationResource relation type ${this.relation} is not implemented.`);
+		}
+	}
+	shouldEnable(action) {
+		const currentValue = action.parameters.get(this.argInternalName);
+		const currentValueNum = +currentValue;
+		const isNum = !isNaN(currentValueNum);
+		switch(this.relation) {
+			case "=":
+				return this.argValues.some(val => val === currentValue);
+			case "!=":
+				return this.argValues.indexOf(this.currentValue) === -1;
+			case ">=":
+				if(!isNum) {return false;}
+				return currentValueNum >= this.argValue;
+			case "<=":
+				if(!isNum) {return false;}
+				return currentValueNum <= this.argValue;
+			case ">":
+				if(!isNum) {return false;}
+				return currentValueNum > this.argValue;
+			case "<":
+				if(!isNum) {return false;}
+				return currentValueNum < this.argValue;
+			case "??":
+				return action.parameters.has(this.argInternalName);
+			default:
+				throw new Error(`RelationResource relation type ${this.relation} is not implemented.`);
+		}
+	}
+};
+
 types.WFParameter = class {
 	constructor(data, typeName) {
 		this._data = data;
 		this.defaultValue = this._data.DefaultValue;
-		this.requiredResources = this._data.RequiredResources;
+		this.requiredResources = this._data.RequiredResources || [];
 		this.allowsVariables = (this._data.DisallowedVariableTypes || []).join`` !== "AskVariable";
 		this.name = this._data.Label;
 		this.internalName = this._data.Key;
 		this.shortName = genShortName(this.name, this.internalName);
 		this.name = this.name || this.shortName;
 		this.typeName = typeName;
+
+		this.requiredResources = this.requiredResources.map(resource => {
+			const type = resource.WFResourceClass;
+			const resourceClass = types[type];
+			if(!resourceClass) {throw new Error(`${resourceClass} is not a defined resource class.`);}
+			return new resourceClass(resource);
+		});
+	}
+	shouldEnable(action) {
+		return this.requiredResources.every(resource => resource.shouldEnable(action));
 	}
 	genDocs() {
 		let docs = `### ${this.typeName}: ${this.name} / ${this.shortName} (internally \`${this.internalName}\`)\n`;
@@ -435,8 +527,10 @@ ${JSON.stringify(this._data, null, "\t")}
 			while(!paramtype) {
 				paramtype = this._parameters[parami];
 
+				if(!paramtype) {throw new Error(`There are no more arguments for this action.`);}
 				if(typeof paramtype === "string") {throw new Error(`This action is not supported yet. Reason: ${paramtype}`);}
-				if(action.parameters.has(paramtype.internalName)) {paramtype = undefined;} // Param [name] was already set
+				if(action.parameters.has(paramtype.internalName)) {paramtype = undefined; parami++; continue;} // Param [name] was already set
+				if(!paramtype.shouldEnable(action)) {paramtype = undefined; parami++; continue;} // If the required resources are not set, skip
 
 				parami++;
 			}
