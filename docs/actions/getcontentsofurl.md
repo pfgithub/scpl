@@ -9,7 +9,7 @@
 ### arguments
 unknown parameter type This paramtype is not implemented. WFExpandingParameter
 ---
-### undefined: Method / method (internally WFHTTPMethod)
+### Enumeration: Method / method (internally WFHTTPMethod)
 **Placeholder**: undefined
 **Default Value**: GET
 **Allows Variables**: true
@@ -29,7 +29,7 @@ unknown parameter type This paramtype is not implemented. WFExpandingParameter
 ---
 unknown parameter type This paramtype is not implemented. WFDictionaryParameter
 ---
-### undefined: Request Body / requestbody (internally WFHTTPBodyType)
+### Enumeration: Request Body / requestbody (internally WFHTTPBodyType)
 **Placeholder**: undefined
 **Default Value**: JSON
 **Allows Variables**: false

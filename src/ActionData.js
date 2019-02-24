@@ -37,7 +37,7 @@ types.WFEnumerationParameter = class extends types.WFParameter {
 // A list of options
 // Input: anything with .asText()
 	constructor(data) {
-		super(data);
+		super(data, "Enumeration");
 		this.options = this._data.Items;
 	}
 	genDocsArgName() {

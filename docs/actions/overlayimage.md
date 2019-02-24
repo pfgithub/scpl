@@ -22,7 +22,7 @@ Accepts a variable.
 Accepts a string with either true or false
 or a variable.
 ---
-### undefined: Position / position (internally WFImagePosition)
+### Enumeration: Position / position (internally WFImagePosition)
 **Placeholder**: undefined
 **Default Value**: Center
 **Allows Variables**: true

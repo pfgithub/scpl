@@ -5,7 +5,7 @@
 `generateqrcode [???]`
 
 ### arguments
-### undefined: Error Correction / errorcorrection (internally WFQRErrorCorrectionLevel)
+### Enumeration: Error Correction / errorcorrection (internally WFQRErrorCorrectionLevel)
 **Placeholder**: undefined
 **Default Value**: Medium
 **Allows Variables**: true

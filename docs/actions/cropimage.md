@@ -5,7 +5,7 @@
 `cropimage [???][???][???][???][???]`
 
 ### arguments
-### undefined: Position / position (internally WFImageCropPosition)
+### Enumeration: Position / position (internally WFImageCropPosition)
 **Placeholder**: undefined
 **Default Value**: Center
 **Allows Variables**: true

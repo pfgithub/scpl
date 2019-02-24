@@ -7,7 +7,7 @@
 `formatdate [???][???][???][???][???]`
 
 ### arguments
-### undefined: Date Format / dateformat (internally WFDateFormatStyle)
+### Enumeration: Date Format / dateformat (internally WFDateFormatStyle)
 **Placeholder**: undefined
 **Default Value**: Short
 **Allows Variables**: true
@@ -26,7 +26,7 @@ containing one of the options:
 - `ISO 8601`
 - `Custom`
 ---
-### undefined: Alternate Format / alternateformat (internally WFRelativeDateFormatStyle)
+### Enumeration: Alternate Format / alternateformat (internally WFRelativeDateFormatStyle)
 **Placeholder**: undefined
 **Default Value**: Medium
 **Allows Variables**: true
@@ -40,7 +40,7 @@ containing one of the options:
 - `Medium`
 - `Long`
 ---
-### undefined: Time Format / timeformat (internally WFTimeFormatStyle)
+### Enumeration: Time Format / timeformat (internally WFTimeFormatStyle)
 **Placeholder**: undefined
 **Default Value**: Short
 **Allows Variables**: true

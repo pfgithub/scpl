@@ -5,7 +5,7 @@
 `searchweb [???]`
 
 ### arguments
-### undefined: Search / search (internally WFSearchWebDestination)
+### Enumeration: Search / search (internally WFSearchWebDestination)
 **Placeholder**: undefined
 **Default Value**: Google
 **Allows Variables**: true

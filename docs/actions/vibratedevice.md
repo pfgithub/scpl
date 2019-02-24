@@ -5,7 +5,7 @@
 `vibratedevice [???]`
 
 ### arguments
-### undefined: Haptic Pattern / hapticpattern (internally WFVibrateHapticType)
+### Enumeration: Haptic Pattern / hapticpattern (internally WFVibrateHapticType)
 **Placeholder**: undefined
 **Default Value**: Default
 **Allows Variables**: true

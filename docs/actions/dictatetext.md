@@ -9,7 +9,7 @@
 ### arguments
 unknown parameter type This paramtype is not implemented. WFDictateTextLanguagePickerParameter
 ---
-### undefined: Stop Listening / stoplistening (internally WFDictateTextStopListening)
+### Enumeration: Stop Listening / stoplistening (internally WFDictateTextStopListening)
 **Placeholder**: undefined
 **Default Value**: After Pause
 **Allows Variables**: true

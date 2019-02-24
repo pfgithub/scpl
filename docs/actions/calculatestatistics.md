@@ -5,7 +5,7 @@
 `calculatestatistics [???]`
 
 ### arguments
-### undefined: Operation / operation (internally WFStatisticsOperation)
+### Enumeration: Operation / operation (internally WFStatisticsOperation)
 **Placeholder**: undefined
 **Default Value**: Average
 **Allows Variables**: true

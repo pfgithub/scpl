@@ -17,7 +17,7 @@ Accepts a string
 or text
 with the text.
 ---
-### undefined: Mode / mode (internally WFEvernoteWriteMode)
+### Enumeration: Mode / mode (internally WFEvernoteWriteMode)
 **Placeholder**: undefined
 **Default Value**: Append
 **Allows Variables**: true

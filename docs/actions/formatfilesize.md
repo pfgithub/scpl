@@ -5,7 +5,7 @@
 `formatfilesize [???][???]`
 
 ### arguments
-### undefined: Format / format (internally WFFileSizeFormat)
+### Enumeration: Format / format (internally WFFileSizeFormat)
 **Placeholder**: undefined
 **Default Value**: Automatic
 **Allows Variables**: true

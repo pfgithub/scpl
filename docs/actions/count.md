@@ -5,7 +5,7 @@
 `count [???]`
 
 ### arguments
-### undefined: Count / count (internally WFCountType)
+### Enumeration: Count / count (internally WFCountType)
 **Placeholder**: undefined
 **Default Value**: undefined
 **Allows Variables**: true

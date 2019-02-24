@@ -16,7 +16,7 @@
 Accepts a string with either true or false
 or a variable.
 ---
-### undefined: Format / format (internally WFMediaAudioFormat)
+### Enumeration: Format / format (internally WFMediaAudioFormat)
 **Placeholder**: undefined
 **Default Value**: M4A
 **Allows Variables**: true
@@ -29,7 +29,7 @@ containing one of the options:
 - `M4A`
 - `AIFF`
 ---
-### undefined: Size / size (internally WFMediaSize)
+### Enumeration: Size / size (internally WFMediaSize)
 **Placeholder**: undefined
 **Default Value**: Passthrough
 **Allows Variables**: true
@@ -47,7 +47,7 @@ containing one of the options:
 - `HEVC 3840x2160`
 - `Passthrough`
 ---
-### undefined: Speed / speed (internally WFMediaSpeed)
+### Enumeration: Speed / speed (internally WFMediaSpeed)
 **Placeholder**: undefined
 **Default Value**: Normal
 **Allows Variables**: true

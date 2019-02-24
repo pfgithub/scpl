@@ -14,7 +14,7 @@
 Accepts a string with either true or false
 or a variable.
 ---
-### undefined: Include / include (internally WFPDFIncludedPages)
+### Enumeration: Include / include (internally WFPDFIncludedPages)
 **Placeholder**: undefined
 **Default Value**: All Pages
 **Allows Variables**: true

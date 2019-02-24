@@ -44,7 +44,7 @@ unknown parameter type This paramtype is not implemented. WFDateFieldParameter
 Accepts a string with either true or false
 or a variable.
 ---
-### undefined: Alert / alert (internally WFAlertTime)
+### Enumeration: Alert / alert (internally WFAlertTime)
 **Placeholder**: undefined
 **Default Value**: undefined
 **Allows Variables**: true

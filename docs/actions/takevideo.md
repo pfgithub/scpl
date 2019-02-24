@@ -5,7 +5,7 @@
 `takevideo [???][???][???]`
 
 ### arguments
-### undefined: Camera / camera (internally WFCameraCaptureDevice)
+### Enumeration: Camera / camera (internally WFCameraCaptureDevice)
 **Placeholder**: undefined
 **Default Value**: Back
 **Allows Variables**: true
@@ -18,7 +18,7 @@ containing one of the options:
 - `Front`
 - `Back`
 ---
-### undefined: Quality / quality (internally WFCameraCaptureQuality)
+### Enumeration: Quality / quality (internally WFCameraCaptureQuality)
 **Placeholder**: undefined
 **Default Value**: Medium
 **Allows Variables**: true
@@ -32,7 +32,7 @@ containing one of the options:
 - `Medium`
 - `High`
 ---
-### undefined: Start Recording / startrecording (internally WFRecordingStart)
+### Enumeration: Start Recording / startrecording (internally WFRecordingStart)
 **Placeholder**: undefined
 **Default Value**: Immediately
 **Allows Variables**: true

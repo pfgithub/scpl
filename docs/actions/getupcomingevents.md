@@ -19,7 +19,7 @@ Accepts a string
 or variable
 containing an integer value.
 ---
-### undefined: Day / day (internally WFDateSpecifier)
+### Enumeration: Day / day (internally WFDateSpecifier)
 **Placeholder**: undefined
 **Default Value**: Any Day
 **Allows Variables**: true

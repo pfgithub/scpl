@@ -5,7 +5,7 @@
 `base64encode [???][???]`
 
 ### arguments
-### undefined: Mode / mode (internally WFEncodeMode)
+### Enumeration: Mode / mode (internally WFEncodeMode)
 **Placeholder**: undefined
 **Default Value**: Encode
 **Allows Variables**: true
@@ -18,7 +18,7 @@ containing one of the options:
 - `Encode`
 - `Decode`
 ---
-### undefined: Line Breaks / linebreaks (internally WFBase64LineBreakMode)
+### Enumeration: Line Breaks / linebreaks (internally WFBase64LineBreakMode)
 **Placeholder**: undefined
 **Default Value**: Every 76 Characters
 **Allows Variables**: true

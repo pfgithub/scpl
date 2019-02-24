@@ -5,7 +5,7 @@
 `uploadtocloudapp [???]`
 
 ### arguments
-### undefined: Link Privacy / linkprivacy (internally WFCloudAppPrivacyType)
+### Enumeration: Link Privacy / linkprivacy (internally WFCloudAppPrivacyType)
 **Placeholder**: undefined
 **Default Value**: Private
 **Allows Variables**: true

@@ -5,7 +5,7 @@
 `combinetext [???][???]`
 
 ### arguments
-### undefined: Separator / separator (internally WFTextSeparator)
+### Enumeration: Separator / separator (internally WFTextSeparator)
 **Placeholder**: undefined
 **Default Value**: Spaces
 **Allows Variables**: true

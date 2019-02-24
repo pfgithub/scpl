@@ -7,7 +7,7 @@
 `getcurrentweather [???][???]`
 
 ### arguments
-### undefined: At / at (internally WFWeatherLocation)
+### Enumeration: At / at (internally WFWeatherLocation)
 **Placeholder**: undefined
 **Default Value**: Current Location
 **Allows Variables**: false

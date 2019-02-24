@@ -15,7 +15,7 @@ Accepts a string
 or variable
 containing an integer value.
 ---
-### undefined: Type / type (internally WFPocketItemState)
+### Enumeration: Type / type (internally WFPocketItemState)
 **Placeholder**: undefined
 **Default Value**: All
 **Allows Variables**: true

@@ -16,7 +16,7 @@
 Accepts a string with either true or false
 or a variable.
 ---
-### undefined: Preset Group / presetgroup (internally presetGroup)
+### Enumeration: Preset Group / presetgroup (internally presetGroup)
 **Placeholder**: undefined
 **Default Value**: Color
 **Allows Variables**: true

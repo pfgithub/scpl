@@ -5,7 +5,7 @@
 `playmusic [???][???]`
 
 ### arguments
-### undefined: Shuffle / shuffle (internally WFPlayMusicActionShuffle)
+### Enumeration: Shuffle / shuffle (internally WFPlayMusicActionShuffle)
 **Placeholder**: undefined
 **Default Value**: undefined
 **Allows Variables**: true
@@ -18,7 +18,7 @@ containing one of the options:
 - `Off`
 - `Songs`
 ---
-### undefined: Repeat / repeat (internally WFPlayMusicActionRepeat)
+### Enumeration: Repeat / repeat (internally WFPlayMusicActionRepeat)
 **Placeholder**: undefined
 **Default Value**: undefined
 **Allows Variables**: true

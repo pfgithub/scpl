@@ -5,7 +5,7 @@
 `changecase [???]`
 
 ### arguments
-### undefined: Case / case (internally WFCaseType)
+### Enumeration: Case / case (internally WFCaseType)
 **Placeholder**: undefined
 **Default Value**: UPPERCASE
 **Allows Variables**: true

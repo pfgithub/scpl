@@ -7,7 +7,7 @@
 `gettrelloitems [???][???][???]`
 
 ### arguments
-### undefined: Get / get (internally WFTrelloItemType)
+### Enumeration: Get / get (internally WFTrelloItemType)
 **Placeholder**: undefined
 **Default Value**: Boards
 **Allows Variables**: true

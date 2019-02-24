@@ -9,7 +9,7 @@
 ### arguments
 unknown parameter type This paramtype is not implemented. WFNetworkPickerParameter
 ---
-### undefined: Get / get (internally WFWiFiDetail)
+### Enumeration: Get / get (internally WFWiFiDetail)
 **Placeholder**: undefined
 **Default Value**: Network Name
 **Allows Variables**: true
@@ -22,7 +22,7 @@ containing one of the options:
 - `Network Name`
 - `BSSID`
 ---
-### undefined: Get / get (internally WFCellularDetail)
+### Enumeration: Get / get (internally WFCellularDetail)
 **Placeholder**: undefined
 **Default Value**: Carrier Name
 **Allows Variables**: true

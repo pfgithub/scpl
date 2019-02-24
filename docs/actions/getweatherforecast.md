@@ -7,7 +7,7 @@
 `getweatherforecast [???][???][???]`
 
 ### arguments
-### undefined: At / at (internally WFWeatherLocation)
+### Enumeration: At / at (internally WFWeatherLocation)
 **Placeholder**: undefined
 **Default Value**: Current Location
 **Allows Variables**: false
@@ -21,7 +21,7 @@ containing one of the options:
 ---
 unknown parameter type This paramtype is not implemented. WFLocationFieldParameter
 ---
-### undefined: Type / type (internally WFWeatherForecastType)
+### Enumeration: Type / type (internally WFWeatherForecastType)
 **Placeholder**: undefined
 **Default Value**: Daily
 **Allows Variables**: true

@@ -5,7 +5,7 @@
 `getdictionaryvalue [???][???]`
 
 ### arguments
-### undefined: Get / get (internally WFGetDictionaryValueType)
+### Enumeration: Get / get (internally WFGetDictionaryValueType)
 **Placeholder**: undefined
 **Default Value**: Value
 **Allows Variables**: false

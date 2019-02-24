@@ -5,7 +5,7 @@
 `roundnumber [???][???][???]`
 
 ### arguments
-### undefined: Round / round (internally WFRoundType)
+### Enumeration: Round / round (internally WFRoundType)
 **Placeholder**: undefined
 **Default Value**: Left of Decimal
 **Allows Variables**: true
@@ -18,7 +18,7 @@ containing one of the options:
 - `Left of Decimal`
 - `Right of Decimal`
 ---
-### undefined: Mode / mode (internally WFRoundMode)
+### Enumeration: Mode / mode (internally WFRoundMode)
 **Placeholder**: undefined
 **Default Value**: Normal
 **Allows Variables**: true

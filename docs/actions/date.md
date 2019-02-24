@@ -7,7 +7,7 @@
 `date [???][???]`
 
 ### arguments
-### undefined: Use / use (internally WFDateActionMode)
+### Enumeration: Use / use (internally WFDateActionMode)
 **Placeholder**: undefined
 **Default Value**: Current Date
 **Allows Variables**: true

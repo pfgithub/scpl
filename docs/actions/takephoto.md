@@ -24,7 +24,7 @@ Accepts a string
 or variable
 containing an integer value.
 ---
-### undefined: Camera / camera (internally WFCameraCaptureDevice)
+### Enumeration: Camera / camera (internally WFCameraCaptureDevice)
 **Placeholder**: undefined
 **Default Value**: Back
 **Allows Variables**: true

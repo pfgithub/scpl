@@ -5,7 +5,7 @@
 `calculate [???][???][???][???]`
 
 ### arguments
-### undefined: Operation / operation (internally WFMathOperation)
+### Enumeration: Operation / operation (internally WFMathOperation)
 **Placeholder**: undefined
 **Default Value**: +
 **Allows Variables**: true
@@ -21,7 +21,7 @@ containing one of the options:
 - `÷`
 - `…`
 ---
-### undefined: Scientific Operation / scientificoperation (internally WFScientificMathOperation)
+### Enumeration: Scientific Operation / scientificoperation (internally WFScientificMathOperation)
 **Placeholder**: undefined
 **Default Value**: undefined
 **Allows Variables**: true

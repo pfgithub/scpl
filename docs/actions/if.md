@@ -5,7 +5,7 @@
 `if [???][???][???]`
 
 ### arguments
-### undefined: Input / input (internally WFCondition)
+### Enumeration: Input / input (internally WFCondition)
 **Placeholder**: undefined
 **Default Value**: Contains
 **Allows Variables**: false

@@ -5,7 +5,7 @@
 `urlencode [???]`
 
 ### arguments
-### undefined: Mode / mode (internally WFEncodeMode)
+### Enumeration: Mode / mode (internally WFEncodeMode)
 **Placeholder**: undefined
 **Default Value**: Encode
 **Allows Variables**: true

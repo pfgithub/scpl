@@ -5,7 +5,7 @@
 `generatehash [???]`
 
 ### arguments
-### undefined: Type / type (internally WFHashType)
+### Enumeration: Type / type (internally WFHashType)
 **Placeholder**: undefined
 **Default Value**: MD5
 **Allows Variables**: true

@@ -5,7 +5,7 @@
 `splittext [???][???]`
 
 ### arguments
-### undefined: Separator / separator (internally WFTextSeparator)
+### Enumeration: Separator / separator (internally WFTextSeparator)
 **Placeholder**: undefined
 **Default Value**: New Lines
 **Allows Variables**: true

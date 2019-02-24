@@ -29,7 +29,7 @@ with the text.
 ---
 unknown parameter type This paramtype is not implemented. WFDateFieldParameter
 ---
-### undefined: Input Type / inputtype (internally WFInputType)
+### Enumeration: Input Type / inputtype (internally WFInputType)
 **Placeholder**: undefined
 **Default Value**: Text
 **Allows Variables**: true
@@ -44,7 +44,7 @@ containing one of the options:
 - `URL`
 - `Date`
 ---
-### undefined: Granularity / granularity (internally WFAskActionDateGranularity)
+### Enumeration: Granularity / granularity (internally WFAskActionDateGranularity)
 **Placeholder**: undefined
 **Default Value**: Date
 **Allows Variables**: true

@@ -20,7 +20,7 @@ unknown parameter type This paramtype is not implemented. WFUberProductPickerPar
 ---
 unknown parameter type This paramtype is not implemented. WFUberSeatCountPickerParameter
 ---
-### undefined: Pick Up At / pickupat (internally UberPickupAt)
+### Enumeration: Pick Up At / pickupat (internally UberPickupAt)
 **Placeholder**: undefined
 **Default Value**: Current Location
 **Allows Variables**: true

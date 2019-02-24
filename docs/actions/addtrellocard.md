@@ -23,7 +23,7 @@ unknown parameter type This paramtype is not implemented. WFTrelloListPickerPara
 ---
 unknown parameter type This paramtype is not implemented. WFDateFieldParameter
 ---
-### undefined: Position / position (internally WFTrelloCardPosition)
+### Enumeration: Position / position (internally WFTrelloCardPosition)
 **Placeholder**: undefined
 **Default Value**: Top
 **Allows Variables**: true

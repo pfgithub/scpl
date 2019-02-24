@@ -5,7 +5,7 @@
 `addtoupnext [???]`
 
 ### arguments
-### undefined: Play / play (internally WFWhenToPlay)
+### Enumeration: Play / play (internally WFWhenToPlay)
 **Placeholder**: undefined
 **Default Value**: Next
 **Allows Variables**: true

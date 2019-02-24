@@ -5,7 +5,7 @@
 `flipimage [???]`
 
 ### arguments
-### undefined: Direction / direction (internally WFImageFlipDirection)
+### Enumeration: Direction / direction (internally WFImageFlipDirection)
 **Placeholder**: undefined
 **Default Value**: Horizontal
 **Allows Variables**: true

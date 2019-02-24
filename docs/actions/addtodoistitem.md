@@ -23,7 +23,7 @@ unknown parameter type This paramtype is not implemented. WFDateFieldParameter
 ---
 unknown parameter type This paramtype is not implemented. WFDateFieldParameter
 ---
-### undefined: Reminder Type / remindertype (internally WFTodoistReminderType)
+### Enumeration: Reminder Type / remindertype (internally WFTodoistReminderType)
 **Placeholder**: undefined
 **Default Value**: Email
 **Allows Variables**: true
@@ -37,7 +37,7 @@ containing one of the options:
 - `Push Notification`
 - `Text Message`
 ---
-### undefined: Priority / priority (internally WFTodoistPriority)
+### Enumeration: Priority / priority (internally WFTodoistPriority)
 **Placeholder**: undefined
 **Default Value**: 4
 **Allows Variables**: true

@@ -5,7 +5,7 @@
 `getcomponentofurl [???]`
 
 ### arguments
-### undefined: Component / component (internally WFURLComponent)
+### Enumeration: Component / component (internally WFURLComponent)
 **Placeholder**: undefined
 **Default Value**: Scheme
 **Allows Variables**: true

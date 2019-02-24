@@ -7,7 +7,7 @@
 `setflashlight [???][???]`
 
 ### arguments
-### undefined: Flashlight / flashlight (internally WFFlashlightSetting)
+### Enumeration: Flashlight / flashlight (internally WFFlashlightSetting)
 **Placeholder**: undefined
 **Default Value**: On
 **Allows Variables**: true

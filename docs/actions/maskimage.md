@@ -5,7 +5,7 @@
 `maskimage [???][???][???]`
 
 ### arguments
-### undefined: Type / type (internally WFMaskType)
+### Enumeration: Type / type (internally WFMaskType)
 **Placeholder**: undefined
 **Default Value**: undefined
 **Allows Variables**: false

@@ -7,7 +7,7 @@
 `getdistance [???][???][???][???]`
 
 ### arguments
-### undefined: From / from (internally WFGetDirectionsFrom)
+### Enumeration: From / from (internally WFGetDirectionsFrom)
 **Placeholder**: undefined
 **Default Value**: Current Location
 **Allows Variables**: false
@@ -21,7 +21,7 @@ containing one of the options:
 ---
 unknown parameter type This paramtype is not implemented. WFLocationFieldParameter
 ---
-### undefined: Route Type / routetype (internally WFGetDirectionsActionMode)
+### Enumeration: Route Type / routetype (internally WFGetDirectionsActionMode)
 **Placeholder**: undefined
 **Default Value**: Direct
 **Allows Variables**: true

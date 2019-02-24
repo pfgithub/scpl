@@ -5,7 +5,7 @@
 `getdevicedetails [???]`
 
 ### arguments
-### undefined: Get / get (internally WFDeviceDetail)
+### Enumeration: Get / get (internally WFDeviceDetail)
 **Placeholder**: undefined
 **Default Value**: Device Name
 **Allows Variables**: true

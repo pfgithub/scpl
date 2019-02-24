@@ -5,7 +5,7 @@
 `getitemfromlist [???][???][???][???]`
 
 ### arguments
-### undefined: Get / get (internally WFItemSpecifier)
+### Enumeration: Get / get (internally WFItemSpecifier)
 **Placeholder**: undefined
 **Default Value**: First Item
 **Allows Variables**: true

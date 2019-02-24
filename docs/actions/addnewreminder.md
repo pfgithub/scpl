@@ -21,7 +21,7 @@ unknown parameter type This paramtype is not implemented. WFCalendarPickerParame
 ---
 unknown parameter type This paramtype is not implemented. WFExpandingParameter
 ---
-### undefined: Remind / remind (internally WFAlertTrigger)
+### Enumeration: Remind / remind (internally WFAlertTrigger)
 **Placeholder**: undefined
 **Default Value**: undefined
 **Allows Variables**: true
@@ -34,7 +34,7 @@ containing one of the options:
 - `At Time`
 - `At Location`
 ---
-### undefined: When I... / wheni (internally WFAlertLocationProximity)
+### Enumeration: When I... / wheni (internally WFAlertLocationProximity)
 **Placeholder**: undefined
 **Default Value**: undefined
 **Allows Variables**: true

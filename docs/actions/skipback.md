@@ -5,7 +5,7 @@
 `skipback [???]`
 
 ### arguments
-### undefined: Skip To / skipto (internally WFSkipBackBehavior)
+### Enumeration: Skip To / skipto (internally WFSkipBackBehavior)
 **Placeholder**: undefined
 **Default Value**: Beginning
 **Allows Variables**: true

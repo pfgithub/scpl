@@ -13,7 +13,7 @@ unknown parameter type This paramtype is not implemented. WFTumblrBlogPickerPara
 ---
 unknown parameter type This paramtype is not implemented. WFDynamicEnumerationParameter
 ---
-### undefined: Post Status / poststatus (internally WFPostState)
+### Enumeration: Post Status / poststatus (internally WFPostState)
 **Placeholder**: undefined
 **Default Value**: Post Now
 **Allows Variables**: true

@@ -19,7 +19,7 @@ Accepts a string
 or text
 with the text.
 ---
-### undefined: Mode / mode (internally WFAppendFileWriteMode)
+### Enumeration: Mode / mode (internally WFAppendFileWriteMode)
 **Placeholder**: undefined
 **Default Value**: Append
 **Allows Variables**: true

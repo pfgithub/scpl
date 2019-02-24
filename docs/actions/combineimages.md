@@ -5,7 +5,7 @@
 `combineimages [???][???][???]`
 
 ### arguments
-### undefined: Mode / mode (internally WFImageCombineMode)
+### Enumeration: Mode / mode (internally WFImageCombineMode)
 **Placeholder**: undefined
 **Default Value**: Side-by-Side
 **Allows Variables**: true
@@ -18,7 +18,7 @@ containing one of the options:
 - `Side-by-Side`
 - `Grid`
 ---
-### undefined: Direction / direction (internally WFImageCombineDirection)
+### Enumeration: Direction / direction (internally WFImageCombineDirection)
 **Placeholder**: undefined
 **Default Value**: Horizontal
 **Allows Variables**: true

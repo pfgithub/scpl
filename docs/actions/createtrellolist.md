@@ -19,7 +19,7 @@ with the text.
 ---
 unknown parameter type This paramtype is not implemented. WFTrelloBoardPickerParameter
 ---
-### undefined: Position / position (internally WFTrelloPosition)
+### Enumeration: Position / position (internally WFTrelloPosition)
 **Placeholder**: undefined
 **Default Value**: Top
 **Allows Variables**: true

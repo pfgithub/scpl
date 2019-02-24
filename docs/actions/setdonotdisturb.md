@@ -16,7 +16,7 @@
 Accepts a string with either true or false
 or a variable.
 ---
-### undefined: Until / until (internally AssertionType)
+### Enumeration: Until / until (internally AssertionType)
 **Placeholder**: undefined
 **Default Value**: Turned Off
 **Allows Variables**: true

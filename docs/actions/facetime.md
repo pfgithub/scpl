@@ -9,7 +9,7 @@
 ### arguments
 unknown parameter type This paramtype is not implemented. WFIntentAppPickerParameter
 ---
-### undefined: Call Type / calltype (internally WFFaceTimeType)
+### Enumeration: Call Type / calltype (internally WFFaceTimeType)
 **Placeholder**: undefined
 **Default Value**: Video
 **Allows Variables**: true

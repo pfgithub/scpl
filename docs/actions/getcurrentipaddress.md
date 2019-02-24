@@ -5,7 +5,7 @@
 `getcurrentipaddress [???][???]`
 
 ### arguments
-### undefined: Address / address (internally WFIPAddressSourceOption)
+### Enumeration: Address / address (internally WFIPAddressSourceOption)
 **Placeholder**: undefined
 **Default Value**: External
 **Allows Variables**: true
@@ -18,7 +18,7 @@ containing one of the options:
 - `External`
 - `Local`
 ---
-### undefined: Type / type (internally WFIPAddressTypeOption)
+### Enumeration: Type / type (internally WFIPAddressTypeOption)
 **Placeholder**: undefined
 **Default Value**: IPv4
 **Allows Variables**: true

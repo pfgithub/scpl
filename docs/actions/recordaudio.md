@@ -7,7 +7,7 @@
 `recordaudio [???][???][???][???]`
 
 ### arguments
-### undefined: Audio Quality / audioquality (internally WFRecordingCompression)
+### Enumeration: Audio Quality / audioquality (internally WFRecordingCompression)
 **Placeholder**: undefined
 **Default Value**: Normal
 **Allows Variables**: true
@@ -20,7 +20,7 @@ containing one of the options:
 - `Normal`
 - `Very High`
 ---
-### undefined: Start Recording / startrecording (internally WFRecordingStart)
+### Enumeration: Start Recording / startrecording (internally WFRecordingStart)
 **Placeholder**: undefined
 **Default Value**: On Tap
 **Allows Variables**: true
@@ -33,7 +33,7 @@ containing one of the options:
 - `On Tap`
 - `Immediately`
 ---
-### undefined: Finish Recording / finishrecording (internally WFRecordingEnd)
+### Enumeration: Finish Recording / finishrecording (internally WFRecordingEnd)
 **Placeholder**: undefined
 **Default Value**: On Tap
 **Allows Variables**: true

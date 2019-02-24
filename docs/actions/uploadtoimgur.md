@@ -32,7 +32,7 @@ or a variable.
 Accepts a string with either true or false
 or a variable.
 ---
-### undefined: Album Layout / albumlayout (internally WFImgurAlbumLayout)
+### Enumeration: Album Layout / albumlayout (internally WFImgurAlbumLayout)
 **Placeholder**: undefined
 **Default Value**: Blog
 **Allows Variables**: true
@@ -47,7 +47,7 @@ containing one of the options:
 - `Horizontal`
 - `Vertical`
 ---
-### undefined: Album Privacy / albumprivacy (internally WFImgurAlbumPrivacy)
+### Enumeration: Album Privacy / albumprivacy (internally WFImgurAlbumPrivacy)
 **Placeholder**: undefined
 **Default Value**: Hidden
 **Allows Variables**: true

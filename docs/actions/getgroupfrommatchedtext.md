@@ -5,7 +5,7 @@
 `getgroupfrommatchedtext [???][???]`
 
 ### arguments
-### undefined: Get / get (internally WFGetGroupType)
+### Enumeration: Get / get (internally WFGetGroupType)
 **Placeholder**: undefined
 **Default Value**: Group At Index
 **Allows Variables**: true

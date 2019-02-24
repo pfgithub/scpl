@@ -7,7 +7,7 @@
 `gettimebetweendates [???][???][???]`
 
 ### arguments
-### undefined: Get Time From / gettimefrom (internally WFTimeUntilReferenceDate)
+### Enumeration: Get Time From / gettimefrom (internally WFTimeUntilReferenceDate)
 **Placeholder**: undefined
 **Default Value**: Right Now
 **Allows Variables**: false
@@ -21,7 +21,7 @@ containing one of the options:
 ---
 unknown parameter type This paramtype is not implemented. WFDateFieldParameter
 ---
-### undefined: In / in (internally WFTimeUntilUnit)
+### Enumeration: In / in (internally WFTimeUntilUnit)
 **Placeholder**: undefined
 **Default Value**: Minutes
 **Allows Variables**: true
