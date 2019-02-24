@@ -16,10 +16,9 @@ Returns the song that is currently playing in the Music app, if any.
 ### arguments
 
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFGetCurrentSongAction",
@@ -55,4 +54,4 @@ Returns the song that is currently playing in the Music app, if any.
 	"Subcategory": "Music"
 }
 ```
-</p></details>
+</details>

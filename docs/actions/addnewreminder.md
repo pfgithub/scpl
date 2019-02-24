@@ -96,10 +96,9 @@ Accepts a string
 or text
 with the text.
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFAddNewReminderAction",
@@ -265,4 +264,4 @@ with the text.
 	"Subcategory": "Reminders"
 }
 ```
-</p></details>
+</details>

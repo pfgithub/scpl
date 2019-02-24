@@ -14,10 +14,9 @@ Adds URLs passed into the action to your reading list.
 ### arguments
 
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFAddToReadingListAction",
@@ -47,4 +46,4 @@ Adds URLs passed into the action to your reading list.
 	"Subcategory": "Safari"
 }
 ```
-</p></details>
+</details>

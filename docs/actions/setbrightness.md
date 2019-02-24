@@ -23,10 +23,9 @@ Accepts a string
 or variable
 containing a number value from 0 to 1.
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ACECommandClass": "SASettingSetBrightness",
@@ -59,4 +58,4 @@ containing a number value from 0 to 1.
 	"Subcategory": "Device"
 }
 ```
-</p></details>
+</details>

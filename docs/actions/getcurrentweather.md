@@ -30,10 +30,9 @@ containing one of the options:
 
 This paramtype is not implemented. WFLocationFieldParameter
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFGetCurrentWeatherConditionsAction",
@@ -110,4 +109,4 @@ This paramtype is not implemented. WFLocationFieldParameter
 	]
 }
 ```
-</p></details>
+</details>

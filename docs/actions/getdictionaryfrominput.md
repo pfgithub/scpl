@@ -14,10 +14,9 @@ Makes a dictionary from the text passed as input. JSON (like {"foo": "bar"}), ke
 ### arguments
 
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFCoercionAction",
@@ -57,4 +56,4 @@ Makes a dictionary from the text passed as input. JSON (like {"foo": "bar"}), ke
 	"Subcategory": "Dictionaries"
 }
 ```
-</p></details>
+</details>

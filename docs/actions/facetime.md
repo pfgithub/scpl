@@ -32,10 +32,9 @@ containing one of the options:
 - `Video`
 - `Audio`
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFStartCallAction",
@@ -88,4 +87,4 @@ containing one of the options:
 	"WFStartCallActionType": "FaceTime"
 }
 ```
-</p></details>
+</details>

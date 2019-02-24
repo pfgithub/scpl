@@ -16,10 +16,9 @@ Prompts to pick an email address from your contacts and passes the selection to 
 ### arguments
 
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFSelectContactsAction",
@@ -60,4 +59,4 @@ Prompts to pick an email address from your contacts and passes the selection to 
 	]
 }
 ```
-</p></details>
+</details>

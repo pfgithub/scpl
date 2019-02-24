@@ -36,10 +36,9 @@ This paramtype is not implemented. WFEvernoteNotebookPickerParameter
 
 This paramtype is not implemented. WFEvernoteTagsTagFieldParameter
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFEvernoteCreateAction",
@@ -94,4 +93,4 @@ This paramtype is not implemented. WFEvernoteTagsTagFieldParameter
 	]
 }
 ```
-</p></details>
+</details>

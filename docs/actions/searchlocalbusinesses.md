@@ -38,10 +38,9 @@ Accepts a string
 or variable
 with a number.
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFSearchLocalBusinessesAction",
@@ -108,4 +107,4 @@ with a number.
 	]
 }
 ```
-</p></details>
+</details>

@@ -18,10 +18,9 @@ Adds or subtracts an amount of time from the date passed into the action.
 ### arguments
 This paramtype is not implemented. WFTimeOffsetParameter
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFAdjustDateAction",
@@ -86,4 +85,4 @@ This paramtype is not implemented. WFTimeOffsetParameter
 	"Subcategory": "Dates"
 }
 ```
-</p></details>
+</details>

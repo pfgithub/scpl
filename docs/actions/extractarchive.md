@@ -17,10 +17,9 @@ Archive
 ### arguments
 
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFExtractArchiveAction",
@@ -57,4 +56,4 @@ Archive
 	"Subcategory": "Archives"
 }
 ```
-</p></details>
+</details>

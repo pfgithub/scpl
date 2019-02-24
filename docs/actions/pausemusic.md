@@ -16,10 +16,9 @@ Pauses the currently playing music.
 ### arguments
 
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFPauseMusicAction",
@@ -44,4 +43,4 @@ Pauses the currently playing music.
 	"Subcategory": "Playback"
 }
 ```
-</p></details>
+</details>

@@ -25,10 +25,9 @@ This paramtype is not implemented. WFMapsAppPickerParameter
 
 This paramtype is not implemented. WFDynamicEnumerationParameter
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFGetDirectionsAction",
@@ -106,4 +105,4 @@ This paramtype is not implemented. WFDynamicEnumerationParameter
 	]
 }
 ```
-</p></details>
+</details>

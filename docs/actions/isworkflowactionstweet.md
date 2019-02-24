@@ -10,10 +10,9 @@
 ### arguments
 
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFSocialAction",
@@ -21,4 +20,4 @@
 	"ICActionIdentifier": "com.atebits.Tweetie2.ShareExtension"
 }
 ```
-</p></details>
+</details>

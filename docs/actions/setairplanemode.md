@@ -22,10 +22,9 @@ Sets the device’s Airplane Mode to on or off.
 Accepts a string with either true or false
 or a variable.
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ACECommandClass": "SASettingSetAirplaneMode",
@@ -61,4 +60,4 @@ or a variable.
 	]
 }
 ```
-</p></details>
+</details>

@@ -46,10 +46,9 @@ This paramtype is not implemented. WFHealthCategoryStartDateFieldParameter
 
 This paramtype is not implemented. WFHealthCategoryEndDateFieldParameter
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFLogHealthSampleAction",
@@ -156,4 +155,4 @@ This paramtype is not implemented. WFHealthCategoryEndDateFieldParameter
 	"Subcategory": "Log"
 }
 ```
-</p></details>
+</details>

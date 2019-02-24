@@ -37,10 +37,9 @@ This paramtype is not implemented. WFTrelloBoardPickerParameter
 
 This paramtype is not implemented. WFTrelloListPickerParameter
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFTrelloGetItemsAction",
@@ -107,4 +106,4 @@ This paramtype is not implemented. WFTrelloListPickerParameter
 	"ShortName": "Get Items"
 }
 ```
-</p></details>
+</details>

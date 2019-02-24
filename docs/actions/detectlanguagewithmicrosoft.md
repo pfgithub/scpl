@@ -14,10 +14,9 @@ Detects the language of the text provided as input.
 ### arguments
 
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFDetectLanguageAction",
@@ -50,4 +49,4 @@ Detects the language of the text provided as input.
 	}
 }
 ```
-</p></details>
+</details>

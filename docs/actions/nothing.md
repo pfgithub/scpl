@@ -14,10 +14,9 @@ This action does nothing and produces no output. It is useful to separate blocks
 ### arguments
 
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFNothingAction",
@@ -38,4 +37,4 @@ This action does nothing and produces no output. It is useful to separate blocks
 	"Subcategory": "Content"
 }
 ```
-</p></details>
+</details>

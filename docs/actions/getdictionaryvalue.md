@@ -34,10 +34,9 @@ Accepts a string
 or text
 with the text.
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFGetDictionaryValueAction",
@@ -113,4 +112,4 @@ with the text.
 	"Subcategory": "Dictionaries"
 }
 ```
-</p></details>
+</details>

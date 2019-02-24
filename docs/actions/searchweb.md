@@ -33,10 +33,9 @@ containing one of the options:
 - `Yahoo!`
 - `YouTube`
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFSearchWebAction",
@@ -93,4 +92,4 @@ containing one of the options:
 	"Subcategory": "Web"
 }
 ```
-</p></details>
+</details>

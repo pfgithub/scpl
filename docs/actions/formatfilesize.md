@@ -45,10 +45,9 @@ containing one of the options:
 Accepts a string with either true or false
 or a variable.
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFFormatFileSizeAction",
@@ -120,4 +119,4 @@ or a variable.
 	"Subcategory": "Files"
 }
 ```
-</p></details>
+</details>

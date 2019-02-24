@@ -14,10 +14,9 @@ Outputs the percentage of battery remaining as a number from 0 to 100.
 ### arguments
 
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFBatteryLevelAction",
@@ -45,4 +44,4 @@ Outputs the percentage of battery remaining as a number from 0 to 100.
 	"SuggestedNever": true
 }
 ```
-</p></details>
+</details>

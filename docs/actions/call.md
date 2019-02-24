@@ -18,10 +18,9 @@ Calls the phone number passed in as input.
 ### arguments
 This paramtype is not implemented. WFIntentAppPickerParameter
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFStartCallAction",
@@ -65,4 +64,4 @@ This paramtype is not implemented. WFIntentAppPickerParameter
 	"WFStartCallActionType": "Phone"
 }
 ```
-</p></details>
+</details>

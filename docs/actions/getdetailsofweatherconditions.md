@@ -10,10 +10,9 @@
 ### arguments
 
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFContentItemPropertiesAction",
@@ -26,4 +25,4 @@
 	"WFContentItemClass": "WFWeatherDataContentItem"
 }
 ```
-</p></details>
+</details>

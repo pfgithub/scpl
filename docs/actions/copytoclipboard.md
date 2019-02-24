@@ -27,10 +27,9 @@ or a variable.
 
 This paramtype is not implemented. WFDateFieldParameter
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFSetClipboardAction",
@@ -80,4 +79,4 @@ This paramtype is not implemented. WFDateFieldParameter
 	"Subcategory": "Clipboard"
 }
 ```
-</p></details>
+</details>

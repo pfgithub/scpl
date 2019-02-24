@@ -18,10 +18,9 @@ Starts a timer in the Clock app for the specified amount of time.
 ### arguments
 This paramtype is not implemented. WFDurationQuantityFieldParameter
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFStartTimerAction",
@@ -53,4 +52,4 @@ This paramtype is not implemented. WFDurationQuantityFieldParameter
 	]
 }
 ```
-</p></details>
+</details>

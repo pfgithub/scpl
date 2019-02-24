@@ -21,10 +21,9 @@ Removes all events passed into the action from the calendars they are contained 
 Accepts a string with either true or false
 or a variable.
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFRemoveCalendarItemsAction",
@@ -65,4 +64,4 @@ or a variable.
 	"WFCalendarItemEntityType": "Event"
 }
 ```
-</p></details>
+</details>

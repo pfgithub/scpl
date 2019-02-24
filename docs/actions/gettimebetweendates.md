@@ -48,10 +48,9 @@ containing one of the options:
 - `Months`
 - `Years`
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFTimeUntilDateAction",
@@ -140,4 +139,4 @@ containing one of the options:
 	"Subcategory": "Dates"
 }
 ```
-</p></details>
+</details>

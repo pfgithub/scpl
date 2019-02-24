@@ -14,10 +14,9 @@ Creates a URL to search for the location, place, or text that was passed into th
 ### arguments
 
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFGetMapsLinkAction",
@@ -51,4 +50,4 @@ Creates a URL to search for the location, place, or text that was passed into th
 	"Subcategory": "Maps"
 }
 ```
-</p></details>
+</details>

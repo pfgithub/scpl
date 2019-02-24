@@ -14,10 +14,9 @@ Returns any dates found in the output from the previous action.
 ### arguments
 
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFCoercionAction",
@@ -52,4 +51,4 @@ Returns any dates found in the output from the previous action.
 	"Subcategory": "Dates"
 }
 ```
-</p></details>
+</details>

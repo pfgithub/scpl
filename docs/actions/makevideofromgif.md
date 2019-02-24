@@ -26,10 +26,9 @@ Accepts a string
 or variable
 containing an integer value.
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFMakeVideoFromGIFAction",
@@ -79,4 +78,4 @@ containing an integer value.
 	"SuggestedNever": true
 }
 ```
-</p></details>
+</details>

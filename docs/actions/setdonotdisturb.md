@@ -49,10 +49,9 @@ Accepts a variable.
 
 This paramtype is not implemented. WFDateFieldParameter
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFToggleDoNotDisturbAction",
@@ -168,4 +167,4 @@ This paramtype is not implemented. WFDateFieldParameter
 	"Subcategory": "Device"
 }
 ```
-</p></details>
+</details>

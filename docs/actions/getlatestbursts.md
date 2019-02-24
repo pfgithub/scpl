@@ -23,10 +23,9 @@ Accepts a string
 or variable
 containing an integer value.
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFGetLatestPhotosAction",
@@ -69,4 +68,4 @@ containing an integer value.
 	"WFGetLatestPhotosActionType": "Burst"
 }
 ```
-</p></details>
+</details>

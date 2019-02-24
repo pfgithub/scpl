@@ -16,10 +16,9 @@ Markdown
 ### arguments
 
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFMarkdownFromRichTextAction",
@@ -53,4 +52,4 @@ Markdown
 	"Subcategory": "Rich Text"
 }
 ```
-</p></details>
+</details>

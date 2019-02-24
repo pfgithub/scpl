@@ -60,10 +60,9 @@ containing one of the options:
 
 This paramtype is not implemented. WFTimeIntervalParameter
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFRecordAudioAction",
@@ -147,4 +146,4 @@ This paramtype is not implemented. WFTimeIntervalParameter
 	]
 }
 ```
-</p></details>
+</details>

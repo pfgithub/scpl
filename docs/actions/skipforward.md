@@ -16,10 +16,9 @@ Skips to the next song in the current music queue.
 ### arguments
 
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFSkipSongAction",
@@ -44,4 +43,4 @@ Skips to the next song in the current music queue.
 	"WFSkipSongActionMode": "Forward"
 }
 ```
-</p></details>
+</details>

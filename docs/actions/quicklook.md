@@ -21,10 +21,9 @@ Displays a preview of the input.
 Accepts a string with either true or false
 or a variable.
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFQuickLookAction",
@@ -76,4 +75,4 @@ or a variable.
 	]
 }
 ```
-</p></details>
+</details>

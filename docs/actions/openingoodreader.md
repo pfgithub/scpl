@@ -16,10 +16,9 @@ Opens a file in GoodReader.
 ### arguments
 
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFSendToGoodReaderAction",
@@ -52,4 +51,4 @@ Opens a file in GoodReader.
 	]
 }
 ```
-</p></details>
+</details>

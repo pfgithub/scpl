@@ -14,10 +14,9 @@ Gets a public link to the file passed into the action.
 ### arguments
 
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFGetFileLinkAction",
@@ -48,4 +47,4 @@ Gets a public link to the file passed into the action.
 	"Subcategory": "File Storage"
 }
 ```
-</p></details>
+</details>

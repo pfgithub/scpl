@@ -18,10 +18,9 @@ Passes the specified email addresses to the next action.
 ### arguments
 This paramtype is not implemented. WFEmailAddressFieldParameter
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFEmailAddressAction",
@@ -56,4 +55,4 @@ This paramtype is not implemented. WFEmailAddressFieldParameter
 	"Subcategory": "Email"
 }
 ```
-</p></details>
+</details>

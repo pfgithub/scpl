@@ -36,10 +36,9 @@ Accepts a string
 or variable
 with a number.
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFGetGroupFromMatchedTextAction",
@@ -104,4 +103,4 @@ with a number.
 	"Subcategory": "Text Editing"
 }
 ```
-</p></details>
+</details>

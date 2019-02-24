@@ -29,10 +29,9 @@ containing one of the options:
 - `Current Volume`
 - `Current Brightness`
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFGetDeviceDetailsAction",
@@ -89,4 +88,4 @@ containing one of the options:
 	"SuggestedAsInitialAction": false
 }
 ```
-</p></details>
+</details>

@@ -16,10 +16,9 @@ Switches into the Shortcuts app and continues to the next action.
 ### arguments
 
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFHandoffAction",
@@ -48,4 +47,4 @@ Switches into the Shortcuts app and continues to the next action.
 	"Subcategory": "Control Flow"
 }
 ```
-</p></details>
+</details>

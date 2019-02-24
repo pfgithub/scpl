@@ -46,10 +46,9 @@ with the text.
 Accepts a string with either true or false
 or a variable.
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFAlertAction",
@@ -106,4 +105,4 @@ or a variable.
 	"Subcategory": "Notification"
 }
 ```
-</p></details>
+</details>

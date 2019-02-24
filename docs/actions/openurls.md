@@ -16,10 +16,9 @@ Opens URLs passed into the action in Safari.
 ### arguments
 
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFOpenURLAction",
@@ -55,4 +54,4 @@ Opens URLs passed into the action in Safari.
 	"Subcategory": "Safari"
 }
 ```
-</p></details>
+</details>

@@ -16,10 +16,9 @@ For example, this action can get the name of a photo or song, or the text of a w
 ### arguments
 
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFCoercionAction",
@@ -55,4 +54,4 @@ For example, this action can get the name of a photo or song, or the text of a w
 	"ShortName": "Get Text"
 }
 ```
-</p></details>
+</details>

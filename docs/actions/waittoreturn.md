@@ -18,10 +18,9 @@ This action might be useful after an action that switches apps, to pause executi
 ### arguments
 
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFWaitToReturnAction",
@@ -41,4 +40,4 @@ This action might be useful after an action that switches apps, to pause executi
 	"Subcategory": "Control Flow"
 }
 ```
-</p></details>
+</details>

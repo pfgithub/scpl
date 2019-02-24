@@ -38,10 +38,9 @@ parameter is expanded or not.
 Accepts a string with either true or false
 or a variable.
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFSetItemNameAction",
@@ -99,4 +98,4 @@ or a variable.
 	"Subcategory": "Content"
 }
 ```
-</p></details>
+</details>

@@ -29,10 +29,9 @@ with the text.
 
 This paramtype is not implemented. WFArchiveFormatParameter
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFMakeArchiveAction",
@@ -80,4 +79,4 @@ This paramtype is not implemented. WFArchiveFormatParameter
 	"Subcategory": "Archives"
 }
 ```
-</p></details>
+</details>

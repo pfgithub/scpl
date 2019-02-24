@@ -34,10 +34,9 @@ Accepts a string
 or text
 with the text.
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFTrelloCreateBoardAction",
@@ -76,4 +75,4 @@ with the text.
 	"ShortName": "Create Board"
 }
 ```
-</p></details>
+</details>

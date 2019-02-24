@@ -70,10 +70,9 @@ with the text.
 
 This paramtype is not implemented. WFCountryFieldParameter
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFAddressAction",
@@ -149,4 +148,4 @@ This paramtype is not implemented. WFCountryFieldParameter
 	]
 }
 ```
-</p></details>
+</details>

@@ -33,10 +33,9 @@ This paramtype is not implemented. WFDateFieldParameter
 
 This paramtype is not implemented. WFAlarmFrequencyPickerParameter
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFCreateAlarmAction",
@@ -82,4 +81,4 @@ This paramtype is not implemented. WFAlarmFrequencyPickerParameter
 	]
 }
 ```
-</p></details>
+</details>

@@ -22,10 +22,9 @@ This paramtype is not implemented. WFHomePickerParameter
 
 This paramtype is not implemented. WFHomeScenePickerParameter
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFRunSceneAction",
@@ -64,4 +63,4 @@ This paramtype is not implemented. WFHomeScenePickerParameter
 	]
 }
 ```
-</p></details>
+</details>

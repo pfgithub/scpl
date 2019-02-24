@@ -13,10 +13,9 @@
 ### arguments
 
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFFindHealthSamplesAction",
@@ -48,4 +47,4 @@
 	"WFContentItemDefaultProperty": "Value"
 }
 ```
-</p></details>
+</details>

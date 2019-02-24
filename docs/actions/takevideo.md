@@ -57,10 +57,9 @@ containing one of the options:
 - `On Tap`
 - `Immediately`
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFTakeVideoAction",
@@ -127,4 +126,4 @@ containing one of the options:
 	]
 }
 ```
-</p></details>
+</details>

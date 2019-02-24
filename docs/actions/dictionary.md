@@ -16,10 +16,9 @@ Passes the specified list of key-value pairs to the next action as a dictionary.
 ### arguments
 This paramtype is not implemented. WFDictionaryParameter
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFDictionaryAction",
@@ -60,4 +59,4 @@ This paramtype is not implemented. WFDictionaryParameter
 	"SuggestedNever": true
 }
 ```
-</p></details>
+</details>

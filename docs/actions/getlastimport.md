@@ -16,10 +16,9 @@ Gets the most recent photo import from the Photos app.
 ### arguments
 
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFGetLatestPhotoImportAction",
@@ -55,4 +54,4 @@ Gets the most recent photo import from the Photos app.
 	"Subcategory": "Photos"
 }
 ```
-</p></details>
+</details>

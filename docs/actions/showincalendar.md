@@ -16,10 +16,9 @@ Shows the date or calendar event passed as input in the Calendar app.
 ### arguments
 
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFShowInCalendarAction",
@@ -52,4 +51,4 @@ Shows the date or calendar event passed as input in the Calendar app.
 	"Subcategory": "Calendar"
 }
 ```
-</p></details>
+</details>

@@ -14,10 +14,9 @@ Autocorrects the spelling of text passed into the action.
 ### arguments
 
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFSpellCorrectAction",
@@ -52,4 +51,4 @@ Autocorrects the spelling of text passed into the action.
 	"SuggestedNever": true
 }
 ```
-</p></details>
+</details>

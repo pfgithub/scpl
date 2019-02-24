@@ -10,10 +10,9 @@
 ### arguments
 
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFSocialAction",
@@ -22,4 +21,4 @@
 	"ICActionIdentifier": "com.facebook.Facebook.ShareExtension"
 }
 ```
-</p></details>
+</details>

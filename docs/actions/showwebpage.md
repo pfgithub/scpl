@@ -21,10 +21,9 @@ Shows the web URL passed into the action in a Safari View Controller, allowing y
 Accepts a string with either true or false
 or a variable.
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFShowWebPageAction",
@@ -72,4 +71,4 @@ or a variable.
 	]
 }
 ```
-</p></details>
+</details>

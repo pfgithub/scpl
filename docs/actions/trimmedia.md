@@ -21,10 +21,9 @@ The trimmed media.
 ### arguments
 
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFTrimVideoAction",
@@ -66,4 +65,4 @@ The trimmed media.
 	]
 }
 ```
-</p></details>
+</details>

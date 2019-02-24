@@ -61,10 +61,9 @@ Accepts a string
 or variable
 with a number.
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFGetItemFromListAction",
@@ -159,4 +158,4 @@ with a number.
 	"Subcategory": "Lists"
 }
 ```
-</p></details>
+</details>

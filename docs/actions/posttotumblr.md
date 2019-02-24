@@ -99,10 +99,9 @@ Accepts a string
 or text
 with the text.
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFTumblrPostAction",
@@ -287,4 +286,4 @@ with the text.
 	"Subcategory": "Social"
 }
 ```
-</p></details>
+</details>

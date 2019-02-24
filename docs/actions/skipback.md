@@ -26,10 +26,9 @@ containing one of the options:
 - `Beginning`
 - `Previous Song`
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFSkipSongAction",
@@ -66,4 +65,4 @@ containing one of the options:
 	"WFSkipSongActionMode": "Back"
 }
 ```
-</p></details>
+</details>

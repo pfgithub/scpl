@@ -26,10 +26,9 @@ containing one of the options:
 - `SHA256`
 - `SHA512`
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFGenerateHashAction",
@@ -75,4 +74,4 @@ containing one of the options:
 	"SuggestedNever": true
 }
 ```
-</p></details>
+</details>

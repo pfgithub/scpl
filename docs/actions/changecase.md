@@ -28,10 +28,9 @@ containing one of the options:
 - `Capitalize with sentence case.`
 - `cApItAlIzE wItH aLtErNaTiNg CaSe.`
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFChangeTextCaseAction",
@@ -85,4 +84,4 @@ containing one of the options:
 	"SuggestedNever": true
 }
 ```
-</p></details>
+</details>

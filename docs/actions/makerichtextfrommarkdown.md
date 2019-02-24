@@ -17,10 +17,9 @@ Markdown
 ### arguments
 
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFRichTextFromMarkdownAction",
@@ -54,4 +53,4 @@ Markdown
 	"SuggestedNever": true
 }
 ```
-</p></details>
+</details>

@@ -16,10 +16,9 @@ Opens your choice of Maps, Google Maps, or Waze and searches for the location, p
 ### arguments
 This paramtype is not implemented. WFMapsAppPickerParameter
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFSearchMapsAction",
@@ -69,4 +68,4 @@ This paramtype is not implemented. WFMapsAppPickerParameter
 	]
 }
 ```
-</p></details>
+</details>

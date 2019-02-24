@@ -26,10 +26,9 @@ containing one of the options:
 - `Quartile`
 - `High`
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFGenerateMachineReadableCodeAction",
@@ -71,4 +70,4 @@ containing one of the options:
 	"ShortName": "Generate QR"
 }
 ```
-</p></details>
+</details>

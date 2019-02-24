@@ -19,10 +19,9 @@ Every item passed to the “End Repeat” action
 ### arguments
 
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFForEachRepeatAction",
@@ -57,4 +56,4 @@ Every item passed to the “End Repeat” action
 	"Subcategory": "Control Flow"
 }
 ```
-</p></details>
+</details>

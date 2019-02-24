@@ -18,10 +18,9 @@ Gets the value of the specified variable and passes it to the next action.
 
 Accepts a variable.
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFGetVariableAction",
@@ -56,4 +55,4 @@ Accepts a variable.
 	"Subcategory": "Variables"
 }
 ```
-</p></details>
+</details>

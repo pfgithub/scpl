@@ -59,10 +59,9 @@ Accepts a string
 or text
 with the text.
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFPocketGetAction",
@@ -122,4 +121,4 @@ with the text.
 	"ShortName": "Get Pocket Items"
 }
 ```
-</p></details>
+</details>

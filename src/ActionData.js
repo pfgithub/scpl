@@ -380,14 +380,13 @@ ${this._parameters.map(param => (typeof param === "string") ? `${param}` : param
 
 `}
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 \`\`\`json
 ${JSON.stringify(this._data, null, "\t")}
 \`\`\`
-</p></details>
+</details>
 `;
 		return docs;
 	}

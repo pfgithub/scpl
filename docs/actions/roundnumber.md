@@ -49,10 +49,9 @@ Accepts a string
 or variable
 containing an integer value.
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFRoundNumberAction",
@@ -119,4 +118,4 @@ containing an integer value.
 	"Subcategory": "Math"
 }
 ```
-</p></details>
+</details>

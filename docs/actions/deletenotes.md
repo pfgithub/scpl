@@ -22,10 +22,9 @@ Deletes the notes passed as input from Evernote.
 Accepts a string with either true or false
 or a variable.
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFEvernoteDeleteAction",
@@ -63,4 +62,4 @@ or a variable.
 	]
 }
 ```
-</p></details>
+</details>

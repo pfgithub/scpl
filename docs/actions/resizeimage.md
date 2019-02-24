@@ -33,10 +33,9 @@ Accepts a string
 or variable
 with a number.
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFImageResizeAction",
@@ -92,4 +91,4 @@ with a number.
 	"Subcategory": "Editing"
 }
 ```
-</p></details>
+</details>

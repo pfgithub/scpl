@@ -32,10 +32,9 @@ with the text.
 
 Accepts a list.
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFChooseFromMenuAction",
@@ -84,4 +83,4 @@ Accepts a list.
 	"SuggestedAsInitialAction": true
 }
 ```
-</p></details>
+</details>

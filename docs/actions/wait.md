@@ -23,10 +23,9 @@ Accepts a string
 or variable
 containing an integer value.
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFDelayAction",
@@ -61,4 +60,4 @@ containing an integer value.
 	"Subcategory": "Control Flow"
 }
 ```
-</p></details>
+</details>

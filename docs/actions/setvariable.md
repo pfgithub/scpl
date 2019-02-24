@@ -21,10 +21,9 @@ Accepts a string with the name of the named variable (v:) you want to set,
 or a named variable (v:) that you want to set.
 
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFSetVariableAction",
@@ -59,4 +58,4 @@ or a named variable (v:) that you want to set.
 	"Subcategory": "Variables"
 }
 ```
-</p></details>
+</details>

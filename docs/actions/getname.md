@@ -14,10 +14,9 @@ Returns the name of every item passed as input. Depending on the input, this cou
 ### arguments
 
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFGetItemNameAction",
@@ -47,4 +46,4 @@ Returns the name of every item passed as input. Depending on the input, this cou
 	"Subcategory": "Content"
 }
 ```
-</p></details>
+</details>

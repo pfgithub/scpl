@@ -46,10 +46,9 @@ containing one of the options:
 
 This paramtype is not implemented. WFEvernoteNotebookPickerParameter
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFEvernoteAppendAction",
@@ -111,4 +110,4 @@ This paramtype is not implemented. WFEvernoteNotebookPickerParameter
 	]
 }
 ```
-</p></details>
+</details>

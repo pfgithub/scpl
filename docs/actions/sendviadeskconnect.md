@@ -16,10 +16,9 @@ Sends the input to another device via DeskConnect. DeskConnect makes it easy to 
 ### arguments
 
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFSendViaDeskConnectAction",
@@ -59,4 +58,4 @@ Sends the input to another device via DeskConnect. DeskConnect makes it easy to 
 	"SuggestedNever": true
 }
 ```
-</p></details>
+</details>

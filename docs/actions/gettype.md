@@ -14,10 +14,9 @@ Returns the type of every item passed as input. For example, if a URL is passed,
 ### arguments
 
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFGetItemTypeAction",
@@ -50,4 +49,4 @@ Returns the type of every item passed as input. For example, if a URL is passed,
 	"SuggestedNever": true
 }
 ```
-</p></details>
+</details>

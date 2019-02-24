@@ -21,10 +21,9 @@ HTML
 Accepts a string with either true or false
 or a variable.
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFHTMLFromRichTextAction",
@@ -67,4 +66,4 @@ or a variable.
 	"Subcategory": "Rich Text"
 }
 ```
-</p></details>
+</details>

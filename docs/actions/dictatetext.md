@@ -33,10 +33,9 @@ containing one of the options:
 - `After Short Pause`
 - `On Tap`
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFDictateTextAction",
@@ -107,4 +106,4 @@ containing one of the options:
 	]
 }
 ```
-</p></details>
+</details>

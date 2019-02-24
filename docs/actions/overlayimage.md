@@ -120,10 +120,9 @@ Accepts a string
 or variable
 with a number.
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFOverlayImageAction",
@@ -311,4 +310,4 @@ with a number.
 	]
 }
 ```
-</p></details>
+</details>

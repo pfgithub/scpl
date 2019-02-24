@@ -18,10 +18,9 @@ Passes the specified contacts to the next action.
 ### arguments
 This paramtype is not implemented. WFContactFieldParameter
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFContactsAction",
@@ -57,4 +56,4 @@ This paramtype is not implemented. WFContactFieldParameter
 	"Subcategory": "Contacts"
 }
 ```
-</p></details>
+</details>

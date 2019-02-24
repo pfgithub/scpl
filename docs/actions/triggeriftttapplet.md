@@ -140,10 +140,9 @@ with the text.
 
 This paramtype is not implemented. WFIFTTTAddRecipeParameter
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFIFTTTAction",
@@ -357,4 +356,4 @@ This paramtype is not implemented. WFIFTTTAddRecipeParameter
 	]
 }
 ```
-</p></details>
+</details>

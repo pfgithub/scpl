@@ -39,10 +39,9 @@ containing one of the options:
 - `Every 64 Characters`
 - `Every 76 Characters`
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFBase64EncodingAction",
@@ -109,4 +108,4 @@ containing one of the options:
 	"SuggestedNever": true
 }
 ```
-</p></details>
+</details>

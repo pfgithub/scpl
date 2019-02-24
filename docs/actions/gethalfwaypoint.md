@@ -20,10 +20,9 @@ This paramtype is not implemented. WFLocationFieldParameter
 
 This paramtype is not implemented. WFLocationFieldParameter
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFGetHalfwayPointAction",
@@ -65,4 +64,4 @@ This paramtype is not implemented. WFLocationFieldParameter
 	"SuggestedNever": true
 }
 ```
-</p></details>
+</details>

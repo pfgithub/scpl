@@ -16,10 +16,9 @@ Stops execution of the current shortcut and dismisses the shortcut on screen. No
 ### arguments
 
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFExitAction",
@@ -49,4 +48,4 @@ Stops execution of the current shortcut and dismisses the shortcut on screen. No
 	"SuggestedNever": true
 }
 ```
-</p></details>
+</details>

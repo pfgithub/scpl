@@ -21,10 +21,9 @@ Accepts a string
 or variable
 containing a number value from 0 to 1.
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFSetVolumeAction",
@@ -52,4 +51,4 @@ containing a number value from 0 to 1.
 	"Subcategory": "Playback"
 }
 ```
-</p></details>
+</details>

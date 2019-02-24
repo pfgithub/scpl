@@ -14,10 +14,9 @@ Returns any phone numbers found in the output from the previous action.
 ### arguments
 
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFCoercionAction",
@@ -51,4 +50,4 @@ Returns any phone numbers found in the output from the previous action.
 	"Subcategory": "Phone"
 }
 ```
-</p></details>
+</details>

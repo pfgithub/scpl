@@ -16,10 +16,9 @@ Prints the input using AirPrint.
 ### arguments
 
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFPrintAction",
@@ -53,4 +52,4 @@ Prints the input using AirPrint.
 	]
 }
 ```
-</p></details>
+</details>

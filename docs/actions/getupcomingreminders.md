@@ -29,10 +29,9 @@ Accepts a string
 or variable
 containing an integer value.
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFGetUpcomingCalendarItemsAction",
@@ -82,4 +81,4 @@ containing an integer value.
 	"WFGetUpcomingItemType": 1
 }
 ```
-</p></details>
+</details>

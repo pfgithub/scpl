@@ -28,10 +28,9 @@ containing one of the options:
 - `Private`
 - `Public`
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFCloudAppUploadAction",
@@ -78,4 +77,4 @@ containing one of the options:
 	"ShortName": "Upload"
 }
 ```
-</p></details>
+</details>

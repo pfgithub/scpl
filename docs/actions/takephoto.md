@@ -49,10 +49,9 @@ containing one of the options:
 - `Front`
 - `Back`
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFTakePhotoAction",
@@ -125,4 +124,4 @@ containing one of the options:
 	]
 }
 ```
-</p></details>
+</details>

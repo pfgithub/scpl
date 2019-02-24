@@ -11,10 +11,9 @@
 ### arguments
 
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFContentItemPropertiesAction",
@@ -29,4 +28,4 @@
 	"WFContentItemClass": "WFSafariWebPageContentItem"
 }
 ```
-</p></details>
+</details>

@@ -50,10 +50,9 @@ containing one of the options:
 - `Walking`
 - `Transit`
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFGetTravelTimeAction",
@@ -142,4 +141,4 @@ containing one of the options:
 	]
 }
 ```
-</p></details>
+</details>

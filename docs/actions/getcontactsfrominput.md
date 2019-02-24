@@ -16,10 +16,9 @@ Gets contacts from the result of the previous action.
 ### arguments
 
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFCoercionAction",
@@ -60,4 +59,4 @@ Gets contacts from the result of the previous action.
 	"Subcategory": "Contacts"
 }
 ```
-</p></details>
+</details>

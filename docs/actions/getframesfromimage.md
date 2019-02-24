@@ -19,10 +19,9 @@ The frames
 ### arguments
 
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFGetFramesFromImageAction",
@@ -64,4 +63,4 @@ The frames
 	"Subcategory": "GIFs"
 }
 ```
-</p></details>
+</details>

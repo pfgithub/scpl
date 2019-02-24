@@ -110,10 +110,9 @@ Accepts a string
 or text
 with the text.
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFAddNewEventAction",
@@ -264,4 +263,4 @@ with the text.
 	"Subcategory": "Calendar"
 }
 ```
-</p></details>
+</details>

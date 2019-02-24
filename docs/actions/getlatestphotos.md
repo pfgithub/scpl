@@ -33,10 +33,9 @@ containing an integer value.
 Accepts a string with either true or false
 or a variable.
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFGetLatestPhotosAction",
@@ -83,4 +82,4 @@ or a variable.
 	"WFGetLatestPhotosActionType": "Photo"
 }
 ```
-</p></details>
+</details>

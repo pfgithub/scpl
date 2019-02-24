@@ -21,10 +21,9 @@ Accepts a string
 or text
 with the text.
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFURLAction",
@@ -63,4 +62,4 @@ with the text.
 	"Subcategory": "URLs"
 }
 ```
-</p></details>
+</details>

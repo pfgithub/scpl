@@ -16,10 +16,9 @@ For example, this action can get the album art of a song, or all the images on a
 ### arguments
 
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFCoercionAction",
@@ -56,4 +55,4 @@ For example, this action can get the album art of a song, or all the images on a
 	"Subcategory": "Images"
 }
 ```
-</p></details>
+</details>

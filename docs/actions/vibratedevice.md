@@ -33,10 +33,9 @@ containing one of the options:
 - `Stop`
 - `Click`
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFVibrateAction",
@@ -94,4 +93,4 @@ containing one of the options:
 	"Subcategory": "Notification"
 }
 ```
-</p></details>
+</details>

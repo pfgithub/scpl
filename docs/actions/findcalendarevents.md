@@ -12,10 +12,9 @@
 ### arguments
 
 
-### for developers
+### other info
 
 <details><summary>source json</summary>
-<p>
 ```json
 {
 	"ActionClass": "WFContentItemFilterAction",
@@ -33,4 +32,4 @@
 	"WFContentItemDefaultProperty": "Calendar"
 }
 ```
-</p></details>
+</details>
