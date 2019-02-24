@@ -394,6 +394,30 @@ Object.keys(actionList).forEach(key => {
 	// actions[action.name.toLowerCase().split` `.join``] = action;
 });
 
+function genReadme() {
+	const totalActions = Object.keys(actionsByID).length;
+	const completedActions = Object.values(actionsByID).filter(action=>action.isComplete).length;
+	const missingTypes = Object.keys(_debugMissingTypes).length;
+	const missingTypeList = Object.keys(_debugMissingTypes)
+		.map(a=>[a, _debugMissingTypes[a]])
+		.sort((a, b) => a[1] - b[1])
+		.map(([a, b])=>`${b}: ${a}`);
+
+	return `
+# Shortcutslang
+
+${completedActions}/${totalActions} completed\\* \\*\\*
+
+## Missing Parameter Types:
+
+\\# actions used in: parameter type
+
+- \`${missingTypeList.join`\`\n- \``}\`
+
+\\*Block actions such as if and repeat are not completed yet.
+\\*\\*Parameters with RequiredResources such as Get Contents Of URL and Calculate have unneeded arguments.
+`;
+}
 /*
 console.log("All Actions:", Object.keys(actionsByID).length);
 console.log("Complete   :", Object.values(actionsByID).filter(action=>action.isComplete).length);
@@ -412,7 +436,8 @@ module.exports = {actionsByID: id => {
 	name = name.toLowerCase();
 	if(!actionsByName[name]) {throw new Error(`There is no action with the short name \`${name}\``);}
 	return actionsByName[name];
-}, allActions: Object.values(actionsByID)};
+}, allActions: Object.values(actionsByID),
+genReadme};
 
 // let getValueForKeyAction = new WFAction(actionList[0]["is.workflow.actions.getvalueforkey"], "is.workflow.acitons.getvalueforkey");
 // console.log(
