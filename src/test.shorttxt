@@ -7,9 +7,23 @@ Text "hello there, how are you doing?"
 Number 5
 Calculate "+" "x^2" 2
 
-Wait 5
 Number 5.2
 
 setVariable (v:"hello there")
 
 getVariable (v:"hello there")
+
+Text "My favorite number is \(v:"hello there"). Additionally, I like the action \(text "Text action")"
+
+
+List ["item 1", "item 2 \(text "My other text")"]
+
+List
+| Item 1
+| \(text "My text")
+| \(v:"hello there")
+chooseFromList (text "Make pick")
+
+
+chooseFromList ^(list ["item 1", "\(text "my text")"]) "\(text "list prompt")"
+text ^(text "hello world") "\(text "My favorite text is hello world")"

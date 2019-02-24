@@ -70,7 +70,7 @@ o.action = or(
 	o.variable,
 	o.onlyaction
 );
-o.inputarg = p(c`^`, o.parenthesis).scb(([, paren]) => ({type: "inputarg", value: paren}));
+o.inputarg = p(c`^`, o.parenthesis).scb(([, paren]) => {paren.special = "InputArg"; return paren;});
 o.flaggedaction = p(o.variable, _, c`=`, _, o.action)
 	.scb(([variable, , , , action]) => {
 		if(action.variable) {throw new Error("Actions cannot output to multiple variables");}

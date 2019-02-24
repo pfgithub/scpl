@@ -14,7 +14,7 @@ class ConvertingContext {
 	add(action) {
 		// Adds an action to a shortcut
 		this.shortcut.add(action);
-		if(action.info.hasVariable) {this.lastVariableAction = action.variable;}
+		if(action.info.hasVariable) {this.lastVariableAction = action;}
 	}
 }
 

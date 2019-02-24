@@ -1,4 +1,4 @@
-const {Shortcut, Action, Parameters, DictionaryItem, Text, MagicVariable, NamedVariable, Variable, Attachment, DictionaryFieldValue, Parameter, Aggrandizements, DictionaryKeyAggrandizement, CoercionAggrandizement, Aggrandizement} = require("./OutputData");
+const {Shortcut, Action, Parameters, DictionaryItem, Text, MagicVariable, NamedVariable, Variable, Attachment, DictionaryFieldValue, Parameter, Aggrandizements, DictionaryKeyAggrandizement, CoercionAggrandizement, Aggrandizement, List} = require("./OutputData");
 const {actionsByName} = require("./ActionData");
 const {ConvertingContext} = require("./Converter.js");
 
@@ -21,9 +21,8 @@ class ListParse extends Parse {
 		super();
 		this.items = items;
 	}
-	asList(cc) { // -> Parse[]
-		// this.items is Parse[]
-		return this.items;
+	asList(cc) { // -> Text[]
+		return new List(this.items.map(item => item.asText(cc)));
 	}
 }
 class BarlistParse extends ListParse {
@@ -166,11 +165,9 @@ class VariableParse extends Parse {
 }
 class ArgflagParse extends Parse {
 	// VariableParse
-	constructor(data) {
-		super(data);
+	constructor() {
+		super();
 	}
-}
-class InputArgParse extends ActionParse { // ? ¿
 }
 
 class ActionsParse {
@@ -186,17 +183,11 @@ class ActionsParse {
 // Text::asString
 // Text::build
 
-function text(name, args) {
-	const strarg = args[0];
-	const text = strarg.asText();
-}
-
 module.exports = {
 	ActionParse,
 	DictionaryParse,
 	CharsParse,
 	IdentifierParse,
-	InputArgParse,
 	ParamListParse,
 	BarlistParse,
 	ListParse,

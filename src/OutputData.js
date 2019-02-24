@@ -157,6 +157,20 @@ class MagicVariable extends Variable {
 	}
 }
 
+class List extends Parameter {
+	constructor(list) { // list is parameter[]
+		super(SERIALIZATIONTYPE.string);
+		this._list = list;
+	}
+	build() {
+		return [...this._list.map(i=>{
+			const text = i.build();
+			if(typeof text === "string") {return text;}
+			return {WFItemType: 0, WFValue: text};
+		})];
+	}
+}
+
 class Text extends Parameter {
 	constructor(options = {}) {
 		super(SERIALIZATIONTYPE.string);
@@ -215,8 +229,11 @@ class Text extends Parameter {
 			}
 			throw new Error("Invalid component type. This should never happen.");
 		});
-		// if(!this.hasAttachments) {return result.string;}
-		return result;
+		if(!this.hasAttachments) {return result.string;}
+		return {
+			Value: result,
+			WFSerializationType: SERIALIZATIONTYPE.string
+		};
 	}
 }
 class DictionaryItem extends Parameter {}
@@ -239,10 +256,14 @@ class Parameters {
 			this.values[internalName] = value;
 			return this;
 		}
-		this.values[internalName] = { // value.build({for:parameter})
-			Value: value.build(),
-			WFSerializationType: value.serializationType
-		};
+		if(value instanceof Attachment) {
+			this.values[internalName] = {
+				Value: value.build(),
+				WFSerializationType: SERIALIZATIONTYPE.variable
+			};
+			return this;
+		}
+		this.values[internalName] = value.build();
 		return this;
 	}
 	build() {
@@ -322,7 +343,7 @@ class Shortcut {
 	}
 }
 
-module.exports = {Shortcut, Action, Parameters, DictionaryItem, Text, MagicVariable, NamedVariable, Variable, Attachment, DictionaryFieldValue, Parameter, Aggrandizements, DictionaryKeyAggrandizement, CoercionAggrandizement, Aggrandizement};
+module.exports = {Shortcut, Action, Parameters, DictionaryItem, Text, MagicVariable, NamedVariable, Variable, Attachment, DictionaryFieldValue, Parameter, Aggrandizements, DictionaryKeyAggrandizement, CoercionAggrandizement, Aggrandizement, List};
 
 /*
 

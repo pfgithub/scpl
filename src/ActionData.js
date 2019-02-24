@@ -63,6 +63,18 @@ types.WFNumberFieldParameter = class extends types.WFParameter {
 	}
 };
 
+types.WFContentArrayParameter = class extends types.WFParameter {
+	constructor(data) {
+		super(data);
+	}
+	build(cc, parse) {
+		const list = parse.asList(cc);
+		return list;
+	}
+};
+
+types.WFArrayParameter = class extends types.WFContentArrayParameter {};
+
 types.WFStepperParameter = class extends types.WFParameter {
 	constructor(data) {
 		super(data);
@@ -164,6 +176,9 @@ class WFAction {
 	get hasVariable() { // If this action has a magic variable
 		return !this.inputPassthrough;
 	}
+	get requiresInput() {
+		return true;
+	}
 	genDocs() {
 		const docs = `
 ### usage
@@ -173,10 +188,16 @@ class WFAction {
 	}
 	build(cc, ...params) {
 		let parami = 0;
+		let actionAbove = cc.lastVariableAction;
 		// TODO actionAbove = cc.lastVariableAction
 		//
 		const action = new Action(this.name, this.id, this);
 		params.forEach(param => {
+			if(param.special === "InputArg") {
+				param.asAction(cc);
+				actionAbove = cc.lastVariableAction;
+				return;
+			}
 			// if(param instanceof InputArgParse) { // TODO (avoid circular dependency)
 			// 	// this param should be ignored and instead used as an inputarg
 			// 	return;
@@ -198,6 +219,11 @@ class WFAction {
 
 			action.parameters.set(paramtype.internalName, paramtype.build(cc, param));
 		});
+		if(actionAbove && this.requiresInput && actionAbove.uuid !== cc.lastVariableAction.uuid) {
+			const getVariableAction = new Action("get variable", "is.workflow.actions.getvariable", {});
+			getVariableAction.parameters.set("WFVariable", actionAbove.variable);
+			cc.add(getVariableAction);
+		}
 		// TODO if(actionAbove) cc.add(getVariableAction(actionAbove))
 		cc.add(action);
 		return action;
