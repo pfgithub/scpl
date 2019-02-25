@@ -1,5 +1,7 @@
 # Getting Started
 
+[Try Shortcutslang](http://pfgithub.github.io/shortcutslang/tryit.html)
+
 A .shorttxt file consists of a list of actions. Actions can be seperated by newlines or semicolons
 
 ```swift
