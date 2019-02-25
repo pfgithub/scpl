@@ -188,6 +188,7 @@ class List extends Parameter {
 	}
 	build() {
 		return [...this._list.map(i=>{
+			if(typeof i === "string") {return i;}
 			const text = i.build();
 			if(typeof text === "string") {return text;}
 			return {WFItemType: 0, WFValue: text};

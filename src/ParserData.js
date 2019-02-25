@@ -51,6 +51,9 @@ class ListParse extends Parse {
 		super();
 		this.items = items;
 	}
+	asArray(cc) { // -> ""[]
+		return new List(this.items.map(item => item.asString()));
+	}
 	asList(cc) { // -> Text[]
 		return new List(this.items.map(item => item.asText(cc)));
 	}
@@ -170,7 +173,7 @@ class ActionParse extends Parse {
 			const {name, type} = this.variable.asNameType(); // TODO not this
 			if(type === "v") {
 				cc.add(setVariable(name));
-				cc.vardata[name] = cc.lastVariableAction;
+				cc.vardata[name] = {action: cc.lastVariableAction};
 			}else if(type === "mv") {
 				cc.magicvardata[name] = {action: cc.lastVariableAction};
 			}

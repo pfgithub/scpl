@@ -355,6 +355,31 @@ with the text.`;
 	}
 };
 
+types.WFEmailAddressFieldParameter = class extends types.WFParameter {
+	constructor(data) {
+		super(data, "Text Input");
+	}
+	genDocsArgName() {
+		return `[string|string array|variable]`;
+	}
+	genDocs() {
+		return `${super.genDocs()}
+
+Accepts a string or string array or variable of email addresses.`;
+	}
+	build(cc, parse) {
+		if(parse.asVariable) {
+			return parse.asVariable(cc);
+		}
+		if(parse.asArray) {
+			return parse.asArray();
+		}
+		if(parse.asString) {
+			return [parse.asString()];
+		}
+	}
+};
+
 types.WFDictionaryParameter = class extends types.WFParameter {
 	constructor(data) {
 		super(data, "Dictionary");
@@ -434,7 +459,7 @@ or a named variable (v:) that you want to set.
 	build(cc, parse) {
 		// -> string I assume
 		const varname = parse.asString ? parse.asString() : parse.asStringVariable();
-		cc.vardata[varname] = cc.lastVariableAction;
+		cc.vardata[varname] = {action: cc.lastVariableAction};
 		return varname;
 	}
 };

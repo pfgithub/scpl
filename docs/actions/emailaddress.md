@@ -1,8 +1,6 @@
 
 ## Email Address / emailaddress (internally `is.workflow.actions.email`)
 
-> This action is not yet complete. Some arguments may be missing.
-
 
 > This action requires that Shortcuts has permission to use WFContactAccessResource.
 
@@ -13,10 +11,19 @@ Passes the specified email addresses to the next action.
 
 
 ### usage
-`emailaddress undefined=[???]`
+`emailaddress wfemailaddress=[string|string array|variable]`
 
 ### arguments
-This paramtype is not implemented. WFEmailAddressFieldParameter
+### Text Input: wfemailaddress / wfemailaddress (internally `WFEmailAddress`)
+**Placeholder**:
+```
+Type in an email address
+```
+**Allows Variables**: true
+
+
+
+Accepts a string or string array or variable of email addresses.
 
 ### source json
 

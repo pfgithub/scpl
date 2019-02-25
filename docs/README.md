@@ -4,7 +4,7 @@
 [Getting Started Guide](syntax.html)
 [Try Shortcutslang Online](tryit.html)  
 
-195/266 completed\* \*\*
+196/266 completed\* \*\*
 
 ## All Actions:
 
@@ -58,7 +58,7 @@
 - [Detect Language with Microsoft](actions/detectlanguagewithmicrosoft)
 - [Dictate Text](actions/dictatetext) (Incomplete)
 - [Dictionary](actions/dictionary)
-- [Email Address](actions/emailaddress) (Incomplete)
+- [Email Address](actions/emailaddress)
 - [Encode Media](actions/encodemedia)
 - [Exit Shortcut](actions/exitshortcut)
 - [Expand URL](actions/expandurl)
@@ -340,7 +340,7 @@
 - [ ] 3: WFTrelloBoardPickerParameter
 - [ ] 4: WFCalendarPickerParameter
 - [ ] 4: WFStorageServicePickerParameter
-- [ ] 4: WFEmailAddressFieldParameter
+- [x] Complete - 4: WFEmailAddressFieldParameter
 - [ ] 5: WFIntentAppPickerParameter
 - [x] Complete - 5: WFDictionaryParameter
 - [x] Complete - 5: WFSliderParameter

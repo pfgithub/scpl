@@ -13,7 +13,7 @@ Presents an email composer. Pass text into the action to set the email body. Oth
 
 
 ### usage
-`sendemail showcomposesheet=[string boolean|variable] undefined=[???] from=[string|text] undefined=[???] undefined=[???] undefined=[???] subject=[string|text]`
+`sendemail showcomposesheet=[string boolean|variable] undefined=[???] from=[string|text] to=[string|string array|variable] cc=[string|string array|variable] bcc=[string|string array|variable] subject=[string|text]`
 
 ### arguments
 ### Switch: Show Compose Sheet / showcomposesheet (internally `WFSendEmailActionShowComposeSheet`)
@@ -50,15 +50,42 @@ with the text.
 
 ---
 
-This paramtype is not implemented. WFEmailAddressFieldParameter
+### Text Input: To / to (internally `WFSendEmailActionToRecipients`)
+**Placeholder**:
+```
+Email addresses
+```
+**Allows Variables**: true
+
+
+
+Accepts a string or string array or variable of email addresses.
 
 ---
 
-This paramtype is not implemented. WFEmailAddressFieldParameter
+### Text Input: Cc / cc (internally `WFSendEmailActionCcRecipients`)
+**Placeholder**:
+```
+Email addresses
+```
+**Allows Variables**: true
+
+
+
+Accepts a string or string array or variable of email addresses.
 
 ---
 
-This paramtype is not implemented. WFEmailAddressFieldParameter
+### Text Input: Bcc / bcc (internally `WFSendEmailActionBccRecipients`)
+**Placeholder**:
+```
+Email addresses
+```
+**Allows Variables**: true
+
+
+
+Accepts a string or string array or variable of email addresses.
 
 ---
 
