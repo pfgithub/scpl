@@ -45,3 +45,7 @@ If >c:1:gid:myif
 If >c:2:gid:myif
 
 showAlert a{showCancelButton=true, message="hi", "title"="Alert!"}
+
+Text "hi" -> mv:magic
+
+Text (mv:magic)

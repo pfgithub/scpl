@@ -179,6 +179,11 @@ class VariableParse extends Parse {
 		if(type !== "v" && type !== "mv") {throw new Error(`Only v:and mv: variables can be used in an arrow.`);}
 		return {name, type};
 	}
+	asText(cc) {
+		const text = new Text;
+		text.add(this.asVariable(cc));
+		return text;
+	}
 	asVariable(cc) { //Converts this v:variable to a variable
 		let variable;
 
