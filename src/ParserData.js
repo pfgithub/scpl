@@ -52,7 +52,7 @@ class ListParse extends Parse {
 		this.items = items;
 	}
 	asArray(cc) { // -> ""[]
-		return new List(this.items.map(item => item.asString()));
+		return this.items.map(item => item.asString());
 	}
 	asList(cc) { // -> Text[]
 		return new List(this.items.map(item => item.asText(cc)));

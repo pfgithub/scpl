@@ -107,7 +107,12 @@ class Dictionary extends Parameter {
 					return {
 						WFItemType: type,
 						WFKey: key.build(),
-						WFValue: value instanceof Dictionary ? {Value: value.build()} : value.build()
+						WFValue: value instanceof Dictionary
+							? {Value: value.build(), WFSerializationType: "WFDictionaryFieldValue"}
+							: (value instanceof List ? {
+								Value: value.build(),
+								WFSerializationType: "WFArrayParameterState"
+							} : value.build())
 					};
 				})
 			},
