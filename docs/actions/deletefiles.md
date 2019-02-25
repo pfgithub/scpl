@@ -9,7 +9,7 @@ Delete the files passed in as input.
 
 
 ### usage
-`deletefiles confirmbeforedeleting=[string boolean|variable]`
+`deletefiles a{confirmbeforedeleting=[string boolean|variable]}`
 
 ### arguments
 ### Switch: Confirm Before Deleting / confirmbeforedeleting (internally `WFDeleteFileConfirmDeletion`)

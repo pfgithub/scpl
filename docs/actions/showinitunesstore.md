@@ -11,7 +11,7 @@ Shows the iTunes products or App Store apps passed as input in a store sheet. Th
 
 
 ### usage
-`showinitunesstore `
+`showinitunesstore a{}`
 
 ### arguments
 

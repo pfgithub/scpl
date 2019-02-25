@@ -9,7 +9,7 @@ Gets the value for the specified key in the dictionary passed into the action.
 
 
 ### usage
-`getdictionaryvalue get=[string <${strInfo}>|variable] key=[string|text]`
+`getdictionaryvalue a{get=[string <${strInfo}>|variable] key=[string|text]}`
 
 ### arguments
 ### Enumeration: Get / get (internally `WFGetDictionaryValueType`)
@@ -28,7 +28,7 @@ containing one of the options:
 
 ---
 
-### Text Input: Key / key (internally `WFDictionaryKey`)
+### Text: Key / key (internally `WFDictionaryKey`)
 **Placeholder**:
 ```
 example

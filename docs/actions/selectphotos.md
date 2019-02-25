@@ -13,7 +13,7 @@ Prompts to choose photos and videos from your photo library.
 The selected photos/videos
 
 ### usage
-`selectphotos selectmultiple=[string boolean|variable]`
+`selectphotos a{selectmultiple=[string boolean|variable]}`
 
 ### arguments
 ### Switch: Select Multiple / selectmultiple (internally `WFSelectMultiplePhotos`)

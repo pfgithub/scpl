@@ -9,7 +9,7 @@ Tests if any item passed as input matches the specified condition, and if so, ru
 
 
 ### usage
-`if input=[string <${strInfo}>|variable] number=[string number] value=[string|text]`
+`if a{input=[string <${strInfo}>|variable] number=[string number] value=[string|text]}`
 
 ### arguments
 ### Enumeration: Input / input (internally `WFCondition`)
@@ -44,7 +44,7 @@ with a number.
 
 ---
 
-### Text Input: Value / value (internally `WFConditionalActionString`)
+### Text: Value / value (internally `WFConditionalActionString`)
 **Placeholder**:
 ```
 example

@@ -11,7 +11,7 @@ Gets the most recent videos from the camera roll.
 
 
 ### usage
-`getlatestvideos wfgetlatestphotocount=[string integer]`
+`getlatestvideos a{wfgetlatestphotocount=[string integer]}`
 
 ### arguments
 ### Stepper Number: wfgetlatestphotocount / wfgetlatestphotocount (internally `WFGetLatestPhotoCount`)

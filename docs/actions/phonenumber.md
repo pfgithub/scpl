@@ -13,7 +13,7 @@ Passes the specified phone numbers to the next action.
 
 
 ### usage
-`phonenumber undefined=[???]`
+`phonenumber a{undefined=[???]}`
 
 ### arguments
 This paramtype is not implemented. WFPhoneNumberFieldParameter

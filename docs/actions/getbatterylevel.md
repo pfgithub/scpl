@@ -9,7 +9,7 @@ Outputs the percentage of battery remaining as a number from 0 to 100.
 
 
 ### usage
-`getbatterylevel `
+`getbatterylevel a{}`
 
 ### arguments
 

@@ -11,7 +11,7 @@ Opens URLs passed into the action in Safari.
 
 
 ### usage
-`openurls `
+`openurls a{}`
 
 ### arguments
 

@@ -11,7 +11,7 @@ Passes the contents of the clipboard to the next action.
 
 
 ### usage
-`getclipboard `
+`getclipboard a{}`
 
 ### arguments
 

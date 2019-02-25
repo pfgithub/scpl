@@ -11,7 +11,7 @@ Sets the device’s Cellular Data to on or off.
 
 
 ### usage
-`setcellulardata cellulardata=[string boolean|variable]`
+`setcellulardata a{cellulardata=[string boolean|variable]}`
 
 ### arguments
 ### Switch: Cellular Data / cellulardata (internally `OnValue`)

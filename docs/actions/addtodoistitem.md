@@ -18,10 +18,10 @@ Files to attach to the item
 The URL of the newly created item
 
 ### usage
-`addtodoistitem content=[string|text] undefined=[???] undefined=[???] undefined=[???] remindertype=[string <${strInfo}>] priority=[string <${strInfo}>] notes=[string|text]`
+`addtodoistitem a{content=[string|text] undefined=[???] undefined=[???] undefined=[???] remindertype=[string <${strInfo}>] priority=[string <${strInfo}>] notes=[string|text]}`
 
 ### arguments
-### Text Input: Content / content (internally `WFTodoistContent`)
+### Text: Content / content (internally `WFTodoistContent`)
 **Placeholder**:
 ```
 Buy some milk
@@ -87,7 +87,7 @@ containing one of the options:
 
 ---
 
-### Text Input: Notes / notes (internally `WFTodoistNotes`)
+### Text: Notes / notes (internally `WFTodoistNotes`)
 **Placeholder**:
 ```
 Notes

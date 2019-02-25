@@ -11,7 +11,7 @@ Sets the device’s Wi-Fi to on or off.
 
 
 ### usage
-`setwifi wifi=[string boolean|variable]`
+`setwifi a{wifi=[string boolean|variable]}`
 
 ### arguments
 ### Switch: Wi-Fi / wifi (internally `OnValue`)

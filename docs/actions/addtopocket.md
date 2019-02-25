@@ -11,10 +11,10 @@ Adds the input to Pocket.
 
 
 ### usage
-`addtopocket tags=[string|text]`
+`addtopocket a{tags=[string|text]}`
 
 ### arguments
-### Text Input: Tags / tags (internally `WFPocketTags`)
+### Text: Tags / tags (internally `WFPocketTags`)
 **Placeholder**:
 ```
 example, tags

@@ -5,7 +5,7 @@
 
 
 ### usage
-`getdetailsofcalendarevents `
+`getdetailsofcalendarevents a{}`
 
 ### arguments
 

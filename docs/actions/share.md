@@ -11,7 +11,7 @@ Prompts to share the input.
 
 
 ### usage
-`share `
+`share a{}`
 
 ### arguments
 

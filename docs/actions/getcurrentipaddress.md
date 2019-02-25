@@ -9,7 +9,7 @@ Returns the local or external IP address of the device.
 
 
 ### usage
-`getcurrentipaddress address=[string <${strInfo}>] type=[string <${strInfo}>]`
+`getcurrentipaddress a{address=[string <${strInfo}>] type=[string <${strInfo}>]}`
 
 ### arguments
 ### Enumeration: Address / address (internally `WFIPAddressSourceOption`)

@@ -9,7 +9,7 @@ Returns any links found in the output from the previous action.
 
 
 ### usage
-`geturlsfrominput `
+`geturlsfrominput a{}`
 
 ### arguments
 

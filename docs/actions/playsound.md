@@ -9,7 +9,7 @@ Plays the audio file passed as input, or a default notification sound if no audi
 
 
 ### usage
-`playsound `
+`playsound a{}`
 
 ### arguments
 

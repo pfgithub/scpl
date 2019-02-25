@@ -5,7 +5,7 @@
 
 
 ### usage
-`filterfiles `
+`filterfiles a{}`
 
 ### arguments
 

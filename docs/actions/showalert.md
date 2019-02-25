@@ -11,10 +11,10 @@ Displays an alert with a title, a message, and two buttons. If the user selects 
 
 
 ### usage
-`showalert title=[string|text] message=[string|text] showcancelbutton=[string boolean|variable]`
+`showalert a{title=[string|text] message=[string|text] showcancelbutton=[string boolean|variable]}`
 
 ### arguments
-### Text Input: Title / title (internally `WFAlertActionTitle`)
+### Text: Title / title (internally `WFAlertActionTitle`)
 **Placeholder**:
 ```
 Attention-grabbing title
@@ -33,7 +33,7 @@ with the text.
 
 ---
 
-### Text Input: Message / message (internally `WFAlertActionMessage`)
+### Text: Message / message (internally `WFAlertActionMessage`)
 **Placeholder**:
 ```
 Informational message

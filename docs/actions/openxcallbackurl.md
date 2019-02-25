@@ -13,7 +13,7 @@ Performs the specified x-callback-url action. The x-success, x-cancel, and x-err
 When the app that's opened calls back to Shortcuts using x-success, it may include parameters in the URL. These will be passed as output to the next action, as text if there is just one parameter, or as a dictionary if there are multiple (use Get Dictionary Value to access it).
 
 ### usage
-`openxcallbackurl customcallback=[string boolean|variable] successkey=[string|text] cancelkey=[string|text] errorkey=[string|text] customxsuccessurl=[string boolean|variable] xsuccessurl=[string|text]`
+`openxcallbackurl a{customcallback=[string boolean|variable] successkey=[string|text] cancelkey=[string|text] errorkey=[string|text] customxsuccessurl=[string boolean|variable] xsuccessurl=[string|text]}`
 
 ### arguments
 ### Switch: Custom Callback / customcallback (internally `WFXCallbackCustomCallbackEnabled`)
@@ -26,7 +26,7 @@ or a variable.
 
 ---
 
-### Text Input: Success Key / successkey (internally `WFXCallbackCustomSuccessKey`)
+### Text: Success Key / successkey (internally `WFXCallbackCustomSuccessKey`)
 **Default Value**:
 ```
 x-success
@@ -41,7 +41,7 @@ with the text.
 
 ---
 
-### Text Input: Cancel Key / cancelkey (internally `WFXCallbackCustomCancelKey`)
+### Text: Cancel Key / cancelkey (internally `WFXCallbackCustomCancelKey`)
 **Placeholder**:
 ```
 optional
@@ -56,7 +56,7 @@ with the text.
 
 ---
 
-### Text Input: Error Key / errorkey (internally `WFXCallbackCustomErrorKey`)
+### Text: Error Key / errorkey (internally `WFXCallbackCustomErrorKey`)
 **Placeholder**:
 ```
 optional
@@ -81,7 +81,7 @@ or a variable.
 
 ---
 
-### Text Input: X-Success URL / xsuccessurl (internally `WFXCallbackCustomSuccessURL`)
+### Text: X-Success URL / xsuccessurl (internally `WFXCallbackCustomSuccessURL`)
 **Default Value**:
 ```
 shortcuts://callback

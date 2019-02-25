@@ -9,10 +9,10 @@ Sets the name of the item passed as input.
 
 
 ### usage
-`setname name=[string|text] advanced=[boolean] dontincludefileextension=[string boolean|variable]`
+`setname a{name=[string|text] advanced=[boolean] dontincludefileextension=[string boolean|variable]}`
 
 ### arguments
-### Text Input: Name / name (internally `WFName`)
+### Text: Name / name (internally `WFName`)
 **Placeholder**:
 ```
 example

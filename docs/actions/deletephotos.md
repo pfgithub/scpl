@@ -11,7 +11,7 @@ Deletes the photos passed as input from the device's photo library. This action 
 
 
 ### usage
-`deletephotos `
+`deletephotos a{}`
 
 ### arguments
 

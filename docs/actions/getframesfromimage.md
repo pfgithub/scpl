@@ -14,7 +14,7 @@ An animated GIF or photo burst
 The frames
 
 ### usage
-`getframesfromimage `
+`getframesfromimage a{}`
 
 ### arguments
 

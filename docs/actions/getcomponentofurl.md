@@ -9,7 +9,7 @@ Gets the specified part of the URL passed into the action.
 
 
 ### usage
-`getcomponentofurl component=[string <${strInfo}>]`
+`getcomponentofurl a{component=[string <${strInfo}>]}`
 
 ### arguments
 ### Enumeration: Component / component (internally `WFURLComponent`)

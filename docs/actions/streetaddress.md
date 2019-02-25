@@ -11,10 +11,10 @@ Passes the specified address to the next action.
 
 
 ### usage
-`streetaddress line1=[string|text] line2=[string|text] city=[string|text] state=[string|text] postalcode=[string|text] undefined=[???]`
+`streetaddress a{line1=[string|text] line2=[string|text] city=[string|text] state=[string|text] postalcode=[string|text] undefined=[???]}`
 
 ### arguments
-### Text Input: Line 1 / line1 (internally `WFAddressLine1`)
+### Text: Line 1 / line1 (internally `WFAddressLine1`)
 **Placeholder**:
 ```
 One Apple Park Way
@@ -29,7 +29,7 @@ with the text.
 
 ---
 
-### Text Input: Line 2 / line2 (internally `WFAddressLine2`)
+### Text: Line 2 / line2 (internally `WFAddressLine2`)
 **Allows Variables**: true
 
 
@@ -40,7 +40,7 @@ with the text.
 
 ---
 
-### Text Input: City / city (internally `WFCity`)
+### Text: City / city (internally `WFCity`)
 **Placeholder**:
 ```
 Cupertino
@@ -55,7 +55,7 @@ with the text.
 
 ---
 
-### Text Input: State / state (internally `WFState`)
+### Text: State / state (internally `WFState`)
 **Placeholder**:
 ```
 California
@@ -70,7 +70,7 @@ with the text.
 
 ---
 
-### Text Input: Postal Code / postalcode (internally `WFPostalCode`)
+### Text: Postal Code / postalcode (internally `WFPostalCode`)
 **Placeholder**:
 ```
 95014

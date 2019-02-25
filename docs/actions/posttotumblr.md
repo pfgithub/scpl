@@ -15,7 +15,7 @@ Posts the content passed into the action to Tumblr.
 The URL of the new post
 
 ### usage
-`posttotumblr undefined=[???] undefined=[???] undefined=[???] poststatus=[string <${strInfo}>] title=[string|text] source=[string|text] caption=[string|text] tags=[string|text] description=[string|text]`
+`posttotumblr a{undefined=[???] undefined=[???] undefined=[???] poststatus=[string <${strInfo}>] title=[string|text] source=[string|text] caption=[string|text] tags=[string|text] description=[string|text]}`
 
 ### arguments
 This paramtype is not implemented. WFTumblrComposeInAppParameter
@@ -50,7 +50,7 @@ containing one of the options:
 
 ---
 
-### Text Input: Title / title (internally `WFPostTitle`)
+### Text: Title / title (internally `WFPostTitle`)
 **Placeholder**:
 ```
 optional
@@ -65,7 +65,7 @@ with the text.
 
 ---
 
-### Text Input: Source / source (internally `WFPostSource`)
+### Text: Source / source (internally `WFPostSource`)
 **Placeholder**:
 ```
 optional
@@ -80,7 +80,7 @@ with the text.
 
 ---
 
-### Text Input: Caption / caption (internally `WFPostCaption`)
+### Text: Caption / caption (internally `WFPostCaption`)
 **Placeholder**:
 ```
 optional
@@ -96,7 +96,7 @@ with the text.
 
 ---
 
-### Text Input: Tags / tags (internally `WFPostTags`)
+### Text: Tags / tags (internally `WFPostTags`)
 **Placeholder**:
 ```
 shortcuts, apple
@@ -111,7 +111,7 @@ with the text.
 
 ---
 
-### Text Input: Description / description (internally `WFPostDescription`)
+### Text: Description / description (internally `WFPostDescription`)
 **Placeholder**:
 ```
 Description

@@ -13,7 +13,7 @@ Opens the input as a file in the specified app.
 
 
 ### usage
-`openin showopeninmenu=[string boolean|variable] undefined=[???] wfappname=[string|text]`
+`openin a{showopeninmenu=[string boolean|variable] undefined=[???] wfappname=[string|text]}`
 
 ### arguments
 ### Switch: Show Open In Menu / showopeninmenu (internally `WFOpenInAskWhenRun`)
@@ -34,7 +34,7 @@ This paramtype is not implemented. WFAppPickerParameter
 
 ---
 
-### Text Input: wfappname / wfappname (internally `WFAppName`)
+### Text: wfappname / wfappname (internally `WFAppName`)
 **Allows Variables**: true
 
 **Only enabled if**: This action is always **disabled** inside Shortcutslang.

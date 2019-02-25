@@ -5,7 +5,7 @@
 
 
 ### usage
-`getdetailsofhealthsample `
+`getdetailsofhealthsample a{}`
 
 ### arguments
 

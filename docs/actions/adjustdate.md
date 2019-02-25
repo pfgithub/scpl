@@ -13,7 +13,7 @@ Adds or subtracts an amount of time from the date passed into the action.
 
 
 ### usage
-`adjustdate undefined=[???]`
+`adjustdate a{undefined=[???]}`
 
 ### arguments
 This paramtype is not implemented. WFTimeOffsetParameter

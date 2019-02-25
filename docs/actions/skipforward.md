@@ -11,7 +11,7 @@ Skips to the next song in the current music queue.
 
 
 ### usage
-`skipforward `
+`skipforward a{}`
 
 ### arguments
 

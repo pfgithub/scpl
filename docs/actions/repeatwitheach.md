@@ -14,7 +14,7 @@ A list of items
 Every item passed to the “End Repeat” action
 
 ### usage
-`repeatwitheach `
+`repeatwitheach a{}`
 
 ### arguments
 

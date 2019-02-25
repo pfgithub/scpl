@@ -11,7 +11,7 @@ Displays a preview of the input.
 
 
 ### usage
-`quicklook fullscreen=[string boolean|variable]`
+`quicklook a{fullscreen=[string boolean|variable]}`
 
 ### arguments
 ### Switch: Full Screen / fullscreen (internally `WFQuickLookActionFullScreen`)

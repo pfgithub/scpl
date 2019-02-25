@@ -5,7 +5,7 @@
 
 
 ### usage
-`getdetailsofeventattendees `
+`getdetailsofeventattendees a{}`
 
 ### arguments
 

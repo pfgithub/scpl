@@ -11,7 +11,7 @@ Shows the results of the previous action in the Content Graph.
 
 
 ### usage
-`viewcontentgraph `
+`viewcontentgraph a{}`
 
 ### arguments
 

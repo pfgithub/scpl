@@ -11,7 +11,7 @@ This action expands and cleans up URLs which have been shortened using a URL sho
 The full, expanded URL, or the original URL if the URL was not shortened
 
 ### usage
-`expandurl `
+`expandurl a{}`
 
 ### arguments
 

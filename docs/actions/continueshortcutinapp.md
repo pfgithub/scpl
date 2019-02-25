@@ -11,7 +11,7 @@ Switches into the Shortcuts app and continues to the next action.
 
 
 ### usage
-`continueshortcutinapp `
+`continueshortcutinapp a{}`
 
 ### arguments
 

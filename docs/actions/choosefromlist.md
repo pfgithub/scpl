@@ -11,10 +11,10 @@ Presents a menu of the items passed as input to the action and outputs the user'
 
 
 ### usage
-`choosefromlist prompt=[string|text] selectmultiple=[string boolean|variable] selectallinitially=[string boolean|variable]`
+`choosefromlist a{prompt=[string|text] selectmultiple=[string boolean|variable] selectallinitially=[string boolean|variable]}`
 
 ### arguments
-### Text Input: Prompt / prompt (internally `WFChooseFromListActionPrompt`)
+### Text: Prompt / prompt (internally `WFChooseFromListActionPrompt`)
 **Placeholder**:
 ```
 optional

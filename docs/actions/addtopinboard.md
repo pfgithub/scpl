@@ -11,10 +11,10 @@ Adds the URL passed into the action to your Pinboard.
 
 
 ### usage
-`addtopinboard title=[string|text] tags=[string|text] public=[string boolean|variable] unread=[string boolean|variable] description=[string|text]`
+`addtopinboard a{title=[string|text] tags=[string|text] public=[string boolean|variable] unread=[string boolean|variable] description=[string|text]}`
 
 ### arguments
-### Text Input: Title / title (internally `WFPinTitle`)
+### Text: Title / title (internally `WFPinTitle`)
 **Placeholder**:
 ```
 optional
@@ -29,7 +29,7 @@ with the text.
 
 ---
 
-### Text Input: Tags / tags (internally `WFPinTags`)
+### Text: Tags / tags (internally `WFPinTags`)
 **Placeholder**:
 ```
 apple longread
@@ -72,7 +72,7 @@ or a variable.
 
 ---
 
-### Text Input: Description / description (internally `WFPinDescription`)
+### Text: Description / description (internally `WFPinDescription`)
 **Placeholder**:
 ```
 Description

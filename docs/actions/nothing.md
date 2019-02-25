@@ -9,7 +9,7 @@ This action does nothing and produces no output. It is useful to separate blocks
 
 
 ### usage
-`nothing `
+`nothing a{}`
 
 ### arguments
 

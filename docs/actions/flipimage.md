@@ -9,7 +9,7 @@ Reverses the direction of images either horizontally or vertically.
 
 
 ### usage
-`flipimage direction=[string <${strInfo}>]`
+`flipimage a{direction=[string <${strInfo}>]}`
 
 ### arguments
 ### Enumeration: Direction / direction (internally `WFImageFlipDirection`)

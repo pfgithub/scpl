@@ -15,7 +15,7 @@ Save files to iCloud Drive or Dropbox. Turn off “Ask Where to Save” in order
 The saved files
 
 ### usage
-`savefile undefined=[???] askwheretosave=[string boolean|variable] destinationpath=[string|text] overwriteiffileexists=[string boolean|variable]`
+`savefile a{undefined=[???] askwheretosave=[string boolean|variable] destinationpath=[string|text] overwriteiffileexists=[string boolean|variable]}`
 
 ### arguments
 This paramtype is not implemented. WFStorageServicePickerParameter
@@ -36,7 +36,7 @@ or a variable.
 
 ---
 
-### Text Input: Destination Path / destinationpath (internally `WFFileDestinationPath`)
+### Text: Destination Path / destinationpath (internally `WFFileDestinationPath`)
 **Allows Variables**: true
 
 **Only enabled if**: argument WFAskWhereToSave = `false`

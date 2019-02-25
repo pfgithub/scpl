@@ -13,7 +13,7 @@ Sets a Home scene.
 
 
 ### usage
-`runhomescene undefined=[???] undefined=[???]`
+`runhomescene a{undefined=[???] undefined=[???]}`
 
 ### arguments
 This paramtype is not implemented. WFHomePickerParameter

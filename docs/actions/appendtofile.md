@@ -13,14 +13,14 @@ Adds the text passed as input to the end of the specified file.
 The file that was appended to
 
 ### usage
-`appendtofile undefined=[???] filepath=[string|text] mode=[string <${strInfo}>] makenewline=[string boolean|variable]`
+`appendtofile a{undefined=[???] filepath=[string|text] mode=[string <${strInfo}>] makenewline=[string boolean|variable]}`
 
 ### arguments
 This paramtype is not implemented. WFStorageServicePickerParameter
 
 ---
 
-### Text Input: File Path / filepath (internally `WFFilePath`)
+### Text: File Path / filepath (internally `WFFilePath`)
 **Placeholder**:
 ```
 example.txt

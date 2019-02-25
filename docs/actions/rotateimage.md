@@ -9,7 +9,7 @@ Turns an image clockwise by a particular number of degrees.
 
 
 ### usage
-`rotateimage degrees=[string number]`
+`rotateimage a{degrees=[string number]}`
 
 ### arguments
 ### Number: Degrees / degrees (internally `WFImageRotateAmount`)

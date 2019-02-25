@@ -13,7 +13,7 @@ Copies the result of the last action to the clipboard.
 
 
 ### usage
-`copytoclipboard localonly=[string boolean|variable] undefined=[???]`
+`copytoclipboard a{localonly=[string boolean|variable] undefined=[???]}`
 
 ### arguments
 ### Switch: Local Only / localonly (internally `WFLocalOnly`)

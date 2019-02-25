@@ -11,7 +11,7 @@ Speaks the inputted text aloud.
 
 
 ### usage
-`speaktext waituntilfinished=[string boolean|variable] undefined=[???] pitch=[string number] undefined=[???] undefined=[???]`
+`speaktext a{waituntilfinished=[string boolean|variable] undefined=[???] pitch=[string number] undefined=[???] undefined=[???]}`
 
 ### arguments
 ### Switch: Wait Until Finished / waituntilfinished (internally `WFSpeakTextWait`)

@@ -5,7 +5,7 @@
 
 
 ### usage
-`unknownintent showwhenrun=[string boolean|variable]`
+`unknownintent a{showwhenrun=[string boolean|variable]}`
 
 ### arguments
 ### Switch: Show When Run / showwhenrun (internally `ShowWhenRun`)

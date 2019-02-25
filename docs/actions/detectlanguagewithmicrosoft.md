@@ -9,7 +9,7 @@ Detects the language of the text provided as input.
 
 
 ### usage
-`detectlanguagewithmicrosoft `
+`detectlanguagewithmicrosoft a{}`
 
 ### arguments
 

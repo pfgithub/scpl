@@ -7,7 +7,7 @@
 
 
 ### usage
-`getdetailsoftrelloitem `
+`getdetailsoftrelloitem a{}`
 
 ### arguments
 

@@ -9,7 +9,7 @@ Generates a QR code from the input text.
 
 
 ### usage
-`generateqrcode errorcorrection=[string <${strInfo}>]`
+`generateqrcode a{errorcorrection=[string <${strInfo}>]}`
 
 ### arguments
 ### Enumeration: Error Correction / errorcorrection (internally `WFQRErrorCorrectionLevel`)

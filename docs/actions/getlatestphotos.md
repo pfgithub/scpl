@@ -11,7 +11,7 @@ Gets the most recent photos from the camera roll.
 
 
 ### usage
-`getlatestphotos wfgetlatestphotocount=[string integer] includescreenshots=[string boolean|variable]`
+`getlatestphotos a{wfgetlatestphotocount=[string integer] includescreenshots=[string boolean|variable]}`
 
 ### arguments
 ### Stepper Number: wfgetlatestphotocount / wfgetlatestphotocount (internally `WFGetLatestPhotoCount`)

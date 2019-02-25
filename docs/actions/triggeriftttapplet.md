@@ -13,7 +13,7 @@ Triggers an IFTTT applet. Configure which applet in the IFTTT app.
 
 
 ### usage
-`triggeriftttapplet undefined=[???] wfiftttextraingredients=[string integer|variable] ingredient1=[string|text] ingredient2=[string|text] ingredient3=[string|text] ingredient4=[string|text] ingredient5=[string|text] ingredient6=[string|text] ingredient7=[string|text] ingredient8=[string|text] ingredient9=[string|text] ingredient10=[string|text] undefined=[???]`
+`triggeriftttapplet a{undefined=[???] wfiftttextraingredients=[string integer|variable] ingredient1=[string|text] ingredient2=[string|text] ingredient3=[string|text] ingredient4=[string|text] ingredient5=[string|text] ingredient6=[string|text] ingredient7=[string|text] ingredient8=[string|text] ingredient9=[string|text] ingredient10=[string|text] undefined=[???]}`
 
 ### arguments
 This paramtype is not implemented. WFIFTTTTriggerNameParameter
@@ -28,7 +28,7 @@ containing an integer value.
 
 ---
 
-### Text Input: Ingredient 1 / ingredient1 (internally `WFIFTTTExtraIngredient1`)
+### Text: Ingredient 1 / ingredient1 (internally `WFIFTTTExtraIngredient1`)
 **Placeholder**:
 ```
 optional
@@ -43,7 +43,7 @@ with the text.
 
 ---
 
-### Text Input: Ingredient 2 / ingredient2 (internally `WFIFTTTExtraIngredient2`)
+### Text: Ingredient 2 / ingredient2 (internally `WFIFTTTExtraIngredient2`)
 **Placeholder**:
 ```
 optional
@@ -58,7 +58,7 @@ with the text.
 
 ---
 
-### Text Input: Ingredient 3 / ingredient3 (internally `WFIFTTTExtraIngredient3`)
+### Text: Ingredient 3 / ingredient3 (internally `WFIFTTTExtraIngredient3`)
 **Placeholder**:
 ```
 optional
@@ -73,7 +73,7 @@ with the text.
 
 ---
 
-### Text Input: Ingredient 4 / ingredient4 (internally `WFIFTTTExtraIngredient4`)
+### Text: Ingredient 4 / ingredient4 (internally `WFIFTTTExtraIngredient4`)
 **Placeholder**:
 ```
 optional
@@ -88,7 +88,7 @@ with the text.
 
 ---
 
-### Text Input: Ingredient 5 / ingredient5 (internally `WFIFTTTExtraIngredient5`)
+### Text: Ingredient 5 / ingredient5 (internally `WFIFTTTExtraIngredient5`)
 **Placeholder**:
 ```
 optional
@@ -103,7 +103,7 @@ with the text.
 
 ---
 
-### Text Input: Ingredient 6 / ingredient6 (internally `WFIFTTTExtraIngredient6`)
+### Text: Ingredient 6 / ingredient6 (internally `WFIFTTTExtraIngredient6`)
 **Placeholder**:
 ```
 optional
@@ -118,7 +118,7 @@ with the text.
 
 ---
 
-### Text Input: Ingredient 7 / ingredient7 (internally `WFIFTTTExtraIngredient7`)
+### Text: Ingredient 7 / ingredient7 (internally `WFIFTTTExtraIngredient7`)
 **Placeholder**:
 ```
 optional
@@ -133,7 +133,7 @@ with the text.
 
 ---
 
-### Text Input: Ingredient 8 / ingredient8 (internally `WFIFTTTExtraIngredient8`)
+### Text: Ingredient 8 / ingredient8 (internally `WFIFTTTExtraIngredient8`)
 **Placeholder**:
 ```
 optional
@@ -148,7 +148,7 @@ with the text.
 
 ---
 
-### Text Input: Ingredient 9 / ingredient9 (internally `WFIFTTTExtraIngredient9`)
+### Text: Ingredient 9 / ingredient9 (internally `WFIFTTTExtraIngredient9`)
 **Placeholder**:
 ```
 optional
@@ -163,7 +163,7 @@ with the text.
 
 ---
 
-### Text Input: Ingredient 10 / ingredient10 (internally `WFIFTTTExtraIngredient10`)
+### Text: Ingredient 10 / ingredient10 (internally `WFIFTTTExtraIngredient10`)
 **Placeholder**:
 ```
 optional

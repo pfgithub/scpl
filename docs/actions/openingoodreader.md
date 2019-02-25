@@ -11,7 +11,7 @@ Opens a file in GoodReader.
 
 
 ### usage
-`openingoodreader `
+`openingoodreader a{}`
 
 ### arguments
 

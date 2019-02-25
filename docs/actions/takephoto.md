@@ -13,7 +13,7 @@ Uses the camera to take photos.
 Photo from the camera.
 
 ### usage
-`takephoto showcamerapreview=[string boolean|variable] wfphotocount=[string integer] camera=[string <${strInfo}>]`
+`takephoto a{showcamerapreview=[string boolean|variable] wfphotocount=[string integer] camera=[string <${strInfo}>]}`
 
 ### arguments
 ### Switch: Show Camera Preview / showcamerapreview (internally `WFCameraCaptureShowPreview`)

@@ -11,7 +11,7 @@ Gets the most recent screenshots from the camera roll.
 
 
 ### usage
-`getlatestscreenshots wfgetlatestphotocount=[string integer]`
+`getlatestscreenshots a{wfgetlatestphotocount=[string integer]}`
 
 ### arguments
 ### Stepper Number: wfgetlatestphotocount / wfgetlatestphotocount (internally `WFGetLatestPhotoCount`)

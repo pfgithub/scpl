@@ -5,7 +5,7 @@
 
 
 ### usage
-`getdetailsoffiles `
+`getdetailsoffiles a{}`
 
 ### arguments
 

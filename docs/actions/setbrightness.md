@@ -11,7 +11,7 @@ Sets the device brightness.
 
 
 ### usage
-`setbrightness brightness=[string number]`
+`setbrightness a{brightness=[string number]}`
 
 ### arguments
 ### Slider Number: Brightness / brightness (internally `WFBrightness`)

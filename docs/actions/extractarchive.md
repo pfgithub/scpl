@@ -12,7 +12,7 @@ Archive
 
 
 ### usage
-`extractarchive `
+`extractarchive a{}`
 
 ### arguments
 

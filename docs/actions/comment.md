@@ -9,10 +9,10 @@ This action lets you explain how part of a shortcut works. When run, this action
 
 
 ### usage
-`comment wfcommentactiontext=[string]`
+`comment a{wfcommentactiontext=[string]}`
 
 ### arguments
-### Text Input: wfcommentactiontext / wfcommentactiontext (internally `WFCommentActionText`)
+### Text: wfcommentactiontext / wfcommentactiontext (internally `WFCommentActionText`)
 **Placeholder**:
 ```
 Enter comment...

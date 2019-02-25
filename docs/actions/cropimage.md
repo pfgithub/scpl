@@ -9,7 +9,7 @@ Crops images to a smaller rectangle.
 
 
 ### usage
-`cropimage position=[string <${strInfo}>] xcoordinate=[string number] ycoordinate=[string number] width=[string number] height=[string number]`
+`cropimage a{position=[string <${strInfo}>] xcoordinate=[string number] ycoordinate=[string number] width=[string number] height=[string number]}`
 
 ### arguments
 ### Enumeration: Position / position (internally `WFImageCropPosition`)

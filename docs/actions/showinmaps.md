@@ -11,7 +11,7 @@ Opens your choice of Maps, Google Maps, or Waze and searches for the location, p
 
 
 ### usage
-`showinmaps undefined=[???]`
+`showinmaps a{undefined=[???]}`
 
 ### arguments
 This paramtype is not implemented. WFMapsAppPickerParameter

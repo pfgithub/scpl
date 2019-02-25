@@ -13,7 +13,7 @@ This action might be useful after an action that switches apps, to pause executi
 
 
 ### usage
-`waittoreturn `
+`waittoreturn a{}`
 
 ### arguments
 

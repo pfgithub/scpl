@@ -11,7 +11,7 @@ Gets a link to the Evernote note passed into the action, which can be shared.
 
 
 ### usage
-`getnotelink inapplink=[string boolean|variable]`
+`getnotelink a{inapplink=[string boolean|variable]}`
 
 ### arguments
 ### Switch: In-App Link / inapplink (internally `WFEvernoteShareInAppLink`)

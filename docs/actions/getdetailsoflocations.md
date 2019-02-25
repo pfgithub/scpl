@@ -5,7 +5,7 @@
 
 
 ### usage
-`getdetailsoflocations `
+`getdetailsoflocations a{}`
 
 ### arguments
 

@@ -18,7 +18,7 @@ The input to pass to the shortcut.
 The shortcut's result
 
 ### usage
-`runshortcut undefined=[???] showwhilerunning=[string boolean|variable]`
+`runshortcut a{undefined=[???] showwhilerunning=[string boolean|variable]}`
 
 ### arguments
 This paramtype is not implemented. WFWorkflowPickerParameter

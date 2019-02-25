@@ -7,7 +7,7 @@
 
 
 ### usage
-`findphotos `
+`findphotos a{}`
 
 ### arguments
 

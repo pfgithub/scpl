@@ -11,7 +11,7 @@ Shows the web URL passed into the action in a Safari View Controller, allowing y
 
 
 ### usage
-`showwebpage entersafarireader=[string boolean|variable]`
+`showwebpage a{entersafarireader=[string boolean|variable]}`
 
 ### arguments
 ### Switch: Enter Safari Reader / entersafarireader (internally `WFEnterSafariReader`)

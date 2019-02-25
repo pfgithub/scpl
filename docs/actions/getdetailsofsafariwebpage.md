@@ -6,7 +6,7 @@
 ## description
 
 ### usage
-`getdetailsofsafariwebpage `
+`getdetailsofsafariwebpage a{}`
 
 ### arguments
 

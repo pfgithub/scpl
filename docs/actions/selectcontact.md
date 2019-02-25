@@ -11,7 +11,7 @@ Prompts to pick a person from your contacts and passes the selection to the next
 
 
 ### usage
-`selectcontact selectmultiple=[string boolean|variable]`
+`selectcontact a{selectmultiple=[string boolean|variable]}`
 
 ### arguments
 ### Switch: Select Multiple / selectmultiple (internally `WFSelectMultiple`)

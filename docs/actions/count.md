@@ -9,7 +9,7 @@ Counts the number of items, characters, words, sentences, or lines passed as inp
 
 
 ### usage
-`count count=[string <${strInfo}>]`
+`count a{count=[string <${strInfo}>]}`
 
 ### arguments
 ### Enumeration: Count / count (internally `WFCountType`)

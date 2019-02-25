@@ -5,7 +5,7 @@
 
 
 ### usage
-`getdetailsofmusic `
+`getdetailsofmusic a{}`
 
 ### arguments
 

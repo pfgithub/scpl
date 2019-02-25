@@ -12,7 +12,7 @@ HTML
 
 
 ### usage
-`makerichtextfromhtml `
+`makerichtextfromhtml a{}`
 
 ### arguments
 

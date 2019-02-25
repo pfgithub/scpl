@@ -13,10 +13,10 @@ Makes an archive out of the files passed as input. Supports creating zip, tar.gz
 Archive
 
 ### usage
-`makearchive archivename=[string|text] undefined=[???]`
+`makearchive a{archivename=[string|text] undefined=[???]}`
 
 ### arguments
-### Text Input: Archive Name / archivename (internally `WFZIPName`)
+### Text: Archive Name / archivename (internally `WFZIPName`)
 **Placeholder**:
 ```
 optional

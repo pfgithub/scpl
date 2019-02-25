@@ -11,7 +11,7 @@ Gets the most recent burst photos from the camera roll.
 
 
 ### usage
-`getlatestbursts wfgetlatestphotocount=[string integer]`
+`getlatestbursts a{wfgetlatestphotocount=[string integer]}`
 
 ### arguments
 ### Stepper Number: wfgetlatestphotocount / wfgetlatestphotocount (internally `WFGetLatestPhotoCount`)

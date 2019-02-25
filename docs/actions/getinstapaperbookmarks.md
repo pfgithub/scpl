@@ -13,7 +13,7 @@ Gets the contents of a folder in Instapaper. Requires Instapaper Premium.
 
 
 ### usage
-`getinstapaperbookmarks undefined=[???] wfbookmarkcount=[string integer]`
+`getinstapaperbookmarks a{undefined=[???] wfbookmarkcount=[string integer]}`
 
 ### arguments
 This paramtype is not implemented. WFDynamicEnumerationParameter

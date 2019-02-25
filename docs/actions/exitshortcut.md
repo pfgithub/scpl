@@ -11,7 +11,7 @@ Stops execution of the current shortcut and dismisses the shortcut on screen. No
 
 
 ### usage
-`exitshortcut `
+`exitshortcut a{}`
 
 ### arguments
 

@@ -13,7 +13,7 @@ Calls the contact passed in as input using FaceTime.
 
 
 ### usage
-`facetime undefined=[???] calltype=[string <${strInfo}>]`
+`facetime a{undefined=[???] calltype=[string <${strInfo}>]}`
 
 ### arguments
 This paramtype is not implemented. WFIntentAppPickerParameter

@@ -11,7 +11,7 @@ Waits for the specified number of seconds before continuing with the next action
 
 
 ### usage
-`wait wfdelaytime=[string integer]`
+`wait a{wfdelaytime=[string integer]}`
 
 ### arguments
 ### Stepper Number: wfdelaytime / wfdelaytime (internally `WFDelayTime`)

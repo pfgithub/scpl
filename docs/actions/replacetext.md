@@ -9,10 +9,10 @@ Replaces some text passed into the action with other text.
 
 
 ### usage
-`replacetext findtext=[string|text] replacewith=[string|text] casesensitive=[string boolean|variable] regularexpression=[string boolean|variable]`
+`replacetext a{findtext=[string|text] replacewith=[string|text] casesensitive=[string boolean|variable] regularexpression=[string boolean|variable]}`
 
 ### arguments
-### Text Input: Find Text / findtext (internally `WFReplaceTextFind`)
+### Text: Find Text / findtext (internally `WFReplaceTextFind`)
 **Placeholder**:
 ```
 hello
@@ -27,7 +27,7 @@ with the text.
 
 ---
 
-### Text Input: Replace With / replacewith (internally `WFReplaceTextReplace`)
+### Text: Replace With / replacewith (internally `WFReplaceTextReplace`)
 **Placeholder**:
 ```
 world

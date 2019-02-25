@@ -11,7 +11,7 @@ Opens BlindSquare showing information about the place passed as input, so you ca
 
 
 ### usage
-`showinblindsquare startsimulation=[string boolean|variable]`
+`showinblindsquare a{startsimulation=[string boolean|variable]}`
 
 ### arguments
 ### Switch: Start Simulation / startsimulation (internally `WFBlindSquareSimulation`)

@@ -9,7 +9,7 @@ Turns on or off the flashlight near the device's camera.
 
 
 ### usage
-`setflashlight flashlight=[string <${strInfo}>] brightness=[string number]`
+`setflashlight a{flashlight=[string <${strInfo}>] brightness=[string number]}`
 
 ### arguments
 ### Enumeration: Flashlight / flashlight (internally `WFFlashlightSetting`)

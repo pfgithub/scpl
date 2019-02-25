@@ -9,7 +9,7 @@ Gets the names of emoji passed into the action.
 
 
 ### usage
-`getnameofemoji `
+`getnameofemoji a{}`
 
 ### arguments
 

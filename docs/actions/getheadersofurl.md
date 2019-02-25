@@ -9,7 +9,7 @@ Retrieves the HTTP headers of the URL passed as input using a HEAD request.
 
 
 ### usage
-`getheadersofurl `
+`getheadersofurl a{}`
 
 ### arguments
 

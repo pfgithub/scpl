@@ -18,7 +18,7 @@ Photos, videos, or audio to save
 The saved items
 
 ### usage
-`savetophotoalbum undefined=[???]`
+`savetophotoalbum a{undefined=[???]}`
 
 ### arguments
 This paramtype is not implemented. WFPhotoAlbumPickerParameter

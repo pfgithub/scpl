@@ -11,7 +11,7 @@ Sets the device’s Low Power Mode to on or off.
 
 
 ### usage
-`setlowpowermode lowpowermode=[string boolean|variable]`
+`setlowpowermode a{lowpowermode=[string boolean|variable]}`
 
 ### arguments
 ### Switch: Low Power Mode / lowpowermode (internally `OnValue`)

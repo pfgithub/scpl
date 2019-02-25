@@ -11,7 +11,7 @@ Pauses the currently playing music.
 
 
 ### usage
-`pausemusic `
+`pausemusic a{}`
 
 ### arguments
 

@@ -11,7 +11,7 @@ Sets the device’s Bluetooth to on or off.
 
 
 ### usage
-`setbluetooth bluetooth=[string boolean|variable]`
+`setbluetooth a{bluetooth=[string boolean|variable]}`
 
 ### arguments
 ### Switch: Bluetooth / bluetooth (internally `OnValue`)

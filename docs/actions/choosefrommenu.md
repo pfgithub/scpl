@@ -11,10 +11,10 @@ Presents a menu and runs different actions based on which menu item was chosen.
 
 
 ### usage
-`choosefrommenu prompt=[string|text] items=[list]`
+`choosefrommenu a{prompt=[string|text] items=[list]}`
 
 ### arguments
-### Text Input: Prompt / prompt (internally `WFMenuPrompt`)
+### Text: Prompt / prompt (internally `WFMenuPrompt`)
 **Placeholder**:
 ```
 optional

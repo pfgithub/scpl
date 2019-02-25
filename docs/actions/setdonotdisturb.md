@@ -11,7 +11,7 @@ Sets the device’s Do Not Disturb to on or off
 
 
 ### usage
-`setdonotdisturb donotdisturb=[string boolean|variable] until=[string <${strInfo}>] event=[variable] undefined=[???]`
+`setdonotdisturb a{donotdisturb=[string boolean|variable] until=[string <${strInfo}>] event=[variable] undefined=[???]}`
 
 ### arguments
 ### Switch: Do Not Disturb / donotdisturb (internally `Enabled`)

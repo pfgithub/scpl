@@ -9,7 +9,7 @@ Generates a MD5/SHA1 hash from the input.
 
 
 ### usage
-`generatehash type=[string <${strInfo}>]`
+`generatehash a{type=[string <${strInfo}>]}`
 
 ### arguments
 ### Enumeration: Type / type (internally `WFHashType`)

@@ -11,7 +11,7 @@ Deletes the notes passed as input from Evernote.
 
 
 ### usage
-`deletenotes confirmbeforedeleting=[string boolean|variable]`
+`deletenotes a{confirmbeforedeleting=[string boolean|variable]}`
 
 ### arguments
 ### Switch: Confirm Before Deleting / confirmbeforedeleting (internally `WFEvernoteConfirmDeletion`)

@@ -5,7 +5,7 @@
 
 
 ### usage
-`unknownuseractivity `
+`unknownuseractivity a{}`
 
 ### arguments
 

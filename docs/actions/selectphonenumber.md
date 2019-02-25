@@ -11,7 +11,7 @@ Prompts to pick a phone number from your contacts and passes the selection to th
 
 
 ### usage
-`selectphonenumber `
+`selectphonenumber a{}`
 
 ### arguments
 

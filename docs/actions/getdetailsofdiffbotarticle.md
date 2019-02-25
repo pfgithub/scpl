@@ -6,7 +6,7 @@
 ## description
 
 ### usage
-`getdetailsofdiffbotarticle `
+`getdetailsofdiffbotarticle a{}`
 
 ### arguments
 

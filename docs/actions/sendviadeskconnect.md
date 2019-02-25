@@ -11,7 +11,7 @@ Sends the input to another device via DeskConnect. DeskConnect makes it easy to 
 
 
 ### usage
-`sendviadeskconnect `
+`sendviadeskconnect a{}`
 
 ### arguments
 

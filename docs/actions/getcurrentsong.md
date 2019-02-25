@@ -11,7 +11,7 @@ Returns the song that is currently playing in the Music app, if any.
 
 
 ### usage
-`getcurrentsong `
+`getcurrentsong a{}`
 
 ### arguments
 

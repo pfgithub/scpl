@@ -11,7 +11,7 @@ Sets the device’s Airplane Mode to on or off.
 
 
 ### usage
-`setairplanemode airplanemode=[string boolean|variable]`
+`setairplanemode a{airplanemode=[string boolean|variable]}`
 
 ### arguments
 ### Switch: Airplane Mode / airplanemode (internally `OnValue`)

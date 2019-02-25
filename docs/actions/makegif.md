@@ -11,7 +11,7 @@ Creates an animated GIF from the images or video passed into the action.
 An animated GIF
 
 ### usage
-`makegif secondsperphoto=[string number] loopforever=[string boolean|variable] wfmakegifactionloopcount=[string integer] autosize=[string boolean|variable] width=[string number] height=[string number]`
+`makegif a{secondsperphoto=[string number] loopforever=[string boolean|variable] wfmakegifactionloopcount=[string integer] autosize=[string boolean|variable] width=[string number] height=[string number]}`
 
 ### arguments
 ### Number: Seconds Per Photo / secondsperphoto (internally `WFMakeGIFActionDelayTime`)

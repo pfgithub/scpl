@@ -14,7 +14,7 @@ Items in your music library or items from the Search iTunes action.
 
 
 ### usage
-`addtoupnext play=[string <${strInfo}>]`
+`addtoupnext a{play=[string <${strInfo}>]}`
 
 ### arguments
 ### Enumeration: Play / play (internally `WFWhenToPlay`)

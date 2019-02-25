@@ -16,7 +16,7 @@ The destination address
 
 
 ### usage
-`showdirections undefined=[???] undefined=[???]`
+`showdirections a{undefined=[???] undefined=[???]}`
 
 ### arguments
 This paramtype is not implemented. WFMapsAppPickerParameter

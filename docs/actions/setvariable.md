@@ -9,7 +9,7 @@ Sets the value of the specified variable to the input of this action.
 
 
 ### usage
-`setvariable variable=[string|variable v:variableName]`
+`setvariable a{variable=[string|variable v:variableName]}`
 
 ### arguments
 ### Variable Field: Variable / variable (internally `WFVariableName`)

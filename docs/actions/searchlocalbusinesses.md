@@ -14,10 +14,10 @@ A location to search near.
 
 
 ### usage
-`searchlocalbusinesses search=[string|text] radiuskm=[string number]`
+`searchlocalbusinesses a{search=[string|text] radiuskm=[string number]}`
 
 ### arguments
-### Text Input: Search / search (internally `WFSearchQuery`)
+### Text: Search / search (internally `WFSearchQuery`)
 **Placeholder**:
 ```
 coffee shops

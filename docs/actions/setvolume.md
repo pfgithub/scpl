@@ -9,7 +9,7 @@ Sets the system volume.
 
 
 ### usage
-`setvolume volume=[string number]`
+`setvolume a{volume=[string number]}`
 
 ### arguments
 ### Slider Number: Volume / volume (internally `WFVolume`)

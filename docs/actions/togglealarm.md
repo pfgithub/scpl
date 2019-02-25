@@ -13,7 +13,7 @@ Enables or disables an alarm in the Clock app.
 
 
 ### usage
-`togglealarm undefined=[???] enabled=[string boolean|variable]`
+`togglealarm a{undefined=[???] enabled=[string boolean|variable]}`
 
 ### arguments
 This paramtype is not implemented. WFAlarmPickerParameter

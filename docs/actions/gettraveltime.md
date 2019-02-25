@@ -18,7 +18,7 @@ The destination
 The amount of time it will take to get to the destination. If passed into an action expecting a date, this will be the date and time of arrival if you leave now.
 
 ### usage
-`gettraveltime from=[string <${strInfo}>|variable] undefined=[???] transportationmode=[string <${strInfo}>]`
+`gettraveltime a{from=[string <${strInfo}>|variable] undefined=[???] transportationmode=[string <${strInfo}>]}`
 
 ### arguments
 ### Enumeration: From / from (internally `WFGetDirectionsFrom`)

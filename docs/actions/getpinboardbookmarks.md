@@ -11,10 +11,10 @@ Gets bookmarks in your Pinboard account.
 
 
 ### usage
-`getpinboardbookmarks tags=[string|text] wfbookmarkcount=[string integer]`
+`getpinboardbookmarks a{tags=[string|text] wfbookmarkcount=[string integer]}`
 
 ### arguments
-### Text Input: Tags / tags (internally `WFPinTags`)
+### Text: Tags / tags (internally `WFPinTags`)
 **Placeholder**:
 ```
 apple longread

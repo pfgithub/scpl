@@ -11,7 +11,7 @@ Gets the contents of URLs passed into the action. Useful for downloading files a
 The fetched data
 
 ### usage
-`getcontentsofurl advanced=[boolean] method=[string <${strInfo}>] headers=[boolean] headers=[dictionary] requestbody=[string <${strInfo}>|variable] formvalues=[dictionary] jsonvalues=[dictionary] file=[variable]`
+`getcontentsofurl a{advanced=[boolean] method=[string <${strInfo}>] headers=[boolean] headers=[dictionary] requestbody=[string <${strInfo}>|variable] formvalues=[dictionary] jsonvalues=[dictionary] file=[variable]}`
 
 ### arguments
 ### Expand Arrow: Advanced / advanced (internally `Advanced`)

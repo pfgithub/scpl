@@ -5,7 +5,7 @@
 
 
 ### usage
-`isworkflowactionspostonfacebook `
+`isworkflowactionspostonfacebook a{}`
 
 ### arguments
 

@@ -11,7 +11,7 @@ Subtracts the specified date from the date passed into the action. For example, 
 
 
 ### usage
-`gettimebetweendates gettimefrom=[string <${strInfo}>|variable] undefined=[???] in=[string <${strInfo}>]`
+`gettimebetweendates a{gettimefrom=[string <${strInfo}>|variable] undefined=[???] in=[string <${strInfo}>]}`
 
 ### arguments
 ### Enumeration: Get Time From / gettimefrom (internally `WFTimeUntilReferenceDate`)

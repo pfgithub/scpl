@@ -11,7 +11,7 @@ Gets the current location of the device.
 
 
 ### usage
-`getcurrentlocation `
+`getcurrentlocation a{}`
 
 ### arguments
 

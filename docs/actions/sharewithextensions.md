@@ -11,7 +11,7 @@ Prompts to share the input using action extensions and sharing extensions provid
 
 
 ### usage
-`sharewithextensions `
+`sharewithextensions a{}`
 
 ### arguments
 

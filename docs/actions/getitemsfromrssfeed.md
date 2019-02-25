@@ -9,10 +9,10 @@ Downloads the latest items from an RSS feed.
 
 
 ### usage
-`getitemsfromrssfeed url=[string|text] wfrssitemquantity=[string integer]`
+`getitemsfromrssfeed a{url=[string|text] wfrssitemquantity=[string integer]}`
 
 ### arguments
-### Text Input: URL / url (internally `WFRSSFeedURL`)
+### Text: URL / url (internally `WFRSSFeedURL`)
 **Default Value**:
 ```
 https://www.apple.com/newsroom/rss-feed.rss

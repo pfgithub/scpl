@@ -11,10 +11,10 @@ Creates a new board in your Trello account.
 
 
 ### usage
-`createtrelloboard name=[string|text] wftrellodescription=[string|text]`
+`createtrelloboard a{name=[string|text] wftrellodescription=[string|text]}`
 
 ### arguments
-### Text Input: Name / name (internally `WFTrelloName`)
+### Text: Name / name (internally `WFTrelloName`)
 **Placeholder**:
 ```
 Shortcuts
@@ -29,7 +29,7 @@ with the text.
 
 ---
 
-### Text Input: wftrellodescription / wftrellodescription (internally `WFTrelloDescription`)
+### Text: wftrellodescription / wftrellodescription (internally `WFTrelloDescription`)
 **Placeholder**:
 ```
 Description

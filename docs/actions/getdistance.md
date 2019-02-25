@@ -18,7 +18,7 @@ The destination
 The distance to the location in miles or kilometers.
 
 ### usage
-`getdistance from=[string <${strInfo}>|variable] undefined=[???] routetype=[string <${strInfo}>] undefined=[???]`
+`getdistance a{from=[string <${strInfo}>|variable] undefined=[???] routetype=[string <${strInfo}>] undefined=[???]}`
 
 ### arguments
 ### Enumeration: From / from (internally `WFGetDirectionsFrom`)

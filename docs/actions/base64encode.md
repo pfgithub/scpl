@@ -9,7 +9,7 @@ Encodes or decodes text or files using Base64 encoding.
 
 
 ### usage
-`base64encode mode=[string <${strInfo}>] linebreaks=[string <${strInfo}>]`
+`base64encode a{mode=[string <${strInfo}>] linebreaks=[string <${strInfo}>]}`
 
 ### arguments
 ### Enumeration: Mode / mode (internally `WFEncodeMode`)

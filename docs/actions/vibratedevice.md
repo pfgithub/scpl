@@ -11,7 +11,7 @@ Vibrates the device for a short amount of time.
 
 
 ### usage
-`vibratedevice hapticpattern=[string <${strInfo}>]`
+`vibratedevice a{hapticpattern=[string <${strInfo}>]}`
 
 ### arguments
 ### Enumeration: Haptic Pattern / hapticpattern (internally `WFVibrateHapticType`)

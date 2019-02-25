@@ -9,10 +9,10 @@ Passes the specified URL to the next action.
 
 
 ### usage
-`url url=[string|text]`
+`url a{url=[string|text]}`
 
 ### arguments
-### Text Input: URL / url (internally `WFURLActionURL`)
+### Text: URL / url (internally `WFURLActionURL`)
 **Placeholder**:
 ```
 example.com

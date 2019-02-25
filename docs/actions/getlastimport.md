@@ -11,7 +11,7 @@ Gets the most recent photo import from the Photos app.
 
 
 ### usage
-`getlastimport `
+`getlastimport a{}`
 
 ### arguments
 

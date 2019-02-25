@@ -11,7 +11,7 @@ Gets information about the currently connected networks.
 
 
 ### usage
-`getnetworkdetails undefined=[???] get=[string <${strInfo}>] get=[string <${strInfo}>]`
+`getnetworkdetails a{undefined=[???] get=[string <${strInfo}>] get=[string <${strInfo}>]}`
 
 ### arguments
 This paramtype is not implemented. WFNetworkPickerParameter

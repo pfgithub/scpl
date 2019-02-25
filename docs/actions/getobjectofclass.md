@@ -9,10 +9,10 @@ Returns a particular object class from the input.
 
 
 ### usage
-`getobjectofclass class=[string|text]`
+`getobjectofclass a{class=[string|text]}`
 
 ### arguments
-### Text Input: Class / class (internally `Class`)
+### Text: Class / class (internally `Class`)
 **Placeholder**:
 ```
 NSString

@@ -5,7 +5,7 @@
 
 
 ### usage
-`filtereventattendees `
+`filtereventattendees a{}`
 
 ### arguments
 

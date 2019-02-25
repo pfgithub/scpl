@@ -9,7 +9,7 @@ Gets article details, including body text, author, publish date, and more, from 
 
 
 ### usage
-`getdiffbotarticlefromwebpage `
+`getdiffbotarticlefromwebpage a{}`
 
 ### arguments
 

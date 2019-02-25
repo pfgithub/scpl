@@ -13,7 +13,7 @@ Posts the input to the specified Slack channel.
 
 
 ### usage
-`posttoslack undefined=[???] undefined=[???]`
+`posttoslack a{undefined=[???] undefined=[???]}`
 
 ### arguments
 This paramtype is not implemented. WFAccountPickerParameter

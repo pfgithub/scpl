@@ -16,7 +16,7 @@ The audio or video file to edit.
 The trimmed media.
 
 ### usage
-`trimmedia `
+`trimmedia a{}`
 
 ### arguments
 

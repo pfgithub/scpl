@@ -11,7 +11,7 @@ Sends the input via Facebook Messenger
 
 
 ### usage
-`sendviamessenger `
+`sendviamessenger a{}`
 
 ### arguments
 

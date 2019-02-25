@@ -15,10 +15,10 @@ Creates a new reminder and adds it to the selected list of reminders.
 The new reminder
 
 ### usage
-`addnewreminder title=[string|text] undefined=[???] remindme=[boolean] remind=[string <${strInfo}>] wheni=[string <${strInfo}>] radius=[string number] undefined=[???] undefined=[???] notes=[string|text]`
+`addnewreminder a{title=[string|text] undefined=[???] remindme=[boolean] remind=[string <${strInfo}>] wheni=[string <${strInfo}>] radius=[string number] undefined=[???] undefined=[???] notes=[string|text]}`
 
 ### arguments
-### Text Input: Title / title (internally `WFCalendarItemTitle`)
+### Text: Title / title (internally `WFCalendarItemTitle`)
 **Placeholder**:
 ```
 Buy some milk
@@ -102,7 +102,7 @@ This paramtype is not implemented. WFDateFieldParameter
 
 ---
 
-### Text Input: Notes / notes (internally `WFCalendarItemNotes`)
+### Text: Notes / notes (internally `WFCalendarItemNotes`)
 **Placeholder**:
 ```
 Notes

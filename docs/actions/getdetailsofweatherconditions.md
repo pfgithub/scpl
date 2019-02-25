@@ -5,7 +5,7 @@
 
 
 ### usage
-`getdetailsofweatherconditions `
+`getdetailsofweatherconditions a{}`
 
 ### arguments
 

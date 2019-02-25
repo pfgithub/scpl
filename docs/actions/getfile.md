@@ -13,7 +13,7 @@ Get files from iCloud Drive or Dropbox. Turn off “Show Document Picker” to s
 
 
 ### usage
-`getfile undefined=[???] showdocumentpicker=[string boolean|variable] selectmultiple=[string boolean|variable] filepath=[string|text] initialpath=[string|text] errorifnotfound=[string boolean|variable]`
+`getfile a{undefined=[???] showdocumentpicker=[string boolean|variable] selectmultiple=[string boolean|variable] filepath=[string|text] initialpath=[string|text] errorifnotfound=[string boolean|variable]}`
 
 ### arguments
 This paramtype is not implemented. WFStorageServicePickerParameter
@@ -44,7 +44,7 @@ or a variable.
 
 ---
 
-### Text Input: File Path / filepath (internally `WFGetFilePath`)
+### Text: File Path / filepath (internally `WFGetFilePath`)
 **Placeholder**:
 ```
 example.txt
@@ -59,7 +59,7 @@ with the text.
 
 ---
 
-### Text Input: Initial Path / initialpath (internally `WFGetFileInitialDirectoryPath`)
+### Text: Initial Path / initialpath (internally `WFGetFileInitialDirectoryPath`)
 **Placeholder**:
 ```
 optional

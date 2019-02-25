@@ -11,10 +11,10 @@ Searches the App Store, returning the apps that match the specified search terms
 
 
 ### usage
-`searchappstore search=[string|text] undefined=[???] undefined=[???] undefined=[???] wfitemlimit=[string integer]`
+`searchappstore a{search=[string|text] undefined=[???] undefined=[???] undefined=[???] wfitemlimit=[string integer]}`
 
 ### arguments
-### Text Input: Search / search (internally `WFSearchTerm`)
+### Text: Search / search (internally `WFSearchTerm`)
 **Placeholder**:
 ```
 Shortcuts

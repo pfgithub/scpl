@@ -13,10 +13,10 @@ Creates a new card on the specified list and board in your Trello account.
 
 
 ### usage
-`addtrellocard name=[string|text] undefined=[???] undefined=[???] undefined=[???] position=[string <${strInfo}>] attachments=[variable] wftrellodescription=[string|text]`
+`addtrellocard a{name=[string|text] undefined=[???] undefined=[???] undefined=[???] position=[string <${strInfo}>] attachments=[variable] wftrellodescription=[string|text]}`
 
 ### arguments
-### Text Input: Name / name (internally `WFTrelloName`)
+### Text: Name / name (internally `WFTrelloName`)
 **Placeholder**:
 ```
 Be productive
@@ -70,7 +70,7 @@ Accepts a variable.
 
 ---
 
-### Text Input: wftrellodescription / wftrellodescription (internally `WFTrelloDescription`)
+### Text: wftrellodescription / wftrellodescription (internally `WFTrelloDescription`)
 **Placeholder**:
 ```
 Description

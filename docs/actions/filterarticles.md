@@ -5,7 +5,7 @@
 
 
 ### usage
-`filterarticles `
+`filterarticles a{}`
 
 ### arguments
 

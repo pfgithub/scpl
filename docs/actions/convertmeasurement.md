@@ -11,7 +11,7 @@ Converts the measurements passed into the action to the specified unit.
 
 
 ### usage
-`convertmeasurement undefined=[???] undefined=[???]`
+`convertmeasurement a{undefined=[???] undefined=[???]}`
 
 ### arguments
 This paramtype is not implemented. WFUnitTypePickerParameter

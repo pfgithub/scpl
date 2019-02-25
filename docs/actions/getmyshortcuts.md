@@ -9,7 +9,7 @@ Gets the shortcuts stored on this device. For example, you could use this action
 
 
 ### usage
-`getmyshortcuts `
+`getmyshortcuts a{}`
 
 ### arguments
 

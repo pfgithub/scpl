@@ -13,7 +13,7 @@ Uses the camera to take a video clip.
 Video from the camera.
 
 ### usage
-`takevideo camera=[string <${strInfo}>] quality=[string <${strInfo}>] startrecording=[string <${strInfo}>]`
+`takevideo a{camera=[string <${strInfo}>] quality=[string <${strInfo}>] startrecording=[string <${strInfo}>]}`
 
 ### arguments
 ### Enumeration: Camera / camera (internally `WFCameraCaptureDevice`)

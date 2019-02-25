@@ -14,7 +14,7 @@ Images to mask
 The masked images
 
 ### usage
-`maskimage type=[string <${strInfo}>|variable] cornerradius=[string number] imagemask=[variable]`
+`maskimage a{type=[string <${strInfo}>|variable] cornerradius=[string number] imagemask=[variable]}`
 
 ### arguments
 ### Enumeration: Type / type (internally `WFMaskType`)

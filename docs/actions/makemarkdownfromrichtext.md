@@ -11,7 +11,7 @@ Converts the rich text passed as input to Markdown text (comparable to Aaron Swa
 Markdown
 
 ### usage
-`makemarkdownfromrichtext `
+`makemarkdownfromrichtext a{}`
 
 ### arguments
 

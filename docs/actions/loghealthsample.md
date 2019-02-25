@@ -13,7 +13,7 @@ Adds a data point into the Health app. You can log anything that the Health app 
 
 
 ### usage
-`loghealthsample undefined=[???] undefined=[???] undefined=[???] undefined=[???] undefined=[???] undefined=[???] undefined=[???] undefined=[???]`
+`loghealthsample a{undefined=[???] undefined=[???] undefined=[???] undefined=[???] undefined=[???] undefined=[???] undefined=[???] undefined=[???]}`
 
 ### arguments
 This paramtype is not implemented. WFQuantityTypePickerParameter

@@ -9,7 +9,7 @@ Scales images to a particular width and height.
 
 
 ### usage
-`resizeimage width=[string number] height=[string number]`
+`resizeimage a{width=[string number] height=[string number]}`
 
 ### arguments
 ### Number: Width / width (internally `WFImageResizeWidth`)

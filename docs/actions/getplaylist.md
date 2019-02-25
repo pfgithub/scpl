@@ -13,7 +13,7 @@ Gets every song in the specified playlist.
 
 
 ### usage
-`getplaylist undefined=[???]`
+`getplaylist a{undefined=[???]}`
 
 ### arguments
 This paramtype is not implemented. WFPlaylistPickerParameter

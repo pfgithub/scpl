@@ -13,7 +13,7 @@ Passes the specified contacts to the next action.
 
 
 ### usage
-`contacts undefined=[???]`
+`contacts a{undefined=[???]}`
 
 ### arguments
 This paramtype is not implemented. WFContactFieldParameter

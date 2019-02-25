@@ -5,7 +5,7 @@
 
 
 ### usage
-`getdetailsofitunesproduct `
+`getdetailsofitunesproduct a{}`
 
 ### arguments
 

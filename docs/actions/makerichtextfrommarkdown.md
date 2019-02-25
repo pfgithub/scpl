@@ -12,7 +12,7 @@ Markdown
 
 
 ### usage
-`makerichtextfrommarkdown `
+`makerichtextfrommarkdown a{}`
 
 ### arguments
 

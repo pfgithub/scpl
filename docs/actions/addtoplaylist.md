@@ -18,7 +18,7 @@ Items in your music library or items from the Search iTunes action.
 The contents of the updated playlist
 
 ### usage
-`addtoplaylist undefined=[???]`
+`addtoplaylist a{undefined=[???]}`
 
 ### arguments
 This paramtype is not implemented. WFPlaylistPickerParameter

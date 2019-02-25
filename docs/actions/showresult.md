@@ -11,10 +11,10 @@ Shows the specified text in Siri or in an alert.
 
 
 ### usage
-`showresult text=[string|text]`
+`showresult a{text=[string|text]}`
 
 ### arguments
-### Text Input: text / text (internally `Text`)
+### Text: text / text (internally `Text`)
 **Placeholder**:
 ```
 Enter text...

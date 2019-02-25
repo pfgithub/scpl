@@ -5,7 +5,7 @@
 
 
 ### usage
-`isworkflowactionstweet `
+`isworkflowactionstweet a{}`
 
 ### arguments
 

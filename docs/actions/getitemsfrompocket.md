@@ -11,7 +11,7 @@ Returns items in your Pocket account.
 
 
 ### usage
-`getitemsfrompocket wfpocketitemcount=[string integer] type=[string <${strInfo}>] search=[string|text] tag=[string|text]`
+`getitemsfrompocket a{wfpocketitemcount=[string integer] type=[string <${strInfo}>] search=[string|text] tag=[string|text]}`
 
 ### arguments
 ### Stepper Number: wfpocketitemcount / wfpocketitemcount (internally `WFPocketItemCount`)
@@ -44,7 +44,7 @@ containing one of the options:
 
 ---
 
-### Text Input: Search / search (internally `WFPocketItemSearchTerm`)
+### Text: Search / search (internally `WFPocketItemSearchTerm`)
 **Placeholder**:
 ```
 optional
@@ -59,7 +59,7 @@ with the text.
 
 ---
 
-### Text Input: Tag / tag (internally `WFPocketItemSearchTags`)
+### Text: Tag / tag (internally `WFPocketItemSearchTags`)
 **Placeholder**:
 ```
 optional

@@ -7,7 +7,7 @@
 
 
 ### usage
-`findmusic `
+`findmusic a{}`
 
 ### arguments
 

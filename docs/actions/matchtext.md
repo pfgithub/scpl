@@ -11,10 +11,10 @@ Searches text passed into the action for matches to a regular expression.
 A list of text items that matched the regular expression
 
 ### usage
-`matchtext pattern=[string|text] casesensitive=[string boolean|variable]`
+`matchtext a{pattern=[string|text] casesensitive=[string boolean|variable]}`
 
 ### arguments
-### Text Input: Pattern / pattern (internally `WFMatchTextPattern`)
+### Text: Pattern / pattern (internally `WFMatchTextPattern`)
 **Default Value**:
 ```
 [0-9a-zA-Z]

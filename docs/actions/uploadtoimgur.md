@@ -11,7 +11,7 @@ Uploads the input to Imgur.
 
 
 ### usage
-`uploadtoimgur uploadanonymously=[string boolean|variable] directlink=[string boolean|variable] createalbum=[string boolean|variable] albumlayout=[string <${strInfo}>] albumprivacy=[string <${strInfo}>] title=[string|text] description=[string|text]`
+`uploadtoimgur a{uploadanonymously=[string boolean|variable] directlink=[string boolean|variable] createalbum=[string boolean|variable] albumlayout=[string <${strInfo}>] albumprivacy=[string <${strInfo}>] title=[string|text] description=[string|text]}`
 
 ### arguments
 ### Switch: Upload Anonymously / uploadanonymously (internally `WFImgurAnonymous`)
@@ -87,7 +87,7 @@ containing one of the options:
 
 ---
 
-### Text Input: Title / title (internally `WFImgurTitle`)
+### Text: Title / title (internally `WFImgurTitle`)
 **Placeholder**:
 ```
 optional
@@ -102,7 +102,7 @@ with the text.
 
 ---
 
-### Text Input: Description / description (internally `WFImgurDescription`)
+### Text: Description / description (internally `WFImgurDescription`)
 **Placeholder**:
 ```
 Description

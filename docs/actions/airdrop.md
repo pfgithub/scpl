@@ -11,7 +11,7 @@ Prompts to share the input via AirDrop.
 
 
 ### usage
-`airdrop `
+`airdrop a{}`
 
 ### arguments
 

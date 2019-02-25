@@ -13,7 +13,7 @@ Edits an image or PDF with Markup.
 The edited content
 
 ### usage
-`markup `
+`markup a{}`
 
 ### arguments
 

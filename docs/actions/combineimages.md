@@ -9,7 +9,7 @@ Combines the images passed into the action horizontally, vertically, or in a gri
 
 
 ### usage
-`combineimages mode=[string <${strInfo}>] direction=[string <${strInfo}>] spacing=[string number]`
+`combineimages a{mode=[string <${strInfo}>] direction=[string <${strInfo}>] spacing=[string number]}`
 
 ### arguments
 ### Enumeration: Mode / mode (internally `WFImageCombineMode`)

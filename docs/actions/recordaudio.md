@@ -13,7 +13,7 @@ Uses the microphone to record audio.
 
 
 ### usage
-`recordaudio audioquality=[string <${strInfo}>] startrecording=[string <${strInfo}>] finishrecording=[string <${strInfo}>] undefined=[???]`
+`recordaudio a{audioquality=[string <${strInfo}>] startrecording=[string <${strInfo}>] finishrecording=[string <${strInfo}>] undefined=[???]}`
 
 ### arguments
 ### Enumeration: Audio Quality / audioquality (internally `WFRecordingCompression`)

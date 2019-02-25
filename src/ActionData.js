@@ -335,7 +335,7 @@ Accepts a variable.`;
 
 types.WFTextInputParameter = class extends types.WFParameter {
 	constructor(data) {
-		super(data, "Text Input");
+		super(data, "Text");
 	}
 	genDocsArgName() {
 		return !this.allowsVariables ? `[string]` : `[string|text]`;
@@ -534,7 +534,7 @@ ${this._data.Description.DescriptionInput}
 ${this._data.Description.DescriptionResult}` : ""}` : ""}
 
 ### usage
-\`${this.shortName} ${this._parameters.map(param => `${param.shortName}=${typeof param === "string" ? `[???]` : param.genDocsArgName()}`).join` `}\`
+\`${this.shortName} a{${this._parameters.map(param => `${param.shortName}=${typeof param === "string" ? `[???]` : param.genDocsArgName()}`).join` `}}\`
 
 ### arguments
 ${this._parameters.map(param => (typeof param === "string") ? `${param}` : param.genDocs()).join`

@@ -5,7 +5,7 @@
 
 
 ### usage
-`filterlocations `
+`filterlocations a{}`
 
 ### arguments
 

@@ -8,7 +8,7 @@
 ## description
 
 ### usage
-`findhealthsamples `
+`findhealthsamples a{}`
 
 ### arguments
 

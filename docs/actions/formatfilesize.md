@@ -12,7 +12,7 @@ A file size from another action, or a number of bytes
 
 
 ### usage
-`formatfilesize format=[string <${strInfo}>] includeunits=[string boolean|variable]`
+`formatfilesize a{format=[string <${strInfo}>] includeunits=[string boolean|variable]}`
 
 ### arguments
 ### Enumeration: Format / format (internally `WFFileSizeFormat`)

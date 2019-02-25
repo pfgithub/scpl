@@ -9,7 +9,7 @@ Repeats the contained actions, running them the specified number of times.
 
 
 ### usage
-`repeat wfrepeatcount=[string integer]`
+`repeat a{wfrepeatcount=[string integer]}`
 
 ### arguments
 ### Stepper Number: wfrepeatcount / wfrepeatcount (internally `WFRepeatCount`)

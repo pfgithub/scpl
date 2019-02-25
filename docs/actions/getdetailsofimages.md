@@ -5,7 +5,7 @@
 
 
 ### usage
-`getdetailsofimages `
+`getdetailsofimages a{}`
 
 ### arguments
 

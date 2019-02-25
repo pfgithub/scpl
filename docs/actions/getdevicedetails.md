@@ -9,7 +9,7 @@ Gets information about the current device.
 
 
 ### usage
-`getdevicedetails get=[string <${strInfo}>]`
+`getdevicedetails a{get=[string <${strInfo}>]}`
 
 ### arguments
 ### Enumeration: Get / get (internally `WFDeviceDetail`)

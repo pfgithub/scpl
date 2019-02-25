@@ -13,10 +13,10 @@ Get recent notes from Evernote, optionally filtering based on criteria.
 
 
 ### usage
-`getnotes titlesearch=[string|text] undefined=[???] undefined=[???] wfevernotenotescount=[string integer]`
+`getnotes a{titlesearch=[string|text] undefined=[???] undefined=[???] wfevernotenotescount=[string integer]}`
 
 ### arguments
-### Text Input: Title Search / titlesearch (internally `WFEvernoteNotesTitleSearch`)
+### Text: Title Search / titlesearch (internally `WFEvernoteNotesTitleSearch`)
 **Placeholder**:
 ```
 optional

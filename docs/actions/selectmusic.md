@@ -11,7 +11,7 @@ Prompts to select music from your local music library.
 
 
 ### usage
-`selectmusic selectmultiplesongs=[string boolean|variable]`
+`selectmusic a{selectmultiplesongs=[string boolean|variable]}`
 
 ### arguments
 ### Switch: Select Multiple Songs / selectmultiplesongs (internally `WFExportSongActionSelectMultiple`)

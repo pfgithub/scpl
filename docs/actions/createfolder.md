@@ -11,14 +11,14 @@ Makes a new folder in the specified file storage service.
 
 
 ### usage
-`createfolder undefined=[???] path=[string|text]`
+`createfolder a{undefined=[???] path=[string|text]}`
 
 ### arguments
 This paramtype is not implemented. WFStorageServicePickerParameter
 
 ---
 
-### Text Input: Path / path (internally `WFFilePath`)
+### Text: Path / path (internally `WFFilePath`)
 **Allows Variables**: true
 
 

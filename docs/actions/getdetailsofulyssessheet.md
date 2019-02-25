@@ -5,7 +5,7 @@
 
 
 ### usage
-`getdetailsofulyssessheet `
+`getdetailsofulyssessheet a{}`
 
 ### arguments
 

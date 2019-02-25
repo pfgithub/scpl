@@ -11,7 +11,7 @@ Prints the input using AirPrint.
 
 
 ### usage
-`print `
+`print a{}`
 
 ### arguments
 

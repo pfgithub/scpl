@@ -7,7 +7,7 @@
 
 
 ### usage
-`findreminders `
+`findreminders a{}`
 
 ### arguments
 

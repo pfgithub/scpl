@@ -13,7 +13,7 @@ Adds the input to Instapaper.
 
 
 ### usage
-`addtoinstapaper undefined=[???]`
+`addtoinstapaper a{undefined=[???]}`
 
 ### arguments
 This paramtype is not implemented. WFDynamicEnumerationParameter

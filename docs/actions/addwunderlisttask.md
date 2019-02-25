@@ -18,10 +18,10 @@ Files to attach to the task
 The URL of the newly created task
 
 ### usage
-`addwunderlisttask title=[string|text] undefined=[???] undefined=[???] undefined=[???] starred=[string boolean|variable] notes=[string|text]`
+`addwunderlisttask a{title=[string|text] undefined=[???] undefined=[???] undefined=[???] starred=[string boolean|variable] notes=[string|text]}`
 
 ### arguments
-### Text Input: Title / title (internally `WFWunderlistTitle`)
+### Text: Title / title (internally `WFWunderlistTitle`)
 **Placeholder**:
 ```
 Buy some milk
@@ -58,7 +58,7 @@ or a variable.
 
 ---
 
-### Text Input: Notes / notes (internally `WFWunderlistNotes`)
+### Text: Notes / notes (internally `WFWunderlistNotes`)
 **Placeholder**:
 ```
 Notes

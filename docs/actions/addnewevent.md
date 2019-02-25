@@ -15,10 +15,10 @@ Creates a new event and adds it to the selected calendar.
 The new event
 
 ### usage
-`addnewevent title=[string|text] location=[string|text] undefined=[???] date=[boolean] undefined=[???] undefined=[???] allday=[string boolean|variable] alert=[string <${strInfo}>] alerttime=[string|text] notes=[string|text]`
+`addnewevent a{title=[string|text] location=[string|text] undefined=[???] date=[boolean] undefined=[???] undefined=[???] allday=[string boolean|variable] alert=[string <${strInfo}>] alerttime=[string|text] notes=[string|text]}`
 
 ### arguments
-### Text Input: Title / title (internally `WFCalendarItemTitle`)
+### Text: Title / title (internally `WFCalendarItemTitle`)
 **Placeholder**:
 ```
 Lunch with Tim
@@ -33,7 +33,7 @@ with the text.
 
 ---
 
-### Text Input: Location / location (internally `WFCalendarItemLocation`)
+### Text: Location / location (internally `WFCalendarItemLocation`)
 **Placeholder**:
 ```
 optional
@@ -100,7 +100,7 @@ containing one of the options:
 
 ---
 
-### Text Input: Alert Time / alerttime (internally `WFAlertCustomTime`)
+### Text: Alert Time / alerttime (internally `WFAlertCustomTime`)
 **Placeholder**:
 ```
 Tomorrow at 4pm
@@ -115,7 +115,7 @@ with the text.
 
 ---
 
-### Text Input: Notes / notes (internally `WFCalendarItemNotes`)
+### Text: Notes / notes (internally `WFCalendarItemNotes`)
 **Placeholder**:
 ```
 Notes

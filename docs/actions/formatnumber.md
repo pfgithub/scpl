@@ -9,7 +9,7 @@ Formats a number into text.
 
 
 ### usage
-`formatnumber wfnumberformatdecimalplaces=[string integer]`
+`formatnumber a{wfnumberformatdecimalplaces=[string integer]}`
 
 ### arguments
 ### Stepper Number: wfnumberformatdecimalplaces / wfnumberformatdecimalplaces (internally `WFNumberFormatDecimalPlaces`)

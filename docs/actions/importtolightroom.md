@@ -11,7 +11,7 @@ Imports the photos passed as input into Lightroom
 
 
 ### usage
-`importtolightroom applypreset=[string boolean|variable] presetgroup=[string <${strInfo}>] undefined=[???]`
+`importtolightroom a{applypreset=[string boolean|variable] presetgroup=[string <${strInfo}>] undefined=[???]}`
 
 ### arguments
 ### Switch: Apply Preset / applypreset (internally `applyPreset`)

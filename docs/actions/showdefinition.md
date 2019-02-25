@@ -11,7 +11,7 @@ Shows the definition of the word passed into the action.
 
 
 ### usage
-`showdefinition `
+`showdefinition a{}`
 
 ### arguments
 

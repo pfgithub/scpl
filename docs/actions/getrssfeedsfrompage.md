@@ -9,7 +9,7 @@ Extracts any RSS feed URLs from the given web URLs or web page.
 
 
 ### usage
-`getrssfeedsfrompage `
+`getrssfeedsfrompage a{}`
 
 ### arguments
 

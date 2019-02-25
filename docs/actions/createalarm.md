@@ -13,10 +13,10 @@ Creates an alarm in the Clock app.
 
 
 ### usage
-`createalarm label=[string|text] undefined=[???] undefined=[???]`
+`createalarm a{label=[string|text] undefined=[???] undefined=[???]}`
 
 ### arguments
-### Text Input: Label / label (internally `WFLabel`)
+### Text: Label / label (internally `WFLabel`)
 **Placeholder**:
 ```
 Alarm

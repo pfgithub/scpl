@@ -9,7 +9,7 @@ Gets the text that matched a particular capture group or all of the capture grou
 
 
 ### usage
-`getgroupfrommatchedtext get=[string <${strInfo}>] groupindex=[string number]`
+`getgroupfrommatchedtext a{get=[string <${strInfo}>] groupindex=[string number]}`
 
 ### arguments
 ### Enumeration: Get / get (internally `WFGetGroupType`)

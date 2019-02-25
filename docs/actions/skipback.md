@@ -11,7 +11,7 @@ Skips to the previous song in the current music queue.
 
 
 ### usage
-`skipback skipto=[string <${strInfo}>]`
+`skipback a{skipto=[string <${strInfo}>]}`
 
 ### arguments
 ### Enumeration: Skip To / skipto (internally `WFSkipBackBehavior`)

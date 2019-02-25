@@ -9,10 +9,10 @@ Sets a value in the dictionary passed into the action.
 
 
 ### usage
-`setdictionaryvalue key=[string|text] value=[string|text]`
+`setdictionaryvalue a{key=[string|text] value=[string|text]}`
 
 ### arguments
-### Text Input: Key / key (internally `WFDictionaryKey`)
+### Text: Key / key (internally `WFDictionaryKey`)
 **Placeholder**:
 ```
 name
@@ -27,7 +27,7 @@ with the text.
 
 ---
 
-### Text Input: Value / value (internally `WFDictionaryValue`)
+### Text: Value / value (internally `WFDictionaryValue`)
 **Placeholder**:
 ```
 example

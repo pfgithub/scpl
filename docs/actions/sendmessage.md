@@ -13,7 +13,7 @@ Sends an iMessage or SMS. Pass images, videos, or other files as input to includ
 
 
 ### usage
-`sendmessage undefined=[???] showwhenrun=[string boolean|variable] undefined=[???] wfsendmessagecontent=[string|text] prefix=[string|text]`
+`sendmessage a{undefined=[???] showwhenrun=[string boolean|variable] undefined=[???] wfsendmessagecontent=[string|text] prefix=[string|text]}`
 
 ### arguments
 This paramtype is not implemented. WFIntentAppPickerParameter
@@ -38,7 +38,7 @@ This paramtype is not implemented. WFContactHandleFieldParameter
 
 ---
 
-### Text Input: wfsendmessagecontent / wfsendmessagecontent (internally `WFSendMessageContent`)
+### Text: wfsendmessagecontent / wfsendmessagecontent (internally `WFSendMessageContent`)
 **Placeholder**:
 ```
 Message
@@ -53,7 +53,7 @@ with the text.
 
 ---
 
-### Text Input: Prefix / prefix (internally `WFSendMessagePrefix`)
+### Text: Prefix / prefix (internally `WFSendMessagePrefix`)
 **Allows Variables**: true
 
 **Only enabled if**: This action is always **disabled** inside Shortcutslang.

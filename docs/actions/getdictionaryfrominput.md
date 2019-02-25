@@ -9,7 +9,7 @@ Makes a dictionary from the text passed as input. JSON (like {"foo": "bar"}), ke
 
 
 ### usage
-`getdictionaryfrominput `
+`getdictionaryfrominput a{}`
 
 ### arguments
 

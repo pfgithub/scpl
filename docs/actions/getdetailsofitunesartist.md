@@ -5,7 +5,7 @@
 
 
 ### usage
-`getdetailsofitunesartist `
+`getdetailsofitunesartist a{}`
 
 ### arguments
 

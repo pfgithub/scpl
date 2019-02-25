@@ -11,10 +11,10 @@ Searches the iTunes Store, returning the items that match the specified search t
 
 
 ### usage
-`searchitunesstore search=[string|text] undefined=[???] undefined=[???] undefined=[???] undefined=[???] wfitemlimit=[string integer]`
+`searchitunesstore a{search=[string|text] undefined=[???] undefined=[???] undefined=[???] undefined=[???] wfitemlimit=[string integer]}`
 
 ### arguments
-### Text Input: Search / search (internally `WFSearchTerm`)
+### Text: Search / search (internally `WFSearchTerm`)
 **Placeholder**:
 ```
 U2

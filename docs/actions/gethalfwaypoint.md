@@ -11,7 +11,7 @@ Gets the halfway point between two locations.
 
 
 ### usage
-`gethalfwaypoint undefined=[???] undefined=[???]`
+`gethalfwaypoint a{undefined=[???] undefined=[???]}`
 
 ### arguments
 This paramtype is not implemented. WFLocationFieldParameter

@@ -11,7 +11,7 @@ Formats a date and time into text.
 
 
 ### usage
-`formatdate dateformat=[string <${strInfo}>] alternateformat=[string <${strInfo}>] timeformat=[string <${strInfo}>] includeiso8601time=[string boolean|variable] undefined=[???]`
+`formatdate a{dateformat=[string <${strInfo}>] alternateformat=[string <${strInfo}>] timeformat=[string <${strInfo}>] includeiso8601time=[string boolean|variable] undefined=[???]}`
 
 ### arguments
 ### Enumeration: Date Format / dateformat (internally `WFDateFormatStyle`)

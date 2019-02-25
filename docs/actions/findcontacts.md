@@ -7,7 +7,7 @@
 
 
 ### usage
-`findcontacts `
+`findcontacts a{}`
 
 ### arguments
 

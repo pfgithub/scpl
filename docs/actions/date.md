@@ -11,7 +11,7 @@ Passes the specified date and time to the next action.
 
 
 ### usage
-`date use=[string <${strInfo}>] undefined=[???]`
+`date a{use=[string <${strInfo}>] undefined=[???]}`
 
 ### arguments
 ### Enumeration: Use / use (internally `WFDateActionMode`)

@@ -9,7 +9,7 @@ Joins text together, inserting the separator between each join.
 
 
 ### usage
-`combinetext separator=[string <${strInfo}>] custom=[string|text]`
+`combinetext a{separator=[string <${strInfo}>] custom=[string|text]}`
 
 ### arguments
 ### Enumeration: Separator / separator (internally `WFTextSeparator`)
@@ -31,7 +31,7 @@ containing one of the options:
 
 ---
 
-### Text Input: Custom / custom (internally `WFTextCustomSeparator`)
+### Text: Custom / custom (internally `WFTextCustomSeparator`)
 **Placeholder**:
 ```
 Text

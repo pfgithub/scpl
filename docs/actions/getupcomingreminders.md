@@ -13,7 +13,7 @@ Gets upcoming reminders, ordered from nearest to farthest away due date.
 
 
 ### usage
-`getupcomingreminders undefined=[???] wfgetupcomingitemcount=[string integer]`
+`getupcomingreminders a{undefined=[???] wfgetupcomingitemcount=[string integer]}`
 
 ### arguments
 This paramtype is not implemented. WFCalendarPickerParameter

@@ -11,7 +11,7 @@ Removes all reminders passed into the action from the lists they are contained i
 
 
 ### usage
-`removereminders `
+`removereminders a{}`
 
 ### arguments
 

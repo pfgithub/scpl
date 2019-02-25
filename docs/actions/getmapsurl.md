@@ -9,7 +9,7 @@ Creates a URL to search for the location, place, or text that was passed into th
 
 
 ### usage
-`getmapsurl `
+`getmapsurl a{}`
 
 ### arguments
 

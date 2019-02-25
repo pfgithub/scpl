@@ -16,10 +16,10 @@ Safari web pages
 The output from the JavaScript (JSON)
 
 ### usage
-`runjavascriptonwebpage javascript=[string|text]`
+`runjavascriptonwebpage a{javascript=[string|text]}`
 
 ### arguments
-### Text Input: JavaScript / javascript (internally `WFJavaScript`)
+### Text: JavaScript / javascript (internally `WFJavaScript`)
 **Placeholder**:
 ```
 JavaScript

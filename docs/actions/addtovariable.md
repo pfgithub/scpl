@@ -13,7 +13,7 @@ This allows you to make a variable hold multiple items.
 The updated contents of the variable.
 
 ### usage
-`addtovariable variable=[string|variable v:variableName]`
+`addtovariable a{variable=[string|variable v:variableName]}`
 
 ### arguments
 ### Variable Field: Variable / variable (internally `WFVariableName`)

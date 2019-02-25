@@ -13,7 +13,7 @@ Gets cards, lists, or boards in your Trello account.
 
 
 ### usage
-`gettrelloitems get=[string <${strInfo}>] undefined=[???] undefined=[???]`
+`gettrelloitems a{get=[string <${strInfo}>] undefined=[???] undefined=[???]}`
 
 ### arguments
 ### Enumeration: Get / get (internally `WFTrelloItemType`)

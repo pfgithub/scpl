@@ -9,7 +9,7 @@ Gets a public link to the file passed into the action.
 
 
 ### usage
-`getlinktofile `
+`getlinktofile a{}`
 
 ### arguments
 

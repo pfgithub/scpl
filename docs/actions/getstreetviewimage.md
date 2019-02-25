@@ -11,7 +11,7 @@ Gets photos of the locations passed as input, using Google Street View.
 
 
 ### usage
-`getstreetviewimage `
+`getstreetviewimage a{}`
 
 ### arguments
 

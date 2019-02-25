@@ -11,7 +11,7 @@ Removes all events passed into the action from the calendars they are contained 
 
 
 ### usage
-`removeevents includefutureevents=[string boolean|variable]`
+`removeevents a{includefutureevents=[string boolean|variable]}`
 
 ### arguments
 ### Switch: Include Future Events / includefutureevents (internally `WFCalendarIncludeFutureEvents`)

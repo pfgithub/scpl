@@ -14,7 +14,7 @@ An animated GIF
 A video
 
 ### usage
-`makevideofromgif wfmakevideofromgifactionloopcount=[string integer]`
+`makevideofromgif a{wfmakevideofromgifactionloopcount=[string integer]}`
 
 ### arguments
 ### Stepper Number: wfmakevideofromgifactionloopcount / wfmakevideofromgifactionloopcount (internally `WFMakeVideoFromGIFActionLoopCount`)

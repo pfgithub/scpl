@@ -9,7 +9,7 @@ Returns the name of every item passed as input. Depending on the input, this cou
 
 
 ### usage
-`getname `
+`getname a{}`
 
 ### arguments
 

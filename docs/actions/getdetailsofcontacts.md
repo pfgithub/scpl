@@ -5,7 +5,7 @@
 
 
 ### usage
-`getdetailsofcontacts `
+`getdetailsofcontacts a{}`
 
 ### arguments
 

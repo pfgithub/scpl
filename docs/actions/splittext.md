@@ -9,7 +9,7 @@ Separates text passed into the action into a list.
 
 
 ### usage
-`splittext separator=[string <${strInfo}>] custom=[string|text]`
+`splittext a{separator=[string <${strInfo}>] custom=[string|text]}`
 
 ### arguments
 ### Enumeration: Separator / separator (internally `WFTextSeparator`)
@@ -32,7 +32,7 @@ containing one of the options:
 
 ---
 
-### Text Input: Custom / custom (internally `WFTextCustomSeparator`)
+### Text: Custom / custom (internally `WFTextCustomSeparator`)
 **Placeholder**:
 ```
 Text

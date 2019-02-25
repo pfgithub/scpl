@@ -16,10 +16,10 @@ The content to include in your new note
 
 
 ### usage
-`createnewnote notetitle=[string|text] undefined=[???] undefined=[???]`
+`createnewnote a{notetitle=[string|text] undefined=[???] undefined=[???]}`
 
 ### arguments
-### Text Input: Note Title / notetitle (internally `WFEvernoteNoteTitle`)
+### Text: Note Title / notetitle (internally `WFEvernoteNoteTitle`)
 **Placeholder**:
 ```
 optional

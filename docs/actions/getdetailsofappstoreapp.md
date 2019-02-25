@@ -5,7 +5,7 @@
 
 
 ### usage
-`getdetailsofappstoreapp `
+`getdetailsofappstoreapp a{}`
 
 ### arguments
 

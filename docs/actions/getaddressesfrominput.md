@@ -9,7 +9,7 @@ Returns any street addresses found in the output from the previous action.
 
 
 ### usage
-`getaddressesfrominput `
+`getaddressesfrominput a{}`
 
 ### arguments
 

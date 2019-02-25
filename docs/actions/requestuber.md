@@ -18,7 +18,7 @@ The destination
 The shareable link to your Uber ride
 
 ### usage
-`requestuber showestimate=[string boolean|variable] undefined=[???] undefined=[???] pickupat=[string <${strInfo}>] undefined=[???]`
+`requestuber a{showestimate=[string boolean|variable] undefined=[???] undefined=[???] pickupat=[string <${strInfo}>] undefined=[???]}`
 
 ### arguments
 ### Switch: Show Estimate / showestimate (internally `UberShowEstimate`)

@@ -11,7 +11,7 @@ Passes the specified measurement (including number and unit) to the next action.
 
 
 ### usage
-`measurement undefined=[???] undefined=[???]`
+`measurement a{undefined=[???] undefined=[???]}`
 
 ### arguments
 This paramtype is not implemented. WFUnitTypePickerParameter

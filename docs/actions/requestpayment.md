@@ -13,7 +13,7 @@ Requests a payment from the specified people using a payment app on your device.
 
 
 ### usage
-`requestpayment undefined=[???] undefined=[???] amount=[string number] openinapp=[string boolean|variable] note=[string|text]`
+`requestpayment a{undefined=[???] undefined=[???] amount=[string number] openinapp=[string boolean|variable] note=[string|text]}`
 
 ### arguments
 This paramtype is not implemented. WFIntentAppPickerParameter
@@ -49,7 +49,7 @@ or a variable.
 
 ---
 
-### Text Input: Note / note (internally `WFVenmoActionNote`)
+### Text: Note / note (internally `WFVenmoActionNote`)
 **Placeholder**:
 ```
 Note

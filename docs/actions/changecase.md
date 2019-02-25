@@ -9,7 +9,7 @@ Changes the case of the text passed into the action to UPPERCASE, lowercase, or 
 
 
 ### usage
-`changecase case=[string <${strInfo}>]`
+`changecase a{case=[string <${strInfo}>]}`
 
 ### arguments
 ### Enumeration: Case / case (internally `WFCaseType`)

@@ -7,7 +7,7 @@
 
 
 ### usage
-`findcalendarevents `
+`findcalendarevents a{}`
 
 ### arguments
 

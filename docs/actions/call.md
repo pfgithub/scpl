@@ -13,7 +13,7 @@ Calls the phone number passed in as input.
 
 
 ### usage
-`call undefined=[???]`
+`call a{undefined=[???]}`
 
 ### arguments
 This paramtype is not implemented. WFIntentAppPickerParameter

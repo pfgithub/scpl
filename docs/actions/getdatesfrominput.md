@@ -9,7 +9,7 @@ Returns any dates found in the output from the previous action.
 
 
 ### usage
-`getdatesfrominput `
+`getdatesfrominput a{}`
 
 ### arguments
 

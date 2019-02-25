@@ -13,10 +13,10 @@ Creates a new list on the specified board in your Trello account.
 
 
 ### usage
-`createtrellolist name=[string|text] undefined=[???] position=[string <${strInfo}>]`
+`createtrellolist a{name=[string|text] undefined=[???] position=[string <${strInfo}>]}`
 
 ### arguments
-### Text Input: Name / name (internally `WFTrelloName`)
+### Text: Name / name (internally `WFTrelloName`)
 **Placeholder**:
 ```
 Shortcut Ideas

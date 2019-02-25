@@ -9,7 +9,7 @@ Gets the value of the specified variable and passes it to the next action.
 
 
 ### usage
-`getvariable variable=[variable]`
+`getvariable a{variable=[variable]}`
 
 ### arguments
 ### Variable Picker: Variable / variable (internally `WFVariable`)

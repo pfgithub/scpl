@@ -11,7 +11,7 @@ Passes the specified email addresses to the next action.
 
 
 ### usage
-`emailaddress wfemailaddress=[string|string array|variable]`
+`emailaddress a{wfemailaddress=[string|string array|variable]}`
 
 ### arguments
 ### Text Input: wfemailaddress / wfemailaddress (internally `WFEmailAddress`)

@@ -16,7 +16,7 @@ Background images
 The combined images
 
 ### usage
-`overlayimage image=[variable] showimageeditor=[string boolean|variable] position=[string <${strInfo}>] width=[string number] height=[string number] xcoordinate=[string number] ycoordinate=[string number] rotationdegrees=[string number] opacity=[string number]`
+`overlayimage a{image=[variable] showimageeditor=[string boolean|variable] position=[string <${strInfo}>] width=[string number] height=[string number] xcoordinate=[string number] ycoordinate=[string number] rotationdegrees=[string number] opacity=[string number]}`
 
 ### arguments
 ### Variable Picker: Image / image (internally `WFImage`)

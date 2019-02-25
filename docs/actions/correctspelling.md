@@ -9,7 +9,7 @@ Autocorrects the spelling of text passed into the action.
 
 
 ### usage
-`correctspelling `
+`correctspelling a{}`
 
 ### arguments
 

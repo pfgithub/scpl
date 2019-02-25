@@ -11,10 +11,10 @@ Searches for GIFs representing the text specified using Giphy.
 
 
 ### usage
-`searchgiphy search=[string|text] showgifpicker=[string boolean|variable] wfgiphylimit=[string integer] selectmultiple=[string boolean|variable]`
+`searchgiphy a{search=[string|text] showgifpicker=[string boolean|variable] wfgiphylimit=[string integer] selectmultiple=[string boolean|variable]}`
 
 ### arguments
-### Text Input: Search / search (internally `WFGiphyQuery`)
+### Text: Search / search (internally `WFGiphyQuery`)
 **Placeholder**:
 ```
 leave blank for trending

@@ -11,7 +11,7 @@ Converts the rich text passed as input to HTML text.
 HTML
 
 ### usage
-`makehtmlfromrichtext makefulldocument=[string boolean|variable]`
+`makehtmlfromrichtext a{makefulldocument=[string boolean|variable]}`
 
 ### arguments
 ### Switch: Make Full Document / makefulldocument (internally `WFMakeFullDocument`)

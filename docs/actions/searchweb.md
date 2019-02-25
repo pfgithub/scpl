@@ -11,7 +11,7 @@ Searches the web for the text provided as input.
 
 
 ### usage
-`searchweb search=[string <${strInfo}>]`
+`searchweb a{search=[string <${strInfo}>]}`
 
 ### arguments
 ### Enumeration: Search / search (internally `WFSearchWebDestination`)

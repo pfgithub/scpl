@@ -9,10 +9,10 @@ Returns a particular file type from the input.
 
 
 ### usage
-`getfileoftype type=[string|text]`
+`getfileoftype a{type=[string|text]}`
 
 ### arguments
-### Text Input: Type / type (internally `WFFileType`)
+### Text: Type / type (internally `WFFileType`)
 **Placeholder**:
 ```
 UTI

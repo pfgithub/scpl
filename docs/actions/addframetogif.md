@@ -14,7 +14,7 @@ An existing animated GIF, if desired.
 An animated GIF
 
 ### usage
-`addframetogif image=[variable] delaytime=[string number] autosize=[string boolean|variable] width=[string number] height=[string number]`
+`addframetogif a{image=[variable] delaytime=[string number] autosize=[string boolean|variable] width=[string number] height=[string number]}`
 
 ### arguments
 ### Variable Picker: Image / image (internally `WFImage`)

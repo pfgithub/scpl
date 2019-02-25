@@ -9,7 +9,7 @@ Calculates statistics on the numbers that are provided as input.
 
 
 ### usage
-`calculatestatistics operation=[string <${strInfo}>]`
+`calculatestatistics a{operation=[string <${strInfo}>]}`
 
 ### arguments
 ### Enumeration: Operation / operation (internally `WFStatisticsOperation`)

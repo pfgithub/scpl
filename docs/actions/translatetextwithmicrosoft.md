@@ -11,7 +11,7 @@ Translates the text passed into the action into another language.
 
 
 ### usage
-`translatetextwithmicrosoft undefined=[???] undefined=[???]`
+`translatetextwithmicrosoft a{undefined=[???] undefined=[???]}`
 
 ### arguments
 This paramtype is not implemented. WFTranslateTextLanguagePickerParameter

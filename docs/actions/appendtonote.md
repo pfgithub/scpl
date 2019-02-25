@@ -16,10 +16,10 @@ The content to add to your note
 
 
 ### usage
-`appendtonote notetitle=[string|text] mode=[string <${strInfo}>] undefined=[???]`
+`appendtonote a{notetitle=[string|text] mode=[string <${strInfo}>] undefined=[???]}`
 
 ### arguments
-### Text Input: Note Title / notetitle (internally `WFEvernoteNotesTitleSearch`)
+### Text: Note Title / notetitle (internally `WFEvernoteNotesTitleSearch`)
 **Placeholder**:
 ```
 example note

@@ -11,7 +11,7 @@ Prompts to pick an email address from your contacts and passes the selection to 
 
 
 ### usage
-`selectemailaddress `
+`selectemailaddress a{}`
 
 ### arguments
 

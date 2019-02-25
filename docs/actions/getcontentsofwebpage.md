@@ -9,7 +9,7 @@ Extracts the contents of the web pages passed into the action.
 
 
 ### usage
-`getcontentsofwebpage `
+`getcontentsofwebpage a{}`
 
 ### arguments
 

@@ -11,7 +11,7 @@ Gets contacts from the result of the previous action.
 
 
 ### usage
-`getcontactsfrominput `
+`getcontactsfrominput a{}`
 
 ### arguments
 

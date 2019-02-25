@@ -9,7 +9,7 @@ Returns the type of every item passed as input. For example, if a URL is passed,
 
 
 ### usage
-`gettype `
+`gettype a{}`
 
 ### arguments
 

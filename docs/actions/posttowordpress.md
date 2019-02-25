@@ -15,7 +15,7 @@ Posts the input to a WordPress blog as a new post or page.
 The URL of the new blog post
 
 ### usage
-`posttowordpress undefined=[???] undefined=[???] title=[string|text] undefined=[???] undefined=[???] undefined=[???] undefined=[???] undefined=[???] advanced=[boolean] allowcomments=[string boolean|variable] slug=[string|text] excerpt=[string|text] undefined=[???] undefined=[???] featuredimage=[variable] customfields=[boolean] customfields=[dictionary]`
+`posttowordpress a{undefined=[???] undefined=[???] title=[string|text] undefined=[???] undefined=[???] undefined=[???] undefined=[???] undefined=[???] advanced=[boolean] allowcomments=[string boolean|variable] slug=[string|text] excerpt=[string|text] undefined=[???] undefined=[???] featuredimage=[variable] customfields=[boolean] customfields=[dictionary]}`
 
 ### arguments
 This paramtype is not implemented. WFAccountPickerParameter
@@ -26,7 +26,7 @@ This paramtype is not implemented. WFDynamicEnumerationParameter
 
 ---
 
-### Text Input: Title / title (internally `Title`)
+### Text: Title / title (internally `Title`)
 **Placeholder**:
 ```
 Quarterly Results
@@ -79,7 +79,7 @@ or a variable.
 
 ---
 
-### Text Input: Slug / slug (internally `Slug`)
+### Text: Slug / slug (internally `Slug`)
 **Placeholder**:
 ```
 quarterly-results
@@ -94,7 +94,7 @@ with the text.
 
 ---
 
-### Text Input: Excerpt / excerpt (internally `Excerpt`)
+### Text: Excerpt / excerpt (internally `Excerpt`)
 **Placeholder**:
 ```
 An overall great quarter

@@ -11,7 +11,7 @@ Scans a QR code or bar code using the camera, and returns the text/URL that is f
 
 
 ### usage
-`scanqrbarcode `
+`scanqrbarcode a{}`
 
 ### arguments
 

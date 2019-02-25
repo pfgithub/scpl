@@ -13,10 +13,10 @@ Displays a dialog prompting the user to enter a piece of information.
 
 
 ### usage
-`askforinput question=[string|text] defaultanswer=[string|text] undefined=[???] inputtype=[string <${strInfo}>] granularity=[string <${strInfo}>] skiptowatchdictation=[string boolean|variable]`
+`askforinput a{question=[string|text] defaultanswer=[string|text] undefined=[???] inputtype=[string <${strInfo}>] granularity=[string <${strInfo}>] skiptowatchdictation=[string boolean|variable]}`
 
 ### arguments
-### Text Input: Question / question (internally `WFAskActionPrompt`)
+### Text: Question / question (internally `WFAskActionPrompt`)
 **Placeholder**:
 ```
 Enter text
@@ -31,7 +31,7 @@ with the text.
 
 ---
 
-### Text Input: Default Answer / defaultanswer (internally `WFAskActionDefaultAnswer`)
+### Text: Default Answer / defaultanswer (internally `WFAskActionDefaultAnswer`)
 **Placeholder**:
 ```
 optional

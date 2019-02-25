@@ -9,10 +9,10 @@ Passes the specified text to the next action.
 
 
 ### usage
-`text wftextactiontext=[string|text]`
+`text a{wftextactiontext=[string|text]}`
 
 ### arguments
-### Text Input: wftextactiontext / wftextactiontext (internally `WFTextActionText`)
+### Text: wftextactiontext / wftextactiontext (internally `WFTextActionText`)
 **Placeholder**:
 ```
 Enter text...

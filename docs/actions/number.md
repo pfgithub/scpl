@@ -9,7 +9,7 @@ Passes a number to the next action.
 
 
 ### usage
-`number number=[string number]`
+`number a{number=[string number]}`
 
 ### arguments
 ### Number: Number / number (internally `WFNumberActionNumber`)

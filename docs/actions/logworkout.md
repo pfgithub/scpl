@@ -13,7 +13,7 @@ Adds a workout into the Health app. You can log all kinds of activities, from ru
 
 
 ### usage
-`logworkout undefined=[???] undefined=[???] undefined=[???] undefined=[???] undefined=[???]`
+`logworkout a{undefined=[???] undefined=[???] undefined=[???] undefined=[???] undefined=[???]}`
 
 ### arguments
 This paramtype is not implemented. WFWorkoutTypePickerParameter

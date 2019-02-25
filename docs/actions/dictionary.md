@@ -9,7 +9,7 @@ Passes the specified list of key-value pairs to the next action as a dictionary.
 
 
 ### usage
-`dictionary items=[dictionary]`
+`dictionary a{items=[dictionary]}`
 
 ### arguments
 ### Dictionary: Items / items (internally `WFItems`)

@@ -9,7 +9,7 @@ Rounds the number(s) passed into the action.
 
 
 ### usage
-`roundnumber round=[string <${strInfo}>] mode=[string <${strInfo}>] wfrounddecimalplaces=[string integer]`
+`roundnumber a{round=[string <${strInfo}>] mode=[string <${strInfo}>] wfrounddecimalplaces=[string integer]}`
 
 ### arguments
 ### Enumeration: Round / round (internally `WFRoundType`)

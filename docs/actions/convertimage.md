@@ -11,7 +11,7 @@ Converts the images passed into the action to the specified image format.
 
 
 ### usage
-`convertimage undefined=[???] quality=[string number] preservemetadata=[string boolean|variable]`
+`convertimage a{undefined=[???] quality=[string number] preservemetadata=[string boolean|variable]}`
 
 ### arguments
 This paramtype is not implemented. WFImageConvertFormatPickerParameter

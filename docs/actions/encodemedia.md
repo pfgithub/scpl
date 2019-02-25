@@ -9,7 +9,7 @@ Re-encodes the media passed as input at the specified size, optionally convertin
 
 
 ### usage
-`encodemedia audioonly=[string boolean|variable] format=[string <${strInfo}>] size=[string <${strInfo}>] speed=[string <${strInfo}>] customspeed=[string number] metadata=[boolean] title=[string|text] artist=[string|text] album=[string|text] genre=[string|text] year=[string|text] artwork=[variable]`
+`encodemedia a{audioonly=[string boolean|variable] format=[string <${strInfo}>] size=[string <${strInfo}>] speed=[string <${strInfo}>] customspeed=[string number] metadata=[boolean] title=[string|text] artist=[string|text] album=[string|text] genre=[string|text] year=[string|text] artwork=[variable]}`
 
 ### arguments
 ### Switch: Audio Only / audioonly (internally `WFMediaAudioOnly`)
@@ -106,7 +106,7 @@ parameter is expanded or not.
 
 ---
 
-### Text Input: Title / title (internally `WFMetadataTitle`)
+### Text: Title / title (internally `WFMetadataTitle`)
 **Placeholder**:
 ```
 My Great Track
@@ -121,7 +121,7 @@ with the text.
 
 ---
 
-### Text Input: Artist / artist (internally `WFMetadataArtist`)
+### Text: Artist / artist (internally `WFMetadataArtist`)
 **Placeholder**:
 ```
 Nicholas Fryingpan
@@ -136,7 +136,7 @@ with the text.
 
 ---
 
-### Text Input: Album / album (internally `WFMetadataAlbum`)
+### Text: Album / album (internally `WFMetadataAlbum`)
 **Placeholder**:
 ```
 Abbey Road
@@ -151,7 +151,7 @@ with the text.
 
 ---
 
-### Text Input: Genre / genre (internally `WFMetadataGenre`)
+### Text: Genre / genre (internally `WFMetadataGenre`)
 **Placeholder**:
 ```
 Indie
@@ -166,7 +166,7 @@ with the text.
 
 ---
 
-### Text Input: Year / year (internally `WFMetadataYear`)
+### Text: Year / year (internally `WFMetadataYear`)
 **Placeholder**:
 ```
 2001

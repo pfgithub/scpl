@@ -14,7 +14,7 @@ The music to be played
 
 
 ### usage
-`playmusic shuffle=[string <${strInfo}>] repeat=[string <${strInfo}>]`
+`playmusic a{shuffle=[string <${strInfo}>] repeat=[string <${strInfo}>]}`
 
 ### arguments
 ### Enumeration: Shuffle / shuffle (internally `WFPlayMusicActionShuffle`)

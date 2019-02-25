@@ -9,7 +9,7 @@ Allows you to specify a list of items to be passed to the next action.
 
 
 ### usage
-`list items=[list]`
+`list a{items=[list]}`
 
 ### arguments
 ### List: Items / items (internally `WFItems`)

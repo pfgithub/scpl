@@ -14,10 +14,10 @@ An image or video to include in the notification
 
 
 ### usage
-`shownotification title=[string|text] body=[string|text] playsound=[string boolean|variable]`
+`shownotification a{title=[string|text] body=[string|text] playsound=[string boolean|variable]}`
 
 ### arguments
-### Text Input: Title / title (internally `WFNotificationActionTitle`)
+### Text: Title / title (internally `WFNotificationActionTitle`)
 **Placeholder**:
 ```
 optional
@@ -32,7 +32,7 @@ with the text.
 
 ---
 
-### Text Input: Body / body (internally `WFNotificationActionBody`)
+### Text: Body / body (internally `WFNotificationActionBody`)
 **Placeholder**:
 ```
 Charming notification message

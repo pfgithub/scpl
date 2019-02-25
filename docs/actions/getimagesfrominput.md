@@ -11,7 +11,7 @@ For example, this action can get the album art of a song, or all the images on a
 
 
 ### usage
-`getimagesfrominput `
+`getimagesfrominput a{}`
 
 ### arguments
 

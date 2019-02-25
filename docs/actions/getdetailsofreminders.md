@@ -5,7 +5,7 @@
 
 
 ### usage
-`getdetailsofreminders `
+`getdetailsofreminders a{}`
 
 ### arguments
 

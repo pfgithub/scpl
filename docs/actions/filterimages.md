@@ -5,7 +5,7 @@
 
 
 ### usage
-`filterimages `
+`filterimages a{}`
 
 ### arguments
 

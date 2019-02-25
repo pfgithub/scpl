@@ -9,7 +9,7 @@ Returns any email addresses found in the output from the previous action.
 
 
 ### usage
-`getemailaddressesfrominput `
+`getemailaddressesfrominput a{}`
 
 ### arguments
 

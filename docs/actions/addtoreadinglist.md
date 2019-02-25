@@ -9,7 +9,7 @@ Adds URLs passed into the action to your reading list.
 
 
 ### usage
-`addtoreadinglist `
+`addtoreadinglist a{}`
 
 ### arguments
 

@@ -9,7 +9,7 @@ Performs a number operation on the input and returns the result.
 
 
 ### usage
-`calculate operation=[string <${strInfo}>] scientificoperation=[string <${strInfo}>] operand=[string number] operand=[string number]`
+`calculate a{operation=[string <${strInfo}>] scientificoperation=[string <${strInfo}>] operand=[string number] operand=[string number]}`
 
 ### arguments
 ### Enumeration: Operation / operation (internally `WFMathOperation`)

@@ -13,7 +13,7 @@ Gets upcoming calendar events, ordered from nearest to farthest away in time.
 
 
 ### usage
-`getupcomingevents undefined=[???] wfgetupcomingitemcount=[string integer] day=[string <${strInfo}>] undefined=[???]`
+`getupcomingevents a{undefined=[???] wfgetupcomingitemcount=[string integer] day=[string <${strInfo}>] undefined=[???]}`
 
 ### arguments
 This paramtype is not implemented. WFCalendarPickerParameter

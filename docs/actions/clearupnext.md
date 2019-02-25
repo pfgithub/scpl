@@ -11,7 +11,7 @@ Clears all the music in your Up Next queue.
 
 
 ### usage
-`clearupnext `
+`clearupnext a{}`
 
 ### arguments
 

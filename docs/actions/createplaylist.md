@@ -14,10 +14,10 @@ Items in your music library or items from the Search iTunes action.
 
 
 ### usage
-`createplaylist name=[string|text] author=[string|text] description=[string|text]`
+`createplaylist a{name=[string|text] author=[string|text] description=[string|text]}`
 
 ### arguments
-### Text Input: Name / name (internally `WFPlaylistName`)
+### Text: Name / name (internally `WFPlaylistName`)
 **Placeholder**:
 ```
 Greatest Hits
@@ -32,7 +32,7 @@ with the text.
 
 ---
 
-### Text Input: Author / author (internally `WFPlaylistAuthor`)
+### Text: Author / author (internally `WFPlaylistAuthor`)
 **Placeholder**:
 ```
 Shortcuts
@@ -47,7 +47,7 @@ with the text.
 
 ---
 
-### Text Input: Description / description (internally `WFPlaylistDescription`)
+### Text: Description / description (internally `WFPlaylistDescription`)
 **Placeholder**:
 ```
 All of my favorites

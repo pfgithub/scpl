@@ -13,7 +13,7 @@ Presents an email composer. Pass text into the action to set the email body. Oth
 
 
 ### usage
-`sendemail showcomposesheet=[string boolean|variable] undefined=[???] from=[string|text] to=[string|string array|variable] cc=[string|string array|variable] bcc=[string|string array|variable] subject=[string|text]`
+`sendemail a{showcomposesheet=[string boolean|variable] undefined=[???] from=[string|text] to=[string|string array|variable] cc=[string|string array|variable] bcc=[string|string array|variable] subject=[string|text]}`
 
 ### arguments
 ### Switch: Show Compose Sheet / showcomposesheet (internally `WFSendEmailActionShowComposeSheet`)
@@ -34,7 +34,7 @@ This paramtype is not implemented. WFEmailAccountPickerParameter
 
 ---
 
-### Text Input: From / from (internally `WFSendEmailActionFrom`)
+### Text: From / from (internally `WFSendEmailActionFrom`)
 **Placeholder**:
 ```
 optional
@@ -89,7 +89,7 @@ Accepts a string or string array or variable of email addresses.
 
 ---
 
-### Text Input: Subject / subject (internally `WFSendEmailActionSubject`)
+### Text: Subject / subject (internally `WFSendEmailActionSubject`)
 **Placeholder**:
 ```
 optional

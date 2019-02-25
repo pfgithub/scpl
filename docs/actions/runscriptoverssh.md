@@ -14,10 +14,10 @@ The input passed to the shell script (stdin)
 The output from the shell script (stdout)
 
 ### usage
-`runscriptoverssh host=[string|text] port=[string|text] user=[string|text] password=[string|text] script=[string|text]`
+`runscriptoverssh a{host=[string|text] port=[string|text] user=[string|text] password=[string|text] script=[string|text]}`
 
 ### arguments
-### Text Input: Host / host (internally `WFSSHHost`)
+### Text: Host / host (internally `WFSSHHost`)
 **Placeholder**:
 ```
 192.168.1.100
@@ -32,7 +32,7 @@ with the text.
 
 ---
 
-### Text Input: Port / port (internally `WFSSHPort`)
+### Text: Port / port (internally `WFSSHPort`)
 **Placeholder**:
 ```
 22
@@ -51,7 +51,7 @@ with the text.
 
 ---
 
-### Text Input: User / user (internally `WFSSHUser`)
+### Text: User / user (internally `WFSSHUser`)
 **Placeholder**:
 ```
 root
@@ -66,7 +66,7 @@ with the text.
 
 ---
 
-### Text Input: Password / password (internally `WFSSHPassword`)
+### Text: Password / password (internally `WFSSHPassword`)
 **Placeholder**:
 ```
 ••••••••
@@ -81,7 +81,7 @@ with the text.
 
 ---
 
-### Text Input: Script / script (internally `WFSSHScript`)
+### Text: Script / script (internally `WFSSHScript`)
 **Placeholder**:
 ```
 Script

@@ -13,7 +13,7 @@ Uploads the input to CloudApp and returns the CloudApp URL.
 CloudApp URL
 
 ### usage
-`uploadtocloudapp linkprivacy=[string <${strInfo}>]`
+`uploadtocloudapp a{linkprivacy=[string <${strInfo}>]}`
 
 ### arguments
 ### Enumeration: Link Privacy / linkprivacy (internally `WFCloudAppPrivacyType`)
