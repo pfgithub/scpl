@@ -49,16 +49,13 @@ module.exports = {
   },
 
   "plugins": [
-    "react"
     // e.g. "react" (must run `npm install eslint-plugin-react` first)
   ],
   "extends": [
-    "eslint:recommended",
-    "plugin:react/recommended"
+    "eslint:recommended"
   ],
 
   "rules": {
-    "react/prop-types": 0,
     ////////// Possible Errors //////////
 
     //"comma-dangle": 2,            // disallow trailing commas in object literals
