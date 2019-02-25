@@ -4,7 +4,7 @@
 [Getting Started Guide](syntax.html)
 [Try Shortcutslang Online](tryit.html)  
 
-200/266 completed\* \*\*
+201/266 completed\* \*\*
 
 ## All Actions:
 
@@ -206,7 +206,7 @@
 - [Run Home Scene](actions/runhomescene) (Incomplete)
 - [Run JavaScript on Web Page](actions/runjavascriptonwebpage)
 - [Run Script Over SSH](actions/runscriptoverssh)
-- [Run Shortcut](actions/runshortcut) (Incomplete)
+- [Run Shortcut](actions/runshortcut)
 - [Save File](actions/savefile)
 - [Save to Photo Album](actions/savetophotoalbum) (Incomplete)
 - [Scan QR/Bar Code](actions/scanqrbarcode)
@@ -311,7 +311,7 @@
 - [ ] 1: WFTimeIntervalParameter
 - [ ] 1: WFHomePickerParameter
 - [ ] 1: WFHomeScenePickerParameter
-- [ ] 1: WFWorkflowPickerParameter
+- [x] Complete - 1: WFWorkflowPickerParameter
 - [ ] 1: WFPhotoAlbumPickerParameter
 - [ ] 1: WFEmailAccountPickerParameter
 - [ ] 1: WFSlackChannelPickerParameter

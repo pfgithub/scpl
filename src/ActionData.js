@@ -206,6 +206,34 @@ types.WFStorageServicePickerParameter = class extends types.WFEnumerationParamet
 		this.options = ["iCloud Drive", "Dropbox"];
 	}
 };
+
+types.WFWorkflowPickerParameter = class extends types.WFParameter {
+	constructor(data, name = "Shortcut Picker") {
+		super(data, name);
+	}
+	genDocsArgName() {
+		return `[string|variable]`;
+	}
+	genDocs() {
+		return `${super.genDocs()}
+
+	Accepts a string ${this.allowsVariables ? `
+	or variable`: ""}
+	with the name of the shortcut to run`;
+	}
+	build(cc, parse) {
+		// asVariable may require additional actions to be inserted above this one.
+		// for example, if ^("hello") (v:comparison) "hi"
+		if(parse.asVariable) {
+			const res = parse.asVariable(cc);
+			return res;
+		}else if(parse.asString) {
+			const res = parse.asString(); // asString returns a string like ""
+			return res;
+		}
+		throw new Error("This shortcut field only accepts strings and variables.");
+	}
+};
 types.WFNumberFieldParameter = class extends types.WFParameter {
 	constructor(data) {
 		super(data, "Number");
