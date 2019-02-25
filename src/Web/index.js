@@ -36,13 +36,11 @@ function downloadURL(data, fileName) {
 	a.remove();
 }
 
-inputArea.addEventListener("change", () => {
-	downloadShortcutBtn.setAttribute("disabled", "true");
-});
-
 const time = () => (new Date).getTime();
 
-document.getElementById("convertBtn").addEventListener("click", () => {
+document.getElementById("convertBtn").addEventListener("click", convert);
+
+function convert() {
 	const startedConversion = time();
 
 	const parsed = parser.parse(`${inputArea.value}\n`);
@@ -68,12 +66,14 @@ document.getElementById("convertBtn").addEventListener("click", () => {
 	outputArea.value = JSON.stringify(shortcutData, null, "\t");
 	const buffer = bplistc(shortcutData);
 	bufferToDownload = buffer;
-	downloadShortcutBtn.removeAttribute("disabled");
 	// TODO (https://github.com/pine/arraybuffer-loader)
-});
+}
 
 downloadShortcutBtn.addEventListener("click", () => {
+	convert();
 	if(bufferToDownload) {
 		downloadBlob(bufferToDownload, "demoshortcut.shortcut", "application/x-octet-stream");
 	}
 });
+
+convert();
