@@ -2,7 +2,7 @@
 
 [Try Shortcutslang](http://pfgithub.github.io/shortcutslang/tryit.html)
 
-A .shorttxt file consists of a list of actions. Actions can be seperated by newlines or semicolons
+A .shorttxt file consists of a list of actions. Actions can be separated by newlines or semicolons
 
 ```swift
 Text "A text action"
@@ -12,6 +12,19 @@ Text "Another text action"; Text "A text action seperated by a semicolon"
 Actions have a documentation page detailing their name and arguments. See a list of actions [here](index) and click on one for information about it and its parameters.
 
 The [text](actions/text) action "Passes the specified text to the next action."
+
+Shortcutslang does not just do what shortcuts does, you can also do other things such as embedding actions inside of text fields.
+
+```swift
+Text "My text: \(Text "Hello there!")" 
+```
+
+This will automatically create a variable and insert that variable into the text, equivalent to this:
+
+```swift
+Text "Hello there!" -> mv:myvariable
+Text "My text: \(mv:myvariable)"
+```
 
 ### Parameters
 
