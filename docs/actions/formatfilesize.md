@@ -48,7 +48,7 @@ true
 ```
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFFileSizeFormat != `Automatic`
 
 Accepts a string with either true or false
 or a variable.

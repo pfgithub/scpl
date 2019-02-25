@@ -39,7 +39,7 @@ or a variable.
 ### Text Input: Destination Path / destinationpath (internally `WFFileDestinationPath`)
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFAskWhereToSave = `false`
 
 Accepts a string 
 or text
@@ -50,7 +50,7 @@ with the text.
 ### Switch: Overwrite If File Exists / overwriteiffileexists (internally `WFSaveFileOverwrite`)
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFAskWhereToSave = `false`
 
 Accepts a string with either true or false
 or a variable.

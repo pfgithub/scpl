@@ -21,7 +21,7 @@ Short
 ```
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFTimeFormatStyle = `None` or `Short` or `Medium` or `Long`
 
 Accepts a string 
 or variable
@@ -45,7 +45,7 @@ Medium
 ```
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFDateFormatStyle = `Relative`
 
 Accepts a string 
 or variable
@@ -64,7 +64,7 @@ Short
 ```
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFDateFormatStyle = `None` or `Short` or `Medium` or `Long` or `Relative`
 
 Accepts a string 
 or variable
@@ -81,7 +81,7 @@ containing one of the options:
 ### Switch: Include ISO 8601 Time / includeiso8601time (internally `WFISO8601IncludeTime`)
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFDateFormatStyle = `ISO 8601`
 
 Accepts a string with either true or false
 or a variable.

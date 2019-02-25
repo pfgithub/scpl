@@ -37,7 +37,7 @@ Post Now
 ```
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFComposeInApp = `false`
 
 Accepts a string 
 or variable
@@ -57,7 +57,7 @@ optional
 ```
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFPostType = `Text` or `Link` or `Chat`
 
 Accepts a string 
 or text
@@ -72,7 +72,7 @@ optional
 ```
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFPostType = `Quote`
 
 Accepts a string 
 or text
@@ -87,7 +87,8 @@ optional
 ```
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFPostType = `Audio` or `Video` or `Photos`
+**Only enabled if**: argument WFComposeInApp = `false`
 
 Accepts a string 
 or text
@@ -117,7 +118,7 @@ Description
 ```
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFPostType = `Link`
 
 Accepts a string 
 or text

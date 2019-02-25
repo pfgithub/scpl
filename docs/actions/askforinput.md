@@ -38,7 +38,7 @@ optional
 ```
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFInputType != `Date`
 
 Accepts a string 
 or text
@@ -77,7 +77,7 @@ Date
 ```
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFInputType = `Date`
 
 Accepts a string 
 or variable
@@ -92,7 +92,8 @@ containing one of the options:
 ### Switch: Skip to Watch Dictation / skiptowatchdictation (internally `WFAskActionImmediateDictation`)
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFInputType != `Date`
+**Only enabled if**: Workflow type is `WatchKit`. This action is always enabled inside Shortcutslang.
 
 Accepts a string with either true or false
 or a variable.

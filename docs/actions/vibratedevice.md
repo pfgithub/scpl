@@ -21,7 +21,7 @@ Default
 ```
 **Allows Variables**: true
 
-
+**Only enabled if**: Workflow type is `WatchKit`. This action is always enabled inside Shortcutslang.
 
 Accepts a string 
 or variable

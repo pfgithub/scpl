@@ -48,7 +48,7 @@ parameter is expanded or not.
 ### Enumeration: Remind / remind (internally `WFAlertTrigger`)
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFCalendarItemAlert = `true`
 
 Accepts a string 
 or variable
@@ -62,7 +62,8 @@ containing one of the options:
 ### Enumeration: When I... / wheni (internally `WFAlertLocationProximity`)
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFCalendarItemAlert = `true`
+**Only enabled if**: argument WFAlertTrigger = `At Location`
 
 Accepts a string 
 or variable
@@ -84,7 +85,8 @@ in meters
 ```
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFCalendarItemAlert = `true`
+**Only enabled if**: argument WFAlertTrigger = `At Location`
 
 Accepts a string 
 or variable

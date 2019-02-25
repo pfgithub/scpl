@@ -55,7 +55,7 @@ Email
 ```
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFTodoistReminder != ``
 
 Accepts a string 
 or variable

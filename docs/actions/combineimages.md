@@ -37,7 +37,7 @@ Horizontal
 ```
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFImageCombineMode = `Side-by-Side`
 
 Accepts a string 
 or variable

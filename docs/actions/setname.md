@@ -38,7 +38,7 @@ parameter is expanded or not.
 ### Switch: Don't Include File Extension / dontincludefileextension (internally `WFDontIncludeFileExtension`)
 **Allows Variables**: true
 
-
+**Only enabled if**: argument Advanced = `true`
 
 Accepts a string with either true or false
 or a variable.

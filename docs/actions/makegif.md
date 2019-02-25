@@ -50,7 +50,7 @@ or a variable.
 ### Stepper Number: wfmakegifactionloopcount / wfmakegifactionloopcount (internally `WFMakeGIFActionLoopCount`)
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFMakeGIFActionLoopEnabled = `false`
 
 Accepts a string 
 or variable
@@ -79,7 +79,7 @@ or a variable.
 ```
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFMakeGIFActionAutoSize = `false`
 
 Accepts a string 
 or variable
@@ -94,7 +94,7 @@ with a number.
 ```
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFMakeGIFActionAutoSize = `false`
 
 Accepts a string 
 or variable

@@ -41,7 +41,7 @@ containing one of the options:
 ```
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFGetGroupType != `All Groups`
 
 Accepts a string 
 or variable

@@ -71,7 +71,7 @@ This paramtype is not implemented. WFDateFieldParameter
 ### Switch: All Day / allday (internally `WFCalendarItemAllDay`)
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFCalendarItemDates = `true`
 
 Accepts a string with either true or false
 or a variable.
@@ -107,7 +107,7 @@ Tomorrow at 4pm
 ```
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFAlertTime = `Custom`
 
 Accepts a string 
 or text

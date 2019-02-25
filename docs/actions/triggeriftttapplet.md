@@ -35,7 +35,7 @@ optional
 ```
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFIFTTTExtraIngredients >= `1`
 
 Accepts a string 
 or text
@@ -50,7 +50,7 @@ optional
 ```
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFIFTTTExtraIngredients >= `2`
 
 Accepts a string 
 or text
@@ -65,7 +65,7 @@ optional
 ```
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFIFTTTExtraIngredients >= `3`
 
 Accepts a string 
 or text
@@ -80,7 +80,7 @@ optional
 ```
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFIFTTTExtraIngredients >= `4`
 
 Accepts a string 
 or text
@@ -95,7 +95,7 @@ optional
 ```
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFIFTTTExtraIngredients >= `5`
 
 Accepts a string 
 or text
@@ -110,7 +110,7 @@ optional
 ```
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFIFTTTExtraIngredients >= `6`
 
 Accepts a string 
 or text
@@ -125,7 +125,7 @@ optional
 ```
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFIFTTTExtraIngredients >= `7`
 
 Accepts a string 
 or text
@@ -140,7 +140,7 @@ optional
 ```
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFIFTTTExtraIngredients >= `8`
 
 Accepts a string 
 or text
@@ -155,7 +155,7 @@ optional
 ```
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFIFTTTExtraIngredients >= `9`
 
 Accepts a string 
 or text
@@ -170,7 +170,7 @@ optional
 ```
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFIFTTTExtraIngredients >= `10`
 
 Accepts a string 
 or text

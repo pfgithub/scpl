@@ -66,7 +66,7 @@ or a variable.
 ```
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFGIFAutoSize = `false`
 
 Accepts a string 
 or variable
@@ -81,7 +81,7 @@ with a number.
 ```
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFGIFAutoSize = `false`
 
 Accepts a string 
 or variable

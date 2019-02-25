@@ -42,7 +42,7 @@ or a variable.
 ### Switch: Select All Initially / selectallinitially (internally `WFChooseFromListActionSelectAll`)
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFChooseFromListActionSelectMultiple = `true`
 
 Accepts a string with either true or false
 or a variable.

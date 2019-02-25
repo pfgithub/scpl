@@ -25,7 +25,7 @@ Network Name
 ```
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFNetworkDetailsNetwork = `Wi-Fi`
 
 Accepts a string 
 or variable
@@ -43,7 +43,7 @@ Carrier Name
 ```
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFNetworkDetailsNetwork = `Cellular`
 
 Accepts a string 
 or variable

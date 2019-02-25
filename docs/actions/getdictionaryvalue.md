@@ -35,7 +35,7 @@ example
 ```
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFGetDictionaryValueType = `Value`
 
 Accepts a string 
 or text

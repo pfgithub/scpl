@@ -29,7 +29,7 @@ M4A
 ```
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFMediaAudioOnly = `true`
 
 Accepts a string 
 or variable
@@ -47,7 +47,7 @@ Passthrough
 ```
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFMediaAudioOnly = `false`
 
 Accepts a string 
 or variable
@@ -90,7 +90,7 @@ containing one of the options:
 ```
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFMediaSpeed = `Custom`
 
 Accepts a string 
 or variable
@@ -113,7 +113,7 @@ My Great Track
 ```
 **Allows Variables**: true
 
-
+**Only enabled if**: argument Metadata = `true`
 
 Accepts a string 
 or text
@@ -128,7 +128,7 @@ Nicholas Fryingpan
 ```
 **Allows Variables**: true
 
-
+**Only enabled if**: argument Metadata = `true`
 
 Accepts a string 
 or text
@@ -143,7 +143,7 @@ Abbey Road
 ```
 **Allows Variables**: true
 
-
+**Only enabled if**: argument Metadata = `true`
 
 Accepts a string 
 or text
@@ -158,7 +158,7 @@ Indie
 ```
 **Allows Variables**: true
 
-
+**Only enabled if**: argument Metadata = `true`
 
 Accepts a string 
 or text
@@ -173,7 +173,7 @@ with the text.
 ```
 **Allows Variables**: true
 
-
+**Only enabled if**: argument Metadata = `true`
 
 Accepts a string 
 or text
@@ -184,7 +184,7 @@ with the text.
 ### Variable Picker: Artwork / artwork (internally `WFMetadataArtwork`)
 **Allows Variables**: true
 
-
+**Only enabled if**: argument Metadata = `true`
 
 Accepts a variable.
 

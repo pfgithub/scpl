@@ -17,7 +17,7 @@ Displays a preview of the input.
 ### Switch: Full Screen / fullscreen (internally `WFQuickLookActionFullScreen`)
 **Allows Variables**: true
 
-
+**Only enabled if**: Device attributes match `{"WFDeviceAttributeIdiom":"Pad"}` This action is always enabled inside Shortcutslang.
 
 Accepts a string with either true or false
 or a variable.

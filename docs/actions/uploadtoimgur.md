@@ -31,7 +31,7 @@ or a variable.
 ### Switch: Direct Link / directlink (internally `WFImgurDirectLink`)
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFImgurAlbum = `false`
 
 Accepts a string with either true or false
 or a variable.
@@ -55,7 +55,7 @@ Blog
 ```
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFImgurAlbum = `true`
 
 Accepts a string 
 or variable
@@ -75,7 +75,7 @@ Hidden
 ```
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFImgurAlbum = `true`
 
 Accepts a string 
 or variable

@@ -36,7 +36,7 @@ containing one of the options:
 ### Enumeration: Scientific Operation / scientificoperation (internally `WFScientificMathOperation`)
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFMathOperation = `…`
 
 Accepts a string 
 or variable
@@ -67,7 +67,7 @@ containing one of the options:
 ```
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFMathOperation != `…`
 
 Accepts a string 
 or variable
@@ -82,7 +82,8 @@ with a number.
 ```
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFMathOperation = `…`
+**Only enabled if**: argument WFScientificMathOperation = `Modulus` or `x^y`
 
 Accepts a string 
 or variable

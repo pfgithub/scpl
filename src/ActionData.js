@@ -19,16 +19,28 @@ types.WFResource = class {
 	constructor(data) {
 		this._data = data;
 	}
+	shouldEnable(action) {
+		return true;
+	}
+	genDocs() {
+		return `Always enabled`;
+	}
 };
 
 types.WFDeviceAttributesResource = class extends types.WFResource {
 	shouldEnable(action) {
 		return true;
 	}
+	genDocs() {
+		return `Device attributes match \`${JSON.stringify(this._data.WFDeviceAttributes)}\` This action is always enabled inside Shortcutslang.`;
+	}
 };
 types.WFWorkflowTypeResource = class extends types.WFResource {
 	shouldEnable(action) {
 		return true;
+	}
+	genDocs() {
+		return `Workflow type is \`${this._data.WFWorkflowType}\`. This action is always enabled inside Shortcutslang.`;
 	}
 };
 
@@ -67,6 +79,9 @@ types.WFParameterRelationResource = class extends types.WFResource {
 		if(!({"=": 1, "!=": 1, ">=": 1, "<=": 1, ">": 1, "<": 1, "=": 1, "??": 1})[this.relation]) {
 			throw new Error(`RelationResource relation type ${this.relation} is not implemented.`);
 		}
+	}
+	genDocs() {
+		return `argument ${this.argInternalName} ${this.relation} \`${this.argValues.join`\` or \``}\``;
 	}
 	shouldEnable(action) {
 		const currentValue = action.parameters.get(this.argInternalName);
@@ -132,6 +147,7 @@ ${this._data.DefaultValue}
 \`\`\`
 `;}
 		if(this.allowsVariables) {docs += `**Allows Variables**: ${this.allowsVariables}\n\n`;}
+		docs += `${this.requiredResources.map(resource => `**Only enabled if**: ${resource.genDocs()}`).join`\n`}`;
 		return docs;
 	}
 };

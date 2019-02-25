@@ -49,7 +49,7 @@ Center
 ```
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFShouldShowImageEditor = `false`
 
 Accepts a string 
 or variable
@@ -71,7 +71,7 @@ Auto
 ```
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFShouldShowImageEditor = `false`
 
 Accepts a string 
 or variable
@@ -86,7 +86,7 @@ Auto
 ```
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFShouldShowImageEditor = `false`
 
 Accepts a string 
 or variable
@@ -101,7 +101,8 @@ with a number.
 ```
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFShouldShowImageEditor = `false`
+**Only enabled if**: argument WFImagePosition = `Custom`
 
 Accepts a string 
 or variable
@@ -116,7 +117,8 @@ with a number.
 ```
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFShouldShowImageEditor = `false`
+**Only enabled if**: argument WFImagePosition = `Custom`
 
 Accepts a string 
 or variable
@@ -131,7 +133,7 @@ with a number.
 ```
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFShouldShowImageEditor = `false`
 
 Accepts a string 
 or variable
@@ -150,7 +152,7 @@ with a number.
 ```
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFShouldShowImageEditor = `false`
 
 Accepts a string 
 or variable

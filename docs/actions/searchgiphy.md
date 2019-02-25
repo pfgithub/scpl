@@ -50,7 +50,7 @@ or a variable.
 ```
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFGiphyShowPicker = `false`
 
 Accepts a string 
 or variable
@@ -61,7 +61,7 @@ containing an integer value.
 ### Switch: Select Multiple / selectmultiple (internally `WFGiphySelectMultiple`)
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFGiphyShowPicker = `true`
 
 Accepts a string with either true or false
 or a variable.

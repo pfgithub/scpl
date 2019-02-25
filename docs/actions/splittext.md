@@ -39,7 +39,7 @@ Text
 ```
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFTextSeparator = `Custom`
 
 Accepts a string 
 or text

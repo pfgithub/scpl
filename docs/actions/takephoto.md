@@ -37,7 +37,7 @@ or a variable.
 ```
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFCameraCaptureShowPreview = `true`
 
 Accepts a string 
 or variable

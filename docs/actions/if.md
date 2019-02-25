@@ -36,7 +36,7 @@ containing one of the options:
 ```
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFCondition = `Is Greater Than` or `Is Less Than`
 
 Accepts a string 
 or variable
@@ -51,7 +51,7 @@ example
 ```
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFCondition = `Contains` or `Equals`
 
 Accepts a string 
 or text

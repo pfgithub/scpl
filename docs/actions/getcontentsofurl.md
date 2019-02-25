@@ -31,7 +31,7 @@ GET
 ```
 **Allows Variables**: true
 
-
+**Only enabled if**: argument Advanced = `true`
 
 Accepts a string 
 or variable
@@ -46,7 +46,7 @@ containing one of the options:
 ---
 
 ### Expand Arrow: Headers / headers (internally `ShowHeaders`)
-
+**Only enabled if**: argument Advanced = `true`
 
 Accepts a string with either true or false for if this
 parameter is expanded or not.
@@ -62,7 +62,8 @@ This paramtype is not implemented. WFDictionaryParameter
 ```
 JSON
 ```
-
+**Only enabled if**: argument Advanced = `true`
+**Only enabled if**: argument WFHTTPMethod != `GET`
 
 Accepts a string 
 containing one of the options:
@@ -84,7 +85,9 @@ This paramtype is not implemented. WFDictionaryParameter
 ### Variable Picker: File / file (internally `WFRequestVariable`)
 **Allows Variables**: true
 
-
+**Only enabled if**: argument Advanced = `true`
+**Only enabled if**: argument WFHTTPBodyType = `File`
+**Only enabled if**: argument WFHTTPMethod != `GET`
 
 Accepts a variable.
 

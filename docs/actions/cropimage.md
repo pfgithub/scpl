@@ -41,7 +41,7 @@ containing one of the options:
 ```
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFImageCropPosition = `Custom`
 
 Accepts a string 
 or variable
@@ -56,7 +56,7 @@ with a number.
 ```
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFImageCropPosition = `Custom`
 
 Accepts a string 
 or variable

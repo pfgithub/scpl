@@ -37,7 +37,7 @@ or a variable.
 ### Switch: Select Multiple / selectmultiple (internally `SelectMultiple`)
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFShowFilePicker = `true`
 
 Accepts a string with either true or false
 or a variable.
@@ -51,7 +51,7 @@ example.txt
 ```
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFShowFilePicker = `false`
 
 Accepts a string 
 or text
@@ -81,7 +81,7 @@ true
 ```
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFShowFilePicker = `false`
 
 Accepts a string with either true or false
 or a variable.

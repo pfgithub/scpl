@@ -38,7 +38,7 @@ containing one of the options:
 ```
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFFlashlightSetting = `On` or `Toggle`
 
 Accepts a string 
 or variable

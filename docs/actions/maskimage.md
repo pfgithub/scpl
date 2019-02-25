@@ -37,7 +37,7 @@ containing one of the options:
 ```
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFMaskType = `Rounded Rectangle`
 
 Accepts a string 
 or variable
@@ -48,7 +48,7 @@ with a number.
 ### Variable Picker: Image Mask / imagemask (internally `WFCustomMaskImage`)
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFMaskType = `Custom Image`
 
 Accepts a variable.
 

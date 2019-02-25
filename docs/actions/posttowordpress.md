@@ -72,7 +72,7 @@ parameter is expanded or not.
 ### Switch: Allow Comments / allowcomments (internally `AllowComments`)
 **Allows Variables**: true
 
-
+**Only enabled if**: argument Advanced = `true`
 
 Accepts a string with either true or false
 or a variable.
@@ -86,7 +86,7 @@ quarterly-results
 ```
 **Allows Variables**: true
 
-
+**Only enabled if**: argument Advanced = `true`
 
 Accepts a string 
 or text
@@ -101,7 +101,7 @@ An overall great quarter
 ```
 **Allows Variables**: true
 
-
+**Only enabled if**: argument Advanced = `true`
 
 Accepts a string 
 or text
@@ -120,14 +120,14 @@ This paramtype is not implemented. WFDynamicEnumerationParameter
 ### Variable Picker: Featured Image / featuredimage (internally `ThumbnailImage`)
 **Allows Variables**: true
 
-
+**Only enabled if**: argument Advanced = `true`
 
 Accepts a variable.
 
 ---
 
 ### Expand Arrow: Custom Fields / customfields (internally `ShowCustomFields`)
-
+**Only enabled if**: argument Advanced = `true`
 
 Accepts a string with either true or false for if this
 parameter is expanded or not.

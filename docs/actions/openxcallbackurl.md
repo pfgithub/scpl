@@ -33,7 +33,7 @@ x-success
 ```
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFXCallbackCustomCallbackEnabled = `true`
 
 Accepts a string 
 or text
@@ -48,7 +48,7 @@ optional
 ```
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFXCallbackCustomCallbackEnabled = `true`
 
 Accepts a string 
 or text
@@ -63,7 +63,7 @@ optional
 ```
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFXCallbackCustomCallbackEnabled = `true`
 
 Accepts a string 
 or text
@@ -88,7 +88,7 @@ shortcuts://callback
 ```
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFXCallbackCustomSuccessURLEnabled = `true`
 
 Accepts a string 
 or text

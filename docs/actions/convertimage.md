@@ -25,7 +25,7 @@ This paramtype is not implemented. WFImageConvertFormatPickerParameter
 ```
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFImageFormat = `JPEG` or `JPEG-2000`
 
 Accepts a string 
 or variable
@@ -40,7 +40,7 @@ true
 ```
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFImageFormat = `JPEG` or `PNG` or `TIFF` or `HEIF` or `Match Input`
 
 Accepts a string with either true or false
 or a variable.
