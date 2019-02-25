@@ -23,7 +23,7 @@ This paramtype is not implemented. WFAppPickerParameter
 ### Text Input: wfappname / wfappname (internally `WFAppName`)
 **Allows Variables**: true
 
-
+**Only enabled if**: This action is always **disabled** inside Shortcutslang.
 
 Accepts a string 
 or text

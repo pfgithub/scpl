@@ -43,6 +43,14 @@ types.WFWorkflowTypeResource = class extends types.WFResource {
 		return `Workflow type is \`${this._data.WFWorkflowType}\`. This action is always enabled inside Shortcutslang.`;
 	}
 };
+types.WFWorkflowHiddenResource = class extends types.WFResource {
+	shouldEnable(action) {
+		return false;
+	}
+	genDocs() {
+		return `This action is always **disabled** inside Shortcutslang.`;
+	}
+};
 
 /*
 Example
@@ -130,6 +138,7 @@ types.WFParameter = class {
 			if(!resourceClass) {throw new Error(`${resourceClass} is not a defined resource class.`);}
 			return new resourceClass(resource);
 		});
+		if(this._data.Hidden) {this.requiredResources.push(new types.WFWorkflowHiddenResource({Hidden: true}));}
 	}
 	shouldEnable(action) {
 		return this.requiredResources.every(resource => resource.shouldEnable(action));

@@ -56,7 +56,7 @@ with the text.
 ### Text Input: Prefix / prefix (internally `WFSendMessagePrefix`)
 **Allows Variables**: true
 
-
+**Only enabled if**: This action is always **disabled** inside Shortcutslang.
 
 Accepts a string 
 or text
