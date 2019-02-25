@@ -9,7 +9,7 @@ Text "A text action"
 Text "Another text action"; Text "A text action seperated by a semicolon"
 ```
 
-Actions have a documentation page detailing their name and arguments. See a list of actions [here](index) and click on one for information about it and its parameters. 
+Actions have a documentation page detailing their name and arguments. See a list of actions [here](index) and click on one for information about it and its parameters.
 
 The [text](actions/text) action "Passes the specified text to the next action."
 
@@ -54,6 +54,14 @@ Text "hello" -> v:myvar
 Text "world" -> mv:mymagicvar
 ```
 
+becomes
+
+```swift
+Text "hello"
+SetVariable (v:myvar)
+Text "world" // the variable mv:mymagicvar will reference this action
+```
+
 #### List of Argument Names and Values
 
 Sometimes you may want to provide names instead of relying on the order of arguments.
@@ -61,6 +69,30 @@ Sometimes you may want to provide names instead of relying on the order of argum
 ```swift
 showAlert a{showCancelButton=true, message="hi", "title"="Alert!"}
 showAlert "Alert!" "Hi" a{showCancelButton=true}
+```
+
+becomes
+
+```swift
+showAlert "Alert!" "hi" true
+showAlert "Alert!" "hi" true
+```
+
+#### Input Argument
+
+Sometimes you may want to provide input to an action other than the action above.
+
+```swift
+Text "hello there"
+if ^(Text "hi") Equals "hi"
+```
+
+becomes
+
+```swift
+Text "hello there"
+Text "hi"
+if Equals "hi"
 ```
 
 #### Block Actions
@@ -82,13 +114,7 @@ repeat a{wfrepeatcount=2} >c:0:gid:myrepeat
 repeat >c:1:gid:myrepeat
 ```
 
-#### Input Argument
-
-Sometimes you may want to provide input to an action other than the action above.
-
-```swift
-if ^(Text "hi") Equals "hi"
-```
+Usage: `c:`number (first is 0, next is 1, ...)`:gid:`name (every block action must have a unique gid name)
 
 ### Argument types
 
