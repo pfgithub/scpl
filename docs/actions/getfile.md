@@ -1,8 +1,6 @@
 
 ## Get File / getfile (internally `is.workflow.actions.documentpicker.open`)
 
-> This action is not yet complete. Some arguments may be missing.
-
 
 > This action requires that Shortcuts has permission to use [object Object].
 
@@ -13,10 +11,20 @@ Get files from iCloud Drive or Dropbox. Turn off “Show Document Picker” to s
 
 
 ### usage
-`getfile a{undefined=[???] showdocumentpicker=[string boolean|variable] selectmultiple=[string boolean|variable] filepath=[string|text] initialpath=[string|text] errorifnotfound=[string boolean|variable]}`
+`getfile a{service=[string <${strInfo}>] showdocumentpicker=[string boolean|variable] selectmultiple=[string boolean|variable] filepath=[string|text] initialpath=[string|text] errorifnotfound=[string boolean|variable]}`
 
 ### arguments
-This paramtype is not implemented. WFStorageServicePickerParameter
+### Storage Service Picker: Service / service (internally `WFFileStorageService`)
+**Allows Variables**: true
+
+
+
+Accepts a string 
+or variable
+containing one of the options:
+
+- `iCloud Drive`
+- `Dropbox`
 
 ---
 

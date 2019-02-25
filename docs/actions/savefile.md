@@ -1,8 +1,6 @@
 
 ## Save File / savefile (internally `is.workflow.actions.documentpicker.save`)
 
-> This action is not yet complete. Some arguments may be missing.
-
 
 > This action requires that Shortcuts has permission to use [object Object].
 
@@ -15,10 +13,20 @@ Save files to iCloud Drive or Dropbox. Turn off “Ask Where to Save” in order
 The saved files
 
 ### usage
-`savefile a{undefined=[???] askwheretosave=[string boolean|variable] destinationpath=[string|text] overwriteiffileexists=[string boolean|variable]}`
+`savefile a{service=[string <${strInfo}>] askwheretosave=[string boolean|variable] destinationpath=[string|text] overwriteiffileexists=[string boolean|variable]}`
 
 ### arguments
-This paramtype is not implemented. WFStorageServicePickerParameter
+### Storage Service Picker: Service / service (internally `WFFileStorageService`)
+**Allows Variables**: true
+
+
+
+Accepts a string 
+or variable
+containing one of the options:
+
+- `iCloud Drive`
+- `Dropbox`
 
 ---
 

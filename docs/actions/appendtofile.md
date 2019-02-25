@@ -1,8 +1,6 @@
 
 ## Append to File / appendtofile (internally `is.workflow.actions.file.append`)
 
-> This action is not yet complete. Some arguments may be missing.
-
 
 
 ## description
@@ -13,10 +11,20 @@ Adds the text passed as input to the end of the specified file.
 The file that was appended to
 
 ### usage
-`appendtofile a{undefined=[???] filepath=[string|text] mode=[string <${strInfo}>] makenewline=[string boolean|variable]}`
+`appendtofile a{service=[string <${strInfo}>] filepath=[string|text] mode=[string <${strInfo}>] makenewline=[string boolean|variable]}`
 
 ### arguments
-This paramtype is not implemented. WFStorageServicePickerParameter
+### Storage Service Picker: Service / service (internally `WFFileStorageService`)
+**Allows Variables**: true
+
+
+
+Accepts a string 
+or variable
+containing one of the options:
+
+- `iCloud Drive`
+- `Dropbox`
 
 ---
 

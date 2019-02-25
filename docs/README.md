@@ -4,7 +4,7 @@
 [Getting Started Guide](syntax.html)
 [Try Shortcutslang Online](tryit.html)  
 
-196/266 completed\* \*\*
+200/266 completed\* \*\*
 
 ## All Actions:
 
@@ -23,7 +23,7 @@
 - [Add to Variable](actions/addtovariable)
 - [Adjust Date](actions/adjustdate) (Incomplete)
 - [AirDrop](actions/airdrop)
-- [Append to File](actions/appendtofile) (Incomplete)
+- [Append to File](actions/appendtofile)
 - [Append to Note](actions/appendtonote) (Incomplete)
 - [Ask for Input](actions/askforinput) (Incomplete)
 - [Base64 Encode](actions/base64encode)
@@ -45,7 +45,7 @@
 - [Correct Spelling](actions/correctspelling)
 - [Count](actions/count)
 - [Create Alarm](actions/createalarm) (Incomplete)
-- [Create Folder](actions/createfolder) (Incomplete)
+- [Create Folder](actions/createfolder)
 - [Create New Note](actions/createnewnote) (Incomplete)
 - [Create Playlist](actions/createplaylist)
 - [Create Trello Board](actions/createtrelloboard)
@@ -116,7 +116,7 @@
 - [Get Diffbot Article from Web Page](actions/getdiffbotarticlefromwebpage)
 - [Get Distance](actions/getdistance) (Incomplete)
 - [Get Email Addresses from Input](actions/getemailaddressesfrominput)
-- [Get File](actions/getfile) (Incomplete)
+- [Get File](actions/getfile)
 - [Get File of Type](actions/getfileoftype)
 - [Get Frames from Image](actions/getframesfromimage)
 - [Get Group from Matched Text](actions/getgroupfrommatchedtext)
@@ -207,7 +207,7 @@
 - [Run JavaScript on Web Page](actions/runjavascriptonwebpage)
 - [Run Script Over SSH](actions/runscriptoverssh)
 - [Run Shortcut](actions/runshortcut) (Incomplete)
-- [Save File](actions/savefile) (Incomplete)
+- [Save File](actions/savefile)
 - [Save to Photo Album](actions/savetophotoalbum) (Incomplete)
 - [Scan QR/Bar Code](actions/scanqrbarcode)
 - [Search App Store](actions/searchappstore) (Incomplete)
@@ -339,7 +339,7 @@
 - [ ] 3: WFContactHandleFieldParameter
 - [ ] 3: WFTrelloBoardPickerParameter
 - [ ] 4: WFCalendarPickerParameter
-- [ ] 4: WFStorageServicePickerParameter
+- [x] Complete - 4: WFStorageServicePickerParameter
 - [x] Complete - 4: WFEmailAddressFieldParameter
 - [ ] 5: WFIntentAppPickerParameter
 - [x] Complete - 5: WFDictionaryParameter

@@ -164,8 +164,8 @@ ${this._data.DefaultValue}
 types.WFEnumerationParameter = class extends types.WFParameter {
 // A list of options
 // Input: anything with .asText()
-	constructor(data) {
-		super(data, "Enumeration");
+	constructor(data, name) {
+		super(data, name || "Enumeration");
 		this.options = this._data.Items;
 	}
 	genDocsArgName() {
@@ -200,6 +200,12 @@ containing one of the options:
 	}
 };
 
+types.WFStorageServicePickerParameter = class extends types.WFEnumerationParameter {
+	constructor(data, name) {
+		super(data, name || "Storage Service Picker");
+		this.options = ["iCloud Drive", "Dropbox"];
+	}
+};
 types.WFNumberFieldParameter = class extends types.WFParameter {
 	constructor(data) {
 		super(data, "Number");
@@ -334,8 +340,8 @@ Accepts a variable.`;
 };
 
 types.WFTextInputParameter = class extends types.WFParameter {
-	constructor(data) {
-		super(data, "Text");
+	constructor(data, name) {
+		super(data, name || "Text");
 	}
 	genDocsArgName() {
 		return !this.allowsVariables ? `[string]` : `[string|text]`;

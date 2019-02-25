@@ -1,8 +1,6 @@
 
 ## Create Folder / createfolder (internally `is.workflow.actions.file.createfolder`)
 
-> This action is not yet complete. Some arguments may be missing.
-
 
 
 ## description
@@ -11,10 +9,20 @@ Makes a new folder in the specified file storage service.
 
 
 ### usage
-`createfolder a{undefined=[???] path=[string|text]}`
+`createfolder a{service=[string <${strInfo}>] path=[string|text]}`
 
 ### arguments
-This paramtype is not implemented. WFStorageServicePickerParameter
+### Storage Service Picker: Service / service (internally `WFFileStorageService`)
+**Allows Variables**: true
+
+
+
+Accepts a string 
+or variable
+containing one of the options:
+
+- `iCloud Drive`
+- `Dropbox`
 
 ---
 
