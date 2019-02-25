@@ -19,7 +19,7 @@ Imports the photos passed as input into Lightroom
 
 
 
-Accepts a string with either true or false
+Accepts a boolean
 or a variable.
 
 ---

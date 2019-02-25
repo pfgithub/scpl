@@ -19,7 +19,7 @@ Opens BlindSquare showing information about the place passed as input, so you ca
 
 
 
-Accepts a string with either true or false
+Accepts a boolean
 or a variable.
 
 ### source json

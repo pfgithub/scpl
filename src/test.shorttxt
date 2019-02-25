@@ -36,6 +36,7 @@ text ^(mv:mytext) "my text"
 
 SetWifi true
 SetWifi false
+SetWifi true
 setBrightness 1.0
 
 If ^(Text "test") "Equals" "test" >c:0:gid:myif

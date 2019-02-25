@@ -42,7 +42,7 @@ true
 
 
 
-Accepts a string with either true or false
+Accepts a boolean
 or a variable.
 
 ---
@@ -67,7 +67,7 @@ true
 
 
 
-Accepts a string with either true or false
+Accepts a boolean
 or a variable.
 
 ---

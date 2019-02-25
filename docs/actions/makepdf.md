@@ -17,7 +17,7 @@ Makes a PDF out of the input. The resulting PDF can optionally include a quarter
 
 
 
-Accepts a string with either true or false
+Accepts a boolean
 or a variable.
 
 ---

@@ -95,7 +95,7 @@ containing one of the options:
 **Only enabled if**: argument WFInputType != `Date`
 **Only enabled if**: Workflow type is `WatchKit`. This action is always enabled inside Shortcutslang.
 
-Accepts a string with either true or false
+Accepts a boolean
 or a variable.
 
 ### source json

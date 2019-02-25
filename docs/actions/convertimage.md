@@ -42,7 +42,7 @@ true
 
 **Only enabled if**: argument WFImageFormat = `JPEG` or `PNG` or `TIFF` or `HEIF` or `Match Input`
 
-Accepts a string with either true or false
+Accepts a boolean
 or a variable.
 
 ### source json

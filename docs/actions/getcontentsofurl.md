@@ -11,13 +11,13 @@ Gets the contents of URLs passed into the action. Useful for downloading files a
 The fetched data
 
 ### usage
-`getcontentsofurl advanced=[string boolean] method=[string <${strInfo}>] headers=[string boolean] headers=[dictionary] requestbody=[string <${strInfo}>|variable] formvalues=[dictionary] jsonvalues=[dictionary] file=[variable]`
+`getcontentsofurl advanced=[boolean] method=[string <${strInfo}>] headers=[boolean] headers=[dictionary] requestbody=[string <${strInfo}>|variable] formvalues=[dictionary] jsonvalues=[dictionary] file=[variable]`
 
 ### arguments
 ### Expand Arrow: Advanced / advanced (internally `Advanced`)
 
 
-Accepts a string with either true or false for if this
+Accepts a boolean for if this
 parameter is expanded or not.
 
 ---
@@ -46,7 +46,7 @@ containing one of the options:
 ### Expand Arrow: Headers / headers (internally `ShowHeaders`)
 **Only enabled if**: argument Advanced = `true`
 
-Accepts a string with either true or false for if this
+Accepts a boolean for if this
 parameter is expanded or not.
 
 ---

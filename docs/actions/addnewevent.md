@@ -15,7 +15,7 @@ Creates a new event and adds it to the selected calendar.
 The new event
 
 ### usage
-`addnewevent title=[string|text] location=[string|text] undefined=[???] date=[string boolean] undefined=[???] undefined=[???] allday=[string boolean|variable] alert=[string <${strInfo}>] alerttime=[string|text] notes=[string|text]`
+`addnewevent title=[string|text] location=[string|text] undefined=[???] date=[boolean] undefined=[???] undefined=[???] allday=[string boolean|variable] alert=[string <${strInfo}>] alerttime=[string|text] notes=[string|text]`
 
 ### arguments
 ### Text Input: Title / title (internally `WFCalendarItemTitle`)
@@ -55,7 +55,7 @@ This paramtype is not implemented. WFCalendarPickerParameter
 ### Expand Arrow: Date / date (internally `WFCalendarItemDates`)
 
 
-Accepts a string with either true or false for if this
+Accepts a boolean for if this
 parameter is expanded or not.
 
 ---
@@ -73,7 +73,7 @@ This paramtype is not implemented. WFDateFieldParameter
 
 **Only enabled if**: argument WFCalendarItemDates = `true`
 
-Accepts a string with either true or false
+Accepts a boolean
 or a variable.
 
 ---

@@ -19,7 +19,7 @@ Shows the web URL passed into the action in a Safari View Controller, allowing y
 
 
 
-Accepts a string with either true or false
+Accepts a boolean
 or a variable.
 
 ### source json

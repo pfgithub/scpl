@@ -83,7 +83,7 @@ containing one of the options:
 
 **Only enabled if**: argument WFDateFormatStyle = `ISO 8601`
 
-Accepts a string with either true or false
+Accepts a boolean
 or a variable.
 
 ---

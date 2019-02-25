@@ -19,7 +19,7 @@ Gets a link to the Evernote note passed into the action, which can be shared.
 
 
 
-Accepts a string with either true or false
+Accepts a boolean
 or a variable.
 
 ### source json

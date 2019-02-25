@@ -9,7 +9,7 @@ Re-encodes the media passed as input at the specified size, optionally convertin
 
 
 ### usage
-`encodemedia audioonly=[string boolean|variable] format=[string <${strInfo}>] size=[string <${strInfo}>] speed=[string <${strInfo}>] customspeed=[string number] metadata=[string boolean] title=[string|text] artist=[string|text] album=[string|text] genre=[string|text] year=[string|text] artwork=[variable]`
+`encodemedia audioonly=[string boolean|variable] format=[string <${strInfo}>] size=[string <${strInfo}>] speed=[string <${strInfo}>] customspeed=[string number] metadata=[boolean] title=[string|text] artist=[string|text] album=[string|text] genre=[string|text] year=[string|text] artwork=[variable]`
 
 ### arguments
 ### Switch: Audio Only / audioonly (internally `WFMediaAudioOnly`)
@@ -17,7 +17,7 @@ Re-encodes the media passed as input at the specified size, optionally convertin
 
 
 
-Accepts a string with either true or false
+Accepts a boolean
 or a variable.
 
 ---
@@ -101,7 +101,7 @@ with a number.
 ### Expand Arrow: Metadata / metadata (internally `Metadata`)
 
 
-Accepts a string with either true or false for if this
+Accepts a boolean for if this
 parameter is expanded or not.
 
 ---

@@ -19,7 +19,7 @@ Sets the device’s Do Not Disturb to on or off
 
 
 
-Accepts a string with either true or false
+Accepts a boolean
 or a variable.
 
 ---

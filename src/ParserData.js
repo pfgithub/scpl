@@ -109,6 +109,12 @@ class IdentifierParse extends Parse {
 	asString() {
 		return this.value;
 	}
+	asBoolean() {
+		const string = this.asString();
+		if(string === "true") {return true;}
+		if(string === "false") {return false;}
+		throw new Error("This boolean must be either true or false.");
+	}
 	asText(cc) {
 		const text = new Text;
 		text.add(this.value);

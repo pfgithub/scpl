@@ -19,7 +19,7 @@ Displays a preview of the input.
 
 **Only enabled if**: Device attributes match `{"WFDeviceAttributeIdiom":"Pad"}` This action is always enabled inside Shortcutslang.
 
-Accepts a string with either true or false
+Accepts a boolean
 or a variable.
 
 ### source json

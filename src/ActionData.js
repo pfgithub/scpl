@@ -373,19 +373,17 @@ types.WFSwitchParameter = class extends types.WFParameter {
 	genDocs() {
 		return `${super.genDocs()}
 
-Accepts a string with either true or false${this.allowsVariables ? `
+Accepts a boolean${this.allowsVariables ? `
 or a variable.`: ""}`;
 	}
 	build(cc, parse) {
 		if(parse.asVariable) {
 			if(!this.allowsVariables) {throw new Error("This boolean field does not accept variables");}
 			return parse.asVariable(cc);
-		}else if(parse.asString) {
-			const string = parse.asString();
-			if(string !== "true" && string !== "false") {throw new Error("This boolean field must be either true or false");}
-			return string === "true";
+		}else if(parse.asBoolean) {
+			return parse.asBoolean();
 		}
-		throw new Error("This boolean field only accepts strings or variables");
+		throw new Error("This boolean field only accepts booleans or variables");
 	}
 };
 types.WFExpandingParameter = class extends types.WFParameter {
@@ -394,21 +392,19 @@ types.WFExpandingParameter = class extends types.WFParameter {
 		this.allowsVariables = undefined;
 	}
 	genDocsArgName() {
-		return `[string boolean]`;
+		return `[boolean]`;
 	}
 	genDocs() {
 		return `${super.genDocs()}
 
-Accepts a string with either true or false for if this
+Accepts a boolean for if this
 parameter is expanded or not.`;
 	}
 	build(cc, parse) {
-		if(parse.asString) {
-			const string = parse.asString();
-			if(string !== "true" && string !== "false") {throw new Error("This expanding field must be either true or false");}
-			return string === "true";
+		if(parse.asBoolean) {
+			return parse.asBoolean();
 		}
-		throw new Error("This expanding field only accepts strings");
+		throw new Error("This expanding field only accepts booleans");
 	}
 };
 types.WFVariableFieldParameter = class extends types.WFParameter {

@@ -15,7 +15,7 @@ Creates a new reminder and adds it to the selected list of reminders.
 The new reminder
 
 ### usage
-`addnewreminder title=[string|text] undefined=[???] remindme=[string boolean] remind=[string <${strInfo}>] wheni=[string <${strInfo}>] radius=[string number] undefined=[???] undefined=[???] notes=[string|text]`
+`addnewreminder title=[string|text] undefined=[???] remindme=[boolean] remind=[string <${strInfo}>] wheni=[string <${strInfo}>] radius=[string number] undefined=[???] undefined=[???] notes=[string|text]`
 
 ### arguments
 ### Text Input: Title / title (internally `WFCalendarItemTitle`)
@@ -40,7 +40,7 @@ This paramtype is not implemented. WFCalendarPickerParameter
 ### Expand Arrow: Remind Me / remindme (internally `WFCalendarItemAlert`)
 
 
-Accepts a string with either true or false for if this
+Accepts a boolean for if this
 parameter is expanded or not.
 
 ---

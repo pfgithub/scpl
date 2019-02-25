@@ -26,7 +26,7 @@ The shareable link to your Uber ride
 
 
 
-Accepts a string with either true or false
+Accepts a boolean
 or a variable.
 
 ---

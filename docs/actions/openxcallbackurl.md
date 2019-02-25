@@ -21,7 +21,7 @@ When the app that's opened calls back to Shortcuts using x-success, it may inclu
 
 
 
-Accepts a string with either true or false
+Accepts a boolean
 or a variable.
 
 ---
@@ -76,7 +76,7 @@ with the text.
 
 
 
-Accepts a string with either true or false
+Accepts a boolean
 or a variable.
 
 ---

@@ -19,7 +19,7 @@ Removes all events passed into the action from the calendars they are contained 
 
 
 
-Accepts a string with either true or false
+Accepts a boolean
 or a variable.
 
 ### source json

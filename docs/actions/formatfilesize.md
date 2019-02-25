@@ -50,7 +50,7 @@ true
 
 **Only enabled if**: argument WFFileSizeFormat != `Automatic`
 
-Accepts a string with either true or false
+Accepts a boolean
 or a variable.
 
 ### source json

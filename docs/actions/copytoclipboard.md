@@ -21,7 +21,7 @@ Copies the result of the last action to the clipboard.
 
 
 
-Accepts a string with either true or false
+Accepts a boolean
 or a variable.
 
 ---

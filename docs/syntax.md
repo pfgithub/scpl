@@ -44,6 +44,10 @@ A text can be made with a [string argument](#string-argument) or [identifier arg
 
 A list can either be made with a [barlist argument](#barlist-argument) or a [array argument](#array-argument)
 
+#### boolean type
+
+A boolean type can be made with an [identifier argument](#identifier-argument) equal to `true` or `false`.
+
 #### variable type
 
 A variable type can be made with a [variable argument](#variable-argument) or an [action argument](#action-argument).

@@ -9,7 +9,7 @@ Sets the name of the item passed as input.
 
 
 ### usage
-`setname name=[string|text] advanced=[string boolean] dontincludefileextension=[string boolean|variable]`
+`setname name=[string|text] advanced=[boolean] dontincludefileextension=[string boolean|variable]`
 
 ### arguments
 ### Text Input: Name / name (internally `WFName`)
@@ -30,7 +30,7 @@ with the text.
 ### Expand Arrow: Advanced / advanced (internally `Advanced`)
 
 
-Accepts a string with either true or false for if this
+Accepts a boolean for if this
 parameter is expanded or not.
 
 ---
@@ -40,7 +40,7 @@ parameter is expanded or not.
 
 **Only enabled if**: argument Advanced = `true`
 
-Accepts a string with either true or false
+Accepts a boolean
 or a variable.
 
 ### source json

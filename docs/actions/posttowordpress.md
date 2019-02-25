@@ -15,7 +15,7 @@ Posts the input to a WordPress blog as a new post or page.
 The URL of the new blog post
 
 ### usage
-`posttowordpress undefined=[???] undefined=[???] title=[string|text] undefined=[???] undefined=[???] undefined=[???] undefined=[???] undefined=[???] advanced=[string boolean] allowcomments=[string boolean|variable] slug=[string|text] excerpt=[string|text] undefined=[???] undefined=[???] featuredimage=[variable] customfields=[string boolean] customfields=[dictionary]`
+`posttowordpress undefined=[???] undefined=[???] title=[string|text] undefined=[???] undefined=[???] undefined=[???] undefined=[???] undefined=[???] advanced=[boolean] allowcomments=[string boolean|variable] slug=[string|text] excerpt=[string|text] undefined=[???] undefined=[???] featuredimage=[variable] customfields=[boolean] customfields=[dictionary]`
 
 ### arguments
 This paramtype is not implemented. WFAccountPickerParameter
@@ -64,7 +64,7 @@ This paramtype is not implemented. WFDynamicTagFieldParameter
 ### Expand Arrow: Advanced / advanced (internally `Advanced`)
 
 
-Accepts a string with either true or false for if this
+Accepts a boolean for if this
 parameter is expanded or not.
 
 ---
@@ -74,7 +74,7 @@ parameter is expanded or not.
 
 **Only enabled if**: argument Advanced = `true`
 
-Accepts a string with either true or false
+Accepts a boolean
 or a variable.
 
 ---
@@ -129,7 +129,7 @@ Accepts a variable.
 ### Expand Arrow: Custom Fields / customfields (internally `ShowCustomFields`)
 **Only enabled if**: argument Advanced = `true`
 
-Accepts a string with either true or false for if this
+Accepts a boolean for if this
 parameter is expanded or not.
 
 ---

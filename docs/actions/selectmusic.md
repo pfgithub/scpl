@@ -19,7 +19,7 @@ Prompts to select music from your local music library.
 
 
 
-Accepts a string with either true or false
+Accepts a boolean
 or a variable.
 
 ### source json

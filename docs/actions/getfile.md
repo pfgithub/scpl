@@ -29,7 +29,7 @@ true
 
 
 
-Accepts a string with either true or false
+Accepts a boolean
 or a variable.
 
 ---
@@ -39,7 +39,7 @@ or a variable.
 
 **Only enabled if**: argument WFShowFilePicker = `true`
 
-Accepts a string with either true or false
+Accepts a boolean
 or a variable.
 
 ---
@@ -83,7 +83,7 @@ true
 
 **Only enabled if**: argument WFShowFilePicker = `false`
 
-Accepts a string with either true or false
+Accepts a boolean
 or a variable.
 
 ### source json
