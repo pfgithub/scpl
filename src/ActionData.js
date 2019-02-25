@@ -616,6 +616,9 @@ function genReadme() {
 	return `
 # Shortcutslang
 
+[Getting Started Guide](syntax.html)
+[Try Shortcutslang Online](tryit.html)  
+
 ${completedActions}/${totalActions} completed\\* \\*\\*
 
 ## All Actions:

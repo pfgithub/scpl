@@ -1,6 +1,9 @@
 
 # Shortcutslang
 
+[Getting Started Guide](syntax.html)
+[Try Shortcutslang Online](tryit.html)  
+
 195/266 completed\* \*\*
 
 ## All Actions:
