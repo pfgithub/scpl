@@ -1,7 +1,7 @@
 
 # Shortcutslang
 
-193/266 completed\* \*\*
+195/266 completed\* \*\*
 
 ## All Actions:
 
@@ -54,7 +54,7 @@
 - [Delete Photos](actions/deletephotos)
 - [Detect Language with Microsoft](actions/detectlanguagewithmicrosoft)
 - [Dictate Text](actions/dictatetext) (Incomplete)
-- [Dictionary](actions/dictionary) (Incomplete)
+- [Dictionary](actions/dictionary)
 - [Email Address](actions/emailaddress) (Incomplete)
 - [Encode Media](actions/encodemedia)
 - [Exit Shortcut](actions/exitshortcut)
@@ -83,7 +83,7 @@
 - [Get Clipboard](actions/getclipboard)
 - [Get Component of URL](actions/getcomponentofurl)
 - [Get Contacts from Input](actions/getcontactsfrominput)
-- [Get Contents of URL](actions/getcontentsofurl) (Incomplete)
+- [Get Contents of URL](actions/getcontentsofurl)
 - [Get Contents of Web Page](actions/getcontentsofwebpage)
 - [Get Current IP Address](actions/getcurrentipaddress)
 - [Get Current Location](actions/getcurrentlocation)
@@ -339,7 +339,7 @@
 - [ ] 4: WFStorageServicePickerParameter
 - [ ] 4: WFEmailAddressFieldParameter
 - [ ] 5: WFIntentAppPickerParameter
-- [ ] 5: WFDictionaryParameter
+- [x] Complete - 5: WFDictionaryParameter
 - [x] Complete - 5: WFSliderParameter
 - [ ] 8: WFLocationFieldParameter
 - [x] Complete - 8: WFExpandingParameter

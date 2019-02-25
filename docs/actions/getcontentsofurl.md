@@ -1,8 +1,6 @@
 
 ## Get Contents of URL / getcontentsofurl (internally `is.workflow.actions.downloadurl`)
 
-> This action is not yet complete. Some arguments may be missing.
-
 
 
 ## description
@@ -13,7 +11,7 @@ Gets the contents of URLs passed into the action. Useful for downloading files a
 The fetched data
 
 ### usage
-`getcontentsofurl advanced=[string boolean] method=[string <${strInfo}>] headers=[string boolean] undefined=[???] requestbody=[string <${strInfo}>|variable] undefined=[???] undefined=[???] file=[variable]`
+`getcontentsofurl advanced=[string boolean] method=[string <${strInfo}>] headers=[string boolean] headers=[dictionary] requestbody=[string <${strInfo}>|variable] formvalues=[dictionary] jsonvalues=[dictionary] file=[variable]`
 
 ### arguments
 ### Expand Arrow: Advanced / advanced (internally `Advanced`)
@@ -53,7 +51,13 @@ parameter is expanded or not.
 
 ---
 
-This paramtype is not implemented. WFDictionaryParameter
+### Dictionary: Headers / headers (internally `WFHTTPHeaders`)
+**Allows Variables**: true
+
+**Only enabled if**: argument Advanced = `true`
+**Only enabled if**: argument ShowHeaders = `true`
+
+Accepts a dictionary.
 
 ---
 
@@ -74,11 +78,25 @@ containing one of the options:
 
 ---
 
-This paramtype is not implemented. WFDictionaryParameter
+### Dictionary: Form Values / formvalues (internally `WFFormValues`)
+**Allows Variables**: true
+
+**Only enabled if**: argument Advanced = `true`
+**Only enabled if**: argument WFHTTPBodyType = `Form`
+**Only enabled if**: argument WFHTTPMethod != `GET`
+
+Accepts a dictionary.
 
 ---
 
-This paramtype is not implemented. WFDictionaryParameter
+### Dictionary: JSON Values / jsonvalues (internally `WFJSONValues`)
+**Allows Variables**: true
+
+**Only enabled if**: argument Advanced = `true`
+**Only enabled if**: argument WFHTTPBodyType = `JSON`
+**Only enabled if**: argument WFHTTPMethod != `GET`
+
+Accepts a dictionary.
 
 ---
 

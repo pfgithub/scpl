@@ -49,3 +49,5 @@ showAlert a{showCancelButton=true, message="hi", "title"="Alert!"}
 Text "hi" -> mv:magic
 
 Text (mv:magic)
+
+Dictionary{a:b,"\(mv:magic)":"hi there \(text "Hello!")", embeddedDict:{"hola": "como estas"}, embeddedList: ["hi", bye]}

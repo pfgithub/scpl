@@ -15,7 +15,7 @@ Posts the input to a WordPress blog as a new post or page.
 The URL of the new blog post
 
 ### usage
-`posttowordpress undefined=[???] undefined=[???] title=[string|text] undefined=[???] undefined=[???] undefined=[???] undefined=[???] undefined=[???] advanced=[string boolean] allowcomments=[string boolean|variable] slug=[string|text] excerpt=[string|text] undefined=[???] undefined=[???] featuredimage=[variable] customfields=[string boolean] undefined=[???]`
+`posttowordpress undefined=[???] undefined=[???] title=[string|text] undefined=[???] undefined=[???] undefined=[???] undefined=[???] undefined=[???] advanced=[string boolean] allowcomments=[string boolean|variable] slug=[string|text] excerpt=[string|text] undefined=[???] undefined=[???] featuredimage=[variable] customfields=[string boolean] customfields=[dictionary]`
 
 ### arguments
 This paramtype is not implemented. WFAccountPickerParameter
@@ -134,7 +134,13 @@ parameter is expanded or not.
 
 ---
 
-This paramtype is not implemented. WFDictionaryParameter
+### Dictionary: Custom Fields / customfields (internally `CustomFields`)
+**Allows Variables**: true
+
+**Only enabled if**: argument Advanced = `true`
+**Only enabled if**: argument ShowCustomFields = `true`
+
+Accepts a dictionary.
 
 ### source json
 

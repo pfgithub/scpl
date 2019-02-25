@@ -1,8 +1,6 @@
 
 ## Dictionary / dictionary (internally `is.workflow.actions.dictionary`)
 
-> This action is not yet complete. Some arguments may be missing.
-
 
 
 ## description
@@ -11,10 +9,15 @@ Passes the specified list of key-value pairs to the next action as a dictionary.
 
 
 ### usage
-`dictionary undefined=[???]`
+`dictionary items=[dictionary]`
 
 ### arguments
-This paramtype is not implemented. WFDictionaryParameter
+### Dictionary: Items / items (internally `WFItems`)
+**Allows Variables**: true
+
+
+
+Accepts a dictionary.
 
 ### source json
 

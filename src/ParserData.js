@@ -1,4 +1,4 @@
-const {Shortcut, Action, Parameters, DictionaryItem, Text, MagicVariable, NamedVariable, Variable, Attachment, DictionaryFieldValue, Parameter, Aggrandizements, DictionaryKeyAggrandizement, CoercionAggrandizement, Aggrandizement, List} = require("./OutputData");
+const {Shortcut, Action, Parameters, Dictionary, Text, MagicVariable, NamedVariable, Variable, Attachment, Parameter, Aggrandizements, DictionaryKeyAggrandizement, CoercionAggrandizement, Aggrandizement, List} = require("./OutputData");
 const {actionsByName} = require("./ActionData");
 const {ConvertingContext} = require("./Converter.js");
 const {setVariable, getVariable} = require("./HelpfulActions");
@@ -13,6 +13,15 @@ class DictionaryParse extends Parse {
 		super();
 		this.keyvaluepairs = keyvaluepairs;
 	}
+	asRawDictionary() { // for static things that cannot have interpolated keys or values
+		const dictionary = {};
+		this.keyvaluepairs.forEach(({key, value}) => {
+			const stringKey = key.asString();
+			if(dictionary[stringKey]) {throw new Error(`Key ${stringKey} is already defined in this dictionary.`);}
+			dictionary[stringKey] = value.asString();
+		});
+		return dictionary;
+	}
 	asRawKeyedDictionary() {
 		// returns a raw dictionary (keys are raw, not values) for this DictionaryParse
 		const dictionary = {};
@@ -25,7 +34,16 @@ class DictionaryParse extends Parse {
 	}
 	asDictionary(cc) {
 		// returns an Output Dictionary for this DictionaryParse
-
+		const dictionary = new Dictionary();
+		this.keyvaluepairs.forEach(({key, value}) => {
+			let type;
+			if(value.asList) {type = 2; value = value.asList(cc);}
+			else if(value.asDictionary) {type = 1; value = value.asDictionary(cc);}
+			else if(value.asText) {type = 0; value = value.asText(cc);}
+			else{throw new Error("This dictionary can only values that are lists, texts, or dictionaries.");}
+			dictionary.add(key.asText(cc), value, type);
+		});
+		return dictionary;
 	}
 }
 class ListParse extends Parse {

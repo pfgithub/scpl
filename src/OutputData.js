@@ -89,7 +89,32 @@ class Parameter {
 	}
 }
 
-class DictionaryFieldValue extends Parameter {}
+class Dictionary extends Parameter {
+	constructor() {
+		super(SERIALIZATIONTYPE.dictionaryFieldValue);
+		this.items = [];
+	}
+	add(key, value, type) {
+		if(!(key instanceof Parameter)) {throw new Error("Key must be a Parameter");}
+		if(!(value instanceof Parameter)) {throw new Error("Value must be a Parameter");}
+
+		this.items.push({key, value, type});
+	}
+	build() {
+		return {
+			Value: {
+				WFDictionaryFieldValueItems: this.items.map(({key, value, type}) => {
+					return {
+						WFItemType: type,
+						WFKey: key.build(),
+						WFValue: value instanceof Dictionary ? {Value: value.build()} : value.build()
+					};
+				})
+			},
+			WFSerializationType: SERIALIZATIONTYPE.dictionaryFieldValue
+		};
+	}
+}
 
 class Attachment extends Parameter { // THINGS TO NOTE; ASK WHEN RUN IS THE ONLY ATTACHMENT THAT DOES NOT HAVE AGGRANDIZEMENTS
 	constructor(type) {
@@ -235,7 +260,6 @@ class Text extends Parameter {
 		};
 	}
 }
-class DictionaryItem extends Parameter {}
 /*
 Text:
 Either it becomes a Value,SerializationType or it becomes a ""
@@ -348,7 +372,7 @@ class Shortcut {
 	}
 }
 
-module.exports = {Shortcut, Action, Parameters, DictionaryItem, Text, MagicVariable, NamedVariable, Variable, Attachment, DictionaryFieldValue, Parameter, Aggrandizements, DictionaryKeyAggrandizement, CoercionAggrandizement, Aggrandizement, List};
+module.exports = {Shortcut, Action, Parameters, Text, MagicVariable, NamedVariable, Variable, Attachment, Dictionary, Parameter, Aggrandizements, DictionaryKeyAggrandizement, CoercionAggrandizement, Aggrandizement, List};
 
 /*
 

@@ -346,6 +346,23 @@ with the text.`;
 	}
 };
 
+types.WFDictionaryParameter = class extends types.WFParameter {
+	constructor(data) {
+		super(data, "Dictionary");
+	}
+	genDocsArgName() {
+		return `[dictionary]`;
+	}
+	genDocs() {
+		return `${super.genDocs()}
+
+Accepts a dictionary.`;
+	}
+	build(cc, parse) {
+		return parse.asDictionary(cc);
+	}
+};
+
 types.WFSwitchParameter = class extends types.WFParameter {
 	constructor(data) {
 		super(data, "Switch");
