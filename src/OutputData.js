@@ -346,26 +346,16 @@ class Text extends Parameter {
 				return;
 			}
 			if(obj instanceof Text) {
-				this.add(...obj.components);
+				this.add(...obj._components);
 				return;
 			}
-			if(!(typeof obj === "string")) {throw new Error("Add type must be string or Attachment");}
+			if(!(typeof obj === "string")) {throw new Error("Add type must be string, Text, or Attachment");}
 
 			const str = obj;
-			if(typeof this._last === "string") {
-			// Pop the last component, add the string, and push it again.
-				this._components.push(this._components.pop() + str);
-			}
 			this._components.push(str);
 		});
 
 		return this;
-	}
-	get hasAttachments() {
-		return !!this._components.filter(component => component instanceof Attachment).length;
-	}
-	get rawString() {
-		return this._components.map(component => typeof component === "string" ? component : `\uFFFC`).join``;
 	}
 	build() {
 		// if(this.components.length === 0) {return "";}

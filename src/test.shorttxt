@@ -58,3 +58,7 @@ text "\(v:myDictVar{key:hi})"
 
 v:testVar = text "{a:b}"
 text "\(v:testVar{as:Dictionary,key:a})"
+
+text
+| hello there
+| goodbye
