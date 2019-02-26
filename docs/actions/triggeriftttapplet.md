@@ -3,20 +3,26 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
-
 > This action requires that Shortcuts has permission to use WFUnavailableResource.
 
 
 ## description
+
 ### summary
+
 Triggers an IFTTT applet. Configure which applet in the IFTTT app.
 
 
 ### usage
-`triggeriftttapplet a{undefined=[???] wfiftttextraingredients=[string integer|variable] ingredient1=[string|text] ingredient2=[string|text] ingredient3=[string|text] ingredient4=[string|text] ingredient5=[string|text] ingredient6=[string|text] ingredient7=[string|text] ingredient8=[string|text] ingredient9=[string|text] ingredient10=[string|text] undefined=[???]}`
+```
+triggeriftttapplet a{undefined=[???] wfiftttextraingredients=[string integer|variable] ingredient1=[string|text] ingredient2=[string|text] ingredient3=[string|text] ingredient4=[string|text] ingredient5=[string|text] ingredient6=[string|text] ingredient7=[string|text] ingredient8=[string|text] ingredient9=[string|text] ingredient10=[string|text] undefined=[???]}
+```
 
 ### arguments
-This paramtype is not implemented. WFIFTTTTriggerNameParameter
+
+---
+
+#### This paramtype is not implemented. WFIFTTTTriggerNameParameter
 
 ---
 
@@ -178,7 +184,9 @@ with the text.
 
 ---
 
-This paramtype is not implemented. WFIFTTTAddRecipeParameter
+#### This paramtype is not implemented. WFIFTTTAddRecipeParameter
+
+---
 
 ### source json
 

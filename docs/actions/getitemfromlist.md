@@ -2,16 +2,22 @@
 ## Get Item from List / getitemfromlist (internally `is.workflow.actions.getitemfromlist`)
 
 
-
 ## description
+
 ### summary
+
 Returns one or more items from the list passed as input. You can get the first item, the last item, a random item, the item at a particular index, or items in a range of indexes.
 
 
 ### usage
-`getitemfromlist a{get=[string <${strInfo}>] index=[string number] getitemsfromindex=[string number] toindex=[string number]}`
+```
+getitemfromlist a{get=[string <${strInfo}>] index=[string number] getitemsfromindex=[string number] toindex=[string number]}
+```
 
 ### arguments
+
+---
+
 ### Enumeration: Get / get (internally `WFItemSpecifier`)
 **Default Value**:
 ```
@@ -79,6 +85,8 @@ optional
 Accepts a string 
 or variable
 with a number.
+
+---
 
 ### source json
 

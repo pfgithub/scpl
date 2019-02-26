@@ -1,19 +1,25 @@
 
 ## Set Cellular Data / setcellulardata (internally `is.workflow.actions.cellulardata.set`)
 
-
 > This action requires that Shortcuts has permission to use WFSiriAccessResource.
 
 
 ## description
+
 ### summary
+
 Sets the device’s Cellular Data to on or off.
 
 
 ### usage
-`setcellulardata a{cellulardata=[string boolean|variable]}`
+```
+setcellulardata a{cellulardata=[string boolean|variable]}
+```
 
 ### arguments
+
+---
+
 ### Switch: Cellular Data / cellulardata (internally `OnValue`)
 **Default Value**:
 ```
@@ -25,6 +31,8 @@ true
 
 Accepts a boolean
 or a variable.
+
+---
 
 ### source json
 

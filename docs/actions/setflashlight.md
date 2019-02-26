@@ -2,16 +2,22 @@
 ## Set Flashlight / setflashlight (internally `is.workflow.actions.flashlight`)
 
 
-
 ## description
+
 ### summary
+
 Turns on or off the flashlight near the device's camera.
 
 
 ### usage
-`setflashlight a{flashlight=[string <${strInfo}>] brightness=[string number]}`
+```
+setflashlight a{flashlight=[string <${strInfo}>] brightness=[string number]}
+```
 
 ### arguments
+
+---
+
 ### Enumeration: Flashlight / flashlight (internally `WFFlashlightSetting`)
 **Default Value**:
 ```
@@ -44,6 +50,8 @@ containing one of the options:
 Accepts a string 
 or variable
 containing a number value from 0 to 1.
+
+---
 
 ### source json
 

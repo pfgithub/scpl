@@ -3,20 +3,28 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
-
 > This action requires that Shortcuts has permission to use WFInstapaperAccessResource,WFMainThreadResource.
 
 
 ## description
+
 ### summary
+
 Adds the input to Instapaper.
 
 
 ### usage
-`addtoinstapaper a{undefined=[???]}`
+```
+addtoinstapaper a{undefined=[???]}
+```
 
 ### arguments
-This paramtype is not implemented. WFDynamicEnumerationParameter
+
+---
+
+#### This paramtype is not implemented. WFDynamicEnumerationParameter
+
+---
 
 ### source json
 

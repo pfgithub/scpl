@@ -2,18 +2,26 @@
 ## Append to File / appendtofile (internally `is.workflow.actions.file.append`)
 
 
-
 ## description
+
 ### summary
+
 Adds the text passed as input to the end of the specified file.
 
+
 ### output
+
 The file that was appended to
 
 ### usage
-`appendtofile a{service=[string <${strInfo}>] filepath=[string|text] mode=[string <${strInfo}>] makenewline=[string boolean|variable]}`
+```
+appendtofile a{service=[string <${strInfo}>] filepath=[string|text] mode=[string <${strInfo}>] makenewline=[string boolean|variable]}
+```
 
 ### arguments
+
+---
+
 ### Storage Service Picker: Service / service (internally `WFFileStorageService`)
 **Allows Variables**: true
 
@@ -72,6 +80,8 @@ true
 
 Accepts a boolean
 or a variable.
+
+---
 
 ### source json
 

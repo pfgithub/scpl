@@ -3,12 +3,18 @@
 
 
 
-
 ### usage
-`getdetailsofcalendarevents a{}`
+```
+getdetailsofcalendarevents a{}
+```
 
 ### arguments
 
+---
+
+
+
+---
 
 ### source json
 

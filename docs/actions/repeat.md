@@ -1,17 +1,27 @@
 
 ## Repeat / repeat (internally `is.workflow.actions.repeat.count`)
 
+> This action has a block. Make sure to end it with an end. (More info in usage below)
 
 
 ## description
+
 ### summary
+
 Repeats the contained actions, running them the specified number of times.
 
 
 ### usage
-`repeat a{wfrepeatcount=[string integer]}`
+```
+repeat a{wfrepeatcount=[string integer]}
+  ...
+end
+```
 
 ### arguments
+
+---
+
 ### Stepper Number: wfrepeatcount / wfrepeatcount (internally `WFRepeatCount`)
 **Allows Variables**: true
 
@@ -20,6 +30,8 @@ Repeats the contained actions, running them the specified number of times.
 Accepts a string 
 or variable
 containing an integer value.
+
+---
 
 ### source json
 
@@ -62,6 +74,9 @@ containing an integer value.
 			"StepperPrefix": "Repeat"
 		}
 	],
-	"Subcategory": "Control Flow"
+	"Subcategory": "Control Flow",
+	"BlockInfo": {
+		"Example": "\n  ...\nend"
+	}
 }
 ```

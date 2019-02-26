@@ -2,7 +2,7 @@
 # Shortcutslang
 
 [Getting Started Guide](syntax.html)
-[Try Shortcutslang Online](tryit.html)  
+[Try Shortcutslang Online](tryit.html)
 
 201/266 completed\* \*\*
 

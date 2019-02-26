@@ -3,19 +3,25 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
-
 > This action requires that Shortcuts has permission to use WFUserInteractionResource,WFMicrophoneAccessResource.
 
 
 ## description
+
 ### summary
+
 Uses the microphone to record audio.
 
 
 ### usage
-`recordaudio a{audioquality=[string <${strInfo}>] startrecording=[string <${strInfo}>] finishrecording=[string <${strInfo}>] undefined=[???]}`
+```
+recordaudio a{audioquality=[string <${strInfo}>] startrecording=[string <${strInfo}>] finishrecording=[string <${strInfo}>] undefined=[???]}
+```
 
 ### arguments
+
+---
+
 ### Enumeration: Audio Quality / audioquality (internally `WFRecordingCompression`)
 **Default Value**:
 ```
@@ -70,7 +76,9 @@ containing one of the options:
 
 ---
 
-This paramtype is not implemented. WFTimeIntervalParameter
+#### This paramtype is not implemented. WFTimeIntervalParameter
+
+---
 
 ### source json
 

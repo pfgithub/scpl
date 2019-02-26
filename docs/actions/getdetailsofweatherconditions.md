@@ -3,12 +3,18 @@
 
 
 
-
 ### usage
-`getdetailsofweatherconditions a{}`
+```
+getdetailsofweatherconditions a{}
+```
 
 ### arguments
 
+---
+
+
+
+---
 
 ### source json
 

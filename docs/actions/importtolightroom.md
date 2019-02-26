@@ -4,16 +4,22 @@
 > This action is not yet complete. Some arguments may be missing.
 
 
-
 ## description
+
 ### summary
+
 Imports the photos passed as input into Lightroom
 
 
 ### usage
-`importtolightroom a{applypreset=[string boolean|variable] presetgroup=[string <${strInfo}>] undefined=[???]}`
+```
+importtolightroom a{applypreset=[string boolean|variable] presetgroup=[string <${strInfo}>] undefined=[???]}
+```
 
 ### arguments
+
+---
+
 ### Switch: Apply Preset / applypreset (internally `applyPreset`)
 **Allows Variables**: true
 
@@ -47,7 +53,9 @@ containing one of the options:
 
 ---
 
-This paramtype is not implemented. WFLightroomPresetPickerParameter
+#### This paramtype is not implemented. WFLightroomPresetPickerParameter
+
+---
 
 ### source json
 

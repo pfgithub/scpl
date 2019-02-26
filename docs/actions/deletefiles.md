@@ -2,16 +2,22 @@
 ## Delete Files / deletefiles (internally `is.workflow.actions.file.delete`)
 
 
-
 ## description
+
 ### summary
+
 Delete the files passed in as input.
 
 
 ### usage
-`deletefiles a{confirmbeforedeleting=[string boolean|variable]}`
+```
+deletefiles a{confirmbeforedeleting=[string boolean|variable]}
+```
 
 ### arguments
+
+---
+
 ### Switch: Confirm Before Deleting / confirmbeforedeleting (internally `WFDeleteFileConfirmDeletion`)
 **Default Value**:
 ```
@@ -23,6 +29,8 @@ true
 
 Accepts a boolean
 or a variable.
+
+---
 
 ### source json
 

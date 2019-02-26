@@ -2,16 +2,22 @@
 ## Rotate Image / rotateimage (internally `is.workflow.actions.image.rotate`)
 
 
-
 ## description
+
 ### summary
+
 Turns an image clockwise by a particular number of degrees.
 
 
 ### usage
-`rotateimage a{degrees=[string number]}`
+```
+rotateimage a{degrees=[string number]}
+```
 
 ### arguments
+
+---
+
 ### Number: Degrees / degrees (internally `WFImageRotateAmount`)
 **Placeholder**:
 ```
@@ -28,6 +34,8 @@ Turns an image clockwise by a particular number of degrees.
 Accepts a string 
 or variable
 with a number.
+
+---
 
 ### source json
 

@@ -2,16 +2,22 @@
 ## Combine Images / combineimages (internally `is.workflow.actions.image.combine`)
 
 
-
 ## description
+
 ### summary
+
 Combines the images passed into the action horizontally, vertically, or in a grid.
 
 
 ### usage
-`combineimages a{mode=[string <${strInfo}>] direction=[string <${strInfo}>] spacing=[string number]}`
+```
+combineimages a{mode=[string <${strInfo}>] direction=[string <${strInfo}>] spacing=[string number]}
+```
 
 ### arguments
+
+---
+
 ### Enumeration: Mode / mode (internally `WFImageCombineMode`)
 **Default Value**:
 ```
@@ -60,6 +66,8 @@ containing one of the options:
 Accepts a string 
 or variable
 with a number.
+
+---
 
 ### source json
 

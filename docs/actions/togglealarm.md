@@ -3,20 +3,26 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
-
 > This action requires that Shortcuts has permission to use WFSiriAccessResource.
 
 
 ## description
+
 ### summary
+
 Enables or disables an alarm in the Clock app.
 
 
 ### usage
-`togglealarm a{undefined=[???] enabled=[string boolean|variable]}`
+```
+togglealarm a{undefined=[???] enabled=[string boolean|variable]}
+```
 
 ### arguments
-This paramtype is not implemented. WFAlarmPickerParameter
+
+---
+
+#### This paramtype is not implemented. WFAlarmPickerParameter
 
 ---
 
@@ -27,6 +33,8 @@ This paramtype is not implemented. WFAlarmPickerParameter
 
 Accepts a boolean
 or a variable.
+
+---
 
 ### source json
 

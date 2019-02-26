@@ -1,23 +1,39 @@
 
 ## Repeat with Each / repeatwitheach (internally `is.workflow.actions.repeat.each`)
 
+> This action has a block. Make sure to end it with an end. (More info in usage below)
 
 
 ## description
+
 ### summary
+
 Takes a list of items as input, and runs the contained actions once for each item in the list.
 
+
 ### input
+
 A list of items
 
+
 ### output
+
 Every item passed to the “End Repeat” action
 
 ### usage
-`repeatwitheach a{}`
+```
+repeatwitheach a{}
+  ...
+end
+```
 
 ### arguments
 
+---
+
+
+
+---
 
 ### source json
 
@@ -52,6 +68,9 @@ Every item passed to the “End Repeat” action
 			"WFContentItem"
 		]
 	},
-	"Subcategory": "Control Flow"
+	"Subcategory": "Control Flow",
+	"BlockInfo": {
+		"Example": "\n  ...\nend"
+	}
 }
 ```

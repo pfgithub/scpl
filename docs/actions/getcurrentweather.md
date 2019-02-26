@@ -3,19 +3,25 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
-
 > This action requires that Shortcuts has permission to use WFWeatherAttributionAccessResource,WFLocationAccessResource.
 
 
 ## description
+
 ### summary
+
 Gets the current weather conditions at the specified location.
 
 
 ### usage
-`getcurrentweather a{at=[string <${strInfo}>|variable] undefined=[???]}`
+```
+getcurrentweather a{at=[string <${strInfo}>|variable] undefined=[???]}
+```
 
 ### arguments
+
+---
+
 ### Enumeration: At / at (internally `WFWeatherLocation`)
 **Default Value**:
 ```
@@ -31,7 +37,9 @@ containing one of the options:
 
 ---
 
-This paramtype is not implemented. WFLocationFieldParameter
+#### This paramtype is not implemented. WFLocationFieldParameter
+
+---
 
 ### source json
 

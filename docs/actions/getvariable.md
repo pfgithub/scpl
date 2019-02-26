@@ -2,22 +2,30 @@
 ## Get Variable / getvariable (internally `is.workflow.actions.getvariable`)
 
 
-
 ## description
+
 ### summary
+
 Gets the value of the specified variable and passes it to the next action.
 
 
 ### usage
-`getvariable a{variable=[variable]}`
+```
+getvariable a{variable=[variable]}
+```
 
 ### arguments
+
+---
+
 ### Variable Picker: Variable / variable (internally `WFVariable`)
 **Allows Variables**: true
 
 
 
 Accepts a variable.
+
+---
 
 ### source json
 

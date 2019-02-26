@@ -3,19 +3,25 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
-
 > This action requires that Shortcuts has permission to use WFTrelloAccessResource.
 
 
 ## description
+
 ### summary
+
 Gets cards, lists, or boards in your Trello account.
 
 
 ### usage
-`gettrelloitems a{get=[string <${strInfo}>] undefined=[???] undefined=[???]}`
+```
+gettrelloitems a{get=[string <${strInfo}>] undefined=[???] undefined=[???]}
+```
 
 ### arguments
+
+---
+
 ### Enumeration: Get / get (internally `WFTrelloItemType`)
 **Default Value**:
 ```
@@ -35,11 +41,13 @@ containing one of the options:
 
 ---
 
-This paramtype is not implemented. WFTrelloBoardPickerParameter
+#### This paramtype is not implemented. WFTrelloBoardPickerParameter
 
 ---
 
-This paramtype is not implemented. WFTrelloListPickerParameter
+#### This paramtype is not implemented. WFTrelloListPickerParameter
+
+---
 
 ### source json
 

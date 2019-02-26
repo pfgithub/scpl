@@ -3,24 +3,32 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
-
 > This action requires that Shortcuts has permission to use WFUnavailableResource,[object Object].
 
 
 ## description
+
 ### summary
+
 Posts the input to the specified Slack channel.
 
 
 ### usage
-`posttoslack a{undefined=[???] undefined=[???]}`
+```
+posttoslack a{undefined=[???] undefined=[???]}
+```
 
 ### arguments
-This paramtype is not implemented. WFAccountPickerParameter
 
 ---
 
-This paramtype is not implemented. WFSlackChannelPickerParameter
+#### This paramtype is not implemented. WFAccountPickerParameter
+
+---
+
+#### This paramtype is not implemented. WFSlackChannelPickerParameter
+
+---
 
 ### source json
 

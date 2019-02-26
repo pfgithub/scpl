@@ -3,20 +3,28 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
-
 > This action requires that Shortcuts has permission to use WFSiriAccessResource.
 
 
 ## description
+
 ### summary
+
 Starts a timer in the Clock app for the specified amount of time.
 
 
 ### usage
-`starttimer a{undefined=[???]}`
+```
+starttimer a{undefined=[???]}
+```
 
 ### arguments
-This paramtype is not implemented. WFDurationQuantityFieldParameter
+
+---
+
+#### This paramtype is not implemented. WFDurationQuantityFieldParameter
+
+---
 
 ### source json
 

@@ -3,22 +3,30 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
-
 > This action requires that Shortcuts has permission to use WFEvernoteAccessResource.
 
 
 ## description
+
 ### summary
+
 Finds a note using the specified criteria and appends the input to the note.
 
+
 ### input
+
 The content to add to your note
 
 
 ### usage
-`appendtonote a{notetitle=[string|text] mode=[string <${strInfo}>] undefined=[???]}`
+```
+appendtonote a{notetitle=[string|text] mode=[string <${strInfo}>] undefined=[???]}
+```
 
 ### arguments
+
+---
+
 ### Text: Note Title / notetitle (internally `WFEvernoteNotesTitleSearch`)
 **Placeholder**:
 ```
@@ -52,7 +60,9 @@ containing one of the options:
 
 ---
 
-This paramtype is not implemented. WFEvernoteNotebookPickerParameter
+#### This paramtype is not implemented. WFEvernoteNotebookPickerParameter
+
+---
 
 ### source json
 

@@ -4,16 +4,22 @@
 > This action is not yet complete. Some arguments may be missing.
 
 
-
 ## description
+
 ### summary
+
 Searches the App Store, returning the apps that match the specified search terms. You can get more details about the results using the Get Details of App Store App action.
 
 
 ### usage
-`searchappstore a{search=[string|text] undefined=[???] undefined=[???] undefined=[???] wfitemlimit=[string integer]}`
+```
+searchappstore a{search=[string|text] undefined=[???] undefined=[???] undefined=[???] wfitemlimit=[string integer]}
+```
 
 ### arguments
+
+---
+
 ### Text: Search / search (internally `WFSearchTerm`)
 **Placeholder**:
 ```
@@ -29,15 +35,15 @@ with the text.
 
 ---
 
-This paramtype is not implemented. WFDynamicEnumerationParameter
+#### This paramtype is not implemented. WFDynamicEnumerationParameter
 
 ---
 
-This paramtype is not implemented. WFDynamicEnumerationParameter
+#### This paramtype is not implemented. WFDynamicEnumerationParameter
 
 ---
 
-This paramtype is not implemented. WFiTunesStoreCountryPickerParameter
+#### This paramtype is not implemented. WFiTunesStoreCountryPickerParameter
 
 ---
 
@@ -53,6 +59,8 @@ This paramtype is not implemented. WFiTunesStoreCountryPickerParameter
 Accepts a string 
 or variable
 containing an integer value.
+
+---
 
 ### source json
 

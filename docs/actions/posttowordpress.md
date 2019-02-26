@@ -3,26 +3,34 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
-
 > This action requires that Shortcuts has permission to use [object Object].
 
 
 ## description
+
 ### summary
+
 Posts the input to a WordPress blog as a new post or page.
 
+
 ### output
+
 The URL of the new blog post
 
 ### usage
-`posttowordpress a{undefined=[???] undefined=[???] title=[string|text] undefined=[???] undefined=[???] undefined=[???] undefined=[???] undefined=[???] advanced=[boolean] allowcomments=[string boolean|variable] slug=[string|text] excerpt=[string|text] undefined=[???] undefined=[???] featuredimage=[variable] customfields=[boolean] customfields=[dictionary]}`
+```
+posttowordpress a{undefined=[???] undefined=[???] title=[string|text] undefined=[???] undefined=[???] undefined=[???] undefined=[???] undefined=[???] advanced=[boolean] allowcomments=[string boolean|variable] slug=[string|text] excerpt=[string|text] undefined=[???] undefined=[???] featuredimage=[variable] customfields=[boolean] customfields=[dictionary]}
+```
 
 ### arguments
-This paramtype is not implemented. WFAccountPickerParameter
 
 ---
 
-This paramtype is not implemented. WFDynamicEnumerationParameter
+#### This paramtype is not implemented. WFAccountPickerParameter
+
+---
+
+#### This paramtype is not implemented. WFDynamicEnumerationParameter
 
 ---
 
@@ -41,23 +49,23 @@ with the text.
 
 ---
 
-This paramtype is not implemented. WFDynamicEnumerationParameter
+#### This paramtype is not implemented. WFDynamicEnumerationParameter
 
 ---
 
-This paramtype is not implemented. WFDynamicEnumerationParameter
+#### This paramtype is not implemented. WFDynamicEnumerationParameter
 
 ---
 
-This paramtype is not implemented. WFDynamicEnumerationParameter
+#### This paramtype is not implemented. WFDynamicEnumerationParameter
 
 ---
 
-This paramtype is not implemented. WFDynamicTagFieldParameter
+#### This paramtype is not implemented. WFDynamicTagFieldParameter
 
 ---
 
-This paramtype is not implemented. WFDynamicTagFieldParameter
+#### This paramtype is not implemented. WFDynamicTagFieldParameter
 
 ---
 
@@ -109,11 +117,11 @@ with the text.
 
 ---
 
-This paramtype is not implemented. WFDateFieldParameter
+#### This paramtype is not implemented. WFDateFieldParameter
 
 ---
 
-This paramtype is not implemented. WFDynamicEnumerationParameter
+#### This paramtype is not implemented. WFDynamicEnumerationParameter
 
 ---
 
@@ -141,6 +149,8 @@ parameter is expanded or not.
 **Only enabled if**: argument ShowCustomFields = `true`
 
 Accepts a dictionary.
+
+---
 
 ### source json
 

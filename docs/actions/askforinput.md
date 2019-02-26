@@ -3,19 +3,25 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
-
 > This action requires that Shortcuts has permission to use WFUserInteractionResource.
 
 
 ## description
+
 ### summary
+
 Displays a dialog prompting the user to enter a piece of information.
 
 
 ### usage
-`askforinput a{question=[string|text] defaultanswer=[string|text] undefined=[???] inputtype=[string <${strInfo}>] granularity=[string <${strInfo}>] skiptowatchdictation=[string boolean|variable]}`
+```
+askforinput a{question=[string|text] defaultanswer=[string|text] undefined=[???] inputtype=[string <${strInfo}>] granularity=[string <${strInfo}>] skiptowatchdictation=[string boolean|variable]}
+```
 
 ### arguments
+
+---
+
 ### Text: Question / question (internally `WFAskActionPrompt`)
 **Placeholder**:
 ```
@@ -46,7 +52,7 @@ with the text.
 
 ---
 
-This paramtype is not implemented. WFDateFieldParameter
+#### This paramtype is not implemented. WFDateFieldParameter
 
 ---
 
@@ -98,6 +104,8 @@ containing one of the options:
 
 Accepts a boolean
 or a variable.
+
+---
 
 ### source json
 

@@ -2,16 +2,22 @@
 ## Set Name / setname (internally `is.workflow.actions.setitemname`)
 
 
-
 ## description
+
 ### summary
+
 Sets the name of the item passed as input.
 
 
 ### usage
-`setname a{name=[string|text] advanced=[boolean] dontincludefileextension=[string boolean|variable]}`
+```
+setname a{name=[string|text] advanced=[boolean] dontincludefileextension=[string boolean|variable]}
+```
 
 ### arguments
+
+---
+
 ### Text: Name / name (internally `WFName`)
 **Placeholder**:
 ```
@@ -42,6 +48,8 @@ parameter is expanded or not.
 
 Accepts a boolean
 or a variable.
+
+---
 
 ### source json
 

@@ -1,19 +1,25 @@
 
 ## Set Brightness / setbrightness (internally `is.workflow.actions.setbrightness`)
 
-
 > This action requires that Shortcuts has permission to use WFSiriAccessResource.
 
 
 ## description
+
 ### summary
+
 Sets the device brightness.
 
 
 ### usage
-`setbrightness a{brightness=[string number]}`
+```
+setbrightness a{brightness=[string number]}
+```
 
 ### arguments
+
+---
+
 ### Slider Number: Brightness / brightness (internally `WFBrightness`)
 **Default Value**:
 ```
@@ -26,6 +32,8 @@ Sets the device brightness.
 Accepts a string 
 or variable
 containing a number value from 0 to 1.
+
+---
 
 ### source json
 

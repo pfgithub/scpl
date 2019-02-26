@@ -4,18 +4,26 @@
 > This action is not yet complete. Some arguments may be missing.
 
 
-
 ## description
+
 ### summary
+
 Makes an archive out of the files passed as input. Supports creating zip, tar.gz, tar.bz2, tar, gzip, cpio, or iso archives.
 
+
 ### output
+
 Archive
 
 ### usage
-`makearchive a{archivename=[string|text] undefined=[???]}`
+```
+makearchive a{archivename=[string|text] undefined=[???]}
+```
 
 ### arguments
+
+---
+
 ### Text: Archive Name / archivename (internally `WFZIPName`)
 **Placeholder**:
 ```
@@ -31,7 +39,9 @@ with the text.
 
 ---
 
-This paramtype is not implemented. WFArchiveFormatParameter
+#### This paramtype is not implemented. WFArchiveFormatParameter
+
+---
 
 ### source json
 

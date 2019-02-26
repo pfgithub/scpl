@@ -2,21 +2,31 @@
 ## Make Video from GIF / makevideofromgif (internally `is.workflow.actions.makevideofromgif`)
 
 
-
 ## description
+
 ### summary
+
 Converts an animated GIF into a video.
 
+
 ### input
+
 An animated GIF
 
+
 ### output
+
 A video
 
 ### usage
-`makevideofromgif a{wfmakevideofromgifactionloopcount=[string integer]}`
+```
+makevideofromgif a{wfmakevideofromgifactionloopcount=[string integer]}
+```
 
 ### arguments
+
+---
+
 ### Stepper Number: wfmakevideofromgifactionloopcount / wfmakevideofromgifactionloopcount (internally `WFMakeVideoFromGIFActionLoopCount`)
 **Default Value**:
 ```
@@ -29,6 +39,8 @@ A video
 Accepts a string 
 or variable
 containing an integer value.
+
+---
 
 ### source json
 

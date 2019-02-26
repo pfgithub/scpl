@@ -1,19 +1,25 @@
 
 ## Set Low Power Mode / setlowpowermode (internally `is.workflow.actions.lowpowermode.set`)
 
-
 > This action requires that Shortcuts has permission to use WFSiriAccessResource,[object Object].
 
 
 ## description
+
 ### summary
+
 Sets the device’s Low Power Mode to on or off.
 
 
 ### usage
-`setlowpowermode a{lowpowermode=[string boolean|variable]}`
+```
+setlowpowermode a{lowpowermode=[string boolean|variable]}
+```
 
 ### arguments
+
+---
+
 ### Switch: Low Power Mode / lowpowermode (internally `OnValue`)
 **Default Value**:
 ```
@@ -25,6 +31,8 @@ true
 
 Accepts a boolean
 or a variable.
+
+---
 
 ### source json
 

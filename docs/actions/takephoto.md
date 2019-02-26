@@ -1,21 +1,29 @@
 
 ## Take Photo / takephoto (internally `is.workflow.actions.takephoto`)
 
-
 > This action requires that Shortcuts has permission to use WFUserInteractionResource,WFCameraAccessResource.
 
 
 ## description
+
 ### summary
+
 Uses the camera to take photos.
 
+
 ### output
+
 Photo from the camera.
 
 ### usage
-`takephoto a{showcamerapreview=[string boolean|variable] wfphotocount=[string integer] camera=[string <${strInfo}>]}`
+```
+takephoto a{showcamerapreview=[string boolean|variable] wfphotocount=[string integer] camera=[string <${strInfo}>]}
+```
 
 ### arguments
+
+---
+
 ### Switch: Show Camera Preview / showcamerapreview (internally `WFCameraCaptureShowPreview`)
 **Default Value**:
 ```
@@ -60,6 +68,8 @@ containing one of the options:
 
 - `Front`
 - `Back`
+
+---
 
 ### source json
 

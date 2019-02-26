@@ -1,19 +1,25 @@
 
 ## Get Note Link / getnotelink (internally `is.workflow.actions.evernote.getlink`)
 
-
 > This action requires that Shortcuts has permission to use WFEvernoteAccessResource.
 
 
 ## description
+
 ### summary
+
 Gets a link to the Evernote note passed into the action, which can be shared.
 
 
 ### usage
-`getnotelink a{inapplink=[string boolean|variable]}`
+```
+getnotelink a{inapplink=[string boolean|variable]}
+```
 
 ### arguments
+
+---
+
 ### Switch: In-App Link / inapplink (internally `WFEvernoteShareInAppLink`)
 **Allows Variables**: true
 
@@ -21,6 +27,8 @@ Gets a link to the Evernote note passed into the action, which can be shared.
 
 Accepts a boolean
 or a variable.
+
+---
 
 ### source json
 

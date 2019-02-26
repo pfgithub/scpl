@@ -3,20 +3,28 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
-
 > This action requires that Shortcuts has permission to use WFContactAccessResource.
 
 
 ## description
+
 ### summary
+
 Calls the phone number passed in as input.
 
 
 ### usage
-`call a{undefined=[???]}`
+```
+call a{undefined=[???]}
+```
 
 ### arguments
-This paramtype is not implemented. WFIntentAppPickerParameter
+
+---
+
+#### This paramtype is not implemented. WFIntentAppPickerParameter
+
+---
 
 ### source json
 

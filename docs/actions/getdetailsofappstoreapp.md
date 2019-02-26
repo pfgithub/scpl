@@ -3,12 +3,18 @@
 
 
 
-
 ### usage
-`getdetailsofappstoreapp a{}`
+```
+getdetailsofappstoreapp a{}
+```
 
 ### arguments
 
+---
+
+
+
+---
 
 ### source json
 

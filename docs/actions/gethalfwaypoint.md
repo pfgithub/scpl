@@ -4,21 +4,29 @@
 > This action is not yet complete. Some arguments may be missing.
 
 
-
 ## description
+
 ### summary
+
 Gets the halfway point between two locations.
 
 
 ### usage
-`gethalfwaypoint a{undefined=[???] undefined=[???]}`
+```
+gethalfwaypoint a{undefined=[???] undefined=[???]}
+```
 
 ### arguments
-This paramtype is not implemented. WFLocationFieldParameter
 
 ---
 
-This paramtype is not implemented. WFLocationFieldParameter
+#### This paramtype is not implemented. WFLocationFieldParameter
+
+---
+
+#### This paramtype is not implemented. WFLocationFieldParameter
+
+---
 
 ### source json
 

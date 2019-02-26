@@ -3,21 +3,29 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
-
 > This action requires that Shortcuts has permission to use WFReminderAccessResource.
 
 
 ## description
+
 ### summary
+
 Creates a new reminder and adds it to the selected list of reminders.
 
+
 ### output
+
 The new reminder
 
 ### usage
-`addnewreminder a{title=[string|text] undefined=[???] remindme=[boolean] remind=[string <${strInfo}>] wheni=[string <${strInfo}>] radius=[string number] undefined=[???] undefined=[???] notes=[string|text]}`
+```
+addnewreminder a{title=[string|text] undefined=[???] remindme=[boolean] remind=[string <${strInfo}>] wheni=[string <${strInfo}>] radius=[string number] undefined=[???] undefined=[???] notes=[string|text]}
+```
 
 ### arguments
+
+---
+
 ### Text: Title / title (internally `WFCalendarItemTitle`)
 **Placeholder**:
 ```
@@ -33,7 +41,7 @@ with the text.
 
 ---
 
-This paramtype is not implemented. WFCalendarPickerParameter
+#### This paramtype is not implemented. WFCalendarPickerParameter
 
 ---
 
@@ -94,11 +102,11 @@ with a number.
 
 ---
 
-This paramtype is not implemented. WFLocationFieldParameter
+#### This paramtype is not implemented. WFLocationFieldParameter
 
 ---
 
-This paramtype is not implemented. WFDateFieldParameter
+#### This paramtype is not implemented. WFDateFieldParameter
 
 ---
 
@@ -114,6 +122,8 @@ Notes
 Accepts a string 
 or text
 with the text.
+
+---
 
 ### source json
 

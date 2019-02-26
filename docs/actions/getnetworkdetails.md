@@ -4,17 +4,23 @@
 > This action is not yet complete. Some arguments may be missing.
 
 
-
 ## description
+
 ### summary
+
 Gets information about the currently connected networks.
 
 
 ### usage
-`getnetworkdetails a{undefined=[???] get=[string <${strInfo}>] get=[string <${strInfo}>]}`
+```
+getnetworkdetails a{undefined=[???] get=[string <${strInfo}>] get=[string <${strInfo}>]}
+```
 
 ### arguments
-This paramtype is not implemented. WFNetworkPickerParameter
+
+---
+
+#### This paramtype is not implemented. WFNetworkPickerParameter
 
 ---
 
@@ -52,6 +58,8 @@ containing one of the options:
 - `Carrier Name`
 - `Radio Technology`
 - `Country Code`
+
+---
 
 ### source json
 

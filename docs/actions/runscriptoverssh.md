@@ -2,21 +2,31 @@
 ## Run Script Over SSH / runscriptoverssh (internally `is.workflow.actions.runsshscript`)
 
 
-
 ## description
+
 ### summary
+
 Runs a script on a remote computer over SSH.
 
+
 ### input
+
 The input passed to the shell script (stdin)
 
+
 ### output
+
 The output from the shell script (stdout)
 
 ### usage
-`runscriptoverssh a{host=[string|text] port=[string|text] user=[string|text] password=[string|text] script=[string|text]}`
+```
+runscriptoverssh a{host=[string|text] port=[string|text] user=[string|text] password=[string|text] script=[string|text]}
+```
 
 ### arguments
+
+---
+
 ### Text: Host / host (internally `WFSSHHost`)
 **Placeholder**:
 ```
@@ -93,6 +103,8 @@ Script
 Accepts a string 
 or text
 with the text.
+
+---
 
 ### source json
 

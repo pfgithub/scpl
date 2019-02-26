@@ -1,19 +1,25 @@
 
 ## Remove Events / removeevents (internally `is.workflow.actions.removeevents`)
 
-
 > This action requires that Shortcuts has permission to use WFCalendarAccessResource,WFUserInteractionResource.
 
 
 ## description
+
 ### summary
+
 Removes all events passed into the action from the calendars they are contained in.
 
 
 ### usage
-`removeevents a{includefutureevents=[string boolean|variable]}`
+```
+removeevents a{includefutureevents=[string boolean|variable]}
+```
 
 ### arguments
+
+---
+
 ### Switch: Include Future Events / includefutureevents (internally `WFCalendarIncludeFutureEvents`)
 **Allows Variables**: true
 
@@ -21,6 +27,8 @@ Removes all events passed into the action from the calendars they are contained 
 
 Accepts a boolean
 or a variable.
+
+---
 
 ### source json
 

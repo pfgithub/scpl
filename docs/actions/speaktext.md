@@ -4,16 +4,22 @@
 > This action is not yet complete. Some arguments may be missing.
 
 
-
 ## description
+
 ### summary
+
 Speaks the inputted text aloud.
 
 
 ### usage
-`speaktext a{waituntilfinished=[string boolean|variable] undefined=[???] pitch=[string number] undefined=[???] undefined=[???]}`
+```
+speaktext a{waituntilfinished=[string boolean|variable] undefined=[???] pitch=[string number] undefined=[???] undefined=[???]}
+```
 
 ### arguments
+
+---
+
 ### Switch: Wait Until Finished / waituntilfinished (internally `WFSpeakTextWait`)
 **Default Value**:
 ```
@@ -28,7 +34,7 @@ or a variable.
 
 ---
 
-This paramtype is not implemented. WFSpeakTextRateParameter
+#### This paramtype is not implemented. WFSpeakTextRateParameter
 
 ---
 
@@ -47,11 +53,13 @@ containing a number value from 0 to 1.
 
 ---
 
-This paramtype is not implemented. WFSpeakTextLanguagePickerParameter
+#### This paramtype is not implemented. WFSpeakTextLanguagePickerParameter
 
 ---
 
-This paramtype is not implemented. WFSpeakTextVoicePickerParameter
+#### This paramtype is not implemented. WFSpeakTextVoicePickerParameter
+
+---
 
 ### source json
 

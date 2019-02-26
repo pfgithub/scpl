@@ -1,19 +1,25 @@
 
 ## Add to Pocket / addtopocket (internally `is.workflow.actions.pocket.add`)
 
-
 > This action requires that Shortcuts has permission to use WFPocketAccessResource.
 
 
 ## description
+
 ### summary
+
 Adds the input to Pocket.
 
 
 ### usage
-`addtopocket a{tags=[string|text]}`
+```
+addtopocket a{tags=[string|text]}
+```
 
 ### arguments
+
+---
+
 ### Text: Tags / tags (internally `WFPocketTags`)
 **Placeholder**:
 ```
@@ -26,6 +32,8 @@ example, tags
 Accepts a string 
 or text
 with the text.
+
+---
 
 ### source json
 

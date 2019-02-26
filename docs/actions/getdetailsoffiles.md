@@ -3,12 +3,18 @@
 
 
 
-
 ### usage
-`getdetailsoffiles a{}`
+```
+getdetailsoffiles a{}
+```
 
 ### arguments
 
+---
+
+
+
+---
 
 ### source json
 

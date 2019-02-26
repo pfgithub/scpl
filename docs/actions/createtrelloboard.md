@@ -1,19 +1,25 @@
 
 ## Create Trello Board / createtrelloboard (internally `is.workflow.actions.trello.add.board`)
 
-
 > This action requires that Shortcuts has permission to use WFTrelloAccessResource.
 
 
 ## description
+
 ### summary
+
 Creates a new board in your Trello account.
 
 
 ### usage
-`createtrelloboard a{name=[string|text] wftrellodescription=[string|text]}`
+```
+createtrelloboard a{name=[string|text] wftrellodescription=[string|text]}
+```
 
 ### arguments
+
+---
+
 ### Text: Name / name (internally `WFTrelloName`)
 **Placeholder**:
 ```
@@ -41,6 +47,8 @@ Description
 Accepts a string 
 or text
 with the text.
+
+---
 
 ### source json
 

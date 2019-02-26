@@ -3,20 +3,26 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
-
 > This action requires that Shortcuts has permission to use WFURLOpenResource.
 
 
 ## description
+
 ### summary
+
 Opens the specified app.
 
 
 ### usage
-`openapp a{undefined=[???] wfappname=[string|text]}`
+```
+openapp a{undefined=[???] wfappname=[string|text]}
+```
 
 ### arguments
-This paramtype is not implemented. WFAppPickerParameter
+
+---
+
+#### This paramtype is not implemented. WFAppPickerParameter
 
 ---
 
@@ -28,6 +34,8 @@ This paramtype is not implemented. WFAppPickerParameter
 Accepts a string 
 or text
 with the text.
+
+---
 
 ### source json
 

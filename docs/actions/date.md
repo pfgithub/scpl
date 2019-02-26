@@ -4,16 +4,22 @@
 > This action is not yet complete. Some arguments may be missing.
 
 
-
 ## description
+
 ### summary
+
 Passes the specified date and time to the next action.
 
 
 ### usage
-`date a{use=[string <${strInfo}>] undefined=[???]}`
+```
+date a{use=[string <${strInfo}>] undefined=[???]}
+```
 
 ### arguments
+
+---
+
 ### Enumeration: Use / use (internally `WFDateActionMode`)
 **Default Value**:
 ```
@@ -32,7 +38,9 @@ containing one of the options:
 
 ---
 
-This paramtype is not implemented. WFDateFieldParameter
+#### This paramtype is not implemented. WFDateFieldParameter
+
+---
 
 ### source json
 

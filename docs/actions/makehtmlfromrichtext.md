@@ -2,18 +2,26 @@
 ## Make HTML from Rich Text / makehtmlfromrichtext (internally `is.workflow.actions.gethtmlfromrichtext`)
 
 
-
 ## description
+
 ### summary
+
 Converts the rich text passed as input to HTML text.
 
+
 ### output
+
 HTML
 
 ### usage
-`makehtmlfromrichtext a{makefulldocument=[string boolean|variable]}`
+```
+makehtmlfromrichtext a{makefulldocument=[string boolean|variable]}
+```
 
 ### arguments
+
+---
+
 ### Switch: Make Full Document / makefulldocument (internally `WFMakeFullDocument`)
 **Allows Variables**: true
 
@@ -21,6 +29,8 @@ HTML
 
 Accepts a boolean
 or a variable.
+
+---
 
 ### source json
 

@@ -1,22 +1,30 @@
 
 ## Create Playlist / createplaylist (internally `is.workflow.actions.createplaylist`)
 
-
 > This action requires that Shortcuts has permission to use WFAppleMusicAccessResource,[object Object].
 
 
 ## description
+
 ### summary
+
 Creates a new playlist in the Music app, adding any items passed as input to the new playlist.
 
+
 ### input
+
 Items in your music library or items from the Search iTunes action.
 
 
 ### usage
-`createplaylist a{name=[string|text] author=[string|text] description=[string|text]}`
+```
+createplaylist a{name=[string|text] author=[string|text] description=[string|text]}
+```
 
 ### arguments
+
+---
+
 ### Text: Name / name (internally `WFPlaylistName`)
 **Placeholder**:
 ```
@@ -59,6 +67,8 @@ All of my favorites
 Accepts a string 
 or text
 with the text.
+
+---
 
 ### source json
 

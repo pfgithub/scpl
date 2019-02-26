@@ -3,20 +3,26 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
-
 > This action requires that Shortcuts has permission to use WFContactAccessResource,WFUserInteractionResource.
 
 
 ## description
+
 ### summary
+
 Sends an iMessage or SMS. Pass images, videos, or other files as input to include attachments.
 
 
 ### usage
-`sendmessage a{undefined=[???] showwhenrun=[string boolean|variable] undefined=[???] wfsendmessagecontent=[string|text] prefix=[string|text]}`
+```
+sendmessage a{undefined=[???] showwhenrun=[string boolean|variable] undefined=[???] wfsendmessagecontent=[string|text] prefix=[string|text]}
+```
 
 ### arguments
-This paramtype is not implemented. WFIntentAppPickerParameter
+
+---
+
+#### This paramtype is not implemented. WFIntentAppPickerParameter
 
 ---
 
@@ -34,7 +40,7 @@ or a variable.
 
 ---
 
-This paramtype is not implemented. WFContactHandleFieldParameter
+#### This paramtype is not implemented. WFContactHandleFieldParameter
 
 ---
 
@@ -61,6 +67,8 @@ with the text.
 Accepts a string 
 or text
 with the text.
+
+---
 
 ### source json
 

@@ -3,24 +3,34 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
-
 > This action requires that Shortcuts has permission to use WFMainThreadResource,WFLocationAccessResource.
 
 
 ## description
+
 ### summary
+
 Calculates the distance to the location passed into this action.
 
+
 ### input
+
 The destination
 
+
 ### output
+
 The distance to the location in miles or kilometers.
 
 ### usage
-`getdistance a{from=[string <${strInfo}>|variable] undefined=[???] routetype=[string <${strInfo}>] undefined=[???]}`
+```
+getdistance a{from=[string <${strInfo}>|variable] undefined=[???] routetype=[string <${strInfo}>] undefined=[???]}
+```
 
 ### arguments
+
+---
+
 ### Enumeration: From / from (internally `WFGetDirectionsFrom`)
 **Default Value**:
 ```
@@ -36,7 +46,7 @@ containing one of the options:
 
 ---
 
-This paramtype is not implemented. WFLocationFieldParameter
+#### This paramtype is not implemented. WFLocationFieldParameter
 
 ---
 
@@ -59,7 +69,9 @@ containing one of the options:
 
 ---
 
-This paramtype is not implemented. WFGetDistanceUnitPickerParameter
+#### This paramtype is not implemented. WFGetDistanceUnitPickerParameter
+
+---
 
 ### source json
 

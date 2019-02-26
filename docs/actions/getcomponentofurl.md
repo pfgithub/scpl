@@ -2,16 +2,22 @@
 ## Get Component of URL / getcomponentofurl (internally `is.workflow.actions.geturlcomponent`)
 
 
-
 ## description
+
 ### summary
+
 Gets the specified part of the URL passed into the action.
 
 
 ### usage
-`getcomponentofurl a{component=[string <${strInfo}>]}`
+```
+getcomponentofurl a{component=[string <${strInfo}>]}
+```
 
 ### arguments
+
+---
+
 ### Enumeration: Component / component (internally `WFURLComponent`)
 **Default Value**:
 ```
@@ -33,6 +39,8 @@ containing one of the options:
 - `Path`
 - `Query`
 - `Fragment`
+
+---
 
 ### source json
 

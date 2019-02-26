@@ -1,24 +1,34 @@
 
 ## Run Shortcut / runshortcut (internally `is.workflow.actions.runworkflow`)
 
-
 > This action requires that Shortcuts has permission to use WFMainThreadResource,[object Object].
 
 
 ## description
+
 ### summary
+
 Run a shortcut from your shortcut.
 
+
 ### input
+
 The input to pass to the shortcut.
 
+
 ### output
+
 The shortcut's result
 
 ### usage
-`runshortcut a{shortcut=[string|variable] showwhilerunning=[string boolean|variable]}`
+```
+runshortcut a{shortcut=[string|variable] showwhilerunning=[string boolean|variable]}
+```
 
 ### arguments
+
+---
+
 ### Shortcut Picker: Shortcut / shortcut (internally `WFWorkflowName`)
 **Allows Variables**: true
 
@@ -41,6 +51,8 @@ true
 
 Accepts a boolean
 or a variable.
+
+---
 
 ### source json
 

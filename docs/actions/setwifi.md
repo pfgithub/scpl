@@ -1,19 +1,25 @@
 
 ## Set Wi-Fi / setwifi (internally `is.workflow.actions.wifi.set`)
 
-
 > This action requires that Shortcuts has permission to use WFSiriAccessResource.
 
 
 ## description
+
 ### summary
+
 Sets the device’s Wi-Fi to on or off.
 
 
 ### usage
-`setwifi a{wifi=[string boolean|variable]}`
+```
+setwifi a{wifi=[string boolean|variable]}
+```
 
 ### arguments
+
+---
+
 ### Switch: Wi-Fi / wifi (internally `OnValue`)
 **Default Value**:
 ```
@@ -25,6 +31,8 @@ true
 
 Accepts a boolean
 or a variable.
+
+---
 
 ### source json
 

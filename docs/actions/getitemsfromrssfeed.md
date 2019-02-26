@@ -2,16 +2,22 @@
 ## Get Items from RSS Feed / getitemsfromrssfeed (internally `is.workflow.actions.rss`)
 
 
-
 ## description
+
 ### summary
+
 Downloads the latest items from an RSS feed.
 
 
 ### usage
-`getitemsfromrssfeed a{url=[string|text] wfrssitemquantity=[string integer]}`
+```
+getitemsfromrssfeed a{url=[string|text] wfrssitemquantity=[string integer]}
+```
 
 ### arguments
+
+---
+
 ### Text: URL / url (internally `WFRSSFeedURL`)
 **Default Value**:
 ```
@@ -39,6 +45,8 @@ with the text.
 Accepts a string 
 or variable
 containing an integer value.
+
+---
 
 ### source json
 

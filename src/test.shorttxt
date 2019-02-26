@@ -39,11 +39,11 @@ SetWifi false
 SetWifi true
 setBrightness 1.0
 
-If ^(Text "test") "Equals" "test" >c:0:gid:myif
+If ^(Text "test") "Equals" "test"
 	showalert "Alert" "Test equals test"
-If >c:1:gid:myif
+Flow
 	showalert "Alert" "Test does not equal test"
-If >c:2:gid:myif
+End
 
 showAlert a{showCancelButton=true, message="hi", "title"="Alert!"}
 

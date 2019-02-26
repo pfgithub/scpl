@@ -1,0 +1,16 @@
+[
+	{
+		"is.workflow.actions.conditional": {
+			"BlockInfo": {"Example": "\n  ...\notherwise\n  ...\nend"}
+		},
+		"is.workflow.actions.choosefrommenu": {
+			"BlockInfo": {"Example": "\ncase\n  ...\ncase\n  ...\nend"}
+		},
+		"is.workflow.actions.repeat.count": {
+			"BlockInfo": {"Example": "\n  ...\nend"}
+		},
+		"is.workflow.actions.repeat.each": {
+			"BlockInfo": {"Example": "\n  ...\nend"}
+		}
+	}
+]

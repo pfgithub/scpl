@@ -3,24 +3,34 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
-
 > This action requires that Shortcuts has permission to use WFMainThreadResource,WFLocationAccessResource.
 
 
 ## description
+
 ### summary
+
 Estimates the amount of time it will take to travel to the location passed into this action.
 
+
 ### input
+
 The destination
 
+
 ### output
+
 The amount of time it will take to get to the destination. If passed into an action expecting a date, this will be the date and time of arrival if you leave now.
 
 ### usage
-`gettraveltime a{from=[string <${strInfo}>|variable] undefined=[???] transportationmode=[string <${strInfo}>]}`
+```
+gettraveltime a{from=[string <${strInfo}>|variable] undefined=[???] transportationmode=[string <${strInfo}>]}
+```
 
 ### arguments
+
+---
+
 ### Enumeration: From / from (internally `WFGetDirectionsFrom`)
 **Default Value**:
 ```
@@ -36,7 +46,7 @@ containing one of the options:
 
 ---
 
-This paramtype is not implemented. WFLocationFieldParameter
+#### This paramtype is not implemented. WFLocationFieldParameter
 
 ---
 
@@ -56,6 +66,8 @@ containing one of the options:
 - `Driving`
 - `Walking`
 - `Transit`
+
+---
 
 ### source json
 

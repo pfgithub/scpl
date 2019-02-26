@@ -3,19 +3,25 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
-
 > This action requires that Shortcuts has permission to use WFWeatherAttributionAccessResource,WFLocationAccessResource.
 
 
 ## description
+
 ### summary
+
 Gets an hourly or daily weather forecast at the specified location.
 
 
 ### usage
-`getweatherforecast a{at=[string <${strInfo}>|variable] undefined=[???] type=[string <${strInfo}>]}`
+```
+getweatherforecast a{at=[string <${strInfo}>|variable] undefined=[???] type=[string <${strInfo}>]}
+```
 
 ### arguments
+
+---
+
 ### Enumeration: At / at (internally `WFWeatherLocation`)
 **Default Value**:
 ```
@@ -31,7 +37,7 @@ containing one of the options:
 
 ---
 
-This paramtype is not implemented. WFLocationFieldParameter
+#### This paramtype is not implemented. WFLocationFieldParameter
 
 ---
 
@@ -50,6 +56,8 @@ containing one of the options:
 
 - `Hourly`
 - `Daily`
+
+---
 
 ### source json
 

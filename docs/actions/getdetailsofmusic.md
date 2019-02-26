@@ -3,12 +3,18 @@
 
 
 
-
 ### usage
-`getdetailsofmusic a{}`
+```
+getdetailsofmusic a{}
+```
 
 ### arguments
 
+---
+
+
+
+---
 
 ### source json
 

@@ -1,19 +1,25 @@
 
 ## Get Pinboard Bookmarks / getpinboardbookmarks (internally `is.workflow.actions.pinboard.get`)
 
-
 > This action requires that Shortcuts has permission to use WFPinboardAccessResource.
 
 
 ## description
+
 ### summary
+
 Gets bookmarks in your Pinboard account.
 
 
 ### usage
-`getpinboardbookmarks a{tags=[string|text] wfbookmarkcount=[string integer]}`
+```
+getpinboardbookmarks a{tags=[string|text] wfbookmarkcount=[string integer]}
+```
 
 ### arguments
+
+---
+
 ### Text: Tags / tags (internally `WFPinTags`)
 **Placeholder**:
 ```
@@ -41,6 +47,8 @@ with the text.
 Accepts a string 
 or variable
 containing an integer value.
+
+---
 
 ### source json
 

@@ -3,12 +3,18 @@
 
 
 
-
 ### usage
-`getdetailsoflocations a{}`
+```
+getdetailsoflocations a{}
+```
 
 ### arguments
 
+---
+
+
+
+---
 
 ### source json
 

@@ -2,16 +2,22 @@
 ## Base64 Encode / base64encode (internally `is.workflow.actions.base64encode`)
 
 
-
 ## description
+
 ### summary
+
 Encodes or decodes text or files using Base64 encoding.
 
 
 ### usage
-`base64encode a{mode=[string <${strInfo}>] linebreaks=[string <${strInfo}>]}`
+```
+base64encode a{mode=[string <${strInfo}>] linebreaks=[string <${strInfo}>]}
+```
 
 ### arguments
+
+---
+
 ### Enumeration: Mode / mode (internally `WFEncodeMode`)
 **Default Value**:
 ```
@@ -46,6 +52,8 @@ containing one of the options:
 - `None`
 - `Every 64 Characters`
 - `Every 76 Characters`
+
+---
 
 ### source json
 

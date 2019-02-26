@@ -1,19 +1,25 @@
 
 ## Vibrate Device / vibratedevice (internally `is.workflow.actions.vibrate`)
 
-
 > This action requires that Shortcuts has permission to use [object Object].
 
 
 ## description
+
 ### summary
+
 Vibrates the device for a short amount of time.
 
 
 ### usage
-`vibratedevice a{hapticpattern=[string <${strInfo}>]}`
+```
+vibratedevice a{hapticpattern=[string <${strInfo}>]}
+```
 
 ### arguments
+
+---
+
 ### Enumeration: Haptic Pattern / hapticpattern (internally `WFVibrateHapticType`)
 **Default Value**:
 ```
@@ -37,6 +43,8 @@ containing one of the options:
 - `Start`
 - `Stop`
 - `Click`
+
+---
 
 ### source json
 

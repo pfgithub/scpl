@@ -3,12 +3,18 @@
 
 
 
-
 ### usage
-`getdetailsofitunesartist a{}`
+```
+getdetailsofitunesartist a{}
+```
 
 ### arguments
 
+---
+
+
+
+---
 
 ### source json
 

@@ -112,26 +112,56 @@ Text "hi"
 if Equals "hi"
 ```
 
-#### Block Actions
+### Block Actions
 
-> Note: This syntax is temporary. In the future, block statements will have better syntax.
-
-Sometimes an action might have a block.
+The actions [repeat with each](actions/repeatwitheach.html), [repeat](actions/repeat.html), [if](actions/if.html), and [choose from menu](actions/choosefrommenu.html) all have blocks.
 
 ```coffeescript
-if Equals "hello" >c:0:gid:myif
+if Equals "hello"
   showAlert "Alert!" "Input equals hello"
-if >c:1:gid:myif
+otherwise // or "else" or "flow"
   showAlert "Alert!" "Input does not equal hello"
-if >c:2:gid:myif
+end
 
-repeat a{wfrepeatcount=2} >c:0:gid:myrepeat
-  setVariable (v:Index)
-  showAlert "Alert!" "The repeat index is \(v:Index)"
-repeat >c:1:gid:myrepeat
+repeat 2
+  showAlert "Alert!" "This is inside the repeat"
+end
+
+list
+| item 1
+| item 2
+repeatWithEach
+  setVariable (v:Item)
+  showAlert "Alert!" "The repeat item is \(v:Item)"
+end
+
+chooseFromMenu "Pick an option"
+| choice 1
+| choice 2
+case "choice 1" // or "flow"
+  showAlert "Alert!" "Choice 1 chosen"
+case "choice 2" // or "flow"
+  showAlert "Alert!" "Choice 2 chosen"
+end
 ```
 
-Usage: `c:`number (first is 0, next is 1, ...)`:gid:`name (every block action must have a unique gid name)
+### Comments
+
+3 different comment types are supported. Comments are ignored in the final output
+
+```
+// this is a doubleslash comment
+# this is a hashtag comment
+-- this is a doubledash comment
+
+/*this is a multiline
+slash star comment*/
+--[
+this is a multiline
+doubledash bracket comment
+--]
+
+```
 
 ### Argument types
 

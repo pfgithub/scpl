@@ -1,24 +1,34 @@
 
 ## Overlay Image / overlayimage (internally `is.workflow.actions.overlayimageonimage`)
 
-
 > This action requires that Shortcuts has permission to use [object Object].
 
 
 ## description
+
 ### summary
+
 Overlays an image on top of another image.
 
+
 ### input
+
 Background images
 
+
 ### output
+
 The combined images
 
 ### usage
-`overlayimage a{image=[variable] showimageeditor=[string boolean|variable] position=[string <${strInfo}>] width=[string number] height=[string number] xcoordinate=[string number] ycoordinate=[string number] rotationdegrees=[string number] opacity=[string number]}`
+```
+overlayimage a{image=[variable] showimageeditor=[string boolean|variable] position=[string <${strInfo}>] width=[string number] height=[string number] xcoordinate=[string number] ycoordinate=[string number] rotationdegrees=[string number] opacity=[string number]}
+```
 
 ### arguments
+
+---
+
 ### Variable Picker: Image / image (internally `WFImage`)
 **Allows Variables**: true
 
@@ -157,6 +167,8 @@ with a number.
 Accepts a string 
 or variable
 with a number.
+
+---
 
 ### source json
 

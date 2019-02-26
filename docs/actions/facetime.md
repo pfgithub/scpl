@@ -3,20 +3,26 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
-
 > This action requires that Shortcuts has permission to use WFContactAccessResource.
 
 
 ## description
+
 ### summary
+
 Calls the contact passed in as input using FaceTime.
 
 
 ### usage
-`facetime a{undefined=[???] calltype=[string <${strInfo}>]}`
+```
+facetime a{undefined=[???] calltype=[string <${strInfo}>]}
+```
 
 ### arguments
-This paramtype is not implemented. WFIntentAppPickerParameter
+
+---
+
+#### This paramtype is not implemented. WFIntentAppPickerParameter
 
 ---
 
@@ -35,6 +41,8 @@ containing one of the options:
 
 - `Video`
 - `Audio`
+
+---
 
 ### source json
 

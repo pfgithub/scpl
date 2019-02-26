@@ -3,19 +3,25 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
-
 > This action requires that Shortcuts has permission to use WFEvernoteAccessResource.
 
 
 ## description
+
 ### summary
+
 Get recent notes from Evernote, optionally filtering based on criteria.
 
 
 ### usage
-`getnotes a{titlesearch=[string|text] undefined=[???] undefined=[???] wfevernotenotescount=[string integer]}`
+```
+getnotes a{titlesearch=[string|text] undefined=[???] undefined=[???] wfevernotenotescount=[string integer]}
+```
 
 ### arguments
+
+---
+
 ### Text: Title Search / titlesearch (internally `WFEvernoteNotesTitleSearch`)
 **Placeholder**:
 ```
@@ -31,11 +37,11 @@ with the text.
 
 ---
 
-This paramtype is not implemented. WFEvernoteTagsTagFieldParameter
+#### This paramtype is not implemented. WFEvernoteTagsTagFieldParameter
 
 ---
 
-This paramtype is not implemented. WFEvernoteNotebookPickerParameter
+#### This paramtype is not implemented. WFEvernoteNotebookPickerParameter
 
 ---
 
@@ -51,6 +57,8 @@ This paramtype is not implemented. WFEvernoteNotebookPickerParameter
 Accepts a string 
 or variable
 containing an integer value.
+
+---
 
 ### source json
 

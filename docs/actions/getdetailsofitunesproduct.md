@@ -3,12 +3,18 @@
 
 
 
-
 ### usage
-`getdetailsofitunesproduct a{}`
+```
+getdetailsofitunesproduct a{}
+```
 
 ### arguments
 
+---
+
+
+
+---
 
 ### source json
 

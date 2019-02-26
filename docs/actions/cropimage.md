@@ -2,16 +2,22 @@
 ## Crop Image / cropimage (internally `is.workflow.actions.image.crop`)
 
 
-
 ## description
+
 ### summary
+
 Crops images to a smaller rectangle.
 
 
 ### usage
-`cropimage a{position=[string <${strInfo}>] xcoordinate=[string number] ycoordinate=[string number] width=[string number] height=[string number]}`
+```
+cropimage a{position=[string <${strInfo}>] xcoordinate=[string number] ycoordinate=[string number] width=[string number] height=[string number]}
+```
 
 ### arguments
+
+---
+
 ### Enumeration: Position / position (internally `WFImageCropPosition`)
 **Default Value**:
 ```
@@ -99,6 +105,8 @@ with a number.
 Accepts a string 
 or variable
 with a number.
+
+---
 
 ### source json
 

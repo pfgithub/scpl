@@ -3,12 +3,18 @@
 
 
 
-
 ### usage
-`getdetailsofhealthsample a{}`
+```
+getdetailsofhealthsample a{}
+```
 
 ### arguments
 
+---
+
+
+
+---
 
 ### source json
 

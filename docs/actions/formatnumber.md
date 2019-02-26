@@ -2,16 +2,22 @@
 ## Format Number / formatnumber (internally `is.workflow.actions.format.number`)
 
 
-
 ## description
+
 ### summary
+
 Formats a number into text.
 
 
 ### usage
-`formatnumber a{wfnumberformatdecimalplaces=[string integer]}`
+```
+formatnumber a{wfnumberformatdecimalplaces=[string integer]}
+```
 
 ### arguments
+
+---
+
 ### Stepper Number: wfnumberformatdecimalplaces / wfnumberformatdecimalplaces (internally `WFNumberFormatDecimalPlaces`)
 **Default Value**:
 ```
@@ -24,6 +30,8 @@ Formats a number into text.
 Accepts a string 
 or variable
 containing an integer value.
+
+---
 
 ### source json
 

@@ -2,16 +2,22 @@
 ## Get Object of Class / getobjectofclass (internally `is.workflow.actions.getclassaction`)
 
 
-
 ## description
+
 ### summary
+
 Returns a particular object class from the input.
 
 
 ### usage
-`getobjectofclass a{class=[string|text]}`
+```
+getobjectofclass a{class=[string|text]}
+```
 
 ### arguments
+
+---
+
 ### Text: Class / class (internally `Class`)
 **Placeholder**:
 ```
@@ -28,6 +34,8 @@ NSURL
 Accepts a string 
 or text
 with the text.
+
+---
 
 ### source json
 

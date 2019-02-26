@@ -2,16 +2,22 @@
 ## URL / url (internally `is.workflow.actions.url`)
 
 
-
 ## description
+
 ### summary
+
 Passes the specified URL to the next action.
 
 
 ### usage
-`url a{url=[string|text]}`
+```
+url a{url=[string|text]}
+```
 
 ### arguments
+
+---
+
 ### Text: URL / url (internally `WFURLActionURL`)
 **Placeholder**:
 ```
@@ -24,6 +30,8 @@ example.com
 Accepts a string 
 or text
 with the text.
+
+---
 
 ### source json
 

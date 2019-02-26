@@ -2,16 +2,22 @@
 ## Create Folder / createfolder (internally `is.workflow.actions.file.createfolder`)
 
 
-
 ## description
+
 ### summary
+
 Makes a new folder in the specified file storage service.
 
 
 ### usage
-`createfolder a{service=[string <${strInfo}>] path=[string|text]}`
+```
+createfolder a{service=[string <${strInfo}>] path=[string|text]}
+```
 
 ### arguments
+
+---
+
 ### Storage Service Picker: Service / service (internally `WFFileStorageService`)
 **Allows Variables**: true
 
@@ -34,6 +40,8 @@ containing one of the options:
 Accepts a string 
 or text
 with the text.
+
+---
 
 ### source json
 

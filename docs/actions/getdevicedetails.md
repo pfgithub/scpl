@@ -2,16 +2,22 @@
 ## Get Device Details / getdevicedetails (internally `is.workflow.actions.getdevicedetails`)
 
 
-
 ## description
+
 ### summary
+
 Gets information about the current device.
 
 
 ### usage
-`getdevicedetails a{get=[string <${strInfo}>]}`
+```
+getdevicedetails a{get=[string <${strInfo}>]}
+```
 
 ### arguments
+
+---
+
 ### Enumeration: Get / get (internally `WFDeviceDetail`)
 **Default Value**:
 ```
@@ -32,6 +38,8 @@ containing one of the options:
 - `Screen Height`
 - `Current Volume`
 - `Current Brightness`
+
+---
 
 ### source json
 

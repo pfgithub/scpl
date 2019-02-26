@@ -1,19 +1,25 @@
 
 ## Get Latest Photos / getlatestphotos (internally `is.workflow.actions.getlastphoto`)
 
-
 > This action requires that Shortcuts has permission to use WFPhotoAccessResource.
 
 
 ## description
+
 ### summary
+
 Gets the most recent photos from the camera roll.
 
 
 ### usage
-`getlatestphotos a{wfgetlatestphotocount=[string integer] includescreenshots=[string boolean|variable]}`
+```
+getlatestphotos a{wfgetlatestphotocount=[string integer] includescreenshots=[string boolean|variable]}
+```
 
 ### arguments
+
+---
+
 ### Stepper Number: wfgetlatestphotocount / wfgetlatestphotocount (internally `WFGetLatestPhotoCount`)
 **Default Value**:
 ```
@@ -40,6 +46,8 @@ true
 
 Accepts a boolean
 or a variable.
+
+---
 
 ### source json
 

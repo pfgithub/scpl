@@ -1,19 +1,25 @@
 
 ## Show Alert / showalert (internally `is.workflow.actions.alert`)
 
-
 > This action requires that Shortcuts has permission to use WFUserInteractionResource.
 
 
 ## description
+
 ### summary
+
 Displays an alert with a title, a message, and two buttons. If the user selects the OK button, the shortcut continues. The cancel button stops the shortcut.
 
 
 ### usage
-`showalert a{title=[string|text] message=[string|text] showcancelbutton=[string boolean|variable]}`
+```
+showalert a{title=[string|text] message=[string|text] showcancelbutton=[string boolean|variable]}
+```
 
 ### arguments
+
+---
+
 ### Text: Title / title (internally `WFAlertActionTitle`)
 **Placeholder**:
 ```
@@ -63,6 +69,8 @@ true
 
 Accepts a boolean
 or a variable.
+
+---
 
 ### source json
 

@@ -3,12 +3,18 @@
 
 
 
-
 ### usage
-`getdetailsofcontacts a{}`
+```
+getdetailsofcontacts a{}
+```
 
 ### arguments
 
+---
+
+
+
+---
 
 ### source json
 

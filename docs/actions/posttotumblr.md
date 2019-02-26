@@ -3,30 +3,38 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
-
 > This action requires that Shortcuts has permission to use [object Object],[object Object].
 
 
 ## description
+
 ### summary
+
 Posts the content passed into the action to Tumblr.
 
+
 ### output
+
 The URL of the new post
 
 ### usage
-`posttotumblr a{undefined=[???] undefined=[???] undefined=[???] poststatus=[string <${strInfo}>] title=[string|text] source=[string|text] caption=[string|text] tags=[string|text] description=[string|text]}`
+```
+posttotumblr a{undefined=[???] undefined=[???] undefined=[???] poststatus=[string <${strInfo}>] title=[string|text] source=[string|text] caption=[string|text] tags=[string|text] description=[string|text]}
+```
 
 ### arguments
-This paramtype is not implemented. WFTumblrComposeInAppParameter
 
 ---
 
-This paramtype is not implemented. WFTumblrBlogPickerParameter
+#### This paramtype is not implemented. WFTumblrComposeInAppParameter
 
 ---
 
-This paramtype is not implemented. WFDynamicEnumerationParameter
+#### This paramtype is not implemented. WFTumblrBlogPickerParameter
+
+---
+
+#### This paramtype is not implemented. WFDynamicEnumerationParameter
 
 ---
 
@@ -123,6 +131,8 @@ Description
 Accepts a string 
 or text
 with the text.
+
+---
 
 ### source json
 

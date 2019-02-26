@@ -1,19 +1,25 @@
 
 ## Select Contact / selectcontact (internally `is.workflow.actions.selectcontacts`)
 
-
 > This action requires that Shortcuts has permission to use WFUserInteractionResource,WFContactAccessResource.
 
 
 ## description
+
 ### summary
+
 Prompts to pick a person from your contacts and passes the selection to the next action.
 
 
 ### usage
-`selectcontact a{selectmultiple=[string boolean|variable]}`
+```
+selectcontact a{selectmultiple=[string boolean|variable]}
+```
 
 ### arguments
+
+---
+
 ### Switch: Select Multiple / selectmultiple (internally `WFSelectMultiple`)
 **Allows Variables**: true
 
@@ -21,6 +27,8 @@ Prompts to pick a person from your contacts and passes the selection to the next
 
 Accepts a boolean
 or a variable.
+
+---
 
 ### source json
 

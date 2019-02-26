@@ -2,16 +2,22 @@
 ## Make PDF / makepdf (internally `is.workflow.actions.makepdf`)
 
 
-
 ## description
+
 ### summary
+
 Makes a PDF out of the input. The resulting PDF can optionally include a quarter-inch margin for better printing.
 
 
 ### usage
-`makepdf a{includemargin=[string boolean|variable] include=[string <${strInfo}>] page=[string number] startpage=[string number] endpage=[string number]}`
+```
+makepdf a{includemargin=[string boolean|variable] include=[string <${strInfo}>] page=[string number] startpage=[string number] endpage=[string number]}
+```
 
 ### arguments
+
+---
+
 ### Switch: Include Margin / includemargin (internally `WFPDFIncludeMargin`)
 **Allows Variables**: true
 
@@ -83,6 +89,8 @@ with a number.
 Accepts a string 
 or variable
 with a number.
+
+---
 
 ### source json
 

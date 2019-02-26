@@ -2,18 +2,26 @@
 ## Get Contents of URL / getcontentsofurl (internally `is.workflow.actions.downloadurl`)
 
 
-
 ## description
+
 ### summary
+
 Gets the contents of URLs passed into the action. Useful for downloading files and web content, or for making API requests.
 
+
 ### output
+
 The fetched data
 
 ### usage
-`getcontentsofurl a{advanced=[boolean] method=[string <${strInfo}>] headers=[boolean] headers=[dictionary] requestbody=[string <${strInfo}>|variable] formvalues=[dictionary] jsonvalues=[dictionary] file=[variable]}`
+```
+getcontentsofurl a{advanced=[boolean] method=[string <${strInfo}>] headers=[boolean] headers=[dictionary] requestbody=[string <${strInfo}>|variable] formvalues=[dictionary] jsonvalues=[dictionary] file=[variable]}
+```
 
 ### arguments
+
+---
+
 ### Expand Arrow: Advanced / advanced (internally `Advanced`)
 
 
@@ -108,6 +116,8 @@ Accepts a dictionary.
 **Only enabled if**: argument WFHTTPMethod != `GET`
 
 Accepts a variable.
+
+---
 
 ### source json
 

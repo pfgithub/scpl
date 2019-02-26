@@ -2,18 +2,26 @@
 ## Make GIF / makegif (internally `is.workflow.actions.makegif`)
 
 
-
 ## description
+
 ### summary
+
 Creates an animated GIF from the images or video passed into the action.
 
+
 ### output
+
 An animated GIF
 
 ### usage
-`makegif a{secondsperphoto=[string number] loopforever=[string boolean|variable] wfmakegifactionloopcount=[string integer] autosize=[string boolean|variable] width=[string number] height=[string number]}`
+```
+makegif a{secondsperphoto=[string number] loopforever=[string boolean|variable] wfmakegifactionloopcount=[string integer] autosize=[string boolean|variable] width=[string number] height=[string number]}
+```
 
 ### arguments
+
+---
+
 ### Number: Seconds Per Photo / secondsperphoto (internally `WFMakeGIFActionDelayTime`)
 **Placeholder**:
 ```
@@ -99,6 +107,8 @@ with a number.
 Accepts a string 
 or variable
 with a number.
+
+---
 
 ### source json
 

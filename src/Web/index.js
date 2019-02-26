@@ -3,17 +3,28 @@ const bplistc = require("bplist-creator");
 
 const parser = require("../ShortcutsParser");
 
-const defaultText = require("./demo.shorttxt");
-
 const inputArea = document.getElementById("inputArea");
 const messageArea = document.getElementById("messageArea");
 const outputArea = document.getElementById("outputArea");
 
-inputArea.value = defaultText;
+// inputArea should keep its text from the browser
+messageArea.value = "";
+outputArea.value = "";
 
 const downloadShortcutBtn = document.getElementById("downloadShortcutBtn");
 
 let bufferToDownload;
+
+let timeout;
+
+inputArea.addEventListener("input", () => {
+	messageArea.value = "";
+	outputArea.value = "";
+	if(timeout) {
+		clearTimeout(timeout);
+	}
+	timeout = setTimeout(convert, 200);
+});
 
 function downloadBlob(data, fileName, mimeType) {
 	const blob = new Blob([data], {
@@ -30,6 +41,7 @@ function downloadURL(data, fileName) {
 	const a = document.createElement("a");
 	a.href = data;
 	a.download = fileName;
+	// a.setAttribute("target", "_blank"); // breaks safari
 	document.body.appendChild(a);
 	a.style = "display: none";
 	a.click();

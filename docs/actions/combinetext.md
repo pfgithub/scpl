@@ -2,16 +2,22 @@
 ## Combine Text / combinetext (internally `is.workflow.actions.text.combine`)
 
 
-
 ## description
+
 ### summary
+
 Joins text together, inserting the separator between each join.
 
 
 ### usage
-`combinetext a{separator=[string <${strInfo}>] custom=[string|text]}`
+```
+combinetext a{separator=[string <${strInfo}>] custom=[string|text]}
+```
 
 ### arguments
+
+---
+
 ### Enumeration: Separator / separator (internally `WFTextSeparator`)
 **Default Value**:
 ```
@@ -43,6 +49,8 @@ Text
 Accepts a string 
 or text
 with the text.
+
+---
 
 ### source json
 

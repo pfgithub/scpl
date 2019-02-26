@@ -3,12 +3,18 @@
 
 
 
-
 ### usage
-`getdetailsofreminders a{}`
+```
+getdetailsofreminders a{}
+```
 
 ### arguments
 
+---
+
+
+
+---
 
 ### source json
 

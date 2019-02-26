@@ -2,16 +2,22 @@
 ## Generate QR Code / generateqrcode (internally `is.workflow.actions.generatebarcode`)
 
 
-
 ## description
+
 ### summary
+
 Generates a QR code from the input text.
 
 
 ### usage
-`generateqrcode a{errorcorrection=[string <${strInfo}>]}`
+```
+generateqrcode a{errorcorrection=[string <${strInfo}>]}
+```
 
 ### arguments
+
+---
+
 ### Enumeration: Error Correction / errorcorrection (internally `WFQRErrorCorrectionLevel`)
 **Default Value**:
 ```
@@ -29,6 +35,8 @@ containing one of the options:
 - `Medium`
 - `Quartile`
 - `High`
+
+---
 
 ### source json
 

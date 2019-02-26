@@ -1,19 +1,25 @@
 
 ## Quick Look / quicklook (internally `is.workflow.actions.previewdocument`)
 
-
 > This action requires that Shortcuts has permission to use WFUserInteractionResource.
 
 
 ## description
+
 ### summary
+
 Displays a preview of the input.
 
 
 ### usage
-`quicklook a{fullscreen=[string boolean|variable]}`
+```
+quicklook a{fullscreen=[string boolean|variable]}
+```
 
 ### arguments
+
+---
+
 ### Switch: Full Screen / fullscreen (internally `WFQuickLookActionFullScreen`)
 **Allows Variables**: true
 
@@ -21,6 +27,8 @@ Displays a preview of the input.
 
 Accepts a boolean
 or a variable.
+
+---
 
 ### source json
 

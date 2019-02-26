@@ -3,20 +3,26 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
-
 > This action requires that Shortcuts has permission to use [object Object],WFUserInteractionResource,WFSpeechRecognitionAccessResource,WFMicrophoneAccessResource.
 
 
 ## description
+
 ### summary
+
 Transcribes what you say aloud into text and passes the result to the next action.
 
 
 ### usage
-`dictatetext a{undefined=[???] stoplistening=[string <${strInfo}>]}`
+```
+dictatetext a{undefined=[???] stoplistening=[string <${strInfo}>]}
+```
 
 ### arguments
-This paramtype is not implemented. WFDictateTextLanguagePickerParameter
+
+---
+
+#### This paramtype is not implemented. WFDictateTextLanguagePickerParameter
 
 ---
 
@@ -36,6 +42,8 @@ containing one of the options:
 - `After Pause`
 - `After Short Pause`
 - `On Tap`
+
+---
 
 ### source json
 

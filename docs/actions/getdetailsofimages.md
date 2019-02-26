@@ -3,12 +3,18 @@
 
 
 
-
 ### usage
-`getdetailsofimages a{}`
+```
+getdetailsofimages a{}
+```
 
 ### arguments
 
+---
+
+
+
+---
 
 ### source json
 

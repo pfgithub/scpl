@@ -1,19 +1,25 @@
 
 ## Upload to Imgur / uploadtoimgur (internally `is.workflow.actions.imgur.upload`)
 
-
 > This action requires that Shortcuts has permission to use [object Object].
 
 
 ## description
+
 ### summary
+
 Uploads the input to Imgur.
 
 
 ### usage
-`uploadtoimgur a{uploadanonymously=[string boolean|variable] directlink=[string boolean|variable] createalbum=[string boolean|variable] albumlayout=[string <${strInfo}>] albumprivacy=[string <${strInfo}>] title=[string|text] description=[string|text]}`
+```
+uploadtoimgur a{uploadanonymously=[string boolean|variable] directlink=[string boolean|variable] createalbum=[string boolean|variable] albumlayout=[string <${strInfo}>] albumprivacy=[string <${strInfo}>] title=[string|text] description=[string|text]}
+```
 
 ### arguments
+
+---
+
 ### Switch: Upload Anonymously / uploadanonymously (internally `WFImgurAnonymous`)
 **Default Value**:
 ```
@@ -114,6 +120,8 @@ Description
 Accepts a string 
 or text
 with the text.
+
+---
 
 ### source json
 

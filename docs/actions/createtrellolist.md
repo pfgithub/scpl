@@ -3,19 +3,25 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
-
 > This action requires that Shortcuts has permission to use WFTrelloAccessResource.
 
 
 ## description
+
 ### summary
+
 Creates a new list on the specified board in your Trello account.
 
 
 ### usage
-`createtrellolist a{name=[string|text] undefined=[???] position=[string <${strInfo}>]}`
+```
+createtrellolist a{name=[string|text] undefined=[???] position=[string <${strInfo}>]}
+```
 
 ### arguments
+
+---
+
 ### Text: Name / name (internally `WFTrelloName`)
 **Placeholder**:
 ```
@@ -31,7 +37,7 @@ with the text.
 
 ---
 
-This paramtype is not implemented. WFTrelloBoardPickerParameter
+#### This paramtype is not implemented. WFTrelloBoardPickerParameter
 
 ---
 
@@ -50,6 +56,8 @@ containing one of the options:
 
 - `Top`
 - `Bottom`
+
+---
 
 ### source json
 

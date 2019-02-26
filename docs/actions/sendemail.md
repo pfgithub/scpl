@@ -3,19 +3,25 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
-
 > This action requires that Shortcuts has permission to use [object Object],[object Object],[object Object].
 
 
 ## description
+
 ### summary
+
 Presents an email composer. Pass text into the action to set the email body. Other types of input are added as attachments.
 
 
 ### usage
-`sendemail a{showcomposesheet=[string boolean|variable] undefined=[???] from=[string|text] to=[string|string array|variable] cc=[string|string array|variable] bcc=[string|string array|variable] subject=[string|text]}`
+```
+sendemail a{showcomposesheet=[string boolean|variable] undefined=[???] from=[string|text] to=[string|string array|variable] cc=[string|string array|variable] bcc=[string|string array|variable] subject=[string|text]}
+```
 
 ### arguments
+
+---
+
 ### Switch: Show Compose Sheet / showcomposesheet (internally `WFSendEmailActionShowComposeSheet`)
 **Default Value**:
 ```
@@ -30,7 +36,7 @@ or a variable.
 
 ---
 
-This paramtype is not implemented. WFEmailAccountPickerParameter
+#### This paramtype is not implemented. WFEmailAccountPickerParameter
 
 ---
 
@@ -101,6 +107,8 @@ optional
 Accepts a string 
 or text
 with the text.
+
+---
 
 ### source json
 

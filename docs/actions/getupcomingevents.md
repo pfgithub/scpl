@@ -3,20 +3,26 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
-
 > This action requires that Shortcuts has permission to use WFCalendarAccessResource.
 
 
 ## description
+
 ### summary
+
 Gets upcoming calendar events, ordered from nearest to farthest away in time.
 
 
 ### usage
-`getupcomingevents a{undefined=[???] wfgetupcomingitemcount=[string integer] day=[string <${strInfo}>] undefined=[???]}`
+```
+getupcomingevents a{undefined=[???] wfgetupcomingitemcount=[string integer] day=[string <${strInfo}>] undefined=[???]}
+```
 
 ### arguments
-This paramtype is not implemented. WFCalendarPickerParameter
+
+---
+
+#### This paramtype is not implemented. WFCalendarPickerParameter
 
 ---
 
@@ -55,7 +61,9 @@ containing one of the options:
 
 ---
 
-This paramtype is not implemented. WFDateFieldParameter
+#### This paramtype is not implemented. WFDateFieldParameter
+
+---
 
 ### source json
 

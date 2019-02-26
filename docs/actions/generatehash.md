@@ -2,16 +2,22 @@
 ## Generate Hash / generatehash (internally `is.workflow.actions.hash`)
 
 
-
 ## description
+
 ### summary
+
 Generates a MD5/SHA1 hash from the input.
 
 
 ### usage
-`generatehash a{type=[string <${strInfo}>]}`
+```
+generatehash a{type=[string <${strInfo}>]}
+```
 
 ### arguments
+
+---
+
 ### Enumeration: Type / type (internally `WFHashType`)
 **Default Value**:
 ```
@@ -29,6 +35,8 @@ containing one of the options:
 - `SHA1`
 - `SHA256`
 - `SHA512`
+
+---
 
 ### source json
 

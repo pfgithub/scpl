@@ -2,16 +2,22 @@
 ## Count / count (internally `is.workflow.actions.count`)
 
 
-
 ## description
+
 ### summary
+
 Counts the number of items, characters, words, sentences, or lines passed as input.
 
 
 ### usage
-`count a{count=[string <${strInfo}>]}`
+```
+count a{count=[string <${strInfo}>]}
+```
 
 ### arguments
+
+---
+
 ### Enumeration: Count / count (internally `WFCountType`)
 **Allows Variables**: true
 
@@ -26,6 +32,8 @@ containing one of the options:
 - `Words`
 - `Sentences`
 - `Lines`
+
+---
 
 ### source json
 

@@ -1,17 +1,29 @@
 
 ## If / if (internally `is.workflow.actions.conditional`)
 
+> This action has a block. Make sure to end it with an end. (More info in usage below)
 
 
 ## description
+
 ### summary
+
 Tests if any item passed as input matches the specified condition, and if so, runs the actions inside. Otherwise, the actions under “Otherwise” are run.
 
 
 ### usage
-`if a{input=[string <${strInfo}>|variable] number=[string number] value=[string|text]}`
+```
+if a{input=[string <${strInfo}>|variable] number=[string number] value=[string|text]}
+  ...
+otherwise
+  ...
+end
+```
 
 ### arguments
+
+---
+
 ### Enumeration: Input / input (internally `WFCondition`)
 **Default Value**:
 ```
@@ -56,6 +68,8 @@ example
 Accepts a string 
 or text
 with the text.
+
+---
 
 ### source json
 
@@ -140,6 +154,9 @@ with the text.
 	"SettingsUI": {
 		"ViewControllerClass": "WFConditionalActionSettingsViewController"
 	},
-	"Subcategory": "Control Flow"
+	"Subcategory": "Control Flow",
+	"BlockInfo": {
+		"Example": "\n  ...\notherwise\n  ...\nend"
+	}
 }
 ```

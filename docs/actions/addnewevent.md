@@ -3,21 +3,29 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
-
 > This action requires that Shortcuts has permission to use WFCalendarAccessResource.
 
 
 ## description
+
 ### summary
+
 Creates a new event and adds it to the selected calendar.
 
+
 ### output
+
 The new event
 
 ### usage
-`addnewevent a{title=[string|text] location=[string|text] undefined=[???] date=[boolean] undefined=[???] undefined=[???] allday=[string boolean|variable] alert=[string <${strInfo}>] alerttime=[string|text] notes=[string|text]}`
+```
+addnewevent a{title=[string|text] location=[string|text] undefined=[???] date=[boolean] undefined=[???] undefined=[???] allday=[string boolean|variable] alert=[string <${strInfo}>] alerttime=[string|text] notes=[string|text]}
+```
 
 ### arguments
+
+---
+
 ### Text: Title / title (internally `WFCalendarItemTitle`)
 **Placeholder**:
 ```
@@ -48,7 +56,7 @@ with the text.
 
 ---
 
-This paramtype is not implemented. WFCalendarPickerParameter
+#### This paramtype is not implemented. WFCalendarPickerParameter
 
 ---
 
@@ -60,11 +68,11 @@ parameter is expanded or not.
 
 ---
 
-This paramtype is not implemented. WFDateFieldParameter
+#### This paramtype is not implemented. WFDateFieldParameter
 
 ---
 
-This paramtype is not implemented. WFDateFieldParameter
+#### This paramtype is not implemented. WFDateFieldParameter
 
 ---
 
@@ -127,6 +135,8 @@ Notes
 Accepts a string 
 or text
 with the text.
+
+---
 
 ### source json
 

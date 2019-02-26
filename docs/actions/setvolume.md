@@ -2,16 +2,22 @@
 ## Set Volume / setvolume (internally `is.workflow.actions.setvolume`)
 
 
-
 ## description
+
 ### summary
+
 Sets the system volume.
 
 
 ### usage
-`setvolume a{volume=[string number]}`
+```
+setvolume a{volume=[string number]}
+```
 
 ### arguments
+
+---
+
 ### Slider Number: Volume / volume (internally `WFVolume`)
 **Default Value**:
 ```
@@ -24,6 +30,8 @@ Sets the system volume.
 Accepts a string 
 or variable
 containing a number value from 0 to 1.
+
+---
 
 ### source json
 

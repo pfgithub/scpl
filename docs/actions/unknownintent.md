@@ -3,11 +3,15 @@
 
 
 
-
 ### usage
-`unknownintent a{showwhenrun=[string boolean|variable]}`
+```
+unknownintent a{showwhenrun=[string boolean|variable]}
+```
 
 ### arguments
+
+---
+
 ### Switch: Show When Run / showwhenrun (internally `ShowWhenRun`)
 **Default Value**:
 ```
@@ -19,6 +23,8 @@ true
 
 Accepts a boolean
 or a variable.
+
+---
 
 ### source json
 

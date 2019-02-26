@@ -3,19 +3,25 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
-
 > This action requires that Shortcuts has permission to use WFUserInteractionResource.
 
 
 ## description
+
 ### summary
+
 Opens the input as a file in the specified app.
 
 
 ### usage
-`openin a{showopeninmenu=[string boolean|variable] undefined=[???] wfappname=[string|text]}`
+```
+openin a{showopeninmenu=[string boolean|variable] undefined=[???] wfappname=[string|text]}
+```
 
 ### arguments
+
+---
+
 ### Switch: Show Open In Menu / showopeninmenu (internally `WFOpenInAskWhenRun`)
 **Default Value**:
 ```
@@ -30,7 +36,7 @@ or a variable.
 
 ---
 
-This paramtype is not implemented. WFAppPickerParameter
+#### This paramtype is not implemented. WFAppPickerParameter
 
 ---
 
@@ -42,6 +48,8 @@ This paramtype is not implemented. WFAppPickerParameter
 Accepts a string 
 or text
 with the text.
+
+---
 
 ### source json
 

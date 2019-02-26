@@ -2,16 +2,22 @@
 ## Get Current IP Address / getcurrentipaddress (internally `is.workflow.actions.getipaddress`)
 
 
-
 ## description
+
 ### summary
+
 Returns the local or external IP address of the device.
 
 
 ### usage
-`getcurrentipaddress a{address=[string <${strInfo}>] type=[string <${strInfo}>]}`
+```
+getcurrentipaddress a{address=[string <${strInfo}>] type=[string <${strInfo}>]}
+```
 
 ### arguments
+
+---
+
 ### Enumeration: Address / address (internally `WFIPAddressSourceOption`)
 **Default Value**:
 ```
@@ -45,6 +51,8 @@ containing one of the options:
 
 - `IPv4`
 - `IPv6`
+
+---
 
 ### source json
 

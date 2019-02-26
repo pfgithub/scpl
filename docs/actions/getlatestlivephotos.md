@@ -1,19 +1,25 @@
 
 ## Get Latest Live Photos / getlatestlivephotos (internally `is.workflow.actions.getlatestlivephotos`)
 
-
 > This action requires that Shortcuts has permission to use WFPhotoAccessResource.
 
 
 ## description
+
 ### summary
+
 Gets the most recent Live Photos from the camera roll.
 
 
 ### usage
-`getlatestlivephotos a{wfgetlatestphotocount=[string integer]}`
+```
+getlatestlivephotos a{wfgetlatestphotocount=[string integer]}
+```
 
 ### arguments
+
+---
+
 ### Stepper Number: wfgetlatestphotocount / wfgetlatestphotocount (internally `WFGetLatestPhotoCount`)
 **Default Value**:
 ```
@@ -26,6 +32,8 @@ Gets the most recent Live Photos from the camera roll.
 Accepts a string 
 or variable
 containing an integer value.
+
+---
 
 ### source json
 

@@ -2,16 +2,22 @@
 ## Get Dictionary Value / getdictionaryvalue (internally `is.workflow.actions.getvalueforkey`)
 
 
-
 ## description
+
 ### summary
+
 Gets the value for the specified key in the dictionary passed into the action. 
 
 
 ### usage
-`getdictionaryvalue a{get=[string <${strInfo}>|variable] key=[string|text]}`
+```
+getdictionaryvalue a{get=[string <${strInfo}>|variable] key=[string|text]}
+```
 
 ### arguments
+
+---
+
 ### Enumeration: Get / get (internally `WFGetDictionaryValueType`)
 **Default Value**:
 ```
@@ -40,6 +46,8 @@ example
 Accepts a string 
 or text
 with the text.
+
+---
 
 ### source json
 

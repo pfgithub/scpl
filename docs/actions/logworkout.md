@@ -3,36 +3,44 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
-
 > This action requires that Shortcuts has permission to use WFHealthKitResource,[object Object].
 
 
 ## description
+
 ### summary
+
 Adds a workout into the Health app. You can log all kinds of activities, from running and cycling to playing a sport.
 
 
 ### usage
-`logworkout a{undefined=[???] undefined=[???] undefined=[???] undefined=[???] undefined=[???]}`
+```
+logworkout a{undefined=[???] undefined=[???] undefined=[???] undefined=[???] undefined=[???]}
+```
 
 ### arguments
-This paramtype is not implemented. WFWorkoutTypePickerParameter
 
 ---
 
-This paramtype is not implemented. WFDateFieldParameter
+#### This paramtype is not implemented. WFWorkoutTypePickerParameter
 
 ---
 
-This paramtype is not implemented. WFDurationQuantityFieldParameter
+#### This paramtype is not implemented. WFDateFieldParameter
 
 ---
 
-This paramtype is not implemented. WFHealthQuantityFieldParameter
+#### This paramtype is not implemented. WFDurationQuantityFieldParameter
 
 ---
 
-This paramtype is not implemented. WFHealthQuantityFieldParameter
+#### This paramtype is not implemented. WFHealthQuantityFieldParameter
+
+---
+
+#### This paramtype is not implemented. WFHealthQuantityFieldParameter
+
+---
 
 ### source json
 

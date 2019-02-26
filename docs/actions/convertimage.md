@@ -4,17 +4,23 @@
 > This action is not yet complete. Some arguments may be missing.
 
 
-
 ## description
+
 ### summary
+
 Converts the images passed into the action to the specified image format.
 
 
 ### usage
-`convertimage a{undefined=[???] quality=[string number] preservemetadata=[string boolean|variable]}`
+```
+convertimage a{undefined=[???] quality=[string number] preservemetadata=[string boolean|variable]}
+```
 
 ### arguments
-This paramtype is not implemented. WFImageConvertFormatPickerParameter
+
+---
+
+#### This paramtype is not implemented. WFImageConvertFormatPickerParameter
 
 ---
 
@@ -44,6 +50,8 @@ true
 
 Accepts a boolean
 or a variable.
+
+---
 
 ### source json
 

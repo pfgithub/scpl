@@ -3,24 +3,30 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
-
 > This action requires that Shortcuts has permission to use WFContactAccessResource.
 
 
 ## description
+
 ### summary
+
 Requests a payment from the specified people using a payment app on your device.
 
 
 ### usage
-`requestpayment a{undefined=[???] undefined=[???] amount=[string number] openinapp=[string boolean|variable] note=[string|text]}`
+```
+requestpayment a{undefined=[???] undefined=[???] amount=[string number] openinapp=[string boolean|variable] note=[string|text]}
+```
 
 ### arguments
-This paramtype is not implemented. WFIntentAppPickerParameter
 
 ---
 
-This paramtype is not implemented. WFContactHandleFieldParameter
+#### This paramtype is not implemented. WFIntentAppPickerParameter
+
+---
+
+#### This paramtype is not implemented. WFContactHandleFieldParameter
 
 ---
 
@@ -61,6 +67,8 @@ Note
 Accepts a string 
 or text
 with the text.
+
+---
 
 ### source json
 

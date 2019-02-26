@@ -1,19 +1,25 @@
 
 ## Add to Pinboard / addtopinboard (internally `is.workflow.actions.pinboard.add`)
 
-
 > This action requires that Shortcuts has permission to use WFPinboardAccessResource.
 
 
 ## description
+
 ### summary
+
 Adds the URL passed into the action to your Pinboard.
 
 
 ### usage
-`addtopinboard a{title=[string|text] tags=[string|text] public=[string boolean|variable] unread=[string boolean|variable] description=[string|text]}`
+```
+addtopinboard a{title=[string|text] tags=[string|text] public=[string boolean|variable] unread=[string boolean|variable] description=[string|text]}
+```
 
 ### arguments
+
+---
+
 ### Text: Title / title (internally `WFPinTitle`)
 **Placeholder**:
 ```
@@ -84,6 +90,8 @@ Description
 Accepts a string 
 or text
 with the text.
+
+---
 
 ### source json
 

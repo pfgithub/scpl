@@ -2,16 +2,22 @@
 ## Change Case / changecase (internally `is.workflow.actions.text.changecase`)
 
 
-
 ## description
+
 ### summary
+
 Changes the case of the text passed into the action to UPPERCASE, lowercase, or Title Case.
 
 
 ### usage
-`changecase a{case=[string <${strInfo}>]}`
+```
+changecase a{case=[string <${strInfo}>]}
+```
 
 ### arguments
+
+---
+
 ### Enumeration: Case / case (internally `WFCaseType`)
 **Default Value**:
 ```
@@ -31,6 +37,8 @@ containing one of the options:
 - `Capitalize with Title Case`
 - `Capitalize with sentence case.`
 - `cApItAlIzE wItH aLtErNaTiNg CaSe.`
+
+---
 
 ### source json
 

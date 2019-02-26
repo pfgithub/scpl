@@ -2,16 +2,22 @@
 ## Text / text (internally `is.workflow.actions.gettext`)
 
 
-
 ## description
+
 ### summary
+
 Passes the specified text to the next action.
 
 
 ### usage
-`text a{wftextactiontext=[string|text]}`
+```
+text a{wftextactiontext=[string|text]}
+```
 
 ### arguments
+
+---
+
 ### Text: wftextactiontext / wftextactiontext (internally `WFTextActionText`)
 **Placeholder**:
 ```
@@ -24,6 +30,8 @@ Enter text...
 Accepts a string 
 or text
 with the text.
+
+---
 
 ### source json
 

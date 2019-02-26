@@ -1,19 +1,25 @@
 
 ## Select Music / selectmusic (internally `is.workflow.actions.exportsong`)
 
-
 > This action requires that Shortcuts has permission to use WFAppleMusicAccessResource,WFUserInteractionResource.
 
 
 ## description
+
 ### summary
+
 Prompts to select music from your local music library.
 
 
 ### usage
-`selectmusic a{selectmultiplesongs=[string boolean|variable]}`
+```
+selectmusic a{selectmultiplesongs=[string boolean|variable]}
+```
 
 ### arguments
+
+---
+
 ### Switch: Select Multiple Songs / selectmultiplesongs (internally `WFExportSongActionSelectMultiple`)
 **Allows Variables**: true
 
@@ -21,6 +27,8 @@ Prompts to select music from your local music library.
 
 Accepts a boolean
 or a variable.
+
+---
 
 ### source json
 

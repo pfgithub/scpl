@@ -2,16 +2,22 @@
 ## Split Text / splittext (internally `is.workflow.actions.text.split`)
 
 
-
 ## description
+
 ### summary
+
 Separates text passed into the action into a list.
 
 
 ### usage
-`splittext a{separator=[string <${strInfo}>] custom=[string|text]}`
+```
+splittext a{separator=[string <${strInfo}>] custom=[string|text]}
+```
 
 ### arguments
+
+---
+
 ### Enumeration: Separator / separator (internally `WFTextSeparator`)
 **Default Value**:
 ```
@@ -44,6 +50,8 @@ Text
 Accepts a string 
 or text
 with the text.
+
+---
 
 ### source json
 

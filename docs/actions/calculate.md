@@ -2,16 +2,22 @@
 ## Calculate / calculate (internally `is.workflow.actions.math`)
 
 
-
 ## description
+
 ### summary
+
 Performs a number operation on the input and returns the result.
 
 
 ### usage
-`calculate a{operation=[string <${strInfo}>] scientificoperation=[string <${strInfo}>] operand=[string number] operand=[string number]}`
+```
+calculate a{operation=[string <${strInfo}>] scientificoperation=[string <${strInfo}>] operand=[string number] operand=[string number]}
+```
 
 ### arguments
+
+---
+
 ### Enumeration: Operation / operation (internally `WFMathOperation`)
 **Default Value**:
 ```
@@ -88,6 +94,8 @@ with a number.
 Accepts a string 
 or variable
 with a number.
+
+---
 
 ### source json
 

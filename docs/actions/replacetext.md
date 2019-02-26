@@ -2,16 +2,22 @@
 ## Replace Text / replacetext (internally `is.workflow.actions.text.replace`)
 
 
-
 ## description
+
 ### summary
+
 Replaces some text passed into the action with other text.
 
 
 ### usage
-`replacetext a{findtext=[string|text] replacewith=[string|text] casesensitive=[string boolean|variable] regularexpression=[string boolean|variable]}`
+```
+replacetext a{findtext=[string|text] replacewith=[string|text] casesensitive=[string boolean|variable] regularexpression=[string boolean|variable]}
+```
 
 ### arguments
+
+---
+
 ### Text: Find Text / findtext (internally `WFReplaceTextFind`)
 **Placeholder**:
 ```
@@ -63,6 +69,8 @@ or a variable.
 
 Accepts a boolean
 or a variable.
+
+---
 
 ### source json
 

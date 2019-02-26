@@ -4,16 +4,22 @@
 > This action is not yet complete. Some arguments may be missing.
 
 
-
 ## description
+
 ### summary
+
 Formats a date and time into text.
 
 
 ### usage
-`formatdate a{dateformat=[string <${strInfo}>] alternateformat=[string <${strInfo}>] timeformat=[string <${strInfo}>] includeiso8601time=[string boolean|variable] undefined=[???]}`
+```
+formatdate a{dateformat=[string <${strInfo}>] alternateformat=[string <${strInfo}>] timeformat=[string <${strInfo}>] includeiso8601time=[string boolean|variable] undefined=[???]}
+```
 
 ### arguments
+
+---
+
 ### Enumeration: Date Format / dateformat (internally `WFDateFormatStyle`)
 **Default Value**:
 ```
@@ -88,7 +94,9 @@ or a variable.
 
 ---
 
-This paramtype is not implemented. WFCustomDateFormatParameter
+#### This paramtype is not implemented. WFCustomDateFormatParameter
+
+---
 
 ### source json
 

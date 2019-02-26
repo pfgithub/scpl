@@ -1,19 +1,25 @@
 
 ## Search Web / searchweb (internally `is.workflow.actions.searchweb`)
 
-
 > This action requires that Shortcuts has permission to use WFURLOpenResource.
 
 
 ## description
+
 ### summary
+
 Searches the web for the text provided as input.
 
 
 ### usage
-`searchweb a{search=[string <${strInfo}>]}`
+```
+searchweb a{search=[string <${strInfo}>]}
+```
 
 ### arguments
+
+---
+
 ### Enumeration: Search / search (internally `WFSearchWebDestination`)
 **Default Value**:
 ```
@@ -36,6 +42,8 @@ containing one of the options:
 - `Twitter`
 - `Yahoo!`
 - `YouTube`
+
+---
 
 ### source json
 

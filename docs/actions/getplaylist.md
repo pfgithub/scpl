@@ -3,20 +3,28 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
-
 > This action requires that Shortcuts has permission to use WFAppleMusicAccessResource.
 
 
 ## description
+
 ### summary
+
 Gets every song in the specified playlist.
 
 
 ### usage
-`getplaylist a{undefined=[???]}`
+```
+getplaylist a{undefined=[???]}
+```
 
 ### arguments
-This paramtype is not implemented. WFPlaylistPickerParameter
+
+---
+
+#### This paramtype is not implemented. WFPlaylistPickerParameter
+
+---
 
 ### source json
 

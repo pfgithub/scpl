@@ -2,16 +2,22 @@
 ## Round Number / roundnumber (internally `is.workflow.actions.round`)
 
 
-
 ## description
+
 ### summary
+
 Rounds the number(s) passed into the action.
 
 
 ### usage
-`roundnumber a{round=[string <${strInfo}>] mode=[string <${strInfo}>] wfrounddecimalplaces=[string integer]}`
+```
+roundnumber a{round=[string <${strInfo}>] mode=[string <${strInfo}>] wfrounddecimalplaces=[string integer]}
+```
 
 ### arguments
+
+---
+
 ### Enumeration: Round / round (internally `WFRoundType`)
 **Default Value**:
 ```
@@ -57,6 +63,8 @@ containing one of the options:
 Accepts a string 
 or variable
 containing an integer value.
+
+---
 
 ### source json
 

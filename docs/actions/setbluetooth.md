@@ -1,19 +1,25 @@
 
 ## Set Bluetooth / setbluetooth (internally `is.workflow.actions.bluetooth.set`)
 
-
 > This action requires that Shortcuts has permission to use WFSiriAccessResource.
 
 
 ## description
+
 ### summary
+
 Sets the device’s Bluetooth to on or off.
 
 
 ### usage
-`setbluetooth a{bluetooth=[string boolean|variable]}`
+```
+setbluetooth a{bluetooth=[string boolean|variable]}
+```
 
 ### arguments
+
+---
+
 ### Switch: Bluetooth / bluetooth (internally `OnValue`)
 **Default Value**:
 ```
@@ -25,6 +31,8 @@ true
 
 Accepts a boolean
 or a variable.
+
+---
 
 ### source json
 

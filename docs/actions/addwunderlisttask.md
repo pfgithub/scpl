@@ -3,24 +3,34 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
-
 > This action requires that Shortcuts has permission to use [object Object].
 
 
 ## description
+
 ### summary
+
 Adds a new task to Wunderlist.
 
+
 ### input
+
 Files to attach to the task
 
+
 ### output
+
 The URL of the newly created task
 
 ### usage
-`addwunderlisttask a{title=[string|text] undefined=[???] undefined=[???] undefined=[???] starred=[string boolean|variable] notes=[string|text]}`
+```
+addwunderlisttask a{title=[string|text] undefined=[???] undefined=[???] undefined=[???] starred=[string boolean|variable] notes=[string|text]}
+```
 
 ### arguments
+
+---
+
 ### Text: Title / title (internally `WFWunderlistTitle`)
 **Placeholder**:
 ```
@@ -36,15 +46,15 @@ with the text.
 
 ---
 
-This paramtype is not implemented. WFWunderlistListPickerParameter
+#### This paramtype is not implemented. WFWunderlistListPickerParameter
 
 ---
 
-This paramtype is not implemented. WFDateFieldParameter
+#### This paramtype is not implemented. WFDateFieldParameter
 
 ---
 
-This paramtype is not implemented. WFDateFieldParameter
+#### This paramtype is not implemented. WFDateFieldParameter
 
 ---
 
@@ -70,6 +80,8 @@ Notes
 Accepts a string 
 or text
 with the text.
+
+---
 
 ### source json
 

@@ -1,19 +1,25 @@
 
 ## Choose from List / choosefromlist (internally `is.workflow.actions.choosefromlist`)
 
-
 > This action requires that Shortcuts has permission to use WFUserInteractionResource.
 
 
 ## description
+
 ### summary
+
 Presents a menu of the items passed as input to the action and outputs the user's selection.
 
 
 ### usage
-`choosefromlist a{prompt=[string|text] selectmultiple=[string boolean|variable] selectallinitially=[string boolean|variable]}`
+```
+choosefromlist a{prompt=[string|text] selectmultiple=[string boolean|variable] selectallinitially=[string boolean|variable]}
+```
 
 ### arguments
+
+---
+
 ### Text: Prompt / prompt (internally `WFChooseFromListActionPrompt`)
 **Placeholder**:
 ```
@@ -46,6 +52,8 @@ or a variable.
 
 Accepts a boolean
 or a variable.
+
+---
 
 ### source json
 

@@ -2,22 +2,30 @@
 ## Dictionary / dictionary (internally `is.workflow.actions.dictionary`)
 
 
-
 ## description
+
 ### summary
+
 Passes the specified list of key-value pairs to the next action as a dictionary.
 
 
 ### usage
-`dictionary a{items=[dictionary]}`
+```
+dictionary a{items=[dictionary]}
+```
 
 ### arguments
+
+---
+
 ### Dictionary: Items / items (internally `WFItems`)
 **Allows Variables**: true
 
 
 
 Accepts a dictionary.
+
+---
 
 ### source json
 

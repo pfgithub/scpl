@@ -1,19 +1,25 @@
 
 ## Search Giphy / searchgiphy (internally `is.workflow.actions.giphy`)
 
-
 > This action requires that Shortcuts has permission to use [object Object].
 
 
 ## description
+
 ### summary
+
 Searches for GIFs representing the text specified using Giphy.
 
 
 ### usage
-`searchgiphy a{search=[string|text] showgifpicker=[string boolean|variable] wfgiphylimit=[string integer] selectmultiple=[string boolean|variable]}`
+```
+searchgiphy a{search=[string|text] showgifpicker=[string boolean|variable] wfgiphylimit=[string integer] selectmultiple=[string boolean|variable]}
+```
 
 ### arguments
+
+---
+
 ### Text: Search / search (internally `WFGiphyQuery`)
 **Placeholder**:
 ```
@@ -65,6 +71,8 @@ containing an integer value.
 
 Accepts a boolean
 or a variable.
+
+---
 
 ### source json
 

@@ -2,16 +2,22 @@
 ## Comment / comment (internally `is.workflow.actions.comment`)
 
 
-
 ## description
+
 ### summary
+
 This action lets you explain how part of a shortcut works. When run, this action does nothing.
 
 
 ### usage
-`comment a{wfcommentactiontext=[string]}`
+```
+comment a{wfcommentactiontext=[string]}
+```
 
 ### arguments
+
+---
+
 ### Text: wfcommentactiontext / wfcommentactiontext (internally `WFCommentActionText`)
 **Placeholder**:
 ```
@@ -21,6 +27,8 @@ Enter comment...
 
 Accepts a string 
 with the text.
+
+---
 
 ### source json
 

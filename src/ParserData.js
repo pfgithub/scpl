@@ -161,12 +161,25 @@ class ActionParse extends Parse {
 		throw new Error(`Actions of type ${action.info.id} cannot be converted to a variable.`);
 	}
 	asAction(cc) { // returns an Action for this ActionParse
-		const actionName = this.name.asString();
-		const wfAction = actionsByName(actionName);
+		const actionName = this.name.asString().toLowerCase();
+		let wfAction;
+		let controlFlowData;
+		if(actionName === "flow"
+		|| actionName === "otherwise"
+		|| actionName === "else"
+		|| actionName === "case") { // flow/case/otherwise action
+			controlFlowData = cc.nextControlFlow();
+			wfAction = controlFlowData.wfaction;
+		}else if(actionName === "end") {
+			controlFlowData = cc.endControlFlow();
+			wfAction = controlFlowData.wfaction;
+		}else{
+			wfAction = actionsByName(actionName);
+		}
 		if(!wfAction) {
 			throw new Error(`The action named ${actionName.toLowerCase()} could not be found.`);
 		}
-		const action = wfAction.build(cc, ...this.args);
+		const action = wfAction.build(cc, controlFlowData, ...this.args);
 		// WFAction adds it to cc for us, no need to do it ourselves.
 		// now add any required set variable actions
 		if(this.variable) {
@@ -273,6 +286,9 @@ class ActionsParse {
 	asShortcut() {
 		const cc = new ConvertingContext();
 		this.actions.forEach(action => action.asAction(cc));
+		if(cc.controlFlowStack.length !== 0) {
+			throw new Error(`There are ${cc.controlFlowStack.length} unterminated block actions. Check to make sure every block has an else.`);
+		}
 		return cc.shortcut;
 	}
 }

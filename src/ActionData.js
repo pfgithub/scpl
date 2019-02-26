@@ -3,7 +3,7 @@ const uuidv4 = require("uuid/v4");
 const {Text, Action} = require("./OutputData");
 const {getVariable} = require("./HelpfulActions");
 
-const actionList = require("./WFActions.json")[0];
+const actionList = require("./Data/Actions")[0];
 
 const types = {};
 
@@ -552,30 +552,44 @@ class WFAction {
 ## ${this.name} / ${this.shortName} (internally \`${this.internalName}\`)
 ${this.isComplete ? "" : `
 > This action is not yet complete. Some arguments may be missing.
-`}
-${this._data.RequiredResources ? `
+`}${this._data.RequiredResources ? `
 > This action requires that Shortcuts has permission to use ${this._data.RequiredResources}.
+` : ""}${this._data.BlockInfo ? `
+> This action has a block. Make sure to end it with an end. (More info in usage below)
 ` : ""}
 ${this._data.Description ? `
 ## description${this._data.Description.DescriptionSummary ? `
+
 ### summary
+
 ${this._data.Description.DescriptionSummary}
 ` : ""}${this._data.Description.DescriptionInput ? `
+
 ### input
+
 ${this._data.Description.DescriptionInput}
 ` : ""}${this._data.Description.DescriptionResult ? `
+
 ### output
+
 ${this._data.Description.DescriptionResult}` : ""}` : ""}
 
 ### usage
-\`${this.shortName} a{${this._parameters.map(param => `${param.shortName}=${typeof param === "string" ? `[???]` : param.genDocsArgName()}`).join` `}}\`
+\`\`\`
+${this.shortName} a{${this._parameters.map(param => `${param.shortName}=${typeof param === "string" ? `[???]` : param.genDocsArgName()}`).join` `}}${this._data.BlockInfo ? this._data.BlockInfo.Example : ""}
+\`\`\`
 
 ### arguments
-${this._parameters.map(param => (typeof param === "string") ? `${param}` : param.genDocs()).join`
+
+---
+
+${this._parameters.map(param => (typeof param === "string") ? `#### ${param}` : param.genDocs()).join`
 
 ---
 
 `}
+
+---
 
 ### source json
 
@@ -585,12 +599,23 @@ ${JSON.stringify(this._data, null, "\t")}
 `;
 		return docs;
 	}
-	build(cc, ...params) {
+	build(cc, controlFlowData, ...params) {
 		let parami = 0;
 		let actionAbove = cc.lastVariableAction;
 		// TODO actionAbove = cc.lastVariableAction
 		//
 		const action = new Action(this.name, this.id, this);
+		if(controlFlowData) {
+			const {uuid, number} = controlFlowData;
+			action.parameters.set("WFControlFlowMode", number);
+			action.parameters.set("GroupingIdentifier", uuid);
+			params = []; // Params should be ignored if we are a second or third... in control flow
+		}else  if(this._data.BlockInfo) {
+			// this action has a block.
+			const {uuid, number} = cc.pushControlFlow(this); // Add the controlflow
+			action.parameters.set("WFControlFlowMode", number);
+			action.parameters.set("GroupingIdentifier", uuid);
+		}
 		params.forEach(param => {
 			if(param.special === "InputArg") {
 				param.asAction(cc);
@@ -598,14 +623,7 @@ ${JSON.stringify(this._data, null, "\t")}
 				return;
 			}
 			if(param.special === "ControlFlowMode") {
-				const num = +param.controlFlowMode.asString();
-				if(isNaN(num)) {throw new Error("ControlFlowMode could not be converted to an integer");}
-				if(!Number.isInteger(num)) {throw new Error("ControlFlowMode must be an integer");}
-				action.parameters.set("WFControlFlowMode", num);
-				const groupingIdentifier = param.groupingIdentifier.asString();
-				if(!cc.groupingIdentifiers[groupingIdentifier]) {cc.groupingIdentifiers[groupingIdentifier] = uuidv4();}
-				action.parameters.set("GroupingIdentifier", cc.groupingIdentifiers[groupingIdentifier]);
-				return;
+				throw new Error("ControlFlowMode is no longer implemented. Please use the Flow and End actions instead.");
 			}
 			if(param.special === "Arglist") {
 				const dictionary = param.asRawKeyedDictionary();
@@ -681,7 +699,7 @@ function genReadme() {
 # Shortcutslang
 
 [Getting Started Guide](syntax.html)
-[Try Shortcutslang Online](tryit.html)  
+[Try Shortcutslang Online](tryit.html)
 
 ${completedActions}/${totalActions} completed\\* \\*\\*
 

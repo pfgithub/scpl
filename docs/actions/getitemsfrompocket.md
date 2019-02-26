@@ -1,19 +1,25 @@
 
 ## Get Items from Pocket / getitemsfrompocket (internally `is.workflow.actions.pocket.get`)
 
-
 > This action requires that Shortcuts has permission to use WFPocketAccessResource.
 
 
 ## description
+
 ### summary
+
 Returns items in your Pocket account.
 
 
 ### usage
-`getitemsfrompocket a{wfpocketitemcount=[string integer] type=[string <${strInfo}>] search=[string|text] tag=[string|text]}`
+```
+getitemsfrompocket a{wfpocketitemcount=[string integer] type=[string <${strInfo}>] search=[string|text] tag=[string|text]}
+```
 
 ### arguments
+
+---
+
 ### Stepper Number: wfpocketitemcount / wfpocketitemcount (internally `WFPocketItemCount`)
 **Allows Variables**: true
 
@@ -71,6 +77,8 @@ optional
 Accepts a string 
 or text
 with the text.
+
+---
 
 ### source json
 

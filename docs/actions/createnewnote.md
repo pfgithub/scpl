@@ -3,22 +3,30 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
-
 > This action requires that Shortcuts has permission to use WFEvernoteAccessResource.
 
 
 ## description
+
 ### summary
+
 Saves the input as a note in Evernote.
 
+
 ### input
+
 The content to include in your new note
 
 
 ### usage
-`createnewnote a{notetitle=[string|text] undefined=[???] undefined=[???]}`
+```
+createnewnote a{notetitle=[string|text] undefined=[???] undefined=[???]}
+```
 
 ### arguments
+
+---
+
 ### Text: Note Title / notetitle (internally `WFEvernoteNoteTitle`)
 **Placeholder**:
 ```
@@ -34,11 +42,13 @@ with the text.
 
 ---
 
-This paramtype is not implemented. WFEvernoteNotebookPickerParameter
+#### This paramtype is not implemented. WFEvernoteNotebookPickerParameter
 
 ---
 
-This paramtype is not implemented. WFEvernoteTagsTagFieldParameter
+#### This paramtype is not implemented. WFEvernoteTagsTagFieldParameter
+
+---
 
 ### source json
 

@@ -3,20 +3,26 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
-
 > This action requires that Shortcuts has permission to use WFInstapaperAccessResource.
 
 
 ## description
+
 ### summary
+
 Gets the contents of a folder in Instapaper. Requires Instapaper Premium.
 
 
 ### usage
-`getinstapaperbookmarks a{undefined=[???] wfbookmarkcount=[string integer]}`
+```
+getinstapaperbookmarks a{undefined=[???] wfbookmarkcount=[string integer]}
+```
 
 ### arguments
-This paramtype is not implemented. WFDynamicEnumerationParameter
+
+---
+
+#### This paramtype is not implemented. WFDynamicEnumerationParameter
 
 ---
 
@@ -32,6 +38,8 @@ This paramtype is not implemented. WFDynamicEnumerationParameter
 Accepts a string 
 or variable
 containing an integer value.
+
+---
 
 ### source json
 

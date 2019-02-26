@@ -2,16 +2,22 @@
 ## Calculate Statistics / calculatestatistics (internally `is.workflow.actions.statistics`)
 
 
-
 ## description
+
 ### summary
+
 Calculates statistics on the numbers that are provided as input.
 
 
 ### usage
-`calculatestatistics a{operation=[string <${strInfo}>]}`
+```
+calculatestatistics a{operation=[string <${strInfo}>]}
+```
 
 ### arguments
+
+---
+
 ### Enumeration: Operation / operation (internally `WFStatisticsOperation`)
 **Default Value**:
 ```
@@ -33,6 +39,8 @@ containing one of the options:
 - `Mode`
 - `Range`
 - `Standard Deviation`
+
+---
 
 ### source json
 

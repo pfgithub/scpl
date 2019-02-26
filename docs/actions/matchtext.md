@@ -2,18 +2,26 @@
 ## Match Text / matchtext (internally `is.workflow.actions.text.match`)
 
 
-
 ## description
+
 ### summary
+
 Searches text passed into the action for matches to a regular expression.
 
+
 ### output
+
 A list of text items that matched the regular expression
 
 ### usage
-`matchtext a{pattern=[string|text] casesensitive=[string boolean|variable]}`
+```
+matchtext a{pattern=[string|text] casesensitive=[string boolean|variable]}
+```
 
 ### arguments
+
+---
+
 ### Text: Pattern / pattern (internally `WFMatchTextPattern`)
 **Default Value**:
 ```
@@ -40,6 +48,8 @@ true
 
 Accepts a boolean
 or a variable.
+
+---
 
 ### source json
 
