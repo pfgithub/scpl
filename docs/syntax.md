@@ -16,7 +16,7 @@ The [text](actions/text) action "Passes the specified text to the next action."
 Shortcutslang does not just do what shortcuts does, you can also do other things such as embedding actions inside of text fields.
 
 ```swift
-Text "My text: \(Text "Hello there!")" 
+Text "My text: \(Text "Hello there!")"
 ```
 
 This will automatically create a variable and insert that variable into the text, equivalent to this:
@@ -66,14 +66,14 @@ A v:variableName can be made with a named [variable argument](#variable-argument
 
 Sometimes you may want to set a variable to the result of an action.
 
-```swift
+```coffeescript
 Text "hello" -> v:myvar
 Text "world" -> mv:mymagicvar
 ```
 
 becomes
 
-```swift
+```js
 Text "hello"
 SetVariable (v:myvar)
 Text "world" // the variable mv:mymagicvar will reference this action
@@ -83,14 +83,14 @@ Text "world" // the variable mv:mymagicvar will reference this action
 
 Sometimes you may want to provide names instead of relying on the order of arguments.
 
-```swift
-showAlert a{showCancelButton=true, message="hi", "title"="Alert!"}
-showAlert "Alert!" "Hi" a{showCancelButton=true}
+```coffeescript
+ShowAlert a{showCancelButton=true, message="hi", "title"="Alert!"}
+ShowAlert "Alert!" "Hi" a{showCancelButton=true}
 ```
 
 becomes
 
-```swift
+```coffeescript
 showAlert "Alert!" "hi" true
 showAlert "Alert!" "hi" true
 ```
@@ -99,14 +99,14 @@ showAlert "Alert!" "hi" true
 
 Sometimes you may want to provide input to an action other than the action above.
 
-```swift
+```coffeescript
 Text "hello there"
 if ^(Text "hi") Equals "hi"
 ```
 
 becomes
 
-```swift
+```coffeescript
 Text "hello there"
 Text "hi"
 if Equals "hi"
@@ -118,7 +118,7 @@ if Equals "hi"
 
 Sometimes an action might have a block.
 
-```swift
+```coffeescript
 if Equals "hello" >c:0:gid:myif
   showAlert "Alert!" "Input equals hello"
 if >c:1:gid:myif
@@ -137,19 +137,19 @@ Usage: `c:`number (first is 0, next is 1, ...)`:gid:`name (every block action mu
 
 #### identifier argument
 
-```swift
+```coffeescript
 Text mytext
 ```
 
 #### string argument
 
-```swift
+```coffeescript
 Text "Hi there \(v:my embedded variable)"
 ```
 
 #### barlist argument
 
-```swift
+```js
 Text
 | item 1
 | item 2
@@ -158,18 +158,62 @@ Text
 
 #### array argument
 
-```swift
+```coffeescript
 List ["Item 1", "\(v:myvar)"]
 ```
 
 #### variable argument
 
-```swift
+```js
 GetVariable (v:myvar)
 ```
 
 #### action argument
 
-```swift
+```js
 GetVariable (Text "My other action")
+```
+
+### variables
+
+There are three types of variables, `v:` named variables, `mv:` magic variables, and `s:` special attachments.
+
+#### Named Variables
+
+Set a named variable
+
+```js
+Text "hi"
+SetVariable (v:myNamedVariable)
+Text "new value"
+SetVariable (v:myNamedVariable)
+```
+
+In the future, `v:myNamedVariable` will reference the value of the input to the Set Variable action. Named variables can be set multiple times and their value will update.
+
+#### Magic Variables
+
+Set a magic variable
+
+```coffeescript
+Text "hi" -> mv:myMagicVariable
+```
+
+In the future, `mv:myMagicVariable` will reference the Text action. Magic variables can only be set once.
+
+#### Special Variables
+
+- `s:clipboard` The contents of the clipboard
+- `s:askwhenrun` The Ask When Run attachment
+- `s:input` The input to the shortcut.
+- `s:currentdate` The current date
+
+#### Aggrandizements
+
+Variables can have an Aggrandizements parameter passed into them.
+
+```js
+Text (mv:myVariable{as:text})
+Text (v:myDictionary{as:Dictionary,key:"hi"})
+Text (v:myFile{get:name})
 ```

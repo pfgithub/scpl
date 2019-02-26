@@ -52,3 +52,9 @@ Text "hi" -> mv:magic
 Text (mv:magic)
 
 Dictionary{a:b,"\(mv:magic)":"hi there \(text "Hello!")", embeddedDict:{"hola": "como estas"}, embeddedList: ["hi", bye]}
+setVariable myDictVar
+
+text "\(v:myDictVar{key:hi})"
+
+v:testVar = text "{a:b}"
+text "\(v:testVar{as:Dictionary,key:a})"

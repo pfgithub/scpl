@@ -216,6 +216,12 @@ class VariableParse extends Parse {
 
 		const name = this.name.asString();
 		const type = this.type.asString();
+		let aggrandizements;
+		if(this.options) {
+			aggrandizements = this.options.asRawDictionary();
+		}else{
+			aggrandizements = {};
+		}
 
 		if(type === "v") { // named variable
 			const vardata = cc.vardata[name];
@@ -227,11 +233,30 @@ class VariableParse extends Parse {
 			const mvact = vardata.action;
 			variable = new MagicVariable(mvact);
 		}else if(type === "s") { // special variable
-			const attachtype = {clipboard: "Clipboard", askwhenrun: "Ask", currentDate: "CurrentDate", extensionInput: "ExtensionInput"};
-			variable = new Attachment(attachtype[name] || (_=>{throw new Error(`Invalid special variable type ${name} valid are ${Object.keys(attachtype)}`);})());
+			const attachtype = {clipboard: "Clipboard", askwhenrun: "Ask", currentdate: "CurrentDate", input: "ExtensionInput"};
+			variable = new Attachment(attachtype[name.toLowerCase()] || (_=>{throw new Error(`Invalid special variable type ${name.toLowerCase()} valid are ${Object.keys(attachtype)}`);})());
 		}else{
 			throw new Error(`Invalid vartype ${type}. Valid are v, mv, s`);
 		}
+		Object.keys(aggrandizements).forEach(key => {
+			const value = aggrandizements[key];
+			switch (key.toLowerCase()) {
+				case "key":
+				case "forkey":
+					variable.aggrandizements.forKey(value);
+					break;
+				case "as":
+				case "coerce":
+					variable.aggrandizements.coerce(value);
+					break;
+				case "get":
+				case "property":
+					variable.aggrandizements.getProperty(value);
+					break;
+				default:
+					throw new Error(`Invalid aggrandizement ${key.toLowerCase()}, valid are [key, as, get]`);
+			}
+		});
 		return variable;
 	}
 	asAction(cc) {

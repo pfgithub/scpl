@@ -140,8 +140,8 @@ o.keyvaluepair = p(
 
 o.variable = p(
 	o.identifier, c`:`, or(o.identifier, o.string),
-	optional(o.dictionary)
-).scb(([type, _, name, options])=>new VariableParse(type, name, options));
+	optional(o.dictionary).scb(([dict]) => dict)
+).scb(([type, , name, options])=>new VariableParse(type, name, options));
 
 o.parenthesis = p(c`(`, or(o.action, o.variable), c`)`) .scb(([, actionOrVariable, ]) => actionOrVariable);
 // TODO paramlistparens like (name=hi,value=hmm) for=things like Get Contents Of URL which have lots of complex parameters

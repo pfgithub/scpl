@@ -1,3 +1,8 @@
+// ========≠==========
+// This file is a mess
+// Enter at your own risk
+// ========≠==========
+
 const uuidv4 = require("uuid/v4");
 const bplistc = require("bplist-creator");
 
@@ -74,9 +79,134 @@ SERIALIZATION TYPES
 class Aggrandizement {}
 class CoercionAggrandizement extends Aggrandizement {}
 class DictionaryKeyAggrandizement extends Aggrandizement {}
+/*
+CoercionItemClass?: AggrandizementCoercionItemClass;
+DictionaryKey?: string;
+PropertyName?: AggrandizementPropertyName;
+PropertyUserInfo?: AggrandizementPropertyUserInfo;
+Type: AggrandizementType;
+WFDateFormat?: string;
+WFDateFormatStyle?: WFDateFormatStyle;
+WFTimeFormatStyle?: WFTimeFormatStyle;
+WFISO8601IncludeTime?: boolean;
+WFRelativeDateFormatStyle?: WFRelativeDateFormatStyle;
+
+From Shortcuts-js
+ */
+
+const coercionTypes = {
+	anything: "WFContentItem",
+	appstoreapp: "WFAppStoreAppContentItem",
+	article: "WFArticleContentItem",
+	boolean: "WFBooleanContentItem",
+	contact: "WFContactContentItem",
+	date: "WFDateContentItem",
+	dictionary: "WFDictionaryContentItem",
+	emailaddress: "WFEmailAddressContentItem",
+	file: "WFGenericFileContentItem",
+	image: "WFImageContentItem",
+	itunesmedia: "WFMPMediaContentItem",
+	itunesproduct: "WFiTunesProductContentItem",
+	location: "WFLocationContentItem",
+	mapslink: "WFDCMapsLinkContentItem",
+	media: "WFAVAssetContentItem",
+	number: "WFNumberContentItem",
+	pdf: "WFPDFContentItem",
+	phonenumber: "WFPhoneNumberContentItem",
+	photomedia: "WFPhotoMediaContentItem",
+	place: "WFMKMapItemContentItem",
+	richtext: "WFRichTextContentItem",
+	safariwebpage: "WFSafariWebPageContentItem",
+	text: "WFStringContentItem",
+	url: "WFURLContentItem",
+	vcard: "WFVCardContentItem"
+};
+
+const getTypes = { // Copied from shrotcuts-js https://github.com/joshfarrant/shortcuts-js/blob/master/src/interfaces/Variable.ts
+	albumartist: "albumArtist",
+	albumartwork: "artwork",
+	albumtrack: "albumTrackNumber",
+	album: "albumTitle",
+	artist: "artist",
+	birthday: 17,
+	city: "city",
+	comments: "comments",
+	company: 10,
+	composer: "composer",
+	contactphoto: "18446744073709550616",
+	country: "country",
+	creationdate: "WFFileCreationDate",
+	dateadded: "dateAdded",
+	department: 11,
+	disc: "discNumber",
+	duration: "playbackDuration",
+	emailaddress: 4,
+	fileextension: "WFFileExtensionProperty",
+	filesize: "WFFileSizeProperty",
+	firstname: 0,
+	genre: "genre",
+	group: "WFContactItemGroupProperty",
+	hasphoto: "18446744073709550615",
+	isclouditem: "isCloudItem",
+	isexplicit: "isExplicit",
+	jobtitle: 18,
+	lastmodifieddate: "WFFileModificationDate",
+	lastname: 1,
+	lastplayeddate: "lastPlayedDate",
+	lyrics: "lyrics",
+	mediakind: "mediaType",
+	middlename: 6,
+	name: "WFItemName",
+	nickname: 19,
+	notes: 14,
+	phonenumber: 3,
+	phoneticfirstname: 7,
+	phoneticlastname: 9,
+	phoneticmiddlename: 8,
+	playcount: "playCount",
+	prefix: 20,
+	rating: "rating",
+	releasedate: "releaseDate",
+	skipcount: "skipCount",
+	state: "state",
+	streetaddress: 5,
+	street: "street",
+	suffix: 21,
+	title: "title",
+	url: 22,
+	zipcode: "postalCode"
+};
+
 class Aggrandizements {
+	constructor() {
+		this.aggrandizements = [];
+		this.coersionClass = undefined;
+	}
 	build() {
-		return {};
+		const aggrandizements = [];
+		return this.aggrandizements;
+	}
+	property(getType) {
+		const typeValue = coercionTypes[getType];
+		this.aggrandizements.push({
+			PropertyName: typeValue,
+			Type: "WFPropertyVariableAggrandizement"
+		});
+	}
+	coerce(type) {
+		type = type.toLowerCase().split` `.join``;
+		const coercionClass = coercionTypes[type];
+		if(!coercionClass) {throw new Error(`\`${type}\` is not a valid coercion class. Valid are: ${Object.keys(coercionTypes).join`, `}`);}
+		this.aggrandizements.push({
+			CoercionItemClass: coercionClass,
+			Type: "WFCoercionVariableAggrandizement",
+		});
+	}
+	forKey(key) {
+		this.aggrandizements.push({
+			DictionaryKey: key,
+			Type: "WFDictionaryValueVariableAggrandizement",
+		});
 	}
 }
 
@@ -125,10 +255,12 @@ class Attachment extends Parameter { // THINGS TO NOTE; ASK WHEN RUN IS THE ONLY
 	constructor(type) {
 		super(SERIALIZATIONTYPE.variable);
 		this.type = type;
+		this.aggrandizements = new Aggrandizements();
 	}
 	build() {
 		return {
-			Type: this.type
+			Type: this.type,
+			Aggrandizements: this.aggrandizements.build()
 		};
 	}
 }
@@ -144,12 +276,9 @@ class Attachment extends Parameter { // THINGS TO NOTE; ASK WHEN RUN IS THE ONLY
 class Variable extends Attachment { // TODO variables don't serialize by default, support getvar actions
 	constructor(type) {
 		super(type);
-		this.aggrandizements = new Aggrandizements();
 	}
 	build() {
-		return Object.assign(super.build(), {
-			// Aggrandizements: this.aggrandizements.build()
-		});
+		return Object.assign(super.build(), {});
 	}
 	// @override
 	buildForParameter() { // Used in Get Variable
