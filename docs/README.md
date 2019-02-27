@@ -1,10 +1,13 @@
 
 # Shortcutslang
 
-[Getting Started Guide](syntax.html)
-[Try Shortcutslang Online](tryit.html)
+[Getting Started Guide](https://pfgithub.github.io/shortcutslang/gettingstarted.html)
 
-201/266 completed\* \*\*
+[Syntax Documentation](https://pfgithub.github.io/shortcutslang/syntax.html)
+
+[Try Shortcutslang in a web browser](https://pfgithub.github.io/shortcutslang/tryit.html)
+
+201/266 builtin actions supported
 
 ## All Actions:
 
@@ -354,7 +357,4 @@
 - [x] Complete - 67: WFSwitchParameter
 - [x] Complete - 87: WFEnumerationParameter
 - [x] Complete - 112: WFTextInputParameter
-
-\*Block actions such as if and repeat do not have very nice syntax.
-\*\*Parameters with RequiredResources such as Get Contents Of URL and Calculate have unneeded arguments.
 

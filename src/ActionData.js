@@ -725,10 +725,13 @@ function genReadme() {
 	return `
 # Shortcutslang
 
-[Getting Started Guide](syntax.html)
-[Try Shortcutslang Online](tryit.html)
+[Getting Started Guide](https://pfgithub.github.io/shortcutslang/gettingstarted.html)
 
-${completedActions}/${totalActions} completed\\* \\*\\*
+[Syntax Documentation](https://pfgithub.github.io/shortcutslang/syntax.html)
+
+[Try Shortcutslang in a web browser](https://pfgithub.github.io/shortcutslang/tryit.html)
+
+${completedActions}/${totalActions} builtin actions supported
 
 ## All Actions:
 
@@ -739,9 +742,6 @@ ${Object.values(actionsByID).sort((a, b)=>a.name>b.name?1:(a.name<b.name?-1:0)).
 \\# actions used in: parameter type
 
 ${typeList.join`\n`}
-
-\\*Block actions such as if and repeat do not have very nice syntax.
-\\*\\*Parameters with RequiredResources such as Get Contents Of URL and Calculate have unneeded arguments.
 
 `;
 }
