@@ -1,7 +1,11 @@
+![Banner image](image0.jpg)
+Banner by ROP#2788 on the [routinehub.co](https://routinehub.co) discord server.
+
 
 # Shortcutslang
 
 [Getting Started Guide](syntax.html)
+
 [Try Shortcutslang Online](tryit.html)
 
 206/266 completed\* \*\*
