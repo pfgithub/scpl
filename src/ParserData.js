@@ -238,7 +238,8 @@ class VariableParse extends Parse {
 		}
 
 		if(type === "v") { // named variable
-			const vardata = cc.vardata[name];
+			let vardata = cc.vardata[name];
+			if(name.startsWith("Repeat Index") || name.startsWith("Repeat Item")) {vardata = {};}
 			if(!vardata) {throw new Error(`${type}:${name} is not yet defined.`);}
 			variable = new NamedVariable(name, vardata.type);
 		}else if(type === "mv") { // magic variable
