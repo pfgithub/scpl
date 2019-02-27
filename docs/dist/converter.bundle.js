@@ -568,7 +568,7 @@ eval("const uuidv4 = __webpack_require__(/*! uuid/v4 */ \"./node_modules/uuid/v4
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("const deepmerge = __webpack_require__(/*! deepmerge */ \"./node_modules/deepmerge/dist/umd.js\");\n\nconst builtin = __webpack_require__(/*! ./Shortcuts 2.1.2.json */ \"./src/Data/Shortcuts 2.1.2.json\")[0];\nconst overrides = __webpack_require__(/*! ./Overrides.json */ \"./src/Data/Overrides.json\")[0];\n\nconst merged = deepmerge(builtin, overrides);\n\nmodule.exports = [merged];\n\n\n//# sourceURL=webpack:///./src/Data/Actions.js?");
+eval("const deepmerge = __webpack_require__(/*! deepmerge */ \"./node_modules/deepmerge/dist/umd.js\");\n\nconst builtin = __webpack_require__(/*! ./Shortcuts 2.1.2.json */ \"./src/Data/Shortcuts 2.1.2.json\")[0];\nconst overrides = __webpack_require__(/*! ./Overrides.json */ \"./src/Data/Overrides.json\")[0];\n\nconst merged = deepmerge(builtin, overrides);\n\nmerged[\"is.workflow.actions.documentpicker.open\"].Parameters[4].Hidden = true;\n\nmodule.exports = [merged];\n\n\n//# sourceURL=webpack:///./src/Data/Actions.js?");
 
 /***/ }),
 

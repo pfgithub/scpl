@@ -80,7 +80,7 @@ optional
 ```
 **Allows Variables**: true
 
-
+**Only enabled if**: This action is always **disabled** inside Shortcutslang.
 
 Accepts a string 
 or text
@@ -183,7 +183,8 @@ or a variable.
 			"KeyboardType": "WebSearch",
 			"Label": "Initial Path",
 			"Placeholder": "optional",
-			"TextAlignment": "Left"
+			"TextAlignment": "Left",
+			"Hidden": true
 		},
 		{
 			"Class": "WFSwitchParameter",
