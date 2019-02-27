@@ -44,6 +44,7 @@ const _n = star(or(o.newline, o.space));
 o.escape = p(c`\\`, or(
 	o.parenthesis,
 	c`"`,
+	c`\\`,
 	c`n`.scb(_ => "\n")
 )).scb(([, val])=>val); // \"
 o.char = or(
