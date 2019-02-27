@@ -195,10 +195,11 @@ class ActionParse extends Parse {
 	}
 }
 class VariableParse extends Parse {
-	constructor(type, name, options) {
+	constructor(type, name, forkey, options) {
 		super();
 		this.type = type;
 		this.name = name;
+		this.forkey = forkey;
 		this.options = options;
 	}
 	asStringVariable() {
@@ -231,7 +232,7 @@ class VariableParse extends Parse {
 		const type = this.type.asString();
 		let aggrandizements;
 		if(this.options) {
-			aggrandizements = this.options.asRawDictionary();
+			aggrandizements = this.options.asRawDictionary(); // should be asRawKeyedDictionary and then use asstirng inside
 		}else{
 			aggrandizements = {};
 		}
@@ -250,6 +251,10 @@ class VariableParse extends Parse {
 			variable = new Attachment(attachtype[name.toLowerCase()] || (_=>{throw new Error(`Invalid special variable type ${name.toLowerCase()} valid are ${Object.keys(attachtype)}`);})());
 		}else{
 			throw new Error(`Invalid vartype ${type}. Valid are v, mv, s`);
+		}
+		if(this.forkey) {
+			variable.aggrandizements.coerce("dictionary");
+			variable.aggrandizements.forKey(this.forkey.asString());
 		}
 		Object.keys(aggrandizements).forEach(key => {
 			const value = aggrandizements[key];

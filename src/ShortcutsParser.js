@@ -9,7 +9,7 @@ const {p, regex, star, plus, optional, or, not, c, o} = require("./ParserHelper.
 
 
 
-o.identifier = regex(/^[A-Za-z0-9@._]+/)
+o.identifier = regex(/^[A-Za-z0-9@_]+/)
 	.scb(([fullmatch]) => new IdentifierParse(fullmatch));
 
 o.newline = p(
@@ -108,7 +108,7 @@ o.onlyaction = p(o.identifier, _, o.args)
 
 o.args = star(p(o.argument, _).scb(data => data[0]));
 
-o.value = or(o.string, o.identifier, o.parenthesis, o.dictionary, o.list);
+o.value = or(o.variable, o.string, o.identifier, o.parenthesis, o.dictionary, o.list);
 
 o.dictionary = p(
 	c`{`,
@@ -140,8 +140,9 @@ o.keyvaluepair = p(
 
 o.variable = p(
 	o.identifier, c`:`, or(o.identifier, o.string),
+	optional(p(c`.`, or(o.identifier, o.string)).scb(([, val])=>val)).scb(([val])=>val),
 	optional(o.dictionary).scb(([dict]) => dict)
-).scb(([type, , name, options])=>new VariableParse(type, name, options));
+).scb(([type, , name, forkey, options])=>new VariableParse(type, name, forkey, options));
 
 o.parenthesis = p(c`(`, or(o.action, o.variable), c`)`) .scb(([, actionOrVariable, ]) => actionOrVariable);
 // TODO paramlistparens like (name=hi,value=hmm) for=things like Get Contents Of URL which have lots of complex parameters
