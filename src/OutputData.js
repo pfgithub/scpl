@@ -614,7 +614,7 @@ class Action {
 		return new MagicVariable(this);
 	}
 	build() {
-		if(this.magicvarname) {this.parameters.set("CustomoutputName", this.magicvarname);}
+		if(this.magicvarname) {this.parameters.set("CustomOutputName", this.magicvarname);}
 		return {
 			WFWorkflowActionIdentifier: this.id,
 			WFWorkflowActionParameters: this.parameters.build()
