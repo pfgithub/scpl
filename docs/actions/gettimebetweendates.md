@@ -1,8 +1,6 @@
 
 ## Get Time Between Dates / gettimebetweendates (internally `is.workflow.actions.gettimebetweendates`)
 
-> This action is not yet complete. Some arguments may be missing.
-
 
 ## description
 
@@ -13,7 +11,7 @@ Subtracts the specified date from the date passed into the action. For example, 
 
 ### usage
 ```
-gettimebetweendates a{gettimefrom=[string <Right Now | Other>|variable] undefined=[???] in=[string <Total Time | Seconds | Minutes | Hours | Days | Weeks | Months | Years>]}
+gettimebetweendates a{gettimefrom=[string <Right Now | Other>|variable] otherdate=[string|text] in=[string <Total Time | Seconds | Minutes | Hours | Days | Weeks | Months | Years>]}
 ```
 
 ### arguments
@@ -35,7 +33,18 @@ containing one of the options:
 
 ---
 
-#### This paramtype is not implemented. WFDateFieldParameter
+### Date: Other Date / otherdate (internally `WFTimeUntilCustomDate`)
+**Placeholder**:
+```
+September 9, 2014
+```
+**Allows Variables**: true
+
+**Only enabled if**: argument WFTimeUntilReferenceDate = `Other`
+
+Accepts a string 
+or text
+with the text.
 
 ---
 

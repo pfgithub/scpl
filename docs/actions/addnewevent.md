@@ -19,7 +19,7 @@ The new event
 
 ### usage
 ```
-addnewevent a{title=[string|text] location=[string|text] undefined=[???] date=[boolean] undefined=[???] undefined=[???] allday=[string boolean|variable] alert=[string <At time of event | 5 minutes before | 15 minutes before | 30 minutes before | 1 hour before | 2 hours before | 1 day before | 2 days before | 1 week before | Custom>] alerttime=[string|text] notes=[string|text]}
+addnewevent a{title=[string|text] location=[string|text] undefined=[???] date=[boolean] startdate=[string|text] enddate=[string|text] allday=[string boolean|variable] alert=[string <At time of event | 5 minutes before | 15 minutes before | 30 minutes before | 1 hour before | 2 hours before | 1 day before | 2 days before | 1 week before | Custom>] alerttime=[string|text] notes=[string|text]}
 ```
 
 ### arguments
@@ -68,11 +68,33 @@ parameter is expanded or not.
 
 ---
 
-#### This paramtype is not implemented. WFDateFieldParameter
+### Date: Start Date / startdate (internally `WFCalendarItemStartDate`)
+**Placeholder**:
+```
+Tomorrow at noon
+```
+**Allows Variables**: true
+
+**Only enabled if**: argument WFCalendarItemDates = `true`
+
+Accepts a string 
+or text
+with the text.
 
 ---
 
-#### This paramtype is not implemented. WFDateFieldParameter
+### Date: End Date / enddate (internally `WFCalendarItemEndDate`)
+**Placeholder**:
+```
+Tomorrow at 1pm
+```
+**Allows Variables**: true
+
+**Only enabled if**: argument WFCalendarItemDates = `true`
+
+Accepts a string 
+or text
+with the text.
 
 ---
 

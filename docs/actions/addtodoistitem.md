@@ -24,7 +24,7 @@ The URL of the newly created item
 
 ### usage
 ```
-addtodoistitem a{content=[string|text] undefined=[???] undefined=[???] undefined=[???] remindertype=[string <Email | Push Notification | Text Message>] priority=[string <4 | 3 | 2 | 1>] notes=[string|text]}
+addtodoistitem a{content=[string|text] undefined=[???] duedate=[string|text] remindmeon=[string|text] remindertype=[string <Email | Push Notification | Text Message>] priority=[string <4 | 3 | 2 | 1>] notes=[string|text]}
 ```
 
 ### arguments
@@ -50,11 +50,33 @@ with the text.
 
 ---
 
-#### This paramtype is not implemented. WFDateFieldParameter
+### Date: Due Date / duedate (internally `WFTodoistDueDate`)
+**Placeholder**:
+```
+May 23
+```
+**Allows Variables**: true
+
+
+
+Accepts a string 
+or text
+with the text.
 
 ---
 
-#### This paramtype is not implemented. WFDateFieldParameter
+### Date: Remind Me On / remindmeon (internally `WFTodoistReminder`)
+**Placeholder**:
+```
+May 23 at 1 PM
+```
+**Allows Variables**: true
+
+
+
+Accepts a string 
+or text
+with the text.
 
 ---
 

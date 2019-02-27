@@ -395,6 +395,12 @@ with the text.`;
 	}
 };
 
+types.WFDateFieldParameter = class extends types.WFTextInputParameter {
+	constructor(data, name) {
+		super(data, name || "Date");
+	}
+};
+
 types.WFEmailAddressFieldParameter = class extends types.WFParameter {
 	constructor(data) {
 		super(data, "Text Input");

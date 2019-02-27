@@ -24,7 +24,7 @@ The URL of the newly created task
 
 ### usage
 ```
-addwunderlisttask a{title=[string|text] undefined=[???] undefined=[???] undefined=[???] starred=[string boolean|variable] notes=[string|text]}
+addwunderlisttask a{title=[string|text] undefined=[???] duedate=[string|text] reminder=[string|text] starred=[string boolean|variable] notes=[string|text]}
 ```
 
 ### arguments
@@ -50,11 +50,33 @@ with the text.
 
 ---
 
-#### This paramtype is not implemented. WFDateFieldParameter
+### Date: Due Date / duedate (internally `WFWunderlistDueDate`)
+**Placeholder**:
+```
+optional
+```
+**Allows Variables**: true
+
+
+
+Accepts a string 
+or text
+with the text.
 
 ---
 
-#### This paramtype is not implemented. WFDateFieldParameter
+### Date: Reminder / reminder (internally `WFWunderlistReminder`)
+**Placeholder**:
+```
+optional
+```
+**Allows Variables**: true
+
+
+
+Accepts a string 
+or text
+with the text.
 
 ---
 

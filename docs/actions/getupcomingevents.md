@@ -15,7 +15,7 @@ Gets upcoming calendar events, ordered from nearest to farthest away in time.
 
 ### usage
 ```
-getupcomingevents a{undefined=[???] wfgetupcomingitemcount=[string integer] day=[string <Any Day | Today | Tomorrow | Specified Day>] undefined=[???]}
+getupcomingevents a{undefined=[???] wfgetupcomingitemcount=[string integer] day=[string <Any Day | Today | Tomorrow | Specified Day>] specifiedday=[string|text]}
 ```
 
 ### arguments
@@ -61,7 +61,18 @@ containing one of the options:
 
 ---
 
-#### This paramtype is not implemented. WFDateFieldParameter
+### Date: Specified Day / specifiedday (internally `WFSpecifiedDate`)
+**Placeholder**:
+```
+June 29, 2007
+```
+**Allows Variables**: true
+
+**Only enabled if**: argument WFDateSpecifier = `Specified Day`
+
+Accepts a string 
+or text
+with the text.
 
 ---
 

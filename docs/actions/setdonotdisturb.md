@@ -1,8 +1,6 @@
 
 ## Set Do Not Disturb / setdonotdisturb (internally `is.workflow.actions.dnd.set`)
 
-> This action is not yet complete. Some arguments may be missing.
-
 
 ## description
 
@@ -13,7 +11,7 @@ Sets the device’s Do Not Disturb to on or off
 
 ### usage
 ```
-setdonotdisturb a{donotdisturb=[string boolean|variable] until=[string <Turned Off | Time | I Leave | Event Ends>] event=[variable] undefined=[???]}
+setdonotdisturb a{donotdisturb=[string boolean|variable] until=[string <Turned Off | Time | I Leave | Event Ends>] event=[variable] time=[string|text]}
 ```
 
 ### arguments
@@ -62,7 +60,20 @@ Accepts a variable.
 
 ---
 
-#### This paramtype is not implemented. WFDateFieldParameter
+### Date: Time / time (internally `Time`)
+**Placeholder**:
+```
+7 PM
+```
+**Allows Variables**: true
+
+**Only enabled if**: argument Enabled = `true`
+**Only enabled if**: argument AssertionType = `Time`
+**Only enabled if**: Device attributes match `{"WFDeviceAttributeSystemVersion":{"WFSystemVersion":"12.0","WFSystemVersionRelation":">="}}` This action is always enabled inside Shortcutslang.
+
+Accepts a string 
+or text
+with the text.
 
 ---
 

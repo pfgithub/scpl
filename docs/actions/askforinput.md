@@ -1,8 +1,6 @@
 
 ## Ask for Input / askforinput (internally `is.workflow.actions.ask`)
 
-> This action is not yet complete. Some arguments may be missing.
-
 > This action requires that Shortcuts has permission to use WFUserInteractionResource.
 
 
@@ -15,7 +13,7 @@ Displays a dialog prompting the user to enter a piece of information.
 
 ### usage
 ```
-askforinput a{question=[string|text] defaultanswer=[string|text] undefined=[???] inputtype=[string <Text | Number | URL | Date>] granularity=[string <Date | Time | Date and Time>] skiptowatchdictation=[string boolean|variable]}
+askforinput a{question=[string|text] defaultanswer=[string|text] defaultanswer=[string|text] inputtype=[string <Text | Number | URL | Date>] granularity=[string <Date | Time | Date and Time>] skiptowatchdictation=[string boolean|variable]}
 ```
 
 ### arguments
@@ -52,7 +50,18 @@ with the text.
 
 ---
 
-#### This paramtype is not implemented. WFDateFieldParameter
+### Date: Default Answer / defaultanswer (internally `WFAskActionDefaultAnswerDate`)
+**Placeholder**:
+```
+June 29, 2007
+```
+**Allows Variables**: true
+
+**Only enabled if**: argument WFInputType = `Date`
+
+Accepts a string 
+or text
+with the text.
 
 ---
 
