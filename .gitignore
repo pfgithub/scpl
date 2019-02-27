@@ -3,3 +3,5 @@ junk
 yarn-error.log
 .nyc_output
 .DS_Store
+test.shortcut
+test.xml

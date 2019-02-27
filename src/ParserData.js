@@ -186,9 +186,9 @@ class ActionParse extends Parse {
 			const {name, type} = this.variable.asNameType(); // TODO not this
 			if(type === "v") {
 				cc.add(setVariable(name));
-				cc.vardata[name] = {action: cc.lastVariableAction};
+				cc.vardata[name] = {action: action};
 			}else if(type === "mv") {
-				cc.magicvardata[name] = {action: cc.lastVariableAction};
+				cc.magicvardata[name] = {action: action};
 			}
 		}
 		return action;
