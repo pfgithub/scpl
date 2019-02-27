@@ -1,4 +1,4 @@
-![Banner image](image0.jpg)
+[![Banner image](image0.jpg)](https://pfgithub.github.io/shortcutslang/)
 Banner by ROP#2788 on the [routinehub.co](https://routinehub.co) discord server.
 
 
