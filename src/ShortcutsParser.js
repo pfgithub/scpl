@@ -9,7 +9,7 @@ const {p, regex, star, plus, optional, or, not, c, o} = require("./ParserHelper.
 
 
 
-o.identifier = regex(/^[A-Za-z0-9@_]+/)
+o.identifier = regex(/^[A-Za-z0-9@._]+/)
 	.scb(([fullmatch]) => new IdentifierParse(fullmatch));
 
 o.newline = p(
@@ -64,13 +64,22 @@ o.barlist = plus(o.barlistitem)
 o.argflagarrow = or(c`->`, c`=>`).scb(_=>null);
 o.argflag = p(o.argflagarrow, _, o.variable)
 	.scb(([,, variable]) => (new VariableFlagParse(variable)));
+o.namedargument = p(
+	o.identifier,
+	_,
+	c`=`,
+	_,
+	o.value
+).scb(([key, , , , value]) => new ArglistParse([{key: key, value: value}]));
 o.argument = or(
-	o.arglist,
+	o.arglist, // arglist has to go first because otherwise it will parse as `a` `{}`, this will be fixed with the new argflag syntax.
+	o.namedargument,
 	o.value,
 	o.inputarg,
 	o.barlist,
-	o.argflag,
-	o.controlFlowMode);
+	o.controlFlowMode,
+	o.argflag
+);
 o.action = or(
 	o.flaggedaction,
 	o.variable,
@@ -117,7 +126,7 @@ o.dictionary = p(
 o.list = p(
 	c`[`,
 	_n,
-	plus(
+	star(
 		p(o.value, _n).scb(([value, ])=>value)
 	),
 	c`]`
@@ -140,7 +149,7 @@ o.keyvaluepair = p(
 
 o.variable = p(
 	o.identifier, c`:`, or(o.identifier, o.string),
-	optional(p(c`.`, or(o.identifier, o.string)).scb(([, val])=>val)).scb(([val])=>val),
+	optional(p(c`:`, or(o.identifier, o.string)).scb(([, val])=>val)).scb(([val])=>val),
 	optional(o.dictionary).scb(([dict]) => dict)
 ).scb(([type, , name, forkey, options])=>new VariableParse(type, name, forkey, options));
 
