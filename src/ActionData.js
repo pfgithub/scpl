@@ -651,8 +651,7 @@ ${JSON.stringify(this._data, null, "\t")}
 		}
 		params.forEach(param => {
 			if(param.special === "InputArg") {
-				param.asAction(cc);
-				actionAbove = cc.lastVariableAction;
+				actionAbove = param.asAction(cc);
 				return;
 			}
 			if(param.special === "ControlFlowMode") {
