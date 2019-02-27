@@ -1,8 +1,6 @@
 
 ## Date / date (internally `is.workflow.actions.date`)
 
-> This action is not yet complete. Some arguments may be missing.
-
 
 ## description
 
@@ -13,7 +11,7 @@ Passes the specified date and time to the next action.
 
 ### usage
 ```
-date a{use=[string <Current Date | Specified Date>] undefined=[???]}
+date a{use=[string <Current Date | Specified Date>] date=[string|text]}
 ```
 
 ### arguments
@@ -38,7 +36,18 @@ containing one of the options:
 
 ---
 
-#### This paramtype is not implemented. WFDateFieldParameter
+### Date: Date / date (internally `WFDateActionDate`)
+**Placeholder**:
+```
+June 29, 2007
+```
+**Allows Variables**: true
+
+**Only enabled if**: argument WFDateActionMode = `Specified Date`
+
+Accepts a string 
+or text
+with the text.
 
 ---
 

@@ -1,3 +1,8 @@
+[![Banner image](image0.jpg)](https://pfgithub.github.io/shortcutslang/)
+
+Banner by ROP#2788 on the [routinehub.co](https://routinehub.co) discord server.
+
+
 
 # Shortcutslang
 
@@ -7,7 +12,7 @@
 
 [Try Shortcutslang in a web browser](https://pfgithub.github.io/shortcutslang/tryit.html)
 
-201/266 builtin actions supported
+206/266 builtin actions supported
 
 ## All Actions:
 
@@ -28,7 +33,7 @@
 - [AirDrop](actions/airdrop)
 - [Append to File](actions/appendtofile)
 - [Append to Note](actions/appendtonote) (Incomplete)
-- [Ask for Input](actions/askforinput) (Incomplete)
+- [Ask for Input](actions/askforinput)
 - [Base64 Encode](actions/base64encode)
 - [Calculate](actions/calculate)
 - [Calculate Statistics](actions/calculatestatistics)
@@ -44,7 +49,7 @@
 - [Continue Shortcut in App](actions/continueshortcutinapp)
 - [Convert Image](actions/convertimage) (Incomplete)
 - [Convert Measurement](actions/convertmeasurement) (Incomplete)
-- [Copy to Clipboard](actions/copytoclipboard) (Incomplete)
+- [Copy to Clipboard](actions/copytoclipboard)
 - [Correct Spelling](actions/correctspelling)
 - [Count](actions/count)
 - [Create Alarm](actions/createalarm) (Incomplete)
@@ -54,7 +59,7 @@
 - [Create Trello Board](actions/createtrelloboard)
 - [Create Trello List](actions/createtrellolist) (Incomplete)
 - [Crop Image](actions/cropimage)
-- [Date](actions/date) (Incomplete)
+- [Date](actions/date)
 - [Delete Files](actions/deletefiles)
 - [Delete Notes](actions/deletenotes)
 - [Delete Photos](actions/deletephotos)
@@ -151,7 +156,7 @@
 - [Get RSS Feeds from Page](actions/getrssfeedsfrompage)
 - [Get Street View Image](actions/getstreetviewimage)
 - [Get Text from Input](actions/gettextfrominput)
-- [Get Time Between Dates](actions/gettimebetweendates) (Incomplete)
+- [Get Time Between Dates](actions/gettimebetweendates)
 - [Get Travel Time](actions/gettraveltime) (Incomplete)
 - [Get Trello Items](actions/gettrelloitems) (Incomplete)
 - [Get Type](actions/gettype)
@@ -233,7 +238,7 @@
 - [Set Brightness](actions/setbrightness)
 - [Set Cellular Data](actions/setcellulardata)
 - [Set Dictionary Value](actions/setdictionaryvalue)
-- [Set Do Not Disturb](actions/setdonotdisturb) (Incomplete)
+- [Set Do Not Disturb](actions/setdonotdisturb)
 - [Set Flashlight](actions/setflashlight)
 - [Set Low Power Mode](actions/setlowpowermode)
 - [Set Name](actions/setname)
@@ -351,7 +356,7 @@
 - [x] Complete - 8: WFExpandingParameter
 - [x] Complete - 9: WFVariablePickerParameter
 - [ ] 14: WFDynamicEnumerationParameter
-- [ ] 17: WFDateFieldParameter
+- [x] Complete - 17: WFDateFieldParameter
 - [x] Complete - 23: WFStepperParameter
 - [x] Complete - 39: WFNumberFieldParameter
 - [x] Complete - 67: WFSwitchParameter

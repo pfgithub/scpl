@@ -395,6 +395,12 @@ with the text.`;
 	}
 };
 
+types.WFDateFieldParameter = class extends types.WFTextInputParameter {
+	constructor(data, name) {
+		super(data, name || "Date");
+	}
+};
+
 types.WFEmailAddressFieldParameter = class extends types.WFParameter {
 	constructor(data) {
 		super(data, "Text Input");
@@ -645,8 +651,7 @@ ${JSON.stringify(this._data, null, "\t")}
 		}
 		params.forEach(param => {
 			if(param.special === "InputArg") {
-				param.asAction(cc);
-				actionAbove = cc.lastVariableAction;
+				actionAbove = param.asAction(cc);
 				return;
 			}
 			if(param.special === "ControlFlowMode") {
@@ -722,7 +727,12 @@ function genReadme() {
 	const typeList = Object.values(_debugTypes)
 		.sort((a, b) => a.count - b.count)
 		.map(({paramClass, count, missing})=>`- [${missing?" ":"x"}] ${missing?"":"Complete - "}${count}: ${paramClass}`);
-	return `
+	return `[![Banner image](image0.jpg)](https://pfgithub.github.io/shortcutslang/)
+
+Banner by ROP#2788 on the [routinehub.co](https://routinehub.co) discord server.
+
+
+
 # Shortcutslang
 
 [Getting Started Guide](https://pfgithub.github.io/shortcutslang/gettingstarted.html)

@@ -15,7 +15,7 @@ Creates an alarm in the Clock app.
 
 ### usage
 ```
-createalarm a{label=[string|text] undefined=[???] undefined=[???]}
+createalarm a{label=[string|text] time=[string|text] undefined=[???]}
 ```
 
 ### arguments
@@ -37,7 +37,18 @@ with the text.
 
 ---
 
-#### This paramtype is not implemented. WFDateFieldParameter
+### Date: Time / time (internally `WFTime`)
+**Placeholder**:
+```
+8 AM
+```
+**Allows Variables**: true
+
+
+
+Accepts a string 
+or text
+with the text.
 
 ---
 

@@ -123,58 +123,221 @@ const coercionTypes = {
 };
 
 const getTypes = { // Copied from shrotcuts-js https://github.com/joshfarrant/shortcuts-js/blob/master/src/interfaces/Variable.ts
-	albumartist: "albumArtist",
-	albumartwork: "artwork",
-	albumtrack: "albumTrackNumber",
-	album: "albumTitle",
-	artist: "artist",
-	birthday: 17,
-	city: "city",
-	comments: "comments",
-	company: 10,
-	composer: "composer",
-	contactphoto: "18446744073709550616",
-	country: "country",
-	creationdate: "WFFileCreationDate",
-	dateadded: "dateAdded",
-	department: 11,
-	disc: "discNumber",
-	duration: "playbackDuration",
-	emailaddress: 4,
-	fileextension: "WFFileExtensionProperty",
-	filesize: "WFFileSizeProperty",
-	firstname: 0,
-	genre: "genre",
-	group: "WFContactItemGroupProperty",
-	hasphoto: "18446744073709550615",
-	isclouditem: "isCloudItem",
-	isexplicit: "isExplicit",
-	jobtitle: 18,
-	lastmodifieddate: "WFFileModificationDate",
-	lastname: 1,
-	lastplayeddate: "lastPlayedDate",
-	lyrics: "lyrics",
-	mediakind: "mediaType",
-	middlename: 6,
-	name: "WFItemName",
-	nickname: 19,
-	notes: 14,
-	phonenumber: 3,
-	phoneticfirstname: 7,
-	phoneticlastname: 9,
-	phoneticmiddlename: 8,
-	playcount: "playCount",
-	prefix: 20,
-	rating: "rating",
-	releasedate: "releaseDate",
-	skipcount: "skipCount",
-	state: "state",
-	streetaddress: 5,
-	street: "street",
-	suffix: 21,
-	title: "title",
-	url: 22,
-	zipcode: "postalCode"
+	// TODO getTypes should be per type rather than one big mess (to support filter files and get details of <Type> for example
+	albumartist: {
+		name: "Album Artist",
+		value: "albumArtist"
+	},
+	albumartwork: {
+		name: "Album Artwork",
+		value: "artwork"
+	},
+	albumtrack: {
+		name: "Album Track #",
+		value: "albumTrackNumber"
+	},
+	album: {
+		name: "Album",
+		value: "albumTitle"
+	},
+	artist: {
+		name: "Artist",
+		value: "artist"
+	},
+	birthday: {
+		name: "Birthday",
+		value: 17
+	},
+	city: {
+		name: "City",
+		value: "city"
+	},
+	comments: {
+		name: "Comments",
+		value: "comments"
+	},
+	company: {
+		name: "Company",
+		value: 10
+	},
+	composer: {
+		name: "Composer",
+		value: "composer"
+	},
+	contactphoto: {
+		name: "Contact Photo",
+		value: "18446744073709550616"
+	},
+	country: {
+		name: "Country",
+		value: "country"
+	},
+	creationdate: {
+		name: "Creation Date",
+		value: "WFFileCreationDate"
+	},
+	dateadded: {
+		name: "Date Added",
+		value: "dateAdded"
+	},
+	department: {
+		name: "Department",
+		value: 11
+	},
+	disc: {
+		name: "Disc #",
+		value: "discNumber"
+	},
+	duration: {
+		name: "Duration",
+		value: "playbackDuration"
+	},
+	emailaddress: {
+		name: "Email Address",
+		value: 4
+	},
+	fileextension: {
+		name: "File Extension",
+		value: "WFFileExtensionProperty"
+	},
+	filesize: {
+		name: "File Size",
+		value: "WFFileSizeProperty"
+	},
+	firstname: {
+		name: "First Name",
+		value: 0
+	},
+	genre: {
+		name: "Genre",
+		value: "genre"
+	},
+	group: {
+		name: "Group",
+		value: "WFContactItemGroupProperty"
+	},
+	hasphoto: {
+		name: "Has Photo",
+		value: "18446744073709550615"
+	},
+	height: {
+		name: "Height"
+	},
+	isclouditem: {
+		name: "Is Cloud Item",
+		value: "isCloudItem"
+	},
+	isexplicit: {
+		name: "Is Explicit",
+		value: "isExplicit"
+	},
+	jobtitle: {
+		name: "Job Title",
+		value: 18
+	},
+	lastmodifieddate: {
+		name: "Last Modified Date",
+		value: "WFFileModificationDate"
+	},
+	lastname: {
+		name: "Last Name",
+		value: 1
+	},
+	lastplayeddate: {
+		name: "Last Played Date",
+		value: "lastPlayedDate"
+	},
+	lyrics: {
+		name: "Lyrics",
+		value: "lyrics"
+	},
+	mediakind: {
+		name: "Media Kind",
+		value: "mediaType"
+	},
+	middlename: {
+		name: "Middle Name",
+		value: 6
+	},
+	name: {
+		name: "Name",
+		value: "WFItemName"
+	},
+	nickname: {
+		name: "Nickname",
+		value: 19
+	},
+	notes: {
+		name: "Notes",
+		value: 14
+	},
+	phonenumber: {
+		name: "Phone Number",
+		value: 3
+	},
+	phoneticfirstname: {
+		name: "Phonetic First Name",
+		value: 7
+	},
+	phoneticlastname: {
+		name: "Phonetic Last Name",
+		value: 9
+	},
+	phoneticmiddlename: {
+		name: "Phonetic Middle Name",
+		value: 8
+	},
+	playcount: {
+		name: "Play Count",
+		value: "playCount"
+	},
+	prefix: {
+		name: "Prefix",
+		value: 20
+	},
+	rating: {
+		name: "Rating",
+		value: "rating"
+	},
+	releasedate: {
+		name: "Release Date",
+		value: "releaseDate"
+	},
+	skipcount: {
+		name: "Skip Count",
+		value: "skipCount"
+	},
+	state: {
+		name: "State",
+		value: "state"
+	},
+	streetaddress: {
+		name: "Street Address",
+		value: 5
+	},
+	street: {
+		name: "Street",
+		value: "street"
+	},
+	suffix: {
+		name: "Suffix",
+		value: 21
+	},
+	title: {
+		name: "Title",
+		value: "title"
+	},
+	url: {
+		name: "URL",
+		value: 22
+	},
+	width: {
+		name: "Width"
+	},
+	zipcode: {
+		name: "ZIP Code",
+		value: "postalCode"
+	}
 };
 
 class Aggrandizements {
@@ -187,9 +350,12 @@ class Aggrandizements {
 		return this.aggrandizements;
 	}
 	property(getType) {
-		const typeValue = coercionTypes[getType];
+		getType = getType.toLowerCase().split` `.join``;
+		const typeValue = getTypes[getType];
+		if(!typeValue) {throw new Error(`\`${type}\` is not a valid coercion class. Valid are: ${Object.keys(getTypes).join`, `}`);}
 		this.aggrandizements.push({
-			PropertyName: typeValue,
+			PropertyName: typeValue.name,
+			...(typeValue.value ? {PropertyUserInfo: typeValue.value} : {}),
 			Type: "WFPropertyVariableAggrandizement"
 		});
 	}
@@ -304,7 +470,7 @@ class NamedVariable extends Variable {
 class MagicVariable extends Variable {
 	constructor(action) {
 		super("ActionOutput");
-		this.varname = action.name;
+		this.varname = action.magicvarname || action.name;
 		this.uuid = action.uuid;
 	}
 	build() {
@@ -439,7 +605,7 @@ class Action {
 		this.parameters = new Parameters();
 		this.actionsAbove = []; // TODO !!!
 		this.actionsBelow = []; // TODO !!!
-
+		this.magicvarname = undefined;
 		if(this.uuid) {this.parameters.set("UUID", this.uuid);}
 	}
 	get variable() {
@@ -455,6 +621,7 @@ class Action {
 		return new MagicVariable(this);
 	}
 	build() {
+		if(this.magicvarname) {this.parameters.set("CustomOutputName", this.magicvarname);}
 		return {
 			WFWorkflowActionIdentifier: this.id,
 			WFWorkflowActionParameters: this.parameters.build()

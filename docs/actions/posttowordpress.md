@@ -19,7 +19,7 @@ The URL of the new blog post
 
 ### usage
 ```
-posttowordpress a{undefined=[???] undefined=[???] title=[string|text] undefined=[???] undefined=[???] undefined=[???] undefined=[???] undefined=[???] advanced=[boolean] allowcomments=[string boolean|variable] slug=[string|text] excerpt=[string|text] undefined=[???] undefined=[???] featuredimage=[variable] customfields=[boolean] customfields=[dictionary]}
+posttowordpress a{undefined=[???] undefined=[???] title=[string|text] undefined=[???] undefined=[???] undefined=[???] undefined=[???] undefined=[???] advanced=[boolean] allowcomments=[string boolean|variable] slug=[string|text] excerpt=[string|text] publishdate=[string|text] undefined=[???] featuredimage=[variable] customfields=[boolean] customfields=[dictionary]}
 ```
 
 ### arguments
@@ -117,7 +117,18 @@ with the text.
 
 ---
 
-#### This paramtype is not implemented. WFDateFieldParameter
+### Date: Publish Date / publishdate (internally `Date`)
+**Placeholder**:
+```
+optional
+```
+**Allows Variables**: true
+
+**Only enabled if**: argument Advanced = `true`
+
+Accepts a string 
+or text
+with the text.
 
 ---
 

@@ -186,19 +186,21 @@ class ActionParse extends Parse {
 			const {name, type} = this.variable.asNameType(); // TODO not this
 			if(type === "v") {
 				cc.add(setVariable(name));
-				cc.vardata[name] = {action: cc.lastVariableAction};
+				cc.vardata[name] = {action: action};
 			}else if(type === "mv") {
-				cc.magicvardata[name] = {action: cc.lastVariableAction};
+				action.magicvarname = `${type}:${name}`;
+				cc.magicvardata[name] = {action: action};
 			}
 		}
 		return action;
 	}
 }
 class VariableParse extends Parse {
-	constructor(type, name, options) {
+	constructor(type, name, forkey, options) {
 		super();
 		this.type = type;
 		this.name = name;
+		this.forkey = forkey;
 		this.options = options;
 	}
 	asStringVariable() {
@@ -231,13 +233,14 @@ class VariableParse extends Parse {
 		const type = this.type.asString();
 		let aggrandizements;
 		if(this.options) {
-			aggrandizements = this.options.asRawDictionary();
+			aggrandizements = this.options.asRawDictionary(); // should be asRawKeyedDictionary and then use asstirng inside
 		}else{
 			aggrandizements = {};
 		}
 
 		if(type === "v") { // named variable
-			const vardata = cc.vardata[name];
+			let vardata = cc.vardata[name];
+			if(name.startsWith("Repeat Index") || name.startsWith("Repeat Item")) {vardata = {};}
 			if(!vardata) {throw new Error(`${type}:${name} is not yet defined.`);}
 			variable = new NamedVariable(name, vardata.type);
 		}else if(type === "mv") { // magic variable
@@ -250,6 +253,10 @@ class VariableParse extends Parse {
 			variable = new Attachment(attachtype[name.toLowerCase()] || (_=>{throw new Error(`Invalid special variable type ${name.toLowerCase()} valid are ${Object.keys(attachtype)}`);})());
 		}else{
 			throw new Error(`Invalid vartype ${type}. Valid are v, mv, s`);
+		}
+		if(this.forkey) {
+			variable.aggrandizements.coerce("dictionary");
+			variable.aggrandizements.forKey(this.forkey.asString());
 		}
 		Object.keys(aggrandizements).forEach(key => {
 			const value = aggrandizements[key];
@@ -264,7 +271,7 @@ class VariableParse extends Parse {
 					break;
 				case "get":
 				case "property":
-					variable.aggrandizements.getProperty(value);
+					variable.aggrandizements.property(value);
 					break;
 				default:
 					throw new Error(`Invalid aggrandizement ${key.toLowerCase()}, valid are [key, as, get]`);

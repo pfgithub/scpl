@@ -19,7 +19,7 @@ The new reminder
 
 ### usage
 ```
-addnewreminder a{title=[string|text] undefined=[???] remindme=[boolean] remind=[string <At Time | At Location>] wheni=[string <Enter | Leave>] radius=[string number] undefined=[???] undefined=[???] notes=[string|text]}
+addnewreminder a{title=[string|text] undefined=[???] remindme=[boolean] remind=[string <At Time | At Location>] wheni=[string <Enter | Leave>] radius=[string number] undefined=[???] alerttime=[string|text] notes=[string|text]}
 ```
 
 ### arguments
@@ -106,7 +106,19 @@ with a number.
 
 ---
 
-#### This paramtype is not implemented. WFDateFieldParameter
+### Date: Alert Time / alerttime (internally `WFAlertCustomTime`)
+**Placeholder**:
+```
+Tomorrow at 4pm
+```
+**Allows Variables**: true
+
+**Only enabled if**: argument WFCalendarItemAlert = `true`
+**Only enabled if**: argument WFAlertTrigger = `At Time`
+
+Accepts a string 
+or text
+with the text.
 
 ---
 

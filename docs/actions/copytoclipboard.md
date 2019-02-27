@@ -1,8 +1,6 @@
 
 ## Copy to Clipboard / copytoclipboard (internally `is.workflow.actions.setclipboard`)
 
-> This action is not yet complete. Some arguments may be missing.
-
 > This action requires that Shortcuts has permission to use WFMainThreadResource.
 
 
@@ -15,7 +13,7 @@ Copies the result of the last action to the clipboard.
 
 ### usage
 ```
-copytoclipboard a{localonly=[string boolean|variable] undefined=[???]}
+copytoclipboard a{localonly=[string boolean|variable] expireat=[string|text]}
 ```
 
 ### arguments
@@ -32,7 +30,18 @@ or a variable.
 
 ---
 
-#### This paramtype is not implemented. WFDateFieldParameter
+### Date: Expire At / expireat (internally `WFExpirationDate`)
+**Placeholder**:
+```
+Today at 3 PM
+```
+**Allows Variables**: true
+
+
+
+Accepts a string 
+or text
+with the text.
 
 ---
 

@@ -44,6 +44,7 @@ const _n = star(or(o.newline, o.space));
 o.escape = p(c`\\`, or(
 	o.parenthesis,
 	c`"`,
+	c`\\`,
 	c`n`.scb(_ => "\n")
 )).scb(([, val])=>val); // \"
 o.char = or(
@@ -64,13 +65,22 @@ o.barlist = plus(o.barlistitem)
 o.argflagarrow = or(c`->`, c`=>`).scb(_=>null);
 o.argflag = p(o.argflagarrow, _, o.variable)
 	.scb(([,, variable]) => (new VariableFlagParse(variable)));
+o.namedargument = p(
+	o.identifier,
+	_,
+	c`=`,
+	_,
+	o.value
+).scb(([key, , , , value]) => new ArglistParse([{key: key, value: value}]));
 o.argument = or(
-	o.arglist,
+	o.arglist, // arglist has to go first because otherwise it will parse as `a` `{}`, this will be fixed with the new argflag syntax.
+	o.namedargument,
 	o.value,
 	o.inputarg,
 	o.barlist,
-	o.argflag,
-	o.controlFlowMode);
+	o.controlFlowMode,
+	o.argflag
+);
 o.action = or(
 	o.flaggedaction,
 	o.variable,
@@ -82,7 +92,7 @@ o.arglist = p(
 	c`}`
 ).scb(([, kvps, ]) => new ArglistParse(kvps));
 o.controlFlowMode = p(c`>c:`, o.identifier, c`:gid:`, o.identifier).scb(([, controlFlowMode, , groupingIdentifier]) => {return {special: "ControlFlowMode", controlFlowMode, groupingIdentifier};}); // TEMP >c:1
-o.inputarg = p(c`^`, o.parenthesis).scb(([, paren]) => {paren.special = "InputArg"; return paren;});
+o.inputarg = p(c`^`, _, o.parenthesis, _).scb(([, , paren, ]) => {paren.special = "InputArg"; return paren;});
 o.flaggedaction = p(o.variable, _, c`=`, _, o.action)
 	.scb(([variable, , , , action]) => {
 		if(action.variable) {throw new Error("Actions cannot output to multiple variables");}
@@ -108,7 +118,7 @@ o.onlyaction = p(o.identifier, _, o.args)
 
 o.args = star(p(o.argument, _).scb(data => data[0]));
 
-o.value = or(o.string, o.identifier, o.parenthesis, o.dictionary, o.list);
+o.value = or(o.variable, o.string, o.identifier, o.parenthesis, o.dictionary, o.list);
 
 o.dictionary = p(
 	c`{`,
@@ -117,7 +127,7 @@ o.dictionary = p(
 o.list = p(
 	c`[`,
 	_n,
-	plus(
+	star(
 		p(o.value, _n).scb(([value, ])=>value)
 	),
 	c`]`
@@ -140,8 +150,9 @@ o.keyvaluepair = p(
 
 o.variable = p(
 	o.identifier, c`:`, or(o.identifier, o.string),
+	optional(p(c`:`, or(o.identifier, o.string)).scb(([, val])=>val)).scb(([val])=>val),
 	optional(o.dictionary).scb(([dict]) => dict)
-).scb(([type, , name, options])=>new VariableParse(type, name, options));
+).scb(([type, , name, forkey, options])=>new VariableParse(type, name, forkey, options));
 
 o.parenthesis = p(c`(`, or(o.action, o.variable), c`)`) .scb(([, actionOrVariable, ]) => actionOrVariable);
 // TODO paramlistparens like (name=hi,value=hmm) for=things like Get Contents Of URL which have lots of complex parameters

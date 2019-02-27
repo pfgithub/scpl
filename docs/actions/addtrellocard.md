@@ -15,7 +15,7 @@ Creates a new card on the specified list and board in your Trello account.
 
 ### usage
 ```
-addtrellocard a{name=[string|text] undefined=[???] undefined=[???] undefined=[???] position=[string <Top | Bottom>] attachments=[variable] wftrellodescription=[string|text]}
+addtrellocard a{name=[string|text] undefined=[???] undefined=[???] due=[string|text] position=[string <Top | Bottom>] attachments=[variable] wftrellodescription=[string|text]}
 ```
 
 ### arguments
@@ -45,7 +45,18 @@ with the text.
 
 ---
 
-#### This paramtype is not implemented. WFDateFieldParameter
+### Date: Due / due (internally `WFTrelloDueDate`)
+**Placeholder**:
+```
+Tomorrow at 1pm
+```
+**Allows Variables**: true
+
+
+
+Accepts a string 
+or text
+with the text.
 
 ---
 

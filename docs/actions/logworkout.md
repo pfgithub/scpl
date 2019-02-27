@@ -15,7 +15,7 @@ Adds a workout into the Health app. You can log all kinds of activities, from ru
 
 ### usage
 ```
-logworkout a{undefined=[???] undefined=[???] undefined=[???] undefined=[???] undefined=[???]}
+logworkout a{undefined=[???] date=[string|text] undefined=[???] undefined=[???] undefined=[???]}
 ```
 
 ### arguments
@@ -26,7 +26,18 @@ logworkout a{undefined=[???] undefined=[???] undefined=[???] undefined=[???] und
 
 ---
 
-#### This paramtype is not implemented. WFDateFieldParameter
+### Date: Date / date (internally `WFWorkoutDate`)
+**Placeholder**:
+```
+optional
+```
+**Allows Variables**: true
+
+
+
+Accepts a string 
+or text
+with the text.
 
 ---
 
