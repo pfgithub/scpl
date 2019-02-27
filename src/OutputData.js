@@ -123,6 +123,7 @@ const coercionTypes = {
 };
 
 const getTypes = { // Copied from shrotcuts-js https://github.com/joshfarrant/shortcuts-js/blob/master/src/interfaces/Variable.ts
+	// TODO getTypes should be per type rather than one big mess (to support filter files and get details of <Type> for example
 	albumartist: {
 		name: "Album Artist",
 		value: "albumArtist"
@@ -218,6 +219,9 @@ const getTypes = { // Copied from shrotcuts-js https://github.com/joshfarrant/sh
 	hasphoto: {
 		name: "Has Photo",
 		value: "18446744073709550615"
+	},
+	height: {
+		name: "Height"
 	},
 	isclouditem: {
 		name: "Is Cloud Item",
@@ -327,6 +331,9 @@ const getTypes = { // Copied from shrotcuts-js https://github.com/joshfarrant/sh
 		name: "URL",
 		value: 22
 	},
+	width: {
+		name: "Width"
+	},
 	zipcode: {
 		name: "ZIP Code",
 		value: "postalCode"
@@ -345,10 +352,10 @@ class Aggrandizements {
 	property(getType) {
 		getType = getType.toLowerCase().split` `.join``;
 		const typeValue = getTypes[getType];
-		if(!typeValue) {throw new Error(`\`${type}\` is not a valid coercion class. Valid are: ${Object.keys(typeValue).join`, `}`);}
+		if(!typeValue) {throw new Error(`\`${type}\` is not a valid coercion class. Valid are: ${Object.keys(getTypes).join`, `}`);}
 		this.aggrandizements.push({
 			PropertyName: typeValue.name,
-			PropertyUserInfo: typeValue.value,
+			...(typeValue.value ? {PropertyUserInfo: typeValue.value} : {}),
 			Type: "WFPropertyVariableAggrandizement"
 		});
 	}
