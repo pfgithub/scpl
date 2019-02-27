@@ -269,7 +269,7 @@ class VariableParse extends Parse {
 					break;
 				case "get":
 				case "property":
-					variable.aggrandizements.getProperty(value);
+					variable.aggrandizements.property(value);
 					break;
 				default:
 					throw new Error(`Invalid aggrandizement ${key.toLowerCase()}, valid are [key, as, get]`);

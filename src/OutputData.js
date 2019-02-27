@@ -187,7 +187,9 @@ class Aggrandizements {
 		return this.aggrandizements;
 	}
 	property(getType) {
-		const typeValue = coercionTypes[getType];
+		getType = getType.toLowerCase().split` `.join``;
+		const typeValue = getTypes[getType];
+		if(!typeValue) {throw new Error(`\`${type}\` is not a valid coercion class. Valid are: ${Object.keys(typeValue).join`, `}`);}
 		this.aggrandizements.push({
 			PropertyName: typeValue,
 			Type: "WFPropertyVariableAggrandizement"
