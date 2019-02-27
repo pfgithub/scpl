@@ -188,6 +188,7 @@ class ActionParse extends Parse {
 				cc.add(setVariable(name));
 				cc.vardata[name] = {action: action};
 			}else if(type === "mv") {
+				action.magicvarname = `${type}:${name}`;
 				cc.magicvardata[name] = {action: action};
 			}
 		}

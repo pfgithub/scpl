@@ -191,7 +191,8 @@ class Aggrandizements {
 		const typeValue = getTypes[getType];
 		if(!typeValue) {throw new Error(`\`${type}\` is not a valid coercion class. Valid are: ${Object.keys(typeValue).join`, `}`);}
 		this.aggrandizements.push({
-			PropertyName: typeValue,
+			PropertyName: getType,
+			PropertyUserInfo: typeValue,
 			Type: "WFPropertyVariableAggrandizement"
 		});
 	}
@@ -306,7 +307,7 @@ class NamedVariable extends Variable {
 class MagicVariable extends Variable {
 	constructor(action) {
 		super("ActionOutput");
-		this.varname = action.name;
+		this.varname = action.magicvarname || action.name;
 		this.uuid = action.uuid;
 	}
 	build() {
