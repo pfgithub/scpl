@@ -13,7 +13,7 @@ Tests if any item passed as input matches the specified condition, and if so, ru
 
 ### usage
 ```
-if a{input=[string <${strInfo}>|variable] number=[string number] value=[string|text]}
+if a{input=[string <Equals | Contains | Is Greater Than | Is Less Than>|variable] number=[string number] value=[string|text]}
   ...
 otherwise
   ...
@@ -156,7 +156,8 @@ with the text.
 	},
 	"Subcategory": "Control Flow",
 	"BlockInfo": {
-		"Example": "\n  ...\notherwise\n  ...\nend"
+		"Example": "\n  ...\notherwise\n  ...\nend",
+		"Completion": "\n  $0\notherwise\nend"
 	}
 }
 ```

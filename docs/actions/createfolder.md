@@ -11,7 +11,7 @@ Makes a new folder in the specified file storage service.
 
 ### usage
 ```
-createfolder a{service=[string <${strInfo}>] path=[string|text]}
+createfolder a{service=[string <iCloud Drive | Dropbox>] path=[string|text]}
 ```
 
 ### arguments

@@ -24,7 +24,7 @@ The distance to the location in miles or kilometers.
 
 ### usage
 ```
-getdistance a{from=[string <${strInfo}>|variable] undefined=[???] routetype=[string <${strInfo}>] undefined=[???]}
+getdistance a{from=[string <Current Location | Custom Location>|variable] undefined=[???] routetype=[string <Direct | Driving | Walking>] undefined=[???]}
 ```
 
 ### arguments

@@ -143,6 +143,9 @@ types.WFParameter = class {
 	shouldEnable(action) {
 		return this.requiredResources.every(resource => resource.shouldEnable(action));
 	}
+	genDocsAutocompletePlaceholder() {
+		return `:${this._data.DefaultValue ? `${this.genDocsArgName()}:"${this._data.DefaultValue}"` : `${this.genDocsArgName()}`}`;
+	}
 	genDocs() {
 		let docs = `### ${this.typeName}: ${this.name} / ${this.shortName} (internally \`${this.internalName}\`)\n`;
 		if(this._data.Placeholder) {docs += `**Placeholder**:
@@ -168,9 +171,12 @@ types.WFEnumerationParameter = class extends types.WFParameter {
 		super(data, name || "Enumeration");
 		this.options = this._data.Items;
 	}
+	genDocsAutocompletePlaceholder() {
+		return `|${this.options.map(o=>`"${o}"`).join`,`}${this.allowsVariables?`,variable`:``}|`;
+	}
 	genDocsArgName() {
 		const strInfo = this.options.join` | `;
-		return this.allowsVariables ? `[string <\${strInfo}>]` : `[string <\${strInfo}>|variable]`;
+		return this.allowsVariables ? `[string <${strInfo}>]` : `[string <${strInfo}>|variable]`;
 	}
 	genDocs() {
 		return `${super.genDocs()}
@@ -547,6 +553,29 @@ class WFAction {
 	get requiresInput() {
 		return true;
 	}
+	genDocsParams() {
+		return this._parameters.map(param => {
+			if(typeof param === "string") {
+				return {argType: `[???]`};
+			}
+			return {
+				argName: param.shortName,
+				argType: param.genDocsArgName(),
+				argAutocompletePlaceholder: param.genDocsAutocompletePlaceholder()
+			};
+		} );
+	}
+	genDocsAutocompleteUsage() {
+		return `${this.shortName} a{
+${this.genDocsParams().map((arg, i) => `  ${arg.argName}=\${${i+1}${arg.argAutocompletePlaceholder}}`).join(",\n")}
+}${this._data.BlockInfo ? this._data.BlockInfo.Completion : ""}
+`;
+	}
+	genDocsUsage() {
+		return `\`\`\`
+${this.shortName} a{${this.genDocsParams().map(({argName, argType}) => `${argName}=${argType}`).join` `}}${this._data.BlockInfo ? this._data.BlockInfo.Example : ""}
+\`\`\``;
+	}
 	genDocs() {
 		const docs = `
 ## ${this.name} / ${this.shortName} (internally \`${this.internalName}\`)
@@ -575,9 +604,7 @@ ${this._data.Description.DescriptionInput}
 ${this._data.Description.DescriptionResult}` : ""}` : ""}
 
 ### usage
-\`\`\`
-${this.shortName} a{${this._parameters.map(param => `${param.shortName}=${typeof param === "string" ? `[???]` : param.genDocsArgName()}`).join` `}}${this._data.BlockInfo ? this._data.BlockInfo.Example : ""}
-\`\`\`
+${this.genDocsUsage()}
 
 ### arguments
 

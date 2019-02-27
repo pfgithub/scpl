@@ -11,7 +11,7 @@ Calculates statistics on the numbers that are provided as input.
 
 ### usage
 ```
-calculatestatistics a{operation=[string <${strInfo}>]}
+calculatestatistics a{operation=[string <Average | Minimum | Maximum | Sum | Median | Mode | Range | Standard Deviation>]}
 ```
 
 ### arguments

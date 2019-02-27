@@ -17,7 +17,7 @@ The saved files
 
 ### usage
 ```
-savefile a{service=[string <${strInfo}>] askwheretosave=[string boolean|variable] destinationpath=[string|text] overwriteiffileexists=[string boolean|variable]}
+savefile a{service=[string <iCloud Drive | Dropbox>] askwheretosave=[string boolean|variable] destinationpath=[string|text] overwriteiffileexists=[string boolean|variable]}
 ```
 
 ### arguments

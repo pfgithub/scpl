@@ -11,7 +11,7 @@ Encodes or decodes text or files using Base64 encoding.
 
 ### usage
 ```
-base64encode a{mode=[string <${strInfo}>] linebreaks=[string <${strInfo}>]}
+base64encode a{mode=[string <Encode | Decode>] linebreaks=[string <None | Every 64 Characters | Every 76 Characters>]}
 ```
 
 ### arguments

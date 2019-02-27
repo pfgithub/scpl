@@ -11,7 +11,7 @@ Gets information about the current device.
 
 ### usage
 ```
-getdevicedetails a{get=[string <${strInfo}>]}
+getdevicedetails a{get=[string <Device Name | Device Model | System Version | Screen Width | Screen Height | Current Volume | Current Brightness>]}
 ```
 
 ### arguments

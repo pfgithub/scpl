@@ -15,7 +15,7 @@ Gets cards, lists, or boards in your Trello account.
 
 ### usage
 ```
-gettrelloitems a{get=[string <${strInfo}>] undefined=[???] undefined=[???]}
+gettrelloitems a{get=[string <Boards | Lists | Cards>] undefined=[???] undefined=[???]}
 ```
 
 ### arguments

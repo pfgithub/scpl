@@ -11,7 +11,7 @@ Returns the local or external IP address of the device.
 
 ### usage
 ```
-getcurrentipaddress a{address=[string <${strInfo}>] type=[string <${strInfo}>]}
+getcurrentipaddress a{address=[string <External | Local>] type=[string <IPv4 | IPv6>]}
 ```
 
 ### arguments

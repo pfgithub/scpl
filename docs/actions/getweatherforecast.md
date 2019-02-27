@@ -15,7 +15,7 @@ Gets an hourly or daily weather forecast at the specified location.
 
 ### usage
 ```
-getweatherforecast a{at=[string <${strInfo}>|variable] undefined=[???] type=[string <${strInfo}>]}
+getweatherforecast a{at=[string <Current Location | Custom Location>|variable] undefined=[???] type=[string <Hourly | Daily>]}
 ```
 
 ### arguments

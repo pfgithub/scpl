@@ -13,7 +13,7 @@ Get files from iCloud Drive or Dropbox. Turn off “Show Document Picker” to s
 
 ### usage
 ```
-getfile a{service=[string <${strInfo}>] showdocumentpicker=[string boolean|variable] selectmultiple=[string boolean|variable] filepath=[string|text] initialpath=[string|text] errorifnotfound=[string boolean|variable]}
+getfile a{service=[string <iCloud Drive | Dropbox>] showdocumentpicker=[string boolean|variable] selectmultiple=[string boolean|variable] filepath=[string|text] initialpath=[string|text] errorifnotfound=[string boolean|variable]}
 ```
 
 ### arguments

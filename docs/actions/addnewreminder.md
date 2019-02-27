@@ -19,7 +19,7 @@ The new reminder
 
 ### usage
 ```
-addnewreminder a{title=[string|text] undefined=[???] remindme=[boolean] remind=[string <${strInfo}>] wheni=[string <${strInfo}>] radius=[string number] undefined=[???] undefined=[???] notes=[string|text]}
+addnewreminder a{title=[string|text] undefined=[???] remindme=[boolean] remind=[string <At Time | At Location>] wheni=[string <Enter | Leave>] radius=[string number] undefined=[???] undefined=[???] notes=[string|text]}
 ```
 
 ### arguments

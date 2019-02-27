@@ -13,7 +13,7 @@ Passes the specified date and time to the next action.
 
 ### usage
 ```
-date a{use=[string <${strInfo}>] undefined=[???]}
+date a{use=[string <Current Date | Specified Date>] undefined=[???]}
 ```
 
 ### arguments

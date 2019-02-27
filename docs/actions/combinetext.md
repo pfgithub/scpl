@@ -11,7 +11,7 @@ Joins text together, inserting the separator between each join.
 
 ### usage
 ```
-combinetext a{separator=[string <${strInfo}>] custom=[string|text]}
+combinetext a{separator=[string <New Lines | Spaces | Custom>] custom=[string|text]}
 ```
 
 ### arguments

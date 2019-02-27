@@ -11,7 +11,7 @@ Gets the text that matched a particular capture group or all of the capture grou
 
 ### usage
 ```
-getgroupfrommatchedtext a{get=[string <${strInfo}>] groupindex=[string number]}
+getgroupfrommatchedtext a{get=[string <Group At Index | All Groups>] groupindex=[string number]}
 ```
 
 ### arguments

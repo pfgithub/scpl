@@ -11,7 +11,7 @@ Reverses the direction of images either horizontally or vertically.
 
 ### usage
 ```
-flipimage a{direction=[string <${strInfo}>]}
+flipimage a{direction=[string <Horizontal | Vertical>]}
 ```
 
 ### arguments

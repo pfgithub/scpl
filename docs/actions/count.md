@@ -11,7 +11,7 @@ Counts the number of items, characters, words, sentences, or lines passed as inp
 
 ### usage
 ```
-count a{count=[string <${strInfo}>]}
+count a{count=[string <Items | Characters | Words | Sentences | Lines>]}
 ```
 
 ### arguments

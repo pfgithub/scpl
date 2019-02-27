@@ -15,7 +15,7 @@ Calls the contact passed in as input using FaceTime.
 
 ### usage
 ```
-facetime a{undefined=[???] calltype=[string <${strInfo}>]}
+facetime a{undefined=[???] calltype=[string <Video | Audio>]}
 ```
 
 ### arguments

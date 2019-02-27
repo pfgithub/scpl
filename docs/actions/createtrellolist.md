@@ -15,7 +15,7 @@ Creates a new list on the specified board in your Trello account.
 
 ### usage
 ```
-createtrellolist a{name=[string|text] undefined=[???] position=[string <${strInfo}>]}
+createtrellolist a{name=[string|text] undefined=[???] position=[string <Top | Bottom>]}
 ```
 
 ### arguments

@@ -19,7 +19,7 @@ The URL of the new post
 
 ### usage
 ```
-posttotumblr a{undefined=[???] undefined=[???] undefined=[???] poststatus=[string <${strInfo}>] title=[string|text] source=[string|text] caption=[string|text] tags=[string|text] description=[string|text]}
+posttotumblr a{undefined=[???] undefined=[???] undefined=[???] poststatus=[string <Post Now | Add to Queue | Save as Draft | Post Privately>] title=[string|text] source=[string|text] caption=[string|text] tags=[string|text] description=[string|text]}
 ```
 
 ### arguments

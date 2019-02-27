@@ -15,7 +15,7 @@ Displays a dialog prompting the user to enter a piece of information.
 
 ### usage
 ```
-askforinput a{question=[string|text] defaultanswer=[string|text] undefined=[???] inputtype=[string <${strInfo}>] granularity=[string <${strInfo}>] skiptowatchdictation=[string boolean|variable]}
+askforinput a{question=[string|text] defaultanswer=[string|text] undefined=[???] inputtype=[string <Text | Number | URL | Date>] granularity=[string <Date | Time | Date and Time>] skiptowatchdictation=[string boolean|variable]}
 ```
 
 ### arguments

@@ -20,7 +20,7 @@ The content to add to your note
 
 ### usage
 ```
-appendtonote a{notetitle=[string|text] mode=[string <${strInfo}>] undefined=[???]}
+appendtonote a{notetitle=[string|text] mode=[string <Append | Prepend>] undefined=[???]}
 ```
 
 ### arguments

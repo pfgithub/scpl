@@ -11,7 +11,7 @@ Generates a QR code from the input text.
 
 ### usage
 ```
-generateqrcode a{errorcorrection=[string <${strInfo}>]}
+generateqrcode a{errorcorrection=[string <Low | Medium | Quartile | High>]}
 ```
 
 ### arguments

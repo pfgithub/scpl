@@ -11,7 +11,7 @@ Encodes or decodes text passed into the action to be suitable for inclusion in a
 
 ### usage
 ```
-urlencode a{mode=[string <${strInfo}>]}
+urlencode a{mode=[string <Encode | Decode>]}
 ```
 
 ### arguments

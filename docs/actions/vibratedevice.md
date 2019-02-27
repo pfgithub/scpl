@@ -13,7 +13,7 @@ Vibrates the device for a short amount of time.
 
 ### usage
 ```
-vibratedevice a{hapticpattern=[string <${strInfo}>]}
+vibratedevice a{hapticpattern=[string <Default | Up Direction | Down Direction | Success | Failure | Retry | Start | Stop | Click>]}
 ```
 
 ### arguments

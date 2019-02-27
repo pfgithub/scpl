@@ -13,7 +13,7 @@ Sets the device’s Do Not Disturb to on or off
 
 ### usage
 ```
-setdonotdisturb a{donotdisturb=[string boolean|variable] until=[string <${strInfo}>] event=[variable] undefined=[???]}
+setdonotdisturb a{donotdisturb=[string boolean|variable] until=[string <Turned Off | Time | I Leave | Event Ends>] event=[variable] undefined=[???]}
 ```
 
 ### arguments

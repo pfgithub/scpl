@@ -24,7 +24,7 @@ The amount of time it will take to get to the destination. If passed into an act
 
 ### usage
 ```
-gettraveltime a{from=[string <${strInfo}>|variable] undefined=[???] transportationmode=[string <${strInfo}>]}
+gettraveltime a{from=[string <Current Location | Custom Location>|variable] undefined=[???] transportationmode=[string <Driving | Walking | Transit>]}
 ```
 
 ### arguments

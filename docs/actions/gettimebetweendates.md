@@ -13,7 +13,7 @@ Subtracts the specified date from the date passed into the action. For example, 
 
 ### usage
 ```
-gettimebetweendates a{gettimefrom=[string <${strInfo}>|variable] undefined=[???] in=[string <${strInfo}>]}
+gettimebetweendates a{gettimefrom=[string <Right Now | Other>|variable] undefined=[???] in=[string <Total Time | Seconds | Minutes | Hours | Days | Weeks | Months | Years>]}
 ```
 
 ### arguments

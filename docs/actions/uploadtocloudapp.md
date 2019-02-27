@@ -17,7 +17,7 @@ CloudApp URL
 
 ### usage
 ```
-uploadtocloudapp a{linkprivacy=[string <${strInfo}>]}
+uploadtocloudapp a{linkprivacy=[string <Private | Public>]}
 ```
 
 ### arguments

@@ -13,7 +13,7 @@ Gets information about the currently connected networks.
 
 ### usage
 ```
-getnetworkdetails a{undefined=[???] get=[string <${strInfo}>] get=[string <${strInfo}>]}
+getnetworkdetails a{undefined=[???] get=[string <Network Name | BSSID>] get=[string <Carrier Name | Radio Technology | Country Code>]}
 ```
 
 ### arguments

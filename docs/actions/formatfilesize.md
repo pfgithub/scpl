@@ -16,7 +16,7 @@ A file size from another action, or a number of bytes
 
 ### usage
 ```
-formatfilesize a{format=[string <${strInfo}>] includeunits=[string boolean|variable]}
+formatfilesize a{format=[string <Automatic | Bytes | KB | MB | GB | TB | PB | EB | ZB | YB or Higher>] includeunits=[string boolean|variable]}
 ```
 
 ### arguments

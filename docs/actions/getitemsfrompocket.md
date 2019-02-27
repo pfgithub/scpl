@@ -13,7 +13,7 @@ Returns items in your Pocket account.
 
 ### usage
 ```
-getitemsfrompocket a{wfpocketitemcount=[string integer] type=[string <${strInfo}>] search=[string|text] tag=[string|text]}
+getitemsfrompocket a{wfpocketitemcount=[string integer] type=[string <Unread | Archived | All>] search=[string|text] tag=[string|text]}
 ```
 
 ### arguments

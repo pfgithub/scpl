@@ -11,7 +11,7 @@ Turns on or off the flashlight near the device's camera.
 
 ### usage
 ```
-setflashlight a{flashlight=[string <${strInfo}>] brightness=[string number]}
+setflashlight a{flashlight=[string <Off | On | Toggle>] brightness=[string number]}
 ```
 
 ### arguments

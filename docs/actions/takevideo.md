@@ -17,7 +17,7 @@ Video from the camera.
 
 ### usage
 ```
-takevideo a{camera=[string <${strInfo}>] quality=[string <${strInfo}>] startrecording=[string <${strInfo}>]}
+takevideo a{camera=[string <Front | Back>] quality=[string <Low | Medium | High>] startrecording=[string <On Tap | Immediately>]}
 ```
 
 ### arguments

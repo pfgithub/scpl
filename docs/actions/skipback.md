@@ -13,7 +13,7 @@ Skips to the previous song in the current music queue.
 
 ### usage
 ```
-skipback a{skipto=[string <${strInfo}>]}
+skipback a{skipto=[string <Beginning | Previous Song>]}
 ```
 
 ### arguments

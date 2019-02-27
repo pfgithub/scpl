@@ -11,7 +11,7 @@ Returns one or more items from the list passed as input. You can get the first i
 
 ### usage
 ```
-getitemfromlist a{get=[string <${strInfo}>] index=[string number] getitemsfromindex=[string number] toindex=[string number]}
+getitemfromlist a{get=[string <First Item | Last Item | Random Item | Item At Index | Items in Range>] index=[string number] getitemsfromindex=[string number] toindex=[string number]}
 ```
 
 ### arguments

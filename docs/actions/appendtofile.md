@@ -15,7 +15,7 @@ The file that was appended to
 
 ### usage
 ```
-appendtofile a{service=[string <${strInfo}>] filepath=[string|text] mode=[string <${strInfo}>] makenewline=[string boolean|variable]}
+appendtofile a{service=[string <iCloud Drive | Dropbox>] filepath=[string|text] mode=[string <Append | Prepend>] makenewline=[string boolean|variable]}
 ```
 
 ### arguments

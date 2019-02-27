@@ -22,7 +22,7 @@ The combined images
 
 ### usage
 ```
-overlayimage a{image=[variable] showimageeditor=[string boolean|variable] position=[string <${strInfo}>] width=[string number] height=[string number] xcoordinate=[string number] ycoordinate=[string number] rotationdegrees=[string number] opacity=[string number]}
+overlayimage a{image=[variable] showimageeditor=[string boolean|variable] position=[string <Center | Top Left | Top Right | Bottom Left | Bottom Right | Custom>] width=[string number] height=[string number] xcoordinate=[string number] ycoordinate=[string number] rotationdegrees=[string number] opacity=[string number]}
 ```
 
 ### arguments

@@ -19,7 +19,7 @@ The new event
 
 ### usage
 ```
-addnewevent a{title=[string|text] location=[string|text] undefined=[???] date=[boolean] undefined=[???] undefined=[???] allday=[string boolean|variable] alert=[string <${strInfo}>] alerttime=[string|text] notes=[string|text]}
+addnewevent a{title=[string|text] location=[string|text] undefined=[???] date=[boolean] undefined=[???] undefined=[???] allday=[string boolean|variable] alert=[string <At time of event | 5 minutes before | 15 minutes before | 30 minutes before | 1 hour before | 2 hours before | 1 day before | 2 days before | 1 week before | Custom>] alerttime=[string|text] notes=[string|text]}
 ```
 
 ### arguments

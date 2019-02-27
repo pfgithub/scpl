@@ -15,7 +15,7 @@ Gets the current weather conditions at the specified location.
 
 ### usage
 ```
-getcurrentweather a{at=[string <${strInfo}>|variable] undefined=[???]}
+getcurrentweather a{at=[string <Current Location | Custom Location>|variable] undefined=[???]}
 ```
 
 ### arguments

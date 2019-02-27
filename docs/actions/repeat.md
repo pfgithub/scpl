@@ -76,7 +76,8 @@ containing an integer value.
 	],
 	"Subcategory": "Control Flow",
 	"BlockInfo": {
-		"Example": "\n  ...\nend"
+		"Example": "\n  ...\nend",
+		"Completion": "\n  $0\nend"
 	}
 }
 ```

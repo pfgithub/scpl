@@ -13,7 +13,7 @@ Searches the web for the text provided as input.
 
 ### usage
 ```
-searchweb a{search=[string <${strInfo}>]}
+searchweb a{search=[string <Amazon | Bing | DuckDuckGo | eBay | Google | Reddit | Twitter | Yahoo! | YouTube>]}
 ```
 
 ### arguments

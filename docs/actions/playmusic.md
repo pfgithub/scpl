@@ -18,7 +18,7 @@ The music to be played
 
 ### usage
 ```
-playmusic a{shuffle=[string <${strInfo}>] repeat=[string <${strInfo}>]}
+playmusic a{shuffle=[string <Off | Songs>] repeat=[string <None | One | All>]}
 ```
 
 ### arguments

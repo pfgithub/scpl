@@ -15,7 +15,7 @@ The fetched data
 
 ### usage
 ```
-getcontentsofurl a{advanced=[boolean] method=[string <${strInfo}>] headers=[boolean] headers=[dictionary] requestbody=[string <${strInfo}>|variable] formvalues=[dictionary] jsonvalues=[dictionary] file=[variable]}
+getcontentsofurl a{advanced=[boolean] method=[string <GET | POST | PUT | PATCH | DELETE>] headers=[boolean] headers=[dictionary] requestbody=[string <JSON | Form | File>|variable] formvalues=[dictionary] jsonvalues=[dictionary] file=[variable]}
 ```
 
 ### arguments

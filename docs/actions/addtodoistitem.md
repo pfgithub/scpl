@@ -24,7 +24,7 @@ The URL of the newly created item
 
 ### usage
 ```
-addtodoistitem a{content=[string|text] undefined=[???] undefined=[???] undefined=[???] remindertype=[string <${strInfo}>] priority=[string <${strInfo}>] notes=[string|text]}
+addtodoistitem a{content=[string|text] undefined=[???] undefined=[???] undefined=[???] remindertype=[string <Email | Push Notification | Text Message>] priority=[string <4 | 3 | 2 | 1>] notes=[string|text]}
 ```
 
 ### arguments

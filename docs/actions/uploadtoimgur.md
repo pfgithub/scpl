@@ -13,7 +13,7 @@ Uploads the input to Imgur.
 
 ### usage
 ```
-uploadtoimgur a{uploadanonymously=[string boolean|variable] directlink=[string boolean|variable] createalbum=[string boolean|variable] albumlayout=[string <${strInfo}>] albumprivacy=[string <${strInfo}>] title=[string|text] description=[string|text]}
+uploadtoimgur a{uploadanonymously=[string boolean|variable] directlink=[string boolean|variable] createalbum=[string boolean|variable] albumlayout=[string <Blog | Grid | Horizontal | Vertical>] albumprivacy=[string <Public | Hidden | Secret>] title=[string|text] description=[string|text]}
 ```
 
 ### arguments

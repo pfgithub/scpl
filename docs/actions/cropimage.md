@@ -11,7 +11,7 @@ Crops images to a smaller rectangle.
 
 ### usage
 ```
-cropimage a{position=[string <${strInfo}>] xcoordinate=[string number] ycoordinate=[string number] width=[string number] height=[string number]}
+cropimage a{position=[string <Center | Top Left | Top Right | Bottom Left | Bottom Right | Custom>] xcoordinate=[string number] ycoordinate=[string number] width=[string number] height=[string number]}
 ```
 
 ### arguments

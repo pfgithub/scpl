@@ -11,7 +11,7 @@ Changes the case of the text passed into the action to UPPERCASE, lowercase, or 
 
 ### usage
 ```
-changecase a{case=[string <${strInfo}>]}
+changecase a{case=[string <UPPERCASE | lowercase | Capitalize Every Word | Capitalize with Title Case | Capitalize with sentence case. | cApItAlIzE wItH aLtErNaTiNg CaSe.>]}
 ```
 
 ### arguments

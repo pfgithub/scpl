@@ -15,7 +15,7 @@ Transcribes what you say aloud into text and passes the result to the next actio
 
 ### usage
 ```
-dictatetext a{undefined=[???] stoplistening=[string <${strInfo}>]}
+dictatetext a{undefined=[???] stoplistening=[string <After Pause | After Short Pause | On Tap>]}
 ```
 
 ### arguments

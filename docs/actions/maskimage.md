@@ -20,7 +20,7 @@ The masked images
 
 ### usage
 ```
-maskimage a{type=[string <${strInfo}>|variable] cornerradius=[string number] imagemask=[variable]}
+maskimage a{type=[string <Rounded Rectangle | Ellipse | Icon | Custom Image>|variable] cornerradius=[string number] imagemask=[variable]}
 ```
 
 ### arguments

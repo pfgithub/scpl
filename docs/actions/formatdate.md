@@ -13,7 +13,7 @@ Formats a date and time into text.
 
 ### usage
 ```
-formatdate a{dateformat=[string <${strInfo}>] alternateformat=[string <${strInfo}>] timeformat=[string <${strInfo}>] includeiso8601time=[string boolean|variable] undefined=[???]}
+formatdate a{dateformat=[string <None | Short | Medium | Long | Relative | RFC 2822 | ISO 8601 | Custom>] alternateformat=[string <Short | Medium | Long>] timeformat=[string <None | Short | Medium | Long | Relative>] includeiso8601time=[string boolean|variable] undefined=[???]}
 ```
 
 ### arguments

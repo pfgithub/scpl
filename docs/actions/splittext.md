@@ -11,7 +11,7 @@ Separates text passed into the action into a list.
 
 ### usage
 ```
-splittext a{separator=[string <${strInfo}>] custom=[string|text]}
+splittext a{separator=[string <New Lines | Spaces | Every Character | Custom>] custom=[string|text]}
 ```
 
 ### arguments

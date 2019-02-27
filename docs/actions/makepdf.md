@@ -11,7 +11,7 @@ Makes a PDF out of the input. The resulting PDF can optionally include a quarter
 
 ### usage
 ```
-makepdf a{includemargin=[string boolean|variable] include=[string <${strInfo}>] page=[string number] startpage=[string number] endpage=[string number]}
+makepdf a{includemargin=[string boolean|variable] include=[string <All Pages | Single Page | Page Range>] page=[string number] startpage=[string number] endpage=[string number]}
 ```
 
 ### arguments

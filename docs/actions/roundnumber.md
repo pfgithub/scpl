@@ -11,7 +11,7 @@ Rounds the number(s) passed into the action.
 
 ### usage
 ```
-roundnumber a{round=[string <${strInfo}>] mode=[string <${strInfo}>] wfrounddecimalplaces=[string integer]}
+roundnumber a{round=[string <Left of Decimal | Right of Decimal>] mode=[string <Normal | Always Round Up | Always Round Down>] wfrounddecimalplaces=[string integer]}
 ```
 
 ### arguments

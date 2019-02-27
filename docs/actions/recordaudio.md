@@ -15,7 +15,7 @@ Uses the microphone to record audio.
 
 ### usage
 ```
-recordaudio a{audioquality=[string <${strInfo}>] startrecording=[string <${strInfo}>] finishrecording=[string <${strInfo}>] undefined=[???]}
+recordaudio a{audioquality=[string <Normal | Very High>] startrecording=[string <On Tap | Immediately>] finishrecording=[string <On Tap | After Time>] undefined=[???]}
 ```
 
 ### arguments

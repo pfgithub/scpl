@@ -11,7 +11,7 @@ Gets the specified part of the URL passed into the action.
 
 ### usage
 ```
-getcomponentofurl a{component=[string <${strInfo}>]}
+getcomponentofurl a{component=[string <Scheme | User | Password | Host | Port | Path | Query | Fragment>]}
 ```
 
 ### arguments

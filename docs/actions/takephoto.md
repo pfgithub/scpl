@@ -17,7 +17,7 @@ Photo from the camera.
 
 ### usage
 ```
-takephoto a{showcamerapreview=[string boolean|variable] wfphotocount=[string integer] camera=[string <${strInfo}>]}
+takephoto a{showcamerapreview=[string boolean|variable] wfphotocount=[string integer] camera=[string <Front | Back>]}
 ```
 
 ### arguments

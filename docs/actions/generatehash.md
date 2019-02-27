@@ -11,7 +11,7 @@ Generates a MD5/SHA1 hash from the input.
 
 ### usage
 ```
-generatehash a{type=[string <${strInfo}>]}
+generatehash a{type=[string <MD5 | SHA1 | SHA256 | SHA512>]}
 ```
 
 ### arguments

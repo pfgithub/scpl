@@ -13,7 +13,7 @@ Imports the photos passed as input into Lightroom
 
 ### usage
 ```
-importtolightroom a{applypreset=[string boolean|variable] presetgroup=[string <${strInfo}>] undefined=[???]}
+importtolightroom a{applypreset=[string boolean|variable] presetgroup=[string <B&W | Color | Creative | Curve | Grain | Sharpening | Vignetting>] undefined=[???]}
 ```
 
 ### arguments

@@ -11,7 +11,7 @@ Combines the images passed into the action horizontally, vertically, or in a gri
 
 ### usage
 ```
-combineimages a{mode=[string <${strInfo}>] direction=[string <${strInfo}>] spacing=[string number]}
+combineimages a{mode=[string <Side-by-Side | Grid>] direction=[string <Horizontal | Vertical>] spacing=[string number]}
 ```
 
 ### arguments

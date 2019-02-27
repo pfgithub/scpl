@@ -15,7 +15,7 @@ Creates a new card on the specified list and board in your Trello account.
 
 ### usage
 ```
-addtrellocard a{name=[string|text] undefined=[???] undefined=[???] undefined=[???] position=[string <${strInfo}>] attachments=[variable] wftrellodescription=[string|text]}
+addtrellocard a{name=[string|text] undefined=[???] undefined=[???] undefined=[???] position=[string <Top | Bottom>] attachments=[variable] wftrellodescription=[string|text]}
 ```
 
 ### arguments
