@@ -366,8 +366,10 @@ class Text extends Parameter {
 			attachmentsByRange: {},
 			string: ""
 		};
+		let hasAttachments = false;
 		this._components.forEach(component => {
 			if(component instanceof Attachment) {
+				hasAttachments = true;
 				result.attachmentsByRange[`{${result.string.length}, 1}`] = component.build();
 				result.string += "\uFFFC"; // special character to distinguish variables
 				return;
@@ -378,7 +380,7 @@ class Text extends Parameter {
 			}
 			throw new Error("Invalid component type. This should never happen.");
 		});
-		if(!this.hasAttachments) {return result.string;}
+		if(!hasAttachments) {return result.string;}
 		return {
 			Value: result,
 			WFSerializationType: SERIALIZATIONTYPE.string
