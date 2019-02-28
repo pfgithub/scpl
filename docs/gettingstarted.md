@@ -14,6 +14,8 @@ For example, the text action is named [Text](actions/text) and has one field, th
 Text "This is my text"
 ```
 
+| Actions shown | [Text](actions/text) |
+
 ### Argument Labels
 
 More complex actions have multiple fields
@@ -28,9 +30,11 @@ For these actions, you can put labels to know which field is which.
 GetFile service="iCloud Drive" showdocumentpicker=true selectmultiple=false
 ```
 
+| Actions shown | [GetFile](actions/getfile) |
+
 ### Block Actions
 
-Other actions have blocks, like the if action and choose from menu action
+Other actions have blocks, like the [if action](actions/if) and [choose from menu action](actions/choosefrommenu)
 
 ```coffeescript
 Text "hello"
@@ -40,6 +44,8 @@ Otherwise
 	ShowAlert title="Alert!" message="It does not equal hello"
 End If
 ```
+
+| Actions shown | [If](actions/if) | [ShowAlert](actions/showalert) | [Text](actions/text) |
 
 ### Variables
 
@@ -58,6 +64,8 @@ Text "Backslash parenthesis are used to put a variable inside text, like \(v:Thi
 Text
 | The same is used for \(v:Variables) in barlists.
 ```
+
+| Actions shown | [Text](actions/text) |
 
 #### Setting Variables
 
@@ -81,6 +89,8 @@ ShowResult "Magic! \(mv:Magic)"
 ```
 
 You cannot set special variables, they are special.
+
+| Actions shown | [Text](actions/text) | [ShowResult](actions/showresult) |
 
 ## Field Types
 
@@ -114,7 +124,7 @@ Comment
 | \(v:Variable) # Not Allowed
 ```
 
-Actions shown: [Text](actions/text) | [Comment](actions/comment)
+| Actions shown | [Text](actions/text) | [Comment](actions/comment) |
 
 ### Enum (Select) Field
 
@@ -132,7 +142,7 @@ Some enum fields allow variables, and some do not.
 Calculate v:Operand 3
 ```
 
-Actions shown: [Calculate](actions/calculate)
+| Actions shown | [Calculate](actions/calculate) |
 
 If an enum field does not allow variables, it will error when you try to use a variable.
 
@@ -166,7 +176,7 @@ Number v:MyVariable
 Number "-\(v:MyVariable)" # Not Allowed
 ```
 
-Actions shown: [Number](actions/number)
+| Actions shown | [Number](actions/number) |
 
 ### Stepper Number Fields
 
@@ -184,7 +194,7 @@ Repeat 5.5 # Not allowed
 End Repeat
 ```
 
-Actions shown: [Repeat](actions/repeat)
+| Actions shown | [Repeat](actions/repeat) |
 
 ### Slider Number Fields
 
@@ -198,7 +208,7 @@ SetBrightness 0.5
 SetBrightness 1.1 # Not Allowed
 ```
 
-Actions shown: [SetBrightness](actions/setbrightness)
+| Actions shown | [SetBrightness](actions/setbrightness) |
 
 ### Variable Picker Fields
 
@@ -212,7 +222,7 @@ GetVariable v:MyVariable
 GetVariable "MyVariable" # Not Allowed
 ```
 
-Actions shown: [getvariable](actions/getvariable)
+| Actions shown | [getvariable](actions/getvariable) |
 
 ###  Switch (or Expanding or Boolean) Fields
 
@@ -234,7 +244,7 @@ Some switch fields allow variables
 SetWifi v:Wifi
 ```
 
-Actions shown: [SetWifi](actions/setwifi) | [List](actions/setairplanemode)
+| Actions shown | [SetWifi](actions/setwifi) | [List](actions/setairplanemode) |
 
 ### Dictionary Field
 
@@ -260,7 +270,7 @@ Dictionary{
 }
 ```
 
-Actions shown: [Dictionary](actions/dictionary)
+| Actions shown | [Dictionary](actions/dictionary) |
 
 ### List Field
 
@@ -293,7 +303,7 @@ List
 | My Second Item
 ```
 
-Actions shown: [ChooseFromMenu](actions/choosefrommenu) | [List](actions/list)
+| Actions shown | [ChooseFromMenu](actions/choosefrommenu) | [List](actions/list) |
 
 ### Variable Field
 
@@ -355,7 +365,7 @@ Otherwise
 End If
 ```
 
-Actions shown: [Text](actions/text) | [GetVariable](actions/getvariable) | [If](actions/if) | [QuickLook](actions/quicklook) | [Number](actions/number)
+| Actions shown | [Text](actions/text) | [GetVariable](actions/getvariable) | [If](actions/if) | [QuickLook](actions/quicklook) | [Number](actions/number) |
 
 ### InputArg
 
@@ -374,7 +384,7 @@ Text "Different text"
 QuickLook
 ```
 
-Actions shown:  [Text](actions/text) | [QuickLook](actions/quicklook)
+| Actions shown |  [Text](actions/text) | [QuickLook](actions/quicklook) |
 
 ### Variable Aggrandizements
 
@@ -403,7 +413,7 @@ is the same as
 GetVariable v:MyDictionary{as:Dictionary,key:myKey}
 ```
 
-Actions Shown: [GetVariable](actions/getvariable)
+| Actions Shown | [GetVariable](actions/getvariable) |
 
 ### Setting Variables
 
@@ -432,7 +442,7 @@ is exactly the same as using an arrow, except it's in the format `mv:variable = 
 Text "My Text" -> mv:WowMagic
 ```
 
- Actions Shown: [Text](actions/text) |  | [GetVariable](actions/getvariable)
+ | Actions Shown | [Text](actions/text) |  | [GetVariable](actions/getvariable) |
 
 ### ArgLists
 
@@ -447,7 +457,7 @@ getfile a{
 }
 ```
 
- Actions shown: [GetFile](actions/getfile)
+ | Actions shown | [GetFile](actions/getfile) |
 
 ### Special Variables
 
