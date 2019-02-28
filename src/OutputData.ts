@@ -4,7 +4,6 @@
 // ========≠==========
 
 import uuidv4 from "uuid/v4";
-import bplistc from "bplist-creator";
 
 const type = {
 	appStoreApp: "WFAppStoreAppContentItem",
@@ -94,7 +93,7 @@ WFRelativeDateFormatStyle?: WFRelativeDateFormatStyle;
 From Shortcuts-js
  */
 
-const coercionTypes = {
+const coercionTypes: {[name: string]: string} = {
 	anything: "WFContentItem",
 	appstoreapp: "WFAppStoreAppContentItem",
 	article: "WFArticleContentItem",
@@ -122,7 +121,7 @@ const coercionTypes = {
 	vcard: "WFVCardContentItem"
 };
 
-const getTypes = { // Copied from shrotcuts-js https://github.com/joshfarrant/shortcuts-js/blob/master/src/interfaces/Variable.ts
+const getTypes: {[name: string]: {name: string, value?: string | number}} = { // Copied from shrotcuts-js https://github.com/joshfarrant/shortcuts-js/blob/master/src/interfaces/Variable.ts
 	// TODO getTypes should be per type rather than one big mess (to support filter files and get details of <Type> for example
 	albumartist: {
 		name: "Album Artist",
@@ -341,7 +340,7 @@ const getTypes = { // Copied from shrotcuts-js https://github.com/joshfarrant/sh
 };
 
 export class Aggrandizements {
-	aggrandizements: Array<any> // TODO class Aggrandizement, or maybe make aggrandizement just an object with three keys
+	aggrandizements: Array<{Type: string, PropertyName?: string, CoercionItemClass?: string, DictionaryKey?: string, PropertyUserInfo?: string | number}> // TODO class Aggrandizement, or maybe make aggrandizement just an object with three keys
 	constructor() {
 		this.aggrandizements = [];
 	}
@@ -349,8 +348,8 @@ export class Aggrandizements {
 		const aggrandizements = [];
 		return this.aggrandizements;
 	}
-	property(getType) {
-		getType = getType.toLowerCase().split` `.join``;
+	property(getType: string) {
+		getType = getType.toLowerCase().split(" ").join("");
 		const typeValue = getTypes[getType];
 		if(!typeValue) {throw new Error(`\`${type}\` is not a valid coercion class. Valid are: ${Object.keys(getTypes).join(", ")}`);}
 		this.aggrandizements.push({
@@ -359,8 +358,8 @@ export class Aggrandizements {
 			Type: "WFPropertyVariableAggrandizement"
 		});
 	}
-	coerce(type) {
-		type = type.toLowerCase().split` `.join``;
+	coerce(type: string) {
+		type = type.toLowerCase().split(" ").join("");
 		const coercionClass = coercionTypes[type];
 		if(!coercionClass) {throw new Error(`\`${type}\` is not a valid coercion class. Valid are: ${Object.keys(coercionTypes).join(", ")}`);}
 		this.aggrandizements.push({
@@ -368,7 +367,7 @@ export class Aggrandizements {
 			Type: "WFCoercionVariableAggrandizement",
 		});
 	}
-	forKey(key) {
+	forKey(key: string) {
 		this.aggrandizements.push({
 			DictionaryKey: key,
 			Type: "WFDictionaryValueVariableAggrandizement",
@@ -393,10 +392,10 @@ export class Dictionary extends Parameter {
 		super();
 		this.items = [];
 	}
-	add(key, value, type) { // todo why does the caller have to specify the type
+	add(key: Parameter, value: Parameter, type: number) { // todo why does the caller have to specify the type
 		this.items.push({key, value, type});
 	}
-	build() {
+	build(): any {
 		return {
 			Value: {
 				WFDictionaryFieldValueItems: this.items.map(({key, value, type}) => {
@@ -420,7 +419,7 @@ export class Dictionary extends Parameter {
 export class Attachment extends Parameter {
 	type: string
 	aggrandizements: Aggrandizements
-	constructor(type) {
+	constructor(type: string) {
 		super();
 		this.type = type;
 		this.aggrandizements = new Aggrandizements();
@@ -434,7 +433,7 @@ export class Attachment extends Parameter {
 }
 
 export class Variable extends Attachment {
-	constructor(type) {
+	constructor(type: string) {
 		super(type);
 	}
 	build() {
@@ -445,7 +444,7 @@ export class Variable extends Attachment {
 
 export class NamedVariable extends Variable {
 	varname: string
-	constructor(varname) {
+	constructor(varname: string) {
 		super("Variable");
 		this.varname = varname;
 	}
@@ -474,7 +473,7 @@ export class MagicVariable extends Variable {
 
 export class List extends Parameter {
 	_list: Array<Parameter>
-	constructor(list) {
+	constructor(list: Array<Parameter>) {
 		super();
 		this._list = list;
 	}
@@ -497,7 +496,7 @@ export class Text extends Parameter {
 	get _last() {
 		return this._components[this._components.length - 1];
 	}
-	add(...objs) {
+	add(...objs: Array<Attachment | Text | string>) {
 		objs.forEach(obj => {
 			if(obj instanceof Attachment) {
 				this._components.push(obj);
@@ -520,7 +519,7 @@ export class Text extends Parameter {
 		// if(this.components.length === 1 &&  typeof this._last === "string") {
 		// 	return this._last;
 		// }
-		const result = {
+		const result: any = {
 			attachmentsByRange: {},
 			string: ""
 		};
@@ -552,8 +551,8 @@ export class Parameters {
 	constructor() {
 		this.values = {};
 	}
-	set(internalName, value) { // chainable
-		if(!(value instanceof Parameter)) {
+	set(internalName: string, value: Parameter | string | number) { // chainable
+		if(typeof value === "string" || typeof value === "number") {
 			this.values[internalName] = value;
 			return this;
 		}
@@ -567,10 +566,10 @@ export class Parameters {
 		this.values[internalName] = value.build();
 		return this;
 	}
-	has(internalName) {
+	has(internalName: string) {
 		return !!this.values[internalName];
 	}
-	get(internalName) {
+	get(internalName: string) {
 		return this.values[internalName];
 	}
 	build() {
@@ -584,7 +583,7 @@ export class Action {
 	uuid: string
 	parameters: Parameters
 	magicvarname: string
-	constructor(name, id, info) {
+	constructor(name: string, id: string) {
 		this.name = name;
 		this.id = id;
 		this.uuid = uuidv4();//}
@@ -601,14 +600,14 @@ export class Action {
 	}
 }
 
-class Shortcut {
+export class Shortcut {
 	name: string
 	actions: Array<Action>
-	constructor(name) {
+	constructor(name: string) {
 		this.name = name;
 		this.actions = [];
 	}
-	add(action) {
+	add(action: Action) {
 		this.actions.push(action);
 	}
 	build() {
@@ -621,7 +620,6 @@ class Shortcut {
 				WFWorkflowIconImageData: Buffer.from(""),
 				WFWorkflowIconGlyphNumber: 59511
 			},
-			WFWorkflowImportQuestions: [],
 			WFWorkflowTypes: [
 				"NCWidget",
 				"WatchKit"

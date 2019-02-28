@@ -1,5 +1,5 @@
 let totalSteps = 0;
-let began;
+let began: Date;
 
 class Performance {
 	static startMonitoring() {
@@ -14,35 +14,34 @@ class Performance {
 }
 
 class Production {
-	constructor(cb = a => a) {
+	cb: (input: any) => any // todo cb: (input: any) => Parse
+	constructor(cb = (a: any) => a) {
 		this.cb = cb;
 	}
-	scb(cb) {
+	scb(cb: (input: any) => any) {
 		this.cb = cb;
 		return this;
 	}
 	getProd() {
 		return this;
 	}
-	parse(string) {
+	parse(string: string): {data?: any, remainingStr?: string, error?: string, success: boolean} {
 		totalSteps++;
-		// console.log("STEPS ARE:",  ++totalSteps);
-		// if(!lastStep) {console.log("Started at ", lastStep = new Date());}
-		// console.log(`STRING IS OF LENGTH ${string.length}\n\n\`\`\`\n${string}\n\`\`\`\nPARSER IS:`, this); //this.toString());
+		return {success: false};
 	}
 }
 
 class OrderedProduction extends Production {
-	constructor(...requirements) {
+	requirements: Array<Production>
+	constructor(...requirements: Array<Production>) {
 		super();
 		this.requirements = requirements;
 	}
-	parse(string) {
+	parse(string: string) {
 		super.parse(string);
-		const resdata = [];
+		const resdata: Array<any> = [];
 		const success = this.requirements.every(requirement => {
 			const {data, remainingStr, success} = requirement.getProd().parse(string);
-			// console.log("DRS", data, "R", remainingStr, "S", success);
 			if(!success) {return false;}
 			string = remainingStr;
 			resdata.push(data);
@@ -53,11 +52,12 @@ class OrderedProduction extends Production {
 	}
 }
 class OrProduction extends Production {
-	constructor(...options) {
+	options: Array<Production>
+	constructor(...options: Array<Production>) {
 		super();
 		this.options = options;
 	}
-	parse(string) {
+	parse(string: string) {
 		super.parse(string);
 		let resdata;
 		const success = this.options.some(option => { // find the first option that parses... might cause problems if things try to parse too deep only to realise the code is wrong... may want to have some number of depth or something idk
@@ -74,11 +74,12 @@ class OrProduction extends Production {
 	}
 }
 class NotProduction extends Production {
-	constructor(...options) {
+	options: Array<Production>
+	constructor(...options: Array<Production>) {
 		super();
 		this.options = options;
 	}
-	parse(string) {
+	parse(string: string) {
 		super.parse(string);
 		let resdata;
 		const success = this.options.every(option => { // ensure every option fails
@@ -96,11 +97,12 @@ class NotProduction extends Production {
 }
 
 class RegexProduction extends Production {
-	constructor(regex) {
+	regex: RegExp
+	constructor(regex: RegExp) {
 		super();
 		this.regex = regex;
 	}
-	parse(string) {
+	parse(string: string) {
 		super.parse(string);
 		const match = string.match(this.regex);
 		if(match &&  string.startsWith(match[0])) {
@@ -119,11 +121,12 @@ class RegexProduction extends Production {
 }
 
 class StringProduction extends Production {
-	constructor(string) {
+	string: string
+	constructor(string: string) {
 		super();
 		this.string = string;
 	}
-	parse(string) {
+	parse(string: string) {
 		super.parse(string);
 		if(string.startsWith(this.string)) {
 			string = string.replace(this.string, ""); // replace does the first instance on a string
@@ -137,14 +140,17 @@ class StringProduction extends Production {
 }
 
 class ManyProduction extends Production {
-	constructor(thing, start = -Infinity, end = Infinity) { // range = 0.. 1.. 0..1 ..1 or something
+	prod: Production
+	start: number
+	end: number
+	constructor(thing: Production, start = -Infinity, end = Infinity) { // range = 0.. 1.. 0..1 ..1 or something
 		super();
 		this.prod = thing;
 		this.start = start;
 		this.end = end;
 	}
 
-	parse(string) {
+	parse(string: string) {
 		super.parse(string);
 		const results = [];
 		let succeeding = true;

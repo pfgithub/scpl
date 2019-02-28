@@ -1,9 +1,9 @@
 import uuidv4 from "uuid/v4";
-import {Shortcut, Action, Parameters, Text, MagicVariable, NamedVariable, Variable, Attachment, Parameter, Aggrandizements, DictionaryKeyAggrandizement, CoercionAggrandizement, Aggrandizement} from "./OutputData";
+import {Shortcut, Action, Parameters, Text, MagicVariable, NamedVariable, Variable, Attachment, Parameter, Aggrandizements} from "./OutputData";
 
 export class ConvertingContext {
-	vardata: {}
-	magicvardata: {}
+	vardata: {[key: string]: boolean}
+	magicvardata: {[key: string]: {action: Action}}
 	shortcut: Shortcut
 	lastVariableAction: Action
 	controlFlowStack: Array<{uuid: string, number: number, wfaction: any}>
@@ -37,7 +37,7 @@ export class ConvertingContext {
 		last.number = 2;
 		return last;
 	}
-	add(action) {
+	add(action: Action) {
 		// Adds an action to a shortcut
 		this.shortcut.add(action);
 		this.lastVariableAction = action;

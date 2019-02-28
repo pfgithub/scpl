@@ -1,7 +1,7 @@
 
-const {ActionParse, DictionaryParse, CharsParse, IdentifierParse, ListParse, BarlistParse, VariableParse, ActionsParse, VariableFlagParse, ArglistParse} = require("./ParserData.js");
+import {ActionParse, DictionaryParse, CharsParse, IdentifierParse, ListParse, BarlistParse, VariableParse, ActionsParse, VariableFlagParse, ArglistParse} from "./ParserData.js";
 
-const {p, regex, star, plus, optional, or, not, c, o} = require("./ParserHelper.js");
+import {p, regex, star, plus, optional, or, not, c, o} from "./ParserHelper.js";
 
 // THINGS TO NOTE:
 // https://github.com/no-context/moo
@@ -101,9 +101,9 @@ o.flaggedaction = p(o.variable, _, c`=`, _, o.action)
 	});
 o.onlyaction = p(o.identifier, _, o.args)
 	.scb(([actionIdentifier, _, args]) => {
-		const flags = [];
+		const flags: any = [];
 		args = args.filter(
-			arg =>
+			(arg: any) =>
 				arg &&
 					arg instanceof VariableFlagParse
 					? flags.push(arg) && false
@@ -112,6 +112,7 @@ o.onlyaction = p(o.identifier, _, o.args)
 		if(flags.length > 1) {throw new Error("Actions cannot output to multiple variables");}
 		const res = {type: "action", action: actionIdentifier, args: args};
 		if(flags[0]) {Object.assign(res, {variable: flags[0].variable});}
+		// @ts-ignore
 		const actionParse = new ActionParse(res.action, res.args, res.variable);
 		return actionParse;
 	});

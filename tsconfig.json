@@ -4,6 +4,7 @@
 		"allowJs": true,
 		"target": "es2017",
 		"module": "commonjs",
+        "noImplicitAny": true,
 		"lib": ["es2017"]
 	},
 	"include": [
