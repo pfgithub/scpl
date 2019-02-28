@@ -71,6 +71,7 @@ containing one of the options:
 **Allows Variables**: true
 
 **Only enabled if**: argument WFCalendarItemAlert = `true`
+
 **Only enabled if**: argument WFAlertTrigger = `At Location`
 
 Accepts a string 
@@ -94,6 +95,7 @@ in meters
 **Allows Variables**: true
 
 **Only enabled if**: argument WFCalendarItemAlert = `true`
+
 **Only enabled if**: argument WFAlertTrigger = `At Location`
 
 Accepts a string 
@@ -114,6 +116,7 @@ Tomorrow at 4pm
 **Allows Variables**: true
 
 **Only enabled if**: argument WFCalendarItemAlert = `true`
+
 **Only enabled if**: argument WFAlertTrigger = `At Time`
 
 Accepts a string 

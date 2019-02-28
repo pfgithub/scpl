@@ -1,11 +1,10 @@
+import * as bplistc from "bplist-creator";
 
-const bplistc = require("bplist-creator");
+import parser from "../ShortcutsParser";
 
-const parser = require("../ShortcutsParser");
-
-const inputArea = document.getElementById("inputArea");
-const messageArea = document.getElementById("messageArea");
-const outputArea = document.getElementById("outputArea");
+const inputArea = <HTMLTextAreaElement>document.getElementById("inputArea");
+const messageArea = <HTMLTextAreaElement>document.getElementById("messageArea");
+const outputArea = <HTMLTextAreaElement>document.getElementById("outputArea");
 
 // inputArea should keep its text from the browser
 messageArea.value = "";
@@ -13,9 +12,9 @@ outputArea.value = "";
 
 const downloadShortcutBtn = document.getElementById("downloadShortcutBtn");
 
-let bufferToDownload;
+let bufferToDownload: Buffer;
 
-let timeout;
+let timeout: NodeJS.Timeout;
 
 inputArea.addEventListener("input", () => {
 	messageArea.value = "";
@@ -26,7 +25,7 @@ inputArea.addEventListener("input", () => {
 	timeout = setTimeout(convert, 200);
 });
 
-function downloadBlob(data, fileName, mimeType) {
+function downloadBlob(data: string | Buffer | ArrayBufferView | ArrayBuffer | Blob, fileName: string, mimeType: string) {
 	const blob = new Blob([data], {
 		type: mimeType
 	});
@@ -37,13 +36,13 @@ function downloadBlob(data, fileName, mimeType) {
 	}, 1000);
 }
 
-function downloadURL(data, fileName) {
+function downloadURL(data: string, fileName: string) {
 	const a = document.createElement("a");
 	a.href = data;
 	a.download = fileName;
 	// a.setAttribute("target", "_blank"); // breaks safari
 	document.body.appendChild(a);
-	a.style = "display: none";
+	a.style.display = "none";
 	a.click();
 	a.remove();
 }
@@ -58,7 +57,7 @@ function convert() {
 	const parsed = parser.parse(`${inputArea.value}\n`);
 	if(parsed.remainingStr) {
 		bufferToDownload = undefined;
-		messageArea.value = (`Error, could not parse. Took ${time() - parsed}ms. Remaining str:\n\`\`\`\n...${parsed.remainingStr}\`\`\``);
+		messageArea.value = (`Error, could not parse. Took ${time() - startedConversion}ms. Remaining str:\n\`\`\`\n...${parsed.remainingStr}\`\`\``);
 		outputArea.value = "Error!";
 		throw new Error("Str remaining");
 	}
@@ -71,11 +70,12 @@ function convert() {
 	}catch(er) {
 		messageArea.value = (`Error, could not convert. Took ${time() - startedConversion}ms. ${er.message}`);
 		outputArea.value = "Error!";
-		return;
+		throw er;
 	}
 	const shortcutData = shortcut.build();
 	messageArea.value = `Success in ${time() - startedConversion}ms. Parsed in ${finishedParsing - startedConversion}ms. Converted in ${time() - finishedParsing}ms.`;
 	outputArea.value = JSON.stringify(shortcutData, null, "\t");
+	// @ts-ignore
 	const buffer = bplistc(shortcutData);
 	bufferToDownload = buffer;
 	// TODO (https://github.com/pine/arraybuffer-loader)

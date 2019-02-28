@@ -96,6 +96,7 @@ optional
 **Allows Variables**: true
 
 **Only enabled if**: argument WFPostType = `Audio` or `Video` or `Photos`
+
 **Only enabled if**: argument WFComposeInApp = `false`
 
 Accepts a string 

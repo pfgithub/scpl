@@ -36,6 +36,7 @@ Turned Off
 **Allows Variables**: true
 
 **Only enabled if**: argument Enabled = `true`
+
 **Only enabled if**: Device attributes match `{"WFDeviceAttributeSystemVersion":{"WFSystemVersion":"12.0","WFSystemVersionRelation":">="}}` This action is always enabled inside Shortcutslang.
 
 Accepts a string 
@@ -53,7 +54,9 @@ containing one of the options:
 **Allows Variables**: true
 
 **Only enabled if**: argument Enabled = `true`
+
 **Only enabled if**: argument AssertionType = `Event Ends`
+
 **Only enabled if**: Device attributes match `{"WFDeviceAttributeSystemVersion":{"WFSystemVersion":"12.0","WFSystemVersionRelation":">="}}` This action is always enabled inside Shortcutslang.
 
 Accepts a variable.
@@ -68,7 +71,9 @@ Accepts a variable.
 **Allows Variables**: true
 
 **Only enabled if**: argument Enabled = `true`
+
 **Only enabled if**: argument AssertionType = `Time`
+
 **Only enabled if**: Device attributes match `{"WFDeviceAttributeSystemVersion":{"WFSystemVersion":"12.0","WFSystemVersionRelation":">="}}` This action is always enabled inside Shortcutslang.
 
 Accepts a string 

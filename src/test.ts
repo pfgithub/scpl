@@ -1,7 +1,7 @@
-const fs = require("fs");
-const bplistc = require("bplist-creator");
+import * as fs from "fs";
+import * as bplistc from "bplist-creator";
 
-const parser = require("./ShortcutsParser");
+import parser from "./ShortcutsParser";
 
 const parsed = parser.parse(`${process.argv[2] || fs.readFileSync("./src/test.shorttxt", "utf8")  }\n`);
 if(parsed.remainingStr) {
@@ -12,5 +12,6 @@ if(parsed.remainingStr) {
 const shortcut = parsed.data.asShortcut();
 const shortcutData = shortcut.build();
 console.dir(shortcutData, {depth: null}); //eslint-disable-line no-console
+// @ts-ignore
 const buffer = bplistc(shortcutData);
 fs.writeFileSync("./src/test.shortcut", buffer);

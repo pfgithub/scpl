@@ -112,6 +112,7 @@ with a number.
 **Allows Variables**: true
 
 **Only enabled if**: argument WFShouldShowImageEditor = `false`
+
 **Only enabled if**: argument WFImagePosition = `Custom`
 
 Accepts a string 
@@ -128,6 +129,7 @@ with a number.
 **Allows Variables**: true
 
 **Only enabled if**: argument WFShouldShowImageEditor = `false`
+
 **Only enabled if**: argument WFImagePosition = `Custom`
 
 Accepts a string 
