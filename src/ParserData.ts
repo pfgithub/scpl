@@ -1,13 +1,11 @@
-import {Shortcut, Action, Parameters, Dictionary, Text, MagicVariable, NamedVariable, Variable, Attachment, Parameter, Aggrandizements, List} from "./OutputData";
+import {Action, Dictionary, Text, MagicVariable, NamedVariable, Variable, Attachment, List} from "./OutputData";
 import {getActionFromName} from "./ActionData";
 import {ConvertingContext} from "./Converter.js"
 import {setVariable, getVariable} from "./HelpfulActions"
 
 class Parse {
+	special: ("InputArg" | "ControlFlowMode" | "Arglist" | undefined)
 	constructor() {
-	}
-	get special(): ("InputArg" | "ControlFlowMode" | "Arglist" | undefined){
-		return undefined;
 	}
 }
 
@@ -240,15 +238,16 @@ export class IdentifierParse extends Parse implements AsString, AsBoolean, AsTex
 		if(string === "false") {return false;}
 		throw new Error("This boolean must be either true or false.");
 	}
-	asText(cc: ConvertingContext) {
+	asText(_cc: ConvertingContext) {
 		const text = new Text;
 		text.add(this.value);
 		return text;
 	}
 }
 export class ArglistParse extends DictionaryParse {
-	get special() {
-		return "Arglist";
+	constructor(keyValuePairs: { key: AsAble; value: AsAble; }[] ){
+		super(keyValuePairs);
+		this.special = "Arglist";
 	}
 }
 export class VariableFlagParse extends Parse {
@@ -277,11 +276,9 @@ export class ActionParse extends Parse implements AsText, AsVariable, AsAction {
 	}
 	asVariable(cc: ConvertingContext) { // returns the Variable for this ActionParse
 		const action = this.asAction(cc); // adds the action
-		if(action.info.hasVariable) {
-			return action.variable;
-		}
+		return new MagicVariable(action);
 		// otherwise: add a Set Variable action
-		throw new Error(`Actions of type ${action.info.id} cannot be converted to a variable.`);
+		// throw new Error(`Actions of type ${action.info.id} cannot be converted to a variable.`);
 	}
 	asAction(cc: ConvertingContext) { // returns an Action for this ActionParse
 		if(!canBeString(this.name)) {throw new Error("To convert to an action, the action name must be a string")}
@@ -334,7 +331,6 @@ export class VariableParse extends Parse implements AsStringVariable, AsNameType
 		this.options = options;
 	}
 	asStringVariable() {
-		let variable;
 
 		if(!canBeString(this.name)) {throw new Error("To convert to a stringvariable, the variable name must be a string")}
 		if(!canBeString(this.type)) {throw new Error("To convert to a stringvariable, the variable type must be a string")}
@@ -345,7 +341,6 @@ export class VariableParse extends Parse implements AsStringVariable, AsNameType
 		return name;
 	}
 	asNameType() {
-		let variable;
 
 		if(!canBeString(this.name)) {throw new Error("To convert to a nametype, the variable name must be a string")}
 		if(!canBeString(this.type)) {throw new Error("To convert to a nametype, the variable type must be a string")}

@@ -1,5 +1,7 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 const bplistc = require("bplist-creator");
-const parser = require("../ShortcutsParser");
+const ShortcutsParser_1 = require("../ShortcutsParser");
 const inputArea = document.getElementById("inputArea");
 const messageArea = document.getElementById("messageArea");
 const outputArea = document.getElementById("outputArea");
@@ -33,7 +35,7 @@ function downloadURL(data, fileName) {
     a.download = fileName;
     // a.setAttribute("target", "_blank"); // breaks safari
     document.body.appendChild(a);
-    a.style = "display: none";
+    a.style.display = "none";
     a.click();
     a.remove();
 }
@@ -41,10 +43,10 @@ const time = () => (new Date).getTime();
 document.getElementById("convertBtn").addEventListener("click", convert);
 function convert() {
     const startedConversion = time();
-    const parsed = parser.parse(`${inputArea.value}\n`);
+    const parsed = ShortcutsParser_1.default.parse(`${inputArea.value}\n`);
     if (parsed.remainingStr) {
         bufferToDownload = undefined;
-        messageArea.value = (`Error, could not parse. Took ${time() - parsed}ms. Remaining str:\n\`\`\`\n...${parsed.remainingStr}\`\`\``);
+        messageArea.value = (`Error, could not parse. Took ${time() - startedConversion}ms. Remaining str:\n\`\`\`\n...${parsed.remainingStr}\`\`\``);
         outputArea.value = "Error!";
         throw new Error("Str remaining");
     }
@@ -56,11 +58,12 @@ function convert() {
     catch (er) {
         messageArea.value = (`Error, could not convert. Took ${time() - startedConversion}ms. ${er.message}`);
         outputArea.value = "Error!";
-        return;
+        throw er;
     }
     const shortcutData = shortcut.build();
     messageArea.value = `Success in ${time() - startedConversion}ms. Parsed in ${finishedParsing - startedConversion}ms. Converted in ${time() - finishedParsing}ms.`;
     outputArea.value = JSON.stringify(shortcutData, null, "\t");
+    // @ts-ignore
     const buffer = bplistc(shortcutData);
     bufferToDownload = buffer;
     // TODO (https://github.com/pine/arraybuffer-loader)

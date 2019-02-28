@@ -1,5 +1,5 @@
-import uuidv4 from "uuid/v4";
-import {Shortcut, Action, Parameters, Text, MagicVariable, NamedVariable, Variable, Attachment, Parameter, Aggrandizements} from "./OutputData";
+import * as uuidv4 from "uuid/v4";
+import {Shortcut, Action} from "./OutputData";
 
 export class ConvertingContext {
 	vardata: {[key: string]: boolean}
@@ -16,7 +16,7 @@ export class ConvertingContext {
 		///
 		this.controlFlowStack = [];
 	}
-	pushControlFlow(wfaction) {
+	pushControlFlow(wfaction: any) {
 		const res = {uuid: uuidv4(), number: 0, wfaction};
 		this.controlFlowStack.push(res);
 		return res;

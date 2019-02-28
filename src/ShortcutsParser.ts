@@ -1,7 +1,7 @@
 
 import {ActionParse, DictionaryParse, CharsParse, IdentifierParse, ListParse, BarlistParse, VariableParse, ActionsParse, VariableFlagParse, ArglistParse} from "./ParserData.js";
 
-import {p, regex, star, plus, optional, or, not, c, o} from "./ParserHelper.js";
+import {p, regex, star, plus, optional, or, c, o} from "./ParserHelper.js";
 
 // THINGS TO NOTE:
 // https://github.com/no-context/moo
@@ -169,6 +169,6 @@ o.actions = star(
 
 // console.log(o.action.parse("v:test").data);
 
-module.exports = o.actions.getProd();
+export default o.actions.getProd();
 
 // would it be bad if this imported converter and handled the whole thing?

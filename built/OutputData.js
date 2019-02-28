@@ -1,9 +1,10 @@
+"use strict";
 // ========≠==========
 // This file is a mess
 // Enter at your own risk
 // ========≠==========
+Object.defineProperty(exports, "__esModule", { value: true });
 const uuidv4 = require("uuid/v4");
-const bplistc = require("bplist-creator");
 const type = {
     appStoreApp: "WFAppStoreAppContentItem",
     article: "WFArticleContentItem",
@@ -28,53 +29,12 @@ const type = {
     url: "WFURLContentItem",
     vCard: ""
 };
-const inputType = {
-    appStoreApp: "WFAppStoreAppContentItem",
-    article: "WFArticleContentItem",
-    contact: "WFContactContentItem",
-    date: "WFDateContentItem",
-    emailAddress: "WFEmailAddressContentItem",
-    file: "WFGenericFileContentItem",
-    image: "WFImageContentItem",
-    iTunesProduct: "WFiTunesProductContentItem",
-    location: "WFLocationContentItem",
-    mapsLink: "WFDCMapsLinkContentItem",
-    media: "WFAVAssetContentItem",
-    pdf: "WFPDFContentItem",
-    phoneNumber: "WFPhoneNumberContentItem",
-    richText: "WFRichTextContentItem",
-    safariWebpage: "WFSafariWebPageContentItem",
-    text: "WFStringContentItem",
-    url: "WFURLContentItem"
-};
-const typesall = {
-    safariWebpage: {
-        coercion: false,
-        inputType: true
-    },
-    contact: {
-        get: ["name", "a", "b", "c", "d", "e", "f"] // ...
-    }
-};
 // DisplayType would be a better name maybe
 const SERIALIZATIONTYPE = {
     variable: "WFTextTokenAttachment",
     string: "WFTextTokenString",
     dictionaryFieldValue: "WFDictionaryFieldValue"
 };
-/*
-
-SERIALIZATION TYPES
-...................
-/*rialization typ*/
-//rialization typ//
-/*rialization typ*/
-class Aggrandizement {
-}
-class CoercionAggrandizement extends Aggrandizement {
-}
-class DictionaryKeyAggrandizement extends Aggrandizement {
-}
 /*
 CoercionItemClass?: AggrandizementCoercionItemClass;
 DictionaryKey?: string;
@@ -336,25 +296,23 @@ const getTypes = {
 class Aggrandizements {
     constructor() {
         this.aggrandizements = [];
-        this.coersionClass = undefined;
     }
     build() {
-        const aggrandizements = [];
         return this.aggrandizements;
     }
     property(getType) {
-        getType = getType.toLowerCase().split ` `.join ``;
+        getType = getType.toLowerCase().split(" ").join("");
         const typeValue = getTypes[getType];
         if (!typeValue) {
-            throw new Error(`\`${type}\` is not a valid coercion class. Valid are: ${Object.keys(getTypes).join `, `}`);
+            throw new Error(`\`${type}\` is not a valid coercion class. Valid are: ${Object.keys(getTypes).join(", ")}`);
         }
         this.aggrandizements.push(Object.assign({ PropertyName: typeValue.name }, (typeValue.value ? { PropertyUserInfo: typeValue.value } : {}), { Type: "WFPropertyVariableAggrandizement" }));
     }
     coerce(type) {
-        type = type.toLowerCase().split ` `.join ``;
+        type = type.toLowerCase().split(" ").join("");
         const coercionClass = coercionTypes[type];
         if (!coercionClass) {
-            throw new Error(`\`${type}\` is not a valid coercion class. Valid are: ${Object.keys(coercionTypes).join `, `}`);
+            throw new Error(`\`${type}\` is not a valid coercion class. Valid are: ${Object.keys(coercionTypes).join(", ")}`);
         }
         this.aggrandizements.push({
             CoercionItemClass: coercionClass,
@@ -368,25 +326,23 @@ class Aggrandizements {
         });
     }
 }
+exports.Aggrandizements = Aggrandizements;
 // // // // // //
 //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //
 class Parameter {
-    constructor(serializationType) {
-        this.serializationType = serializationType;
+    constructor() {
+    }
+    build() {
+        throw new Error("Blank parameter cannot be built");
     }
 }
+exports.Parameter = Parameter;
 class Dictionary extends Parameter {
     constructor() {
-        super(SERIALIZATIONTYPE.dictionaryFieldValue);
+        super();
         this.items = [];
     }
     add(key, value, type) {
-        if (!(key instanceof Parameter)) {
-            throw new Error("Key must be a Parameter");
-        }
-        if (!(value instanceof Parameter)) {
-            throw new Error("Value must be a Parameter");
-        }
         this.items.push({ key, value, type });
     }
     build() {
@@ -409,9 +365,10 @@ class Dictionary extends Parameter {
         };
     }
 }
+exports.Dictionary = Dictionary;
 class Attachment extends Parameter {
     constructor(type) {
-        super(SERIALIZATIONTYPE.variable);
+        super();
         this.type = type;
         this.aggrandizements = new Aggrandizements();
     }
@@ -422,14 +379,7 @@ class Attachment extends Parameter {
         };
     }
 }
-//Attachment Types
-//
-//Clipboard (s:clipboard)
-//Ask (s:askwhenrun)
-//CurrentDate (s:currentdate)
-//ExtensionInput (s:shortcutinput)
-// Variables are officially called "Attachments" in shortcuts
-// Additionally, inside of "attachmentsByRange" a serializationtype is not necessary, it is known to be an attachment because it's in an attachments section.
+exports.Attachment = Attachment;
 class Variable extends Attachment {
     constructor(type) {
         super(type);
@@ -437,14 +387,8 @@ class Variable extends Attachment {
     build() {
         return Object.assign(super.build(), {});
     }
-    // @override
-    buildForParameter() {
-        return {
-            Value: this.build(),
-            WFSerializationType: "WFTextTokenAttachment"
-        };
-    }
 }
+exports.Variable = Variable;
 class NamedVariable extends Variable {
     constructor(varname) {
         super("Variable");
@@ -456,6 +400,7 @@ class NamedVariable extends Variable {
         });
     }
 }
+exports.NamedVariable = NamedVariable;
 class MagicVariable extends Variable {
     constructor(action) {
         super("ActionOutput");
@@ -469,9 +414,10 @@ class MagicVariable extends Variable {
         });
     }
 }
+exports.MagicVariable = MagicVariable;
 class List extends Parameter {
     constructor(list) {
-        super(SERIALIZATIONTYPE.string);
+        super();
         this._list = list;
     }
     build() {
@@ -487,11 +433,11 @@ class List extends Parameter {
             })];
     }
 }
+exports.List = List;
 class Text extends Parameter {
-    constructor(options = {}) {
-        super(SERIALIZATIONTYPE.string);
+    constructor() {
+        super();
         this._components = [];
-        this.options = {};
     }
     get _last() {
         return this._components[this._components.length - 1];
@@ -546,20 +492,13 @@ class Text extends Parameter {
         };
     }
 }
-/*
-Text:
-Either it becomes a Value,SerializationType or it becomes a ""
-but....
-I think that's it
-
-
- */
+exports.Text = Text;
 class Parameters {
     constructor() {
         this.values = {};
     }
     set(internalName, value) {
-        if (!(value instanceof Parameter)) {
+        if (typeof value === "string" || typeof value === "number") {
             this.values[internalName] = value;
             return this;
         }
@@ -583,34 +522,17 @@ class Parameters {
         return this.values;
     }
 }
+exports.Parameters = Parameters;
 class Action {
-    constructor(name, id, info) {
-        this.name = name; // used in magic vars
+    constructor(name, id) {
+        this.name = name;
         this.id = id;
-        this.info = info;
-        // Disabling the options.hasuuid thing for now, we're pretending every
-        // action has a uuid.
-        //if(options.hasUUID === undefined || options.hasUUID) {
         this.uuid = uuidv4(); //}
         this.parameters = new Parameters();
-        this.actionsAbove = []; // TODO !!!
-        this.actionsBelow = []; // TODO !!!
         this.magicvarname = undefined;
         if (this.uuid) {
             this.parameters.set("UUID", this.uuid);
         }
-    }
-    get variable() {
-        if (this.inputIsOutput) {
-            // this probably doesn't matter
-            // shortcuts will just have to deal
-            // with it
-        }
-        if (this.isVariable) {
-            // if it's like a Set Variable acition
-            // those have no magic var
-        }
-        return new MagicVariable(this);
     }
     build() {
         if (this.magicvarname) {
@@ -622,6 +544,7 @@ class Action {
         };
     }
 }
+exports.Action = Action;
 class Shortcut {
     constructor(name) {
         this.name = name;
@@ -640,262 +563,13 @@ class Shortcut {
                     WFWorkflowIconImageData: Buffer.from(""),
                     WFWorkflowIconGlyphNumber: 59511
                 },
-                WFWorkflowImportQuestions: [],
-                // TODO action.setImportQuestion
-                // this.actions.filter(action=>action.importQuestion)
-                // .shortcuts: Text @importquestion{question: "how are you"}
-                // (more investigation needed, import questions are usually on)
-                // (specific fields                                           )
                 WFWorkflowTypes: [
                     "NCWidget",
                     "WatchKit"
                 ],
                 WFWorkflowInputContentItemClasses: ["WFAppStoreAppContentItem", "WFArticleContentItem", "WFContactContentItem", "WFDateContentItem", "WFEmailAddressContentItem", "WFGenericFileContentItem", "WFImageContentItem", "WFiTunesProductContentItem", "WFLocationContentItem", "WFDCMapsLinkContentItem", "WFAVAssetContentItem", "WFPDFContentItem", "WFPhoneNumberContentItem", "WFRichTextContentItem", "WFSafariWebPageContentItem", "WFStringContentItem", "WFURLContentItem"],
-                // TODO
-                // shortcut.settings.acceptsTypes
-                // @accepts{types:[appstoreapp, article, url]}
                 WFWorkflowActions: this.actions.map(action => action.build())
             }];
     }
 }
-module.exports = { Shortcut, Action, Parameters, Text, MagicVariable, NamedVariable, Variable, Attachment, Dictionary, Parameter, Aggrandizements, DictionaryKeyAggrandizement, CoercionAggrandizement, Aggrandizement, List };
-/*
-
-let varnames = {
-
-};
-
-// Comment
-
-
-// TODO
-// ACTINFO WILL BE REMOVED
-// INSTEAD ACTIONS WILL BE DEFINED WITH @macros
-
-let actinfo = {
-    text: {
-        name: "Text",
-        id: "is.workflow.actions.gettext",
-        args: [
-            {
-                parseas: "text",
-                id: "WFTextActionText"
-            }
-        ]
-    },
-    comment: {
-        name: "Comment",
-        id: "is.workflow.actions.comment",
-        args: [
-            {
-                parseas: "text",
-                id: "WFCommentActionText"
-            }
-        ]
-    },
-    choosefromlist: {
-        name: "Choose From List",
-        id: "is.workflow.actions.choosefromlist",
-        args: [
-            {
-                parseas: "input"
-            },
-            {
-                parseas: "text",
-                id: "WFChooseFromListActionPrompt"
-            }
-        ]
-    }
-};
-let parseasinfo = {
-    text: (shortcut, arg) => {
-        let result = new Text();
-        if(typeof arg === "string") {return result.add(arg);}
-        if(arg.type !== "string") {throw new Error("Cannot convert argument to text");}
-        arg.value.forEach(val => {
-            if(val.type === "str") {
-                result.add(val.value);
-            }else if(val.type === "interpolation") {
-                if(val.value.type === "variable") {
-                    result.add(varparse(val.value));
-                }else{
-                    let action = tatoact(shortcut, val.value);
-                    result.add(action.variable);
-                }
-            }else{ // TIME FOR THIS
-                throw new Error(`Invalid type ${val.type}`);
-            }
-        });
-        return result;
-    }
-};
-
-function varparse(actdata) {
-    let variable;
-    if(actdata.vartype === "v") {
-        variable = new NamedVariable(actdata.name);
-    }else if(actdata.vartype === "mv") {
-        let mvact = varnames[actdata.name];
-        if(!mvact) {throw new Error(`mv:${actdata.name} is not defined`);}
-        variable = new MagicVariable(mvact);
-    }else if(actdata.vartype === "s") {
-        let attachtype = {clipboard: "Clipboard", askwhenrun: "Ask", currentDate: "CurrentDate", extensionInput: "ExtensionInput"};
-        variable = new Attachment(attachtype[actdata.name] || (_=>{throw new Error(`Invalid special variable type ${actdata.name} valid are ${Object.keys(attachtype)}`);})());
-        //Clipboard (s:clipboard)
-        //Ask (s:askwhenrun)
-        //CurrentDate (s:currentdate)
-        //ExtensionInput (s:shortcutinput)
-    }else{
-        throw new Error(`Invalid dalnjdncavartype ${actdata.vartype}`);
-    }
-    return variable;
-}
-
-function tatoact(shortcut, actdata) {
-    if(actdata.type === "variable") {
-        let variable = varparse(actdata);
-        let getVariableAction = new Action("Get Variable", "is.workflow.actions.getvariable");
-        getVariableAction.parameters.set("WFVariable", variable);
-        shortcut.add(getVariableAction);
-        return getVariableAction;
-    }
-
-    let {action: actionType, args: actionArgs} = actdata;
-    let convdata = actinfo[actionType];
-    if(!convdata) {
-        // actinfo.defaultAction;
-        throw new Error("Unknown action type");
-    }
-    // if(!convdata) {throw new Error(`Invalid action type ${actionType}. Valid are ${Object.keys(actinfo).join`, `}`);}
-
-    let action = new Action(convdata.name, convdata.id);
-    let inputAction;
-    convdata.args.forEach((arginfo, i) => {
-        let arg = actionArgs[i];
-        if(arginfo.parseas === "input") {
-            inputAction = arg;
-        }else{
-            action.parameters.set(arginfo.id, parseasinfo[arginfo.parseas](shortcut, arg));
-        }
-    });
-    if(inputAction) {
-        tatoact(shortcut, inputAction);
-    }
-    shortcut.add(action);
-    if(actdata.variable) {
-        // special
-        let variable = actdata.variable;
-        if(variable.vartype === "v") {
-            let setVariableAction = new Action("Set Variable", "is.workflow.actions.setvariable");
-            setVariableAction.parameters.set("WFVariableName", variable.name);
-            shortcut.add(setVariableAction);
-        }else if(variable.vartype === "mv") {
-            if(varnames[variable.name]) {
-                throw new Error("Magic variables can only be set once");
-            }
-            varnames[variable.name] = action;
-        }else{
-            throw new Error("Actions can only be set to named or magic variables");
-        }
-    }
-    return action;
-}
-
-const [inputfile, outputfile] = process.argv.slice(2);
-
-let inputdata = fs.readFileSync(inputfile, "UTF8");
-
-let myShortcut = new Shortcut("My Shortcut");
-
-function throws parseString(shortcut, string, {interpolationsAllowed = true}) {
-    if(!interpolationsAllowed) {
-        if(typeof string === "string") {
-            return string;
-        }
-        if(string.type === "string") {
-            let builtString = "";
-            string.value.forEach(elem => {
-                if(elem.type === "str") {
-                    return builtString += elem.value;
-                }
-                throw new Error("Interpolations are not allowed in this string.");
-            });
-        }
-        throw new Error("Not a string");
-    }
-    if(typeof string === "string") {
-        return (new Text()).add(string);
-    }
-    let restext = new Text;
-    if(string.type === "string") {
-        string.value.forEach(elem => {
-            if(elem.type === "str") {
-                return restext.add(elem.value);
-            }
-            throw new Error("Interpolations are not yet implemented.");
-        });
-    }
-    throw new Error("Not a string");
-}
-
-function toAction(shortcut, data) {
-    let actionName = data.action;
-    if(actionName.indexOf("is.workflow") === -1) {
-        throw new Error("TBD. Action names are not supported yet.");
-    }
-    let action = new Action("Unknown Action", actionName);
-    let dictArg = action.args[0];
-    if(dictArg.type !== "dictionary") {throw new Error("First argument to a raw action must be a dictionary.");}
-
-
-    dictArg.data.forEach(({key, value}) => {
-        action.parameters.set(parseString(key, {interpolationsAllowed: false}), parseString(value));
-    });
-}
-
-let actions = JSON.parse(inputdata); // <is an array of actions>
-actions.forEach(action => {
-    tatoact(myShortcut, action);
-});
-
-fs.writeFileSync(outputfile, bplistc(myShortcut.build()));
-
-*/
-/*
-let myShortcut = new Shortcut("My Shortcut");
-
-let myCommentAction = new Action("Comment", "is.workflow.actions.comment");
-myCommentAction.parameters.set("WFCommentActionText", (new Text).add("This is a demo to diff. Also it copied."));
-myShortcut.add(myCommentAction);
-
-let myAskAction = new Action("Ask for Input", "is.workflow.actions.ask");
-myAskAction.parameters.set("WFAskActionPrompt", "q");
-myAskAction.parameters.set("WFAskActionDefaultAnswer", "");
-myShortcut.add(myAskAction);
-//
-
-// throw new Error("end");
-
-// let lastVar = myShortcut.lastVariable;
-
-let myTextAction = new Action("Text", "is.workflow.actions.gettext");
-let myText = (new Text);
-myText.add("hola como estas\n");
-myText.add(myAskAction.variable);
-myText.add(";");
-myText.add(new Attachment("Ask"));
-myText.add(new Attachment("Clipboard"));
-myText.add(new Attachment("CurrentDate"));
-myText.add(new Attachment("ExtensionInput"));
-myTextAction.parameters.set("WFTextActionText", myText);
-myShortcut.add(myTextAction);
-
-console.log(myShortcut.build()); //eslint-disable-line no-console
-
-// Shortcuts may have buffers and other special bplist values, so they will be converted right here rather than >json>bplist
-fs.writeFileSync(`${__dirname}/democut.shortcut`, bplistc(myShortcut.build()));
-
-// Things that are still todo
-// Aggrandizements
-// More
-*/
+exports.Shortcut = Shortcut;

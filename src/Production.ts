@@ -1,7 +1,9 @@
 let totalSteps = 0;
 let began: Date;
 
-class Performance {
+export type ProductionResolveable = Production | {getProd: () => Production}
+
+export class Performance {
 	static startMonitoring() {
 		totalSteps = 0;
 		began = new Date();
@@ -13,7 +15,7 @@ class Performance {
 	}
 }
 
-class Production {
+export class Production {
 	cb: (input: any) => any // todo cb: (input: any) => Parse
 	constructor(cb = (a: any) => a) {
 		this.cb = cb;
@@ -25,15 +27,15 @@ class Production {
 	getProd() {
 		return this;
 	}
-	parse(string: string): {data?: any, remainingStr?: string, error?: string, success: boolean} {
+	parse(_string: string): {data?: any, remainingStr?: string, error?: string, success: boolean} {
 		totalSteps++;
 		return {success: false};
 	}
 }
 
-class OrderedProduction extends Production {
-	requirements: Array<Production>
-	constructor(...requirements: Array<Production>) {
+export class OrderedProduction extends Production {
+	requirements: Array<ProductionResolveable>
+	constructor(...requirements: Array<ProductionResolveable>) {
 		super();
 		this.requirements = requirements;
 	}
@@ -51,9 +53,9 @@ class OrderedProduction extends Production {
 		return {data: this.cb(resdata), remainingStr: string, success: true};
 	}
 }
-class OrProduction extends Production {
-	options: Array<Production>
-	constructor(...options: Array<Production>) {
+export class OrProduction extends Production {
+	options: Array<ProductionResolveable>
+	constructor(...options: Array<ProductionResolveable>) {
 		super();
 		this.options = options;
 	}
@@ -73,9 +75,9 @@ class OrProduction extends Production {
 		return {data: this.cb(resdata), remainingStr: string, success: true};
 	}
 }
-class NotProduction extends Production {
-	options: Array<Production>
-	constructor(...options: Array<Production>) {
+export class NotProduction extends Production {
+	options: Array<ProductionResolveable>
+	constructor(...options: Array<ProductionResolveable>) {
 		super();
 		this.options = options;
 	}
@@ -96,7 +98,7 @@ class NotProduction extends Production {
 	}
 }
 
-class RegexProduction extends Production {
+export class RegexProduction extends Production {
 	regex: RegExp
 	constructor(regex: RegExp) {
 		super();
@@ -120,7 +122,7 @@ class RegexProduction extends Production {
 	}
 }
 
-class StringProduction extends Production {
+export class StringProduction extends Production {
 	string: string
 	constructor(string: string) {
 		super();
@@ -139,11 +141,11 @@ class StringProduction extends Production {
 	}
 }
 
-class ManyProduction extends Production {
-	prod: Production
+export class ManyProduction extends Production {
+	prod: ProductionResolveable
 	start: number
 	end: number
-	constructor(thing: Production, start = -Infinity, end = Infinity) { // range = 0.. 1.. 0..1 ..1 or something
+	constructor(thing: ProductionResolveable, start = -Infinity, end = Infinity) { // range = 0.. 1.. 0..1 ..1 or something
 		super();
 		this.prod = thing;
 		this.start = start;
@@ -171,14 +173,3 @@ class ManyProduction extends Production {
 		return `ManyProduction ?{${this.start}..${this.end}}`;
 	}
 }
-
-module.exports = {
-	ManyProduction,
-	StringProduction,
-	RegexProduction,
-	NotProduction,
-	OrProduction,
-	OrderedProduction,
-	Production,
-	Performance
-};

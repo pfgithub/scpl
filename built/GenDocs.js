@@ -1,9 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 const fs = require("fs");
 const path = require("path");
-const { allActions, genReadme } = require("./ActionData.js");
+const ActionData_js_1 = require("./ActionData.js");
 const actionCompletionInfo = {};
-const codeSnippets = {};
-allActions.forEach(action => {
+ActionData_js_1.allActions.forEach((action) => {
     const name = action.shortName;
     const docs = action.genDocs();
     fs.writeFileSync(path.join("./docs/actions/", `${name}.md`), docs, "utf8");
@@ -12,8 +13,6 @@ allActions.forEach(action => {
         args: action.genDocsParams(),
         autocomplete: action.genDocsAutocompleteUsage()
     };
-    codeSnippets[name] = { // ${1|one,two,three|}
-    };
 });
-fs.writeFileSync("./docs/README.md", genReadme(), "utf8");
+fs.writeFileSync("./docs/README.md", ActionData_js_1.genReadme(), "utf8");
 fs.writeFileSync("./docs/ActionCompletionInfo.json", JSON.stringify(actionCompletionInfo, null, "\t"), "utf8");

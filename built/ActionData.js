@@ -1,8 +1,9 @@
-const uuidv4 = require("uuid/v4");
-const { Text, Action } = require("./OutputData");
-const { getVariable } = require("./HelpfulActions");
-const actionList = require("./Data/Actions")[0];
-const types = {};
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const OutputData_1 = require("./OutputData");
+const HelpfulActions_1 = require("./HelpfulActions");
+const ParserData_1 = require("./ParserData");
+const Actions_1 = require("./Data/Actions");
 function genShortName(longName, internalName) {
     // lower case
     let shortName = (longName || internalName || "nameless").toLowerCase();
@@ -10,73 +11,57 @@ function genShortName(longName, internalName) {
     shortName = shortName.replace(/[^A-Za-z0-9]/g, "");
     return shortName;
 }
-types.WFResource = class {
+class WFResource {
     constructor(data) {
         this._data = data;
     }
-    shouldEnable(action) {
+    shouldEnable(_action) {
         return true;
     }
     genDocs() {
         return `Always enabled`;
     }
-};
-types.WFDeviceAttributesResource = class extends types.WFResource {
-    shouldEnable(action) {
+}
+;
+const resourceTypes = {}; // I can't figure out what to put the type as here
+class WFDeviceAttributesResource extends WFResource {
+    shouldEnable(_action) {
         return true;
     }
     genDocs() {
         return `Device attributes match \`${JSON.stringify(this._data.WFDeviceAttributes)}\` This action is always enabled inside Shortcutslang.`;
     }
-};
-types.WFWorkflowTypeResource = class extends types.WFResource {
-    shouldEnable(action) {
+}
+;
+resourceTypes.WFDeviceAttributesResource = WFDeviceAttributesResource;
+class WFWorkflowTypeResource extends WFResource {
+    shouldEnable(_action) {
         return true;
     }
     genDocs() {
         return `Workflow type is \`${this._data.WFWorkflowType}\`. This action is always enabled inside Shortcutslang.`;
     }
-};
-types.WFWorkflowHiddenResource = class extends types.WFResource {
-    shouldEnable(action) {
+}
+;
+resourceTypes.WFWorkflowTypeResource = WFWorkflowTypeResource;
+class WFWorkflowHiddenResource extends WFResource {
+    shouldEnable(_action) {
         return false;
     }
     genDocs() {
         return `This action is always **disabled** inside Shortcutslang.`;
     }
-};
-/*
-Example
-{
-    "WFParameterKey": "WFHTTPBodyType",
-    "WFParameterValue": "Form",
-    "WFResourceClass": "WFParameterRelationResource"
-},
-{
-    "WFParameterKey": "WFHTTPMethod",
-    "WFParameterRelation": "!=",
-    "WFParameterValues": [
-        "GET"
-    ],
-    "WFResourceClass": "WFParameterRelationResource"
 }
-
-!= is an array
->= is a single value number
-<= is a single value number
-> is a single value number
-< is a single value number
-= is a single value
-?? is... uuh... two question marks? just return true I guess
- */
-types.WFParameterRelationResource = class extends types.WFResource {
+;
+class WFParameterRelationResource extends WFResource {
     constructor(data) {
         super(data);
         this.relation = this._data.WFParameterRelation || "=";
         this.argInternalName = this._data.WFParameterKey;
         this.argValue = this._data.WFParameterValue;
         this.argValues = this._data.WFParameterValues || [this.argValue];
-        if (!({ "=": 1, "!=": 1, ">=": 1, "<=": 1, ">": 1, "<": 1, "=": 1, "??": 1 })[this.relation]) {
+        const relations = { "=": 1, "!=": 1, ">=": 1, "<=": 1, ">": 1, "<": 1, "??": 1 };
+        if (!(relations)[this.relation]) {
             throw new Error(`RelationResource relation type ${this.relation} is not implemented.`);
         }
     }
@@ -89,9 +74,9 @@ types.WFParameterRelationResource = class extends types.WFResource {
         const isNum = !isNaN(currentValueNum);
         switch (this.relation) {
             case "=":
-                return this.argValues.some(val => val === currentValue);
+                return this.argValues.some((val) => val === currentValue);
             case "!=":
-                return this.argValues.indexOf(this.currentValue) === -1;
+                return this.argValues.indexOf(currentValue) === -1;
             case ">=":
                 if (!isNum) {
                     return false;
@@ -118,8 +103,10 @@ types.WFParameterRelationResource = class extends types.WFResource {
                 throw new Error(`RelationResource relation type ${this.relation} is not implemented.`);
         }
     }
-};
-types.WFParameter = class {
+}
+;
+resourceTypes.WFParameterRelationResource = WFParameterRelationResource;
+class WFParameter {
     constructor(data, typeName) {
         this._data = data;
         this.defaultValue = this._data.DefaultValue;
@@ -130,20 +117,24 @@ types.WFParameter = class {
         this.shortName = genShortName(this.name, this.internalName);
         this.name = this.name || this.shortName;
         this.typeName = typeName;
-        this.requiredResources = this.requiredResources.map(resource => {
+        this.requiredResources = this.requiredResources.map((resource) => {
             const type = resource.WFResourceClass;
-            const resourceClass = types[type];
+            const resourceClass = resourceTypes[type];
             if (!resourceClass) {
-                throw new Error(`${resourceClass} is not a defined resource class.`);
+                throw new Error(`${type} is not a defined resource class.`);
             }
+            // @ts-ignore
             return new resourceClass(resource);
         });
         if (this._data.Hidden) {
-            this.requiredResources.push(new types.WFWorkflowHiddenResource({ Hidden: true }));
+            this.requiredResources.push(new WFWorkflowHiddenResource({ Hidden: true }));
         }
     }
     shouldEnable(action) {
-        return this.requiredResources.every(resource => resource.shouldEnable(action));
+        return this.requiredResources.every((resource) => resource.shouldEnable(action));
+    }
+    genDocsArgName() {
+        return "[???]";
     }
     genDocsAutocompletePlaceholder() {
         return `:${this._data.DefaultValue ? `${this.genDocsArgName()}:"${this._data.DefaultValue}"` : `${this.genDocsArgName()}`}`;
@@ -167,22 +158,24 @@ ${this._data.DefaultValue}
         if (this.allowsVariables) {
             docs += `**Allows Variables**: ${this.allowsVariables}\n\n`;
         }
-        docs += `${this.requiredResources.map(resource => `**Only enabled if**: ${resource.genDocs()}`).join `\n`}`;
+        docs += `${this.requiredResources.map(resource => `**Only enabled if**: ${resource.genDocs()}`).join("\n\n")}`;
         return docs;
     }
-};
-types.WFEnumerationParameter = class extends types.WFParameter {
-    // A list of options
-    // Input: anything with .asText()
+    build(_cc, _parse) {
+    }
+}
+;
+const types = {};
+class WFEnumerationParameter extends WFParameter {
     constructor(data, name) {
         super(data, name || "Enumeration");
         this.options = this._data.Items;
     }
     genDocsAutocompletePlaceholder() {
-        return `|${this.options.map(o => `"${o}"`).join `,`}${this.allowsVariables ? `,variable` : ``}|`;
+        return `|${this.options.map(o => `"${o}"`).join(",")}${this.allowsVariables ? `,variable` : ``}|`;
     }
     genDocsArgName() {
-        const strInfo = this.options.join ` | `;
+        const strInfo = this.options.join(" | ");
         return this.allowsVariables ? `[string <${strInfo}>]` : `[string <${strInfo}>|variable]`;
     }
     genDocs() {
@@ -192,37 +185,41 @@ Accepts a string ${this.allowsVariables ? `
 or variable` : ""}
 containing one of the options:
 
-- \`${this.options.join `\`\n- \``}\``;
+- \`${this.options.join(`\`\n- \``)}\``;
     }
     build(cc, parse) {
         // asVariable may require additional actions to be inserted above this one.
         // for example, if ^("hello") (v:comparison) "hi"
-        if (parse.asVariable) {
+        if (ParserData_1.canBeVariable(parse)) {
             const res = parse.asVariable(cc);
             if (!this.allowsVariables) {
                 throw new Error("This enumeration field does not allow variables.");
             }
             return res;
         }
-        else if (parse.asString) {
+        else if (ParserData_1.canBeString(parse)) {
             const res = parse.asString(); // asString returns a string like ""
             if (this.options.indexOf(res) > -1) {
                 return res;
             }
-            throw new Error(`This enumeration field can only be one of the following: ${this.options.join `, `}`);
+            throw new Error(`This enumeration field can only be one of the following: ${this.options.join(", ")}`);
         }
         else {
             throw new Error("This enumeration field only accepts strings and variables.");
         }
     }
-};
-types.WFStorageServicePickerParameter = class extends types.WFEnumerationParameter {
+}
+;
+types.WFEnumerationParameter = WFEnumerationParameter;
+class WFStorageServicePickerParameter extends WFEnumerationParameter {
     constructor(data, name) {
         super(data, name || "Storage Service Picker");
         this.options = ["iCloud Drive", "Dropbox"];
     }
-};
-types.WFWorkflowPickerParameter = class extends types.WFParameter {
+}
+;
+types.WFStorageServicePickerParameter = WFStorageServicePickerParameter;
+class WFWorkflowPickerParameter extends WFParameter {
     constructor(data, name = "Shortcut Picker") {
         super(data, name);
     }
@@ -239,18 +236,20 @@ types.WFWorkflowPickerParameter = class extends types.WFParameter {
     build(cc, parse) {
         // asVariable may require additional actions to be inserted above this one.
         // for example, if ^("hello") (v:comparison) "hi"
-        if (parse.asVariable) {
+        if (ParserData_1.canBeVariable(parse)) {
             const res = parse.asVariable(cc);
             return res;
         }
-        else if (parse.asString) {
+        else if (ParserData_1.canBeString(parse)) {
             const res = parse.asString(); // asString returns a string like ""
             return res;
         }
         throw new Error("This shortcut field only accepts strings and variables.");
     }
-};
-types.WFNumberFieldParameter = class extends types.WFParameter {
+}
+;
+types.WFWorkflowPickerParameter = WFWorkflowPickerParameter;
+class WFNumberFieldParameter extends WFParameter {
     constructor(data) {
         super(data, "Number");
     }
@@ -265,14 +264,14 @@ or variable` : ""}
 with a number.`;
     }
     build(cc, parse) {
-        if (parse.asVariable) {
+        if (ParserData_1.canBeVariable(parse)) {
             const res = parse.asVariable(cc);
             if (!this.allowsVariables) {
                 throw new Error("This number field does not allow variables.");
             }
             return res;
         }
-        else if (parse.asString) {
+        else if (ParserData_1.canBeString(parse)) {
             const res = parse.asString(); // asString returns a string like "" <-- that's a string
             const num = +res;
             if (isNaN(num)) {
@@ -282,8 +281,10 @@ with a number.`;
         }
         throw new Error("This number field only accepts strings or numbers");
     }
-};
-types.WFContentArrayParameter = class extends types.WFParameter {
+}
+;
+types.WFNumberFieldParameter = WFNumberFieldParameter;
+class WFContentArrayParameter extends WFParameter {
     constructor(data) {
         super(data, "List");
     }
@@ -296,13 +297,18 @@ types.WFContentArrayParameter = class extends types.WFParameter {
 Accepts a list.`;
     }
     build(cc, parse) {
+        if (!ParserData_1.canBeList(parse)) {
+            throw new Error("To make a content array, the argument must be a list");
+        }
         const list = parse.asList(cc);
         return list;
     }
-};
-types.WFArrayParameter = class extends types.WFContentArrayParameter {
-};
-types.WFStepperParameter = class extends types.WFParameter {
+}
+;
+types.WFContentArrayParameter = WFContentArrayParameter;
+types.WFArrayParameter = class extends WFContentArrayParameter {
+}; // not sure what the difference is
+class WFStepperParameter extends WFParameter {
     constructor(data) {
         super(data, "Stepper Number");
     }
@@ -317,14 +323,14 @@ or variable` : ""}
 containing an integer value.`;
     }
     build(cc, parse) {
-        if (parse.asVariable) {
+        if (ParserData_1.canBeVariable(parse)) {
             const res = parse.asVariable(cc);
             if (!this.allowsVariables) {
                 throw new Error("This number field does not allow variables.");
             }
             return res;
         }
-        else if (parse.asString) {
+        else if (ParserData_1.canBeString(parse)) {
             const res = parse.asString(); // asString returns a string like "" <-- that's a string
             const num = +res;
             if (isNaN(num)) {
@@ -337,8 +343,10 @@ containing an integer value.`;
         }
         throw new Error("This number field only accepts strings or variables");
     }
-};
-types.WFSliderParameter = class extends types.WFParameter {
+}
+;
+types.WFStepperParameter = WFStepperParameter;
+class WFSliderParameter extends WFParameter {
     constructor(data) {
         super(data, "Slider Number");
     }
@@ -353,14 +361,14 @@ or variable` : ""}
 containing a number value from 0 to 1.`;
     }
     build(cc, parse) {
-        if (parse.asVariable) {
+        if (ParserData_1.canBeVariable(parse)) {
             const res = parse.asVariable(cc);
             if (!this.allowsVariables) {
                 throw new Error("This slider field does not allow variables.");
             }
             return res;
         }
-        else if (parse.asString) {
+        else if (ParserData_1.canBeString(parse)) {
             const res = parse.asString(); // asString returns a string like "" <-- that's a string
             const num = +res;
             if (isNaN(num)) {
@@ -373,8 +381,10 @@ containing a number value from 0 to 1.`;
         }
         throw new Error("This number field only accepts strings or variables");
     }
-};
-types.WFVariablePickerParameter = class extends types.WFParameter {
+}
+;
+types.WFSliderParameter = WFSliderParameter;
+class WFVariablePickerParameter extends WFParameter {
     constructor(data) {
         super(data, "Variable Picker");
     }
@@ -387,11 +397,16 @@ types.WFVariablePickerParameter = class extends types.WFParameter {
 Accepts a variable.`;
     }
     build(cc, parse) {
+        if (!ParserData_1.canBeVariable(parse)) {
+            throw new Error("To make a variable picker, the argument must be a variable");
+        }
         const variable = parse.asVariable(cc);
         return variable;
     }
-};
-types.WFTextInputParameter = class extends types.WFParameter {
+}
+;
+types.WFVariablePickerParameter = WFVariablePickerParameter;
+class WFTextInputParameter extends WFParameter {
     constructor(data, name) {
         super(data, name || "Text");
     }
@@ -407,17 +422,27 @@ with the text.`;
     }
     build(cc, parse) {
         if (!this.allowsVariables) {
+            if (!ParserData_1.canBeString(parse)) {
+                throw new Error("To make a text input that does not allow variables, the argument must be a string");
+            }
             return parse.asString();
+        }
+        if (!ParserData_1.canBeText(parse)) {
+            throw new Error("To make a text input, the argument must be a text");
         }
         return parse.asText(cc);
     }
-};
-types.WFDateFieldParameter = class extends types.WFTextInputParameter {
+}
+;
+types.WFTextInputParameter = WFTextInputParameter;
+class WFDateFieldParameter extends WFTextInputParameter {
     constructor(data, name) {
         super(data, name || "Date");
     }
-};
-types.WFEmailAddressFieldParameter = class extends types.WFParameter {
+}
+;
+types.WFDateFieldParameter = WFDateFieldParameter;
+class WFEmailAddressFieldParameter extends WFParameter {
     constructor(data) {
         super(data, "Text Input");
     }
@@ -430,18 +455,21 @@ types.WFEmailAddressFieldParameter = class extends types.WFParameter {
 Accepts a string or string array or variable of email addresses.`;
     }
     build(cc, parse) {
-        if (parse.asVariable) {
+        if (ParserData_1.canBeVariable(parse)) {
             return parse.asVariable(cc);
         }
-        if (parse.asArray) {
+        if (ParserData_1.canBeArray(parse)) {
             return parse.asArray();
         }
-        if (parse.asString) {
+        if (ParserData_1.canBeString(parse)) {
             return [parse.asString()];
         }
+        throw new Error("To make an email address, the argument must be a variable, array, or string");
     }
-};
-types.WFDictionaryParameter = class extends types.WFParameter {
+}
+;
+types.WFEmailAddressFieldParameter = WFEmailAddressFieldParameter;
+class WFDictionaryParameter extends WFParameter {
     constructor(data) {
         super(data, "Dictionary");
     }
@@ -454,10 +482,15 @@ types.WFDictionaryParameter = class extends types.WFParameter {
 Accepts a dictionary.`;
     }
     build(cc, parse) {
+        if (!ParserData_1.canBeDictionary(parse)) {
+            throw new Error("To make a dictionary, the argument must be a dictionary");
+        }
         return parse.asDictionary(cc);
     }
-};
-types.WFSwitchParameter = class extends types.WFParameter {
+}
+;
+types.WFDictionaryParameter = WFDictionaryParameter;
+class WFSwitchParameter extends WFParameter {
     constructor(data) {
         super(data, "Switch");
     }
@@ -471,19 +504,21 @@ Accepts a boolean${this.allowsVariables ? `
 or a variable.` : ""}`;
     }
     build(cc, parse) {
-        if (parse.asVariable) {
+        if (ParserData_1.canBeVariable(parse)) {
             if (!this.allowsVariables) {
                 throw new Error("This boolean field does not accept variables");
             }
             return parse.asVariable(cc);
         }
-        else if (parse.asBoolean) {
+        else if (ParserData_1.canBeBoolean(parse)) {
             return parse.asBoolean();
         }
         throw new Error("This boolean field only accepts booleans or variables");
     }
-};
-types.WFExpandingParameter = class extends types.WFParameter {
+}
+;
+types.WFSwitchParameter = WFSwitchParameter;
+class WFExpandingParameter extends WFParameter {
     constructor(data) {
         super(data, "Expand Arrow");
         this.allowsVariables = undefined;
@@ -497,14 +532,16 @@ types.WFExpandingParameter = class extends types.WFParameter {
 Accepts a boolean for if this
 parameter is expanded or not.`;
     }
-    build(cc, parse) {
-        if (parse.asBoolean) {
+    build(_cc, parse) {
+        if (ParserData_1.canBeBoolean(parse)) {
             return parse.asBoolean();
         }
         throw new Error("This expanding field only accepts booleans");
     }
-};
-types.WFVariableFieldParameter = class extends types.WFParameter {
+}
+;
+types.WFExpandingParameter = WFExpandingParameter;
+class WFVariableFieldParameter extends WFParameter {
     constructor(data) {
         super(data, "Variable Field");
     }
@@ -520,13 +557,13 @@ or a named variable (v:) that you want to set.
         return docs;
     }
     build(cc, parse) {
-        // -> string I assume
-        const varname = parse.asString ? parse.asString() : parse.asStringVariable();
-        cc.vardata[varname] = { action: cc.lastVariableAction };
+        const varname = ParserData_1.canBeString(parse) ? parse.asString() : ParserData_1.canBeStringVariable(parse) ? parse.asStringVariable() : (() => { throw new Error("To make a variable field, the argument must be a string or string variable"); })();
+        cc.vardata[varname] = true;
         return varname;
     }
-};
-// WFNumberFieldParameter: Number || Variable
+}
+;
+types.WFVariableFieldParameter = WFVariableFieldParameter;
 const _debugMissingTypes = {};
 const _debugTypes = {};
 class WFAction {
@@ -536,7 +573,7 @@ class WFAction {
         this.isComplete = true;
         this._parameters = [];
         if (this._data.Parameters) {
-            this._parameters = this._data.Parameters.map(param => {
+            this._parameters = this._data.Parameters.map((param) => {
                 _debugTypes[param.Class] = {
                     paramClass: param.Class,
                     missing: !types[param.Class],
@@ -594,7 +631,7 @@ ${this.genDocsParams().map((arg, i) => `  ${arg.argName}=\${${i + 1}${arg.argAut
     }
     genDocsUsage() {
         return `\`\`\`
-${this.shortName} a{${this.genDocsParams().map(({ argName, argType }) => `${argName}=${argType}`).join ` `}}${this._data.BlockInfo ? this._data.BlockInfo.Example : ""}
+${this.shortName} a{${this.genDocsParams().map(({ argName, argType }) => `${argName}=${argType}`).join(" ")}}${this._data.BlockInfo ? this._data.BlockInfo.Example : ""}
 \`\`\``;
     }
     genDocs() {
@@ -631,11 +668,11 @@ ${this.genDocsUsage()}
 
 ---
 
-${this._parameters.map(param => (typeof param === "string") ? `#### ${param}` : param.genDocs()).join `
+${this._parameters.map(param => (typeof param === "string") ? `#### ${param}` : param.genDocs()).join(`
 
 ---
 
-`}
+`)}
 
 ---
 
@@ -652,7 +689,7 @@ ${JSON.stringify(this._data, null, "\t")}
         let actionAbove = cc.lastVariableAction;
         // TODO actionAbove = cc.lastVariableAction
         //
-        const action = new Action(this.name, this.id, this);
+        const action = new OutputData_1.Action(this.name, this.id);
         if (controlFlowData) {
             const { uuid, number } = controlFlowData;
             action.parameters.set("WFControlFlowMode", number);
@@ -667,6 +704,9 @@ ${JSON.stringify(this._data, null, "\t")}
         }
         params.forEach(param => {
             if (param.special === "InputArg") {
+                if (!ParserData_1.canBeAction(param)) {
+                    throw new Error("To use a param as an inputarg, it must be an action");
+                }
                 actionAbove = param.asAction(cc);
                 return;
             }
@@ -674,6 +714,9 @@ ${JSON.stringify(this._data, null, "\t")}
                 throw new Error("ControlFlowMode is no longer implemented. Please use the Flow and End actions instead.");
             }
             if (param.special === "Arglist") {
+                if (!ParserData_1.canBeRawKeyedDictionary(param)) {
+                    throw new Error("To use a param as an arglist, it must be a raw keyed dictionary");
+                }
                 const dictionary = param.asRawKeyedDictionary();
                 Object.keys(dictionary).forEach(key => {
                     const value = dictionary[key];
@@ -713,22 +756,23 @@ ${JSON.stringify(this._data, null, "\t")}
             action.parameters.set(paramtype.internalName, paramtype.build(cc, param));
         });
         if (actionAbove && this.requiresInput && actionAbove.uuid !== cc.lastVariableAction.uuid) {
-            cc.add(getVariable(actionAbove.variable));
+            cc.add(HelpfulActions_1.getVariable(new OutputData_1.MagicVariable(actionAbove)));
         }
         // TODO if(actionAbove) cc.add(getVariableAction(actionAbove))
         cc.add(action);
         return action;
     }
 }
+exports.WFAction = WFAction;
 // let textAction = new WFAction(actionList[0]["is.workflow.actions.gettext"], "is.workflow.acitons.gettext");
 // console.log(
 // 	textAction.build(new IdentifierParse("Hellothere"))
 // );
 const actionsByName = {};
 const actionsByID = {};
-Object.keys(actionList).forEach(key => {
+Object.keys(Actions_1.default).forEach(key => {
     // console.log(key);
-    const value = actionList[key];
+    const value = Actions_1.default[key];
     const action = new WFAction(value, key);
     if (actionsByName[action.shortName]) {
         console.warn(`WARNING, ${action.shortName} (${action.internalName}) is already defined`);
@@ -741,11 +785,6 @@ Object.keys(actionList).forEach(key => {
 function genReadme() {
     const totalActions = Object.keys(actionsByID).length;
     const completedActions = Object.values(actionsByID).filter(action => action.isComplete).length;
-    const missingTypes = Object.keys(_debugMissingTypes).length;
-    const missingTypeList = Object.keys(_debugMissingTypes)
-        .map(a => [a, _debugMissingTypes[a]])
-        .sort((a, b) => a[1] - b[1])
-        .map(([a, b]) => `${b}: ${a}`);
     const typeList = Object.values(_debugTypes)
         .sort((a, b) => a.count - b.count)
         .map(({ paramClass, count, missing }) => `- [${missing ? " " : "x"}] ${missing ? "" : "Complete - "}${count}: ${paramClass}`);
@@ -767,16 +806,17 @@ ${completedActions}/${totalActions} builtin actions supported
 
 ## All Actions:
 
-${Object.values(actionsByID).sort((a, b) => a.name > b.name ? 1 : (a.name < b.name ? -1 : 0)).map(action => `- [${action.name}](actions/${action.shortName})${action.isComplete ? "" : " (Incomplete)"}`).join `\n`}
+${Object.values(actionsByID).sort((a, b) => a.name > b.name ? 1 : (a.name < b.name ? -1 : 0)).map(action => `- [${action.name}](actions/${action.shortName})${action.isComplete ? "" : " (Incomplete)"}`).join(`\n`)}
 
 ## Parameter Types:
 
 \\# actions used in: parameter type
 
-${typeList.join `\n`}
+${typeList.join(`\n`)}
 
 `;
 }
+exports.genReadme = genReadme;
 /*
 console.log("All Actions:", Object.keys(actionsByID).length);
 console.log("Complete   :", Object.values(actionsByID).filter(action=>action.isComplete).length);
@@ -787,19 +827,22 @@ console.log("List:", Object.keys(_debugMissingTypes)
     .map(([a, b])=>`${a}: ${b}`)
 );
 */
-module.exports = { actionsByID: id => {
-        if (!actionsByID[id]) {
-            throw new Error(`There is no action with the id \`${id}\``);
-        }
-        return actionsByID[id];
-    }, actionsByName: name => {
-        name = name.toLowerCase();
-        if (!actionsByName[name]) {
-            throw new Error(`There is no action with the short name \`${name}\``);
-        }
-        return actionsByName[name];
-    }, allActions: Object.values(actionsByID),
-    genReadme };
+function getActionFromID(id) {
+    if (!actionsByID[id]) {
+        throw new Error(`There is no action with the id \`${id}\``);
+    }
+    return actionsByID[id];
+}
+exports.getActionFromID = getActionFromID;
+function getActionFromName(name) {
+    name = name.toLowerCase();
+    if (!actionsByName[name]) {
+        throw new Error(`There is no action with the short name \`${name}\``);
+    }
+    return actionsByName[name];
+}
+exports.getActionFromName = getActionFromName;
+exports.allActions = Object.values(actionsByID);
 // let getValueForKeyAction = new WFAction(actionList[0]["is.workflow.actions.getvalueforkey"], "is.workflow.acitons.getvalueforkey");
 // console.log(
 // 	getValueForKeyAction.build(

@@ -1,11 +1,61 @@
-const { Shortcut, Action, Parameters, Dictionary, Text, MagicVariable, NamedVariable, Variable, Attachment, Parameter, Aggrandizements, DictionaryKeyAggrandizement, CoercionAggrandizement, Aggrandizement, List } = require("./OutputData");
-const { actionsByName } = require("./ActionData");
-const { ConvertingContext } = require("./Converter.js");
-const { setVariable, getVariable } = require("./HelpfulActions");
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const OutputData_1 = require("./OutputData");
+const ActionData_1 = require("./ActionData");
+const Converter_js_1 = require("./Converter.js");
+const HelpfulActions_1 = require("./HelpfulActions");
 class Parse {
     constructor() {
     }
 }
+function canBeString(parse) {
+    return parse.asString !== undefined;
+}
+exports.canBeString = canBeString;
+function canBeBoolean(parse) {
+    return parse.asBoolean !== undefined;
+}
+exports.canBeBoolean = canBeBoolean;
+function canBeText(parse) {
+    return parse.asText !== undefined;
+}
+exports.canBeText = canBeText;
+function canBeList(parse) {
+    return parse.asList !== undefined;
+}
+exports.canBeList = canBeList;
+function canBeArray(parse) {
+    return parse.asArray !== undefined;
+}
+exports.canBeArray = canBeArray;
+function canBeVariable(parse) {
+    return parse.asVariable !== undefined;
+}
+exports.canBeVariable = canBeVariable;
+function canBeAction(parse) {
+    return parse.asAction !== undefined;
+}
+exports.canBeAction = canBeAction;
+function canBeDictionary(parse) {
+    return parse.asDictionary !== undefined;
+}
+exports.canBeDictionary = canBeDictionary;
+function canBeRawDictionary(parse) {
+    return parse.asRawDictionary !== undefined;
+}
+exports.canBeRawDictionary = canBeRawDictionary;
+function canBeRawKeyedDictionary(parse) {
+    return parse.asDictionary !== undefined;
+}
+exports.canBeRawKeyedDictionary = canBeRawKeyedDictionary;
+function canBeNameType(parse) {
+    return parse.asNameType !== undefined;
+}
+exports.canBeNameType = canBeNameType;
+function canBeStringVariable(parse) {
+    return parse.asStringVariable !== undefined;
+}
+exports.canBeStringVariable = canBeStringVariable;
 class DictionaryParse extends Parse {
     constructor(keyvaluepairs) {
         super();
@@ -14,6 +64,12 @@ class DictionaryParse extends Parse {
     asRawDictionary() {
         const dictionary = {};
         this.keyvaluepairs.forEach(({ key, value }) => {
+            if (!canBeString(key)) {
+                throw new Error("To convert to a raw dictionary, key must be a string");
+            }
+            if (!canBeString(value)) {
+                throw new Error("To convert to a raw dictionary, value must be a string");
+            }
             const stringKey = key.asString();
             if (dictionary[stringKey]) {
                 throw new Error(`Key ${stringKey} is already defined in this dictionary.`);
@@ -26,6 +82,9 @@ class DictionaryParse extends Parse {
         // returns a raw dictionary (keys are raw, not values) for this DictionaryParse
         const dictionary = {};
         this.keyvaluepairs.forEach(({ key, value }) => {
+            if (!canBeString(key)) {
+                throw new Error("To convert to a raw keyed dictionary, key must be a string");
+            }
             const stringKey = key.asString();
             if (dictionary[stringKey]) {
                 throw new Error(`Key ${stringKey} is already defined in this dictionary.`);
@@ -36,48 +95,72 @@ class DictionaryParse extends Parse {
     }
     asDictionary(cc) {
         // returns an Output Dictionary for this DictionaryParse
-        const dictionary = new Dictionary();
+        const dictionary = new OutputData_1.Dictionary();
         this.keyvaluepairs.forEach(({ key, value }) => {
             let type;
-            if (value.asList) {
+            let outputValue;
+            if (!canBeText(key)) {
+                throw new Error("Dictionary keys must be texts");
+            }
+            if (canBeList(value)) {
                 type = 2;
-                value = value.asList(cc);
+                outputValue = value.asList(cc);
             }
-            else if (value.asDictionary) {
+            else if (canBeDictionary(value)) {
                 type = 1;
-                value = value.asDictionary(cc);
+                outputValue = value.asDictionary(cc);
             }
-            else if (value.asText) {
+            else if (canBeText(value)) {
                 type = 0;
-                value = value.asText(cc);
+                outputValue = value.asText(cc);
             }
             else {
                 throw new Error("This dictionary can only values that are lists, texts, or dictionaries.");
             }
-            dictionary.add(key.asText(cc), value, type);
+            dictionary.add(key.asText(cc), outputValue, type);
         });
         return dictionary;
     }
 }
+exports.DictionaryParse = DictionaryParse;
 class ListParse extends Parse {
     constructor(items) {
         super();
         this.items = items;
     }
-    asArray(cc) {
-        return this.items.map(item => item.asString());
+    asArray() {
+        return this.items.map(item => {
+            if (!canBeString(item)) {
+                throw new Error("To convert to an array, all elements must be strings");
+            }
+            return item.asString();
+        });
     }
     asList(cc) {
-        return new List(this.items.map(item => item.asText(cc)));
+        return new OutputData_1.List(this.items.map(item => {
+            if (!canBeText(item)) {
+                throw new Error("To convert to a list, all items must be texts");
+            }
+            return item.asText(cc);
+        }));
     }
 }
+exports.ListParse = ListParse;
 class BarlistParse extends ListParse {
     asString() {
-        return this.items.map(item => item.asString()).join `\n`;
+        return this.items.map(item => {
+            if (!canBeString(item)) {
+                throw new Error("To convert to an array, all elements must be strings");
+            }
+            item.asString();
+        }).join("\n");
     }
     asText(cc) {
-        const finalText = new Text;
+        const finalText = new OutputData_1.Text;
         this.items.forEach((item, i) => {
+            if (!canBeText(item)) {
+                throw new Error("To convert to a text, all elements must be texts");
+            }
             finalText.add(item.asText(cc));
             if (this.items.length - 1 !== i) {
                 finalText.add("\n");
@@ -88,8 +171,8 @@ class BarlistParse extends ListParse {
         return finalText;
     }
 }
+exports.BarlistParse = BarlistParse;
 class CharsParse extends Parse {
-    // [...string|Parse(has asVariable)]
     constructor(items) {
         super();
         this.items = items;
@@ -101,21 +184,25 @@ class CharsParse extends Parse {
                 string += item;
                 return;
             }
-            throw new Error(`Interpolations are not allowed in this string.`);
+            throw new Error(`To convert to a string, all items must be strings.`);
         });
         return string;
     }
     asText(cc) {
-        const text = new Text;
+        const text = new OutputData_1.Text;
         this.items.forEach(item => {
             if (typeof item === "string") {
                 return text.add(item);
+            }
+            if (!canBeVariable(item)) {
+                throw new Error("To convert to text, all items must be variables");
             }
             return text.add(item.asVariable(cc));
         });
         return text;
     }
 }
+exports.CharsParse = CharsParse;
 class IdentifierParse extends Parse {
     constructor(str) {
         super();
@@ -134,25 +221,27 @@ class IdentifierParse extends Parse {
         }
         throw new Error("This boolean must be either true or false.");
     }
-    asText(cc) {
-        const text = new Text;
+    asText(_cc) {
+        const text = new OutputData_1.Text;
         text.add(this.value);
         return text;
     }
 }
-class ParamListParse extends DictionaryParse {
-}
+exports.IdentifierParse = IdentifierParse;
 class ArglistParse extends DictionaryParse {
-    get special() {
-        return "Arglist";
+    constructor(keyValuePairs) {
+        super(keyValuePairs);
+        this.special = "Arglist";
     }
 }
+exports.ArglistParse = ArglistParse;
 class VariableFlagParse extends Parse {
     constructor(variable) {
         super();
         this.variable = variable;
     }
 }
+exports.VariableFlagParse = VariableFlagParse;
 class ActionParse extends Parse {
     constructor(name, args, variable) {
         super();
@@ -163,19 +252,20 @@ class ActionParse extends Parse {
     // Action[Argument,Argument...]
     asText(cc) {
         const variable = this.asVariable(cc);
-        const text = new Text();
+        const text = new OutputData_1.Text();
         text.add(variable);
         return text;
     }
     asVariable(cc) {
         const action = this.asAction(cc); // adds the action
-        if (action.info.hasVariable) {
-            return action.variable;
-        }
+        return new OutputData_1.MagicVariable(action);
         // otherwise: add a Set Variable action
-        throw new Error(`Actions of type ${action.info.id} cannot be converted to a variable.`);
+        // throw new Error(`Actions of type ${action.info.id} cannot be converted to a variable.`);
     }
     asAction(cc) {
+        if (!canBeString(this.name)) {
+            throw new Error("To convert to an action, the action name must be a string");
+        }
         const actionName = this.name.asString().toLowerCase();
         let wfAction;
         let controlFlowData;
@@ -191,7 +281,7 @@ class ActionParse extends Parse {
             wfAction = controlFlowData.wfaction;
         }
         else {
-            wfAction = actionsByName(actionName);
+            wfAction = ActionData_1.getActionFromName(actionName);
         }
         if (!wfAction) {
             throw new Error(`The action named ${actionName.toLowerCase()} could not be found.`);
@@ -200,10 +290,13 @@ class ActionParse extends Parse {
         // WFAction adds it to cc for us, no need to do it ourselves.
         // now add any required set variable actions
         if (this.variable) {
+            if (!canBeNameType(this.variable)) {
+                throw new Error("To convert to an action, the output variable must be a nametype");
+            }
             const { name, type } = this.variable.asNameType(); // TODO not this
             if (type === "v") {
-                cc.add(setVariable(name));
-                cc.vardata[name] = { action: action };
+                cc.add(HelpfulActions_1.setVariable(name));
+                cc.vardata[name] = true;
             }
             else if (type === "mv") {
                 action.magicvarname = `${type}:${name}`;
@@ -213,6 +306,7 @@ class ActionParse extends Parse {
         return action;
     }
 }
+exports.ActionParse = ActionParse;
 class VariableParse extends Parse {
     constructor(type, name, forkey, options) {
         super();
@@ -222,7 +316,12 @@ class VariableParse extends Parse {
         this.options = options;
     }
     asStringVariable() {
-        let variable;
+        if (!canBeString(this.name)) {
+            throw new Error("To convert to a stringvariable, the variable name must be a string");
+        }
+        if (!canBeString(this.type)) {
+            throw new Error("To convert to a stringvariable, the variable type must be a string");
+        }
         const name = this.name.asString();
         const type = this.type.asString();
         if (type !== "v") {
@@ -231,7 +330,12 @@ class VariableParse extends Parse {
         return name;
     }
     asNameType() {
-        let variable;
+        if (!canBeString(this.name)) {
+            throw new Error("To convert to a nametype, the variable name must be a string");
+        }
+        if (!canBeString(this.type)) {
+            throw new Error("To convert to a nametype, the variable type must be a string");
+        }
         const name = this.name.asString();
         const type = this.type.asString();
         if (type !== "v" && type !== "mv") {
@@ -240,16 +344,25 @@ class VariableParse extends Parse {
         return { name, type };
     }
     asText(cc) {
-        const text = new Text;
+        const text = new OutputData_1.Text;
         text.add(this.asVariable(cc));
         return text;
     }
     asVariable(cc) {
         let variable;
+        if (!canBeString(this.name)) {
+            throw new Error("To convert to a variable, the variable name must be a string");
+        }
+        if (!canBeString(this.type)) {
+            throw new Error("To convert to a variable, the variable type must be a string");
+        }
         const name = this.name.asString();
         const type = this.type.asString();
         let aggrandizements;
         if (this.options) {
+            if (!canBeRawDictionary(this.options)) {
+                throw new Error("To convert to a variable, the aggrandizements object must be a raw dictionary");
+            }
             aggrandizements = this.options.asRawDictionary(); // should be asRawKeyedDictionary and then use asstirng inside
         }
         else {
@@ -258,12 +371,12 @@ class VariableParse extends Parse {
         if (type === "v") { // named variable
             let vardata = cc.vardata[name];
             if (name.startsWith("Repeat Index") || name.startsWith("Repeat Item")) {
-                vardata = {};
+                vardata = true;
             }
             if (!vardata) {
                 throw new Error(`${type}:${name} is not yet defined.`);
             }
-            variable = new NamedVariable(name, vardata.type);
+            variable = new OutputData_1.NamedVariable(name);
         }
         else if (type === "mv") { // magic variable
             const vardata = cc.magicvardata[name];
@@ -271,7 +384,7 @@ class VariableParse extends Parse {
                 throw new Error(`${type}:${name} is not yet defined.`);
             }
             const mvact = vardata.action;
-            variable = new MagicVariable(mvact);
+            variable = new OutputData_1.MagicVariable(mvact);
         }
         else if (type === "s") { // special variable
             const attachtype = { clipboard: "Clipboard", askwhenrun: "Ask", currentdate: "CurrentDate", shortcutinput: "ExtensionInput", actioninput: "Input" };
@@ -279,13 +392,16 @@ class VariableParse extends Parse {
             if (!attachvalue) {
                 throw new Error(`Invalid special variable type ${name.toLowerCase()} valid are ${Object.keys(attachtype)}`);
             }
-            variable = new Attachment(attachvalue);
+            variable = new OutputData_1.Attachment(attachvalue);
         }
         else {
             throw new Error(`Invalid vartype ${type}. Valid are v, mv, s`);
         }
         if (this.forkey) {
             variable.aggrandizements.coerce("dictionary");
+            if (!canBeString(this.forkey)) {
+                throw new Error("To convert to a variable, the forkey value must be a string");
+            }
             variable.aggrandizements.forKey(this.forkey.asString());
         }
         Object.keys(aggrandizements).forEach(key => {
@@ -310,36 +426,30 @@ class VariableParse extends Parse {
         return variable;
     }
     asAction(cc) {
-        const action = getVariable(this.asVariable(cc));
+        const action = HelpfulActions_1.getVariable(this.asVariable(cc));
         cc.add(action);
         return action;
     }
 }
+exports.VariableParse = VariableParse;
 class ActionsParse {
     constructor(actions) {
         this.actions = actions;
     }
     asShortcut() {
-        const cc = new ConvertingContext();
-        this.actions.forEach(action => action.asAction(cc));
+        const cc = new Converter_js_1.ConvertingContext();
+        this.actions.forEach(action => {
+            if (!canBeAction(action)) {
+                throw new Error("To convert to a shortcut, all actions must be actions");
+            }
+            action.asAction(cc);
+        });
         if (cc.controlFlowStack.length !== 0) {
             throw new Error(`There are ${cc.controlFlowStack.length} unterminated block actions. Check to make sure every block has an else.`);
         }
         return cc.shortcut;
     }
 }
+exports.ActionsParse = ActionsParse;
 // Text::asString
 // Text::build
-module.exports = {
-    ActionParse,
-    DictionaryParse,
-    CharsParse,
-    IdentifierParse,
-    ParamListParse,
-    BarlistParse,
-    ListParse,
-    VariableParse,
-    ActionsParse,
-    VariableFlagParse,
-    ArglistParse
-};

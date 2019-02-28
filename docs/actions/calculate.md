@@ -89,6 +89,7 @@ with a number.
 **Allows Variables**: true
 
 **Only enabled if**: argument WFMathOperation = `…`
+
 **Only enabled if**: argument WFScientificMathOperation = `Modulus` or `x^y`
 
 Accepts a string 

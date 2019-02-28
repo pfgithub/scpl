@@ -1,8 +1,6 @@
-const {Production, ManyProduction, StringProduction, OrderedProduction, RegexProduction, OrProduction, NotProduction, Performance} = require("./Production.js");
+import {Production, ManyProduction, StringProduction, OrderedProduction, RegexProduction, OrProduction, NotProduction, ProductionResolveable} from "./Production";
 
-type ProductionResolveable = Production | {getProd: () => Production}
 
-const items = {};
 export const p = (...args: Array<ProductionResolveable>): Production => new OrderedProduction(...args);
 export const regex = (regex: RegExp): Production => new RegexProduction(regex);
 
@@ -19,7 +17,7 @@ const _realo: {[name: string]: ProductionResolveable} = {}; // todon't make this
 const t = (str: string) => ({getProd: () => _realo[`${str}`]}); // ...
 
 export const o: {[name: string]: ProductionResolveable} = new Proxy(_realo, {
-	get: (target, prop, reciever) => {
+	get: (_target, prop, _reciever) => {
 		// @ts-ignore
 		if(_realo[prop] === undefined) {
 			// @ts-ignore

@@ -63,6 +63,7 @@ parameter is expanded or not.
 **Allows Variables**: true
 
 **Only enabled if**: argument Advanced = `true`
+
 **Only enabled if**: argument ShowHeaders = `true`
 
 Accepts a dictionary.
@@ -75,6 +76,7 @@ Accepts a dictionary.
 JSON
 ```
 **Only enabled if**: argument Advanced = `true`
+
 **Only enabled if**: argument WFHTTPMethod != `GET`
 
 Accepts a string 
@@ -90,7 +92,9 @@ containing one of the options:
 **Allows Variables**: true
 
 **Only enabled if**: argument Advanced = `true`
+
 **Only enabled if**: argument WFHTTPBodyType = `Form`
+
 **Only enabled if**: argument WFHTTPMethod != `GET`
 
 Accepts a dictionary.
@@ -101,7 +105,9 @@ Accepts a dictionary.
 **Allows Variables**: true
 
 **Only enabled if**: argument Advanced = `true`
+
 **Only enabled if**: argument WFHTTPBodyType = `JSON`
+
 **Only enabled if**: argument WFHTTPMethod != `GET`
 
 Accepts a dictionary.
@@ -112,7 +118,9 @@ Accepts a dictionary.
 **Allows Variables**: true
 
 **Only enabled if**: argument Advanced = `true`
+
 **Only enabled if**: argument WFHTTPBodyType = `File`
+
 **Only enabled if**: argument WFHTTPMethod != `GET`
 
 Accepts a variable.

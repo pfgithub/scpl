@@ -3,7 +3,7 @@
 // Enter at your own risk
 // ========≠==========
 
-import uuidv4 from "uuid/v4";
+import * as uuidv4 from "uuid/v4";
 
 const type = {
 	appStoreApp: "WFAppStoreAppContentItem",
@@ -30,35 +30,6 @@ const type = {
 	vCard: ""
 };
 
-const inputType = {
-	appStoreApp: "WFAppStoreAppContentItem",
-	article: "WFArticleContentItem",
-	contact: "WFContactContentItem",
-	date: "WFDateContentItem",
-	emailAddress: "WFEmailAddressContentItem",
-	file: "WFGenericFileContentItem",
-	image: "WFImageContentItem",
-	iTunesProduct: "WFiTunesProductContentItem",
-	location: "WFLocationContentItem",
-	mapsLink: "WFDCMapsLinkContentItem",
-	media: "WFAVAssetContentItem",
-	pdf: "WFPDFContentItem",
-	phoneNumber: "WFPhoneNumberContentItem",
-	richText: "WFRichTextContentItem",
-	safariWebpage: "WFSafariWebPageContentItem", // only available in inputType
-	text: "WFStringContentItem",
-	url: "WFURLContentItem"
-};
-
-const typesall = { // future, for now type will be used and inputtypes will not be supported
-	safariWebpage: {
-		coercion: false,
-		inputType: true
-	},
-	contact: {
-		get: ["name", "a", "b", "c", "d", "e", "f"] // ...
-	}
-};
 
 // DisplayType would be a better name maybe
 const SERIALIZATIONTYPE = { // how a value will be rendered in shortcuts, forex variables are texttokenattachments
@@ -67,17 +38,6 @@ const SERIALIZATIONTYPE = { // how a value will be rendered in shortcuts, forex 
 	dictionaryFieldValue: "WFDictionaryFieldValue"
 };
 
-/*
-
-SERIALIZATION TYPES
-...................
-/*rialization typ*/
-//rialization typ//
-/*rialization typ*/
-
-class Aggrandizement {}
-class CoercionAggrandizement extends Aggrandizement {}
-class DictionaryKeyAggrandizement extends Aggrandizement {}
 /*
 CoercionItemClass?: AggrandizementCoercionItemClass;
 DictionaryKey?: string;
@@ -345,7 +305,6 @@ export class Aggrandizements {
 		this.aggrandizements = [];
 	}
 	build() {
-		const aggrandizements = [];
 		return this.aggrandizements;
 	}
 	property(getType: string) {

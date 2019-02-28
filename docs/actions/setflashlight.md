@@ -45,6 +45,7 @@ containing one of the options:
 **Allows Variables**: true
 
 **Only enabled if**: argument WFFlashlightSetting = `On` or `Toggle`
+
 **Only enabled if**: This action is always **disabled** inside Shortcutslang.
 
 Accepts a string 

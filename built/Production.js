@@ -1,3 +1,5 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 let totalSteps = 0;
 let began;
 class Performance {
@@ -11,8 +13,9 @@ class Performance {
         console.log(`Parsed in ${totalSteps} steps over ${ended.getTime() - began.getTime()}ms.`); //eslint-disable-line no-console
     }
 }
+exports.Performance = Performance;
 class Production {
-    constructor(cb = a => a) {
+    constructor(cb = (a) => a) {
         this.cb = cb;
     }
     scb(cb) {
@@ -22,13 +25,12 @@ class Production {
     getProd() {
         return this;
     }
-    parse(string) {
+    parse(_string) {
         totalSteps++;
-        // console.log("STEPS ARE:",  ++totalSteps);
-        // if(!lastStep) {console.log("Started at ", lastStep = new Date());}
-        // console.log(`STRING IS OF LENGTH ${string.length}\n\n\`\`\`\n${string}\n\`\`\`\nPARSER IS:`, this); //this.toString());
+        return { success: false };
     }
 }
+exports.Production = Production;
 class OrderedProduction extends Production {
     constructor(...requirements) {
         super();
@@ -39,7 +41,6 @@ class OrderedProduction extends Production {
         const resdata = [];
         const success = this.requirements.every(requirement => {
             const { data, remainingStr, success } = requirement.getProd().parse(string);
-            // console.log("DRS", data, "R", remainingStr, "S", success);
             if (!success) {
                 return false;
             }
@@ -53,6 +54,7 @@ class OrderedProduction extends Production {
         return { data: this.cb(resdata), remainingStr: string, success: true };
     }
 }
+exports.OrderedProduction = OrderedProduction;
 class OrProduction extends Production {
     constructor(...options) {
         super();
@@ -76,6 +78,7 @@ class OrProduction extends Production {
         return { data: this.cb(resdata), remainingStr: string, success: true };
     }
 }
+exports.OrProduction = OrProduction;
 class NotProduction extends Production {
     constructor(...options) {
         super();
@@ -99,6 +102,7 @@ class NotProduction extends Production {
         return { data: this.cb(resdata), remainingStr: string, success: true };
     }
 }
+exports.NotProduction = NotProduction;
 class RegexProduction extends Production {
     constructor(regex) {
         super();
@@ -121,6 +125,7 @@ class RegexProduction extends Production {
         return `RegexProduction ${this.regex}`;
     }
 }
+exports.RegexProduction = RegexProduction;
 class StringProduction extends Production {
     constructor(string) {
         super();
@@ -138,6 +143,7 @@ class StringProduction extends Production {
         return `StringProduction ${JSON.stringify(this.string)}`;
     }
 }
+exports.StringProduction = StringProduction;
 class ManyProduction extends Production {
     constructor(thing, start = -Infinity, end = Infinity) {
         super();
@@ -178,13 +184,4 @@ class ManyProduction extends Production {
         return `ManyProduction ?{${this.start}..${this.end}}`;
     }
 }
-module.exports = {
-    ManyProduction,
-    StringProduction,
-    RegexProduction,
-    NotProduction,
-    OrProduction,
-    OrderedProduction,
-    Production,
-    Performance
-};
+exports.ManyProduction = ManyProduction;

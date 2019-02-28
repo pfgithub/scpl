@@ -1,11 +1,10 @@
-const uuidv4 = require("uuid/v4");
 
-import {Text, Action, MagicVariable} from "./OutputData";
+import {Action, MagicVariable} from "./OutputData";
 import {getVariable} from "./HelpfulActions";
 import { ConvertingContext } from "./Converter";
-import {canBeString, canBeBoolean, canBeText, canBeArray, canBeList, canBeVariable, canBeAction, canBeDictionary, canBeRawDictionary, canBeRawKeyedDictionary, canBeNameType, canBeStringVariable, AsAble, IdentifierParse, CharsParse, ListParse, BarlistParse, DictionaryParse, ArglistParse, VariableFlagParse, ActionParse, VariableParse} from "./ParserData"
+import {canBeString, canBeBoolean, canBeText, canBeArray, canBeList, canBeVariable, canBeAction, canBeDictionary, canBeRawKeyedDictionary, canBeStringVariable, AsAble} from "./ParserData"
 
-const actionList = require("./Data/Actions")[0];
+import actionList from "./Data/Actions";
 
 function genShortName(longName: string, internalName?: string) {
 	// lower case
@@ -20,7 +19,7 @@ class WFResource {
 	constructor(data: any) {
 		this._data = data;
 	}
-	shouldEnable(action: Action) {
+	shouldEnable(_action: Action) {
 		return true;
 	}
 	genDocs() {
@@ -31,7 +30,7 @@ class WFResource {
 const resourceTypes: {[key: string]: any} = {}; // I can't figure out what to put the type as here
 
 class WFDeviceAttributesResource extends WFResource {
-	shouldEnable(action: Action) {
+	shouldEnable(_action: Action) {
 		return true;
 	}
 	genDocs() {
@@ -41,7 +40,7 @@ class WFDeviceAttributesResource extends WFResource {
 resourceTypes.WFDeviceAttributesResource = WFDeviceAttributesResource;
 
 class WFWorkflowTypeResource extends WFResource {
-	shouldEnable(action: Action) {
+	shouldEnable(_action: Action) {
 		return true;
 	}
 	genDocs() {
@@ -51,7 +50,7 @@ class WFWorkflowTypeResource extends WFResource {
 resourceTypes.WFWorkflowTypeResource = WFWorkflowTypeResource
 
 class WFWorkflowHiddenResource extends WFResource {
-	shouldEnable(action: Action) {
+	shouldEnable(_action: Action) {
 		return false;
 	}
 	genDocs() {
@@ -130,8 +129,8 @@ class WFParameter {
 
 		this.requiredResources = this.requiredResources.map((resource: any) => {
 			const type = resource.WFResourceClass;
-			const resourceClass = types[type];
-			if(!resourceClass) {throw new Error(`${resourceClass} is not a defined resource class.`);}
+			const resourceClass = resourceTypes[type];
+			if(!resourceClass) {throw new Error(`${type} is not a defined resource class.`);}
 			// @ts-ignore
 			return new resourceClass(resource);
 		});
@@ -162,8 +161,8 @@ ${this._data.DefaultValue}
 		docs += `${this.requiredResources.map(resource => `**Only enabled if**: ${resource.genDocs()}`).join("\n\n")}`;
 		return docs;
 	}
-	build(cc: ConvertingContext, parse: AsAble): any{
-	
+	build(_cc: ConvertingContext, _parse: AsAble): any{
+
 	}
 };
 
@@ -219,7 +218,7 @@ class WFStorageServicePickerParameter extends WFEnumerationParameter {
 };
 types.WFStorageServicePickerParameter = WFStorageServicePickerParameter;
 
-class WFWorkflowPickerParameter extends types.WFParameter {
+class WFWorkflowPickerParameter extends WFParameter {
 	constructor(data: any, name = "Shortcut Picker") {
 		super(data, name);
 	}
@@ -302,7 +301,7 @@ types.WFContentArrayParameter = WFContentArrayParameter;
 
 types.WFArrayParameter = class extends WFContentArrayParameter {}; // not sure what the difference is
 
-class WFStepperParameter extends types.WFParameter {
+class WFStepperParameter extends WFParameter {
 	constructor(data: any) {
 		super(data, "Stepper Number");
 	}
@@ -335,7 +334,7 @@ containing an integer value.`;
 };
 types.WFStepperParameter = WFStepperParameter
 
-class WFSliderParameter extends types.WFParameter {
+class WFSliderParameter extends WFParameter {
 	constructor(data: any) {
 		super(data, "Slider Number");
 	}
@@ -505,7 +504,7 @@ class WFExpandingParameter extends WFParameter {
 Accepts a boolean for if this
 parameter is expanded or not.`;
 	}
-	build(cc: ConvertingContext, parse: AsAble) {
+	build(_cc: ConvertingContext, parse: AsAble) {
 		if(canBeBoolean(parse)) {
 			return parse.asBoolean();
 		}
@@ -514,7 +513,7 @@ parameter is expanded or not.`;
 };
 types.WFExpandingParameter = WFExpandingParameter
 
-class WFVariableFieldParameter extends types.WFParameter {
+class WFVariableFieldParameter extends WFParameter {
 	constructor(data: any) {
 		super(data, "Variable Field");
 	}
@@ -540,7 +539,7 @@ types.WFVariableFieldParameter = WFVariableFieldParameter;
 const _debugMissingTypes: {[key: string]: number} = {};
 const _debugTypes: {[key: string]: {paramClass: string, missing: boolean, count: number}} = {};
 
-class WFAction {
+export class WFAction {
 	_data: any
 	id: string
 	isComplete: boolean
@@ -754,12 +753,6 @@ Object.keys(actionList).forEach(key => {
 export function genReadme() {
 	const totalActions = Object.keys(actionsByID).length;
 	const completedActions = Object.values(actionsByID).filter(action=>action.isComplete).length;
-	const missingTypes = Object.keys(_debugMissingTypes).length;
-	const missingTypeList = Object.keys(_debugMissingTypes)
-		.map(a=>[a, _debugMissingTypes[a]])
-		// @ts-ignore
-		.sort(([a, c], [b, d]) => c - d)
-		.map(([a, b])=>`${b}: ${a}`);
 	const typeList = Object.values(_debugTypes)
 		.sort((a, b) => a.count - b.count)
 		.map(({paramClass, count, missing})=>`- [${missing?" ":"x"}] ${missing?"":"Complete - "}${count}: ${paramClass}`);
@@ -810,6 +803,7 @@ export function getActionFromName(name: string): WFAction{
 	if(!actionsByName[name]) {throw new Error(`There is no action with the short name \`${name}\``);}
 	return actionsByName[name];
 }
+export const allActions = Object.values(actionsByID);
 
 // let getValueForKeyAction = new WFAction(actionList[0]["is.workflow.actions.getvalueforkey"], "is.workflow.acitons.getvalueforkey");
 // console.log(

@@ -1,21 +1,24 @@
-const { ManyProduction, StringProduction, OrderedProduction, RegexProduction, OrProduction, NotProduction, Performance } = require("./Production.js");
-const items = {};
-const p = (...args) => new OrderedProduction(...args);
-const regex = (...args) => new RegexProduction(...args);
-const star = (thing) => new ManyProduction(thing, 0, undefined);
-const plus = (thing) => new ManyProduction(thing, 1, undefined);
-const optional = (thing) => new ManyProduction(thing, 0, 1);
-const or = (...args) => new OrProduction(...args);
-const not = (...args) => new NotProduction(...args);
-const c = (str) => new StringProduction(`${str}`);
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const Production_1 = require("./Production");
+exports.p = (...args) => new Production_1.OrderedProduction(...args);
+exports.regex = (regex) => new Production_1.RegexProduction(regex);
+exports.star = (thing) => new Production_1.ManyProduction(thing, 0, undefined);
+exports.plus = (thing) => new Production_1.ManyProduction(thing, 1, undefined);
+exports.optional = (thing) => new Production_1.ManyProduction(thing, 0, 1);
+exports.or = (...args) => new Production_1.OrProduction(...args);
+exports.not = (...args) => new Production_1.NotProduction(...args);
+exports.c = (str) => new Production_1.StringProduction(`${str}`);
 const _realo = {}; // todon't make this a proxy such that accessing o.a returns a {getProd:} might be interesting maybe
-const t = str => ({ getProd: _ => _realo[`${str}`] }); // ...
-const o = new Proxy(_realo, {
-    get: (target, prop, reciever) => {
+const t = (str) => ({ getProd: () => _realo[`${str}`] }); // ...
+exports.o = new Proxy(_realo, {
+    get: (_target, prop, _reciever) => {
+        // @ts-ignore
         if (_realo[prop] === undefined) {
+            // @ts-ignore
             return t(prop);
         }
+        // @ts-ignore
         return _realo[prop];
     }
 });
-module.exports = { p, regex, star, plus, optional, or, not, c, o };
