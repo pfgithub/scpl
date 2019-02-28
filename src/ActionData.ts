@@ -1,5 +1,5 @@
 
-import {Action, MagicVariable} from "./OutputData";
+import {Action, MagicVariable, ParameterType} from "./OutputData";
 import {getVariable} from "./HelpfulActions";
 import { ConvertingContext } from "./Converter";
 import {canBeString, canBeBoolean, canBeText, canBeArray, canBeList, canBeVariable, canBeAction, canBeDictionary, canBeRawKeyedDictionary, canBeStringVariable, AsAble} from "./ParserData"
@@ -161,8 +161,8 @@ ${this._data.DefaultValue}
 		docs += `${this.requiredResources.map(resource => `**Only enabled if**: ${resource.genDocs()}`).join("\n\n")}`;
 		return docs;
 	}
-	build(_cc: ConvertingContext, _parse: AsAble): any{
-
+	build(_cc: ConvertingContext, _parse: AsAble): ParameterType{
+		throw new Error("Cannot build undefined parameter");
 	}
 };
 

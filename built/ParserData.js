@@ -152,7 +152,7 @@ class BarlistParse extends ListParse {
             if (!canBeString(item)) {
                 throw new Error("To convert to an array, all elements must be strings");
             }
-            item.asString();
+            return item.asString();
         }).join("\n");
     }
     asText(cc) {

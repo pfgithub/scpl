@@ -175,7 +175,7 @@ export class BarlistParse extends ListParse implements AsText, AsString {
 	asString() {
 		return this.items.map(item => {
 			if(!canBeString(item)) {throw new Error("To convert to an array, all elements must be strings")}
-			item.asString()
+			return item.asString()
 		}).join("\n");
 	}
 	asText(cc: ConvertingContext) { // -> Text

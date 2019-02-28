@@ -504,25 +504,27 @@ export class Text extends Parameter {
 	}
 }
 
+export type ParameterType = Parameter | string | number | Array<string> | boolean
 
 export class Parameters {
 	values: {[internalName: string]: any} // no one knows what values really means, it's just an any
 	constructor() {
 		this.values = {};
 	}
-	set(internalName: string, value: Parameter | string | number) { // chainable
-		if(typeof value === "string" || typeof value === "number") {
+	set(internalName: string, value: ParameterType) { // chainable
+		if(!(value instanceof Parameter)) {
 			this.values[internalName] = value;
 			return this;
 		}
 		if(value instanceof Attachment) {
+			 // VALUE IS AN INSTANCEOF ATTACHMENT HOW CAN IT NOT BE BUILT
 			this.values[internalName] = {
 				Value: value.build(),
 				WFSerializationType: SERIALIZATIONTYPE.variable
 			};
 			return this;
 		}
-		this.values[internalName] = value.build();
+		this.values[internalName] = value.build(); // how does this get called if value doesn't have a build method, all parameters have a build
 		return this;
 	}
 	has(internalName: string) {

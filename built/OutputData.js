@@ -498,18 +498,19 @@ class Parameters {
         this.values = {};
     }
     set(internalName, value) {
-        if (typeof value === "string" || typeof value === "number") {
+        if (!(value instanceof Parameter)) {
             this.values[internalName] = value;
             return this;
         }
         if (value instanceof Attachment) {
+            // VALUE IS AN INSTANCEOF ATTACHMENT HOW CAN IT NOT BE BUILT
             this.values[internalName] = {
                 Value: value.build(),
                 WFSerializationType: SERIALIZATIONTYPE.variable
             };
             return this;
         }
-        this.values[internalName] = value.build();
+        this.values[internalName] = value.build(); // how does this get called if value doesn't have a build method, all parameters have a build
         return this;
     }
     has(internalName) {

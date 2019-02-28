@@ -162,6 +162,7 @@ ${this._data.DefaultValue}
         return docs;
     }
     build(_cc, _parse) {
+        throw new Error("Cannot build undefined parameter");
     }
 }
 ;
