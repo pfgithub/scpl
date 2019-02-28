@@ -97,6 +97,14 @@ function canBeNameType(parse: Parse): parse is AsNameType {
     return (<AsNameType>parse).asNameType !== undefined;
 }
 
+interface AsStringVariable{
+	asStringVariable(): string
+}
+
+function canBeStringVariable(parse: Parse): parse is AsStringVariable {
+    return (<AsStringVariable>parse).asStringVariable !== undefined;
+}
+
 type AsAble = AsString | AsText | AsList | AsArray | AsVariable | AsAction | AsDictionary | AsRawDictionary | AsRawKeyedDictionary | AsNameType | AsBoolean;
 
 export class DictionaryParse extends Parse implements AsRawDictionary, AsRawKeyedDictionary, AsDictionary {
@@ -144,17 +152,17 @@ export class DictionaryParse extends Parse implements AsRawDictionary, AsRawKeye
 		return dictionary;
 	}
 }
-export class ListParse extends Parse {
+export class ListParse extends Parse implements AsArray, AsList {
 	items: Array<AsAble>;
 
 	constructor(items: Array<AsAble>) {
 		super();
 		this.items = items;
 	}
-	asArray(cc: ConvertingContext) { // -> ""[]
+	asArray() { // -> ""[]
 		return this.items.map(item => {
 			if(!canBeString(item)) {throw new Error("To convert to an array, all elements must be strings")}
-			item.asString()
+			return item.asString()
 		});
 	}
 	asList(cc: ConvertingContext) { // -> Text[]
@@ -186,7 +194,7 @@ export class BarlistParse extends ListParse {
 	}
 }
 
-export class CharsParse extends Parse {
+export class CharsParse extends Parse implements AsString, AsText {
 	// [...string|Parse(has asVariable)]
 	items: [string | AsAble]
 	constructor(items: [string | AsAble]) {
@@ -216,7 +224,7 @@ export class CharsParse extends Parse {
 		return text;
 	}
 }
-export class IdentifierParse extends Parse {
+export class IdentifierParse extends Parse implements AsString, AsBoolean, AsText {
 	value: string
 	constructor(str: string) {
 		super();
@@ -249,7 +257,7 @@ export class VariableFlagParse extends Parse {
 		this.variable = variable;
 	}
 }
-export class ActionParse extends Parse {
+export class ActionParse extends Parse implements AsText, AsVariable, AsAction {
 	name: AsAble
 	args: Array<AsAble>
 	variable: AsAble
@@ -311,7 +319,7 @@ export class ActionParse extends Parse {
 		return action;
 	}
 }
-export class VariableParse extends Parse {
+export class VariableParse extends Parse implements AsStringVariable, AsNameType, AsText, AsVariable, AsAction {
 	type: AsAble
 	name: AsAble
 	forkey: AsAble
