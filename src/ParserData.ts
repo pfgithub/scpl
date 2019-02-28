@@ -3,12 +3,6 @@ import {actionsByName} from "./ActionData";
 import {ConvertingContext} from "./Converter.js"
 import {setVariable, getVariable} from "./HelpfulActions"
 
-//TEMP
-
-type Text = any;
-
-//ENDTEMP
-
 class Parse {
 	constructor() {
 	}
@@ -28,7 +22,7 @@ function canBeString(parse: Parse): parse is AsString {
 }
 
 interface AsBoolean{
-	asBoolean(): string
+	asBoolean(): boolean
 }
 
 function canBeBoolean(parse: Parse): parse is AsBoolean {
@@ -44,7 +38,7 @@ function canBeText(parse: Parse): parse is AsText {
 }
 
 interface AsList{
-	asList(cc: ConvertingContext)
+	asList(cc: ConvertingContext): List
 }
 
 function canBeList(parse: Parse): parse is AsList {
@@ -52,7 +46,7 @@ function canBeList(parse: Parse): parse is AsList {
 }
 
 interface AsArray{
-	asArray()
+	asArray(): Array<string>
 }
 
 function canBeArray(parse: Parse): parse is AsArray {
@@ -60,7 +54,7 @@ function canBeArray(parse: Parse): parse is AsArray {
 }
 
 interface AsVariable{
-	asVariable(cc: ConvertingContext)
+	asVariable(cc: ConvertingContext): Variable
 }
 
 function canBeVariable(parse: Parse): parse is AsVariable {
@@ -68,7 +62,7 @@ function canBeVariable(parse: Parse): parse is AsVariable {
 }
 
 interface AsAction{
-	asAction(cc: ConvertingContext)
+	asAction(cc: ConvertingContext): Action
 }
 
 function canBeAction(parse: Parse): parse is AsAction {
@@ -76,7 +70,7 @@ function canBeAction(parse: Parse): parse is AsAction {
 }
 
 interface AsDictionary{
-	asDictionary(cc: ConvertingContext)
+	asDictionary(cc: ConvertingContext): Dictionary
 }
 
 function canBeDictionary(parse: Parse): parse is AsDictionary {
@@ -325,7 +319,7 @@ export class VariableParse extends Parse {
 	name: AsAble
 	forkey: AsAble
 	options: AsAble
-	
+
 	constructor(type, name, forkey, options) {
 		super();
 		this.type = type;
@@ -336,6 +330,8 @@ export class VariableParse extends Parse {
 	asStringVariable() {
 		let variable;
 
+		if(!canBeString(this.name)) {throw new Error("To convert to a stringvariable, the variable name must be a string")}
+		if(!canBeString(this.type)) {throw new Error("To convert to a stringvariable, the variable type must be a string")}
 		const name = this.name.asString();
 		const type = this.type.asString();
 
@@ -345,6 +341,8 @@ export class VariableParse extends Parse {
 	asNameType() {
 		let variable;
 
+		if(!canBeString(this.name)) {throw new Error("To convert to a nametype, the variable name must be a string")}
+		if(!canBeString(this.type)) {throw new Error("To convert to a nametype, the variable type must be a string")}
 		const name = this.name.asString();
 		const type = this.type.asString();
 
@@ -359,10 +357,13 @@ export class VariableParse extends Parse {
 	asVariable(cc) { //Converts this v:variable to a variable
 		let variable;
 
+		if(!canBeString(this.name)) {throw new Error("To convert to a variable, the variable name must be a string")}
+		if(!canBeString(this.type)) {throw new Error("To convert to a variable, the variable type must be a string")}
 		const name = this.name.asString();
 		const type = this.type.asString();
 		let aggrandizements;
 		if(this.options) {
+			if(!canBeRawDictionary(this.options)) {throw new Error("To convert to a variable, the aggrandizements object must be a raw dictionary")}
 			aggrandizements = this.options.asRawDictionary(); // should be asRawKeyedDictionary and then use asstirng inside
 		}else{
 			aggrandizements = {};
@@ -372,7 +373,7 @@ export class VariableParse extends Parse {
 			let vardata = cc.vardata[name];
 			if(name.startsWith("Repeat Index") || name.startsWith("Repeat Item")) {vardata = {};}
 			if(!vardata) {throw new Error(`${type}:${name} is not yet defined.`);}
-			variable = new NamedVariable(name, vardata.type);
+			variable = new NamedVariable(name);
 		}else if(type === "mv") { // magic variable
 			const vardata = cc.magicvardata[name];
 			if(!vardata) {throw new Error(`${type}:${name} is not yet defined.`);}
@@ -421,12 +422,16 @@ export class VariableParse extends Parse {
 }
 
 export class ActionsParse {
+	actions: [AsAble]
 	constructor(actions) {
 		this.actions = actions;
 	}
 	asShortcut() {
 		const cc = new ConvertingContext();
-		this.actions.forEach(action => action.asAction(cc));
+		this.actions.forEach(action => {
+			if(!canBeAction(action)) {throw new Error("To convert to a shortcut, all actions must be actions")}
+			action.asAction(cc)
+		});
 		if(cc.controlFlowStack.length !== 0) {
 			throw new Error(`There are ${cc.controlFlowStack.length} unterminated block actions. Check to make sure every block has an else.`);
 		}
