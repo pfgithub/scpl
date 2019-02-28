@@ -267,16 +267,22 @@ Actions shown: [Dictionary](actions/dictionary)
 Lists can be made using json-like `[]` syntax.
 
 ```coffeescript
-ChooseFromList "Pick an item" ["item 1", "item 2"]
+ChooseFromMenu "Pick an item" ["item 1", "item 2"]
+case 1
+case 2
+end menu
 ```
 
 Similar to dictionaries, lists do not require commas and can span over multiple lines
 
 ```coffeescript
-ChooseFromList "Pick an item" [
+ChooseFromMenu "Pick an item" [
 	"MyFirstItem"
 	"MySecondItem"
 ]
+case First
+case Second
+end menu
 ```
 
 Lists can also be made using barlists.
@@ -287,7 +293,7 @@ List
 | My Second Item
 ```
 
-Actions shown: [ChooseFromList](actions/choosefromlist) | [List](actions/list)
+Actions shown: [ChooseFromMenu](actions/choosefrommenu) | [List](actions/list)
 
 ### Variable Field
 
