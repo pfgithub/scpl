@@ -391,6 +391,18 @@ Currently, 3 aggrandizements are supported:
 - key/forKey
 - get/getProperty (partial)
 
+The key: aggrandizement is used very often in conjunction with the as: Dictionary aggrandizement. Instead of writing that out every time, there is a shortcut for it
+
+```coffeescript
+GetVariable v:MyDictionary:myKey
+```
+
+is the same as
+
+```coffeescript
+GetVariable v:MyDictionary{as:Dictionary,key:myKey}
+```
+
 Actions Shown: [GetVariable](actions/getvariable)
 
 ### Setting Variables
