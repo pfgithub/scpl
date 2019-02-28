@@ -5,7 +5,7 @@ export class ConvertingContext {
 	vardata: {}
 	magicvardata: {}
 	shortcut: Shortcut
-	lastVariableAction: Action?
+	lastVariableAction: Action
 	controlFlowStack: Array<{uuid: string, number: number, wfaction: any}>
 
 	constructor() {
