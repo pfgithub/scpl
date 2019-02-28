@@ -1,2 +1,3 @@
-declare module "uuid/v4"
-declare const uuidv4: () => string
+declare module "uuid/v4"{
+    export default function(): string;
+}

@@ -1,115 +1,116 @@
 import {Shortcut, Action, Parameters, Dictionary, Text, MagicVariable, NamedVariable, Variable, Attachment, Parameter, Aggrandizements, List} from "./OutputData";
-import {actionsByName} from "./ActionData";
+import {getActionFromName} from "./ActionData";
 import {ConvertingContext} from "./Converter.js"
 import {setVariable, getVariable} from "./HelpfulActions"
 
 class Parse {
 	constructor() {
 	}
+	get special(): ("InputArg" | "ControlFlowMode" | "Arglist" | undefined){
+		return undefined;
+	}
 }
 
-
-interface AsString{
+interface AsString extends Parse{
 	asString(): string
 }
 
-function canBeString(parse: Parse): parse is AsString {
+export function canBeString(parse: Parse): parse is AsString {
     return (<AsString>parse).asString !== undefined;
 }
 
-interface AsBoolean{
+interface AsBoolean extends Parse{
 	asBoolean(): boolean
 }
 
-function canBeBoolean(parse: Parse): parse is AsBoolean {
+export function canBeBoolean(parse: Parse): parse is AsBoolean {
     return (<AsBoolean>parse).asBoolean !== undefined;
 }
 
-interface AsText{
+interface AsText extends Parse{
 	asText(cc: ConvertingContext): Text
 }
 
-function canBeText(parse: Parse): parse is AsText {
+export function canBeText(parse: Parse): parse is AsText {
     return (<AsText>parse).asText !== undefined;
 }
 
-interface AsList{
+interface AsList extends Parse{
 	asList(cc: ConvertingContext): List
 }
 
-function canBeList(parse: Parse): parse is AsList {
+export function canBeList(parse: Parse): parse is AsList {
     return (<AsList>parse).asList !== undefined;
 }
 
-interface AsArray{
+interface AsArray extends Parse{
 	asArray(): Array<string>
 }
 
-function canBeArray(parse: Parse): parse is AsArray {
+export function canBeArray(parse: Parse): parse is AsArray {
     return (<AsArray>parse).asArray !== undefined;
 }
 
-interface AsVariable{
+interface AsVariable extends Parse{
 	asVariable(cc: ConvertingContext): Variable
 }
 
-function canBeVariable(parse: Parse): parse is AsVariable {
+export function canBeVariable(parse: Parse): parse is AsVariable {
     return (<AsVariable>parse).asVariable !== undefined;
 }
 
-interface AsAction{
+interface AsAction extends Parse{
 	asAction(cc: ConvertingContext): Action
 }
 
-function canBeAction(parse: Parse): parse is AsAction {
+export function canBeAction(parse: Parse): parse is AsAction {
     return (<AsAction>parse).asAction !== undefined;
 }
 
-interface AsDictionary{
+interface AsDictionary extends Parse{
 	asDictionary(cc: ConvertingContext): Dictionary
 }
 
-function canBeDictionary(parse: Parse): parse is AsDictionary {
+export function canBeDictionary(parse: Parse): parse is AsDictionary {
     return (<AsDictionary>parse).asDictionary !== undefined;
 }
 
-interface AsRawDictionary{
+interface AsRawDictionary extends Parse{
 	asRawDictionary(): {[key: string]: string}
 }
 
-function canBeRawDictionary(parse: Parse): parse is AsRawDictionary {
+export function canBeRawDictionary(parse: Parse): parse is AsRawDictionary {
     return (<AsRawDictionary>parse).asRawDictionary !== undefined;
 }
 
-interface AsRawKeyedDictionary{
+interface AsRawKeyedDictionary extends Parse{
 	asRawKeyedDictionary(): {[key: string]: AsAble}
 }
 
-function canBeRawKeyedDictionary(parse: Parse): parse is AsRawKeyedDictionary {
+export function canBeRawKeyedDictionary(parse: Parse): parse is AsRawKeyedDictionary {
     return (<AsDictionary>parse).asDictionary !== undefined;
 }
 
-interface AsNameType{
+interface AsNameType extends Parse{
 	asNameType(): {name: string, type: string}
 }
 
-function canBeNameType(parse: Parse): parse is AsNameType {
+export function canBeNameType(parse: Parse): parse is AsNameType {
     return (<AsNameType>parse).asNameType !== undefined;
 }
 
-interface AsStringVariable{
+interface AsStringVariable extends Parse{
 	asStringVariable(): string
 }
 
-function canBeStringVariable(parse: Parse): parse is AsStringVariable {
+export function canBeStringVariable(parse: Parse): parse is AsStringVariable {
     return (<AsStringVariable>parse).asStringVariable !== undefined;
 }
 
-type AsAble = AsString | AsText | AsList | AsArray | AsVariable | AsAction | AsDictionary | AsRawDictionary | AsRawKeyedDictionary | AsNameType | AsBoolean;
+export type AsAble = AsString | AsText | AsList | AsArray | AsVariable | AsAction | AsDictionary | AsRawDictionary | AsRawKeyedDictionary | AsNameType | AsBoolean | AsStringVariable;
 
 export class DictionaryParse extends Parse implements AsRawDictionary, AsRawKeyedDictionary, AsDictionary {
 	keyvaluepairs: Array<{key: AsAble, value: AsAble}>
-
 	constructor(keyvaluepairs: Array<{key: AsAble, value: AsAble}>) {
 		super();
 		this.keyvaluepairs = keyvaluepairs;
@@ -172,7 +173,7 @@ export class ListParse extends Parse implements AsArray, AsList {
 		}));
 	}
 }
-export class BarlistParse extends ListParse {
+export class BarlistParse extends ListParse implements AsText, AsString {
 	asString() {
 		return this.items.map(item => {
 			if(!canBeString(item)) {throw new Error("To convert to an array, all elements must be strings")}
@@ -297,7 +298,7 @@ export class ActionParse extends Parse implements AsText, AsVariable, AsAction {
 			controlFlowData = cc.endControlFlow();
 			wfAction = controlFlowData.wfaction;
 		}else{
-			wfAction = actionsByName(actionName);
+			wfAction = getActionFromName(actionName);
 		}
 		if(!wfAction) {
 			throw new Error(`The action named ${actionName.toLowerCase()} could not be found.`);
