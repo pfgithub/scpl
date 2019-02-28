@@ -1,14 +1,78 @@
-const {Shortcut, Action, Parameters, Dictionary, Text, MagicVariable, NamedVariable, Variable, Attachment, Parameter, Aggrandizements, DictionaryKeyAggrandizement, CoercionAggrandizement, Aggrandizement, List} = require("./OutputData");
-const {actionsByName} = require("./ActionData");
-const {ConvertingContext} = require("./Converter.js");
-const {setVariable, getVariable} = require("./HelpfulActions");
+import {Shortcut, Action, Parameters, Dictionary, Text, MagicVariable, NamedVariable, Variable, Attachment, Parameter, Aggrandizements, DictionaryKeyAggrandizement, CoercionAggrandizement, Aggrandizement, List} from "./OutputData";
+import {actionsByName} from "./ActionData";
+import {ConvertingContext} from "./Converter.js"
+import {setVariable, getVariable} from "./HelpfulActions"
 
 class Parse {
 	constructor() {
 	}
 }
 
-class DictionaryParse extends Parse {
+function canBe<AsType>(parse: Parse, fnName: string): parse is AsType {
+    return (<AsType>parse)[fnName] !== undefined;
+}
+
+interface AsString{
+	asString()
+}
+
+function canBeString(parse: Parse): parse is AsString {
+    return (<AsString>parse).asString !== undefined;
+}
+
+interface AsText{
+	asText(cc: ConvertingContext)
+}
+
+function canBeText(parse: Parse): parse is AsText {
+    return (<AsText>parse).asText !== undefined;
+}
+
+interface AsList{
+	asList(cc: ConvertingContext)
+}
+
+function canBeList(parse: Parse): parse is AsList {
+    return (<AsList>parse).asList !== undefined;
+}
+
+interface AsArray{
+	asArray()
+}
+
+function canBeArray(parse: Parse): parse is AsArray {
+    return (<AsArray>parse).asArray !== undefined;
+}
+
+interface AsVariable{
+	asVariable()
+}
+
+function canBeVariable(parse: Parse): parse is AsVariable {
+    return (<AsVariable>parse).asVariable !== undefined;
+}
+
+interface AsAction{
+	asAction()
+}
+
+function canBeAction(parse: Parse): parse is AsAction {
+    return (<AsAction>parse).asAction !== undefined;
+}
+
+interface AsDictionary{
+	asDictionary(cc: ConvertingContext)
+}
+
+function canBeDictionary(parse: Parse): parse is AsDictionary {
+    return (<AsDictionary>parse).asDictionary !== undefined;
+}
+
+type AsAble = AsString | AsText | AsList | AsArray | AsVariable | AsAction | AsDictionary;
+
+export class DictionaryParse extends Parse {
+	keyvaluepairs: Array<{key: AsAble, value: AsAble}>
+
 	constructor(keyvaluepairs) {
 		super();
 		this.keyvaluepairs = keyvaluepairs;
@@ -16,6 +80,8 @@ class DictionaryParse extends Parse {
 	asRawDictionary() { // for static things that cannot have interpolated keys or values
 		const dictionary = {};
 		this.keyvaluepairs.forEach(({key, value}) => {
+			if(!canBeString(key)) {throw new Error("To convert to a raw dictionary, key must be a string")}
+			if(!canBeString(value)) {throw new Error("To convert to a raw dictionary, value must be a string")}
 			const stringKey = key.asString();
 			if(dictionary[stringKey]) {throw new Error(`Key ${stringKey} is already defined in this dictionary.`);}
 			dictionary[stringKey] = value.asString();
@@ -26,6 +92,7 @@ class DictionaryParse extends Parse {
 		// returns a raw dictionary (keys are raw, not values) for this DictionaryParse
 		const dictionary = {};
 		this.keyvaluepairs.forEach(({key, value}) => {
+			if(!canBeString(key)) {throw new Error("To convert to a raw keyed dictionary, key must be a string")}
 			const stringKey = key.asString();
 			if(dictionary[stringKey]) {throw new Error(`Key ${stringKey} is already defined in this dictionary.`);}
 			dictionary[stringKey] = value;
@@ -37,16 +104,17 @@ class DictionaryParse extends Parse {
 		const dictionary = new Dictionary();
 		this.keyvaluepairs.forEach(({key, value}) => {
 			let type;
-			if(value.asList) {type = 2; value = value.asList(cc);}
-			else if(value.asDictionary) {type = 1; value = value.asDictionary(cc);}
-			else if(value.asText) {type = 0; value = value.asText(cc);}
+			if(!canBeText(key)) {throw new Error("Dictionary keys must be texts")}
+			if(canBeList(value)) {type = 2; value = value.asList(cc);}
+			else if(canBeDictionary(value)) {type = 1; value = value.asDictionary(cc);}
+			else if(canBeText(value)) {type = 0; value = value.asText(cc);}
 			else{throw new Error("This dictionary can only values that are lists, texts, or dictionaries.");}
 			dictionary.add(key.asText(cc), value, type);
 		});
 		return dictionary;
 	}
 }
-class ListParse extends Parse {
+export class ListParse extends Parse {
 	constructor(items) {
 		super();
 		this.items = items;
@@ -58,7 +126,7 @@ class ListParse extends Parse {
 		return new List(this.items.map(item => item.asText(cc)));
 	}
 }
-class BarlistParse extends ListParse {
+export class BarlistParse extends ListParse {
 	asString() {
 		return this.items.map(item => item.asString()).join`\n`;
 	}
@@ -76,7 +144,7 @@ class BarlistParse extends ListParse {
 	}
 }
 
-class CharsParse extends Parse {
+export class CharsParse extends Parse {
 	// [...string|Parse(has asVariable)]
 	constructor(items) {
 		super();
@@ -104,7 +172,7 @@ class CharsParse extends Parse {
 		return text;
 	}
 }
-class IdentifierParse extends Parse {
+export class IdentifierParse extends Parse {
 	constructor(str) {
 		super();
 		this.value = str;
@@ -124,21 +192,18 @@ class IdentifierParse extends Parse {
 		return text;
 	}
 }
-class ParamListParse extends DictionaryParse {
-
-}
-class ArglistParse extends DictionaryParse {
+export class ArglistParse extends DictionaryParse {
 	get special() {
 		return "Arglist";
 	}
 }
-class VariableFlagParse extends Parse {
+export class VariableFlagParse extends Parse {
 	constructor(variable) {
 		super();
 		this.variable = variable;
 	}
 }
-class ActionParse extends Parse {
+export class ActionParse extends Parse {
 	constructor(name, args, variable) {
 		super();
 		this.name = name;
@@ -195,7 +260,7 @@ class ActionParse extends Parse {
 		return action;
 	}
 }
-class VariableParse extends Parse {
+export class VariableParse extends Parse {
 	constructor(type, name, forkey, options) {
 		super();
 		this.type = type;
@@ -290,7 +355,7 @@ class VariableParse extends Parse {
 	}
 }
 
-class ActionsParse {
+export class ActionsParse {
 	constructor(actions) {
 		this.actions = actions;
 	}
@@ -305,17 +370,3 @@ class ActionsParse {
 }
 // Text::asString
 // Text::build
-
-module.exports = {
-	ActionParse,
-	DictionaryParse,
-	CharsParse,
-	IdentifierParse,
-	ParamListParse,
-	BarlistParse,
-	ListParse,
-	VariableParse,
-	ActionsParse,
-	VariableFlagParse,
-	ArglistParse
-};

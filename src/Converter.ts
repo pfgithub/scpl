@@ -1,10 +1,13 @@
-const uuidv4 = require("uuid/v4");
-const {Shortcut, Action, Parameters, DictionaryItem, Text, MagicVariable, NamedVariable, Variable, Attachment, DictionaryFieldValue, Parameter, Aggrandizements, DictionaryKeyAggrandizement, CoercionAggrandizement, Aggrandizement} = require("./OutputData");
+import uuidv4 from "uuid/v4";
+import {Shortcut, Action, Parameters, Text, MagicVariable, NamedVariable, Variable, Attachment, Parameter, Aggrandizements, DictionaryKeyAggrandizement, CoercionAggrandizement, Aggrandizement} from "./OutputData";
 
-class ConvertingContext {
-	// this contains information about what actions are in the shortcut,
-	// what default type variables are, what magic variables are which
-	// actions, what compiletime variables have been set, ............
+export class ConvertingContext {
+	vardata: {}
+	magicvardata: {}
+	shortcut: Shortcut
+	lastVariableAction: Action?
+	controlFlowStack: Array<{uuid: string, number: number, wfaction: any}>
+
 	constructor() {
 		this.vardata = {};
 		this.magicvardata = {};
@@ -40,5 +43,3 @@ class ConvertingContext {
 		this.lastVariableAction = action;
 	}
 }
-
-module.exports = {ConvertingContext};
