@@ -249,8 +249,12 @@ class VariableParse extends Parse {
 			const mvact = vardata.action;
 			variable = new MagicVariable(mvact);
 		}else if(type === "s") { // special variable
-			const attachtype = {clipboard: "Clipboard", askwhenrun: "Ask", currentdate: "CurrentDate", input: "ExtensionInput"};
-			variable = new Attachment(attachtype[name.toLowerCase()] || (_=>{throw new Error(`Invalid special variable type ${name.toLowerCase()} valid are ${Object.keys(attachtype)}`);})());
+			const attachtype = {clipboard: "Clipboard", askwhenrun: "Ask", currentdate: "CurrentDate", shortcutinput: "ExtensionInput", actioninput: "Input"};
+			const attachvalue = attachtype[name.toLowerCase()];
+			if(!attachvalue) {
+				throw new Error(`Invalid special variable type ${name.toLowerCase()} valid are ${Object.keys(attachtype)}`);
+			}
+			variable = new Attachment(attachvalue);
 		}else{
 			throw new Error(`Invalid vartype ${type}. Valid are v, mv, s`);
 		}

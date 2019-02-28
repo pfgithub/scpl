@@ -43,7 +43,7 @@ End If
 
 ### Variables
 
-Variables are marked with type`:`varname. For example, a named variable called `Input` would be `v:Input`. There are 3 variable types, `v` for named variable, `mv` for magic variable, and `s` for special variables like the clipboard variable and shortcut input variable. To use a variable with spaces in the name, surround the name with quotes like `v:"Repeat Index"`
+Variables are marked with type`:`varname. For example, a named variable called `Input` would be `v:Input`. There are 3 variable types, `v` for named variable, `mv` for magic variable, and `s` for special variables. To use a variable with spaces in the name, surround the name with quotes like `v:"Repeat Index"`
 
 #### Using Variables
 
@@ -436,6 +436,16 @@ getfile a{
 ```
 
  Actions shown: [GetFile](actions/getfile)
+
+### Special Variables
+
+Shortcuts has 5 special variables, 2 of which seem to have no reason for existing.
+
+- Ask When Run `s:AskWhenRun` (prompts the user to enter the field themselves)
+- Shortcut Input `s:ShortcutInput` (the input to the shortcut)
+- Action Input `s:ActionInput` (the input to the action)
+- Current Date `s:CurrentDate` (the current date)
+- Clipboard `s:Clipboard` (the contents of the clipboard)
 
 ### Macros
 
