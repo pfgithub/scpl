@@ -3,7 +3,7 @@ import * as bplistc from "bplist-creator";
 
 import parser from "./ShortcutsParser";
 
-const parsed = parser.parse(`${process.argv[2] || fs.readFileSync("./src/test.shorttxt", "utf8")  }\n`);
+const parsed = parser.parse(`${process.argv[2] || fs.readFileSync("./src/test.shorttxt", "utf8")  }\n`, [1,0]);
 if(parsed.remainingStr) {
 	console.log(`Error, could not parse. Remaining str:\n\`\`\`\n...${parsed.remainingStr}\`\`\``); //eslint-disable-line no-console
 	throw new Error("Str remaining");

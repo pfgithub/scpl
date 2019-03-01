@@ -54,7 +54,7 @@ document.getElementById("convertBtn").addEventListener("click", convert);
 function convert() {
 	const startedConversion = time();
 
-	const parsed = parser.parse(`${inputArea.value}\n`);
+	const parsed = parser.parse(`${inputArea.value}\n`, [1,0]);
 	if(parsed.remainingStr) {
 		bufferToDownload = undefined;
 		messageArea.value = (`Error, could not parse. Took ${time() - startedConversion}ms. Remaining str:\n\`\`\`\n...${parsed.remainingStr}\`\`\``);

@@ -547,9 +547,11 @@ export class WFAction {
 	internalName: string
 	shortName: string
 	name: string
-	constructor(data: any, id: string) {
+
+	constructor(data: any, id: string) { //
 		this._data = data;
 		this.id = id;
+
 		this.isComplete = true;
 		this._parameters = [];
 		if(this._data.Parameters) {

@@ -25,5 +25,11 @@ export const o: {[name: string]: ProductionResolveable} = new Proxy(_realo, {
 		}
 		// @ts-ignore
 		return _realo[prop];
+	},
+	set: (obj, prop, value) => {
+		if (value instanceof Production && typeof prop === "string") {
+			value.name = "o."+prop;
+		}
+		return Reflect.set(obj, prop, value);
 	}
 });
