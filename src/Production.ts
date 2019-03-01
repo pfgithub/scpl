@@ -45,6 +45,12 @@ export class Production {
 		totalSteps++;
 		return {success: false};
 	}
+	toString(){
+		return "UndefinedProduction";
+	}
+	nameOrTostring(){
+		return this.name || this.toString();
+	}
 }
 
 export class OrderedProduction extends Production {
@@ -67,6 +73,9 @@ export class OrderedProduction extends Production {
 		});
 		if(!success) {return {success: false};}
 		return {data: this.cb(resdata, startpos, position), remainingStr: string, success: true, pos: position};
+	}
+	toString() {
+		return `${this.requirements.map(option => option.getProd().nameOrTostring()).join(" ")}`;
 	}
 }
 export class OrProduction extends Production {
@@ -92,6 +101,9 @@ export class OrProduction extends Production {
 		}
 		return {data: this.cb(resdata, startpos, position), remainingStr: string, success: true, pos: position};
 	}
+	toString() {
+		return `( ${this.options.map(option => option.getProd().nameOrTostring()).join(" | ")} )`;
+	}
 }
 export class NotProduction extends Production { // why not(a,b,c) instead of not(or(a,b,c))
 	options: Array<ProductionResolveable>
@@ -116,6 +128,9 @@ export class NotProduction extends Production { // why not(a,b,c) instead of not
 		}
 		return {data: this.cb(resdata, startpos, position), remainingStr: string, success: true, pos: position};
 	}
+	toString() {
+		return `!( ${this.options.map(option => option.getProd().nameOrTostring()).join(" | ")} )`;
+	}
 }
 
 export class RegexProduction extends Production {
@@ -139,7 +154,7 @@ export class RegexProduction extends Production {
 		return {success: false};
 	}
 	toString() {
-		return `RegexProduction ${this.regex}`;
+		return `${this.regex.toString()}`;
 	}
 }
 
@@ -160,7 +175,7 @@ export class StringProduction extends Production {
 		return {success: false, error: `Expected \`${this.string}\` but found \`${string.substr(0, this.string.length)}\``};
 	}
 	toString() {
-		return `StringProduction ${JSON.stringify(this.string)}`;
+		return `${JSON.stringify(this.string)}`;
 	}
 }
 
@@ -194,6 +209,6 @@ export class ManyProduction extends Production {
 		return {data: this.cb(results, startpos, position), remainingStr: string, success: true, pos: position};
 	}
 	toString() {
-		return `ManyProduction ?{${this.start}..${this.end}}`;
+		return `{ ${this.start}..${this.end} }( ${this.prod.getProd().nameOrTostring()} )`;
 	}
 }
