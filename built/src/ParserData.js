@@ -89,7 +89,7 @@ class DictionaryParse extends Parse {
             }
             const stringKey = key.asString();
             if (dictionary[stringKey]) {
-                throw new Error(`Key ${stringKey} is already defined in this dictionary.`);
+                throw key.error(`Key ${stringKey} is already defined in this dictionary.`);
             }
             dictionary[stringKey] = value.asString();
         });
@@ -104,7 +104,7 @@ class DictionaryParse extends Parse {
             }
             const stringKey = key.asString();
             if (dictionary[stringKey]) {
-                throw new Error(`Key ${stringKey} is already defined in this dictionary.`);
+                throw key.error(`Key ${stringKey} is already defined in this dictionary.`);
             }
             dictionary[stringKey] = value;
         });
@@ -320,7 +320,7 @@ class ActionParse extends Parse {
             }
         }
         if (!wfAction) {
-            throw new Error(`The action named ${actionName.toLowerCase()} could not be found.`);
+            throw this.name.error(`The action named ${actionName.toLowerCase()} could not be found.`);
         }
         const action = wfAction.build(cc, controlFlowData, ...this.args);
         // WFAction adds it to cc for us, no need to do it ourselves.
@@ -361,7 +361,7 @@ class VariableParse extends Parse {
         const name = this.name.asString();
         const type = this.type.asString();
         if (type !== "v") {
-            throw new Error(`Only named (v:) variables can be used in this field.`);
+            throw this.type.error(`Only named (v:) variables can be used in this field.`);
         }
         return name;
     }
@@ -375,7 +375,7 @@ class VariableParse extends Parse {
         const name = this.name.asString();
         const type = this.type.asString();
         if (type !== "v" && type !== "mv") {
-            throw new Error(`Only v:and mv: variables can be used in an arrow.`);
+            throw this.type.error(`Only v:and mv: variables can be used in an arrow.`);
         }
         return { name, type };
     }
@@ -410,14 +410,14 @@ class VariableParse extends Parse {
                 vardata = true;
             }
             if (!vardata) {
-                throw new Error(`${type}:${name} is not yet defined.`);
+                throw this.error(`${type}:${name} is not yet defined.`);
             }
             variable = new OutputData_1.NamedVariable(name);
         }
         else if (type === "mv") { // magic variable
             const vardata = cc.magicvardata[name];
             if (!vardata) {
-                throw new Error(`${type}:${name} is not yet defined.`);
+                throw this.error(`${type}:${name} is not yet defined.`);
             }
             const mvact = vardata.action;
             variable = new OutputData_1.MagicVariable(mvact);
@@ -426,12 +426,12 @@ class VariableParse extends Parse {
             const attachtype = { clipboard: "Clipboard", askwhenrun: "Ask", currentdate: "CurrentDate", shortcutinput: "ExtensionInput", actioninput: "Input" };
             const attachvalue = attachtype[name.toLowerCase()];
             if (!attachvalue) {
-                throw new Error(`Invalid special variable type ${name.toLowerCase()} valid are ${Object.keys(attachtype)}`);
+                throw this.name.error(`Invalid special variable type ${name.toLowerCase()} valid are ${Object.keys(attachtype)}`);
             }
             variable = new OutputData_1.Attachment(attachvalue);
         }
         else {
-            throw new Error(`Invalid vartype ${type}. Valid are v, mv, s`);
+            throw this.type.error(`Invalid vartype ${type}. Valid are v, mv, s`);
         }
         if (this.forkey) {
             variable.aggrandizements.coerce("dictionary");
@@ -456,7 +456,7 @@ class VariableParse extends Parse {
                     variable.aggrandizements.property(value);
                     break;
                 default:
-                    throw new Error(`Invalid aggrandizement ${key.toLowerCase()}, valid are [key, as, get]`);
+                    throw this.options.error(`Invalid aggrandizement ${key.toLowerCase()}, valid are [key, as, get]`);
             }
         });
         return variable;

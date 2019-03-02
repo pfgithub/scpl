@@ -144,7 +144,7 @@ export class DictionaryParse extends Parse implements AsRawDictionary, AsRawKeye
 			if(!canBeString(key)) {throw key.error("To convert to a raw dictionary, key must be a string");}
 			if(!canBeString(value)) {throw value.error("To convert to a raw dictionary, value must be a string");}
 			const stringKey = key.asString();
-			if(dictionary[stringKey]) {throw new Error(`Key ${stringKey} is already defined in this dictionary.`);}
+			if(dictionary[stringKey]) {throw key.error(`Key ${stringKey} is already defined in this dictionary.`);}
 			dictionary[stringKey] = value.asString();
 		});
 		return dictionary;
@@ -155,7 +155,7 @@ export class DictionaryParse extends Parse implements AsRawDictionary, AsRawKeye
 		this.keyvaluepairs.forEach(({key, value}) => {
 			if(!canBeString(key)) {throw key.error("To convert to a raw keyed dictionary, key must be a string");}
 			const stringKey = key.asString();
-			if(dictionary[stringKey]) {throw new Error(`Key ${stringKey} is already defined in this dictionary.`);}
+			if(dictionary[stringKey]) {throw key.error(`Key ${stringKey} is already defined in this dictionary.`);}
 			dictionary[stringKey] = value;
 		});
 		return dictionary;
@@ -336,7 +336,7 @@ export class ActionParse extends Parse implements AsText, AsVariable, AsAction {
 			if(!wfAction) {throw this.name.error(`There is no action with the name ${actionName}`);}
 		}
 		if(!wfAction) {
-			throw new Error(`The action named ${actionName.toLowerCase()} could not be found.`);
+			throw this.name.error(`The action named ${actionName.toLowerCase()} could not be found.`);
 		}
 		const action = wfAction.build(cc, controlFlowData, ...this.args);
 		// WFAction adds it to cc for us, no need to do it ourselves.
@@ -374,7 +374,7 @@ export class VariableParse extends Parse implements AsStringVariable, AsNameType
 		const name = this.name.asString();
 		const type = this.type.asString();
 
-		if(type !== "v") {throw new Error(`Only named (v:) variables can be used in this field.`);}
+		if(type !== "v") {throw this.type.error(`Only named (v:) variables can be used in this field.`);}
 		return name;
 	}
 	asNameType() {
@@ -383,7 +383,7 @@ export class VariableParse extends Parse implements AsStringVariable, AsNameType
 		const name = this.name.asString();
 		const type = this.type.asString();
 
-		if(type !== "v" && type !== "mv") {throw new Error(`Only v:and mv: variables can be used in an arrow.`);}
+		if(type !== "v" && type !== "mv") {throw this.type.error(`Only v:and mv: variables can be used in an arrow.`);}
 		return {name, type};
 	}
 	asText(cc: ConvertingContext) {
@@ -409,22 +409,22 @@ export class VariableParse extends Parse implements AsStringVariable, AsNameType
 		if(type === "v") { // named variable
 			let vardata = cc.vardata[name];
 			if(name.startsWith("Repeat Index") || name.startsWith("Repeat Item")) {vardata = true;}
-			if(!vardata) {throw new Error(`${type}:${name} is not yet defined.`);}
+			if(!vardata) {throw this.error(`${type}:${name} is not yet defined.`);}
 			variable = new NamedVariable(name);
 		}else if(type === "mv") { // magic variable
 			const vardata = cc.magicvardata[name];
-			if(!vardata) {throw new Error(`${type}:${name} is not yet defined.`);}
+			if(!vardata) {throw this.error(`${type}:${name} is not yet defined.`);}
 			const mvact = vardata.action;
 			variable = new MagicVariable(mvact);
 		}else if(type === "s") { // special variable
 			const attachtype: {[key: string]: string} = {clipboard: "Clipboard", askwhenrun: "Ask", currentdate: "CurrentDate", shortcutinput: "ExtensionInput", actioninput: "Input"};
 			const attachvalue = attachtype[name.toLowerCase()];
 			if(!attachvalue) {
-				throw new Error(`Invalid special variable type ${name.toLowerCase()} valid are ${Object.keys(attachtype)}`);
+				throw this.name.error(`Invalid special variable type ${name.toLowerCase()} valid are ${Object.keys(attachtype)}`);
 			}
 			variable = new Attachment(attachvalue);
 		}else{
-			throw new Error(`Invalid vartype ${type}. Valid are v, mv, s`);
+			throw this.type.error(`Invalid vartype ${type}. Valid are v, mv, s`);
 		}
 		if(this.forkey) {
 			variable.aggrandizements.coerce("dictionary");
@@ -447,7 +447,7 @@ export class VariableParse extends Parse implements AsStringVariable, AsNameType
 					variable.aggrandizements.property(value);
 					break;
 				default:
-					throw new Error(`Invalid aggrandizement ${key.toLowerCase()}, valid are [key, as, get]`);
+					throw this.options.error(`Invalid aggrandizement ${key.toLowerCase()}, valid are [key, as, get]`);
 			}
 		});
 		return variable;

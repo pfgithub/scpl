@@ -654,7 +654,7 @@ ${JSON.stringify(this._data, null, "\t")}
 				throw param.error("ControlFlowMode is no longer implemented. Please use the Flow and End actions instead.");
 			}
 			if(param.special === "Arglist") {
-				if(!canBeRawKeyedDictionary(param)) {throw new Error("To use a param as an arglist, it must be a raw keyed dictionary");}
+				if(!canBeRawKeyedDictionary(param)) {throw param.error("To use a param as an arglist, it must be a raw keyed dictionary");}
 				const dictionary = param.asRawKeyedDictionary();
 				Object.keys(dictionary).forEach(key => {
 					const value = dictionary[key];
@@ -662,7 +662,7 @@ ${JSON.stringify(this._data, null, "\t")}
 					const paramtype = this._parameters.find(param => typeof param !== "string" && param.shortName === shortKey);
 					if(typeof paramtype === "string") {throw value.error("Internal error, this code should be unreachable");}
 					if(!paramtype) {throw param.error(`This action does not have a parameter named ${shortKey}.`);}
-					if(action.parameters.has(paramtype.internalName)) {throw new Error(`The parameter named ${shortKey} was already set.`);}
+					if(action.parameters.has(paramtype.internalName)) {throw value.error(`The parameter named ${shortKey} was already set.`);}
 					action.parameters.set(paramtype.internalName, paramtype.build(cc, value));
 				});
 				return;

@@ -647,7 +647,7 @@ ${JSON.stringify(this._data, null, "\t")}
             }
             if (param.special === "Arglist") {
                 if (!ParserData_1.canBeRawKeyedDictionary(param)) {
-                    throw new Error("To use a param as an arglist, it must be a raw keyed dictionary");
+                    throw param.error("To use a param as an arglist, it must be a raw keyed dictionary");
                 }
                 const dictionary = param.asRawKeyedDictionary();
                 Object.keys(dictionary).forEach(key => {
@@ -661,7 +661,7 @@ ${JSON.stringify(this._data, null, "\t")}
                         throw param.error(`This action does not have a parameter named ${shortKey}.`);
                     }
                     if (action.parameters.has(paramtype.internalName)) {
-                        throw new Error(`The parameter named ${shortKey} was already set.`);
+                        throw value.error(`The parameter named ${shortKey} was already set.`);
                     }
                     action.parameters.set(paramtype.internalName, paramtype.build(cc, value));
                 });
