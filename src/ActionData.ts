@@ -802,7 +802,7 @@ export function getActionFromID(id: string): WFAction {
 }
 export function getActionFromName(name: string): WFAction {
 	name = name.toLowerCase();
-	if(!actionsByName[name]) {throw new Error(`There is no action with the short name \`${name}\``);}
+	if(!actionsByName[name]) {return undefined;}
 	return actionsByName[name];
 }
 export const allActions = Object.values(actionsByID);

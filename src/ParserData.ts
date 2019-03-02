@@ -4,7 +4,7 @@ import {ConvertingContext} from "./Converter.js";
 import {setVariable, getVariable} from "./HelpfulActions";
 import {Position} from "./Production";
 
-class PositionedError extends Error { // an error at a position
+export class PositionedError extends Error { // an error at a position
 	start: Position
 	end: Position
 	constructor(message: string, start: Position, end: Position) {
@@ -313,6 +313,7 @@ export class ActionParse extends Parse implements AsText, AsVariable, AsAction {
 			wfAction = controlFlowData.wfaction;
 		}else{
 			wfAction = getActionFromName(actionName);
+			if(!wfAction) {throw this.name.error(`There is no action with the name ${actionName}`);}
 		}
 		if(!wfAction) {
 			throw new Error(`The action named ${actionName.toLowerCase()} could not be found.`);

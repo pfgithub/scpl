@@ -1,14 +1,34 @@
-<a href="syntax.html">Getting Started Guide</a>
-<textarea id="inputArea" cols=100 rows=100>
-Text "hello"
-</textarea>
-<textarea id="messageArea" cols=100 rows=100>
+<!doctype HTML>
 
-</textarea>
-<textarea id="outputArea" cols=100 rows=100>
+<html>
 
-</textarea>
-<button id="convertBtn">Convert</button>
-<button id="downloadShortcutBtn">Download .shortcut</button>
-<script src="dist/converter.bundle.js" charset="utf-8"></script>
-<a href="https://www.icloud.com/shortcuts/ec0c5df3f0d04554b6516678dacad9d8">This shortcut</a> is required to download .shortcut on iOS. Click download .shortcut and then choose to open it in shortcuts > that shortcut.
+<head>
+	<link rel="stylesheet" href="codemirror/codemirror.css">
+	<style>
+		.error {
+			color: red;
+			text-decoration: underline;
+		}
+
+		.text,
+		#inputArea,
+		.CodeMirror {
+			height: 100%
+		}
+	</style>
+</head>
+
+<body>
+	<textarea id="messageArea"></textarea>
+	<textarea id="outputArea"></textarea>
+	<a href="gettingstarted.html">Getting Started Guide</a>
+	<button id="convertBtn">Convert</button>
+	<button id="downloadShortcutBtn">Download .shortcut</button>
+	<a href="https://www.icloud.com/shortcuts/ec0c5df3f0d04554b6516678dacad9d8">This shortcut</a> is required to download .shortcut on iOS. Click download .shortcut and then choose to open it in shortcuts &gt; that shortcut.
+	<div class="text">
+		<textarea id="inputArea">Text "hello"</textarea>
+	</div>
+	<script src="dist/converter.bundle.js" charset="utf-8"></script>
+</body>
+
+</html>
