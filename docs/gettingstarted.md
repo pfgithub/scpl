@@ -14,6 +14,11 @@ For example, the text action is named [Text](actions/text) and has one field, th
 Text "This is my text"
 ```
 
+<div><details>
+<summary>Image</summary>
+<img src="images/IMG_0060.jpg" />
+</details></div>
+
 | Actions shown | [Text](actions/text) |
 
 ### Argument Labels
@@ -24,11 +29,21 @@ More complex actions have multiple fields
 GetFile "iCloud Drive" true false
 ```
 
+<div><details>
+<summary>Image</summary>
+<img src="images/IMG_0061.jpg" />
+</details></div>
+
 For these actions, you can put labels to know which field is which.
 
 ```coffeescript
 GetFile service="iCloud Drive" showdocumentpicker=true selectmultiple=false
 ```
+
+<div><details>
+<summary>Image</summary>
+<img src="images/IMG_0061.jpg" />
+</details></div>
 
 | Actions shown | [GetFile](actions/getfile) |
 
@@ -45,6 +60,11 @@ Otherwise
 End If
 ```
 
+<div><details>
+<summary>Image</summary>
+<img src="images/IMG_0063.jpg" />
+</details></div>
+
 | Actions shown | [If](actions/if) | [ShowAlert](actions/showalert) | [Text](actions/text) |
 
 ### Variables
@@ -60,10 +80,20 @@ Text mv:MyMagicVariable
 Text "Backslash parenthesis are used to put a variable inside text, like \(v:ThisVariable)."
 ```
 
+<div><details>
+<summary>Image</summary>
+<img src="images/IMG_0064.jpg" />
+</details></div>
+
 ```javascript
 Text
 | The same is used for \(v:Variables) in barlists.
 ```
+
+<div><details>
+<summary>Image</summary>
+<img src="images/IMG_0065.jpg" />
+</details></div>
 
 | Actions shown | [Text](actions/text) |
 
@@ -79,6 +109,11 @@ SetVariable "MyVariable"
 ShowResult "My text is \(v:MyVariable)"
 ```
 
+<div><details>
+<summary>Image</summary>
+<img src="images/IMG_0066.jpg" />
+</details></div>
+
 Magic variables are magical and don't require an action to set. Instead you use the `->` arrow set syntax to say that the action is magical.
 
 ```coffeescript
@@ -87,6 +122,11 @@ Text "My text" -> mv:Magic
 # now you can use it
 ShowResult "Magic! \(mv:Magic)"
 ```
+
+<div><details>
+<summary>Image</summary>
+<img src="images/IMG_0067.jpg" />
+</details></div>
 
 You cannot set special variables, they are special.
 
@@ -101,6 +141,11 @@ ScPL comments can be put in your code like shortcuts comments but they do not ou
 // this is also a comment
 -- this is also a comment
 ```
+
+<div><details>
+<summary>Image</summary>
+This shortcut has no actions
+</details></div>
 
 ## Field Types
 
@@ -121,6 +166,11 @@ Text
 | This is a variable: \(v:MyVariable)
 ```
 
+<div><details>
+<summary>Image</summary>
+<img src="images/IMG_0068.jpg" />
+</details></div>
+
 
 Some text fields do not allow variables, such as the [Comment](actions/comment) action.
 
@@ -129,10 +179,20 @@ Comment
 | This text field does not allow variables
 ```
 
+<div><details>
+<summary>Image</summary>
+<img src="images/IMG_0069.jpg" />
+</details></div>
+
 ```coffeescript
 Comment
 | \(v:Variable) # Not Allowed
 ```
+
+<div><details>
+<summary>Image</summary>
+This shortcut fails to convert
+</details></div>
 
 | Actions shown | [Text](actions/text) | [Comment](actions/comment) |
 
@@ -144,6 +204,11 @@ An Enum Field has a list of options to choose from, such as the Condition field 
 Calculate "+" 1
 ```
 
+<div><details>
+<summary>Image</summary>
+<img src="images/IMG_0070.jpg" />
+</details></div>
+
 If you enter a value that is not allowed, shortcutslang will throw an error. Unlike action names, enum fields are case and space sensitive and must be exact.
 
 Some enum fields allow variables, and some do not.
@@ -151,6 +216,11 @@ Some enum fields allow variables, and some do not.
 ```coffeescript
 Calculate v:Operand 3
 ```
+
+<div><details>
+<summary>Image</summary>
+<img src="images/IMG_0071.jpg" />
+</details></div>
 
 | Actions shown | [Calculate](actions/calculate) |
 
@@ -170,15 +240,30 @@ Number .8
 Number -.2
 ```
 
+<div><details>
+<summary>Image</summary>
+<img src="images/IMG_0072.jpg" />
+</details></div>
+
 Similar to Enum fields, Number fields cannot have mixed text and variables.
 
 ```coffeescript
 Number v:MyVariable
 ```
 
+<div><details>
+<summary>Image</summary>
+<img src="images/IMG_0073.jpg" />
+</details></div>
+
 ```coffeescript
 Number "-\(v:MyVariable)" # Not Allowed
 ```
+
+<div><details>
+<summary>Image</summary>
+This shortcut fails to convert
+</details></div>
 
 | Actions shown | [Number](actions/number) |
 
@@ -192,11 +277,21 @@ Repeat 5
 End Repeat
 ```
 
+<div><details>
+<summary>Image</summary>
+<img src="images/IMG_0074.jpg" />
+</details></div>
+
 ```coffeescript
 Repeat 5.5 # Not allowed
   ShowResult "Hi"
 End Repeat
 ```
+
+<div><details>
+<summary>Image</summary>
+This shortcut fails to convert
+</details></div>
 
 | Actions shown | [Repeat](actions/repeat) |
 
@@ -208,9 +303,19 @@ Slider number fields are like number fields but can only have numbers from 0 to 
 SetBrightness 0.5
 ```
 
+<div><details>
+<summary>Image</summary>
+<img src="images/IMG_0075.jpg" />
+</details></div>
+
 ```coffeescript
 SetBrightness 1.1 # Not Allowed
 ```
+
+<div><details>
+<summary>Image</summary>
+This shortcut fails to convert
+</details></div>
 
 | Actions shown | [SetBrightness](actions/setbrightness) |
 
@@ -222,9 +327,19 @@ Variable picker fields can have a variable.
 GetVariable v:MyVariable
 ```
 
+<div><details>
+<summary>Image</summary>
+<img src="images/IMG_0076.jpg" />
+</details></div>
+
 ```coffeescript
 GetVariable "MyVariable" # Not Allowed
 ```
+
+<div><details>
+<summary>Image</summary>
+This shortcut fails to convert
+</details></div>
 
 | Actions shown | [getvariable](actions/getvariable) |
 
@@ -237,16 +352,31 @@ SetWifi true
 SetAirplaneMode false
 ```
 
+<div><details>
+<summary>Image</summary>
+<img src="images/IMG_0077.jpg" />
+</details></div>
+
 ```coffeescript
 SetWifi yes # Not Allowed, must be true or false
 SetAirplaneMode no # Not Allowed, must be true or false
 ```
+
+<div><details>
+<summary>Image</summary>
+This shortcut fails to convert
+</details></div>
 
 Some switch fields allow variables
 
 ```coffeescript
 SetWifi v:Wifi
 ```
+
+<div><details>
+<summary>Image</summary>
+<img src="images/IMG_0078.jpg" />
+</details></div>
 
 | Actions shown | [SetWifi](actions/setwifi) | [List](actions/setairplanemode) |
 
@@ -263,6 +393,11 @@ Dictionary{
 }
 ```
 
+<div><details>
+<summary>Image</summary>
+<img src="images/IMG_0079.jpg" />
+</details></div>
+
 Quotes and commas are not required and `=` can be used instead of `:` if wanted
 
 ```coffeescript
@@ -273,6 +408,11 @@ Dictionary{
 	dictionary = {key = value}
 }
 ```
+
+<div><details>
+<summary>Image</summary>
+<img src="images/IMG_0079.jpg" />
+</details></div>
 
 | Actions shown | [Dictionary](actions/dictionary) |
 
@@ -287,17 +427,31 @@ case 2
 end menu
 ```
 
+<div><details>
+<summary>Image</summary>
+<img src="images/IMG_0080.jpg" />
+
+Even though the cases are blank the shortcut functions properly.
+</details></div>
+
 Similar to dictionaries, lists do not require commas and can span over multiple lines
 
 ```coffeescript
 ChooseFromMenu "Pick an item" [
-	"MyFirstItem"
-	"MySecondItem"
+	"item 1"
+	"item 2"
 ]
 case First
 case Second
 end menu
 ```
+
+<div><details>
+<summary>Image</summary>
+<img src="images/IMG_0080.jpg" />
+
+Even though the cases are blank the shortcut functions properly.
+</details></div>
 
 Lists can also be made using barlists.
 
@@ -306,6 +460,11 @@ List
 | My First Item
 | My Second Item
 ```
+
+<div><details>
+<summary>Image</summary>
+<img src="images/IMG_0082.jpg" />
+</details></div>
 
 | Actions shown | [ChooseFromMenu](actions/choosefrommenu) | [List](actions/list) |
 
@@ -319,6 +478,11 @@ Variable fields is the field used in [SetVariable](actions/setvariable) to enter
 SetVariable "MyNamedVariable"
 SetVariable v:MyNamedVariable
 ```
+
+<div><details>
+<summary>Image</summary>
+<img src="images/IMG_0083.jpg" />
+</details></div>
 
 ### Other Fields
 
@@ -336,12 +500,22 @@ You can put an action inside of a text field or any other field that accepts var
 Text "My number is \(Number "-2.5")"
 ```
 
+<div><details>
+<summary>Image</summary>
+<img src="images/IMG_0084.jpg" />
+</details></div>
+
 This code is equivalent to
 
 ```coffeescript
 Number "-2.5" -> mv:InsideParenthesis
 Text "My number is \(mv:InsideParenthesis)"
 ```
+
+<div><details>
+<summary>Image</summary>
+<img src="images/IMG_0085.jpg" />
+</details></div>
 
 None of these magic variables actually get a name, they just directly reference the action.
 
@@ -356,6 +530,11 @@ Otherwise
 End If
 ```
 
+<div><details>
+<summary>Image</summary>
+<img src="images/IMG_0086.jpg" />
+</details></div>
+
 is equivalent to writing out
 
 ```coffeescript
@@ -369,6 +548,11 @@ Otherwise
 End If
 ```
 
+<div><details>
+<summary>Image</summary>
+<img src="images/IMG_0087.jpg" />
+</details></div>
+
 | Actions shown | [Text](actions/text) | [GetVariable](actions/getvariable) | [If](actions/if) | [QuickLook](actions/quicklook) | [Number](actions/number) |
 
 ### InputArg
@@ -380,6 +564,11 @@ Text "Some text"
 QuickLook ^(Text "Different text")
 ```
 
+<div><details>
+<summary>Image</summary>
+<img src="images/IMG_0088.jpg" />
+</details></div>
+
 is the same as
 
 ```coffeescript
@@ -387,6 +576,11 @@ Text "Some text"
 Text "Different text"
 QuickLook
 ```
+
+<div><details>
+<summary>Image</summary>
+<img src="images/IMG_0088.jpg" />
+</details></div>
 
 | Actions shown |  [Text](actions/text) | [QuickLook](actions/quicklook) |
 
@@ -398,6 +592,11 @@ When you tap a variable in Shortcuts, a menu pops up containing different action
 GetVariable v:MyVariable{as:Dictionary,key:myKey}
 GetVariable v:MyContact{as:Contact,get:Notes}
 ```
+
+<div><details>
+<summary>Image</summary>
+<img src="images/IMG_0089.jpg" />
+</details></div>
 
 Currently, 3 aggrandizements are supported:
 
@@ -411,11 +610,21 @@ The key: aggrandizement is used very often in conjunction with the as: Dictionar
 GetVariable v:MyDictionary:myKey
 ```
 
+<div><details>
+<summary>Image</summary>
+<img src="images/IMG_0090.jpg" />
+</details></div>
+
 is the same as
 
 ```coffeescript
 GetVariable v:MyDictionary{as:Dictionary,key:myKey}
 ```
+
+<div><details>
+<summary>Image</summary>
+<img src="images/IMG_0090.jpg" />
+</details></div>
 
 | Actions Shown | [GetVariable](actions/getvariable) |
 
@@ -427,6 +636,11 @@ GetVariable v:MyDictionary{as:Dictionary,key:myKey}
 Text "My Text" -> v:MyNamedVariable
 ```
 
+<div><details>
+<summary>Image</summary>
+<img src="images/IMG_0092.jpg" />
+</details></div>
+
 is equivalent to writing
 
 ```coffeescript
@@ -434,17 +648,32 @@ Text "My Text"
 SetVariable v:MyNamedVariable
 ```
 
+<div><details>
+<summary>Image</summary>
+<img src="images/IMG_0092.jpg" />
+</details></div>
+
 If you prefer, you can set variables before an action instead of after
 
 ```coffeescript
 mv:WowMagic = Text "My Text"
 ```
 
+<div><details>
+<summary>Image</summary>
+<img src="images/IMG_0093.jpg" />
+</details></div>
+
 is exactly the same as using an arrow, except it's in the format `mv:variable = action`
 
 ```coffeescript
 Text "My Text" -> mv:WowMagic
 ```
+
+<div><details>
+<summary>Image</summary>
+<img src="images/IMG_0093.jpg" />
+</details></div>
 
  | Actions Shown | [Text](actions/text) |  | [GetVariable](actions/getvariable) |
 
@@ -461,6 +690,11 @@ getfile a{
 }
 ```
 
+<div><details>
+<summary>Image</summary>
+<img src="images/IMG_0094.jpg" />
+</details></div>
+
  | Actions shown | [GetFile](actions/getfile) |
 
 ### Special Variables
@@ -472,6 +706,11 @@ Shortcuts has 5 special variables, 2 of which seem to have no reason for existin
 - Action Input `s:ActionInput` (the input to the action)
 - Current Date `s:CurrentDate` (the current date)
 - Clipboard `s:Clipboard` (the contents of the clipboard)
+
+<div><details>
+<summary>Image</summary>
+<img src="images/IMG_0095.jpg" />
+</details></div>
 
 ### Macros
 
