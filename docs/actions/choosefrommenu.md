@@ -105,7 +105,7 @@ Accepts a list.
 	"SuggestedAsInitialAction": true,
 	"BlockInfo": {
 		"Example": "\ncase\n  ...\ncase\n  ...\nend",
-		"Completion": "\ncase\n  $0\nend"
+		"Completion": "\ncase\n\t$0\nend"
 	}
 }
 ```

@@ -14,7 +14,6 @@
 		"bplist-creator": "^0.0.7",
 		"bplist-parser": "^0.1.1",
 		"codemirror": "^5.44.0",
-		"deepmerge": "^3.2.0",
 		"plist": "^3.0.1",
 		"uuid": "^3.3.2"
 	},

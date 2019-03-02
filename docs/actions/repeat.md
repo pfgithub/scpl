@@ -77,7 +77,7 @@ with a number.
 	"Subcategory": "Control Flow",
 	"BlockInfo": {
 		"Example": "\n  ...\nend",
-		"Completion": "\n  $0\nend"
+		"Completion": "\n\t$0\nend"
 	}
 }
 ```

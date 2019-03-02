@@ -1,2 +1,4 @@
-declare const merged: any;
-export default merged;
+declare const actions: {
+    [key: string]: any;
+};
+export default actions;

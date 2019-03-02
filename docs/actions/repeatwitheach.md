@@ -70,7 +70,8 @@ end
 	},
 	"Subcategory": "Control Flow",
 	"BlockInfo": {
-		"Example": "\n  ...\nend"
+		"Example": "\n  ...\nend",
+		"Completion": "\n\t$0\nend"
 	}
 }
 ```
