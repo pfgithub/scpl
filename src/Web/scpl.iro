@@ -1,0 +1,233 @@
+#################################################################
+## Iro
+################################################################ 
+##
+## * Press Ctrl + '+'/'-' To Zoom in
+## * Press Ctrl + S to save and recalculate... 
+## * Documents are saved to web storage.
+## * Only one save slot supported.
+## * Matches cannot span lines.
+## * Unicode chars must be defined in \u0000 to \uffff format.
+## * All matches must be contained by a single group ( ... )
+## * Look behinds not permitted, (?<= or (?<!
+## * Look forwards are permitted (?= or (?!
+## * Constants are defined as __my_const = (......)
+## * The \= format allows unescaped regular expressions
+## * Constants referenced by match \= $${__my_const}
+## * Constants can reference other constants
+## * You are free to delete all the default scopes.
+## * Twitter : ainslec , Web: http://eeyo.io/iro
+##
+################################################################
+
+name                   = scpl
+file_extensions []     = scpl;
+
+################################################################
+## Constants
+################################################################
+
+
+################################################################
+## Styles
+################################################################
+
+styles [] {
+
+.comment : style {
+   color                 = light_green
+   italic                = true
+   ace_scope             = comment
+   textmate_scope        = comment
+   pygments_scope        = Comment
+}
+
+.keyword : style {
+   color     = cyan
+   ace_scope             = keyword
+   textmate_scope        = keyword
+   pygments_scope        = Keyword
+}
+
+.variable : style {
+   color     = light_blue
+   ace_scope             = variable
+   textmate_scope        = variable
+   pygments_scope        = Name.Variable
+}
+
+.punctuation : style {
+   color     = red_2
+   ace_scope             = punctuation
+   textmate_scope        = punctuation
+   pygments_scope        = Punctuation
+}
+
+.text : style {
+   color                 = brown
+   ace_scope             = text
+   textmate_scope        = string
+   pygments_scope        = String
+}
+
+.illegal : style {
+   color                 = white
+   background_color      = red
+   ace_scope             = invalid
+   textmate_scope        = invalid
+   pygments_scope        = Generic.Error
+}
+
+}
+
+#################################################
+## Parse contexts
+#################################################
+
+__MY_CONSTANT \= (\b[A-Za-z0-9@._]+)
+__IDENTIFIER \= (\b[A-Za-z0-9@._]+)
+
+contexts [] {
+
+##############################################
+## Main Context - Entry point context
+##############################################
+
+main : context {
+   : include "action";
+}
+
+action : context {
+   : include "string"; # string
+   : include "barlist"; # string
+   : pattern { # variable
+      regex          \= (:$${__IDENTIFIER})
+      styles[] = .variable;
+   }
+   : pattern { # identifier
+      regex \= $${__IDENTIFIER}
+      styles[] = .keyword;
+   }
+   : include "multi_line_comment";
+   : include "inline_comment";
+   : inline_push {
+      regex          \= (\()
+      styles []       = .punctuation;
+      : pop {
+         regex       \= (\))
+         styles []    = .punctuation;
+      }
+      : include "action";
+   }
+   : inline_push {
+      regex          \= (\[)
+      styles []       = .punctuation;
+      : pop {
+         regex       \= (\])
+         styles []    = .punctuation;
+      }
+      : include "action";
+   }
+   : inline_push {
+      regex          \= ({)
+      styles []       = .punctuation;
+      : pop {
+         regex       \= (})
+         styles []    = .punctuation;
+      }
+      : include "action";
+   }
+   : pattern {
+      regex          \= (["\:,;^\->=])
+      styles []       = .punctuation;
+   }
+   : pattern {
+      regex          \= ([^\s])
+      styles []       = .illegal;
+   }
+}
+string : context {
+   : inline_push {
+      regex          \= (\")
+      styles []       = .punctuation;
+      : pop {
+         regex       \= (\")
+         styles []    = .punctuation;
+      }
+      : include "escape";
+      : pattern{
+         regex \= ([^"\\]+)
+         styles [] = .text;
+      }
+   }
+}
+barlist : context {
+   : inline_push {
+      regex          \= (^\s*\|\s*)
+      styles []       = .punctuation;
+      : pop {
+         regex       \= ($)
+         styles []    = .punctuation;
+      }
+      : include "escape";
+      : pattern{
+         regex \= ([^\\]+)
+         styles [] = .text;
+      }
+   }
+}
+escape : context {
+   : pattern {
+      regex          \= (\\["'\\n])
+      styles []       = .punctuation;
+   }
+   : inline_push {
+      regex          \= (\\\()
+      styles []       = .punctuation;
+      : pop {
+         regex       \= (\))
+         styles []    = .punctuation;
+      }
+      : include "action";
+   }
+}
+
+
+multi_line_comment : context {
+   description        = multiline
+   : inline_push {
+      regex          \= (/\*)
+      styles []       = .comment;
+      default_style   = .comment
+      : pop {
+         regex       \= (\*/)
+         styles []    = .comment;
+      }
+   }
+   : inline_push {
+      regex          \= (--\[)
+      styles []       = .comment;
+      default_style   = .comment
+      : pop {
+         regex       \= (--\])
+         styles []    = .comment;
+      }
+   }
+}
+
+inline_comment : context {
+   : pattern {
+      regex \= (--.*)
+      styles [] = .comment;
+   }
+   : pattern {
+      regex \= (#.*)
+      styles [] = .comment;
+   }
+   : pattern {
+      regex \= (//.*)
+      styles [] = .comment;
+   }
+}
+   
+}
