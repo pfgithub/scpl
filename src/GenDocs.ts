@@ -3,7 +3,7 @@ import * as path from "path";
 
 import {allActions, genReadme, WFAction} from "./ActionData.js";
 
-const actionCompletionInfo: {[key: string]: {docs: string,args: Array<{ argType: string; argName?: string; argAutocompletePlaceholder?: string; }>, autocomplete: string}} = {};
+const actionCompletionInfo: {[key: string]: {docs: string, args: Array<{ argType: string; argName?: string; argAutocompletePlaceholder?: string; }>, autocomplete: string}} = {};
 
 allActions.forEach((action: WFAction) => {
 	const name = action.shortName;

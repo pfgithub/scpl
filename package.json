@@ -16,9 +16,13 @@
 		"uuid": "^3.3.2"
 	},
 	"devDependencies": {
+		"@typescript-eslint/eslint-plugin": "^1.4.2",
+		"@typescript-eslint/parser": "^1.4.2",
+		"eslint": "^5.14.1",
 		"mocha": "^5.2.0",
 		"nyc": "^13.1.0",
 		"raw-loader": "^1.0.0",
+		"typescript": "^3.3.3333",
 		"webpack": "^4.29.5",
 		"webpack-cli": "^3.2.3"
 	}

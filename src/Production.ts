@@ -16,10 +16,10 @@ export class Performance {
 	}
 }
 
-function calculateChange(str: string, position: Position){
-	let change = str;
-	if(str.indexOf("\n") > -1){
-		let split = str.split("\n");
+function calculateChange(str: string, position: Position) {
+	const change = str;
+	if(str.indexOf("\n") > -1) {
+		const split = str.split("\n");
 		position[0] += split.length;
 		position[1] = 0;
 	}
@@ -45,10 +45,10 @@ export class Production {
 		totalSteps++;
 		return {success: false};
 	}
-	toString(){
+	toString() {
 		return "UndefinedProduction";
 	}
-	nameOrTostring(){
+	nameOrTostring() {
 		return this.name || this.toString();
 	}
 }

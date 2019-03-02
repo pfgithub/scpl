@@ -340,7 +340,7 @@ export class Aggrandizements {
 export class Parameter {
 	constructor() {
 	}
-	build(){
+	build() {
 		throw new Error("Blank parameter cannot be built");
 	}
 }

@@ -1,7 +1,8 @@
 module.exports = {
   // http://eslint.org/docs/rules/
   //"parser": "esprima",
-  "parser": "espree",
+  // "parser": "espree",
+  "parser": "@typescript-eslint/parser",
   /*"ecmaFeatures": {
     "binaryLiterals": true,                    // enable binary literals
     "blockBindings": true,                     // enable let and const (aka block bindings)
@@ -50,6 +51,7 @@ module.exports = {
 
   "plugins": [
     // e.g. "react" (must run `npm install eslint-plugin-react` first)
+    "@typescript-eslint"
   ],
   "extends": [
     "eslint:recommended"
@@ -210,6 +212,7 @@ module.exports = {
     "space-unary-ops": 0,           // Require or disallow spaces before/after unary operators (words on by default, nonwords off by default)
     "indent": [1, "tab", {"SwitchCase": 1}],
     "prefer-const": 1,
+    "complexity": 1,
 
 
     ////////// ECMAScript 6 //////////

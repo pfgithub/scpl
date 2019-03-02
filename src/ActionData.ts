@@ -2,7 +2,7 @@
 import {Action, MagicVariable, ParameterType} from "./OutputData";
 import {getVariable} from "./HelpfulActions";
 import { ConvertingContext } from "./Converter";
-import {canBeString, canBeBoolean, canBeText, canBeArray, canBeList, canBeVariable, canBeAction, canBeDictionary, canBeRawKeyedDictionary, canBeStringVariable, AsAble} from "./ParserData"
+import {canBeString, canBeBoolean, canBeText, canBeArray, canBeList, canBeVariable, canBeAction, canBeDictionary, canBeRawKeyedDictionary, canBeStringVariable, AsAble} from "./ParserData";
 
 import actionList from "./Data/Actions";
 
@@ -25,7 +25,7 @@ class WFResource {
 	genDocs() {
 		return `Always enabled`;
 	}
-};
+}
 
 const resourceTypes: {[key: string]: any} = {}; // I can't figure out what to put the type as here
 
@@ -36,7 +36,7 @@ class WFDeviceAttributesResource extends WFResource {
 	genDocs() {
 		return `Device attributes match \`${JSON.stringify(this._data.WFDeviceAttributes)}\` This action is always enabled inside Shortcutslang.`;
 	}
-};
+}
 resourceTypes.WFDeviceAttributesResource = WFDeviceAttributesResource;
 
 class WFWorkflowTypeResource extends WFResource {
@@ -46,8 +46,8 @@ class WFWorkflowTypeResource extends WFResource {
 	genDocs() {
 		return `Workflow type is \`${this._data.WFWorkflowType}\`. This action is always enabled inside Shortcutslang.`;
 	}
-};
-resourceTypes.WFWorkflowTypeResource = WFWorkflowTypeResource
+}
+resourceTypes.WFWorkflowTypeResource = WFWorkflowTypeResource;
 
 class WFWorkflowHiddenResource extends WFResource {
 	shouldEnable(_action: Action) {
@@ -56,7 +56,7 @@ class WFWorkflowHiddenResource extends WFResource {
 	genDocs() {
 		return `This action is always **disabled** inside Shortcutslang.`;
 	}
-};
+}
 
 class WFParameterRelationResource extends WFResource {
 	relation: string;
@@ -104,8 +104,8 @@ class WFParameterRelationResource extends WFResource {
 				throw new Error(`RelationResource relation type ${this.relation} is not implemented.`);
 		}
 	}
-};
-resourceTypes.WFParameterRelationResource = WFParameterRelationResource
+}
+resourceTypes.WFParameterRelationResource = WFParameterRelationResource;
 
 class WFParameter {
 	_data: any
@@ -139,8 +139,8 @@ class WFParameter {
 	shouldEnable(action: Action) {
 		return this.requiredResources.every((resource: WFResource) => resource.shouldEnable(action));
 	}
-	genDocsArgName(){
-		return "[???]"
+	genDocsArgName() {
+		return "[???]";
 	}
 	genDocsAutocompletePlaceholder() {
 		return `:${this._data.DefaultValue ? `${this.genDocsArgName()}:"${this._data.DefaultValue}"` : `${this.genDocsArgName()}`}`;
@@ -161,10 +161,10 @@ ${this._data.DefaultValue}
 		docs += `${this.requiredResources.map(resource => `**Only enabled if**: ${resource.genDocs()}`).join("\n\n")}`;
 		return docs;
 	}
-	build(_cc: ConvertingContext, _parse: AsAble): ParameterType{
+	build(_cc: ConvertingContext, _parse: AsAble): ParameterType {
 		throw new Error("Cannot build undefined parameter");
 	}
-};
+}
 
 const types: {[key: string]: any } = {};
 
@@ -207,7 +207,7 @@ containing one of the options:
 			throw new Error("This enumeration field only accepts strings and variables.");
 		}
 	}
-};
+}
 types.WFEnumerationParameter = WFEnumerationParameter;
 
 class WFStorageServicePickerParameter extends WFEnumerationParameter {
@@ -215,7 +215,7 @@ class WFStorageServicePickerParameter extends WFEnumerationParameter {
 		super(data, name || "Storage Service Picker");
 		this.options = ["iCloud Drive", "Dropbox"];
 	}
-};
+}
 types.WFStorageServicePickerParameter = WFStorageServicePickerParameter;
 
 class WFWorkflowPickerParameter extends WFParameter {
@@ -244,7 +244,7 @@ class WFWorkflowPickerParameter extends WFParameter {
 		}
 		throw new Error("This shortcut field only accepts strings and variables.");
 	}
-};
+}
 types.WFWorkflowPickerParameter = WFWorkflowPickerParameter;
 
 class WFNumberFieldParameter extends WFParameter {
@@ -276,8 +276,8 @@ with a number.`;
 		}
 		throw new Error("This number field only accepts strings or numbers");
 	}
-};
-types.WFNumberFieldParameter = WFNumberFieldParameter
+}
+types.WFNumberFieldParameter = WFNumberFieldParameter;
 
 class WFContentArrayParameter extends WFParameter {
 	constructor(data: any) {
@@ -292,11 +292,11 @@ class WFContentArrayParameter extends WFParameter {
 Accepts a list.`;
 	}
 	build(cc: ConvertingContext, parse: AsAble) {
-		if(!canBeList(parse)){throw new Error("To make a content array, the argument must be a list")}
+		if(!canBeList(parse)) {throw new Error("To make a content array, the argument must be a list");}
 		const list = parse.asList(cc);
 		return list;
 	}
-};
+}
 types.WFContentArrayParameter = WFContentArrayParameter;
 
 types.WFArrayParameter = class extends WFContentArrayParameter {}; // not sure what the difference is
@@ -331,8 +331,8 @@ containing an integer value.`;
 		}
 		throw new Error("This number field only accepts strings or variables");
 	}
-};
-types.WFStepperParameter = WFStepperParameter
+}
+types.WFStepperParameter = WFStepperParameter;
 
 class WFSliderParameter extends WFParameter {
 	constructor(data: any) {
@@ -364,7 +364,7 @@ containing a number value from 0 to 1.`;
 		}
 		throw new Error("This number field only accepts strings or variables");
 	}
-};
+}
 types.WFSliderParameter = WFSliderParameter;
 
 class WFVariablePickerParameter extends WFParameter {
@@ -380,12 +380,12 @@ class WFVariablePickerParameter extends WFParameter {
 Accepts a variable.`;
 	}
 	build(cc: ConvertingContext, parse: AsAble) {
-		if(!canBeVariable(parse)){throw new Error("To make a variable picker, the argument must be a variable")}
+		if(!canBeVariable(parse)) {throw new Error("To make a variable picker, the argument must be a variable");}
 		const variable = parse.asVariable(cc);
 		return variable;
 	}
-};
-types.WFVariablePickerParameter = WFVariablePickerParameter
+}
+types.WFVariablePickerParameter = WFVariablePickerParameter;
 
 class WFTextInputParameter extends WFParameter {
 	constructor(data: any, name: string) {
@@ -403,21 +403,21 @@ with the text.`;
 	}
 	build(cc: ConvertingContext, parse: AsAble) {
 		if(!this.allowsVariables) {
-			if(!canBeString(parse)) {throw new Error("To make a text input that does not allow variables, the argument must be a string")}
+			if(!canBeString(parse)) {throw new Error("To make a text input that does not allow variables, the argument must be a string");}
 			return parse.asString();
 		}
-		if(!canBeText(parse)){throw new Error("To make a text input, the argument must be a text")}
+		if(!canBeText(parse)) {throw new Error("To make a text input, the argument must be a text");}
 		return parse.asText(cc);
 	}
-};
-types.WFTextInputParameter = WFTextInputParameter
+}
+types.WFTextInputParameter = WFTextInputParameter;
 
 class WFDateFieldParameter extends WFTextInputParameter {
 	constructor(data: any, name: string) {
 		super(data, name || "Date");
 	}
-};
-types.WFDateFieldParameter = WFDateFieldParameter
+}
+types.WFDateFieldParameter = WFDateFieldParameter;
 
 class WFEmailAddressFieldParameter extends WFParameter {
 	constructor(data: any) {
@@ -443,8 +443,8 @@ Accepts a string or string array or variable of email addresses.`;
 		}
 		throw new Error("To make an email address, the argument must be a variable, array, or string");
 	}
-};
-types.WFEmailAddressFieldParameter = WFEmailAddressFieldParameter
+}
+types.WFEmailAddressFieldParameter = WFEmailAddressFieldParameter;
 
 class WFDictionaryParameter extends WFParameter {
 	constructor(data: any) {
@@ -459,10 +459,10 @@ class WFDictionaryParameter extends WFParameter {
 Accepts a dictionary.`;
 	}
 	build(cc: ConvertingContext, parse: AsAble) {
-		if(!canBeDictionary(parse)) {throw new Error("To make a dictionary, the argument must be a dictionary")}
+		if(!canBeDictionary(parse)) {throw new Error("To make a dictionary, the argument must be a dictionary");}
 		return parse.asDictionary(cc);
 	}
-};
+}
 types.WFDictionaryParameter = WFDictionaryParameter;
 
 class WFSwitchParameter extends WFParameter {
@@ -487,7 +487,7 @@ or a variable.`: ""}`;
 		}
 		throw new Error("This boolean field only accepts booleans or variables");
 	}
-};
+}
 types.WFSwitchParameter = WFSwitchParameter;
 
 class WFExpandingParameter extends WFParameter {
@@ -510,8 +510,8 @@ parameter is expanded or not.`;
 		}
 		throw new Error("This expanding field only accepts booleans");
 	}
-};
-types.WFExpandingParameter = WFExpandingParameter
+}
+types.WFExpandingParameter = WFExpandingParameter;
 
 class WFVariableFieldParameter extends WFParameter {
 	constructor(data: any) {
@@ -529,11 +529,11 @@ or a named variable (v:) that you want to set.
 		return docs;
 	}
 	build(cc: ConvertingContext, parse: AsAble) {
-		const varname = canBeString(parse) ? parse.asString() : canBeStringVariable(parse) ? parse.asStringVariable() : (()=>{throw new Error("To make a variable field, the argument must be a string or string variable")})();
+		const varname = canBeString(parse) ? parse.asString() : canBeStringVariable(parse) ? parse.asStringVariable() : (()=>{throw new Error("To make a variable field, the argument must be a string or string variable");})();
 		cc.vardata[varname] = true;
 		return varname;
 	}
-};
+}
 types.WFVariableFieldParameter = WFVariableFieldParameter;
 
 const _debugMissingTypes: {[key: string]: number} = {};
@@ -685,7 +685,7 @@ ${JSON.stringify(this._data, null, "\t")}
 		}
 		params.forEach(param => {
 			if(param.special === "InputArg") {
-				if(!canBeAction(param)) {throw new Error("To use a param as an inputarg, it must be an action")}
+				if(!canBeAction(param)) {throw new Error("To use a param as an inputarg, it must be an action");}
 				actionAbove = param.asAction(cc);
 				return;
 			}
@@ -693,7 +693,7 @@ ${JSON.stringify(this._data, null, "\t")}
 				throw new Error("ControlFlowMode is no longer implemented. Please use the Flow and End actions instead.");
 			}
 			if(param.special === "Arglist") {
-				if(!canBeRawKeyedDictionary(param)) {throw new Error("To use a param as an arglist, it must be a raw keyed dictionary")}
+				if(!canBeRawKeyedDictionary(param)) {throw new Error("To use a param as an arglist, it must be a raw keyed dictionary");}
 				const dictionary = param.asRawKeyedDictionary();
 				Object.keys(dictionary).forEach(key => {
 					const value = dictionary[key];
@@ -796,11 +796,11 @@ console.log("List:", Object.keys(_debugMissingTypes)
 	.map(([a, b])=>`${a}: ${b}`)
 );
 */
-export function getActionFromID(id: string): WFAction{
+export function getActionFromID(id: string): WFAction {
 	if(!actionsByID[id]) {throw new Error(`There is no action with the id \`${id}\``);}
 	return actionsByID[id];
 }
-export function getActionFromName(name: string): WFAction{
+export function getActionFromName(name: string): WFAction {
 	name = name.toLowerCase();
 	if(!actionsByName[name]) {throw new Error(`There is no action with the short name \`${name}\``);}
 	return actionsByName[name];
