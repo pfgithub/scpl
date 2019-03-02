@@ -100,10 +100,11 @@ export declare class BarlistParse extends ListParse implements AsText, AsString 
     asString(): string;
     asText(cc: ConvertingContext): Text;
 }
-export declare class CharsParse extends Parse implements AsString, AsText {
+export declare class CharsParse extends Parse implements AsString, AsText, AsNumber {
     items: [string | AsAble];
     constructor(start: Position, end: Position, items: [string | AsAble]);
     asString(): string;
+    asNumber(): number;
     asText(cc: ConvertingContext): Text;
 }
 export declare class IdentifierParse extends Parse implements AsNumber, AsString, AsBoolean, AsText {
