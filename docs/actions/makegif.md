@@ -15,7 +15,7 @@ An animated GIF
 
 ### usage
 ```
-makegif a{secondsperphoto=[string number] loopforever=[string boolean|variable] wfmakegifactionloopcount=[string integer] autosize=[string boolean|variable] width=[string number] height=[string number]}
+makegif a{secondsperphoto=[number] loopforever=[string boolean|variable] wfmakegifactionloopcount=[number] autosize=[string boolean|variable] width=[number] height=[number]}
 ```
 
 ### arguments
@@ -35,7 +35,7 @@ makegif a{secondsperphoto=[string number] loopforever=[string boolean|variable] 
 
 
 
-Accepts a string 
+Accepts a number 
 or variable
 with a number.
 
@@ -60,9 +60,9 @@ or a variable.
 
 **Only enabled if**: argument WFMakeGIFActionLoopEnabled = `false`
 
-Accepts a string 
+Accepts a number 
 or variable
-containing an integer value.
+with a number.
 
 ---
 
@@ -89,7 +89,7 @@ or a variable.
 
 **Only enabled if**: argument WFMakeGIFActionAutoSize = `false`
 
-Accepts a string 
+Accepts a number 
 or variable
 with a number.
 
@@ -104,7 +104,7 @@ with a number.
 
 **Only enabled if**: argument WFMakeGIFActionAutoSize = `false`
 
-Accepts a string 
+Accepts a number 
 or variable
 with a number.
 

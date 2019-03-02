@@ -11,7 +11,7 @@ Turns on or off the flashlight near the device's camera.
 
 ### usage
 ```
-setflashlight a{flashlight=[string <Off | On | Toggle>] brightness=[string number]}
+setflashlight a{flashlight=[string <Off | On | Toggle>] brightness=[number]}
 ```
 
 ### arguments
@@ -48,9 +48,9 @@ containing one of the options:
 
 **Only enabled if**: This action is always **disabled** inside Shortcutslang.
 
-Accepts a string 
+Accepts a number 
 or variable
-containing a number value from 0 to 1.
+with a number.
 
 ---
 

@@ -242,16 +242,16 @@ class WFWorkflowPickerParameter extends WFParameter {
 }
 types.WFWorkflowPickerParameter = WFWorkflowPickerParameter;
 class WFNumberFieldParameter extends WFParameter {
-    constructor(data) {
-        super(data, "Number");
+    constructor(data, name = "Number") {
+        super(data, name);
     }
     genDocsArgName() {
-        return this.allowsVariables ? `[string number]` : `[string number|variable]`;
+        return this.allowsVariables ? `[number]` : `[number|variable]`;
     }
     genDocs() {
         return `${super.genDocs()}
 
-Accepts a string ${this.allowsVariables ? `
+Accepts a number ${this.allowsVariables ? `
 or variable` : ""}
 with a number.`;
     }
@@ -263,18 +263,43 @@ with a number.`;
             }
             return res;
         }
-        else if (ParserData_1.canBeString(parse)) {
-            const res = parse.asString(); // asString returns a string like "" <-- that's a string
-            const num = +res;
-            if (isNaN(num)) {
-                throw parse.error(`This number field only accepts numbers. The value \`${res}\` could not be converted to a number`);
-            }
+        else if (ParserData_1.canBeNumber(parse)) {
+            const num = parse.asNumber(); // asString returns a string like "" <-- that's a string
             return num;
         }
-        throw parse.error("This number field only accepts strings or numbers");
+        throw parse.error("This number field only accepts variables or numbers");
     }
 }
 types.WFNumberFieldParameter = WFNumberFieldParameter;
+class WFStepperParameter extends WFNumberFieldParameter {
+    constructor(data) {
+        super(data, "Stepper Number");
+    }
+    build(cc, parse) {
+        const val = super.build(cc, parse);
+        if (typeof val === "number") {
+            if (!Number.isInteger(val) || val < 0) {
+                throw parse.error("This stepper number field can only contain positive integer numbers");
+            }
+        }
+        return val;
+    }
+}
+class WFSliderParameter extends WFNumberFieldParameter {
+    constructor(data) {
+        super(data, "Slider Number");
+    }
+    build(cc, parse) {
+        const val = super.build(cc, parse);
+        if (typeof val === "number") {
+            if (val < 0 || val > 1) {
+                throw parse.error("This number field can only contain numbers from 0 to 1");
+            }
+        }
+        return val;
+    }
+}
+types.WFStepperParameter = WFStepperParameter;
 class WFContentArrayParameter extends WFParameter {
     constructor(data) {
         super(data, "List");
@@ -298,79 +323,6 @@ Accepts a list.`;
 types.WFContentArrayParameter = WFContentArrayParameter;
 types.WFArrayParameter = class extends WFContentArrayParameter {
 }; // not sure what the difference is
-class WFStepperParameter extends WFParameter {
-    constructor(data) {
-        super(data, "Stepper Number");
-    }
-    genDocsArgName() {
-        return this.allowsVariables ? `[string integer]` : `[string integer|variable]`;
-    }
-    genDocs() {
-        return `${super.genDocs()}
-
-Accepts a string ${this.allowsVariables ? `
-or variable` : ""}
-containing an integer value.`;
-    }
-    build(cc, parse) {
-        if (ParserData_1.canBeVariable(parse)) {
-            const res = parse.asVariable(cc);
-            if (!this.allowsVariables) {
-                throw parse.error("This number field does not allow variables.");
-            }
-            return res;
-        }
-        else if (ParserData_1.canBeString(parse)) {
-            const res = parse.asString(); // asString returns a string like "" <-- that's a string
-            const num = +res;
-            if (isNaN(num)) {
-                throw parse.error(`This number field only accepts integers. The value \`${res}\` could not be converted to a number`);
-            }
-            if (!Number.isInteger(num)) {
-                throw parse.error(`This number field only accepts integers. The number \`${num}\` is not an integer.`);
-            }
-            return num;
-        }
-        throw parse.error("This number field only accepts strings or variables");
-    }
-}
-types.WFStepperParameter = WFStepperParameter;
-class WFSliderParameter extends WFParameter {
-    constructor(data) {
-        super(data, "Slider Number");
-    }
-    genDocsArgName() {
-        return this.allowsVariables ? `[string number]` : `[string number|variable]`;
-    }
-    genDocs() {
-        return `${super.genDocs()}
-
-Accepts a string ${this.allowsVariables ? `
-or variable` : ""}
-containing a number value from 0 to 1.`;
-    }
-    build(cc, parse) {
-        if (ParserData_1.canBeVariable(parse)) {
-            const res = parse.asVariable(cc);
-            if (!this.allowsVariables) {
-                throw parse.error("This slider field does not allow variables.");
-            }
-            return res;
-        }
-        else if (ParserData_1.canBeString(parse)) {
-            const res = parse.asString(); // asString returns a string like "" <-- that's a string
-            const num = +res;
-            if (isNaN(num)) {
-                throw parse.error(`This slider field only accepts numbers. The value \`${res}\` could not be converted to a number`);
-            }
-            if (num > 1 || num < 0) {
-                throw parse.error(`This slider field only accepts numbers from 0 to 1. The number \`${num}\` is not in this range..`);
-            }
-            return num;
-        }
-        throw parse.error("This number field only accepts strings or variables");
-    }
-}
 types.WFSliderParameter = WFSliderParameter;
 class WFVariablePickerParameter extends WFParameter {
     constructor(data) {
@@ -685,7 +637,7 @@ ${JSON.stringify(this._data, null, "\t")}
         params.forEach(param => {
             if (param.special === "InputArg") {
                 if (!ParserData_1.canBeAction(param)) {
-                    throw new Error("To use a param as an inputarg, it must be an action");
+                    throw param.error("To use a param as an inputarg, it must be an action");
                 }
                 actionAbove = param.asAction(cc);
                 return;

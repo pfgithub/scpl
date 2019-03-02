@@ -122,7 +122,15 @@ export function canBeStringVariable(parse: Parse): parse is AsStringVariable {
 	return (<AsStringVariable>parse).asStringVariable !== undefined;
 }
 
-export type AsAble = AsString | AsText | AsList | AsArray | AsVariable | AsAction | AsDictionary | AsRawDictionary | AsRawKeyedDictionary | AsNameType | AsBoolean | AsStringVariable;
+interface AsNumber extends Parse{
+	asNumber(): number
+}
+
+export function canBeNumber(parse: Parse): parse is AsNumber {
+	return (<AsNumber>parse).asNumber !== undefined;
+}
+
+export type AsAble = AsString | AsText | AsList | AsArray | AsVariable | AsAction | AsDictionary | AsRawDictionary | AsRawKeyedDictionary | AsNameType | AsBoolean | AsStringVariable | AsNumber;
 
 export class DictionaryParse extends Parse implements AsRawDictionary, AsRawKeyedDictionary, AsDictionary {
 	keyvaluepairs: Array<{key: AsAble, value: AsAble}>
@@ -240,7 +248,8 @@ export class CharsParse extends Parse implements AsString, AsText {
 		return text;
 	}
 }
-export class IdentifierParse extends Parse implements AsString, AsBoolean, AsText {
+
+export class IdentifierParse extends Parse implements AsNumber, AsString, AsBoolean, AsText {
 	value: string
 	constructor(start: Position, end: Position, str: string) {
 		super(start, end);
@@ -248,6 +257,13 @@ export class IdentifierParse extends Parse implements AsString, AsBoolean, AsTex
 	}
 	asString() {
 		return this.value;
+	}
+	asNumber() {
+		const num = +this.value;
+		if(isNaN(num)) {
+			throw this.error("Could not convert to number");
+		}
+		return num;
 	}
 	asBoolean() {
 		const string = this.asString();
@@ -260,6 +276,8 @@ export class IdentifierParse extends Parse implements AsString, AsBoolean, AsTex
 		text.add(this.value);
 		return text;
 	}
+}
+export class NumberParse extends IdentifierParse {
 }
 export class ArglistParse extends DictionaryParse {
 	constructor(start: Position, end: Position, keyValuePairs: { key: AsAble; value: AsAble; }[] ) {

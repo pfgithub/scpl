@@ -91,7 +91,7 @@ class OrProduction extends Production {
             }
             string = result.remainingStr;
             position = result.pos;
-            resdata.push(result.data);
+            resdata = result.data;
             return true;
         });
         if (!success) {

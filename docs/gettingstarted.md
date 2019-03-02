@@ -92,6 +92,16 @@ You cannot set special variables, they are special.
 
 | Actions shown | [Text](actions/text) | [ShowResult](actions/showresult) |
 
+#### ScPL Comments
+
+ScPL comments can be put in your code like shortcuts comments but they do not output any actions.
+
+```
+# this is a comment
+// this is also a comment
+-- this is also a comment
+```
+
 ## Field Types
 
 Shortcuts has many different field types, for each field type there are many ways you can write them in shortcutslang
@@ -153,17 +163,11 @@ Enum fields cannot have mixed text and variables, so `"\(v:Not) Equals"` is neve
 Number fields accept a number.
 
 ```coffeescript
+Number 16
 Number 29.5
-```
-
-Negative numbers require quotes around them, like
-
-```coffeescript
-Number "-924"
-```
-
-```coffeescript
-Number -924 # Syntax Error, Not Allowed
+Number -924
+Number .8
+Number -.2
 ```
 
 Similar to Enum fields, Number fields cannot have mixed text and variables.

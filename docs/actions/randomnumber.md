@@ -11,7 +11,7 @@ Passes a random number between the given minimum and maximum to the next action.
 
 ### usage
 ```
-randomnumber a{minimum=[string number] maximum=[string number]}
+randomnumber a{minimum=[number] maximum=[number]}
 ```
 
 ### arguments
@@ -27,7 +27,7 @@ randomnumber a{minimum=[string number] maximum=[string number]}
 
 
 
-Accepts a string 
+Accepts a number 
 or variable
 with a number.
 
@@ -42,7 +42,7 @@ with a number.
 
 
 
-Accepts a string 
+Accepts a number 
 or variable
 with a number.
 

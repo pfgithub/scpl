@@ -13,7 +13,7 @@ Gets the most recent videos from the camera roll.
 
 ### usage
 ```
-getlatestvideos a{wfgetlatestphotocount=[string integer]}
+getlatestvideos a{wfgetlatestphotocount=[number]}
 ```
 
 ### arguments
@@ -29,9 +29,9 @@ getlatestvideos a{wfgetlatestphotocount=[string integer]}
 
 
 
-Accepts a string 
+Accepts a number 
 or variable
-containing an integer value.
+with a number.
 
 ---
 

@@ -13,7 +13,7 @@ Gets the most recent burst photos from the camera roll.
 
 ### usage
 ```
-getlatestbursts a{wfgetlatestphotocount=[string integer]}
+getlatestbursts a{wfgetlatestphotocount=[number]}
 ```
 
 ### arguments
@@ -29,9 +29,9 @@ getlatestbursts a{wfgetlatestphotocount=[string integer]}
 
 
 
-Accepts a string 
+Accepts a number 
 or variable
-containing an integer value.
+with a number.
 
 ---
 

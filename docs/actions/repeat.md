@@ -13,7 +13,7 @@ Repeats the contained actions, running them the specified number of times.
 
 ### usage
 ```
-repeat a{wfrepeatcount=[string integer]}
+repeat a{wfrepeatcount=[number]}
   ...
 end
 ```
@@ -27,9 +27,9 @@ end
 
 
 
-Accepts a string 
+Accepts a number 
 or variable
-containing an integer value.
+with a number.
 
 ---
 

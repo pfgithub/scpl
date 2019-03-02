@@ -19,7 +19,7 @@ The new reminder
 
 ### usage
 ```
-addnewreminder a{title=[string|text] undefined=[???] remindme=[boolean] remind=[string <At Time | At Location>] wheni=[string <Enter | Leave>] radius=[string number] undefined=[???] alerttime=[string|text] notes=[string|text]}
+addnewreminder a{title=[string|text] undefined=[???] remindme=[boolean] remind=[string <At Time | At Location>] wheni=[string <Enter | Leave>] radius=[number] undefined=[???] alerttime=[string|text] notes=[string|text]}
 ```
 
 ### arguments
@@ -98,7 +98,7 @@ in meters
 
 **Only enabled if**: argument WFAlertTrigger = `At Location`
 
-Accepts a string 
+Accepts a number 
 or variable
 with a number.
 

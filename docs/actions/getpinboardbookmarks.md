@@ -13,7 +13,7 @@ Gets bookmarks in your Pinboard account.
 
 ### usage
 ```
-getpinboardbookmarks a{tags=[string|text] wfbookmarkcount=[string integer]}
+getpinboardbookmarks a{tags=[string|text] wfbookmarkcount=[number]}
 ```
 
 ### arguments
@@ -44,9 +44,9 @@ with the text.
 
 
 
-Accepts a string 
+Accepts a number 
 or variable
-containing an integer value.
+with a number.
 
 ---
 

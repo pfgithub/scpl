@@ -20,7 +20,7 @@ An animated GIF
 
 ### usage
 ```
-addframetogif a{image=[variable] delaytime=[string number] autosize=[string boolean|variable] width=[string number] height=[string number]}
+addframetogif a{image=[variable] delaytime=[number] autosize=[string boolean|variable] width=[number] height=[number]}
 ```
 
 ### arguments
@@ -49,7 +49,7 @@ Accepts a variable.
 
 
 
-Accepts a string 
+Accepts a number 
 or variable
 with a number.
 
@@ -78,7 +78,7 @@ or a variable.
 
 **Only enabled if**: argument WFGIFAutoSize = `false`
 
-Accepts a string 
+Accepts a number 
 or variable
 with a number.
 
@@ -93,7 +93,7 @@ with a number.
 
 **Only enabled if**: argument WFGIFAutoSize = `false`
 
-Accepts a string 
+Accepts a number 
 or variable
 with a number.
 

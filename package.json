@@ -5,7 +5,7 @@
 	"types": "built/index.d.ts",
 	"license": "MIT",
 	"scripts": {
-		"docs": "tsc && node ./built/GenDocs && webpack"
+		"docs": "tsc && node ./built/src/GenDocs && webpack"
 	},
 	"dependencies": {
 		"@types/codemirror": "^0.0.72",

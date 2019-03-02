@@ -13,7 +13,7 @@ Sets the device brightness.
 
 ### usage
 ```
-setbrightness a{brightness=[string number]}
+setbrightness a{brightness=[number]}
 ```
 
 ### arguments
@@ -29,9 +29,9 @@ setbrightness a{brightness=[string number]}
 
 
 
-Accepts a string 
+Accepts a number 
 or variable
-containing a number value from 0 to 1.
+with a number.
 
 ---
 

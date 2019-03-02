@@ -68,7 +68,11 @@ interface AsStringVariable extends Parse {
     asStringVariable(): string;
 }
 export declare function canBeStringVariable(parse: Parse): parse is AsStringVariable;
-export declare type AsAble = AsString | AsText | AsList | AsArray | AsVariable | AsAction | AsDictionary | AsRawDictionary | AsRawKeyedDictionary | AsNameType | AsBoolean | AsStringVariable;
+interface AsNumber extends Parse {
+    asNumber(): number;
+}
+export declare function canBeNumber(parse: Parse): parse is AsNumber;
+export declare type AsAble = AsString | AsText | AsList | AsArray | AsVariable | AsAction | AsDictionary | AsRawDictionary | AsRawKeyedDictionary | AsNameType | AsBoolean | AsStringVariable | AsNumber;
 export declare class DictionaryParse extends Parse implements AsRawDictionary, AsRawKeyedDictionary, AsDictionary {
     keyvaluepairs: Array<{
         key: AsAble;
@@ -102,12 +106,15 @@ export declare class CharsParse extends Parse implements AsString, AsText {
     asString(): string;
     asText(cc: ConvertingContext): Text;
 }
-export declare class IdentifierParse extends Parse implements AsString, AsBoolean, AsText {
+export declare class IdentifierParse extends Parse implements AsNumber, AsString, AsBoolean, AsText {
     value: string;
     constructor(start: Position, end: Position, str: string);
     asString(): string;
+    asNumber(): number;
     asBoolean(): boolean;
     asText(_cc: ConvertingContext): Text;
+}
+export declare class NumberParse extends IdentifierParse {
 }
 export declare class ArglistParse extends DictionaryParse {
     constructor(start: Position, end: Position, keyValuePairs: {

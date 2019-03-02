@@ -13,7 +13,7 @@ Speaks the inputted text aloud.
 
 ### usage
 ```
-speaktext a{waituntilfinished=[string boolean|variable] undefined=[???] pitch=[string number] undefined=[???] undefined=[???]}
+speaktext a{waituntilfinished=[string boolean|variable] undefined=[???] pitch=[number] undefined=[???] undefined=[???]}
 ```
 
 ### arguments
@@ -47,9 +47,9 @@ or a variable.
 
 
 
-Accepts a string 
+Accepts a number 
 or variable
-containing a number value from 0 to 1.
+with a number.
 
 ---
 

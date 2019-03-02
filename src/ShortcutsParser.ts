@@ -1,4 +1,4 @@
-import {ActionParse, DictionaryParse, CharsParse, IdentifierParse, ListParse, BarlistParse, VariableParse, ActionsParse, VariableFlagParse, ArglistParse} from "./ParserData.js";
+import {ActionParse, DictionaryParse, CharsParse, IdentifierParse, ListParse, BarlistParse, VariableParse, ActionsParse, VariableFlagParse, ArglistParse, NumberParse} from "./ParserData.js";
 
 import {p, regex, star, plus, optional, or, c, o} from "./ParserHelper.js";
 
@@ -8,7 +8,7 @@ import {p, regex, star, plus, optional, or, c, o} from "./ParserHelper.js";
 
 
 
-o.identifier = regex(/^[A-Za-z0-9@._]+/)
+o.identifier = regex(/^[A-Za-z0-9@_]+/)
 	.scb(([fullmatch], start, end) => new IdentifierParse(start, end, fullmatch));
 
 o.newline = p(
@@ -32,13 +32,15 @@ o.eolComment = or(
 o.spaceonly = regex(/^[ ,\r\t]*/).scb(_ => null);
 o.space = p(o.spaceonly, optional(o.multilineComment), o.spaceonly).scb(_ => null);
 
-o.optionalNewline = star(or(o.newline, o.space));
+o.optionalNewline = star(or(o.newline, o.space)).scb(() => null);
 
 const _ = o.space;
 const newline = o.newline;
 const _n = o.optionalNewline;
 
 
+o.number = regex(/^-?(?:[0-9]*\.[0-9]+|[0-9]+)/)
+	.scb(([fullmatch], start, end) => new NumberParse(start, end, fullmatch));
 
 
 o.escape = p(c`\\`, or(
@@ -143,7 +145,7 @@ o.onlyaction = p(o.identifier, _, o.args)
 
 o.args = star(p(o.argument, _).scb(data => data[0]));
 
-o.value = or(o.variable, o.string, o.identifier, o.parenthesis, o.dictionary, o.list);
+o.value = or(o.variable, o.string, o.number, o.identifier, o.parenthesis, o.dictionary, o.list);
 
 o.dictionary = p(
 	c`{`,

@@ -13,7 +13,7 @@ Gets the most recent screenshots from the camera roll.
 
 ### usage
 ```
-getlatestscreenshots a{wfgetlatestphotocount=[string integer]}
+getlatestscreenshots a{wfgetlatestphotocount=[number]}
 ```
 
 ### arguments
@@ -29,9 +29,9 @@ getlatestscreenshots a{wfgetlatestphotocount=[string integer]}
 
 
 
-Accepts a string 
+Accepts a number 
 or variable
-containing an integer value.
+with a number.
 
 ---
 

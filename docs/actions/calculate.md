@@ -11,7 +11,7 @@ Performs a number operation on the input and returns the result.
 
 ### usage
 ```
-calculate a{operation=[string <+ | - | × | ÷ | …>] scientificoperation=[string <Modulus | x^2 | x^3 | x^y | e^x | 10^x | ln(x) | log(x) | √x | ∛x | x! | sin(x) | cos(x) | tan(x) | abs(x)>] operand=[string number] operand=[string number]}
+calculate a{operation=[string <+ | - | × | ÷ | …>] scientificoperation=[string <Modulus | x^2 | x^3 | x^y | e^x | 10^x | ln(x) | log(x) | √x | ∛x | x! | sin(x) | cos(x) | tan(x) | abs(x)>] operand=[number] operand=[number]}
 ```
 
 ### arguments
@@ -75,7 +75,7 @@ containing one of the options:
 
 **Only enabled if**: argument WFMathOperation != `…`
 
-Accepts a string 
+Accepts a number 
 or variable
 with a number.
 
@@ -92,7 +92,7 @@ with a number.
 
 **Only enabled if**: argument WFScientificMathOperation = `Modulus` or `x^y`
 
-Accepts a string 
+Accepts a number 
 or variable
 with a number.
 

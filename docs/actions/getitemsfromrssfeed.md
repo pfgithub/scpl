@@ -11,7 +11,7 @@ Downloads the latest items from an RSS feed.
 
 ### usage
 ```
-getitemsfromrssfeed a{url=[string|text] wfrssitemquantity=[string integer]}
+getitemsfromrssfeed a{url=[string|text] wfrssitemquantity=[number]}
 ```
 
 ### arguments
@@ -42,9 +42,9 @@ with the text.
 
 
 
-Accepts a string 
+Accepts a number 
 or variable
-containing an integer value.
+with a number.
 
 ---
 

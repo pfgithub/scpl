@@ -18,7 +18,7 @@ A location to search near.
 
 ### usage
 ```
-searchlocalbusinesses a{search=[string|text] radiuskm=[string number]}
+searchlocalbusinesses a{search=[string|text] radiuskm=[number]}
 ```
 
 ### arguments
@@ -53,7 +53,7 @@ with the text.
 
 
 
-Accepts a string 
+Accepts a number 
 or variable
 with a number.
 

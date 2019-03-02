@@ -11,7 +11,7 @@ Scales images to a particular width and height.
 
 ### usage
 ```
-resizeimage a{width=[string number] height=[string number]}
+resizeimage a{width=[number] height=[number]}
 ```
 
 ### arguments
@@ -31,7 +31,7 @@ Auto
 
 
 
-Accepts a string 
+Accepts a number 
 or variable
 with a number.
 
@@ -46,7 +46,7 @@ Auto
 
 
 
-Accepts a string 
+Accepts a number 
 or variable
 with a number.
 

@@ -13,7 +13,7 @@ Tests if any item passed as input matches the specified condition, and if so, ru
 
 ### usage
 ```
-if a{input=[string <Equals | Contains | Is Greater Than | Is Less Than>|variable] number=[string number] value=[string|text]}
+if a{input=[string <Equals | Contains | Is Greater Than | Is Less Than>|variable] number=[number] value=[string|text]}
   ...
 otherwise
   ...
@@ -50,7 +50,7 @@ containing one of the options:
 
 **Only enabled if**: argument WFCondition = `Is Greater Than` or `Is Less Than`
 
-Accepts a string 
+Accepts a number 
 or variable
 with a number.
 

@@ -20,7 +20,7 @@ A video
 
 ### usage
 ```
-makevideofromgif a{wfmakevideofromgifactionloopcount=[string integer]}
+makevideofromgif a{wfmakevideofromgifactionloopcount=[number]}
 ```
 
 ### arguments
@@ -36,9 +36,9 @@ makevideofromgif a{wfmakevideofromgifactionloopcount=[string integer]}
 
 
 
-Accepts a string 
+Accepts a number 
 or variable
-containing an integer value.
+with a number.
 
 ---
 

@@ -13,7 +13,7 @@ Searches the iTunes Store, returning the items that match the specified search t
 
 ### usage
 ```
-searchitunesstore a{search=[string|text] undefined=[???] undefined=[???] undefined=[???] undefined=[???] wfitemlimit=[string integer]}
+searchitunesstore a{search=[string|text] undefined=[???] undefined=[???] undefined=[???] undefined=[???] wfitemlimit=[number]}
 ```
 
 ### arguments
@@ -60,9 +60,9 @@ with the text.
 
 
 
-Accepts a string 
+Accepts a number 
 or variable
-containing an integer value.
+with a number.
 
 ---
 

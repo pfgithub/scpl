@@ -13,7 +13,7 @@ Gets the most recent Live Photos from the camera roll.
 
 ### usage
 ```
-getlatestlivephotos a{wfgetlatestphotocount=[string integer]}
+getlatestlivephotos a{wfgetlatestphotocount=[number]}
 ```
 
 ### arguments
@@ -29,9 +29,9 @@ getlatestlivephotos a{wfgetlatestphotocount=[string integer]}
 
 
 
-Accepts a string 
+Accepts a number 
 or variable
-containing an integer value.
+with a number.
 
 ---
 

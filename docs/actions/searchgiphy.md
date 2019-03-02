@@ -13,7 +13,7 @@ Searches for GIFs representing the text specified using Giphy.
 
 ### usage
 ```
-searchgiphy a{search=[string|text] showgifpicker=[string boolean|variable] wfgiphylimit=[string integer] selectmultiple=[string boolean|variable]}
+searchgiphy a{search=[string|text] showgifpicker=[string boolean|variable] wfgiphylimit=[number] selectmultiple=[string boolean|variable]}
 ```
 
 ### arguments
@@ -58,9 +58,9 @@ or a variable.
 
 **Only enabled if**: argument WFGiphyShowPicker = `false`
 
-Accepts a string 
+Accepts a number 
 or variable
-containing an integer value.
+with a number.
 
 ---
 

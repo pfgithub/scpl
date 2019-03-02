@@ -11,7 +11,7 @@ Passes a number to the next action.
 
 ### usage
 ```
-number a{number=[string number]}
+number a{number=[number]}
 ```
 
 ### arguments
@@ -27,7 +27,7 @@ number a{number=[string number]}
 
 
 
-Accepts a string 
+Accepts a number 
 or variable
 with a number.
 

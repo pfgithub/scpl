@@ -11,7 +11,7 @@ Crops images to a smaller rectangle.
 
 ### usage
 ```
-cropimage a{position=[string <Center | Top Left | Top Right | Bottom Left | Bottom Right | Custom>] xcoordinate=[string number] ycoordinate=[string number] width=[string number] height=[string number]}
+cropimage a{position=[string <Center | Top Left | Top Right | Bottom Left | Bottom Right | Custom>] xcoordinate=[number] ycoordinate=[number] width=[number] height=[number]}
 ```
 
 ### arguments
@@ -49,7 +49,7 @@ containing one of the options:
 
 **Only enabled if**: argument WFImageCropPosition = `Custom`
 
-Accepts a string 
+Accepts a number 
 or variable
 with a number.
 
@@ -64,7 +64,7 @@ with a number.
 
 **Only enabled if**: argument WFImageCropPosition = `Custom`
 
-Accepts a string 
+Accepts a number 
 or variable
 with a number.
 
@@ -83,7 +83,7 @@ with a number.
 
 
 
-Accepts a string 
+Accepts a number 
 or variable
 with a number.
 
@@ -102,7 +102,7 @@ with a number.
 
 
 
-Accepts a string 
+Accepts a number 
 or variable
 with a number.
 

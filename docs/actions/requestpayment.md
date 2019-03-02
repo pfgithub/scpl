@@ -15,7 +15,7 @@ Requests a payment from the specified people using a payment app on your device.
 
 ### usage
 ```
-requestpayment a{undefined=[???] undefined=[???] amount=[string number] openinapp=[string boolean|variable] note=[string|text]}
+requestpayment a{undefined=[???] undefined=[???] amount=[number] openinapp=[string boolean|variable] note=[string|text]}
 ```
 
 ### arguments
@@ -39,7 +39,7 @@ requestpayment a{undefined=[???] undefined=[???] amount=[string number] openinap
 
 
 
-Accepts a string 
+Accepts a number 
 or variable
 with a number.
 

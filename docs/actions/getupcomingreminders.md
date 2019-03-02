@@ -15,7 +15,7 @@ Gets upcoming reminders, ordered from nearest to farthest away due date.
 
 ### usage
 ```
-getupcomingreminders a{undefined=[???] wfgetupcomingitemcount=[string integer]}
+getupcomingreminders a{undefined=[???] wfgetupcomingitemcount=[number]}
 ```
 
 ### arguments
@@ -35,9 +35,9 @@ getupcomingreminders a{undefined=[???] wfgetupcomingitemcount=[string integer]}
 
 
 
-Accepts a string 
+Accepts a number 
 or variable
-containing an integer value.
+with a number.
 
 ---
 

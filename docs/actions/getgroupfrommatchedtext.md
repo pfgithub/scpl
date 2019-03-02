@@ -11,7 +11,7 @@ Gets the text that matched a particular capture group or all of the capture grou
 
 ### usage
 ```
-getgroupfrommatchedtext a{get=[string <Group At Index | All Groups>] groupindex=[string number]}
+getgroupfrommatchedtext a{get=[string <Group At Index | All Groups>] groupindex=[number]}
 ```
 
 ### arguments
@@ -49,7 +49,7 @@ containing one of the options:
 
 **Only enabled if**: argument WFGetGroupType != `All Groups`
 
-Accepts a string 
+Accepts a number 
 or variable
 with a number.
 

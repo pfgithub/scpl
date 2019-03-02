@@ -13,7 +13,7 @@ Converts the images passed into the action to the specified image format.
 
 ### usage
 ```
-convertimage a{undefined=[???] quality=[string number] preservemetadata=[string boolean|variable]}
+convertimage a{undefined=[???] quality=[number] preservemetadata=[string boolean|variable]}
 ```
 
 ### arguments
@@ -33,9 +33,9 @@ convertimage a{undefined=[???] quality=[string number] preservemetadata=[string 
 
 **Only enabled if**: argument WFImageFormat = `JPEG` or `JPEG-2000`
 
-Accepts a string 
+Accepts a number 
 or variable
-containing a number value from 0 to 1.
+with a number.
 
 ---
 

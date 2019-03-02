@@ -11,7 +11,7 @@ Formats a number into text.
 
 ### usage
 ```
-formatnumber a{wfnumberformatdecimalplaces=[string integer]}
+formatnumber a{wfnumberformatdecimalplaces=[number]}
 ```
 
 ### arguments
@@ -27,9 +27,9 @@ formatnumber a{wfnumberformatdecimalplaces=[string integer]}
 
 
 
-Accepts a string 
+Accepts a number 
 or variable
-containing an integer value.
+with a number.
 
 ---
 

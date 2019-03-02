@@ -22,7 +22,7 @@ The combined images
 
 ### usage
 ```
-overlayimage a{image=[variable] showimageeditor=[string boolean|variable] position=[string <Center | Top Left | Top Right | Bottom Left | Bottom Right | Custom>] width=[string number] height=[string number] xcoordinate=[string number] ycoordinate=[string number] rotationdegrees=[string number] opacity=[string number]}
+overlayimage a{image=[variable] showimageeditor=[string boolean|variable] position=[string <Center | Top Left | Top Right | Bottom Left | Bottom Right | Custom>] width=[number] height=[number] xcoordinate=[number] ycoordinate=[number] rotationdegrees=[number] opacity=[number]}
 ```
 
 ### arguments
@@ -83,7 +83,7 @@ Auto
 
 **Only enabled if**: argument WFShouldShowImageEditor = `false`
 
-Accepts a string 
+Accepts a number 
 or variable
 with a number.
 
@@ -98,7 +98,7 @@ Auto
 
 **Only enabled if**: argument WFShouldShowImageEditor = `false`
 
-Accepts a string 
+Accepts a number 
 or variable
 with a number.
 
@@ -115,7 +115,7 @@ with a number.
 
 **Only enabled if**: argument WFImagePosition = `Custom`
 
-Accepts a string 
+Accepts a number 
 or variable
 with a number.
 
@@ -132,7 +132,7 @@ with a number.
 
 **Only enabled if**: argument WFImagePosition = `Custom`
 
-Accepts a string 
+Accepts a number 
 or variable
 with a number.
 
@@ -147,7 +147,7 @@ with a number.
 
 **Only enabled if**: argument WFShouldShowImageEditor = `false`
 
-Accepts a string 
+Accepts a number 
 or variable
 with a number.
 
@@ -166,7 +166,7 @@ with a number.
 
 **Only enabled if**: argument WFShouldShowImageEditor = `false`
 
-Accepts a string 
+Accepts a number 
 or variable
 with a number.
 

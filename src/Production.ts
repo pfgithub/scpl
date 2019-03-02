@@ -87,14 +87,14 @@ export class OrProduction extends Production {
 	}
 	parse(string: string, position: Position): ParseResult {
 		super.parse(string, position);
-		let resdata;
+		let resdata: any;
 		const startpos = <Position>position.slice();
 		const success = this.options.some(option => { // find the first option that parses... might cause problems if things try to parse too deep only to realise the code is wrong... may want to have some number of depth or something idk
 			const result = option.getProd().parse(string, <Position>position.slice());
 			if(!result.success) {return false;}
 			string = result.remainingStr;
 			position = result.pos;
-			resdata.push(result.data);
+			resdata = result.data;
 			return true;
 		});
 		if(!success) {

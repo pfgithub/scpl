@@ -17,7 +17,7 @@ Photo from the camera.
 
 ### usage
 ```
-takephoto a{showcamerapreview=[string boolean|variable] wfphotocount=[string integer] camera=[string <Front | Back>]}
+takephoto a{showcamerapreview=[string boolean|variable] wfphotocount=[number] camera=[string <Front | Back>]}
 ```
 
 ### arguments
@@ -47,9 +47,9 @@ or a variable.
 
 **Only enabled if**: argument WFCameraCaptureShowPreview = `true`
 
-Accepts a string 
+Accepts a number 
 or variable
-containing an integer value.
+with a number.
 
 ---
 

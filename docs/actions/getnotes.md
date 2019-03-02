@@ -15,7 +15,7 @@ Get recent notes from Evernote, optionally filtering based on criteria.
 
 ### usage
 ```
-getnotes a{titlesearch=[string|text] undefined=[???] undefined=[???] wfevernotenotescount=[string integer]}
+getnotes a{titlesearch=[string|text] undefined=[???] undefined=[???] wfevernotenotescount=[number]}
 ```
 
 ### arguments
@@ -54,9 +54,9 @@ with the text.
 
 
 
-Accepts a string 
+Accepts a number 
 or variable
-containing an integer value.
+with a number.
 
 ---
 

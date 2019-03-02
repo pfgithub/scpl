@@ -13,7 +13,7 @@ Searches the App Store, returning the apps that match the specified search terms
 
 ### usage
 ```
-searchappstore a{search=[string|text] undefined=[???] undefined=[???] undefined=[???] wfitemlimit=[string integer]}
+searchappstore a{search=[string|text] undefined=[???] undefined=[???] undefined=[???] wfitemlimit=[number]}
 ```
 
 ### arguments
@@ -56,9 +56,9 @@ with the text.
 
 
 
-Accepts a string 
+Accepts a number 
 or variable
-containing an integer value.
+with a number.
 
 ---
 

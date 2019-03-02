@@ -5,7 +5,7 @@ const ParserHelper_js_1 = require("./ParserHelper.js");
 // THINGS TO NOTE:
 // https://github.com/no-context/moo
 // supports string interpolation
-ParserHelper_js_1.o.identifier = ParserHelper_js_1.regex(/^[A-Za-z0-9@._]+/)
+ParserHelper_js_1.o.identifier = ParserHelper_js_1.regex(/^[A-Za-z0-9@_]+/)
     .scb(([fullmatch], start, end) => new ParserData_js_1.IdentifierParse(start, end, fullmatch));
 ParserHelper_js_1.o.newline = ParserHelper_js_1.p(ParserHelper_js_1.o.space, ParserHelper_js_1.optional(ParserHelper_js_1.o.eolComment), ParserHelper_js_1.plus(ParserHelper_js_1.p(ParserHelper_js_1.o.space, ParserHelper_js_1.or(ParserHelper_js_1.c `\n`, ParserHelper_js_1.c `;`), ParserHelper_js_1.o.space))).scb(_ => null);
 ParserHelper_js_1.o.multilineComment = ParserHelper_js_1.or(ParserHelper_js_1.regex(/^--\[\[[\s\S]+?--\]\]/), // --[[ Lua style multiline comments --]]
@@ -17,10 +17,12 @@ ParserHelper_js_1.regex(/^#.*/) // # Python style single line comments
 ); // or --
 ParserHelper_js_1.o.spaceonly = ParserHelper_js_1.regex(/^[ ,\r\t]*/).scb(_ => null);
 ParserHelper_js_1.o.space = ParserHelper_js_1.p(ParserHelper_js_1.o.spaceonly, ParserHelper_js_1.optional(ParserHelper_js_1.o.multilineComment), ParserHelper_js_1.o.spaceonly).scb(_ => null);
-ParserHelper_js_1.o.optionalNewline = ParserHelper_js_1.star(ParserHelper_js_1.or(ParserHelper_js_1.o.newline, ParserHelper_js_1.o.space));
+ParserHelper_js_1.o.optionalNewline = ParserHelper_js_1.star(ParserHelper_js_1.or(ParserHelper_js_1.o.newline, ParserHelper_js_1.o.space)).scb(() => null);
 const _ = ParserHelper_js_1.o.space;
 const newline = ParserHelper_js_1.o.newline;
 const _n = ParserHelper_js_1.o.optionalNewline;
+ParserHelper_js_1.o.number = ParserHelper_js_1.regex(/^-?(?:[0-9]*\.[0-9]+|[0-9]+)/)
+    .scb(([fullmatch], start, end) => new ParserData_js_1.NumberParse(start, end, fullmatch));
 ParserHelper_js_1.o.escape = ParserHelper_js_1.p(ParserHelper_js_1.c `\\`, ParserHelper_js_1.or(ParserHelper_js_1.o.parenthesis, ParserHelper_js_1.c `"`, ParserHelper_js_1.c `'`, ParserHelper_js_1.c `\`\`\``, ParserHelper_js_1.c `\\`, ParserHelper_js_1.c `n`.scb(_ => "\n"))).scb(([, val]) => val); // \"
 ParserHelper_js_1.o.char = ParserHelper_js_1.or(ParserHelper_js_1.o.escape, ParserHelper_js_1.regex(/^[^\\\n]+/).scb(data => data[0])); // TODO star(not(c`"`,c`\\`, c`\n`))
 ParserHelper_js_1.o.chars = ParserHelper_js_1.star(ParserHelper_js_1.o.char)
@@ -81,7 +83,7 @@ ParserHelper_js_1.o.onlyaction = ParserHelper_js_1.p(ParserHelper_js_1.o.identif
     return actionParse;
 });
 ParserHelper_js_1.o.args = ParserHelper_js_1.star(ParserHelper_js_1.p(ParserHelper_js_1.o.argument, _).scb(data => data[0]));
-ParserHelper_js_1.o.value = ParserHelper_js_1.or(ParserHelper_js_1.o.variable, ParserHelper_js_1.o.string, ParserHelper_js_1.o.identifier, ParserHelper_js_1.o.parenthesis, ParserHelper_js_1.o.dictionary, ParserHelper_js_1.o.list);
+ParserHelper_js_1.o.value = ParserHelper_js_1.or(ParserHelper_js_1.o.variable, ParserHelper_js_1.o.string, ParserHelper_js_1.o.number, ParserHelper_js_1.o.identifier, ParserHelper_js_1.o.parenthesis, ParserHelper_js_1.o.dictionary, ParserHelper_js_1.o.list);
 ParserHelper_js_1.o.dictionary = ParserHelper_js_1.p(ParserHelper_js_1.c `{`, ParserHelper_js_1.star(ParserHelper_js_1.o.keyvaluepair).scb(items => items), ParserHelper_js_1.c `}`).scb(([, kvps,], start, end) => (new ParserData_js_1.DictionaryParse(start, end, kvps)));
 ParserHelper_js_1.o.list = ParserHelper_js_1.p(ParserHelper_js_1.c `[`, _n, ParserHelper_js_1.star(ParserHelper_js_1.p(ParserHelper_js_1.o.value, _n).scb(([value,]) => value)), ParserHelper_js_1.c `]`).scb(([, , values,], start, end) => new ParserData_js_1.ListParse(start, end, values));
 ParserHelper_js_1.o.keyvaluepair = ParserHelper_js_1.p(_n, ParserHelper_js_1.or(ParserHelper_js_1.o.string, ParserHelper_js_1.o.identifier), _n, ParserHelper_js_1.or(ParserHelper_js_1.c `=`, ParserHelper_js_1.c `:`), _n, ParserHelper_js_1.o.value, // ...

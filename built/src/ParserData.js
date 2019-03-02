@@ -69,6 +69,10 @@ function canBeStringVariable(parse) {
     return parse.asStringVariable !== undefined;
 }
 exports.canBeStringVariable = canBeStringVariable;
+function canBeNumber(parse) {
+    return parse.asNumber !== undefined;
+}
+exports.canBeNumber = canBeNumber;
 class DictionaryParse extends Parse {
     constructor(start, end, keyvaluepairs) {
         super(start, end);
@@ -224,6 +228,13 @@ class IdentifierParse extends Parse {
     asString() {
         return this.value;
     }
+    asNumber() {
+        const num = +this.value;
+        if (isNaN(num)) {
+            throw this.error("Could not convert to number");
+        }
+        return num;
+    }
     asBoolean() {
         const string = this.asString();
         if (string === "true") {
@@ -241,6 +252,9 @@ class IdentifierParse extends Parse {
     }
 }
 exports.IdentifierParse = IdentifierParse;
+class NumberParse extends IdentifierParse {
+}
+exports.NumberParse = NumberParse;
 class ArglistParse extends DictionaryParse {
     constructor(start, end, keyValuePairs) {
         super(start, end, keyValuePairs);

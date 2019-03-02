@@ -15,7 +15,7 @@ Gets upcoming calendar events, ordered from nearest to farthest away in time.
 
 ### usage
 ```
-getupcomingevents a{undefined=[???] wfgetupcomingitemcount=[string integer] day=[string <Any Day | Today | Tomorrow | Specified Day>] specifiedday=[string|text]}
+getupcomingevents a{undefined=[???] wfgetupcomingitemcount=[number] day=[string <Any Day | Today | Tomorrow | Specified Day>] specifiedday=[string|text]}
 ```
 
 ### arguments
@@ -35,9 +35,9 @@ getupcomingevents a{undefined=[???] wfgetupcomingitemcount=[string integer] day=
 
 
 
-Accepts a string 
+Accepts a number 
 or variable
-containing an integer value.
+with a number.
 
 ---
 

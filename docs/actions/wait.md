@@ -13,7 +13,7 @@ Waits for the specified number of seconds before continuing with the next action
 
 ### usage
 ```
-wait a{wfdelaytime=[string integer]}
+wait a{wfdelaytime=[number]}
 ```
 
 ### arguments
@@ -29,9 +29,9 @@ wait a{wfdelaytime=[string integer]}
 
 
 
-Accepts a string 
+Accepts a number 
 or variable
-containing an integer value.
+with a number.
 
 ---
 

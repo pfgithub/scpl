@@ -11,7 +11,7 @@ Sets the system volume.
 
 ### usage
 ```
-setvolume a{volume=[string number]}
+setvolume a{volume=[number]}
 ```
 
 ### arguments
@@ -27,9 +27,9 @@ setvolume a{volume=[string number]}
 
 
 
-Accepts a string 
+Accepts a number 
 or variable
-containing a number value from 0 to 1.
+with a number.
 
 ---
 

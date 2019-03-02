@@ -15,7 +15,7 @@ Gets the contents of a folder in Instapaper. Requires Instapaper Premium.
 
 ### usage
 ```
-getinstapaperbookmarks a{undefined=[???] wfbookmarkcount=[string integer]}
+getinstapaperbookmarks a{undefined=[???] wfbookmarkcount=[number]}
 ```
 
 ### arguments
@@ -35,9 +35,9 @@ getinstapaperbookmarks a{undefined=[???] wfbookmarkcount=[string integer]}
 
 
 
-Accepts a string 
+Accepts a number 
 or variable
-containing an integer value.
+with a number.
 
 ---
 

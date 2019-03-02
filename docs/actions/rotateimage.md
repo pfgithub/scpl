@@ -11,7 +11,7 @@ Turns an image clockwise by a particular number of degrees.
 
 ### usage
 ```
-rotateimage a{degrees=[string number]}
+rotateimage a{degrees=[number]}
 ```
 
 ### arguments
@@ -31,7 +31,7 @@ rotateimage a{degrees=[string number]}
 
 
 
-Accepts a string 
+Accepts a number 
 or variable
 with a number.
 

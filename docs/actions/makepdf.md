@@ -11,7 +11,7 @@ Makes a PDF out of the input. The resulting PDF can optionally include a quarter
 
 ### usage
 ```
-makepdf a{includemargin=[string boolean|variable] include=[string <All Pages | Single Page | Page Range>] page=[string number] startpage=[string number] endpage=[string number]}
+makepdf a{includemargin=[string boolean|variable] include=[string <All Pages | Single Page | Page Range>] page=[number] startpage=[number] endpage=[number]}
 ```
 
 ### arguments
@@ -56,7 +56,7 @@ containing one of the options:
 
 **Only enabled if**: argument WFPDFIncludedPages = `Single Page`
 
-Accepts a string 
+Accepts a number 
 or variable
 with a number.
 
@@ -71,7 +71,7 @@ with a number.
 
 **Only enabled if**: argument WFPDFIncludedPages = `Page Range`
 
-Accepts a string 
+Accepts a number 
 or variable
 with a number.
 
@@ -86,7 +86,7 @@ with a number.
 
 **Only enabled if**: argument WFPDFIncludedPages = `Page Range`
 
-Accepts a string 
+Accepts a number 
 or variable
 with a number.
 

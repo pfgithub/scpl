@@ -11,7 +11,7 @@ Re-encodes the media passed as input at the specified size, optionally convertin
 
 ### usage
 ```
-encodemedia a{audioonly=[string boolean|variable] format=[string <M4A | AIFF>] size=[string <640x480 | 960x540 | 1280x720 | 1920x1080 | HEVC 1920x1080 | HEVC 3840x2160 | Passthrough>] speed=[string <0.5X | Normal | 2X | Custom>] customspeed=[string number] metadata=[boolean] title=[string|text] artist=[string|text] album=[string|text] genre=[string|text] year=[string|text] artwork=[variable]}
+encodemedia a{audioonly=[string boolean|variable] format=[string <M4A | AIFF>] size=[string <640x480 | 960x540 | 1280x720 | 1920x1080 | HEVC 1920x1080 | HEVC 3840x2160 | Passthrough>] speed=[string <0.5X | Normal | 2X | Custom>] customspeed=[number] metadata=[boolean] title=[string|text] artist=[string|text] album=[string|text] genre=[string|text] year=[string|text] artwork=[variable]}
 ```
 
 ### arguments
@@ -98,7 +98,7 @@ containing one of the options:
 
 **Only enabled if**: argument WFMediaSpeed = `Custom`
 
-Accepts a string 
+Accepts a number 
 or variable
 with a number.
 

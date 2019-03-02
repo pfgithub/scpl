@@ -20,7 +20,7 @@ The masked images
 
 ### usage
 ```
-maskimage a{type=[string <Rounded Rectangle | Ellipse | Icon | Custom Image>|variable] cornerradius=[string number] imagemask=[variable]}
+maskimage a{type=[string <Rounded Rectangle | Ellipse | Icon | Custom Image>|variable] cornerradius=[number] imagemask=[variable]}
 ```
 
 ### arguments
@@ -49,7 +49,7 @@ containing one of the options:
 
 **Only enabled if**: argument WFMaskType = `Rounded Rectangle`
 
-Accepts a string 
+Accepts a number 
 or variable
 with a number.
 
