@@ -497,7 +497,7 @@ Shortcutslang has some more advanced features to make working on large shortcuts
 You can put an action inside of a text field or any other field that accepts variable
 
 ```coffeescript
-Text "My number is \(Number "-2.5")"
+Text "My number is \(Number -2.5)"
 ```
 
 <div><details>
@@ -508,7 +508,7 @@ Text "My number is \(Number "-2.5")"
 This code is equivalent to
 
 ```coffeescript
-Number "-2.5" -> mv:InsideParenthesis
+Number -2.5 -> mv:InsideParenthesis
 Text "My number is \(mv:InsideParenthesis)"
 ```
 
