@@ -20,7 +20,7 @@ function calculateChange(str: string, position: Position) {
 	const change = str;
 	if(str.indexOf("\n") > -1) {
 		const split = str.split("\n");
-		position[0] += split.length;
+		position[0] += split.length - 1;
 		position[1] = 0;
 	}
 	position[1] += change.length;

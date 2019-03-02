@@ -224,7 +224,7 @@ export class CharsParse extends Parse implements AsString, AsText {
 				string += item;
 				return;
 			}
-			throw new Error(`To convert to a string, all items must be strings.`);
+			throw item.error(`To convert to a string, all items must be strings.`);
 		});
 		return string;
 	}
