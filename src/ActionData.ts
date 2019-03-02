@@ -161,8 +161,8 @@ ${this._data.DefaultValue}
 		docs += `${this.requiredResources.map(resource => `**Only enabled if**: ${resource.genDocs()}`).join("\n\n")}`;
 		return docs;
 	}
-	build(_cc: ConvertingContext, _parse: AsAble): ParameterType {
-		throw new Error("Cannot build undefined parameter");
+	build(_cc: ConvertingContext, parse: AsAble): ParameterType {
+		throw parse.error("Cannot build undefined parameter");
 	}
 }
 
@@ -196,15 +196,15 @@ containing one of the options:
 		if(canBeVariable(parse)) {
 			const res = parse.asVariable(cc);
 			if(!this.allowsVariables) {
-				throw new Error("This enumeration field does not allow variables.");
+				throw parse.error("This enumeration field does not allow variables.");
 			}
 			return res;
 		}else if(canBeString(parse)) {
 			const res = parse.asString(); // asString returns a string like ""
 			if(this.options.indexOf(res) > -1) {return res;}
-			throw new Error(`This enumeration field can only be one of the following: ${this.options.join(", ")}`);
+			throw parse.error(`This enumeration field can only be one of the following: ${this.options.join(", ")}`);
 		}else{
-			throw new Error("This enumeration field only accepts strings and variables.");
+			throw parse.error("This enumeration field only accepts strings and variables.");
 		}
 	}
 }
@@ -242,7 +242,7 @@ class WFWorkflowPickerParameter extends WFParameter {
 			const res = parse.asString(); // asString returns a string like ""
 			return res;
 		}
-		throw new Error("This shortcut field only accepts strings and variables.");
+		throw parse.error("This shortcut field only accepts strings and variables.");
 	}
 }
 types.WFWorkflowPickerParameter = WFWorkflowPickerParameter;
@@ -265,16 +265,16 @@ with a number.`;
 		if(canBeVariable(parse)) {
 			const res = parse.asVariable(cc);
 			if(!this.allowsVariables) {
-				throw new Error("This number field does not allow variables.");
+				throw parse.error("This number field does not allow variables.");
 			}
 			return res;
 		}else if(canBeString(parse)) {
 			const res = parse.asString(); // asString returns a string like "" <-- that's a string
 			const num = +res;
-			if(isNaN(num)) {throw new Error(`This number field only accepts numbers. The value \`${res}\` could not be converted to a number`);}
+			if(isNaN(num)) {throw parse.error(`This number field only accepts numbers. The value \`${res}\` could not be converted to a number`);}
 			return num;
 		}
-		throw new Error("This number field only accepts strings or numbers");
+		throw parse.error("This number field only accepts strings or numbers");
 	}
 }
 types.WFNumberFieldParameter = WFNumberFieldParameter;
@@ -292,7 +292,7 @@ class WFContentArrayParameter extends WFParameter {
 Accepts a list.`;
 	}
 	build(cc: ConvertingContext, parse: AsAble) {
-		if(!canBeList(parse)) {throw new Error("To make a content array, the argument must be a list");}
+		if(!canBeList(parse)) {throw parse.error("To make a content array, the argument must be a list");}
 		const list = parse.asList(cc);
 		return list;
 	}
@@ -319,17 +319,17 @@ containing an integer value.`;
 		if(canBeVariable(parse)) {
 			const res = parse.asVariable(cc);
 			if(!this.allowsVariables) {
-				throw new Error("This number field does not allow variables.");
+				throw parse.error("This number field does not allow variables.");
 			}
 			return res;
 		}else if(canBeString(parse)) {
 			const res = parse.asString(); // asString returns a string like "" <-- that's a string
 			const num = +res;
-			if(isNaN(num)) {throw new Error(`This number field only accepts integers. The value \`${res}\` could not be converted to a number`);}
-			if(!Number.isInteger(num)) {throw new Error(`This number field only accepts integers. The number \`${num}\` is not an integer.`);}
+			if(isNaN(num)) {throw parse.error(`This number field only accepts integers. The value \`${res}\` could not be converted to a number`);}
+			if(!Number.isInteger(num)) {throw parse.error(`This number field only accepts integers. The number \`${num}\` is not an integer.`);}
 			return num;
 		}
-		throw new Error("This number field only accepts strings or variables");
+		throw parse.error("This number field only accepts strings or variables");
 	}
 }
 types.WFStepperParameter = WFStepperParameter;
@@ -352,17 +352,17 @@ containing a number value from 0 to 1.`;
 		if(canBeVariable(parse)) {
 			const res = parse.asVariable(cc);
 			if(!this.allowsVariables) {
-				throw new Error("This slider field does not allow variables.");
+				throw parse.error("This slider field does not allow variables.");
 			}
 			return res;
 		}else if(canBeString(parse)) {
 			const res = parse.asString(); // asString returns a string like "" <-- that's a string
 			const num = +res;
-			if(isNaN(num)) {throw new Error(`This slider field only accepts numbers. The value \`${res}\` could not be converted to a number`);}
-			if(num > 1 || num < 0) {throw new Error(`This slider field only accepts numbers from 0 to 1. The number \`${num}\` is not in this range..`);}
+			if(isNaN(num)) {throw parse.error(`This slider field only accepts numbers. The value \`${res}\` could not be converted to a number`);}
+			if(num > 1 || num < 0) {throw parse.error(`This slider field only accepts numbers from 0 to 1. The number \`${num}\` is not in this range..`);}
 			return num;
 		}
-		throw new Error("This number field only accepts strings or variables");
+		throw parse.error("This number field only accepts strings or variables");
 	}
 }
 types.WFSliderParameter = WFSliderParameter;
@@ -380,7 +380,7 @@ class WFVariablePickerParameter extends WFParameter {
 Accepts a variable.`;
 	}
 	build(cc: ConvertingContext, parse: AsAble) {
-		if(!canBeVariable(parse)) {throw new Error("To make a variable picker, the argument must be a variable");}
+		if(!canBeVariable(parse)) {throw parse.error("To make a variable picker, the argument must be a variable");}
 		const variable = parse.asVariable(cc);
 		return variable;
 	}
@@ -403,10 +403,10 @@ with the text.`;
 	}
 	build(cc: ConvertingContext, parse: AsAble) {
 		if(!this.allowsVariables) {
-			if(!canBeString(parse)) {throw new Error("To make a text input that does not allow variables, the argument must be a string");}
+			if(!canBeString(parse)) {throw parse.error("To make a text input that does not allow variables, the argument must be a string");}
 			return parse.asString();
 		}
-		if(!canBeText(parse)) {throw new Error("To make a text input, the argument must be a text");}
+		if(!canBeText(parse)) {throw parse.error("To make a text input, the argument must be a text");}
 		return parse.asText(cc);
 	}
 }
@@ -441,7 +441,7 @@ Accepts a string or string array or variable of email addresses.`;
 		if(canBeString(parse)) {
 			return [parse.asString()];
 		}
-		throw new Error("To make an email address, the argument must be a variable, array, or string");
+		throw parse.error("To make an email address, the argument must be a variable, array, or string");
 	}
 }
 types.WFEmailAddressFieldParameter = WFEmailAddressFieldParameter;
@@ -459,7 +459,7 @@ class WFDictionaryParameter extends WFParameter {
 Accepts a dictionary.`;
 	}
 	build(cc: ConvertingContext, parse: AsAble) {
-		if(!canBeDictionary(parse)) {throw new Error("To make a dictionary, the argument must be a dictionary");}
+		if(!canBeDictionary(parse)) {throw parse.error("To make a dictionary, the argument must be a dictionary");}
 		return parse.asDictionary(cc);
 	}
 }
@@ -480,12 +480,12 @@ or a variable.`: ""}`;
 	}
 	build(cc: ConvertingContext, parse: AsAble) {
 		if(canBeVariable(parse)) {
-			if(!this.allowsVariables) {throw new Error("This boolean field does not accept variables");}
+			if(!this.allowsVariables) {throw parse.error("This boolean field does not accept variables");}
 			return parse.asVariable(cc);
 		}else if(canBeBoolean(parse)) {
 			return parse.asBoolean();
 		}
-		throw new Error("This boolean field only accepts booleans or variables");
+		throw parse.error("This boolean field only accepts booleans or variables");
 	}
 }
 types.WFSwitchParameter = WFSwitchParameter;
@@ -508,7 +508,7 @@ parameter is expanded or not.`;
 		if(canBeBoolean(parse)) {
 			return parse.asBoolean();
 		}
-		throw new Error("This expanding field only accepts booleans");
+		throw parse.error("This expanding field only accepts booleans");
 	}
 }
 types.WFExpandingParameter = WFExpandingParameter;
@@ -529,7 +529,7 @@ or a named variable (v:) that you want to set.
 		return docs;
 	}
 	build(cc: ConvertingContext, parse: AsAble) {
-		const varname = canBeString(parse) ? parse.asString() : canBeStringVariable(parse) ? parse.asStringVariable() : (()=>{throw new Error("To make a variable field, the argument must be a string or string variable");})();
+		const varname = canBeString(parse) ? parse.asString() : canBeStringVariable(parse) ? parse.asStringVariable() : (()=>{throw parse.error("To make a variable field, the argument must be a string or string variable");})();
 		cc.vardata[varname] = true;
 		return varname;
 	}
@@ -690,7 +690,7 @@ ${JSON.stringify(this._data, null, "\t")}
 				return;
 			}
 			if(param.special === "ControlFlowMode") {
-				throw new Error("ControlFlowMode is no longer implemented. Please use the Flow and End actions instead.");
+				throw param.error("ControlFlowMode is no longer implemented. Please use the Flow and End actions instead.");
 			}
 			if(param.special === "Arglist") {
 				if(!canBeRawKeyedDictionary(param)) {throw new Error("To use a param as an arglist, it must be a raw keyed dictionary");}
@@ -699,7 +699,7 @@ ${JSON.stringify(this._data, null, "\t")}
 					const value = dictionary[key];
 					const shortKey = genShortName(key);
 					const paramtype = this._parameters.find(param => param.shortName === shortKey);
-					if(!paramtype) {throw new Error(`This action does not have a parameter named ${shortKey}.`);}
+					if(!paramtype) {throw param.error(`This action does not have a parameter named ${shortKey}.`);}
 					if(action.parameters.has(paramtype.internalName)) {throw new Error(`The parameter named ${shortKey} was already set.`);}
 					action.parameters.set(paramtype.internalName, paramtype.build(cc, value));
 				});
@@ -710,8 +710,8 @@ ${JSON.stringify(this._data, null, "\t")}
 			while(!paramtype) {
 				paramtype = this._parameters[parami];
 
-				if(!paramtype) {throw new Error(`There are no more arguments for this action.`);}
-				if(typeof paramtype === "string") {throw new Error(`This action is not supported yet. Reason: ${paramtype}`);}
+				if(!paramtype) {throw param.error(`There are no more arguments for this action.`);}
+				if(typeof paramtype === "string") {throw param.error(`This action is not supported yet. Reason: ${paramtype}`);}
 				if(action.parameters.has(paramtype.internalName)) {paramtype = undefined; parami++; continue;} // Param [name] was already set
 				if(!paramtype.shouldEnable(action)) {paramtype = undefined; parami++; continue;} // If the required resources are not set, skip
 
