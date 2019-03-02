@@ -10,10 +10,10 @@ export declare class Aggrandizements {
     constructor();
     build(): {
         Type: string;
-        PropertyName?: string;
-        CoercionItemClass?: string;
-        DictionaryKey?: string;
-        PropertyUserInfo?: string | number;
+        PropertyName?: string | undefined;
+        CoercionItemClass?: string | undefined;
+        DictionaryKey?: string | undefined;
+        PropertyUserInfo?: string | number | undefined;
     }[];
     property(getType: string): void;
     coerce(type: string): void;
@@ -41,10 +41,10 @@ export declare class Attachment extends Parameter {
         Type: string;
         Aggrandizements: {
             Type: string;
-            PropertyName?: string;
-            CoercionItemClass?: string;
-            DictionaryKey?: string;
-            PropertyUserInfo?: string | number;
+            PropertyName?: string | undefined;
+            CoercionItemClass?: string | undefined;
+            DictionaryKey?: string | undefined;
+            PropertyUserInfo?: string | number | undefined;
         }[];
     };
 }
@@ -54,10 +54,10 @@ export declare class Variable extends Attachment {
         Type: string;
         Aggrandizements: {
             Type: string;
-            PropertyName?: string;
-            CoercionItemClass?: string;
-            DictionaryKey?: string;
-            PropertyUserInfo?: string | number;
+            PropertyName?: string | undefined;
+            CoercionItemClass?: string | undefined;
+            DictionaryKey?: string | undefined;
+            PropertyUserInfo?: string | number | undefined;
         }[];
     };
 }
@@ -68,10 +68,10 @@ export declare class NamedVariable extends Variable {
         Type: string;
         Aggrandizements: {
             Type: string;
-            PropertyName?: string;
-            CoercionItemClass?: string;
-            DictionaryKey?: string;
-            PropertyUserInfo?: string | number;
+            PropertyName?: string | undefined;
+            CoercionItemClass?: string | undefined;
+            DictionaryKey?: string | undefined;
+            PropertyUserInfo?: string | number | undefined;
         }[];
     } & {
         VariableName: string;
@@ -85,10 +85,10 @@ export declare class MagicVariable extends Variable {
         Type: string;
         Aggrandizements: {
             Type: string;
-            PropertyName?: string;
-            CoercionItemClass?: string;
-            DictionaryKey?: string;
-            PropertyUserInfo?: string | number;
+            PropertyName?: string | undefined;
+            CoercionItemClass?: string | undefined;
+            DictionaryKey?: string | undefined;
+            PropertyUserInfo?: string | number | undefined;
         }[];
     } & {
         OutputName: string;
@@ -98,10 +98,10 @@ export declare class MagicVariable extends Variable {
 export declare class List extends Parameter {
     _list: Array<Parameter>;
     constructor(list: Array<Parameter>);
-    build(): (void | {
+    build(): {
         WFItemType: number;
         WFValue: void;
-    })[];
+    }[];
 }
 export declare class Text extends Parameter {
     _components: Array<Attachment | Text | string>;
@@ -128,7 +128,7 @@ export declare class Action {
     id: string;
     uuid: string;
     parameters: Parameters;
-    magicvarname: string;
+    magicvarname?: string;
     constructor(name: string, id: string);
     build(): {
         WFWorkflowActionIdentifier: string;

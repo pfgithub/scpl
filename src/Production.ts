@@ -3,6 +3,7 @@ let began: Date;
 
 export type ProductionResolveable = Production | {getProd: () => Production}
 export type Position = [number, number];
+export type ParseResult = {success: false} | {data: any, remainingStr: string, success: true, pos: Position}
 
 export class Performance {
 	static startMonitoring() {
@@ -30,7 +31,7 @@ type ProductionCallback = (a: any, fromPos: Position, toPos: Position) => any
 
 export class Production {
 	cb: ProductionCallback // todo cb: (input: any) => Parse
-	name: string
+	name?: string
 	constructor(cb = (a: any) => a) {
 		this.cb = cb;
 	}
@@ -41,7 +42,7 @@ export class Production {
 	getProd() {
 		return this;
 	}
-	parse(_string: string, _position: Position): {data?: any, remainingStr?: string, error?: string, success: boolean, pos?: Position} {
+	parse(_string: string, _position: Position): ParseResult {
 		totalSteps++;
 		return {success: false};
 	}
@@ -59,16 +60,16 @@ export class OrderedProduction extends Production {
 		super();
 		this.requirements = requirements;
 	}
-	parse(string: string, position: Position) {
+	parse(string: string, position: Position): ParseResult {
 		super.parse(string, position);
 		const resdata: Array<any> = [];
 		const startpos = <Position>position.slice();
 		const success = this.requirements.every(requirement => {
-			const {data, remainingStr, success, pos} = requirement.getProd().parse(string, <Position>position.slice());
-			if(!success) {return false;}
-			string = remainingStr;
-			position = pos;
-			resdata.push(data);
+			const result = requirement.getProd().parse(string, <Position>position.slice());
+			if(!result.success) {return false;}
+			string = result.remainingStr;
+			position = result.pos;
+			resdata.push(result.data);
 			return true;
 		});
 		if(!success) {return {success: false};}
@@ -84,16 +85,16 @@ export class OrProduction extends Production {
 		super();
 		this.options = options;
 	}
-	parse(string: string, position: Position) {
+	parse(string: string, position: Position): ParseResult {
 		super.parse(string, position);
 		let resdata;
 		const startpos = <Position>position.slice();
 		const success = this.options.some(option => { // find the first option that parses... might cause problems if things try to parse too deep only to realise the code is wrong... may want to have some number of depth or something idk
-			const {data, remainingStr, success, pos} = option.getProd().parse(string, <Position>position.slice());
-			if(!success) {return false;}
-			string = remainingStr;
-			position = pos;
-			resdata = data;
+			const result = option.getProd().parse(string, <Position>position.slice());
+			if(!result.success) {return false;}
+			string = result.remainingStr;
+			position = result.pos;
+			resdata.push(result.data);
 			return true;
 		});
 		if(!success) {
@@ -105,33 +106,7 @@ export class OrProduction extends Production {
 		return `( ${this.options.map(option => option.getProd().nameOrTostring()).join(" | ")} )`;
 	}
 }
-export class NotProduction extends Production { // why not(a,b,c) instead of not(or(a,b,c))
-	options: Array<ProductionResolveable>
-	constructor(...options: Array<ProductionResolveable>) {
-		super();
-		this.options = options;
-	}
-	parse(string: string, position: Position) {
-		super.parse(string, position);
-		let resdata;
-		const startpos = <Position>position.slice();
-		const success = this.options.every(option => { // ensure every option fails
-			const {data, remainingStr, success, pos} = option.getProd().parse(string, <Position>position.slice());
-			if(success) {return false;}  // if success, fail.
-			string = remainingStr;
-			position = pos;
-			resdata = data;
-			return true;
-		});
-		if(!success) {
-			return {success: false};
-		}
-		return {data: this.cb(resdata, startpos, position), remainingStr: string, success: true, pos: position};
-	}
-	toString() {
-		return `!( ${this.options.map(option => option.getProd().nameOrTostring()).join(" | ")} )`;
-	}
-}
+// remove notproduction for now
 
 export class RegexProduction extends Production {
 	regex: RegExp
@@ -139,7 +114,7 @@ export class RegexProduction extends Production {
 		super();
 		this.regex = regex;
 	}
-	parse(string: string, position: Position) {
+	parse(string: string, position: Position): ParseResult {
 		super.parse(string, position);
 		const match = string.match(this.regex);
 		const startpos = <Position>position.slice();
@@ -149,7 +124,7 @@ export class RegexProduction extends Production {
 			return {data: this.cb(match, startpos, position), remainingStr: string, success: true, pos: position};
 		}
 		if(match) {
-			console.warn("WARN: regex ", this.regex, " does not start matching at beginning of line");
+			console.warn("WARN: regex ", this.regex, " does not start matching at beginning of line"); //eslint-disable-line no-console
 		}
 		return {success: false};
 	}
@@ -164,7 +139,7 @@ export class StringProduction extends Production {
 		super();
 		this.string = string;
 	}
-	parse(string: string, position: Position) {
+	parse(string: string, position: Position): ParseResult {
 		super.parse(string, position);
 		const startpos = <Position>position.slice();
 		if(string.startsWith(this.string)) {
@@ -172,7 +147,7 @@ export class StringProduction extends Production {
 			calculateChange(this.string, position);
 			return {data: this.cb(this.string, startpos, position), remainingStr: string, success: true, pos: position};
 		}
-		return {success: false, error: `Expected \`${this.string}\` but found \`${string.substr(0, this.string.length)}\``};
+		return {success: false};
 	}
 	toString() {
 		return `${JSON.stringify(this.string)}`;
@@ -190,20 +165,20 @@ export class ManyProduction extends Production {
 		this.end = end;
 	}
 
-	parse(string: string, position: Position) {
+	parse(string: string, position: Position): ParseResult {
 		super.parse(string, position);
 		const results = [];
 		let succeeding = true;
 		const startpos = <Position>position.slice();
 		while(succeeding) {
 			if(results.length > this.end) {succeeding = false; continue;}
-			const {data, remainingStr, success, pos} = this.prod.getProd().parse(string, <Position>position.slice());
-			if(!success) {succeeding = false; continue;}
-			const changed = string.length - remainingStr.length;
+			const result = this.prod.getProd().parse(string, <Position>position.slice());
+			if(!result.success) {succeeding = false; continue;}
+			const changed = string.length - result.remainingStr.length;
 			if(changed === 0) {succeeding = false; continue;} // if it succeeds but matches nothing, count it as a failure (to avoid loops)
-			position = pos;
-			string = remainingStr;
-			results.push(data);
+			position = result.pos;
+			string = result.remainingStr;
+			results.push(result.data);
 		}
 		if(results.length < this.start) {return {success: false};}
 		return {data: this.cb(results, startpos, position), remainingStr: string, success: true, pos: position};

@@ -517,7 +517,7 @@ export class Parameters {
 			return this;
 		}
 		if(value instanceof Attachment) {
-			 // VALUE IS AN INSTANCEOF ATTACHMENT HOW CAN IT NOT BE BUILT
+			// VALUE IS AN INSTANCEOF ATTACHMENT HOW CAN IT NOT BE BUILT
 			this.values[internalName] = {
 				Value: value.build(),
 				WFSerializationType: SERIALIZATIONTYPE.variable
@@ -543,7 +543,7 @@ export class Action {
 	id: string
 	uuid: string
 	parameters: Parameters
-	magicvarname: string
+	magicvarname?: string
 	constructor(name: string, id: string) {
 		this.name = name;
 		this.id = id;

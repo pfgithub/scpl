@@ -62,6 +62,17 @@ function convert() {
     textMarks = [];
     const startedConversion = time();
     const parsed = ShortcutsParser_1.default.parse(`${cm.getValue()}\n`, [1, 1]);
+    if (!parsed.success) {
+        bufferToDownload = undefined;
+        textMarks.push(cm.getDoc().markText({ line: 0, ch: 0 }, { line: 100, ch: 0 }, {
+            className: "error",
+            inclusiveLeft: false,
+            inclusiveRight: false
+        }));
+        messageArea.value = (`Error, completely failed to parse. Took ${time() - startedConversion}ms.`);
+        outputArea.value = "Error!";
+        throw new Error("Str remaining");
+    }
     if (parsed.remainingStr) {
         bufferToDownload = undefined;
         textMarks.push(cm.getDoc().markText({ line: parsed.pos[0] - 1, ch: parsed.pos[1] - 1 }, { line: parsed.pos[0] + 100, ch: 0 }, {

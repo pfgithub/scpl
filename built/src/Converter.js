@@ -17,18 +17,18 @@ class ConvertingContext {
         return res;
     }
     nextControlFlow() {
-        if (this.controlFlowStack.length === 0) {
-            throw new Error(`There are no control flow groups active.`);
-        }
         const last = this.controlFlowStack[this.controlFlowStack.length - 1];
+        if (!last) {
+            return undefined;
+        }
         last.number = 1;
         return last;
     }
     endControlFlow() {
-        if (this.controlFlowStack.length === 0) {
-            throw new Error(`There are no control flow groups active.`);
-        }
         const last = this.controlFlowStack.pop();
+        if (!last) {
+            return undefined;
+        }
         last.number = 2;
         return last;
     }

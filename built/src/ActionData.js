@@ -503,7 +503,7 @@ types.WFSwitchParameter = WFSwitchParameter;
 class WFExpandingParameter extends WFParameter {
     constructor(data) {
         super(data, "Expand Arrow");
-        this.allowsVariables = undefined;
+        this.allowsVariables = false;
     }
     genDocsArgName() {
         return `[boolean]`;
@@ -701,7 +701,10 @@ ${JSON.stringify(this._data, null, "\t")}
                 Object.keys(dictionary).forEach(key => {
                     const value = dictionary[key];
                     const shortKey = genShortName(key);
-                    const paramtype = this._parameters.find(param => param.shortName === shortKey);
+                    const paramtype = this._parameters.find(param => typeof param !== "string" && param.shortName === shortKey);
+                    if (typeof paramtype === "string") {
+                        throw value.error("Internal error, this code should be unreachable");
+                    }
                     if (!paramtype) {
                         throw param.error(`This action does not have a parameter named ${shortKey}.`);
                     }
@@ -735,7 +738,7 @@ ${JSON.stringify(this._data, null, "\t")}
             }
             action.parameters.set(paramtype.internalName, paramtype.build(cc, param));
         });
-        if (actionAbove && this.requiresInput && actionAbove.uuid !== cc.lastVariableAction.uuid) {
+        if (actionAbove && this.requiresInput && actionAbove.uuid !== (cc.lastVariableAction || { uuid: undefined }).uuid) {
             cc.add(HelpfulActions_1.getVariable(new OutputData_1.MagicVariable(actionAbove)));
         }
         // TODO if(actionAbove) cc.add(getVariableAction(actionAbove))
@@ -755,7 +758,7 @@ Object.keys(Actions_1.default).forEach(key => {
     const value = Actions_1.default[key];
     const action = new WFAction(value, key);
     if (actionsByName[action.shortName]) {
-        console.warn(`WARNING, ${action.shortName} (${action.internalName}) is already defined`);
+        console.warn(`WARNING, ${action.shortName} (${action.internalName}) is already defined`); //eslint-disable-line no-console
         return;
     }
     actionsByID[key] = action;

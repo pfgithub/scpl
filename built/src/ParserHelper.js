@@ -7,7 +7,6 @@ exports.star = (thing) => new Production_1.ManyProduction(thing, 0, undefined);
 exports.plus = (thing) => new Production_1.ManyProduction(thing, 1, undefined);
 exports.optional = (thing) => new Production_1.ManyProduction(thing, 0, 1);
 exports.or = (...args) => new Production_1.OrProduction(...args);
-exports.not = (...args) => new Production_1.NotProduction(...args);
 exports.c = (str) => new Production_1.StringProduction(`${str}`);
 const _realo = {}; // todon't make this a proxy such that accessing o.a returns a {getProd:} might be interesting maybe
 const t = (str) => ({ getProd: () => _realo[`${str}`] }); // ...

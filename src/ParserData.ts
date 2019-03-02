@@ -307,9 +307,11 @@ export class ActionParse extends Parse implements AsText, AsVariable, AsAction {
 		|| actionName === "else"
 		|| actionName === "case") { // flow/case/otherwise action
 			controlFlowData = cc.nextControlFlow();
+			if(!controlFlowData) {throw this.name.error("There are no open block actions");}
 			wfAction = controlFlowData.wfaction;
 		}else if(actionName === "end") {
 			controlFlowData = cc.endControlFlow();
+			if(!controlFlowData) {throw this.name.error("There are no open block actions");}
 			wfAction = controlFlowData.wfaction;
 		}else{
 			wfAction = getActionFromName(actionName);

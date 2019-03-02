@@ -14,7 +14,7 @@ outputArea.value = "";
 
 const downloadShortcutBtn = document.getElementById("downloadShortcutBtn");
 
-let bufferToDownload: Buffer;
+let bufferToDownload: Buffer | undefined;
 
 let timeout: NodeJS.Timeout;
 
@@ -62,7 +62,7 @@ function downloadURL(data: string, fileName: string) {
 
 const time = () => (new Date).getTime();
 
-document.getElementById("convertBtn").addEventListener("click", convert);
+(<HTMLButtonElement>document.getElementById("convertBtn")).addEventListener("click", convert);
 
 let textMarks: CodeMirror.TextMarker[] = [];
 // @ts-ignore
@@ -77,6 +77,17 @@ function convert() {
 	const startedConversion = time();
 
 	const parsed = parser.parse(`${cm.getValue()}\n`, [1, 1]);
+	if(!parsed.success) {
+		bufferToDownload = undefined;
+		textMarks.push(cm.getDoc().markText({line: 0, ch: 0}, {line: 100, ch: 0}, {
+			className: "error",
+			inclusiveLeft: false,
+			inclusiveRight: false
+		}));
+		messageArea.value = (`Error, completely failed to parse. Took ${time() - startedConversion}ms.`);
+		outputArea.value = "Error!";
+		throw new Error("Str remaining");
+	}
 	if(parsed.remainingStr) {
 		bufferToDownload = undefined;
 		textMarks.push(cm.getDoc().markText({line: parsed.pos[0] - 1, ch: parsed.pos[1] - 1}, {line: parsed.pos[0] + 100, ch: 0}, {
@@ -118,7 +129,7 @@ function convert() {
 	// TODO (https://github.com/pine/arraybuffer-loader)
 }
 
-downloadShortcutBtn.addEventListener("click", () => {
+(<HTMLButtonElement>downloadShortcutBtn).addEventListener("click", () => {
 	convert();
 	if(bufferToDownload) {
 		downloadBlob(bufferToDownload, "demoshortcut.shortcut", "application/x-octet-stream");

@@ -493,7 +493,7 @@ types.WFSwitchParameter = WFSwitchParameter;
 class WFExpandingParameter extends WFParameter {
 	constructor(data: any) {
 		super(data, "Expand Arrow");
-		this.allowsVariables = undefined;
+		this.allowsVariables = false;
 	}
 	genDocsArgName() {
 		return `[boolean]`;
@@ -543,7 +543,7 @@ export class WFAction {
 	_data: any
 	id: string
 	isComplete: boolean
-	_parameters: Array<WFParameter>
+	_parameters: Array<WFParameter | string>
 	internalName: string
 	shortName: string
 	name: string
@@ -698,7 +698,8 @@ ${JSON.stringify(this._data, null, "\t")}
 				Object.keys(dictionary).forEach(key => {
 					const value = dictionary[key];
 					const shortKey = genShortName(key);
-					const paramtype = this._parameters.find(param => param.shortName === shortKey);
+					const paramtype = this._parameters.find(param => typeof param !== "string" && param.shortName === shortKey);
+					if(typeof paramtype === "string") {throw value.error("Internal error, this code should be unreachable");}
 					if(!paramtype) {throw param.error(`This action does not have a parameter named ${shortKey}.`);}
 					if(action.parameters.has(paramtype.internalName)) {throw new Error(`The parameter named ${shortKey} was already set.`);}
 					action.parameters.set(paramtype.internalName, paramtype.build(cc, value));
@@ -720,7 +721,7 @@ ${JSON.stringify(this._data, null, "\t")}
 
 			action.parameters.set(paramtype.internalName, paramtype.build(cc, param));
 		});
-		if(actionAbove && this.requiresInput && actionAbove.uuid !== cc.lastVariableAction.uuid) {
+		if(actionAbove && this.requiresInput && actionAbove.uuid !== (cc.lastVariableAction || {uuid: undefined}).uuid) {
 			cc.add(getVariable(new MagicVariable(actionAbove)));
 		}
 		// TODO if(actionAbove) cc.add(getVariableAction(actionAbove))
@@ -743,7 +744,7 @@ Object.keys(actionList).forEach(key => {
 	const action = new WFAction(value, key);
 
 	if(actionsByName[action.shortName]) {
-		console.warn(`WARNING, ${action.shortName} (${action.internalName}) is already defined`);
+		console.warn(`WARNING, ${action.shortName} (${action.internalName}) is already defined`); //eslint-disable-line no-console
 		return;
 	}
 
@@ -800,7 +801,7 @@ export function getActionFromID(id: string): WFAction {
 	if(!actionsByID[id]) {throw new Error(`There is no action with the id \`${id}\``);}
 	return actionsByID[id];
 }
-export function getActionFromName(name: string): WFAction {
+export function getActionFromName(name: string): WFAction | undefined {
 	name = name.toLowerCase();
 	if(!actionsByName[name]) {return undefined;}
 	return actionsByName[name];

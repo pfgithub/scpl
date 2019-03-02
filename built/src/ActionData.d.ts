@@ -27,7 +27,7 @@ export declare class WFAction {
     _data: any;
     id: string;
     isComplete: boolean;
-    _parameters: Array<WFParameter>;
+    _parameters: Array<WFParameter | string>;
     internalName: string;
     shortName: string;
     name: string;
@@ -56,6 +56,6 @@ export declare class WFAction {
 }
 export declare function genReadme(): string;
 export declare function getActionFromID(id: string): WFAction;
-export declare function getActionFromName(name: string): WFAction;
+export declare function getActionFromName(name: string): WFAction | undefined;
 export declare const allActions: WFAction[];
 export {};

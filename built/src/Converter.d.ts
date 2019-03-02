@@ -9,7 +9,7 @@ export declare class ConvertingContext {
         };
     };
     shortcut: Shortcut;
-    lastVariableAction: Action;
+    lastVariableAction?: Action;
     controlFlowStack: Array<{
         uuid: string;
         number: number;
@@ -25,11 +25,11 @@ export declare class ConvertingContext {
         uuid: string;
         number: number;
         wfaction: any;
-    };
+    } | undefined;
     endControlFlow(): {
         uuid: string;
         number: number;
         wfaction: any;
-    };
+    } | undefined;
     add(action: Action): void;
 }

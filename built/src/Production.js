@@ -56,13 +56,13 @@ class OrderedProduction extends Production {
         const resdata = [];
         const startpos = position.slice();
         const success = this.requirements.every(requirement => {
-            const { data, remainingStr, success, pos } = requirement.getProd().parse(string, position.slice());
-            if (!success) {
+            const result = requirement.getProd().parse(string, position.slice());
+            if (!result.success) {
                 return false;
             }
-            string = remainingStr;
-            position = pos;
-            resdata.push(data);
+            string = result.remainingStr;
+            position = result.pos;
+            resdata.push(result.data);
             return true;
         });
         if (!success) {
@@ -85,13 +85,13 @@ class OrProduction extends Production {
         let resdata;
         const startpos = position.slice();
         const success = this.options.some(option => {
-            const { data, remainingStr, success, pos } = option.getProd().parse(string, position.slice());
-            if (!success) {
+            const result = option.getProd().parse(string, position.slice());
+            if (!result.success) {
                 return false;
             }
-            string = remainingStr;
-            position = pos;
-            resdata = data;
+            string = result.remainingStr;
+            position = result.pos;
+            resdata.push(result.data);
             return true;
         });
         if (!success) {
@@ -104,35 +104,7 @@ class OrProduction extends Production {
     }
 }
 exports.OrProduction = OrProduction;
-class NotProduction extends Production {
-    constructor(...options) {
-        super();
-        this.options = options;
-    }
-    parse(string, position) {
-        super.parse(string, position);
-        let resdata;
-        const startpos = position.slice();
-        const success = this.options.every(option => {
-            const { data, remainingStr, success, pos } = option.getProd().parse(string, position.slice());
-            if (success) {
-                return false;
-            } // if success, fail.
-            string = remainingStr;
-            position = pos;
-            resdata = data;
-            return true;
-        });
-        if (!success) {
-            return { success: false };
-        }
-        return { data: this.cb(resdata, startpos, position), remainingStr: string, success: true, pos: position };
-    }
-    toString() {
-        return `!( ${this.options.map(option => option.getProd().nameOrTostring()).join(" | ")} )`;
-    }
-}
-exports.NotProduction = NotProduction;
+// remove notproduction for now
 class RegexProduction extends Production {
     constructor(regex) {
         super();
@@ -148,7 +120,7 @@ class RegexProduction extends Production {
             return { data: this.cb(match, startpos, position), remainingStr: string, success: true, pos: position };
         }
         if (match) {
-            console.warn("WARN: regex ", this.regex, " does not start matching at beginning of line");
+            console.warn("WARN: regex ", this.regex, " does not start matching at beginning of line"); //eslint-disable-line no-console
         }
         return { success: false };
     }
@@ -170,7 +142,7 @@ class StringProduction extends Production {
             calculateChange(this.string, position);
             return { data: this.cb(this.string, startpos, position), remainingStr: string, success: true, pos: position };
         }
-        return { success: false, error: `Expected \`${this.string}\` but found \`${string.substr(0, this.string.length)}\`` };
+        return { success: false };
     }
     toString() {
         return `${JSON.stringify(this.string)}`;
@@ -194,19 +166,19 @@ class ManyProduction extends Production {
                 succeeding = false;
                 continue;
             }
-            const { data, remainingStr, success, pos } = this.prod.getProd().parse(string, position.slice());
-            if (!success) {
+            const result = this.prod.getProd().parse(string, position.slice());
+            if (!result.success) {
                 succeeding = false;
                 continue;
             }
-            const changed = string.length - remainingStr.length;
+            const changed = string.length - result.remainingStr.length;
             if (changed === 0) {
                 succeeding = false;
                 continue;
             } // if it succeeds but matches nothing, count it as a failure (to avoid loops)
-            position = pos;
-            string = remainingStr;
-            results.push(data);
+            position = result.pos;
+            string = result.remainingStr;
+            results.push(result.data);
         }
         if (results.length < this.start) {
             return { success: false };
