@@ -1,7 +1,8 @@
 {
 	"name": "shortcutslang",
 	"version": "1.0.0",
-	"main": "index.js",
+	"main": "built/index.js",
+	"types": "built/index.d.ts",
 	"license": "MIT",
 	"scripts": {
 		"docs": "tsc && node ./built/GenDocs && webpack"
