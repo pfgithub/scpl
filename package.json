@@ -33,6 +33,7 @@
 		"bplist-creator": "^0.0.7",
 		"bplist-parser": "^0.1.1",
 		"codemirror": "^5.44.0",
+		"colors": "^1.3.3",
 		"plist": "^3.0.1",
 		"uuid": "^3.3.2",
 		"yargs": "^13.2.1"
