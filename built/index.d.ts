@@ -1,2 +1,9 @@
-export { default as parser } from "./src/ShortcutsParser";
-export { PositionedError } from "./src/ParserData";
+import { PositionedError, AsAble } from "./src/ParserData";
+import { ConvertingContext } from "./src/Converter";
+export { PositionedError, ConvertingContext, AsAble };
+export declare function parse(string: string, options: {
+    makePlist?: boolean;
+    extraParseActions?: {
+        [key: string]: (cc: ConvertingContext, ...args: AsAble[]) => void;
+    };
+}): any;

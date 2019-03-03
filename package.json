@@ -1,12 +1,31 @@
 {
-	"name": "shortcutslang",
+	"name": "scpl",
 	"version": "1.0.0",
 	"main": "built/index.js",
 	"types": "built/index.d.ts",
 	"license": "MIT",
+	"homepage": "https://pfgithub.github.io/shortcutslang",
+	"bugs": {
+		"url": "https://github.com/pfgithub/shortcutslang"
+	},
 	"scripts": {
 		"docs": "tsc && node ./built/src/GenDocs && webpack"
 	},
+	"author": {
+		"name": "pfg",
+		"email": "omegariisthebest@gmail.com",
+		"url": "https://pfgithub.github.io/"
+	},
+	"bin": {
+		"scpl": "./bin/scpl.js"
+	},
+	"repository": "github:pfgithub/shortcutslang",
+	"man": "./man/scpl.1",
+	"files": [
+		"/man",
+		"/built",
+		"/bin"
+	],
 	"dependencies": {
 		"@types/codemirror": "^0.0.72",
 		"@types/node": "^11.9.5",
@@ -15,7 +34,8 @@
 		"bplist-parser": "^0.1.1",
 		"codemirror": "^5.44.0",
 		"plist": "^3.0.1",
-		"uuid": "^3.3.2"
+		"uuid": "^3.3.2",
+		"yargs": "^13.2.1"
 	},
 	"devDependencies": {
 		"@typescript-eslint/eslint-plugin": "^1.4.2",
