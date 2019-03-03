@@ -21,6 +21,10 @@ Text "This is my text"
 
 | Actions shown | [Text](actions/text) |
 
+## Try making shortcuts
+
+You can convert ScPL to .shortcut on the [tryit page](https://pfgithub.github.io/shortcutslang/tryit). Copy the .shortcut file to your phone through airdrop or iCloud files and open it in Shortcuts.
+
 ### Argument Labels
 
 More complex actions have multiple fields
