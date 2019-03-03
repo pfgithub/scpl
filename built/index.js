@@ -15,7 +15,7 @@ function parse(string, options) {
         if (!parsed.pos) {
             throw new Error("!parsed.pos");
         }
-        throw new ParserData_1.PositionedError("Parsing error around here", parsed.pos, [parsed.pos[0] + 100, 0]);
+        throw new ParserData_1.PositionedError("Parsing error around here", parsed.pos, [parsed.pos[0] + 100, 1]);
     }
     let shortcut;
     try {
