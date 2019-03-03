@@ -13,7 +13,7 @@ export function parse(string: string, options: {makePlist?: boolean, extraParseA
 	}
 	if(parsed.remainingStr) {
 		if(!parsed.pos) {throw new Error("!parsed.pos");}
-		throw new PositionedError("Parsing error around here", parsed.pos, [parsed.pos[0] + 100, 0]);
+		throw new PositionedError("Parsing error around here", parsed.pos, [parsed.pos[0] + 100, 1]);
 	}
 
 	let shortcut;
