@@ -500,6 +500,8 @@ types.WFVariableFieldParameter = WFVariableFieldParameter;
 const _debugMissingTypes: {[key: string]: number} = {};
 const _debugTypes: {[key: string]: {paramClass: string, missing: boolean, count: number}} = {};
 
+import * as getTypes from "./Data/GetTypes.json";
+
 export class WFAction {
 	_data: any
 	id: string
@@ -535,6 +537,13 @@ export class WFAction {
 						: 1;
 				return `This paramtype is not implemented. ${param.Class}`;
 			});
+		}
+		if(this._data.ActionClass === "WFContentItemPropertiesAction") { // get details of files and similar
+			this._parameters.push(new WFEnumerationParameter({
+				Key: "WFContentItemPropertyName",
+				Name: "Get Type",
+				Items: Object.values(getTypes).map(t => t.name),
+			}, "Get Property"));
 		}
 		this.internalName = this.id;
 		this.name = this._data.Name;

@@ -497,6 +497,7 @@ or a named variable (v:) that you want to set.
 types.WFVariableFieldParameter = WFVariableFieldParameter;
 const _debugMissingTypes = {};
 const _debugTypes = {};
+const getTypes = require("./Data/GetTypes.json");
 class WFAction {
     constructor(data, id) {
         this._data = data;
@@ -523,6 +524,13 @@ class WFAction {
                         : 1;
                 return `This paramtype is not implemented. ${param.Class}`;
             });
+        }
+        if (this._data.ActionClass === "WFContentItemPropertiesAction") { // get details of files and similar
+            this._parameters.push(new WFEnumerationParameter({
+                Key: "WFContentItemPropertyName",
+                Name: "Get Type",
+                Items: Object.values(getTypes).map(t => t.name),
+            }, "Get Property"));
         }
         this.internalName = this.id;
         this.name = this._data.Name;
