@@ -1,4 +1,4 @@
-import {ActionParse, DictionaryParse, CharsParse, IdentifierParse, ListParse, BarlistParse, VariableParse, ActionsParse, VariableFlagParse, ArglistParse, NumberParse} from "./ParserData.js";
+import {ActionParse, DictionaryParse, CharsParse, IdentifierParse, ListParse, BarlistParse, VariableParse, ActionsParse, VariableFlagParse, ArglistParse, NumberParse, ConvertVariableParse} from "./ParserData.js";
 
 import {p, regex, star, plus, optional, or, c, o} from "./ParserHelper.js";
 
@@ -107,6 +107,7 @@ o.argument = or(
 	o.controlFlowMode,
 	o.argflag
 );
+o.macroBlock = p(c`@{`, o.actions, c`}`).scb(([, actions, ]) => actions);
 o.action = or(
 	o.flaggedaction,
 	o.variable,
@@ -145,7 +146,7 @@ o.onlyaction = p(o.identifier, _, o.args)
 
 o.args = star(p(o.argument, _).scb(data => data[0]));
 
-o.value = or(o.variable, o.string, o.number, o.identifier, o.parenthesis, o.dictionary, o.list);
+o.value = or(o.variable, o.string, o.number, o.macroBlock, o.identifier, o.parenthesis, o.dictionary, o.list);
 
 o.dictionary = p(
 	c`{`,
@@ -179,14 +180,19 @@ o.variable = p(
 	o.identifier, c`:`, or(o.identifier, o.string),
 	optional(p(c`:`, or(o.identifier, o.string)).scb(([, val])=>val)).scb(([val])=>val),
 	optional(o.dictionary).scb(([dict]) => dict)
-).scb(([type, , name, forkey, options], start, end)=>new VariableParse(start, end, type, name, forkey, options));
+).scb(([type, , name, forkey, options], start, end)=>{
+	if(type.value === "@") {
+		return new ConvertVariableParse(start, end, name, options);
+	}
+	return new VariableParse(start, end, type, name, forkey, options);
+});
 
 o.parenthesis = p(c`(`, or(o.action, o.variable), c`)`) .scb(([, actionOrVariable, ]) => actionOrVariable);
 // TODO paramlistparens like (name=hi,value=hmm) for=things like Get Contents Of URL which have lots of complex parameters
 
 o.actions = star(
 	p(_n, o.action, newline).scb(([, action, ]) => action) // newlines action newline star ok sure but why isn't vv happening
-).scb(list => new ActionsParse(list)); // THIS CB ISN"T GETTING CALLED, why not?
+).scb((list, start, end) => new ActionsParse(start, end, list)); // THIS CB ISN"T GETTING CALLED, why not?
 
 
 // TODO [arrays of things]

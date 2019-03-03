@@ -712,6 +712,102 @@ Shortcuts has 5 special variables, 2 of which seem to have no reason for existin
 <img src="images/IMG_0095.jpg" />
 </details></div>
 
-### Macros
+### Macros and Parser Variables
 
-Coming Soon!
+Parser variables are variables that only exist in your scpl file. When the shortcut is generated, they are replaced with their value.
+
+Set a parser variable with `@set`, use a parser variable with `@:variable`
+
+```
+@set varname "value"
+
+text "value is \(@:varname)"
+```
+
+<div><details>
+<summary>Image</summary>
+Picture soon, outputs `text "value is value"`
+</details></div>
+
+Parser variables inherit the properties of their values.
+
+```
+@set number 0.5
+@set list [1, 2, 3]
+
+number @:number
+list @:list
+```
+
+<div><details>
+<summary>Image</summary>
+Picture soon, outputs `number 0.5; list [1,2,3]`
+</details></div>
+
+Parser variables can contain actions
+
+```
+@set myaction (text "hi")
+
+@:myaction
+```
+
+<div><details>
+<summary>Image</summary>
+Picture soon, outputs `text "hi"`
+</details></div>
+
+Parser variables can contain lists of actions
+
+```
+@set EscapeText @{
+    replacetext "\\" "\\\\"
+    replacetext (Text "\n") " "
+    replacetext ";" "\\;"
+}
+
+Text ";Hi there!\n\\"
+@:EscapeText
+```
+
+<div><details>
+<summary>Image</summary>
+Picture soon, outputs `Text ";Hi there!\n\\";replacetext "\\" "\\\\";replacetext (Text "\n") " ";replacetext ";" "\\;"`
+</details></div>
+
+Parser variables can take input as a dictionary of parser variables to set
+
+```
+@set test (Text @:value)
+
+@:test{value:"Hi!"}
+```
+
+<div><details>
+<summary>Image</summary>
+Picture soon, outputs `Text "Hi!"`
+</details></div>
+
+#### Use cases
+
+In shortcuts, you can make functions by checking different inputs. To run these functions, normally it would take lots of code.
+
+```
+runShortcut v:ThisShortcut false ^(Dictionary{ action: Escape, text: "<the text>" })
+```
+
+You can define a macro/parser variable to insert that for you
+
+```
+setVariable v:ThisShortcut ^(text "Shortcut Name")
+
+@set Escape (runShortcut v:ThisShortcut false ^(Dictionary{ action: Escape, text: @:text }))
+
+AskForInput "Text to escape" -> mv:InputtedText
+@:Escape{text: mv:InputtedText}
+```
+
+<div><details>
+<summary>Image</summary>
+Screenshots coming soon.
+</details></div>

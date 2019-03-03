@@ -2,7 +2,7 @@
 import {Action, MagicVariable, ParameterType} from "./OutputData";
 import {getVariable} from "./HelpfulActions";
 import { ConvertingContext } from "./Converter";
-import {canBeString, canBeBoolean, canBeText, canBeArray, canBeList, canBeVariable, canBeAction, canBeDictionary, canBeRawKeyedDictionary, canBeStringVariable, AsAble, canBeNumber} from "./ParserData";
+import {AsAble} from "./ParserData";
 
 import actionList from "./Data/Actions";
 
@@ -193,14 +193,14 @@ containing one of the options:
 	build(cc: ConvertingContext, parse: AsAble) {
 		// asVariable may require additional actions to be inserted above this one.
 		// for example, if ^("hello") (v:comparison) "hi"
-		if(canBeVariable(parse)) {
+		if(parse.canBeVariable(cc)) {
 			const res = parse.asVariable(cc);
 			if(!this.allowsVariables) {
 				throw parse.error("This enum field does not accept variables.");
 			}
 			return res;
-		}else if(canBeString(parse)) {
-			const res = parse.asString(); // asString returns a string like ""
+		}else if(parse.canBeString(cc)) {
+			const res = parse.asString(cc); // asString returns a string like ""
 			if(this.options.indexOf(res) > -1) {return res;}
 			throw parse.error(`This enumeration field must be one of the following: \`${this.options.join("`, `")}\``);
 		}else{
@@ -235,11 +235,11 @@ class WFWorkflowPickerParameter extends WFParameter {
 	build(cc: ConvertingContext, parse: AsAble) {
 		// asVariable may require additional actions to be inserted above this one.
 		// for example, if ^("hello") (v:comparison) "hi"
-		if(canBeVariable(parse)) {
+		if(parse.canBeVariable(cc)) {
 			const res = parse.asVariable(cc);
 			return res;
-		}else if(canBeString(parse)) {
-			const res = parse.asString(); // asString returns a string like ""
+		}else if(parse.canBeString(cc)) {
+			const res = parse.asString(cc); // asString returns a string like ""
 			return res;
 		}
 		throw parse.error("Shortcut picker fields can only contain strings and variables.");
@@ -262,14 +262,14 @@ or variable`: ""}
 with a number.`;
 	}
 	build(cc: ConvertingContext, parse: AsAble) {
-		if(canBeVariable(parse)) {
+		if(parse.canBeVariable(cc)) {
 			const res = parse.asVariable(cc);
 			if(!this.allowsVariables) {
 				throw parse.error("This number field does not acccept variables.");
 			}
 			return res;
-		}else if(canBeNumber(parse)) {
-			const num = parse.asNumber(); // asString returns a string like "" <-- that's a string
+		}else if(parse.canBeNumber(cc)) {
+			const num = parse.asNumber(cc); // asString returns a string like "" <-- that's a string
 			return num;
 		}
 		throw parse.error("Number fields only accept numbers and variables.");
@@ -317,7 +317,7 @@ class WFContentArrayParameter extends WFParameter {
 Accepts a list.`;
 	}
 	build(cc: ConvertingContext, parse: AsAble) {
-		if(!canBeList(parse)) {throw parse.error("List fields only accept lists.");}
+		if(!parse.canBeList(cc)) {throw parse.error("List fields only accept lists.");}
 		const list = parse.asList(cc);
 		return list;
 	}
@@ -341,7 +341,7 @@ class WFVariablePickerParameter extends WFParameter {
 Accepts a variable.`;
 	}
 	build(cc: ConvertingContext, parse: AsAble) {
-		if(!canBeVariable(parse)) {throw parse.error("Variable picker fields only accept variables.");}
+		if(!parse.canBeVariable(cc)) {throw parse.error("Variable picker fields only accept variables.");}
 		const variable = parse.asVariable(cc);
 		return variable;
 	}
@@ -364,10 +364,10 @@ with the text.`;
 	}
 	build(cc: ConvertingContext, parse: AsAble) {
 		if(!this.allowsVariables) {
-			if(!canBeString(parse)) {throw parse.error("This text field only accepts text with no variables.");}
-			return parse.asString();
+			if(!parse.canBeString(cc)) {throw parse.error("This text field only accepts text with no variables.");}
+			return parse.asString(cc);
 		}
-		if(!canBeText(parse)) {throw parse.error("Text fields only accept text.");}
+		if(!parse.canBeText(cc)) {throw parse.error("Text fields only accept text.");}
 		return parse.asText(cc);
 	}
 }
@@ -393,14 +393,14 @@ class WFEmailAddressFieldParameter extends WFParameter {
 Accepts a string or string array or variable of email addresses.`;
 	}
 	build(cc: ConvertingContext, parse: AsAble) {
-		if(canBeVariable(parse)) {
+		if(parse.canBeVariable(cc)) {
 			return parse.asVariable(cc);
 		}
-		if(canBeArray(parse)) {
-			return parse.asArray();
+		if(parse.canBeArray(cc)) {
+			return parse.asArray(cc);
 		}
-		if(canBeString(parse)) {
-			return [parse.asString()];
+		if(parse.canBeString(cc)) {
+			return [parse.asString(cc)];
 		}
 		throw parse.error("Email adress fields only accept variables, lists without variables, and strings without variables.");
 	}
@@ -420,7 +420,7 @@ class WFDictionaryParameter extends WFParameter {
 Accepts a dictionary.`;
 	}
 	build(cc: ConvertingContext, parse: AsAble) {
-		if(!canBeDictionary(parse)) {throw parse.error("Dictionary fields only accept fields.");}
+		if(!parse.canBeDictionary(cc)) {throw parse.error("Dictionary fields only accept fields.");}
 		return parse.asDictionary(cc);
 	}
 }
@@ -440,11 +440,11 @@ Accepts a boolean${this.allowsVariables ? `
 or a variable.`: ""}`;
 	}
 	build(cc: ConvertingContext, parse: AsAble) {
-		if(canBeVariable(parse)) {
+		if(parse.canBeVariable(cc)) {
 			if(!this.allowsVariables) {throw parse.error("This toggle switch field does not accept variables.");}
 			return parse.asVariable(cc);
-		}else if(canBeBoolean(parse)) {
-			return parse.asBoolean();
+		}else if(parse.canBeBoolean(cc)) {
+			return parse.asBoolean(cc);
 		}
 		throw parse.error("Toggle switch fields only accept booleans (true/false) and variables.");
 	}
@@ -465,9 +465,9 @@ class WFExpandingParameter extends WFParameter {
 Accepts a boolean for if this
 parameter is expanded or not.`;
 	}
-	build(_cc: ConvertingContext, parse: AsAble) {
-		if(canBeBoolean(parse)) {
-			return parse.asBoolean();
+	build(cc: ConvertingContext, parse: AsAble) {
+		if(parse.canBeBoolean(cc)) {
+			return parse.asBoolean(cc);
 		}
 		throw parse.error("Expanding fields only accept booleans (true/false).");
 	}
@@ -490,8 +490,8 @@ or a named variable (v:) that you want to set.
 		return docs;
 	}
 	build(cc: ConvertingContext, parse: AsAble) {
-		const varname = canBeString(parse) ? parse.asString() : canBeStringVariable(parse) ? parse.asStringVariable() : (()=>{throw parse.error("Variable fields only accept strings and named variables with no aggrandizements.");})();
-		cc.vardata[varname] = true;
+		const varname = parse.canBeString(cc) ? parse.asString(cc) : parse.canBeStringVariable(cc) ? parse.asStringVariable(cc) : (()=>{throw parse.error("Variable fields only accept strings and named variables with no aggrandizements.");})();
+		cc.setNamedVariable(varname);
 		return varname;
 	}
 }
@@ -646,7 +646,7 @@ ${JSON.stringify(this._data, null, "\t")}
 		}
 		params.forEach(param => {
 			if(param.special === "InputArg") {
-				if(!canBeAction(param)) {throw param.error("InputArg fields only accept actions and variables.");}
+				if(!param.canBeAction(cc)) {throw param.error("InputArg fields only accept actions and variables.");}
 				actionAbove = param.asAction(cc);
 				return;
 			}
@@ -654,8 +654,8 @@ ${JSON.stringify(this._data, null, "\t")}
 				throw param.error("This type of parameter is no longer implemented. Please use the `flow` and `end` pseudoactions in place of >c:1:gid:x and >c>2:gid:x.");
 			}
 			if(param.special === "Arglist") {
-				if(!canBeRawKeyedDictionary(param)) {throw param.error("ArgList fields only accept dictionaries.");}
-				const dictionary = param.asRawKeyedDictionary();
+				if(!param.canBeRawKeyedDictionary(cc)) {throw param.error("ArgList fields only accept dictionaries.");}
+				const dictionary = param.asRawKeyedDictionary(cc);
 				Object.keys(dictionary).forEach(key => {
 					const value = dictionary[key];
 					const shortKey = genShortName(key);

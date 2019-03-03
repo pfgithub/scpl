@@ -52,6 +52,7 @@ ParserHelper_js_1.o.argflag = ParserHelper_js_1.p(ParserHelper_js_1.o.argflagarr
 ParserHelper_js_1.o.namedargument = ParserHelper_js_1.p(ParserHelper_js_1.o.identifier, _, ParserHelper_js_1.c `=`, _, ParserHelper_js_1.o.value).scb(([key, , , , value], start, end) => new ParserData_js_1.ArglistParse(start, end, [{ key: key, value: value }]));
 ParserHelper_js_1.o.argument = ParserHelper_js_1.or(ParserHelper_js_1.o.arglist, // arglist has to go first because otherwise it will parse as `a` `{}`, this will be fixed with the new argflag syntax.
 ParserHelper_js_1.o.namedargument, ParserHelper_js_1.o.value, ParserHelper_js_1.o.inputarg, ParserHelper_js_1.o.barlist, ParserHelper_js_1.o.controlFlowMode, ParserHelper_js_1.o.argflag);
+ParserHelper_js_1.o.macroBlock = ParserHelper_js_1.p(ParserHelper_js_1.c `@{`, ParserHelper_js_1.o.actions, ParserHelper_js_1.c `}`).scb(([, actions,]) => actions);
 ParserHelper_js_1.o.action = ParserHelper_js_1.or(ParserHelper_js_1.o.flaggedaction, ParserHelper_js_1.o.variable, ParserHelper_js_1.o.onlyaction);
 ParserHelper_js_1.o.arglist = ParserHelper_js_1.p(ParserHelper_js_1.c `a{`, ParserHelper_js_1.star(ParserHelper_js_1.p(_, ParserHelper_js_1.o.keyvaluepair, _).scb(([, v]) => v)), ParserHelper_js_1.c `}`).scb(([, kvps,], start, end) => new ParserData_js_1.ArglistParse(start, end, kvps));
 ParserHelper_js_1.o.controlFlowMode = ParserHelper_js_1.p(ParserHelper_js_1.c `>c:`, ParserHelper_js_1.o.identifier, ParserHelper_js_1.c `:gid:`, ParserHelper_js_1.o.identifier).scb(([, controlFlowMode, , groupingIdentifier]) => { return { special: "ControlFlowMode", controlFlowMode, groupingIdentifier }; }); // TEMP >c:1
@@ -83,7 +84,7 @@ ParserHelper_js_1.o.onlyaction = ParserHelper_js_1.p(ParserHelper_js_1.o.identif
     return actionParse;
 });
 ParserHelper_js_1.o.args = ParserHelper_js_1.star(ParserHelper_js_1.p(ParserHelper_js_1.o.argument, _).scb(data => data[0]));
-ParserHelper_js_1.o.value = ParserHelper_js_1.or(ParserHelper_js_1.o.variable, ParserHelper_js_1.o.string, ParserHelper_js_1.o.number, ParserHelper_js_1.o.identifier, ParserHelper_js_1.o.parenthesis, ParserHelper_js_1.o.dictionary, ParserHelper_js_1.o.list);
+ParserHelper_js_1.o.value = ParserHelper_js_1.or(ParserHelper_js_1.o.variable, ParserHelper_js_1.o.string, ParserHelper_js_1.o.number, ParserHelper_js_1.o.macroBlock, ParserHelper_js_1.o.identifier, ParserHelper_js_1.o.parenthesis, ParserHelper_js_1.o.dictionary, ParserHelper_js_1.o.list);
 ParserHelper_js_1.o.dictionary = ParserHelper_js_1.p(ParserHelper_js_1.c `{`, ParserHelper_js_1.star(ParserHelper_js_1.o.keyvaluepair).scb(items => items), ParserHelper_js_1.c `}`).scb(([, kvps,], start, end) => (new ParserData_js_1.DictionaryParse(start, end, kvps)));
 ParserHelper_js_1.o.list = ParserHelper_js_1.p(ParserHelper_js_1.c `[`, _n, ParserHelper_js_1.star(ParserHelper_js_1.p(ParserHelper_js_1.o.value, _n).scb(([value,]) => value)), ParserHelper_js_1.c `]`).scb(([, , values,], start, end) => new ParserData_js_1.ListParse(start, end, values));
 ParserHelper_js_1.o.keyvaluepair = ParserHelper_js_1.p(_n, ParserHelper_js_1.or(ParserHelper_js_1.o.string, ParserHelper_js_1.o.identifier), _n, ParserHelper_js_1.or(ParserHelper_js_1.c `=`, ParserHelper_js_1.c `:`), _n, ParserHelper_js_1.o.value, // ...
@@ -91,11 +92,16 @@ _n).scb(([, key, , , , value]) => ({ key: key, value: value }));
 // o.canBeString
 // o.canBeText
 // ...
-ParserHelper_js_1.o.variable = ParserHelper_js_1.p(ParserHelper_js_1.o.identifier, ParserHelper_js_1.c `:`, ParserHelper_js_1.or(ParserHelper_js_1.o.identifier, ParserHelper_js_1.o.string), ParserHelper_js_1.optional(ParserHelper_js_1.p(ParserHelper_js_1.c `:`, ParserHelper_js_1.or(ParserHelper_js_1.o.identifier, ParserHelper_js_1.o.string)).scb(([, val]) => val)).scb(([val]) => val), ParserHelper_js_1.optional(ParserHelper_js_1.o.dictionary).scb(([dict]) => dict)).scb(([type, , name, forkey, options], start, end) => new ParserData_js_1.VariableParse(start, end, type, name, forkey, options));
+ParserHelper_js_1.o.variable = ParserHelper_js_1.p(ParserHelper_js_1.o.identifier, ParserHelper_js_1.c `:`, ParserHelper_js_1.or(ParserHelper_js_1.o.identifier, ParserHelper_js_1.o.string), ParserHelper_js_1.optional(ParserHelper_js_1.p(ParserHelper_js_1.c `:`, ParserHelper_js_1.or(ParserHelper_js_1.o.identifier, ParserHelper_js_1.o.string)).scb(([, val]) => val)).scb(([val]) => val), ParserHelper_js_1.optional(ParserHelper_js_1.o.dictionary).scb(([dict]) => dict)).scb(([type, , name, forkey, options], start, end) => {
+    if (type.value === "@") {
+        return new ParserData_js_1.ConvertVariableParse(start, end, name, options);
+    }
+    return new ParserData_js_1.VariableParse(start, end, type, name, forkey, options);
+});
 ParserHelper_js_1.o.parenthesis = ParserHelper_js_1.p(ParserHelper_js_1.c `(`, ParserHelper_js_1.or(ParserHelper_js_1.o.action, ParserHelper_js_1.o.variable), ParserHelper_js_1.c `)`).scb(([, actionOrVariable,]) => actionOrVariable);
 // TODO paramlistparens like (name=hi,value=hmm) for=things like Get Contents Of URL which have lots of complex parameters
 ParserHelper_js_1.o.actions = ParserHelper_js_1.star(ParserHelper_js_1.p(_n, ParserHelper_js_1.o.action, newline).scb(([, action,]) => action) // newlines action newline star ok sure but why isn't vv happening
-).scb(list => new ParserData_js_1.ActionsParse(list)); // THIS CB ISN"T GETTING CALLED, why not?
+).scb((list, start, end) => new ParserData_js_1.ActionsParse(start, end, list)); // THIS CB ISN"T GETTING CALLED, why not?
 // TODO [arrays of things]
 // TODO @macros
 // TODOn't imports jk that will be done by some magic in the converter

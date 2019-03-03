@@ -1,9 +1,10 @@
 import { Shortcut, Action } from "./OutputData";
+import { AsAble } from "./ParserData";
 export declare class ConvertingContext {
-    vardata: {
+    namedVariables: {
         [key: string]: boolean;
     };
-    magicvardata: {
+    magicVariables: {
         [key: string]: {
             action: Action;
         };
@@ -15,7 +16,20 @@ export declare class ConvertingContext {
         number: number;
         wfaction: any;
     }>;
-    constructor();
+    parserVariables: {
+        [key: string]: AsAble;
+    };
+    above?: ConvertingContext;
+    constructor(above?: ConvertingContext);
+    getNamedVariable(name: string): boolean | undefined;
+    setNamedVariable(name: string): void;
+    getMagicVariable(name: string): {
+        action: Action;
+    } | undefined;
+    setMagicVariable(name: string, action: Action): void;
+    getParserVariable(name: string): AsAble | undefined;
+    setParserVariable(name: string, value: AsAble): void;
+    in(): ConvertingContext;
     pushControlFlow(wfaction: any): {
         uuid: string;
         number: number;

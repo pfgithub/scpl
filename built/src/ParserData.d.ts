@@ -6,73 +6,78 @@ export declare class PositionedError extends Error {
     end: Position;
     constructor(message: string, start: Position, end: Position);
 }
-declare class Parse {
+export declare class Parse {
     special: ("InputArg" | "ControlFlowMode" | "Arglist" | undefined);
     start: Position;
     end: Position;
     constructor(start: Position, end: Position);
     error(message: string): PositionedError;
+    canBeString(_cc: ConvertingContext): this is AsString;
+    canBeBoolean(_cc: ConvertingContext): this is AsBoolean;
+    canBeText(_cc: ConvertingContext): this is AsText;
+    canBeList(_cc: ConvertingContext): this is AsList;
+    canBeArray(_cc: ConvertingContext): this is AsArray;
+    canBeVariable(_cc: ConvertingContext): this is AsVariable;
+    canBeAction(_cc: ConvertingContext): this is AsAction;
+    canBeDictionary(_cc: ConvertingContext): this is AsDictionary;
+    canBeRawDictionary(_cc: ConvertingContext): this is AsRawDictionary;
+    canBeRawKeyedDictionary(_cc: ConvertingContext): this is AsRawKeyedDictionary;
+    canBeNameType(_cc: ConvertingContext): this is AsNameType;
+    canBeStringVariable(_cc: ConvertingContext): this is AsStringVariable;
+    canBeNumber(_cc: ConvertingContext): this is AsNumber;
 }
 interface AsString extends Parse {
-    asString(): string;
+    asString(cc: ConvertingContext): string;
 }
-export declare function canBeString(parse: Parse): parse is AsString;
 interface AsBoolean extends Parse {
-    asBoolean(): boolean;
+    asBoolean(cc: ConvertingContext): boolean;
 }
-export declare function canBeBoolean(parse: Parse): parse is AsBoolean;
 interface AsText extends Parse {
     asText(cc: ConvertingContext): Text;
 }
-export declare function canBeText(parse: Parse): parse is AsText;
 interface AsList extends Parse {
     asList(cc: ConvertingContext): List;
 }
-export declare function canBeList(parse: Parse): parse is AsList;
 interface AsArray extends Parse {
-    asArray(): Array<string>;
+    asArray(cc: ConvertingContext): Array<string>;
 }
-export declare function canBeArray(parse: Parse): parse is AsArray;
 interface AsVariable extends Parse {
     asVariable(cc: ConvertingContext): Variable;
 }
-export declare function canBeVariable(parse: Parse): parse is AsVariable;
 interface AsAction extends Parse {
     asAction(cc: ConvertingContext): Action;
 }
-export declare function canBeAction(parse: Parse): parse is AsAction;
 interface AsDictionary extends Parse {
     asDictionary(cc: ConvertingContext): Dictionary;
 }
-export declare function canBeDictionary(parse: Parse): parse is AsDictionary;
 interface AsRawDictionary extends Parse {
-    asRawDictionary(): {
+    asRawDictionary(cc: ConvertingContext): {
         [key: string]: string;
     };
 }
-export declare function canBeRawDictionary(parse: Parse): parse is AsRawDictionary;
 interface AsRawKeyedDictionary extends Parse {
-    asRawKeyedDictionary(): {
+    asRawKeyedDictionary(cc: ConvertingContext): {
         [key: string]: AsAble;
     };
 }
-export declare function canBeRawKeyedDictionary(parse: Parse): parse is AsRawKeyedDictionary;
 interface AsNameType extends Parse {
-    asNameType(): {
+    asNameType(cc: ConvertingContext): {
         name: string;
         type: string;
     };
 }
-export declare function canBeNameType(parse: Parse): parse is AsNameType;
 interface AsStringVariable extends Parse {
-    asStringVariable(): string;
+    asStringVariable(cc: ConvertingContext): string;
 }
-export declare function canBeStringVariable(parse: Parse): parse is AsStringVariable;
 interface AsNumber extends Parse {
-    asNumber(): number;
+    asNumber(cc: ConvertingContext): number;
 }
-export declare function canBeNumber(parse: Parse): parse is AsNumber;
-export declare type AsAble = AsString | AsText | AsList | AsArray | AsVariable | AsAction | AsDictionary | AsRawDictionary | AsRawKeyedDictionary | AsNameType | AsBoolean | AsStringVariable | AsNumber;
+export declare type AsAble = Parse;
+export declare class ConvertVariableParse extends Parse {
+    name: AsAble;
+    options?: AsAble;
+    constructor(start: Position, end: Position, name: AsAble, options?: AsAble);
+}
 export declare class DictionaryParse extends Parse implements AsRawDictionary, AsRawKeyedDictionary, AsDictionary {
     keyvaluepairs: Array<{
         key: AsAble;
@@ -82,37 +87,51 @@ export declare class DictionaryParse extends Parse implements AsRawDictionary, A
         key: AsAble;
         value: AsAble;
     }>);
-    asRawDictionary(): {
+    canBeRawDictionary(_cc: ConvertingContext): boolean;
+    asRawDictionary(cc: ConvertingContext): {
         [key: string]: string;
     };
-    asRawKeyedDictionary(): {
-        [key: string]: AsAble;
+    canBeRawKeyedDictionary(_cc: ConvertingContext): boolean;
+    asRawKeyedDictionary(cc: ConvertingContext): {
+        [key: string]: Parse;
     };
+    canBeDictionary(_cc: ConvertingContext): boolean;
     asDictionary(cc: ConvertingContext): Dictionary;
 }
 export declare class ListParse extends Parse implements AsArray, AsList {
     items: Array<AsAble>;
     constructor(start: Position, end: Position, items: Array<AsAble>);
-    asArray(): string[];
+    canBeArray(_cc: ConvertingContext): boolean;
+    asArray(cc: ConvertingContext): string[];
+    canBeList(_cc: ConvertingContext): boolean;
     asList(cc: ConvertingContext): List;
 }
 export declare class BarlistParse extends ListParse implements AsText, AsString {
-    asString(): string;
+    canBeString(_cc: ConvertingContext): boolean;
+    asString(cc: ConvertingContext): string;
+    canBeText(_cc: ConvertingContext): boolean;
     asText(cc: ConvertingContext): Text;
 }
 export declare class CharsParse extends Parse implements AsString, AsText, AsNumber {
     items: [string | AsAble];
     constructor(start: Position, end: Position, items: [string | AsAble]);
-    asString(): string;
-    asNumber(): number;
+    canBeString(_cc: ConvertingContext): boolean;
+    asString(cc: ConvertingContext): string;
+    canBeNumber(_cc: ConvertingContext): boolean;
+    asNumber(cc: ConvertingContext): number;
+    canBeText(_cc: ConvertingContext): boolean;
     asText(cc: ConvertingContext): Text;
 }
 export declare class IdentifierParse extends Parse implements AsNumber, AsString, AsBoolean, AsText {
     value: string;
     constructor(start: Position, end: Position, str: string);
-    asString(): string;
-    asNumber(): number;
-    asBoolean(): boolean;
+    canBeString(_cc: ConvertingContext): boolean;
+    asString(_cc: ConvertingContext): string;
+    canBeNumber(_cc: ConvertingContext): boolean;
+    asNumber(_cc: ConvertingContext): number;
+    canBeBoolean(_cc: ConvertingContext): boolean;
+    asBoolean(cc: ConvertingContext): boolean;
+    canBeText(_cc: ConvertingContext): boolean;
     asText(_cc: ConvertingContext): Text;
 }
 export declare class NumberParse extends IdentifierParse {
@@ -132,8 +151,11 @@ export declare class ActionParse extends Parse implements AsText, AsVariable, As
     args: Array<AsAble>;
     variable: AsAble;
     constructor(start: Position, end: Position, name: AsAble, args: Array<AsAble>, variable: AsAble);
+    canBeText(_cc: ConvertingContext): boolean;
     asText(cc: ConvertingContext): Text;
+    canBeVariable(_cc: ConvertingContext): boolean;
     asVariable(cc: ConvertingContext): MagicVariable;
+    canBeAction(_cc: ConvertingContext): boolean;
     asAction(cc: ConvertingContext): any;
 }
 export declare class VariableParse extends Parse implements AsStringVariable, AsNameType, AsText, AsVariable, AsAction {
@@ -142,18 +164,29 @@ export declare class VariableParse extends Parse implements AsStringVariable, As
     forkey: AsAble;
     options: AsAble;
     constructor(start: Position, end: Position, type: AsAble, name: AsAble, forkey: AsAble, options: AsAble);
-    asStringVariable(): string;
-    asNameType(): {
+    canBeStringVariable(_cc: ConvertingContext): boolean;
+    asStringVariable(cc: ConvertingContext): string;
+    canBeNameType(_cc: ConvertingContext): boolean;
+    asNameType(cc: ConvertingContext): {
         name: string;
         type: string;
     };
+    canBeText(_cc: ConvertingContext): boolean;
     asText(cc: ConvertingContext): Text;
+    canBeVariable(_cc: ConvertingContext): boolean;
     asVariable(cc: ConvertingContext): Attachment;
+    canBeAction(_cc: ConvertingContext): boolean;
     asAction(cc: ConvertingContext): Action;
 }
-export declare class ActionsParse {
+export declare class ActionsParse extends Parse implements AsAction, AsVariable, AsText {
     actions: Array<AsAble>;
-    constructor(actions: Array<AsAble>);
+    constructor(start: Position, end: Position, actions: Array<AsAble>);
+    canBeText(_cc: ConvertingContext): boolean;
+    asText(cc: ConvertingContext): Text;
+    canBeVariable(_cc: ConvertingContext): boolean;
+    asVariable(cc: ConvertingContext): MagicVariable;
+    canBeAction(_cc: ConvertingContext): boolean;
+    asAction(cc: ConvertingContext): Action;
     asShortcut(): import("./OutputData").Shortcut;
 }
 export {};

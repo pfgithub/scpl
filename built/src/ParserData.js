@@ -4,6 +4,7 @@ const OutputData_1 = require("./OutputData");
 const ActionData_1 = require("./ActionData");
 const Converter_js_1 = require("./Converter.js");
 const HelpfulActions_1 = require("./HelpfulActions");
+const PreprocessorActions_1 = require("./PreprocessorActions");
 class PositionedError extends Error {
     constructor(message, start, end) {
         super(`Error from ${start.toString()} to ${end.toString()}: ${message}`);
@@ -20,89 +21,103 @@ class Parse {
     error(message) {
         return new PositionedError(message, this.start, this.end);
     }
+    canBeString(_cc) { return false; }
+    canBeBoolean(_cc) { return false; }
+    canBeText(_cc) { return false; }
+    canBeList(_cc) { return false; }
+    canBeArray(_cc) { return false; }
+    canBeVariable(_cc) { return false; }
+    canBeAction(_cc) { return false; }
+    canBeDictionary(_cc) { return false; }
+    canBeRawDictionary(_cc) { return false; }
+    canBeRawKeyedDictionary(_cc) { return false; }
+    canBeNameType(_cc) { return false; }
+    canBeStringVariable(_cc) { return false; }
+    canBeNumber(_cc) { return false; }
 }
-function canBeString(parse) {
-    return parse.asString !== undefined;
+exports.Parse = Parse;
+class ConvertVariableParse extends Parse {
+    constructor(start, end, name, options) {
+        super(start, end);
+        this.name = name;
+        this.options = options;
+    }
 }
-exports.canBeString = canBeString;
-function canBeBoolean(parse) {
-    return parse.asBoolean !== undefined;
-}
-exports.canBeBoolean = canBeBoolean;
-function canBeText(parse) {
-    return parse.asText !== undefined;
-}
-exports.canBeText = canBeText;
-function canBeList(parse) {
-    return parse.asList !== undefined;
-}
-exports.canBeList = canBeList;
-function canBeArray(parse) {
-    return parse.asArray !== undefined;
-}
-exports.canBeArray = canBeArray;
-function canBeVariable(parse) {
-    return parse.asVariable !== undefined;
-}
-exports.canBeVariable = canBeVariable;
-function canBeAction(parse) {
-    return parse.asAction !== undefined;
-}
-exports.canBeAction = canBeAction;
-function canBeDictionary(parse) {
-    return parse.asDictionary !== undefined;
-}
-exports.canBeDictionary = canBeDictionary;
-function canBeRawDictionary(parse) {
-    return parse.asRawDictionary !== undefined;
-}
-exports.canBeRawDictionary = canBeRawDictionary;
-function canBeRawKeyedDictionary(parse) {
-    return parse.asDictionary !== undefined;
-}
-exports.canBeRawKeyedDictionary = canBeRawKeyedDictionary;
-function canBeNameType(parse) {
-    return parse.asNameType !== undefined;
-}
-exports.canBeNameType = canBeNameType;
-function canBeStringVariable(parse) {
-    return parse.asStringVariable !== undefined;
-}
-exports.canBeStringVariable = canBeStringVariable;
-function canBeNumber(parse) {
-    return parse.asNumber !== undefined;
-}
-exports.canBeNumber = canBeNumber;
+exports.ConvertVariableParse = ConvertVariableParse;
+// there has to be a better way
+["String", "Boolean", "Text", "List", "Array", "Variable", "Action", "Dictionary", "RawDictionary", "RawKeyedDictionary", "NameType", "StringVariable", "Number"].forEach(val => {
+    ConvertVariableParse.prototype[`canBe${val}`] = function (cc) {
+        if (!this.name.canBeString(cc)) {
+            throw this.name.error("Name must be a string with no variables.");
+        }
+        const name = this.name.asString(cc);
+        const me = cc.getParserVariable(name);
+        if (!me) {
+            throw this.error(`Parser Variable @:${name} is not defined.`);
+        }
+        return me[`canBe${val}`](cc);
+    };
+    ConvertVariableParse.prototype[`as${val}`] = function (cc) {
+        if (!this.name.canBeString(cc)) {
+            throw this.name.error("Name must be a string with no variables.");
+        }
+        const name = this.name.asString(cc);
+        const me = cc.getParserVariable(name);
+        if (!me) {
+            throw this.error(`Parser Variable @:${name} is not defined.`);
+        }
+        const options = this.options;
+        let rawKeyedOptions;
+        if (!options) {
+            rawKeyedOptions = {};
+        }
+        else if (options.canBeRawKeyedDictionary(cc)) {
+            rawKeyedOptions = options.asRawKeyedDictionary();
+        }
+        else {
+            throw options.error("Options must be a dictionary.");
+        }
+        // here we want to make a new cc on top of the old one
+        const newCC = cc.in();
+        Object.keys(rawKeyedOptions).forEach(key => {
+            const value = rawKeyedOptions[key];
+            newCC.setParserVariable(key, value);
+        });
+        return me[`as${val}`](newCC);
+    };
+});
 class DictionaryParse extends Parse {
     constructor(start, end, keyvaluepairs) {
         super(start, end);
         this.keyvaluepairs = keyvaluepairs;
     }
-    asRawDictionary() {
+    canBeRawDictionary(_cc) { return true; }
+    asRawDictionary(cc) {
         const dictionary = {};
         this.keyvaluepairs.forEach(({ key, value }) => {
-            if (!canBeString(key)) {
+            if (!key.canBeString(cc)) {
                 throw key.error("This key name must be a string with no variables.");
             }
-            if (!canBeString(value)) {
+            if (!value.canBeString(cc)) {
                 throw value.error("This value must be a string with no variables.");
             }
-            const stringKey = key.asString();
+            const stringKey = key.asString(cc);
             if (dictionary[stringKey]) {
                 throw key.error(`This key was already defined in this dictionary.`);
             }
-            dictionary[stringKey] = value.asString();
+            dictionary[stringKey] = value.asString(cc);
         });
         return dictionary;
     }
-    asRawKeyedDictionary() {
+    canBeRawKeyedDictionary(_cc) { return true; }
+    asRawKeyedDictionary(cc) {
         // returns a raw dictionary (keys are raw, not values) for this DictionaryParse
         const dictionary = {};
         this.keyvaluepairs.forEach(({ key, value }) => {
-            if (!canBeString(key)) {
+            if (!key.canBeString(cc)) {
                 throw key.error("This key name must be a string with no variables.");
             }
-            const stringKey = key.asString();
+            const stringKey = key.asString(cc);
             if (dictionary[stringKey]) {
                 throw key.error(`This key name was already defined in this dictionary.`);
             }
@@ -110,24 +125,25 @@ class DictionaryParse extends Parse {
         });
         return dictionary;
     }
+    canBeDictionary(_cc) { return true; }
     asDictionary(cc) {
         // returns an Output Dictionary for this DictionaryParse
         const dictionary = new OutputData_1.Dictionary();
         this.keyvaluepairs.forEach(({ key, value }) => {
             let type;
             let outputValue;
-            if (!canBeText(key)) {
+            if (!key.canBeText(cc)) {
                 throw key.error("Dictionary keys must be texts");
             }
-            if (canBeList(value)) {
+            if (value.canBeList(cc)) {
                 type = 2;
                 outputValue = value.asList(cc);
             }
-            else if (canBeDictionary(value)) {
+            else if (value.canBeDictionary(cc)) {
                 type = 1;
                 outputValue = value.asDictionary(cc);
             }
-            else if (canBeText(value)) {
+            else if (value.canBeText(cc)) {
                 type = 0;
                 outputValue = value.asText(cc);
             }
@@ -145,17 +161,19 @@ class ListParse extends Parse {
         super(start, end);
         this.items = items;
     }
-    asArray() {
+    canBeArray(_cc) { return true; }
+    asArray(cc) {
         return this.items.map(item => {
-            if (!canBeString(item)) {
+            if (!item.canBeString(cc)) {
                 throw item.error("This list can only contain strings with no variables.");
             }
-            return item.asString();
+            return item.asString(cc);
         });
     }
+    canBeList(_cc) { return true; }
     asList(cc) {
         return new OutputData_1.List(this.items.map(item => {
-            if (!canBeText(item)) {
+            if (!item.canBeText(cc)) {
                 throw item.error("This list can only contain strings.");
             }
             return item.asText(cc);
@@ -164,18 +182,20 @@ class ListParse extends Parse {
 }
 exports.ListParse = ListParse;
 class BarlistParse extends ListParse {
-    asString() {
+    canBeString(_cc) { return true; }
+    asString(cc) {
         return this.items.map(item => {
-            if (!canBeString(item)) {
+            if (!item.canBeString(cc)) {
                 throw item.error("This barlist can only contain strings with no variables.");
             }
-            return item.asString();
+            return item.asString(cc);
         }).join("\n");
     }
+    canBeText(_cc) { return true; }
     asText(cc) {
         const finalText = new OutputData_1.Text;
         this.items.forEach((item, i) => {
-            if (!canBeText(item)) {
+            if (!item.canBeText(cc)) {
                 throw item.error("This barlist can only contain strings.");
             }
             finalText.add(item.asText(cc));
@@ -194,31 +214,46 @@ class CharsParse extends Parse {
         super(start, end);
         this.items = items;
     }
-    asString() {
+    canBeString(_cc) { return true; }
+    asString(cc) {
         let string = "";
         this.items.forEach(item => {
             if (typeof item === "string") {
                 string += item;
                 return;
             }
+            if (item instanceof ConvertVariableParse) {
+                if (item.canBeString(cc)) {
+                    string += item.asString(cc);
+                    return;
+                }
+            }
             throw item.error(`This string is not allowed to have variables.`);
         });
         return string;
     }
-    asNumber() {
-        const num = +this.asString();
+    canBeNumber(_cc) { return true; }
+    asNumber(cc) {
+        const num = +this.asString(cc);
         if (isNaN(num)) {
             throw this.error("This number could not be converted to a number.");
         }
         return num;
     }
+    canBeText(_cc) { return true; }
     asText(cc) {
         const text = new OutputData_1.Text;
         this.items.forEach(item => {
             if (typeof item === "string") {
                 return text.add(item);
             }
-            if (!canBeVariable(item)) {
+            if (item instanceof ConvertVariableParse) {
+                if (item.canBeText(cc)) {
+                    text.add(item.asText(cc));
+                    return;
+                }
+            }
+            if (!item.canBeVariable(cc)) {
                 throw item.error("String interpolations can only contain variables.");
             }
             return text.add(item.asVariable(cc));
@@ -232,18 +267,21 @@ class IdentifierParse extends Parse {
         super(start, end);
         this.value = str;
     }
-    asString() {
+    canBeString(_cc) { return true; }
+    asString(_cc) {
         return this.value;
     }
-    asNumber() {
+    canBeNumber(_cc) { return true; }
+    asNumber(_cc) {
         const num = +this.value;
         if (isNaN(num)) {
             throw this.error("This number could not be converted to a number.");
         }
         return num;
     }
-    asBoolean() {
-        const string = this.asString();
+    canBeBoolean(_cc) { return true; }
+    asBoolean(cc) {
+        const string = this.asString(cc);
         if (string === "true") {
             return true;
         }
@@ -252,6 +290,7 @@ class IdentifierParse extends Parse {
         }
         throw this.error("This boolean must be either true or false.");
     }
+    canBeText(_cc) { return true; }
     asText(_cc) {
         const text = new OutputData_1.Text;
         text.add(this.value);
@@ -284,23 +323,26 @@ class ActionParse extends Parse {
         this.variable = variable;
     }
     // Action[Argument,Argument...]
+    canBeText(_cc) { return true; }
     asText(cc) {
         const variable = this.asVariable(cc);
         const text = new OutputData_1.Text();
         text.add(variable);
         return text;
     }
+    canBeVariable(_cc) { return true; }
     asVariable(cc) {
         const action = this.asAction(cc); // adds the action
         return new OutputData_1.MagicVariable(action);
         // otherwise: add a Set Variable action
         // throw new Error(`Actions of type ${action.info.id} cannot be converted to a variable.`);
     }
+    canBeAction(_cc) { return true; }
     asAction(cc) {
-        if (!canBeString(this.name)) {
+        if (!this.name.canBeString(cc)) {
             throw this.name.error("This action must contain a string name with no variables.");
         }
-        const actionName = this.name.asString().toLowerCase();
+        const actionName = this.name.asString(cc).toLowerCase();
         let wfAction;
         let controlFlowData;
         if (actionName === "flow"
@@ -320,6 +362,16 @@ class ActionParse extends Parse {
             }
             wfAction = controlFlowData.wfaction;
         }
+        else if (actionName.startsWith("@")) {
+            const preprocessorAction = PreprocessorActions_1.default[actionName.toLowerCase()];
+            if (preprocessorAction) {
+                preprocessorAction(cc, ...this.args);
+            }
+            else {
+                throw this.name.error(`There is no converter action with the name ${actionName}.`);
+            }
+            return;
+        }
         else {
             wfAction = ActionData_1.getActionFromName(actionName);
             if (!wfAction) {
@@ -333,17 +385,17 @@ class ActionParse extends Parse {
         // WFAction adds it to cc for us, no need to do it ourselves.
         // now add any required set variable actions
         if (this.variable) {
-            if (!canBeNameType(this.variable)) {
+            if (!this.variable.canBeNameType(cc)) {
                 throw this.variable.error("To set an output variable, the output variable must be a variable.");
             }
-            const { name, type } = this.variable.asNameType(); // TODO not this
+            const { name, type } = this.variable.asNameType(cc); // TODO not this
             if (type === "v") {
                 cc.add(HelpfulActions_1.setVariable(name));
-                cc.vardata[name] = true;
+                cc.setNamedVariable(name);
             }
             else if (type === "mv") {
                 action.magicvarname = `${type}:${name}`;
-                cc.magicvardata[name] = { action: action };
+                cc.setMagicVariable(name, action);
             }
         }
         return action;
@@ -358,61 +410,65 @@ class VariableParse extends Parse {
         this.forkey = forkey;
         this.options = options;
     }
-    asStringVariable() {
-        if (!canBeString(this.name)) {
+    canBeStringVariable(_cc) { return true; }
+    asStringVariable(cc) {
+        if (!this.name.canBeString(cc)) {
             throw this.name.error("This variable must have a string name with no variables.");
         }
-        if (!canBeString(this.type)) {
+        if (!this.type.canBeString(cc)) {
             throw this.type.error("This variable must have a string type with no variables.");
         }
-        const name = this.name.asString();
-        const type = this.type.asString();
+        const name = this.name.asString(cc);
+        const type = this.type.asString(cc);
         if (type !== "v") {
             throw this.type.error(`This variable must be a v:named variable.`);
         }
         return name;
     }
-    asNameType() {
-        if (!canBeString(this.name)) {
+    canBeNameType(_cc) { return true; }
+    asNameType(cc) {
+        if (!this.name.canBeString(cc)) {
             throw this.name.error("This variable must have a string name with no variables.");
         }
-        if (!canBeString(this.type)) {
+        if (!this.type.canBeString(cc)) {
             throw this.type.error("This variable must have a string type with no variables.");
         }
-        const name = this.name.asString();
-        const type = this.type.asString();
+        const name = this.name.asString(cc);
+        const type = this.type.asString(cc);
         if (type !== "v" && type !== "mv") {
             throw this.type.error(`This variable must be either a v: named variable or a mv: magic variable.`);
         }
         return { name, type };
     }
+    canBeText(_cc) { return true; }
     asText(cc) {
         const text = new OutputData_1.Text;
         text.add(this.asVariable(cc));
         return text;
     }
+    canBeVariable(_cc) { return true; }
     asVariable(cc) {
         let variable;
-        if (!canBeString(this.name)) {
+        if (!this.name.canBeString(cc)) {
             throw this.name.error("This variable must have a string name with no variables.");
         }
-        if (!canBeString(this.type)) {
+        if (!this.type.canBeString(cc)) {
             throw this.type.error("This variable must have a string type with no variables.");
         }
-        const name = this.name.asString();
-        const type = this.type.asString();
+        const name = this.name.asString(cc);
+        const type = this.type.asString(cc);
         let aggrandizements;
         if (this.options) {
-            if (!canBeRawDictionary(this.options)) {
+            if (!this.options.canBeRawDictionary(cc)) {
                 throw this.options.error("The aggrandizements for this variable must be a dictionary with no variables.");
             }
-            aggrandizements = this.options.asRawDictionary(); // should be asRawKeyedDictionary and then use asstirng inside
+            aggrandizements = this.options.asRawDictionary(cc); // should be asRawKeyedDictionary and then use asstirng inside
         }
         else {
             aggrandizements = {};
         }
         if (type === "v") { // named variable
-            let vardata = cc.vardata[name];
+            let vardata = cc.getNamedVariable(name);
             if (name.startsWith("Repeat Index") || name.startsWith("Repeat Item")) {
                 vardata = true;
             }
@@ -422,7 +478,7 @@ class VariableParse extends Parse {
             variable = new OutputData_1.NamedVariable(name);
         }
         else if (type === "mv") { // magic variable
-            const vardata = cc.magicvardata[name];
+            const vardata = cc.getMagicVariable(name);
             if (!vardata) {
                 throw this.error(`The magic variable \`${type}:${name}\` has not been defined yet. Define it by putting an arrow on an action, for example \`myaction -> ${type}:${name}\``);
             }
@@ -442,10 +498,10 @@ class VariableParse extends Parse {
         }
         if (this.forkey) {
             variable.aggrandizements.coerce("dictionary");
-            if (!canBeString(this.forkey)) {
+            if (!this.forkey.canBeString(cc)) {
                 throw this.forkey.error("The forkey section of this variable must be a string with no variables.");
             }
-            variable.aggrandizements.forKey(this.forkey.asString());
+            variable.aggrandizements.forKey(this.forkey.asString(cc));
         }
         Object.keys(aggrandizements).forEach(key => {
             const value = aggrandizements[key];
@@ -468,6 +524,7 @@ class VariableParse extends Parse {
         });
         return variable;
     }
+    canBeAction(_cc) { return true; }
     asAction(cc) {
         const action = HelpfulActions_1.getVariable(this.asVariable(cc));
         cc.add(action);
@@ -475,18 +532,40 @@ class VariableParse extends Parse {
     }
 }
 exports.VariableParse = VariableParse;
-class ActionsParse {
-    constructor(actions) {
+class ActionsParse extends Parse {
+    constructor(start, end, actions) {
+        super(start, end);
         this.actions = actions;
+    }
+    canBeText(_cc) { return true; }
+    asText(cc) {
+        const variable = this.asVariable(cc);
+        const text = new OutputData_1.Text();
+        text.add(variable);
+        return text;
+    }
+    canBeVariable(_cc) { return true; }
+    asVariable(cc) {
+        const action = this.asAction(cc);
+        return new OutputData_1.MagicVariable(action);
+    }
+    canBeAction(_cc) { return true; }
+    asAction(cc) {
+        let lastAction;
+        this.actions.forEach(action => {
+            if (!action.canBeAction(cc)) {
+                throw action.error("This value must be an action.");
+            }
+            lastAction = action.asAction(cc);
+        });
+        if (!lastAction) {
+            throw this.error("There must be at least one action");
+        }
+        return lastAction;
     }
     asShortcut() {
         const cc = new Converter_js_1.ConvertingContext();
-        this.actions.forEach(action => {
-            if (!canBeAction(action)) {
-                throw action.error("This value must be an action.");
-            }
-            action.asAction(cc);
-        });
+        this.asAction(cc);
         if (cc.controlFlowStack.length !== 0) {
             throw new Error(`There are ${cc.controlFlowStack.length} unended block actions. Check to make sure that every block has an end.`);
         }

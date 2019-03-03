@@ -2,7 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const OutputData_1 = require("./OutputData");
 const HelpfulActions_1 = require("./HelpfulActions");
-const ParserData_1 = require("./ParserData");
 const Actions_1 = require("./Data/Actions");
 function genShortName(longName, internalName) {
     // lower case
@@ -185,15 +184,15 @@ containing one of the options:
     build(cc, parse) {
         // asVariable may require additional actions to be inserted above this one.
         // for example, if ^("hello") (v:comparison) "hi"
-        if (ParserData_1.canBeVariable(parse)) {
+        if (parse.canBeVariable(cc)) {
             const res = parse.asVariable(cc);
             if (!this.allowsVariables) {
                 throw parse.error("This enum field does not accept variables.");
             }
             return res;
         }
-        else if (ParserData_1.canBeString(parse)) {
-            const res = parse.asString(); // asString returns a string like ""
+        else if (parse.canBeString(cc)) {
+            const res = parse.asString(cc); // asString returns a string like ""
             if (this.options.indexOf(res) > -1) {
                 return res;
             }
@@ -229,12 +228,12 @@ class WFWorkflowPickerParameter extends WFParameter {
     build(cc, parse) {
         // asVariable may require additional actions to be inserted above this one.
         // for example, if ^("hello") (v:comparison) "hi"
-        if (ParserData_1.canBeVariable(parse)) {
+        if (parse.canBeVariable(cc)) {
             const res = parse.asVariable(cc);
             return res;
         }
-        else if (ParserData_1.canBeString(parse)) {
-            const res = parse.asString(); // asString returns a string like ""
+        else if (parse.canBeString(cc)) {
+            const res = parse.asString(cc); // asString returns a string like ""
             return res;
         }
         throw parse.error("Shortcut picker fields can only contain strings and variables.");
@@ -256,15 +255,15 @@ or variable` : ""}
 with a number.`;
     }
     build(cc, parse) {
-        if (ParserData_1.canBeVariable(parse)) {
+        if (parse.canBeVariable(cc)) {
             const res = parse.asVariable(cc);
             if (!this.allowsVariables) {
                 throw parse.error("This number field does not acccept variables.");
             }
             return res;
         }
-        else if (ParserData_1.canBeNumber(parse)) {
-            const num = parse.asNumber(); // asString returns a string like "" <-- that's a string
+        else if (parse.canBeNumber(cc)) {
+            const num = parse.asNumber(cc); // asString returns a string like "" <-- that's a string
             return num;
         }
         throw parse.error("Number fields only accept numbers and variables.");
@@ -313,7 +312,7 @@ class WFContentArrayParameter extends WFParameter {
 Accepts a list.`;
     }
     build(cc, parse) {
-        if (!ParserData_1.canBeList(parse)) {
+        if (!parse.canBeList(cc)) {
             throw parse.error("List fields only accept lists.");
         }
         const list = parse.asList(cc);
@@ -337,7 +336,7 @@ class WFVariablePickerParameter extends WFParameter {
 Accepts a variable.`;
     }
     build(cc, parse) {
-        if (!ParserData_1.canBeVariable(parse)) {
+        if (!parse.canBeVariable(cc)) {
             throw parse.error("Variable picker fields only accept variables.");
         }
         const variable = parse.asVariable(cc);
@@ -361,12 +360,12 @@ with the text.`;
     }
     build(cc, parse) {
         if (!this.allowsVariables) {
-            if (!ParserData_1.canBeString(parse)) {
+            if (!parse.canBeString(cc)) {
                 throw parse.error("This text field only accepts text with no variables.");
             }
-            return parse.asString();
+            return parse.asString(cc);
         }
-        if (!ParserData_1.canBeText(parse)) {
+        if (!parse.canBeText(cc)) {
             throw parse.error("Text fields only accept text.");
         }
         return parse.asText(cc);
@@ -392,14 +391,14 @@ class WFEmailAddressFieldParameter extends WFParameter {
 Accepts a string or string array or variable of email addresses.`;
     }
     build(cc, parse) {
-        if (ParserData_1.canBeVariable(parse)) {
+        if (parse.canBeVariable(cc)) {
             return parse.asVariable(cc);
         }
-        if (ParserData_1.canBeArray(parse)) {
-            return parse.asArray();
+        if (parse.canBeArray(cc)) {
+            return parse.asArray(cc);
         }
-        if (ParserData_1.canBeString(parse)) {
-            return [parse.asString()];
+        if (parse.canBeString(cc)) {
+            return [parse.asString(cc)];
         }
         throw parse.error("Email adress fields only accept variables, lists without variables, and strings without variables.");
     }
@@ -418,7 +417,7 @@ class WFDictionaryParameter extends WFParameter {
 Accepts a dictionary.`;
     }
     build(cc, parse) {
-        if (!ParserData_1.canBeDictionary(parse)) {
+        if (!parse.canBeDictionary(cc)) {
             throw parse.error("Dictionary fields only accept fields.");
         }
         return parse.asDictionary(cc);
@@ -439,14 +438,14 @@ Accepts a boolean${this.allowsVariables ? `
 or a variable.` : ""}`;
     }
     build(cc, parse) {
-        if (ParserData_1.canBeVariable(parse)) {
+        if (parse.canBeVariable(cc)) {
             if (!this.allowsVariables) {
                 throw parse.error("This toggle switch field does not accept variables.");
             }
             return parse.asVariable(cc);
         }
-        else if (ParserData_1.canBeBoolean(parse)) {
-            return parse.asBoolean();
+        else if (parse.canBeBoolean(cc)) {
+            return parse.asBoolean(cc);
         }
         throw parse.error("Toggle switch fields only accept booleans (true/false) and variables.");
     }
@@ -466,9 +465,9 @@ class WFExpandingParameter extends WFParameter {
 Accepts a boolean for if this
 parameter is expanded or not.`;
     }
-    build(_cc, parse) {
-        if (ParserData_1.canBeBoolean(parse)) {
-            return parse.asBoolean();
+    build(cc, parse) {
+        if (parse.canBeBoolean(cc)) {
+            return parse.asBoolean(cc);
         }
         throw parse.error("Expanding fields only accept booleans (true/false).");
     }
@@ -490,8 +489,8 @@ or a named variable (v:) that you want to set.
         return docs;
     }
     build(cc, parse) {
-        const varname = ParserData_1.canBeString(parse) ? parse.asString() : ParserData_1.canBeStringVariable(parse) ? parse.asStringVariable() : (() => { throw parse.error("Variable fields only accept strings and named variables with no aggrandizements."); })();
-        cc.vardata[varname] = true;
+        const varname = parse.canBeString(cc) ? parse.asString(cc) : parse.canBeStringVariable(cc) ? parse.asStringVariable(cc) : (() => { throw parse.error("Variable fields only accept strings and named variables with no aggrandizements."); })();
+        cc.setNamedVariable(varname);
         return varname;
     }
 }
@@ -636,7 +635,7 @@ ${JSON.stringify(this._data, null, "\t")}
         }
         params.forEach(param => {
             if (param.special === "InputArg") {
-                if (!ParserData_1.canBeAction(param)) {
+                if (!param.canBeAction(cc)) {
                     throw param.error("InputArg fields only accept actions and variables.");
                 }
                 actionAbove = param.asAction(cc);
@@ -646,10 +645,10 @@ ${JSON.stringify(this._data, null, "\t")}
                 throw param.error("This type of parameter is no longer implemented. Please use the `flow` and `end` pseudoactions in place of >c:1:gid:x and >c>2:gid:x.");
             }
             if (param.special === "Arglist") {
-                if (!ParserData_1.canBeRawKeyedDictionary(param)) {
+                if (!param.canBeRawKeyedDictionary(cc)) {
                     throw param.error("ArgList fields only accept dictionaries.");
                 }
-                const dictionary = param.asRawKeyedDictionary();
+                const dictionary = param.asRawKeyedDictionary(cc);
                 Object.keys(dictionary).forEach(key => {
                     const value = dictionary[key];
                     const shortKey = genShortName(key);
