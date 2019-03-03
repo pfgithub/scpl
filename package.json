@@ -1,6 +1,6 @@
 {
 	"name": "scpl",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"main": "built/index.js",
 	"types": "built/index.d.ts",
 	"license": "MIT",
@@ -27,7 +27,6 @@
 		"/bin"
 	],
 	"dependencies": {
-		"@types/codemirror": "^0.0.72",
 		"@types/node": "^11.9.5",
 		"@types/uuid": "^3.4.4",
 		"bplist-creator": "^0.0.7",
@@ -39,6 +38,7 @@
 		"yargs": "^13.2.1"
 	},
 	"devDependencies": {
+		"@types/codemirror": "^0.0.72",
 		"@typescript-eslint/eslint-plugin": "^1.4.2",
 		"@typescript-eslint/parser": "^1.4.2",
 		"eslint": "^5.14.1",
