@@ -41,7 +41,7 @@ containing one of the options:
 **Placeholder**: `0`
 **Allows Variables**: true
 
-**Only enabled if**: argument WFImageCropPosition = `Custom`
+**Only enabled if**: argument WFImageCropPosition == `Custom`
 
 		Accepts a number 
 		or variable
@@ -53,7 +53,7 @@ containing one of the options:
 **Placeholder**: `0`
 **Allows Variables**: true
 
-**Only enabled if**: argument WFImageCropPosition = `Custom`
+**Only enabled if**: argument WFImageCropPosition == `Custom`
 
 		Accepts a number 
 		or variable

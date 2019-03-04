@@ -49,7 +49,7 @@ or a variable.
 **Default Value**: `1`
 **Allows Variables**: true
 
-**Only enabled if**: argument WFGiphyShowPicker = `false`
+**Only enabled if**: argument WFGiphyShowPicker == `false`
 
 		Accepts a number 
 		or variable
@@ -60,7 +60,7 @@ or a variable.
 ### selectmultiple: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
-**Only enabled if**: argument WFGiphyShowPicker = `true`
+**Only enabled if**: argument WFGiphyShowPicker == `true`
 
 Accepts a boolean
 or a variable.

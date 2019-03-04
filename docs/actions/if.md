@@ -42,7 +42,7 @@ containing one of the options:
 **Placeholder**: `7`
 **Allows Variables**: true
 
-**Only enabled if**: argument WFCondition = `Is Greater Than` or `Is Less Than`
+**Only enabled if**: argument WFCondition == `Is Greater Than` or `Is Less Than`
 
 		Accepts a number 
 		or variable
@@ -54,7 +54,7 @@ containing one of the options:
 **Placeholder**: `"example"`
 **Allows Variables**: true
 
-**Only enabled if**: argument WFCondition = `Contains` or `Equals`
+**Only enabled if**: argument WFCondition == `Contains` or `Equals`
 
 Accepts a string 
 or text

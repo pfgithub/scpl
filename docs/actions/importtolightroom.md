@@ -34,7 +34,7 @@ or a variable.
 **Default Value**: `"Color"`
 **Allows Variables**: true
 
-**Only enabled if**: argument applyPreset = `true`
+**Only enabled if**: argument applyPreset == `true`
 
 Accepts a string 
 or variable

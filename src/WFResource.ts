@@ -51,11 +51,11 @@ class WFParameterRelationResource extends WFResource {
 	argValues: any;
 	constructor(data: any) {
 		super(data);
-		this.relation = this._data.WFParameterRelation || "=";
+		this.relation = this._data.WFParameterRelation || "==";
 		this.argInternalName = this._data.WFParameterKey;
 		this.argValue = this._data.WFParameterValue;
 		this.argValues = this._data.WFParameterValues || [this.argValue];
-		const relations: {[key: string]: number}  = {"=": 1, "!=": 1, ">=": 1, "<=": 1, ">": 1, "<": 1, "??": 1};
+		const relations: {[key: string]: number}  = {"==": 1, "!=": 1, ">=": 1, "<=": 1, ">": 1, "<": 1, "??": 1};
 		if(!(relations)[this.relation]) {
 			throw new Error(`RelationResource relation type ${this.relation} is not implemented.`);
 		}
@@ -68,7 +68,7 @@ class WFParameterRelationResource extends WFResource {
 		const currentValueNum = +currentValue;
 		const isNum = !isNaN(currentValueNum);
 		switch(this.relation) {
-			case "=":
+			case "==":
 				return this.argValues.some((val: any) => val === currentValue);
 			case "!=":
 				return this.argValues.indexOf(currentValue) === -1;

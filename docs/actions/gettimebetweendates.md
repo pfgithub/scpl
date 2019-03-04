@@ -34,7 +34,7 @@ containing one of the options:
 **Placeholder**: `"September 9, 2014"`
 **Allows Variables**: true
 
-**Only enabled if**: argument WFTimeUntilReferenceDate = `Other`
+**Only enabled if**: argument WFTimeUntilReferenceDate == `Other`
 
 Accepts a string 
 or text

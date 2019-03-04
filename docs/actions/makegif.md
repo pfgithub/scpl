@@ -51,7 +51,7 @@ or a variable.
 ### wfmakegifactionloopcount: Stepper Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
 **Allows Variables**: true
 
-**Only enabled if**: argument WFMakeGIFActionLoopEnabled = `false`
+**Only enabled if**: argument WFMakeGIFActionLoopEnabled == `false`
 
 		Accepts a number 
 		or variable
@@ -76,7 +76,7 @@ or a variable.
 **Placeholder**: `500`
 **Allows Variables**: true
 
-**Only enabled if**: argument WFMakeGIFActionAutoSize = `false`
+**Only enabled if**: argument WFMakeGIFActionAutoSize == `false`
 
 		Accepts a number 
 		or variable
@@ -88,7 +88,7 @@ or a variable.
 **Placeholder**: `500`
 **Allows Variables**: true
 
-**Only enabled if**: argument WFMakeGIFActionAutoSize = `false`
+**Only enabled if**: argument WFMakeGIFActionAutoSize == `false`
 
 		Accepts a number 
 		or variable

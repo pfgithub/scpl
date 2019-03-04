@@ -44,7 +44,7 @@ containing one of the options:
 **Placeholder**: `0`
 **Allows Variables**: true
 
-**Only enabled if**: argument WFMaskType = `Rounded Rectangle`
+**Only enabled if**: argument WFMaskType == `Rounded Rectangle`
 
 		Accepts a number 
 		or variable
@@ -55,7 +55,7 @@ containing one of the options:
 ### imagemask: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
 **Allows Variables**: true
 
-**Only enabled if**: argument WFMaskType = `Custom Image`
+**Only enabled if**: argument WFMaskType == `Custom Image`
 
 Accepts a variable.
 

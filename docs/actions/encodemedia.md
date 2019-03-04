@@ -32,7 +32,7 @@ or a variable.
 **Default Value**: `"M4A"`
 **Allows Variables**: true
 
-**Only enabled if**: argument WFMediaAudioOnly = `true`
+**Only enabled if**: argument WFMediaAudioOnly == `true`
 
 Accepts a string 
 or variable
@@ -47,7 +47,7 @@ containing one of the options:
 **Default Value**: `"Passthrough"`
 **Allows Variables**: true
 
-**Only enabled if**: argument WFMediaAudioOnly = `false`
+**Only enabled if**: argument WFMediaAudioOnly == `false`
 
 Accepts a string 
 or variable
@@ -84,7 +84,7 @@ containing one of the options:
 **Placeholder**: `1.0`
 **Allows Variables**: true
 
-**Only enabled if**: argument WFMediaSpeed = `Custom`
+**Only enabled if**: argument WFMediaSpeed == `Custom`
 
 		Accepts a number 
 		or variable
@@ -108,7 +108,7 @@ labels, these can be ignored.
 **Placeholder**: `"My Great Track"`
 **Allows Variables**: true
 
-**Only enabled if**: argument Metadata = `true`
+**Only enabled if**: argument Metadata == `true`
 
 Accepts a string 
 or text
@@ -120,7 +120,7 @@ with the text.
 **Placeholder**: `"Nicholas Fryingpan"`
 **Allows Variables**: true
 
-**Only enabled if**: argument Metadata = `true`
+**Only enabled if**: argument Metadata == `true`
 
 Accepts a string 
 or text
@@ -132,7 +132,7 @@ with the text.
 **Placeholder**: `"Abbey Road"`
 **Allows Variables**: true
 
-**Only enabled if**: argument Metadata = `true`
+**Only enabled if**: argument Metadata == `true`
 
 Accepts a string 
 or text
@@ -144,7 +144,7 @@ with the text.
 **Placeholder**: `"Indie"`
 **Allows Variables**: true
 
-**Only enabled if**: argument Metadata = `true`
+**Only enabled if**: argument Metadata == `true`
 
 Accepts a string 
 or text
@@ -156,7 +156,7 @@ with the text.
 **Placeholder**: `"2001"`
 **Allows Variables**: true
 
-**Only enabled if**: argument Metadata = `true`
+**Only enabled if**: argument Metadata == `true`
 
 Accepts a string 
 or text
@@ -167,7 +167,7 @@ with the text.
 ### artwork: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
 **Allows Variables**: true
 
-**Only enabled if**: argument Metadata = `true`
+**Only enabled if**: argument Metadata == `true`
 
 Accepts a variable.
 

@@ -42,7 +42,7 @@ posttotumblr undefined=NotImplemented undefined=NotImplemented undefined=NotImpl
 **Default Value**: `"Post Now"`
 **Allows Variables**: true
 
-**Only enabled if**: argument WFComposeInApp = `false`
+**Only enabled if**: argument WFComposeInApp == `false`
 
 Accepts a string 
 or variable
@@ -59,7 +59,7 @@ containing one of the options:
 **Placeholder**: `"optional"`
 **Allows Variables**: true
 
-**Only enabled if**: argument WFPostType = `Text` or `Link` or `Chat`
+**Only enabled if**: argument WFPostType == `Text` or `Link` or `Chat`
 
 Accepts a string 
 or text
@@ -71,7 +71,7 @@ with the text.
 **Placeholder**: `"optional"`
 **Allows Variables**: true
 
-**Only enabled if**: argument WFPostType = `Quote`
+**Only enabled if**: argument WFPostType == `Quote`
 
 Accepts a string 
 or text
@@ -83,9 +83,9 @@ with the text.
 **Placeholder**: `"optional"`
 **Allows Variables**: true
 
-**Only enabled if**: argument WFPostType = `Audio` or `Video` or `Photos`
+**Only enabled if**: argument WFPostType == `Audio` or `Video` or `Photos`
 
-**Only enabled if**: argument WFComposeInApp = `false`
+**Only enabled if**: argument WFComposeInApp == `false`
 
 Accepts a string 
 or text
@@ -109,7 +109,7 @@ with the text.
 **Placeholder**: `"Description"`
 **Allows Variables**: true
 
-**Only enabled if**: argument WFPostType = `Link`
+**Only enabled if**: argument WFPostType == `Link`
 
 Accepts a string 
 or text

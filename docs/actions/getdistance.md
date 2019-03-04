@@ -47,7 +47,7 @@ containing one of the options:
 **Placeholder**: `"One Apple Park Way"`
 **Allows Variables**: true
 
-**Only enabled if**: argument WFGetDirectionsFrom = `Custom Location`
+**Only enabled if**: argument WFGetDirectionsFrom == `Custom Location`
 
 Accepts a string 
 or text

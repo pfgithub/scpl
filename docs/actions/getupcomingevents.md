@@ -59,7 +59,7 @@ containing one of the options:
 **Placeholder**: `"June 29, 2007"`
 **Allows Variables**: true
 
-**Only enabled if**: argument WFDateSpecifier = `Specified Day`
+**Only enabled if**: argument WFDateSpecifier == `Specified Day`
 
 Accepts a string 
 or text

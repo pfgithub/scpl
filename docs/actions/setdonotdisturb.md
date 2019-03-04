@@ -32,7 +32,7 @@ or a variable.
 **Default Value**: `"Turned Off"`
 **Allows Variables**: true
 
-**Only enabled if**: argument Enabled = `true`
+**Only enabled if**: argument Enabled == `true`
 
 **Only enabled if**: Device attributes match `{"WFDeviceAttributeSystemVersion":{"WFSystemVersion":"12.0","WFSystemVersionRelation":">="}}` This action is always enabled inside Shortcutslang.
 
@@ -50,9 +50,9 @@ containing one of the options:
 ### event: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
 **Allows Variables**: true
 
-**Only enabled if**: argument Enabled = `true`
+**Only enabled if**: argument Enabled == `true`
 
-**Only enabled if**: argument AssertionType = `Event Ends`
+**Only enabled if**: argument AssertionType == `Event Ends`
 
 **Only enabled if**: Device attributes match `{"WFDeviceAttributeSystemVersion":{"WFSystemVersion":"12.0","WFSystemVersionRelation":">="}}` This action is always enabled inside Shortcutslang.
 
@@ -64,9 +64,9 @@ Accepts a variable.
 **Placeholder**: `"7 PM"`
 **Allows Variables**: true
 
-**Only enabled if**: argument Enabled = `true`
+**Only enabled if**: argument Enabled == `true`
 
-**Only enabled if**: argument AssertionType = `Time`
+**Only enabled if**: argument AssertionType == `Time`
 
 **Only enabled if**: Device attributes match `{"WFDeviceAttributeSystemVersion":{"WFSystemVersion":"12.0","WFSystemVersionRelation":">="}}` This action is always enabled inside Shortcutslang.
 

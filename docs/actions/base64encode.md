@@ -37,7 +37,7 @@ containing one of the options:
 **Default Value**: `"Every 76 Characters"`
 **Allows Variables**: true
 
-**Only enabled if**: argument WFEncodeMode = `Encode`
+**Only enabled if**: argument WFEncodeMode == `Encode`
 
 Accepts a string 
 or variable

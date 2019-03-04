@@ -38,7 +38,7 @@ or a variable.
 **Default Value**: `"x-success"`
 **Allows Variables**: true
 
-**Only enabled if**: argument WFXCallbackCustomCallbackEnabled = `true`
+**Only enabled if**: argument WFXCallbackCustomCallbackEnabled == `true`
 
 Accepts a string 
 or text
@@ -50,7 +50,7 @@ with the text.
 **Placeholder**: `"optional"`
 **Allows Variables**: true
 
-**Only enabled if**: argument WFXCallbackCustomCallbackEnabled = `true`
+**Only enabled if**: argument WFXCallbackCustomCallbackEnabled == `true`
 
 Accepts a string 
 or text
@@ -62,7 +62,7 @@ with the text.
 **Placeholder**: `"optional"`
 **Allows Variables**: true
 
-**Only enabled if**: argument WFXCallbackCustomCallbackEnabled = `true`
+**Only enabled if**: argument WFXCallbackCustomCallbackEnabled == `true`
 
 Accepts a string 
 or text
@@ -84,7 +84,7 @@ or a variable.
 **Default Value**: `"shortcuts://callback"`
 **Allows Variables**: true
 
-**Only enabled if**: argument WFXCallbackCustomSuccessURLEnabled = `true`
+**Only enabled if**: argument WFXCallbackCustomSuccessURLEnabled == `true`
 
 Accepts a string 
 or text

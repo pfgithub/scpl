@@ -38,7 +38,7 @@ labels, these can be ignored.
 **Default Value**: `"GET"`
 **Allows Variables**: true
 
-**Only enabled if**: argument Advanced = `true`
+**Only enabled if**: argument Advanced == `true`
 
 Accepts a string 
 or variable
@@ -53,7 +53,7 @@ containing one of the options:
 ---
 
 ### headers: Expand Arrow [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
-**Only enabled if**: argument Advanced = `true`
+**Only enabled if**: argument Advanced == `true`
 
 Accepts a boolean for if this
 parameter is expanded or not.
@@ -67,9 +67,9 @@ labels, these can be ignored.
 ### headers2: Dictionary [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#dictionary-field)
 **Allows Variables**: true
 
-**Only enabled if**: argument Advanced = `true`
+**Only enabled if**: argument Advanced == `true`
 
-**Only enabled if**: argument ShowHeaders = `true`
+**Only enabled if**: argument ShowHeaders == `true`
 
 Accepts a dictionary.
 
@@ -77,7 +77,7 @@ Accepts a dictionary.
 
 ### requestbody: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"JSON"`
-**Only enabled if**: argument Advanced = `true`
+**Only enabled if**: argument Advanced == `true`
 
 **Only enabled if**: argument WFHTTPMethod != `GET`
 
@@ -93,9 +93,9 @@ containing one of the options:
 ### formvalues: Dictionary [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#dictionary-field)
 **Allows Variables**: true
 
-**Only enabled if**: argument Advanced = `true`
+**Only enabled if**: argument Advanced == `true`
 
-**Only enabled if**: argument WFHTTPBodyType = `Form`
+**Only enabled if**: argument WFHTTPBodyType == `Form`
 
 **Only enabled if**: argument WFHTTPMethod != `GET`
 
@@ -106,9 +106,9 @@ Accepts a dictionary.
 ### jsonvalues: Dictionary [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#dictionary-field)
 **Allows Variables**: true
 
-**Only enabled if**: argument Advanced = `true`
+**Only enabled if**: argument Advanced == `true`
 
-**Only enabled if**: argument WFHTTPBodyType = `JSON`
+**Only enabled if**: argument WFHTTPBodyType == `JSON`
 
 **Only enabled if**: argument WFHTTPMethod != `GET`
 
@@ -119,9 +119,9 @@ Accepts a dictionary.
 ### file: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
 **Allows Variables**: true
 
-**Only enabled if**: argument Advanced = `true`
+**Only enabled if**: argument Advanced == `true`
 
-**Only enabled if**: argument WFHTTPBodyType = `File`
+**Only enabled if**: argument WFHTTPBodyType == `File`
 
 **Only enabled if**: argument WFHTTPMethod != `GET`
 

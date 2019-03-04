@@ -36,7 +36,7 @@ containing one of the options:
 **Placeholder**: `"Cupertino, CA"`
 **Allows Variables**: true
 
-**Only enabled if**: argument WFWeatherLocation = `Custom Location`
+**Only enabled if**: argument WFWeatherLocation == `Custom Location`
 
 Accepts a string 
 or text

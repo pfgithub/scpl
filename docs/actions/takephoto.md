@@ -41,7 +41,7 @@ or a variable.
 **Default Value**: `1`
 **Allows Variables**: true
 
-**Only enabled if**: argument WFCameraCaptureShowPreview = `true`
+**Only enabled if**: argument WFCameraCaptureShowPreview == `true`
 
 		Accepts a number 
 		or variable

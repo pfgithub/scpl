@@ -48,7 +48,7 @@ containing one of the options:
 **Placeholder**: `1`
 **Allows Variables**: true
 
-**Only enabled if**: argument WFPDFIncludedPages = `Single Page`
+**Only enabled if**: argument WFPDFIncludedPages == `Single Page`
 
 		Accepts a number 
 		or variable
@@ -60,7 +60,7 @@ containing one of the options:
 **Placeholder**: `1`
 **Allows Variables**: true
 
-**Only enabled if**: argument WFPDFIncludedPages = `Page Range`
+**Only enabled if**: argument WFPDFIncludedPages == `Page Range`
 
 		Accepts a number 
 		or variable
@@ -72,7 +72,7 @@ containing one of the options:
 **Placeholder**: `3`
 **Allows Variables**: true
 
-**Only enabled if**: argument WFPDFIncludedPages = `Page Range`
+**Only enabled if**: argument WFPDFIncludedPages == `Page Range`
 
 		Accepts a number 
 		or variable

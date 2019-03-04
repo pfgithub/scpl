@@ -36,7 +36,7 @@ or a variable.
 ### directlink: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
-**Only enabled if**: argument WFImgurAlbum = `false`
+**Only enabled if**: argument WFImgurAlbum == `false`
 
 Accepts a boolean
 or a variable.
@@ -57,7 +57,7 @@ or a variable.
 **Default Value**: `"Blog"`
 **Allows Variables**: true
 
-**Only enabled if**: argument WFImgurAlbum = `true`
+**Only enabled if**: argument WFImgurAlbum == `true`
 
 Accepts a string 
 or variable
@@ -74,7 +74,7 @@ containing one of the options:
 **Default Value**: `"Hidden"`
 **Allows Variables**: true
 
-**Only enabled if**: argument WFImgurAlbum = `true`
+**Only enabled if**: argument WFImgurAlbum == `true`
 
 Accepts a string 
 or variable

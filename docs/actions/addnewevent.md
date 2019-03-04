@@ -70,7 +70,7 @@ labels, these can be ignored.
 **Placeholder**: `"Tomorrow at noon"`
 **Allows Variables**: true
 
-**Only enabled if**: argument WFCalendarItemDates = `true`
+**Only enabled if**: argument WFCalendarItemDates == `true`
 
 Accepts a string 
 or text
@@ -82,7 +82,7 @@ with the text.
 **Placeholder**: `"Tomorrow at 1pm"`
 **Allows Variables**: true
 
-**Only enabled if**: argument WFCalendarItemDates = `true`
+**Only enabled if**: argument WFCalendarItemDates == `true`
 
 Accepts a string 
 or text
@@ -93,7 +93,7 @@ with the text.
 ### allday: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
-**Only enabled if**: argument WFCalendarItemDates = `true`
+**Only enabled if**: argument WFCalendarItemDates == `true`
 
 Accepts a boolean
 or a variable.
@@ -126,7 +126,7 @@ containing one of the options:
 **Placeholder**: `"Tomorrow at 4pm"`
 **Allows Variables**: true
 
-**Only enabled if**: argument WFAlertTime = `Custom`
+**Only enabled if**: argument WFAlertTime == `Custom`
 
 Accepts a string 
 or text

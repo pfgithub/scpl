@@ -43,7 +43,7 @@ or a variable.
 **Placeholder**: `"optional"`
 **Allows Variables**: true
 
-**Only enabled if**: argument WFSendEmailActionShowComposeSheet = `true`
+**Only enabled if**: argument WFSendEmailActionShowComposeSheet == `true`
 
 **Only enabled if**: Device attributes match `{"WFDeviceAttributeSystemVersion":{"WFSystemVersion":"11.0","WFSystemVersionRelation":">="}}` This action is always enabled inside Shortcutslang.
 

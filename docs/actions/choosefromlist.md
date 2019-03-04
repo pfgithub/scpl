@@ -45,7 +45,7 @@ or a variable.
 ### selectallinitially: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
-**Only enabled if**: argument WFChooseFromListActionSelectMultiple = `true`
+**Only enabled if**: argument WFChooseFromListActionSelectMultiple == `true`
 
 Accepts a boolean
 or a variable.

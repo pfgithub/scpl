@@ -39,7 +39,7 @@ containing one of the options:
 ### scientificoperation: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Allows Variables**: true
 
-**Only enabled if**: argument WFMathOperation = `…`
+**Only enabled if**: argument WFMathOperation == `…`
 
 Accepts a string 
 or variable
@@ -79,9 +79,9 @@ containing one of the options:
 **Placeholder**: `3`
 **Allows Variables**: true
 
-**Only enabled if**: argument WFMathOperation = `…`
+**Only enabled if**: argument WFMathOperation == `…`
 
-**Only enabled if**: argument WFScientificMathOperation = `Modulus` or `x^y`
+**Only enabled if**: argument WFScientificMathOperation == `Modulus` or `x^y`
 
 		Accepts a number 
 		or variable

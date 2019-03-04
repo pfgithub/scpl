@@ -40,7 +40,7 @@ containing one of the options:
 **Placeholder**: `1`
 **Allows Variables**: true
 
-**Only enabled if**: argument WFItemSpecifier = `Item At Index`
+**Only enabled if**: argument WFItemSpecifier == `Item At Index`
 
 		Accepts a number 
 		or variable
@@ -53,7 +53,7 @@ containing one of the options:
 **Default Value**: `1`
 **Allows Variables**: true
 
-**Only enabled if**: argument WFItemSpecifier = `Items in Range`
+**Only enabled if**: argument WFItemSpecifier == `Items in Range`
 
 		Accepts a number 
 		or variable
@@ -65,7 +65,7 @@ containing one of the options:
 **Placeholder**: `optional`
 **Allows Variables**: true
 
-**Only enabled if**: argument WFItemSpecifier = `Items in Range`
+**Only enabled if**: argument WFItemSpecifier == `Items in Range`
 
 		Accepts a number 
 		or variable

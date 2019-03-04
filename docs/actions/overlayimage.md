@@ -55,7 +55,7 @@ or a variable.
 **Default Value**: `"Center"`
 **Allows Variables**: true
 
-**Only enabled if**: argument WFShouldShowImageEditor = `false`
+**Only enabled if**: argument WFShouldShowImageEditor == `false`
 
 Accepts a string 
 or variable
@@ -74,7 +74,7 @@ containing one of the options:
 **Placeholder**: `Auto`
 **Allows Variables**: true
 
-**Only enabled if**: argument WFShouldShowImageEditor = `false`
+**Only enabled if**: argument WFShouldShowImageEditor == `false`
 
 		Accepts a number 
 		or variable
@@ -86,7 +86,7 @@ containing one of the options:
 **Placeholder**: `Auto`
 **Allows Variables**: true
 
-**Only enabled if**: argument WFShouldShowImageEditor = `false`
+**Only enabled if**: argument WFShouldShowImageEditor == `false`
 
 		Accepts a number 
 		or variable
@@ -98,9 +98,9 @@ containing one of the options:
 **Placeholder**: `0`
 **Allows Variables**: true
 
-**Only enabled if**: argument WFShouldShowImageEditor = `false`
+**Only enabled if**: argument WFShouldShowImageEditor == `false`
 
-**Only enabled if**: argument WFImagePosition = `Custom`
+**Only enabled if**: argument WFImagePosition == `Custom`
 
 		Accepts a number 
 		or variable
@@ -112,9 +112,9 @@ containing one of the options:
 **Placeholder**: `0`
 **Allows Variables**: true
 
-**Only enabled if**: argument WFShouldShowImageEditor = `false`
+**Only enabled if**: argument WFShouldShowImageEditor == `false`
 
-**Only enabled if**: argument WFImagePosition = `Custom`
+**Only enabled if**: argument WFImagePosition == `Custom`
 
 		Accepts a number 
 		or variable
@@ -126,7 +126,7 @@ containing one of the options:
 **Placeholder**: `0`
 **Allows Variables**: true
 
-**Only enabled if**: argument WFShouldShowImageEditor = `false`
+**Only enabled if**: argument WFShouldShowImageEditor == `false`
 
 		Accepts a number 
 		or variable
@@ -139,7 +139,7 @@ containing one of the options:
 **Default Value**: `100`
 **Allows Variables**: true
 
-**Only enabled if**: argument WFShouldShowImageEditor = `false`
+**Only enabled if**: argument WFShouldShowImageEditor == `false`
 
 		Accepts a number 
 		or variable

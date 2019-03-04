@@ -24,7 +24,7 @@ formatdate dateformat=("None" | "Short" | "Medium" | "Long" | "Relative" | "RFC 
 **Default Value**: `"Short"`
 **Allows Variables**: true
 
-**Only enabled if**: argument WFTimeFormatStyle = `None` or `Short` or `Medium` or `Long`
+**Only enabled if**: argument WFTimeFormatStyle == `None` or `Short` or `Medium` or `Long`
 
 Accepts a string 
 or variable
@@ -45,7 +45,7 @@ containing one of the options:
 **Default Value**: `"Medium"`
 **Allows Variables**: true
 
-**Only enabled if**: argument WFDateFormatStyle = `Relative`
+**Only enabled if**: argument WFDateFormatStyle == `Relative`
 
 Accepts a string 
 or variable
@@ -61,7 +61,7 @@ containing one of the options:
 **Default Value**: `"Short"`
 **Allows Variables**: true
 
-**Only enabled if**: argument WFDateFormatStyle = `None` or `Short` or `Medium` or `Long` or `Relative`
+**Only enabled if**: argument WFDateFormatStyle == `None` or `Short` or `Medium` or `Long` or `Relative`
 
 Accepts a string 
 or variable
@@ -78,7 +78,7 @@ containing one of the options:
 ### includeiso8601time: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
-**Only enabled if**: argument WFDateFormatStyle = `ISO 8601`
+**Only enabled if**: argument WFDateFormatStyle == `ISO 8601`
 
 Accepts a boolean
 or a variable.

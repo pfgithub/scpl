@@ -48,7 +48,7 @@ with the text.
 **Placeholder**: `"June 29, 2007"`
 **Allows Variables**: true
 
-**Only enabled if**: argument WFInputType = `Date`
+**Only enabled if**: argument WFInputType == `Date`
 
 Accepts a string 
 or text
@@ -77,7 +77,7 @@ containing one of the options:
 **Default Value**: `"Date"`
 **Allows Variables**: true
 
-**Only enabled if**: argument WFInputType = `Date`
+**Only enabled if**: argument WFInputType == `Date`
 
 Accepts a string 
 or variable

@@ -28,7 +28,7 @@ convertimage undefined=NotImplemented quality=number preservemetadata=(true | f 
 **Default Value**: `0.75`
 **Allows Variables**: true
 
-**Only enabled if**: argument WFImageFormat = `JPEG` or `JPEG-2000`
+**Only enabled if**: argument WFImageFormat == `JPEG` or `JPEG-2000`
 
 		Accepts a number 
 		or variable
@@ -42,7 +42,7 @@ convertimage undefined=NotImplemented quality=number preservemetadata=(true | f 
 		```
 **Allows Variables**: true
 
-**Only enabled if**: argument WFImageFormat = `JPEG` or `PNG` or `TIFF` or `HEIF` or `Match Input`
+**Only enabled if**: argument WFImageFormat == `JPEG` or `PNG` or `TIFF` or `HEIF` or `Match Input`
 
 Accepts a boolean
 or a variable.

@@ -81,7 +81,7 @@ labels, these can be ignored.
 ### allowcomments: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
-**Only enabled if**: argument Advanced = `true`
+**Only enabled if**: argument Advanced == `true`
 
 Accepts a boolean
 or a variable.
@@ -92,7 +92,7 @@ or a variable.
 **Placeholder**: `"quarterly-results"`
 **Allows Variables**: true
 
-**Only enabled if**: argument Advanced = `true`
+**Only enabled if**: argument Advanced == `true`
 
 Accepts a string 
 or text
@@ -104,7 +104,7 @@ with the text.
 **Placeholder**: `"An overall great quarter"`
 **Allows Variables**: true
 
-**Only enabled if**: argument Advanced = `true`
+**Only enabled if**: argument Advanced == `true`
 
 Accepts a string 
 or text
@@ -116,7 +116,7 @@ with the text.
 **Placeholder**: `"optional"`
 **Allows Variables**: true
 
-**Only enabled if**: argument Advanced = `true`
+**Only enabled if**: argument Advanced == `true`
 
 Accepts a string 
 or text
@@ -131,14 +131,14 @@ with the text.
 ### featuredimage: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
 **Allows Variables**: true
 
-**Only enabled if**: argument Advanced = `true`
+**Only enabled if**: argument Advanced == `true`
 
 Accepts a variable.
 
 ---
 
 ### customfields: Expand Arrow [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
-**Only enabled if**: argument Advanced = `true`
+**Only enabled if**: argument Advanced == `true`
 
 Accepts a boolean for if this
 parameter is expanded or not.
@@ -152,9 +152,9 @@ labels, these can be ignored.
 ### customfields2: Dictionary [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#dictionary-field)
 **Allows Variables**: true
 
-**Only enabled if**: argument Advanced = `true`
+**Only enabled if**: argument Advanced == `true`
 
-**Only enabled if**: argument ShowCustomFields = `true`
+**Only enabled if**: argument ShowCustomFields == `true`
 
 Accepts a dictionary.
 

@@ -57,7 +57,7 @@ labels, these can be ignored.
 ### remind: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Allows Variables**: true
 
-**Only enabled if**: argument WFCalendarItemAlert = `true`
+**Only enabled if**: argument WFCalendarItemAlert == `true`
 
 Accepts a string 
 or variable
@@ -71,9 +71,9 @@ containing one of the options:
 ### wheni: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Allows Variables**: true
 
-**Only enabled if**: argument WFCalendarItemAlert = `true`
+**Only enabled if**: argument WFCalendarItemAlert == `true`
 
-**Only enabled if**: argument WFAlertTrigger = `At Location`
+**Only enabled if**: argument WFAlertTrigger == `At Location`
 
 Accepts a string 
 or variable
@@ -89,9 +89,9 @@ containing one of the options:
 **Default Value**: `300`
 **Allows Variables**: true
 
-**Only enabled if**: argument WFCalendarItemAlert = `true`
+**Only enabled if**: argument WFCalendarItemAlert == `true`
 
-**Only enabled if**: argument WFAlertTrigger = `At Location`
+**Only enabled if**: argument WFAlertTrigger == `At Location`
 
 		Accepts a number 
 		or variable
@@ -103,9 +103,9 @@ containing one of the options:
 **Placeholder**: `"One Apple Park Way, Cupertino, CA"`
 **Allows Variables**: true
 
-**Only enabled if**: argument WFCalendarItemAlert = `true`
+**Only enabled if**: argument WFCalendarItemAlert == `true`
 
-**Only enabled if**: argument WFAlertTrigger = `At Location`
+**Only enabled if**: argument WFAlertTrigger == `At Location`
 
 Accepts a string 
 or text
@@ -117,9 +117,9 @@ with the text.
 **Placeholder**: `"Tomorrow at 4pm"`
 **Allows Variables**: true
 
-**Only enabled if**: argument WFCalendarItemAlert = `true`
+**Only enabled if**: argument WFCalendarItemAlert == `true`
 
-**Only enabled if**: argument WFAlertTrigger = `At Time`
+**Only enabled if**: argument WFAlertTrigger == `At Time`
 
 Accepts a string 
 or text

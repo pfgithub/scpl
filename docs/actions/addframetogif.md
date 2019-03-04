@@ -66,7 +66,7 @@ or a variable.
 **Placeholder**: `500`
 **Allows Variables**: true
 
-**Only enabled if**: argument WFGIFAutoSize = `false`
+**Only enabled if**: argument WFGIFAutoSize == `false`
 
 		Accepts a number 
 		or variable
@@ -78,7 +78,7 @@ or a variable.
 **Placeholder**: `500`
 **Allows Variables**: true
 
-**Only enabled if**: argument WFGIFAutoSize = `false`
+**Only enabled if**: argument WFGIFAutoSize == `false`
 
 		Accepts a number 
 		or variable

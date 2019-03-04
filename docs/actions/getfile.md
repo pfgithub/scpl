@@ -50,7 +50,7 @@ or a variable.
 ### selectmultiple: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
-**Only enabled if**: argument WFShowFilePicker = `true`
+**Only enabled if**: argument WFShowFilePicker == `true`
 
 Accepts a boolean
 or a variable.
@@ -61,7 +61,7 @@ or a variable.
 **Placeholder**: `"example.txt"`
 **Allows Variables**: true
 
-**Only enabled if**: argument WFShowFilePicker = `false`
+**Only enabled if**: argument WFShowFilePicker == `false`
 
 Accepts a string 
 or text
@@ -87,7 +87,7 @@ with the text.
 		```
 **Allows Variables**: true
 
-**Only enabled if**: argument WFShowFilePicker = `false`
+**Only enabled if**: argument WFShowFilePicker == `false`
 
 Accepts a boolean
 or a variable.

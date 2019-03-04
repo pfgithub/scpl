@@ -54,7 +54,7 @@ or a variable.
 ### destinationpath: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Allows Variables**: true
 
-**Only enabled if**: argument WFAskWhereToSave = `false`
+**Only enabled if**: argument WFAskWhereToSave == `false`
 
 Accepts a string 
 or text
@@ -65,7 +65,7 @@ with the text.
 ### overwriteiffileexists: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
-**Only enabled if**: argument WFAskWhereToSave = `false`
+**Only enabled if**: argument WFAskWhereToSave == `false`
 
 Accepts a boolean
 or a variable.

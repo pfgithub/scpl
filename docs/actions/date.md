@@ -37,7 +37,7 @@ containing one of the options:
 **Placeholder**: `"June 29, 2007"`
 **Allows Variables**: true
 
-**Only enabled if**: argument WFDateActionMode = `Specified Date`
+**Only enabled if**: argument WFDateActionMode == `Specified Date`
 
 Accepts a string 
 or text

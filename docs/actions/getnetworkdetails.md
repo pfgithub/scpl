@@ -28,7 +28,7 @@ getnetworkdetails undefined=NotImplemented get=("Network Name" | "BSSID") get2=(
 **Default Value**: `"Network Name"`
 **Allows Variables**: true
 
-**Only enabled if**: argument WFNetworkDetailsNetwork = `Wi-Fi`
+**Only enabled if**: argument WFNetworkDetailsNetwork == `Wi-Fi`
 
 Accepts a string 
 or variable
@@ -43,7 +43,7 @@ containing one of the options:
 **Default Value**: `"Carrier Name"`
 **Allows Variables**: true
 
-**Only enabled if**: argument WFNetworkDetailsNetwork = `Cellular`
+**Only enabled if**: argument WFNetworkDetailsNetwork == `Cellular`
 
 Accepts a string 
 or variable
