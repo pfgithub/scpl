@@ -1,12 +1,7 @@
 import { Action, ParameterType } from "./OutputData";
 import { ConvertingContext } from "./Converter";
 import { AsAble } from "./ParserData";
-declare class WFResource {
-    _data: any;
-    constructor(data: any);
-    shouldEnable(_action: Action): boolean;
-    genDocs(): string;
-}
+import { WFResource } from "./WFResource";
 declare class WFParameter {
     _data: any;
     defaultValue: string;

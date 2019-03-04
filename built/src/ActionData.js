@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const OutputData_1 = require("./OutputData");
 const HelpfulActions_1 = require("./HelpfulActions");
+const WFResource_1 = require("./WFResource");
 const Actions_1 = require("./Data/Actions");
 function genShortName(longName, internalName) {
     // lower case
@@ -10,96 +11,6 @@ function genShortName(longName, internalName) {
     shortName = shortName.replace(/[^A-Za-z0-9]/g, "");
     return shortName;
 }
-class WFResource {
-    constructor(data) {
-        this._data = data;
-    }
-    shouldEnable(_action) {
-        return true;
-    }
-    genDocs() {
-        return `Always enabled`;
-    }
-}
-const resourceTypes = {}; // I can't figure out what to put the type as here
-class WFDeviceAttributesResource extends WFResource {
-    shouldEnable(_action) {
-        return true;
-    }
-    genDocs() {
-        return `Device attributes match \`${JSON.stringify(this._data.WFDeviceAttributes)}\` This action is always enabled inside Shortcutslang.`;
-    }
-}
-resourceTypes.WFDeviceAttributesResource = WFDeviceAttributesResource;
-class WFWorkflowTypeResource extends WFResource {
-    shouldEnable(_action) {
-        return true;
-    }
-    genDocs() {
-        return `Workflow type is \`${this._data.WFWorkflowType}\`. This action is always enabled inside Shortcutslang.`;
-    }
-}
-resourceTypes.WFWorkflowTypeResource = WFWorkflowTypeResource;
-class WFWorkflowHiddenResource extends WFResource {
-    shouldEnable(_action) {
-        return false;
-    }
-    genDocs() {
-        return `This action is always **disabled** inside Shortcutslang.`;
-    }
-}
-class WFParameterRelationResource extends WFResource {
-    constructor(data) {
-        super(data);
-        this.relation = this._data.WFParameterRelation || "=";
-        this.argInternalName = this._data.WFParameterKey;
-        this.argValue = this._data.WFParameterValue;
-        this.argValues = this._data.WFParameterValues || [this.argValue];
-        const relations = { "=": 1, "!=": 1, ">=": 1, "<=": 1, ">": 1, "<": 1, "??": 1 };
-        if (!(relations)[this.relation]) {
-            throw new Error(`RelationResource relation type ${this.relation} is not implemented.`);
-        }
-    }
-    genDocs() {
-        return `argument ${this.argInternalName} ${this.relation} \`${this.argValues.join `\` or \``}\``;
-    }
-    shouldEnable(action) {
-        const currentValue = action.parameters.get(this.argInternalName);
-        const currentValueNum = +currentValue;
-        const isNum = !isNaN(currentValueNum);
-        switch (this.relation) {
-            case "=":
-                return this.argValues.some((val) => val === currentValue);
-            case "!=":
-                return this.argValues.indexOf(currentValue) === -1;
-            case ">=":
-                if (!isNum) {
-                    return false;
-                }
-                return currentValueNum >= this.argValue;
-            case "<=":
-                if (!isNum) {
-                    return false;
-                }
-                return currentValueNum <= this.argValue;
-            case ">":
-                if (!isNum) {
-                    return false;
-                }
-                return currentValueNum > this.argValue;
-            case "<":
-                if (!isNum) {
-                    return false;
-                }
-                return currentValueNum < this.argValue;
-            case "??":
-                return action.parameters.has(this.argInternalName);
-            default:
-                throw new Error(`RelationResource relation type ${this.relation} is not implemented.`);
-        }
-    }
-}
-resourceTypes.WFParameterRelationResource = WFParameterRelationResource;
 class WFParameter {
     constructor(data, typeName, docs) {
         this._data = data;
@@ -114,7 +25,7 @@ class WFParameter {
         this.docs = docs;
         this.requiredResources = this.requiredResources.map((resource) => {
             const type = resource.WFResourceClass;
-            const resourceClass = resourceTypes[type];
+            const resourceClass = WFResource_1.resourceTypes[type];
             if (!resourceClass) {
                 throw new Error(`${type} is not a defined resource class.`);
             }
@@ -122,7 +33,7 @@ class WFParameter {
             return new resourceClass(resource);
         });
         if (this._data.Hidden) {
-            this.requiredResources.push(new WFWorkflowHiddenResource({ Hidden: true }));
+            this.requiredResources.push(new WFResource_1.WFWorkflowHiddenResource({ Hidden: true }));
         }
     }
     shouldEnable(action) {
