@@ -11,18 +11,15 @@ Subtracts the specified date from the date passed into the action. For example, 
 
 ### usage
 ```
-gettimebetweendates gettimefrom="Right Now" | "Other"|variable otherdate="string" in="Total Time" | "Seconds" | "Minutes" | "Hours" | "Days" | "Weeks" | "Months" | "Years"
+gettimebetweendates gettimefrom=("Right Now" | "Other" | variable) otherdate="string" in=("Total Time" | "Seconds" | "Minutes" | "Hours" | "Days" | "Weeks" | "Months" | "Years")
 ```
 
 ### arguments
 
 ---
 
-### Enumeration: gettimefrom [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-**Default Value**:
-```
-Right Now
-```
+### gettimefrom: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+**Default Value**: `"Right Now"`
 
 
 Accepts a string 
@@ -31,15 +28,10 @@ containing one of the options:
 - `Right Now`
 - `Other`
 
-[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-
 ---
 
-### Date: otherdate [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-September 9, 2014
-```
+### otherdate: Date [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"September 9, 2014"`
 **Allows Variables**: true
 
 **Only enabled if**: argument WFTimeUntilReferenceDate = `Other`
@@ -50,11 +42,8 @@ with the text.
 
 ---
 
-### Enumeration: in [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-**Default Value**:
-```
-Minutes
-```
+### in: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+**Default Value**: `"Minutes"`
 **Allows Variables**: true
 
 
@@ -71,8 +60,6 @@ containing one of the options:
 - `Weeks`
 - `Months`
 - `Years`
-
-[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 
 ---
 

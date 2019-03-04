@@ -11,14 +11,14 @@ Makes a new folder in the specified file storage service.
 
 ### usage
 ```
-createfolder service="iCloud Drive" | "Dropbox" path="string"
+createfolder service=("iCloud Drive" | "Dropbox") path="string"
 ```
 
 ### arguments
 
 ---
 
-### Enumeration: service [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### service: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Allows Variables**: true
 
 
@@ -30,11 +30,9 @@ containing one of the options:
 - `iCloud Drive`
 - `Dropbox`
 
-[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-
 ---
 
-### Text: path [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### path: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Allows Variables**: true
 
 

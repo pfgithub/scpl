@@ -13,18 +13,15 @@ Searches for GIFs representing the text specified using Giphy.
 
 ### usage
 ```
-searchgiphy search="string" showgifpicker=true|false|variable wfgiphylimit=number selectmultiple=true|false|variable
+searchgiphy search="string" showgifpicker=(true | f alse | variable) wfgiphylimit=number selectmultiple=(true | f alse | variable)
 ```
 
 ### arguments
 
 ---
 
-### Text: search [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-leave blank for trending
-```
+### search: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"leave blank for trending"`
 **Allows Variables**: true
 
 
@@ -35,11 +32,10 @@ with the text.
 
 ---
 
-### Switch: showgifpicker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
-**Default Value**:
-```
-true
-```
+### showgifpicker: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+**Default Value**: ```
+		true
+		```
 **Allows Variables**: true
 
 
@@ -49,11 +45,8 @@ or a variable.
 
 ---
 
-### Stepper Number: wfgiphylimit [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
-**Default Value**:
-```
-1
-```
+### wfgiphylimit: Stepper Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
+**Default Value**: `1`
 **Allows Variables**: true
 
 **Only enabled if**: argument WFGiphyShowPicker = `false`
@@ -64,7 +57,7 @@ or a variable.
 
 ---
 
-### Switch: selectmultiple [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### selectmultiple: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 **Only enabled if**: argument WFGiphyShowPicker = `true`

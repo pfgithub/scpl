@@ -5,18 +5,17 @@
 
 ### usage
 ```
-unknownintent showwhenrun=true|false|variable
+unknownintent showwhenrun=(true | f alse | variable)
 ```
 
 ### arguments
 
 ---
 
-### Switch: showwhenrun [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
-**Default Value**:
-```
-true
-```
+### showwhenrun: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+**Default Value**: ```
+		true
+		```
 **Allows Variables**: true
 
 

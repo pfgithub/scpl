@@ -13,18 +13,15 @@ Gets the most recent photos from the camera roll.
 
 ### usage
 ```
-getlatestphotos wfgetlatestphotocount=number includescreenshots=true|false|variable
+getlatestphotos wfgetlatestphotocount=number includescreenshots=(true | f alse | variable)
 ```
 
 ### arguments
 
 ---
 
-### Stepper Number: wfgetlatestphotocount [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
-**Default Value**:
-```
-1
-```
+### wfgetlatestphotocount: Stepper Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
+**Default Value**: `1`
 **Allows Variables**: true
 
 
@@ -35,11 +32,10 @@ getlatestphotos wfgetlatestphotocount=number includescreenshots=true|false|varia
 
 ---
 
-### Switch: includescreenshots [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
-**Default Value**:
-```
-true
-```
+### includescreenshots: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+**Default Value**: ```
+		true
+		```
 **Allows Variables**: true
 
 

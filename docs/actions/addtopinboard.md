@@ -13,18 +13,15 @@ Adds the URL passed into the action to your Pinboard.
 
 ### usage
 ```
-addtopinboard title="string" tags="string" public=true|false|variable unread=true|false|variable description="string"
+addtopinboard title="string" tags="string" public=(true | f alse | variable) unread=(true | f alse | variable) description="string"
 ```
 
 ### arguments
 
 ---
 
-### Text: title [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-optional
-```
+### title: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"optional"`
 **Allows Variables**: true
 
 
@@ -35,11 +32,8 @@ with the text.
 
 ---
 
-### Text: tags [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-apple longread
-```
+### tags: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"apple longread"`
 **Allows Variables**: true
 
 
@@ -50,11 +44,10 @@ with the text.
 
 ---
 
-### Switch: public [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
-**Default Value**:
-```
-true
-```
+### public: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+**Default Value**: ```
+		true
+		```
 **Allows Variables**: true
 
 
@@ -64,11 +57,10 @@ or a variable.
 
 ---
 
-### Switch: unread [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
-**Default Value**:
-```
-true
-```
+### unread: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+**Default Value**: ```
+		true
+		```
 **Allows Variables**: true
 
 
@@ -78,11 +70,8 @@ or a variable.
 
 ---
 
-### Text: description [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-Description
-```
+### description: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"Description"`
 **Allows Variables**: true
 
 

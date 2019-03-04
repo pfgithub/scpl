@@ -15,7 +15,7 @@ Calls the contact passed in as input using FaceTime.
 
 ### usage
 ```
-facetime undefined=NotImplemented calltype="Video" | "Audio"
+facetime undefined=NotImplemented calltype=("Video" | "Audio")
 ```
 
 ### arguments
@@ -26,11 +26,8 @@ facetime undefined=NotImplemented calltype="Video" | "Audio"
 
 ---
 
-### Enumeration: calltype [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-**Default Value**:
-```
-Video
-```
+### calltype: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+**Default Value**: `"Video"`
 **Allows Variables**: true
 
 
@@ -41,8 +38,6 @@ containing one of the options:
 
 - `Video`
 - `Audio`
-
-[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 
 ---
 

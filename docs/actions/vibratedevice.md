@@ -13,18 +13,15 @@ Vibrates the device for a short amount of time.
 
 ### usage
 ```
-vibratedevice hapticpattern="Default" | "Up Direction" | "Down Direction" | "Success" | "Failure" | "Retry" | "Start" | "Stop" | "Click"
+vibratedevice hapticpattern=("Default" | "Up Direction" | "Down Direction" | "Success" | "Failure" | "Retry" | "Start" | "Stop" | "Click")
 ```
 
 ### arguments
 
 ---
 
-### Enumeration: hapticpattern [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-**Default Value**:
-```
-Default
-```
+### hapticpattern: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+**Default Value**: `"Default"`
 **Allows Variables**: true
 
 **Only enabled if**: Workflow type is `WatchKit`. This action is always enabled inside Shortcutslang.
@@ -44,8 +41,6 @@ containing one of the options:
 - `Start`
 - `Stop`
 - `Click`
-
-[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 
 ---
 

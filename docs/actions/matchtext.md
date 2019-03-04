@@ -15,18 +15,15 @@ A list of text items that matched the regular expression
 
 ### usage
 ```
-matchtext pattern="string" casesensitive=true|false|variable
+matchtext pattern="string" casesensitive=(true | f alse | variable)
 ```
 
 ### arguments
 
 ---
 
-### Text: pattern [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Default Value**:
-```
-[0-9a-zA-Z]
-```
+### pattern: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Default Value**: `"[0-9a-zA-Z]"`
 **Allows Variables**: true
 
 
@@ -37,11 +34,10 @@ with the text.
 
 ---
 
-### Switch: casesensitive [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
-**Default Value**:
-```
-true
-```
+### casesensitive: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+**Default Value**: ```
+		true
+		```
 **Allows Variables**: true
 
 

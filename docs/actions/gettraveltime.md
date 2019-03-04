@@ -1,8 +1,6 @@
 
 ## Get Travel Time / gettraveltime (internally `is.workflow.actions.gettraveltime`)
 
-> This action is not yet complete. Some arguments may be missing.
-
 > This action requires that Shortcuts has permission to use WFMainThreadResource,WFLocationAccessResource.
 
 
@@ -24,18 +22,15 @@ The amount of time it will take to get to the destination. If passed into an act
 
 ### usage
 ```
-gettraveltime from="Current Location" | "Custom Location"|variable undefined=NotImplemented transportationmode="Driving" | "Walking" | "Transit"
+gettraveltime from=("Current Location" | "Custom Location" | variable) location="string" transportationmode=("Driving" | "Walking" | "Transit")
 ```
 
 ### arguments
 
 ---
 
-### Enumeration: from [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-**Default Value**:
-```
-Current Location
-```
+### from: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+**Default Value**: `"Current Location"`
 
 
 Accepts a string 
@@ -44,19 +39,22 @@ containing one of the options:
 - `Current Location`
 - `Custom Location`
 
-[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+---
+
+### location: Location [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"One Apple Park Way"`
+**Allows Variables**: true
+
+**Only enabled if**: argument WFGetDirectionsFrom = `Custom Location`
+
+Accepts a string 
+or text
+with the text.
 
 ---
 
-#### This paramtype is not implemented. WFLocationFieldParameter
-
----
-
-### Enumeration: transportationmode [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-**Default Value**:
-```
-Driving
-```
+### transportationmode: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+**Default Value**: `"Driving"`
 **Allows Variables**: true
 
 
@@ -68,8 +66,6 @@ containing one of the options:
 - `Driving`
 - `Walking`
 - `Transit`
-
-[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 
 ---
 

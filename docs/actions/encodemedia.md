@@ -11,14 +11,14 @@ Re-encodes the media passed as input at the specified size, optionally convertin
 
 ### usage
 ```
-encodemedia audioonly=true|false|variable format="M4A" | "AIFF" size="640x480" | "960x540" | "1280x720" | "1920x1080" | "HEVC 1920x1080" | "HEVC 3840x2160" | "Passthrough" speed="0.5X" | "Normal" | "2X" | "Custom" customspeed=number metadata=true|false title="string" artist="string" album="string" genre="string" year="string" artwork=v:myvar|mv:myvar|s:myvar
+encodemedia audioonly=(true | f alse | variable) format=("M4A" | "AIFF") size=("640x480" | "960x540" | "1280x720" | "1920x1080" | "HEVC 1920x1080" | "HEVC 3840x2160" | "Passthrough") speed=("0.5X" | "Normal" | "2X" | "Custom") customspeed=number metadata=(true | false) title="string" artist="string" album="string" genre="string" year="string" artwork=(v:myvar | mv:myvar | s:myvar)
 ```
 
 ### arguments
 
 ---
 
-### Switch: audioonly [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### audioonly: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 
@@ -28,11 +28,8 @@ or a variable.
 
 ---
 
-### Enumeration: format [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-**Default Value**:
-```
-M4A
-```
+### format: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+**Default Value**: `"M4A"`
 **Allows Variables**: true
 
 **Only enabled if**: argument WFMediaAudioOnly = `true`
@@ -44,15 +41,10 @@ containing one of the options:
 - `M4A`
 - `AIFF`
 
-[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-
 ---
 
-### Enumeration: size [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-**Default Value**:
-```
-Passthrough
-```
+### size: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+**Default Value**: `"Passthrough"`
 **Allows Variables**: true
 
 **Only enabled if**: argument WFMediaAudioOnly = `false`
@@ -69,15 +61,10 @@ containing one of the options:
 - `HEVC 3840x2160`
 - `Passthrough`
 
-[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-
 ---
 
-### Enumeration: speed [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-**Default Value**:
-```
-Normal
-```
+### speed: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+**Default Value**: `"Normal"`
 **Allows Variables**: true
 
 
@@ -91,15 +78,10 @@ containing one of the options:
 - `2X`
 - `Custom`
 
-[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-
 ---
 
-### Number: customspeed [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
-**Placeholder**:
-```
-1.0
-```
+### customspeed: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+**Placeholder**: `1.0`
 **Allows Variables**: true
 
 **Only enabled if**: argument WFMediaSpeed = `Custom`
@@ -110,7 +92,7 @@ containing one of the options:
 
 ---
 
-### Expand Arrow: metadata [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### metadata: Expand Arrow [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 
 
 Accepts a boolean for if this
@@ -122,11 +104,8 @@ labels, these can be ignored.
 
 ---
 
-### Text: title [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-My Great Track
-```
+### title: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"My Great Track"`
 **Allows Variables**: true
 
 **Only enabled if**: argument Metadata = `true`
@@ -137,11 +116,8 @@ with the text.
 
 ---
 
-### Text: artist [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-Nicholas Fryingpan
-```
+### artist: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"Nicholas Fryingpan"`
 **Allows Variables**: true
 
 **Only enabled if**: argument Metadata = `true`
@@ -152,11 +128,8 @@ with the text.
 
 ---
 
-### Text: album [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-Abbey Road
-```
+### album: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"Abbey Road"`
 **Allows Variables**: true
 
 **Only enabled if**: argument Metadata = `true`
@@ -167,11 +140,8 @@ with the text.
 
 ---
 
-### Text: genre [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-Indie
-```
+### genre: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"Indie"`
 **Allows Variables**: true
 
 **Only enabled if**: argument Metadata = `true`
@@ -182,11 +152,8 @@ with the text.
 
 ---
 
-### Text: year [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-2001
-```
+### year: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"2001"`
 **Allows Variables**: true
 
 **Only enabled if**: argument Metadata = `true`
@@ -197,7 +164,7 @@ with the text.
 
 ---
 
-### Variable Picker: artwork [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+### artwork: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
 **Allows Variables**: true
 
 **Only enabled if**: argument Metadata = `true`

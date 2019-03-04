@@ -11,18 +11,15 @@ Calculates statistics on the numbers that are provided as input.
 
 ### usage
 ```
-calculatestatistics operation="Average" | "Minimum" | "Maximum" | "Sum" | "Median" | "Mode" | "Range" | "Standard Deviation"
+calculatestatistics operation=("Average" | "Minimum" | "Maximum" | "Sum" | "Median" | "Mode" | "Range" | "Standard Deviation")
 ```
 
 ### arguments
 
 ---
 
-### Enumeration: operation [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-**Default Value**:
-```
-Average
-```
+### operation: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+**Default Value**: `"Average"`
 **Allows Variables**: true
 
 
@@ -39,8 +36,6 @@ containing one of the options:
 - `Mode`
 - `Range`
 - `Standard Deviation`
-
-[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 
 ---
 

@@ -17,18 +17,15 @@ Video from the camera.
 
 ### usage
 ```
-takevideo camera="Front" | "Back" quality="Low" | "Medium" | "High" startrecording="On Tap" | "Immediately"
+takevideo camera=("Front" | "Back") quality=("Low" | "Medium" | "High") startrecording=("On Tap" | "Immediately")
 ```
 
 ### arguments
 
 ---
 
-### Enumeration: camera [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-**Default Value**:
-```
-Back
-```
+### camera: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+**Default Value**: `"Back"`
 **Allows Variables**: true
 
 
@@ -40,15 +37,10 @@ containing one of the options:
 - `Front`
 - `Back`
 
-[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-
 ---
 
-### Enumeration: quality [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-**Default Value**:
-```
-Medium
-```
+### quality: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+**Default Value**: `"Medium"`
 **Allows Variables**: true
 
 
@@ -61,15 +53,10 @@ containing one of the options:
 - `Medium`
 - `High`
 
-[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-
 ---
 
-### Enumeration: startrecording [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-**Default Value**:
-```
-Immediately
-```
+### startrecording: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+**Default Value**: `"Immediately"`
 **Allows Variables**: true
 
 
@@ -80,8 +67,6 @@ containing one of the options:
 
 - `On Tap`
 - `Immediately`
-
-[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 
 ---
 

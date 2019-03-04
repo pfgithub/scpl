@@ -13,7 +13,7 @@ Tests if any item passed as input matches the specified condition, and if so, ru
 
 ### usage
 ```
-if input="Equals" | "Contains" | "Is Greater Than" | "Is Less Than"|variable number=number value="string"
+if input=("Equals" | "Contains" | "Is Greater Than" | "Is Less Than" | variable) number=number value="string"
   ...
 otherwise
   ...
@@ -24,11 +24,8 @@ end
 
 ---
 
-### Enumeration: input [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-**Default Value**:
-```
-Contains
-```
+### input: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+**Default Value**: `"Contains"`
 
 
 Accepts a string 
@@ -39,15 +36,10 @@ containing one of the options:
 - `Is Greater Than`
 - `Is Less Than`
 
-[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-
 ---
 
-### Number: number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
-**Placeholder**:
-```
-7
-```
+### number: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+**Placeholder**: `7`
 **Allows Variables**: true
 
 **Only enabled if**: argument WFCondition = `Is Greater Than` or `Is Less Than`
@@ -58,11 +50,8 @@ containing one of the options:
 
 ---
 
-### Text: value [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-example
-```
+### value: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"example"`
 **Allows Variables**: true
 
 **Only enabled if**: argument WFCondition = `Contains` or `Equals`

@@ -18,11 +18,8 @@ formatnumber wfnumberformatdecimalplaces=number
 
 ---
 
-### Stepper Number: wfnumberformatdecimalplaces [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
-**Default Value**:
-```
-2
-```
+### wfnumberformatdecimalplaces: Stepper Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
+**Default Value**: `2`
 **Allows Variables**: true
 
 

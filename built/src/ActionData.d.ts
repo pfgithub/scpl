@@ -20,6 +20,7 @@ declare class WFParameter {
     constructor(data: any, typeName: string, docs: string);
     shouldEnable(action: Action): boolean;
     genDocsArgName(): string;
+    genDocsDefaultValue(value: string): string;
     genDocsAutocompletePlaceholder(): string;
     genDocs(): string;
     build(_cc: ConvertingContext, parse: AsAble): ParameterType;

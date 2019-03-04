@@ -26,11 +26,8 @@ logworkout undefined=NotImplemented date="string" undefined=NotImplemented undef
 
 ---
 
-### Date: date [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-optional
-```
+### date: Date [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"optional"`
 **Allows Variables**: true
 
 

@@ -13,14 +13,14 @@ Prompts to select music from your local music library.
 
 ### usage
 ```
-selectmusic selectmultiplesongs=true|false|variable
+selectmusic selectmultiplesongs=(true | f alse | variable)
 ```
 
 ### arguments
 
 ---
 
-### Switch: selectmultiplesongs [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### selectmultiplesongs: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 

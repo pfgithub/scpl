@@ -20,14 +20,14 @@ The masked images
 
 ### usage
 ```
-maskimage type="Rounded Rectangle" | "Ellipse" | "Icon" | "Custom Image"|variable cornerradius=number imagemask=v:myvar|mv:myvar|s:myvar
+maskimage type=("Rounded Rectangle" | "Ellipse" | "Icon" | "Custom Image" | variable) cornerradius=number imagemask=(v:myvar | mv:myvar | s:myvar)
 ```
 
 ### arguments
 
 ---
 
-### Enumeration: type [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### type: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 
 
 Accepts a string 
@@ -38,15 +38,10 @@ containing one of the options:
 - `Icon`
 - `Custom Image`
 
-[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-
 ---
 
-### Number: cornerradius [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
-**Placeholder**:
-```
-0
-```
+### cornerradius: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+**Placeholder**: `0`
 **Allows Variables**: true
 
 **Only enabled if**: argument WFMaskType = `Rounded Rectangle`
@@ -57,7 +52,7 @@ containing one of the options:
 
 ---
 
-### Variable Picker: imagemask [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+### imagemask: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
 **Allows Variables**: true
 
 **Only enabled if**: argument WFMaskType = `Custom Image`

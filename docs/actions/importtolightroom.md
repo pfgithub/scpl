@@ -13,14 +13,14 @@ Imports the photos passed as input into Lightroom
 
 ### usage
 ```
-importtolightroom applypreset=true|false|variable presetgroup="B&W" | "Color" | "Creative" | "Curve" | "Grain" | "Sharpening" | "Vignetting" undefined=NotImplemented
+importtolightroom applypreset=(true | f alse | variable) presetgroup=("B&W" | "Color" | "Creative" | "Curve" | "Grain" | "Sharpening" | "Vignetting") undefined=NotImplemented
 ```
 
 ### arguments
 
 ---
 
-### Switch: applypreset [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### applypreset: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 
@@ -30,11 +30,8 @@ or a variable.
 
 ---
 
-### Enumeration: presetgroup [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-**Default Value**:
-```
-Color
-```
+### presetgroup: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+**Default Value**: `"Color"`
 **Allows Variables**: true
 
 **Only enabled if**: argument applyPreset = `true`
@@ -50,8 +47,6 @@ containing one of the options:
 - `Grain`
 - `Sharpening`
 - `Vignetting`
-
-[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 
 ---
 

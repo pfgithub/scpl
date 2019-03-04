@@ -13,18 +13,15 @@ Formats a date and time into text.
 
 ### usage
 ```
-formatdate dateformat="None" | "Short" | "Medium" | "Long" | "Relative" | "RFC 2822" | "ISO 8601" | "Custom" alternateformat="Short" | "Medium" | "Long" timeformat="None" | "Short" | "Medium" | "Long" | "Relative" includeiso8601time=true|false|variable undefined=NotImplemented
+formatdate dateformat=("None" | "Short" | "Medium" | "Long" | "Relative" | "RFC 2822" | "ISO 8601" | "Custom") alternateformat=("Short" | "Medium" | "Long") timeformat=("None" | "Short" | "Medium" | "Long" | "Relative") includeiso8601time=(true | f alse | variable) undefined=NotImplemented
 ```
 
 ### arguments
 
 ---
 
-### Enumeration: dateformat [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-**Default Value**:
-```
-Short
-```
+### dateformat: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+**Default Value**: `"Short"`
 **Allows Variables**: true
 
 **Only enabled if**: argument WFTimeFormatStyle = `None` or `Short` or `Medium` or `Long`
@@ -42,15 +39,10 @@ containing one of the options:
 - `ISO 8601`
 - `Custom`
 
-[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-
 ---
 
-### Enumeration: alternateformat [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-**Default Value**:
-```
-Medium
-```
+### alternateformat: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+**Default Value**: `"Medium"`
 **Allows Variables**: true
 
 **Only enabled if**: argument WFDateFormatStyle = `Relative`
@@ -63,15 +55,10 @@ containing one of the options:
 - `Medium`
 - `Long`
 
-[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-
 ---
 
-### Enumeration: timeformat [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-**Default Value**:
-```
-Short
-```
+### timeformat: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+**Default Value**: `"Short"`
 **Allows Variables**: true
 
 **Only enabled if**: argument WFDateFormatStyle = `None` or `Short` or `Medium` or `Long` or `Relative`
@@ -86,11 +73,9 @@ containing one of the options:
 - `Long`
 - `Relative`
 
-[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-
 ---
 
-### Switch: includeiso8601time [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### includeiso8601time: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 **Only enabled if**: argument WFDateFormatStyle = `ISO 8601`

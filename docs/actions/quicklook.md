@@ -13,14 +13,14 @@ Displays a preview of the input.
 
 ### usage
 ```
-quicklook fullscreen=true|false|variable
+quicklook fullscreen=(true | f alse | variable)
 ```
 
 ### arguments
 
 ---
 
-### Switch: fullscreen [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### fullscreen: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 **Only enabled if**: Device attributes match `{"WFDeviceAttributeIdiom":"Pad"}` This action is always enabled inside Shortcutslang.

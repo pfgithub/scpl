@@ -13,18 +13,17 @@ Sets the device’s Airplane Mode to on or off.
 
 ### usage
 ```
-setairplanemode airplanemode=true|false|variable
+setairplanemode airplanemode=(true | f alse | variable)
 ```
 
 ### arguments
 
 ---
 
-### Switch: airplanemode [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
-**Default Value**:
-```
-true
-```
+### airplanemode: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+**Default Value**: ```
+		true
+		```
 **Allows Variables**: true
 
 

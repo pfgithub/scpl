@@ -11,18 +11,15 @@ Gets information about the current device.
 
 ### usage
 ```
-getdevicedetails get="Device Name" | "Device Model" | "System Version" | "Screen Width" | "Screen Height" | "Current Volume" | "Current Brightness"
+getdevicedetails get=("Device Name" | "Device Model" | "System Version" | "Screen Width" | "Screen Height" | "Current Volume" | "Current Brightness")
 ```
 
 ### arguments
 
 ---
 
-### Enumeration: get [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-**Default Value**:
-```
-Device Name
-```
+### get: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+**Default Value**: `"Device Name"`
 **Allows Variables**: true
 
 
@@ -38,8 +35,6 @@ containing one of the options:
 - `Screen Height`
 - `Current Volume`
 - `Current Brightness`
-
-[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 
 ---
 

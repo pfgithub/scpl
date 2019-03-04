@@ -24,18 +24,15 @@ The distance to the location in miles or kilometers.
 
 ### usage
 ```
-getdistance from="Current Location" | "Custom Location"|variable undefined=NotImplemented routetype="Direct" | "Driving" | "Walking" undefined=NotImplemented
+getdistance from=("Current Location" | "Custom Location" | variable) location="string" routetype=("Direct" | "Driving" | "Walking") undefined=NotImplemented
 ```
 
 ### arguments
 
 ---
 
-### Enumeration: from [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-**Default Value**:
-```
-Current Location
-```
+### from: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+**Default Value**: `"Current Location"`
 
 
 Accepts a string 
@@ -44,19 +41,22 @@ containing one of the options:
 - `Current Location`
 - `Custom Location`
 
-[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+---
+
+### location: Location [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"One Apple Park Way"`
+**Allows Variables**: true
+
+**Only enabled if**: argument WFGetDirectionsFrom = `Custom Location`
+
+Accepts a string 
+or text
+with the text.
 
 ---
 
-#### This paramtype is not implemented. WFLocationFieldParameter
-
----
-
-### Enumeration: routetype [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-**Default Value**:
-```
-Direct
-```
+### routetype: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+**Default Value**: `"Direct"`
 **Allows Variables**: true
 
 
@@ -68,8 +68,6 @@ containing one of the options:
 - `Direct`
 - `Driving`
 - `Walking`
-
-[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 
 ---
 

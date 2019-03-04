@@ -13,14 +13,14 @@ Prompts to pick a person from your contacts and passes the selection to the next
 
 ### usage
 ```
-selectcontact selectmultiple=true|false|variable
+selectcontact selectmultiple=(true | f alse | variable)
 ```
 
 ### arguments
 
 ---
 
-### Switch: selectmultiple [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### selectmultiple: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 

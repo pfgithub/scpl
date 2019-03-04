@@ -19,7 +19,7 @@ The URL of the new blog post
 
 ### usage
 ```
-posttowordpress undefined=NotImplemented undefined=NotImplemented title="string" undefined=NotImplemented undefined=NotImplemented undefined=NotImplemented undefined=NotImplemented undefined=NotImplemented advanced=true|false allowcomments=true|false|variable slug="string" excerpt="string" publishdate="string" undefined=NotImplemented featuredimage=v:myvar|mv:myvar|s:myvar customfields=true|false customfields2={dictionary}
+posttowordpress undefined=NotImplemented undefined=NotImplemented title="string" undefined=NotImplemented undefined=NotImplemented undefined=NotImplemented undefined=NotImplemented undefined=NotImplemented advanced=(true | false) allowcomments=(true | f alse | variable) slug="string" excerpt="string" publishdate="string" undefined=NotImplemented featuredimage=(v:myvar | mv:myvar | s:myvar) customfields=(true | false) customfields2={dictionary}
 ```
 
 ### arguments
@@ -34,11 +34,8 @@ posttowordpress undefined=NotImplemented undefined=NotImplemented title="string"
 
 ---
 
-### Text: title [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-Quarterly Results
-```
+### title: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"Quarterly Results"`
 **Allows Variables**: true
 
 
@@ -69,7 +66,7 @@ with the text.
 
 ---
 
-### Expand Arrow: advanced [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### advanced: Expand Arrow [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 
 
 Accepts a boolean for if this
@@ -81,7 +78,7 @@ labels, these can be ignored.
 
 ---
 
-### Switch: allowcomments [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### allowcomments: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 **Only enabled if**: argument Advanced = `true`
@@ -91,11 +88,8 @@ or a variable.
 
 ---
 
-### Text: slug [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-quarterly-results
-```
+### slug: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"quarterly-results"`
 **Allows Variables**: true
 
 **Only enabled if**: argument Advanced = `true`
@@ -106,11 +100,8 @@ with the text.
 
 ---
 
-### Text: excerpt [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-An overall great quarter
-```
+### excerpt: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"An overall great quarter"`
 **Allows Variables**: true
 
 **Only enabled if**: argument Advanced = `true`
@@ -121,11 +112,8 @@ with the text.
 
 ---
 
-### Date: publishdate [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-optional
-```
+### publishdate: Date [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"optional"`
 **Allows Variables**: true
 
 **Only enabled if**: argument Advanced = `true`
@@ -140,7 +128,7 @@ with the text.
 
 ---
 
-### Variable Picker: featuredimage [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+### featuredimage: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
 **Allows Variables**: true
 
 **Only enabled if**: argument Advanced = `true`
@@ -149,7 +137,7 @@ Accepts a variable.
 
 ---
 
-### Expand Arrow: customfields [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### customfields: Expand Arrow [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Only enabled if**: argument Advanced = `true`
 
 Accepts a boolean for if this
@@ -161,7 +149,7 @@ labels, these can be ignored.
 
 ---
 
-### Dictionary: customfields2 [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#dictionary-field)
+### customfields2: Dictionary [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#dictionary-field)
 **Allows Variables**: true
 
 **Only enabled if**: argument Advanced = `true`

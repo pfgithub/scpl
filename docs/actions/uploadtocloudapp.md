@@ -17,18 +17,15 @@ CloudApp URL
 
 ### usage
 ```
-uploadtocloudapp linkprivacy="Private" | "Public"
+uploadtocloudapp linkprivacy=("Private" | "Public")
 ```
 
 ### arguments
 
 ---
 
-### Enumeration: linkprivacy [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-**Default Value**:
-```
-Private
-```
+### linkprivacy: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+**Default Value**: `"Private"`
 **Allows Variables**: true
 
 
@@ -39,8 +36,6 @@ containing one of the options:
 
 - `Private`
 - `Public`
-
-[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 
 ---
 

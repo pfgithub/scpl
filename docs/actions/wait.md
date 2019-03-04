@@ -20,11 +20,8 @@ wait wfdelaytime=number
 
 ---
 
-### Stepper Number: wfdelaytime [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
-**Default Value**:
-```
-1
-```
+### wfdelaytime: Stepper Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
+**Default Value**: `1`
 **Allows Variables**: true
 
 

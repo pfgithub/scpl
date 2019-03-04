@@ -18,14 +18,14 @@ The music to be played
 
 ### usage
 ```
-playmusic shuffle="Off" | "Songs" repeat="None" | "One" | "All"
+playmusic shuffle=("Off" | "Songs") repeat=("None" | "One" | "All")
 ```
 
 ### arguments
 
 ---
 
-### Enumeration: shuffle [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### shuffle: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Allows Variables**: true
 
 
@@ -37,11 +37,9 @@ containing one of the options:
 - `Off`
 - `Songs`
 
-[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-
 ---
 
-### Enumeration: repeat [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### repeat: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Allows Variables**: true
 
 
@@ -53,8 +51,6 @@ containing one of the options:
 - `None`
 - `One`
 - `All`
-
-[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 
 ---
 

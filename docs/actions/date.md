@@ -11,18 +11,15 @@ Passes the specified date and time to the next action.
 
 ### usage
 ```
-date use="Current Date" | "Specified Date" date="string"
+date use=("Current Date" | "Specified Date") date="string"
 ```
 
 ### arguments
 
 ---
 
-### Enumeration: use [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-**Default Value**:
-```
-Current Date
-```
+### use: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+**Default Value**: `"Current Date"`
 **Allows Variables**: true
 
 
@@ -34,15 +31,10 @@ containing one of the options:
 - `Current Date`
 - `Specified Date`
 
-[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-
 ---
 
-### Date: date [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-June 29, 2007
-```
+### date: Date [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"June 29, 2007"`
 **Allows Variables**: true
 
 **Only enabled if**: argument WFDateActionMode = `Specified Date`

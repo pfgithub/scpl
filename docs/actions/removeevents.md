@@ -13,14 +13,14 @@ Removes all events passed into the action from the calendars they are contained 
 
 ### usage
 ```
-removeevents includefutureevents=true|false|variable
+removeevents includefutureevents=(true | f alse | variable)
 ```
 
 ### arguments
 
 ---
 
-### Switch: includefutureevents [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### includefutureevents: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 

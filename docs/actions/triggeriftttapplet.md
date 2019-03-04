@@ -15,7 +15,7 @@ Triggers an IFTTT applet. Configure which applet in the IFTTT app.
 
 ### usage
 ```
-triggeriftttapplet undefined=NotImplemented wfiftttextraingredients=number|variable ingredient1="string" ingredient2="string" ingredient3="string" ingredient4="string" ingredient5="string" ingredient6="string" ingredient7="string" ingredient8="string" ingredient9="string" ingredient10="string" undefined=NotImplemented
+triggeriftttapplet undefined=NotImplemented wfiftttextraingredients=(number | variable) ingredient1="string" ingredient2="string" ingredient3="string" ingredient4="string" ingredient5="string" ingredient6="string" ingredient7="string" ingredient8="string" ingredient9="string" ingredient10="string" undefined=NotImplemented
 ```
 
 ### arguments
@@ -26,7 +26,7 @@ triggeriftttapplet undefined=NotImplemented wfiftttextraingredients=number|varia
 
 ---
 
-### Stepper Number: wfiftttextraingredients [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
+### wfiftttextraingredients: Stepper Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
 
 
 		Accepts a number 
@@ -34,11 +34,8 @@ triggeriftttapplet undefined=NotImplemented wfiftttextraingredients=number|varia
 
 ---
 
-### Text: ingredient1 [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-optional
-```
+### ingredient1: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"optional"`
 **Allows Variables**: true
 
 **Only enabled if**: argument WFIFTTTExtraIngredients >= `1`
@@ -49,11 +46,8 @@ with the text.
 
 ---
 
-### Text: ingredient2 [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-optional
-```
+### ingredient2: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"optional"`
 **Allows Variables**: true
 
 **Only enabled if**: argument WFIFTTTExtraIngredients >= `2`
@@ -64,11 +58,8 @@ with the text.
 
 ---
 
-### Text: ingredient3 [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-optional
-```
+### ingredient3: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"optional"`
 **Allows Variables**: true
 
 **Only enabled if**: argument WFIFTTTExtraIngredients >= `3`
@@ -79,11 +70,8 @@ with the text.
 
 ---
 
-### Text: ingredient4 [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-optional
-```
+### ingredient4: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"optional"`
 **Allows Variables**: true
 
 **Only enabled if**: argument WFIFTTTExtraIngredients >= `4`
@@ -94,11 +82,8 @@ with the text.
 
 ---
 
-### Text: ingredient5 [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-optional
-```
+### ingredient5: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"optional"`
 **Allows Variables**: true
 
 **Only enabled if**: argument WFIFTTTExtraIngredients >= `5`
@@ -109,11 +94,8 @@ with the text.
 
 ---
 
-### Text: ingredient6 [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-optional
-```
+### ingredient6: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"optional"`
 **Allows Variables**: true
 
 **Only enabled if**: argument WFIFTTTExtraIngredients >= `6`
@@ -124,11 +106,8 @@ with the text.
 
 ---
 
-### Text: ingredient7 [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-optional
-```
+### ingredient7: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"optional"`
 **Allows Variables**: true
 
 **Only enabled if**: argument WFIFTTTExtraIngredients >= `7`
@@ -139,11 +118,8 @@ with the text.
 
 ---
 
-### Text: ingredient8 [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-optional
-```
+### ingredient8: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"optional"`
 **Allows Variables**: true
 
 **Only enabled if**: argument WFIFTTTExtraIngredients >= `8`
@@ -154,11 +130,8 @@ with the text.
 
 ---
 
-### Text: ingredient9 [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-optional
-```
+### ingredient9: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"optional"`
 **Allows Variables**: true
 
 **Only enabled if**: argument WFIFTTTExtraIngredients >= `9`
@@ -169,11 +142,8 @@ with the text.
 
 ---
 
-### Text: ingredient10 [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-optional
-```
+### ingredient10: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"optional"`
 **Allows Variables**: true
 
 **Only enabled if**: argument WFIFTTTExtraIngredients >= `10`

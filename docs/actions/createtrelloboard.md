@@ -20,11 +20,8 @@ createtrelloboard name="string" wftrellodescription="string"
 
 ---
 
-### Text: name [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-Shortcuts
-```
+### name: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"Shortcuts"`
 **Allows Variables**: true
 
 
@@ -35,11 +32,8 @@ with the text.
 
 ---
 
-### Text: wftrellodescription [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-Description
-```
+### wftrellodescription: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"Description"`
 **Allows Variables**: true
 
 

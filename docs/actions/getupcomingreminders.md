@@ -26,11 +26,8 @@ getupcomingreminders undefined=NotImplemented wfgetupcomingitemcount=number
 
 ---
 
-### Stepper Number: wfgetupcomingitemcount [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
-**Default Value**:
-```
-1
-```
+### wfgetupcomingitemcount: Stepper Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
+**Default Value**: `1`
 **Allows Variables**: true
 
 

@@ -27,11 +27,8 @@ createnewnote notetitle="string" undefined=NotImplemented undefined=NotImplement
 
 ---
 
-### Text: notetitle [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-optional
-```
+### notetitle: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"optional"`
 **Allows Variables**: true
 
 

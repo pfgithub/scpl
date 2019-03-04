@@ -11,18 +11,15 @@ Gets the text that matched a particular capture group or all of the capture grou
 
 ### usage
 ```
-getgroupfrommatchedtext get="Group At Index" | "All Groups" groupindex=number
+getgroupfrommatchedtext get=("Group At Index" | "All Groups") groupindex=number
 ```
 
 ### arguments
 
 ---
 
-### Enumeration: get [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-**Default Value**:
-```
-Group At Index
-```
+### get: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+**Default Value**: `"Group At Index"`
 **Allows Variables**: true
 
 
@@ -34,19 +31,11 @@ containing one of the options:
 - `Group At Index`
 - `All Groups`
 
-[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-
 ---
 
-### Number: groupindex [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
-**Placeholder**:
-```
-1
-```
-**Default Value**:
-```
-1
-```
+### groupindex: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+**Placeholder**: `1`
+**Default Value**: `1`
 **Allows Variables**: true
 
 **Only enabled if**: argument WFGetGroupType != `All Groups`

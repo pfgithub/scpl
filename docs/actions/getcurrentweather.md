@@ -1,8 +1,6 @@
 
 ## Get Current Weather / getcurrentweather (internally `is.workflow.actions.weather.currentconditions`)
 
-> This action is not yet complete. Some arguments may be missing.
-
 > This action requires that Shortcuts has permission to use WFWeatherAttributionAccessResource,WFLocationAccessResource.
 
 
@@ -15,18 +13,15 @@ Gets the current weather conditions at the specified location.
 
 ### usage
 ```
-getcurrentweather at="Current Location" | "Custom Location"|variable undefined=NotImplemented
+getcurrentweather at=("Current Location" | "Custom Location" | variable) location="string"
 ```
 
 ### arguments
 
 ---
 
-### Enumeration: at [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-**Default Value**:
-```
-Current Location
-```
+### at: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+**Default Value**: `"Current Location"`
 
 
 Accepts a string 
@@ -35,11 +30,17 @@ containing one of the options:
 - `Current Location`
 - `Custom Location`
 
-[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-
 ---
 
-#### This paramtype is not implemented. WFLocationFieldParameter
+### location: Location [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"Cupertino, CA"`
+**Allows Variables**: true
+
+**Only enabled if**: argument WFWeatherLocation = `Custom Location`
+
+Accepts a string 
+or text
+with the text.
 
 ---
 

@@ -15,18 +15,15 @@ Creates a new card on the specified list and board in your Trello account.
 
 ### usage
 ```
-addtrellocard name="string" undefined=NotImplemented undefined=NotImplemented due="string" position="Top" | "Bottom" attachments=v:myvar|mv:myvar|s:myvar wftrellodescription="string"
+addtrellocard name="string" undefined=NotImplemented undefined=NotImplemented due="string" position=("Top" | "Bottom") attachments=(v:myvar | mv:myvar | s:myvar) wftrellodescription="string"
 ```
 
 ### arguments
 
 ---
 
-### Text: name [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-Be productive
-```
+### name: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"Be productive"`
 **Allows Variables**: true
 
 
@@ -45,11 +42,8 @@ with the text.
 
 ---
 
-### Date: due [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-Tomorrow at 1pm
-```
+### due: Date [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"Tomorrow at 1pm"`
 **Allows Variables**: true
 
 
@@ -60,11 +54,8 @@ with the text.
 
 ---
 
-### Enumeration: position [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-**Default Value**:
-```
-Top
-```
+### position: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+**Default Value**: `"Top"`
 **Allows Variables**: true
 
 
@@ -76,11 +67,9 @@ containing one of the options:
 - `Top`
 - `Bottom`
 
-[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-
 ---
 
-### Variable Picker: attachments [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+### attachments: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
 **Allows Variables**: true
 
 
@@ -89,11 +78,8 @@ Accepts a variable.
 
 ---
 
-### Text: wftrellodescription [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-Description
-```
+### wftrellodescription: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"Description"`
 **Allows Variables**: true
 
 

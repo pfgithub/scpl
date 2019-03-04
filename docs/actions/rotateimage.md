@@ -18,15 +18,9 @@ rotateimage degrees=number
 
 ---
 
-### Number: degrees [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
-**Placeholder**:
-```
-90
-```
-**Default Value**:
-```
-90
-```
+### degrees: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+**Placeholder**: `90`
+**Default Value**: `90`
 **Allows Variables**: true
 
 

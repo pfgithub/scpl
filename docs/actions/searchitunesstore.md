@@ -20,11 +20,8 @@ searchitunesstore search="string" undefined=NotImplemented undefined=NotImplemen
 
 ---
 
-### Text: search [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-U2
-```
+### search: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"U2"`
 **Allows Variables**: true
 
 
@@ -51,11 +48,8 @@ with the text.
 
 ---
 
-### Stepper Number: wfitemlimit [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
-**Default Value**:
-```
-25
-```
+### wfitemlimit: Stepper Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
+**Default Value**: `25`
 **Allows Variables**: true
 
 

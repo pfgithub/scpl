@@ -11,18 +11,15 @@ Gets the value for the specified key in the dictionary passed into the action.
 
 ### usage
 ```
-getdictionaryvalue get="Value" | "All Keys" | "All Values"|variable key="string"
+getdictionaryvalue get=("Value" | "All Keys" | "All Values" | variable) key="string"
 ```
 
 ### arguments
 
 ---
 
-### Enumeration: get [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-**Default Value**:
-```
-Value
-```
+### get: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+**Default Value**: `"Value"`
 
 
 Accepts a string 
@@ -32,15 +29,10 @@ containing one of the options:
 - `All Keys`
 - `All Values`
 
-[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-
 ---
 
-### Text: key [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-example
-```
+### key: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"example"`
 **Allows Variables**: true
 
 **Only enabled if**: argument WFGetDictionaryValueType = `Value`

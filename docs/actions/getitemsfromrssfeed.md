@@ -18,11 +18,8 @@ getitemsfromrssfeed url="string" wfrssitemquantity=number
 
 ---
 
-### Text: url [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Default Value**:
-```
-https://www.apple.com/newsroom/rss-feed.rss
-```
+### url: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Default Value**: `"https://www.apple.com/newsroom/rss-feed.rss"`
 **Allows Variables**: true
 
 
@@ -33,11 +30,8 @@ with the text.
 
 ---
 
-### Stepper Number: wfrssitemquantity [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
-**Default Value**:
-```
-10
-```
+### wfrssitemquantity: Stepper Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
+**Default Value**: `10`
 **Allows Variables**: true
 
 

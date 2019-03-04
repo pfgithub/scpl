@@ -20,11 +20,8 @@ streetaddress line1="string" line2="string" city="string" state="string" postalc
 
 ---
 
-### Text: line1 [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-One Apple Park Way
-```
+### line1: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"One Apple Park Way"`
 **Allows Variables**: true
 
 
@@ -35,7 +32,7 @@ with the text.
 
 ---
 
-### Text: line2 [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### line2: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Allows Variables**: true
 
 
@@ -46,11 +43,8 @@ with the text.
 
 ---
 
-### Text: city [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-Cupertino
-```
+### city: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"Cupertino"`
 **Allows Variables**: true
 
 
@@ -61,11 +55,8 @@ with the text.
 
 ---
 
-### Text: state [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-California
-```
+### state: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"California"`
 **Allows Variables**: true
 
 
@@ -76,11 +67,8 @@ with the text.
 
 ---
 
-### Text: postalcode [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-95014
-```
+### postalcode: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"95014"`
 **Allows Variables**: true
 
 

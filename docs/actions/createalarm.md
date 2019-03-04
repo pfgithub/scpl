@@ -22,11 +22,8 @@ createalarm label="string" time="string" undefined=NotImplemented
 
 ---
 
-### Text: label [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-Alarm
-```
+### label: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"Alarm"`
 **Allows Variables**: true
 
 
@@ -37,11 +34,8 @@ with the text.
 
 ---
 
-### Date: time [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-8 AM
-```
+### time: Date [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"8 AM"`
 **Allows Variables**: true
 
 

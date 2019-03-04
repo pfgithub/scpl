@@ -13,18 +13,15 @@ Searches the web for the text provided as input.
 
 ### usage
 ```
-searchweb search="Amazon" | "Bing" | "DuckDuckGo" | "eBay" | "Google" | "Reddit" | "Twitter" | "Yahoo!" | "YouTube"
+searchweb search=("Amazon" | "Bing" | "DuckDuckGo" | "eBay" | "Google" | "Reddit" | "Twitter" | "Yahoo!" | "YouTube")
 ```
 
 ### arguments
 
 ---
 
-### Enumeration: search [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-**Default Value**:
-```
-Google
-```
+### search: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+**Default Value**: `"Google"`
 **Allows Variables**: true
 
 
@@ -42,8 +39,6 @@ containing one of the options:
 - `Twitter`
 - `Yahoo!`
 - `YouTube`
-
-[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 
 ---
 

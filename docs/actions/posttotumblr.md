@@ -19,7 +19,7 @@ The URL of the new post
 
 ### usage
 ```
-posttotumblr undefined=NotImplemented undefined=NotImplemented undefined=NotImplemented poststatus="Post Now" | "Add to Queue" | "Save as Draft" | "Post Privately" title="string" source="string" caption="string" tags="string" description="string"
+posttotumblr undefined=NotImplemented undefined=NotImplemented undefined=NotImplemented poststatus=("Post Now" | "Add to Queue" | "Save as Draft" | "Post Privately") title="string" source="string" caption="string" tags="string" description="string"
 ```
 
 ### arguments
@@ -38,11 +38,8 @@ posttotumblr undefined=NotImplemented undefined=NotImplemented undefined=NotImpl
 
 ---
 
-### Enumeration: poststatus [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-**Default Value**:
-```
-Post Now
-```
+### poststatus: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+**Default Value**: `"Post Now"`
 **Allows Variables**: true
 
 **Only enabled if**: argument WFComposeInApp = `false`
@@ -56,15 +53,10 @@ containing one of the options:
 - `Save as Draft`
 - `Post Privately`
 
-[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-
 ---
 
-### Text: title [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-optional
-```
+### title: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"optional"`
 **Allows Variables**: true
 
 **Only enabled if**: argument WFPostType = `Text` or `Link` or `Chat`
@@ -75,11 +67,8 @@ with the text.
 
 ---
 
-### Text: source [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-optional
-```
+### source: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"optional"`
 **Allows Variables**: true
 
 **Only enabled if**: argument WFPostType = `Quote`
@@ -90,11 +79,8 @@ with the text.
 
 ---
 
-### Text: caption [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-optional
-```
+### caption: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"optional"`
 **Allows Variables**: true
 
 **Only enabled if**: argument WFPostType = `Audio` or `Video` or `Photos`
@@ -107,11 +93,8 @@ with the text.
 
 ---
 
-### Text: tags [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-shortcuts, apple
-```
+### tags: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"shortcuts, apple"`
 **Allows Variables**: true
 
 
@@ -122,11 +105,8 @@ with the text.
 
 ---
 
-### Text: description [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-Description
-```
+### description: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"Description"`
 **Allows Variables**: true
 
 **Only enabled if**: argument WFPostType = `Link`

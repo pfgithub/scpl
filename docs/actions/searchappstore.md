@@ -20,11 +20,8 @@ searchappstore search="string" undefined=NotImplemented undefined=NotImplemented
 
 ---
 
-### Text: search [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-Shortcuts
-```
+### search: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"Shortcuts"`
 **Allows Variables**: true
 
 
@@ -47,11 +44,8 @@ with the text.
 
 ---
 
-### Stepper Number: wfitemlimit [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
-**Default Value**:
-```
-25
-```
+### wfitemlimit: Stepper Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
+**Default Value**: `25`
 **Allows Variables**: true
 
 

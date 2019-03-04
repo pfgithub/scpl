@@ -15,14 +15,14 @@ HTML
 
 ### usage
 ```
-makehtmlfromrichtext makefulldocument=true|false|variable
+makehtmlfromrichtext makefulldocument=(true | f alse | variable)
 ```
 
 ### arguments
 
 ---
 
-### Switch: makefulldocument [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### makefulldocument: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 

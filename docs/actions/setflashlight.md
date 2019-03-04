@@ -11,18 +11,15 @@ Turns on or off the flashlight near the device's camera.
 
 ### usage
 ```
-setflashlight flashlight="Off" | "On" | "Toggle" brightness=number
+setflashlight flashlight=("Off" | "On" | "Toggle") brightness=number
 ```
 
 ### arguments
 
 ---
 
-### Enumeration: flashlight [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-**Default Value**:
-```
-On
-```
+### flashlight: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+**Default Value**: `"On"`
 **Allows Variables**: true
 
 
@@ -35,15 +32,10 @@ containing one of the options:
 - `On`
 - `Toggle`
 
-[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-
 ---
 
-### Slider Number: brightness [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
-**Default Value**:
-```
-1
-```
+### brightness: Slider Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+**Default Value**: `1`
 **Allows Variables**: true
 
 **Only enabled if**: argument WFFlashlightSetting = `On` or `Toggle`

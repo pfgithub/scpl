@@ -13,7 +13,7 @@ Gets information about the currently connected networks.
 
 ### usage
 ```
-getnetworkdetails undefined=NotImplemented get="Network Name" | "BSSID" get2="Carrier Name" | "Radio Technology" | "Country Code"
+getnetworkdetails undefined=NotImplemented get=("Network Name" | "BSSID") get2=("Carrier Name" | "Radio Technology" | "Country Code")
 ```
 
 ### arguments
@@ -24,11 +24,8 @@ getnetworkdetails undefined=NotImplemented get="Network Name" | "BSSID" get2="Ca
 
 ---
 
-### Enumeration: get [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-**Default Value**:
-```
-Network Name
-```
+### get: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+**Default Value**: `"Network Name"`
 **Allows Variables**: true
 
 **Only enabled if**: argument WFNetworkDetailsNetwork = `Wi-Fi`
@@ -40,15 +37,10 @@ containing one of the options:
 - `Network Name`
 - `BSSID`
 
-[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-
 ---
 
-### Enumeration: get2 [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-**Default Value**:
-```
-Carrier Name
-```
+### get2: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+**Default Value**: `"Carrier Name"`
 **Allows Variables**: true
 
 **Only enabled if**: argument WFNetworkDetailsNetwork = `Cellular`
@@ -60,8 +52,6 @@ containing one of the options:
 - `Carrier Name`
 - `Radio Technology`
 - `Country Code`
-
-[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 
 ---
 

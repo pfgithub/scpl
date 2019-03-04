@@ -15,18 +15,15 @@ Gets cards, lists, or boards in your Trello account.
 
 ### usage
 ```
-gettrelloitems get="Boards" | "Lists" | "Cards" undefined=NotImplemented undefined=NotImplemented
+gettrelloitems get=("Boards" | "Lists" | "Cards") undefined=NotImplemented undefined=NotImplemented
 ```
 
 ### arguments
 
 ---
 
-### Enumeration: get [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-**Default Value**:
-```
-Boards
-```
+### get: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+**Default Value**: `"Boards"`
 **Allows Variables**: true
 
 
@@ -38,8 +35,6 @@ containing one of the options:
 - `Boards`
 - `Lists`
 - `Cards`
-
-[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 
 ---
 

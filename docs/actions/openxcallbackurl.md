@@ -17,14 +17,14 @@ When the app that's opened calls back to Shortcuts using x-success, it may inclu
 
 ### usage
 ```
-openxcallbackurl customcallback=true|false|variable successkey="string" cancelkey="string" errorkey="string" customxsuccessurl=true|false|variable xsuccessurl="string"
+openxcallbackurl customcallback=(true | f alse | variable) successkey="string" cancelkey="string" errorkey="string" customxsuccessurl=(true | f alse | variable) xsuccessurl="string"
 ```
 
 ### arguments
 
 ---
 
-### Switch: customcallback [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### customcallback: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 
@@ -34,11 +34,8 @@ or a variable.
 
 ---
 
-### Text: successkey [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Default Value**:
-```
-x-success
-```
+### successkey: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Default Value**: `"x-success"`
 **Allows Variables**: true
 
 **Only enabled if**: argument WFXCallbackCustomCallbackEnabled = `true`
@@ -49,11 +46,8 @@ with the text.
 
 ---
 
-### Text: cancelkey [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-optional
-```
+### cancelkey: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"optional"`
 **Allows Variables**: true
 
 **Only enabled if**: argument WFXCallbackCustomCallbackEnabled = `true`
@@ -64,11 +58,8 @@ with the text.
 
 ---
 
-### Text: errorkey [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-optional
-```
+### errorkey: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"optional"`
 **Allows Variables**: true
 
 **Only enabled if**: argument WFXCallbackCustomCallbackEnabled = `true`
@@ -79,7 +70,7 @@ with the text.
 
 ---
 
-### Switch: customxsuccessurl [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### customxsuccessurl: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 
@@ -89,11 +80,8 @@ or a variable.
 
 ---
 
-### Text: xsuccessurl [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Default Value**:
-```
-shortcuts://callback
-```
+### xsuccessurl: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Default Value**: `"shortcuts://callback"`
 **Allows Variables**: true
 
 **Only enabled if**: argument WFXCallbackCustomSuccessURLEnabled = `true`

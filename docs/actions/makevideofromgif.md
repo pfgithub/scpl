@@ -27,11 +27,8 @@ makevideofromgif wfmakevideofromgifactionloopcount=number
 
 ---
 
-### Stepper Number: wfmakevideofromgifactionloopcount [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
-**Default Value**:
-```
-1
-```
+### wfmakevideofromgifactionloopcount: Stepper Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
+**Default Value**: `1`
 **Allows Variables**: true
 
 

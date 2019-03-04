@@ -26,11 +26,8 @@ getinstapaperbookmarks undefined=NotImplemented wfbookmarkcount=number
 
 ---
 
-### Stepper Number: wfbookmarkcount [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
-**Default Value**:
-```
-5
-```
+### wfbookmarkcount: Stepper Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
+**Default Value**: `5`
 **Allows Variables**: true
 
 

@@ -18,11 +18,8 @@ setdictionaryvalue key="string" value="string"
 
 ---
 
-### Text: key [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-name
-```
+### key: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"name"`
 **Allows Variables**: true
 
 
@@ -33,11 +30,8 @@ with the text.
 
 ---
 
-### Text: value [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-example
-```
+### value: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"example"`
 **Allows Variables**: true
 
 

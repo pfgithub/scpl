@@ -20,11 +20,8 @@ addtopocket tags="string"
 
 ---
 
-### Text: tags [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-example, tags
-```
+### tags: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"example, tags"`
 **Allows Variables**: true
 
 

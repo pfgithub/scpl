@@ -18,11 +18,8 @@ number number=number
 
 ---
 
-### Number: number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
-**Placeholder**:
-```
-42
-```
+### number: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+**Placeholder**: `42`
 **Allows Variables**: true
 
 

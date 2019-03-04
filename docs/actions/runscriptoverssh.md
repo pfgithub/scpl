@@ -27,11 +27,8 @@ runscriptoverssh host="string" port="string" user="string" password="string" scr
 
 ---
 
-### Text: host [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-192.168.1.100
-```
+### host: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"192.168.1.100"`
 **Allows Variables**: true
 
 
@@ -42,15 +39,9 @@ with the text.
 
 ---
 
-### Text: port [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-22
-```
-**Default Value**:
-```
-22
-```
+### port: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"22"`
+**Default Value**: `"22"`
 **Allows Variables**: true
 
 
@@ -61,11 +52,8 @@ with the text.
 
 ---
 
-### Text: user [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-root
-```
+### user: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"root"`
 **Allows Variables**: true
 
 
@@ -76,11 +64,8 @@ with the text.
 
 ---
 
-### Text: password [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-••••••••
-```
+### password: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"••••••••"`
 **Allows Variables**: true
 
 
@@ -91,11 +76,8 @@ with the text.
 
 ---
 
-### Text: script [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-Script
-```
+### script: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"Script"`
 **Allows Variables**: true
 
 

@@ -18,11 +18,8 @@ setvolume volume=number
 
 ---
 
-### Slider Number: volume [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
-**Default Value**:
-```
-0.5
-```
+### volume: Slider Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+**Default Value**: `0.5`
 **Allows Variables**: true
 
 

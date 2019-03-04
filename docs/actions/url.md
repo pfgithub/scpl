@@ -18,11 +18,8 @@ url url="string"
 
 ---
 
-### Text: url [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-example.com
-```
+### url: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"example.com"`
 **Allows Variables**: true
 
 

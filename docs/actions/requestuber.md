@@ -24,14 +24,14 @@ The shareable link to your Uber ride
 
 ### usage
 ```
-requestuber showestimate=true|false|variable undefined=NotImplemented undefined=NotImplemented pickupat="Current Location" | "Custom Location" undefined=NotImplemented
+requestuber showestimate=(true | f alse | variable) undefined=NotImplemented undefined=NotImplemented pickupat=("Current Location" | "Custom Location") location="string"
 ```
 
 ### arguments
 
 ---
 
-### Switch: showestimate [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### showestimate: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 
@@ -49,11 +49,8 @@ or a variable.
 
 ---
 
-### Enumeration: pickupat [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-**Default Value**:
-```
-Current Location
-```
+### pickupat: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+**Default Value**: `"Current Location"`
 **Allows Variables**: true
 
 
@@ -65,11 +62,17 @@ containing one of the options:
 - `Current Location`
 - `Custom Location`
 
-[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-
 ---
 
-#### This paramtype is not implemented. WFLocationFieldParameter
+### location: Location [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"One Apple Park Way"`
+**Allows Variables**: true
+
+**Only enabled if**: argument UberPickupAt = `Custom Location`
+
+Accepts a string 
+or text
+with the text.
 
 ---
 

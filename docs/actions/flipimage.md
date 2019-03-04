@@ -11,18 +11,15 @@ Reverses the direction of images either horizontally or vertically.
 
 ### usage
 ```
-flipimage direction="Horizontal" | "Vertical"
+flipimage direction=("Horizontal" | "Vertical")
 ```
 
 ### arguments
 
 ---
 
-### Enumeration: direction [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-**Default Value**:
-```
-Horizontal
-```
+### direction: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+**Default Value**: `"Horizontal"`
 **Allows Variables**: true
 
 
@@ -33,8 +30,6 @@ containing one of the options:
 
 - `Horizontal`
 - `Vertical`
-
-[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 
 ---
 

@@ -13,18 +13,17 @@ Passes the specified email addresses to the next action.
 
 ### usage
 ```
-emailaddress wfemailaddress="string"|[list, of, strings]|variable
+emailaddress wfemailaddress=("string" | [list, of, strings] | variable)
 ```
 
 ### arguments
 
 ---
 
-### Email: wfemailaddress [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
-**Placeholder**:
-```
-Type in an email address
-```
+### wfemailaddress: Email [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+**Placeholder**: ```
+		Type in an email address
+		```
 **Allows Variables**: true
 
 

@@ -18,11 +18,8 @@ text wftextactiontext="string"
 
 ---
 
-### Text: wftextactiontext [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-Enter text...
-```
+### wftextactiontext: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"Enter text..."`
 **Allows Variables**: true
 
 

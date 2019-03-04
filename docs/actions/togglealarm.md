@@ -15,7 +15,7 @@ Enables or disables an alarm in the Clock app.
 
 ### usage
 ```
-togglealarm undefined=NotImplemented enabled=true|false|variable
+togglealarm undefined=NotImplemented enabled=(true | f alse | variable)
 ```
 
 ### arguments
@@ -26,7 +26,7 @@ togglealarm undefined=NotImplemented enabled=true|false|variable
 
 ---
 
-### Switch: enabled [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### enabled: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 

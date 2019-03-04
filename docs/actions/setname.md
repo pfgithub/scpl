@@ -11,18 +11,15 @@ Sets the name of the item passed as input.
 
 ### usage
 ```
-setname name="string" advanced=true|false dontincludefileextension=true|false|variable
+setname name="string" advanced=(true | false) dontincludefileextension=(true | f alse | variable)
 ```
 
 ### arguments
 
 ---
 
-### Text: name [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-example
-```
+### name: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"example"`
 **Allows Variables**: true
 
 
@@ -33,7 +30,7 @@ with the text.
 
 ---
 
-### Expand Arrow: advanced [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### advanced: Expand Arrow [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 
 
 Accepts a boolean for if this
@@ -45,7 +42,7 @@ labels, these can be ignored.
 
 ---
 
-### Switch: dontincludefileextension [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### dontincludefileextension: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 **Only enabled if**: argument Advanced = `true`

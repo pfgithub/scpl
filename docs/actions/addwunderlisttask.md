@@ -24,18 +24,15 @@ The URL of the newly created task
 
 ### usage
 ```
-addwunderlisttask title="string" undefined=NotImplemented duedate="string" reminder="string" starred=true|false|variable notes="string"
+addwunderlisttask title="string" undefined=NotImplemented duedate="string" reminder="string" starred=(true | f alse | variable) notes="string"
 ```
 
 ### arguments
 
 ---
 
-### Text: title [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-Buy some milk
-```
+### title: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"Buy some milk"`
 **Allows Variables**: true
 
 
@@ -50,11 +47,8 @@ with the text.
 
 ---
 
-### Date: duedate [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-optional
-```
+### duedate: Date [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"optional"`
 **Allows Variables**: true
 
 
@@ -65,11 +59,8 @@ with the text.
 
 ---
 
-### Date: reminder [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-optional
-```
+### reminder: Date [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"optional"`
 **Allows Variables**: true
 
 
@@ -80,7 +71,7 @@ with the text.
 
 ---
 
-### Switch: starred [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### starred: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 
@@ -90,11 +81,8 @@ or a variable.
 
 ---
 
-### Text: notes [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-Notes
-```
+### notes: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"Notes"`
 **Allows Variables**: true
 
 

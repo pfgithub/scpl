@@ -20,11 +20,8 @@ showresult text="string"
 
 ---
 
-### Text: text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-Enter text...
-```
+### text: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"Enter text..."`
 **Allows Variables**: true
 
 

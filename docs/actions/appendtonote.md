@@ -20,18 +20,15 @@ The content to add to your note
 
 ### usage
 ```
-appendtonote notetitle="string" mode="Append" | "Prepend" undefined=NotImplemented
+appendtonote notetitle="string" mode=("Append" | "Prepend") undefined=NotImplemented
 ```
 
 ### arguments
 
 ---
 
-### Text: notetitle [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-example note
-```
+### notetitle: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"example note"`
 **Allows Variables**: true
 
 
@@ -42,11 +39,8 @@ with the text.
 
 ---
 
-### Enumeration: mode [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-**Default Value**:
-```
-Append
-```
+### mode: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+**Default Value**: `"Append"`
 **Allows Variables**: true
 
 
@@ -57,8 +51,6 @@ containing one of the options:
 
 - `Append`
 - `Prepend`
-
-[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 
 ---
 

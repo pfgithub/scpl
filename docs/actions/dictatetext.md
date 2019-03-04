@@ -15,7 +15,7 @@ Transcribes what you say aloud into text and passes the result to the next actio
 
 ### usage
 ```
-dictatetext undefined=NotImplemented stoplistening="After Pause" | "After Short Pause" | "On Tap"
+dictatetext undefined=NotImplemented stoplistening=("After Pause" | "After Short Pause" | "On Tap")
 ```
 
 ### arguments
@@ -26,11 +26,8 @@ dictatetext undefined=NotImplemented stoplistening="After Pause" | "After Short 
 
 ---
 
-### Enumeration: stoplistening [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-**Default Value**:
-```
-After Pause
-```
+### stoplistening: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+**Default Value**: `"After Pause"`
 **Allows Variables**: true
 
 
@@ -42,8 +39,6 @@ containing one of the options:
 - `After Pause`
 - `After Short Pause`
 - `On Tap`
-
-[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 
 ---
 

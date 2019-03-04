@@ -18,11 +18,8 @@ comment wfcommentactiontext="string"
 
 ---
 
-### Text: wfcommentactiontext [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-Enter comment...
-```
+### wfcommentactiontext: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"Enter comment..."`
 
 
 Accepts a string 

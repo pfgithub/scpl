@@ -11,18 +11,15 @@ Encodes or decodes text passed into the action to be suitable for inclusion in a
 
 ### usage
 ```
-urlencode mode="Encode" | "Decode"
+urlencode mode=("Encode" | "Decode")
 ```
 
 ### arguments
 
 ---
 
-### Enumeration: mode [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-**Default Value**:
-```
-Encode
-```
+### mode: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+**Default Value**: `"Encode"`
 **Allows Variables**: true
 
 
@@ -33,8 +30,6 @@ containing one of the options:
 
 - `Encode`
 - `Decode`
-
-[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 
 ---
 

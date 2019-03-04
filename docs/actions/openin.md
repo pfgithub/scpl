@@ -15,18 +15,17 @@ Opens the input as a file in the specified app.
 
 ### usage
 ```
-openin showopeninmenu=true|false|variable undefined=NotImplemented wfappname="string"
+openin showopeninmenu=(true | f alse | variable) undefined=NotImplemented wfappname="string"
 ```
 
 ### arguments
 
 ---
 
-### Switch: showopeninmenu [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
-**Default Value**:
-```
-true
-```
+### showopeninmenu: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+**Default Value**: ```
+		true
+		```
 **Allows Variables**: true
 
 
@@ -40,7 +39,7 @@ or a variable.
 
 ---
 
-### Text: wfappname [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### wfappname: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Allows Variables**: true
 
 **Only enabled if**: This action is always **disabled** inside Shortcutslang.

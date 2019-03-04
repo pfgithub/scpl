@@ -26,7 +26,7 @@ openapp undefined=NotImplemented wfappname="string"
 
 ---
 
-### Text: wfappname [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### wfappname: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Allows Variables**: true
 
 **Only enabled if**: This action is always **disabled** inside Shortcutslang.

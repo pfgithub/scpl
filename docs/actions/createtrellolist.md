@@ -15,18 +15,15 @@ Creates a new list on the specified board in your Trello account.
 
 ### usage
 ```
-createtrellolist name="string" undefined=NotImplemented position="Top" | "Bottom"
+createtrellolist name="string" undefined=NotImplemented position=("Top" | "Bottom")
 ```
 
 ### arguments
 
 ---
 
-### Text: name [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-Shortcut Ideas
-```
+### name: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"Shortcut Ideas"`
 **Allows Variables**: true
 
 
@@ -41,11 +38,8 @@ with the text.
 
 ---
 
-### Enumeration: position [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-**Default Value**:
-```
-Top
-```
+### position: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+**Default Value**: `"Top"`
 **Allows Variables**: true
 
 
@@ -56,8 +50,6 @@ containing one of the options:
 
 - `Top`
 - `Bottom`
-
-[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 
 ---
 

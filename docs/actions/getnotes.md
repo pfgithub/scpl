@@ -22,11 +22,8 @@ getnotes titlesearch="string" undefined=NotImplemented undefined=NotImplemented 
 
 ---
 
-### Text: titlesearch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-optional
-```
+### titlesearch: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"optional"`
 **Allows Variables**: true
 
 
@@ -45,11 +42,8 @@ with the text.
 
 ---
 
-### Stepper Number: wfevernotenotescount [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
-**Default Value**:
-```
-1
-```
+### wfevernotenotescount: Stepper Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
+**Default Value**: `1`
 **Allows Variables**: true
 
 

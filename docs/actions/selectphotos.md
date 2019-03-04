@@ -17,14 +17,14 @@ The selected photos/videos
 
 ### usage
 ```
-selectphotos selectmultiple=true|false|variable
+selectphotos selectmultiple=(true | f alse | variable)
 ```
 
 ### arguments
 
 ---
 
-### Switch: selectmultiple [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### selectmultiple: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 

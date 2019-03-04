@@ -11,18 +11,15 @@ Returns one or more items from the list passed as input. You can get the first i
 
 ### usage
 ```
-getitemfromlist get="First Item" | "Last Item" | "Random Item" | "Item At Index" | "Items in Range" index=number getitemsfromindex=number toindex=number
+getitemfromlist get=("First Item" | "Last Item" | "Random Item" | "Item At Index" | "Items in Range") index=number getitemsfromindex=number toindex=number
 ```
 
 ### arguments
 
 ---
 
-### Enumeration: get [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-**Default Value**:
-```
-First Item
-```
+### get: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+**Default Value**: `"First Item"`
 **Allows Variables**: true
 
 
@@ -37,15 +34,10 @@ containing one of the options:
 - `Item At Index`
 - `Items in Range`
 
-[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-
 ---
 
-### Number: index [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
-**Placeholder**:
-```
-1
-```
+### index: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+**Placeholder**: `1`
 **Allows Variables**: true
 
 **Only enabled if**: argument WFItemSpecifier = `Item At Index`
@@ -56,15 +48,9 @@ containing one of the options:
 
 ---
 
-### Number: getitemsfromindex [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
-**Placeholder**:
-```
-optional
-```
-**Default Value**:
-```
-1
-```
+### getitemsfromindex: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+**Placeholder**: `optional`
+**Default Value**: `1`
 **Allows Variables**: true
 
 **Only enabled if**: argument WFItemSpecifier = `Items in Range`
@@ -75,11 +61,8 @@ optional
 
 ---
 
-### Number: toindex [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
-**Placeholder**:
-```
-optional
-```
+### toindex: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+**Placeholder**: `optional`
 **Allows Variables**: true
 
 **Only enabled if**: argument WFItemSpecifier = `Items in Range`

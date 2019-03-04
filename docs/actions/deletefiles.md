@@ -11,18 +11,17 @@ Delete the files passed in as input.
 
 ### usage
 ```
-deletefiles confirmbeforedeleting=true|false|variable
+deletefiles confirmbeforedeleting=(true | f alse | variable)
 ```
 
 ### arguments
 
 ---
 
-### Switch: confirmbeforedeleting [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
-**Default Value**:
-```
-true
-```
+### confirmbeforedeleting: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+**Default Value**: ```
+		true
+		```
 **Allows Variables**: true
 
 

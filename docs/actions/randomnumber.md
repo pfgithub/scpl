@@ -18,11 +18,8 @@ randomnumber minimum=number maximum=number
 
 ---
 
-### Number: minimum [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
-**Placeholder**:
-```
-0
-```
+### minimum: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+**Placeholder**: `0`
 **Allows Variables**: true
 
 
@@ -33,11 +30,8 @@ randomnumber minimum=number maximum=number
 
 ---
 
-### Number: maximum [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
-**Placeholder**:
-```
-100
-```
+### maximum: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+**Placeholder**: `100`
 **Allows Variables**: true
 
 

@@ -27,11 +27,8 @@ end
 
 ---
 
-### Text: prompt [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-optional
-```
+### prompt: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"optional"`
 **Allows Variables**: true
 
 
@@ -42,11 +39,10 @@ with the text.
 
 ---
 
-### undefined: items [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#list-field)
-**Default Value**:
-```
-One,Two
-```
+### items: undefined [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#list-field)
+**Default Value**: ```
+		One,Two
+		```
 **Allows Variables**: true
 
 

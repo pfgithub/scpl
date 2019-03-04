@@ -17,14 +17,14 @@ The saved files
 
 ### usage
 ```
-savefile service="iCloud Drive" | "Dropbox" askwheretosave=true|false|variable destinationpath="string" overwriteiffileexists=true|false|variable
+savefile service=("iCloud Drive" | "Dropbox") askwheretosave=(true | f alse | variable) destinationpath="string" overwriteiffileexists=(true | f alse | variable)
 ```
 
 ### arguments
 
 ---
 
-### Enumeration: service [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### service: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Allows Variables**: true
 
 
@@ -36,15 +36,12 @@ containing one of the options:
 - `iCloud Drive`
 - `Dropbox`
 
-[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-
 ---
 
-### Switch: askwheretosave [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
-**Default Value**:
-```
-true
-```
+### askwheretosave: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+**Default Value**: ```
+		true
+		```
 **Allows Variables**: true
 
 
@@ -54,7 +51,7 @@ or a variable.
 
 ---
 
-### Text: destinationpath [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### destinationpath: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Allows Variables**: true
 
 **Only enabled if**: argument WFAskWhereToSave = `false`
@@ -65,7 +62,7 @@ with the text.
 
 ---
 
-### Switch: overwriteiffileexists [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### overwriteiffileexists: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 **Only enabled if**: argument WFAskWhereToSave = `false`

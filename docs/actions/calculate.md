@@ -11,18 +11,15 @@ Performs a number operation on the input and returns the result.
 
 ### usage
 ```
-calculate operation="+" | "-" | "×" | "÷" | "…" scientificoperation="Modulus" | "x^2" | "x^3" | "x^y" | "e^x" | "10^x" | "ln(x)" | "log(x)" | "√x" | "∛x" | "x!" | "sin(x)" | "cos(x)" | "tan(x)" | "abs(x)" operand=number operand2=number
+calculate operation=("+" | "-" | "×" | "÷" | "…") scientificoperation=("Modulus" | "x^2" | "x^3" | "x^y" | "e^x" | "10^x" | "ln(x)" | "log(x)" | "√x" | "∛x" | "x!" | "sin(x)" | "cos(x)" | "tan(x)" | "abs(x)") operand=number operand2=number
 ```
 
 ### arguments
 
 ---
 
-### Enumeration: operation [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-**Default Value**:
-```
-+
-```
+### operation: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+**Default Value**: `"+"`
 **Allows Variables**: true
 
 
@@ -37,11 +34,9 @@ containing one of the options:
 - `÷`
 - `…`
 
-[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-
 ---
 
-### Enumeration: scientificoperation [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### scientificoperation: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Allows Variables**: true
 
 **Only enabled if**: argument WFMathOperation = `…`
@@ -66,15 +61,10 @@ containing one of the options:
 - `tan(x)`
 - `abs(x)`
 
-[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-
 ---
 
-### Number: operand [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
-**Placeholder**:
-```
-0
-```
+### operand: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+**Placeholder**: `0`
 **Allows Variables**: true
 
 **Only enabled if**: argument WFMathOperation != `…`
@@ -85,11 +75,8 @@ containing one of the options:
 
 ---
 
-### Number: operand2 [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
-**Placeholder**:
-```
-3
-```
+### operand2: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+**Placeholder**: `3`
 **Allows Variables**: true
 
 **Only enabled if**: argument WFMathOperation = `…`

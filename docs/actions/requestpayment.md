@@ -15,7 +15,7 @@ Requests a payment from the specified people using a payment app on your device.
 
 ### usage
 ```
-requestpayment undefined=NotImplemented undefined=NotImplemented amount=number openinapp=true|false|variable note="string"
+requestpayment undefined=NotImplemented undefined=NotImplemented amount=number openinapp=(true | f alse | variable) note="string"
 ```
 
 ### arguments
@@ -30,11 +30,8 @@ requestpayment undefined=NotImplemented undefined=NotImplemented amount=number o
 
 ---
 
-### Number: amount [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
-**Placeholder**:
-```
-7.00
-```
+### amount: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+**Placeholder**: `7.00`
 **Allows Variables**: true
 
 
@@ -45,7 +42,7 @@ requestpayment undefined=NotImplemented undefined=NotImplemented amount=number o
 
 ---
 
-### Switch: openinapp [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### openinapp: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 
@@ -55,11 +52,8 @@ or a variable.
 
 ---
 
-### Text: note [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-Note
-```
+### note: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"Note"`
 **Allows Variables**: true
 
 

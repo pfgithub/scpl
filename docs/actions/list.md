@@ -18,11 +18,10 @@ list items=[list, items]
 
 ---
 
-### undefined: items [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#list-field)
-**Default Value**:
-```
-One,Two
-```
+### items: undefined [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#list-field)
+**Default Value**: ```
+		One,Two
+		```
 **Allows Variables**: true
 
 

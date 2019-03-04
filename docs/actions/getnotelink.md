@@ -13,14 +13,14 @@ Gets a link to the Evernote note passed into the action, which can be shared.
 
 ### usage
 ```
-getnotelink inapplink=true|false|variable
+getnotelink inapplink=(true | f alse | variable)
 ```
 
 ### arguments
 
 ---
 
-### Switch: inapplink [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### inapplink: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 

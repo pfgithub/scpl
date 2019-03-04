@@ -13,14 +13,14 @@ Returns items in your Pocket account.
 
 ### usage
 ```
-getitemsfrompocket wfpocketitemcount=number type="Unread" | "Archived" | "All" search="string" tag="string"
+getitemsfrompocket wfpocketitemcount=number type=("Unread" | "Archived" | "All") search="string" tag="string"
 ```
 
 ### arguments
 
 ---
 
-### Stepper Number: wfpocketitemcount [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
+### wfpocketitemcount: Stepper Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
 **Allows Variables**: true
 
 
@@ -31,11 +31,8 @@ getitemsfrompocket wfpocketitemcount=number type="Unread" | "Archived" | "All" s
 
 ---
 
-### Enumeration: type [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-**Default Value**:
-```
-All
-```
+### type: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+**Default Value**: `"All"`
 **Allows Variables**: true
 
 
@@ -48,15 +45,10 @@ containing one of the options:
 - `Archived`
 - `All`
 
-[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-
 ---
 
-### Text: search [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-optional
-```
+### search: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"optional"`
 **Allows Variables**: true
 
 
@@ -67,11 +59,8 @@ with the text.
 
 ---
 
-### Text: tag [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-optional
-```
+### tag: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"optional"`
 **Allows Variables**: true
 
 

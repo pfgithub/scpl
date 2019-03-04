@@ -11,18 +11,15 @@ Combines the images passed into the action horizontally, vertically, or in a gri
 
 ### usage
 ```
-combineimages mode="Side-by-Side" | "Grid" direction="Horizontal" | "Vertical" spacing=number
+combineimages mode=("Side-by-Side" | "Grid") direction=("Horizontal" | "Vertical") spacing=number
 ```
 
 ### arguments
 
 ---
 
-### Enumeration: mode [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-**Default Value**:
-```
-Side-by-Side
-```
+### mode: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+**Default Value**: `"Side-by-Side"`
 **Allows Variables**: true
 
 
@@ -34,15 +31,10 @@ containing one of the options:
 - `Side-by-Side`
 - `Grid`
 
-[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-
 ---
 
-### Enumeration: direction [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-**Default Value**:
-```
-Horizontal
-```
+### direction: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+**Default Value**: `"Horizontal"`
 **Allows Variables**: true
 
 **Only enabled if**: argument WFImageCombineMode = `Side-by-Side`
@@ -54,15 +46,10 @@ containing one of the options:
 - `Horizontal`
 - `Vertical`
 
-[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-
 ---
 
-### Number: spacing [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
-**Placeholder**:
-```
-0
-```
+### spacing: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+**Placeholder**: `0`
 **Allows Variables**: true
 
 

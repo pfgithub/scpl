@@ -13,22 +13,16 @@ Displays an alert with a title, a message, and two buttons. If the user selects 
 
 ### usage
 ```
-showalert title="string" message="string" showcancelbutton=true|false|variable
+showalert title="string" message="string" showcancelbutton=(true | f alse | variable)
 ```
 
 ### arguments
 
 ---
 
-### Text: title [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-Attention-grabbing title
-```
-**Default Value**:
-```
-Alert
-```
+### title: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"Attention-grabbing title"`
+**Default Value**: `"Alert"`
 **Allows Variables**: true
 
 
@@ -39,15 +33,9 @@ with the text.
 
 ---
 
-### Text: message [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-Informational message
-```
-**Default Value**:
-```
-Do you want to continue?
-```
+### message: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"Informational message"`
+**Default Value**: `"Do you want to continue?"`
 **Allows Variables**: true
 
 
@@ -58,11 +46,10 @@ with the text.
 
 ---
 
-### Switch: showcancelbutton [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
-**Default Value**:
-```
-true
-```
+### showcancelbutton: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+**Default Value**: ```
+		true
+		```
 **Allows Variables**: true
 
 

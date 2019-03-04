@@ -18,18 +18,15 @@ Items in your music library or items from the Search iTunes action.
 
 ### usage
 ```
-addtoupnext play="Next" | "Later"
+addtoupnext play=("Next" | "Later")
 ```
 
 ### arguments
 
 ---
 
-### Enumeration: play [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-**Default Value**:
-```
-Next
-```
+### play: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+**Default Value**: `"Next"`
 **Allows Variables**: true
 
 
@@ -40,8 +37,6 @@ containing one of the options:
 
 - `Next`
 - `Later`
-
-[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 
 ---
 

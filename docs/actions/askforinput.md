@@ -13,18 +13,15 @@ Displays a dialog prompting the user to enter a piece of information.
 
 ### usage
 ```
-askforinput question="string" defaultanswer="string" defaultanswer2="string" inputtype="Text" | "Number" | "URL" | "Date" granularity="Date" | "Time" | "Date and Time" skiptowatchdictation=true|false|variable
+askforinput question="string" defaultanswer="string" defaultanswer2="string" inputtype=("Text" | "Number" | "URL" | "Date") granularity=("Date" | "Time" | "Date and Time") skiptowatchdictation=(true | f alse | variable)
 ```
 
 ### arguments
 
 ---
 
-### Text: question [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-Enter text
-```
+### question: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"Enter text"`
 **Allows Variables**: true
 
 
@@ -35,11 +32,8 @@ with the text.
 
 ---
 
-### Text: defaultanswer [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-optional
-```
+### defaultanswer: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"optional"`
 **Allows Variables**: true
 
 **Only enabled if**: argument WFInputType != `Date`
@@ -50,11 +44,8 @@ with the text.
 
 ---
 
-### Date: defaultanswer2 [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-June 29, 2007
-```
+### defaultanswer2: Date [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"June 29, 2007"`
 **Allows Variables**: true
 
 **Only enabled if**: argument WFInputType = `Date`
@@ -65,11 +56,8 @@ with the text.
 
 ---
 
-### Enumeration: inputtype [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-**Default Value**:
-```
-Text
-```
+### inputtype: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+**Default Value**: `"Text"`
 **Allows Variables**: true
 
 
@@ -83,15 +71,10 @@ containing one of the options:
 - `URL`
 - `Date`
 
-[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-
 ---
 
-### Enumeration: granularity [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-**Default Value**:
-```
-Date
-```
+### granularity: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+**Default Value**: `"Date"`
 **Allows Variables**: true
 
 **Only enabled if**: argument WFInputType = `Date`
@@ -104,11 +87,9 @@ containing one of the options:
 - `Time`
 - `Date and Time`
 
-[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-
 ---
 
-### Switch: skiptowatchdictation [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### skiptowatchdictation: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 **Only enabled if**: argument WFInputType != `Date`

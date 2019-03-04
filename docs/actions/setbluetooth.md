@@ -13,18 +13,17 @@ Sets the device’s Bluetooth to on or off.
 
 ### usage
 ```
-setbluetooth bluetooth=true|false|variable
+setbluetooth bluetooth=(true | f alse | variable)
 ```
 
 ### arguments
 
 ---
 
-### Switch: bluetooth [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
-**Default Value**:
-```
-true
-```
+### bluetooth: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+**Default Value**: ```
+		true
+		```
 **Allows Variables**: true
 
 

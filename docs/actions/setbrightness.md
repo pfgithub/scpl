@@ -20,11 +20,8 @@ setbrightness brightness=number
 
 ---
 
-### Slider Number: brightness [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
-**Default Value**:
-```
-0.5
-```
+### brightness: Slider Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+**Default Value**: `0.5`
 **Allows Variables**: true
 
 

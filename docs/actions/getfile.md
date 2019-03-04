@@ -13,14 +13,14 @@ Get files from iCloud Drive or Dropbox. Turn off “Show Document Picker” to s
 
 ### usage
 ```
-getfile service="iCloud Drive" | "Dropbox" showdocumentpicker=true|false|variable selectmultiple=true|false|variable filepath="string" initialpath="string" errorifnotfound=true|false|variable
+getfile service=("iCloud Drive" | "Dropbox") showdocumentpicker=(true | f alse | variable) selectmultiple=(true | f alse | variable) filepath="string" initialpath="string" errorifnotfound=(true | f alse | variable)
 ```
 
 ### arguments
 
 ---
 
-### Enumeration: service [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### service: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Allows Variables**: true
 
 
@@ -32,15 +32,12 @@ containing one of the options:
 - `iCloud Drive`
 - `Dropbox`
 
-[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-
 ---
 
-### Switch: showdocumentpicker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
-**Default Value**:
-```
-true
-```
+### showdocumentpicker: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+**Default Value**: ```
+		true
+		```
 **Allows Variables**: true
 
 
@@ -50,7 +47,7 @@ or a variable.
 
 ---
 
-### Switch: selectmultiple [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### selectmultiple: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 **Only enabled if**: argument WFShowFilePicker = `true`
@@ -60,11 +57,8 @@ or a variable.
 
 ---
 
-### Text: filepath [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-example.txt
-```
+### filepath: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"example.txt"`
 **Allows Variables**: true
 
 **Only enabled if**: argument WFShowFilePicker = `false`
@@ -75,11 +69,8 @@ with the text.
 
 ---
 
-### Text: initialpath [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-optional
-```
+### initialpath: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"optional"`
 **Allows Variables**: true
 
 **Only enabled if**: This action is always **disabled** inside Shortcutslang.
@@ -90,11 +81,10 @@ with the text.
 
 ---
 
-### Switch: errorifnotfound [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
-**Default Value**:
-```
-true
-```
+### errorifnotfound: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+**Default Value**: ```
+		true
+		```
 **Allows Variables**: true
 
 **Only enabled if**: argument WFShowFilePicker = `false`

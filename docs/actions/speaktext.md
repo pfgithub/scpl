@@ -13,18 +13,17 @@ Speaks the inputted text aloud.
 
 ### usage
 ```
-speaktext waituntilfinished=true|false|variable undefined=NotImplemented pitch=number undefined=NotImplemented undefined=NotImplemented
+speaktext waituntilfinished=(true | f alse | variable) undefined=NotImplemented pitch=number undefined=NotImplemented undefined=NotImplemented
 ```
 
 ### arguments
 
 ---
 
-### Switch: waituntilfinished [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
-**Default Value**:
-```
-true
-```
+### waituntilfinished: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+**Default Value**: ```
+		true
+		```
 **Allows Variables**: true
 
 
@@ -38,11 +37,8 @@ or a variable.
 
 ---
 
-### Slider Number: pitch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
-**Default Value**:
-```
-1
-```
+### pitch: Slider Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+**Default Value**: `1`
 **Allows Variables**: true
 
 

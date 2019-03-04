@@ -24,11 +24,8 @@ makearchive archivename="string" undefined=NotImplemented
 
 ---
 
-### Text: archivename [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-optional
-```
+### archivename: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"optional"`
 **Allows Variables**: true
 
 

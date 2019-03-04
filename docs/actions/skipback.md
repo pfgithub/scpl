@@ -13,18 +13,15 @@ Skips to the previous song in the current music queue.
 
 ### usage
 ```
-skipback skipto="Beginning" | "Previous Song"
+skipback skipto=("Beginning" | "Previous Song")
 ```
 
 ### arguments
 
 ---
 
-### Enumeration: skipto [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-**Default Value**:
-```
-Beginning
-```
+### skipto: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+**Default Value**: `"Beginning"`
 **Allows Variables**: true
 
 
@@ -35,8 +32,6 @@ containing one of the options:
 
 - `Beginning`
 - `Previous Song`
-
-[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 
 ---
 

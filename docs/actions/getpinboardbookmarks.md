@@ -20,11 +20,8 @@ getpinboardbookmarks tags="string" wfbookmarkcount=number
 
 ---
 
-### Text: tags [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-apple longread
-```
+### tags: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"apple longread"`
 **Allows Variables**: true
 
 
@@ -35,11 +32,8 @@ with the text.
 
 ---
 
-### Stepper Number: wfbookmarkcount [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
-**Default Value**:
-```
-5
-```
+### wfbookmarkcount: Stepper Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
+**Default Value**: `5`
 **Allows Variables**: true
 
 

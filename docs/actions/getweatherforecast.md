@@ -1,8 +1,6 @@
 
 ## Get Weather Forecast / getweatherforecast (internally `is.workflow.actions.weather.forecast`)
 
-> This action is not yet complete. Some arguments may be missing.
-
 > This action requires that Shortcuts has permission to use WFWeatherAttributionAccessResource,WFLocationAccessResource.
 
 
@@ -15,18 +13,15 @@ Gets an hourly or daily weather forecast at the specified location.
 
 ### usage
 ```
-getweatherforecast at="Current Location" | "Custom Location"|variable undefined=NotImplemented type="Hourly" | "Daily"
+getweatherforecast at=("Current Location" | "Custom Location" | variable) location="string" type=("Hourly" | "Daily")
 ```
 
 ### arguments
 
 ---
 
-### Enumeration: at [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-**Default Value**:
-```
-Current Location
-```
+### at: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+**Default Value**: `"Current Location"`
 
 
 Accepts a string 
@@ -35,19 +30,22 @@ containing one of the options:
 - `Current Location`
 - `Custom Location`
 
-[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+---
+
+### location: Location [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"Cupertino, CA"`
+**Allows Variables**: true
+
+**Only enabled if**: argument WFWeatherLocation = `Custom Location`
+
+Accepts a string 
+or text
+with the text.
 
 ---
 
-#### This paramtype is not implemented. WFLocationFieldParameter
-
----
-
-### Enumeration: type [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-**Default Value**:
-```
-Daily
-```
+### type: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+**Default Value**: `"Daily"`
 **Allows Variables**: true
 
 
@@ -58,8 +56,6 @@ containing one of the options:
 
 - `Hourly`
 - `Daily`
-
-[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 
 ---
 

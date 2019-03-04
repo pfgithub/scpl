@@ -131,23 +131,22 @@ class WFParameter {
     genDocsArgName() {
         return "[???]";
     }
+    genDocsDefaultValue(value) {
+        return `\`\`\`
+		${value}
+		\`\`\``;
+    }
     genDocsAutocompletePlaceholder() {
         return `:${this._data.DefaultValue ? `${this.genDocsArgName()}:"${this._data.DefaultValue}"` : `${this.genDocsArgName()}`}`;
     }
     genDocs() {
-        let docs = `### ${this.typeName}: ${this.shortName} [(Docs)](${this.docs})\n`;
+        let docs = `### ${this.shortName}: ${this.typeName} [(Docs)](${this.docs})\n`;
         if (this._data.Placeholder) {
-            docs += `**Placeholder**:
-\`\`\`
-${this._data.Placeholder}
-\`\`\`
+            docs += `**Placeholder**: ${this.genDocsDefaultValue(this._data.Placeholder)}
 `;
         }
         if (this._data.DefaultValue) {
-            docs += `**Default Value**:
-\`\`\`
-${this._data.DefaultValue}
-\`\`\`
+            docs += `**Default Value**: ${this.genDocsDefaultValue(this._data.DefaultValue)}
 `;
         }
         if (this.allowsVariables) {
@@ -171,7 +170,10 @@ class WFEnumerationParameter extends WFParameter {
     }
     genDocsArgName() {
         const strInfo = this.options.join("\" | \"");
-        return this.allowsVariables ? `"${strInfo}"` : `"${strInfo}"|variable`;
+        return this.allowsVariables ? `("${strInfo}")` : `("${strInfo}" | variable)`;
+    }
+    genDocsDefaultValue(value) {
+        return `\`"${value}"\``;
     }
     genDocs() {
         return `${super.genDocs()}
@@ -180,9 +182,7 @@ Accepts a string ${this.allowsVariables ? `
 or variable` : ""}
 containing one of the options:
 
-- \`${this.options.join(`\`\n- \``)}\`
-
-[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)`;
+- \`${this.options.join(`\`\n- \``)}\``;
     }
     build(cc, parse) {
         // asVariable may require additional actions to be inserted above this one.
@@ -219,7 +219,7 @@ class WFWorkflowPickerParameter extends WFParameter {
         super(data, name, docs);
     }
     genDocsArgName() {
-        return `"string"|variable]`;
+        return `("string" | variable)]`;
     }
     genDocs() {
         return `${super.genDocs()}
@@ -248,7 +248,7 @@ class WFNumberFieldParameter extends WFParameter {
         super(data, name, docs);
     }
     genDocsArgName() {
-        return this.allowsVariables ? `number` : `number|variable`;
+        return this.allowsVariables ? `number` : `(number | variable)`;
     }
     genDocs() {
         return `${super.genDocs()}
@@ -256,6 +256,9 @@ class WFNumberFieldParameter extends WFParameter {
 		Accepts a number ${this.allowsVariables ? `
 		or variable` : ""}
 		with a number.`;
+    }
+    genDocsDefaultValue(value) {
+        return `\`${value}\``;
     }
     build(cc, parse) {
         if (parse.canBeVariable(cc)) {
@@ -331,7 +334,7 @@ class WFVariablePickerParameter extends WFParameter {
         super(data, name, docs);
     }
     genDocsArgName() {
-        return `v:myvar|mv:myvar|s:myvar`;
+        return `(v:myvar | mv:myvar | s:myvar)`;
     }
     genDocs() {
         return `${super.genDocs()}
@@ -361,6 +364,9 @@ Accepts a string ${this.allowsVariables ? `
 or text` : ""}
 with the text.`;
     }
+    genDocsDefaultValue(value) {
+        return `\`"${value}"\``;
+    }
     build(cc, parse) {
         if (!this.allowsVariables) {
             if (!parse.canBeString(cc)) {
@@ -381,12 +387,18 @@ class WFDateFieldParameter extends WFTextInputParameter {
     }
 }
 types.WFDateFieldParameter = WFDateFieldParameter;
+class WFLocationFieldParameter extends WFTextInputParameter {
+    constructor(data, name = "Location", docs = "https://pfgithub.github.io/shortcutslang/gettingstarted#text-field") {
+        super(data, name, docs);
+    }
+}
+types.WFLocationFieldParameter = WFLocationFieldParameter;
 class WFEmailAddressFieldParameter extends WFParameter {
     constructor(data, name = "Email", docs = "https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields") {
         super(data, name, docs);
     }
     genDocsArgName() {
-        return `"string"|[list, of, strings]|variable`;
+        return `("string" | [list, of, strings] | variable)`;
     }
     genDocs() {
         return `${super.genDocs()}
@@ -432,7 +444,7 @@ class WFSwitchParameter extends WFParameter {
         super(data, name, docs);
     }
     genDocsArgName() {
-        return this.allowsVariables ? `true|false|variable` : `true|false`;
+        return this.allowsVariables ? `(true | f alse | variable)` : `(true | false)`;
     }
     genDocs() {
         return `${super.genDocs()}
@@ -460,7 +472,7 @@ class WFExpandingParameter extends WFParameter {
         this.allowsVariables = false;
     }
     genDocsArgName() {
-        return `true|false`;
+        return `(true | false)`;
     }
     genDocs() {
         return `${super.genDocs()}
@@ -485,7 +497,7 @@ class WFVariableFieldParameter extends WFParameter {
         super(data, name, docs);
     }
     genDocsArgName() {
-        return `v:variableName|variableName`;
+        return `(v:variableName | variableName)`;
     }
     genDocs() {
         const docs = `${super.genDocs()}

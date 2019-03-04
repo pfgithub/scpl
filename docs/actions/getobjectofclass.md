@@ -18,15 +18,9 @@ getobjectofclass class="string"
 
 ---
 
-### Text: class [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-NSString
-```
-**Default Value**:
-```
-NSURL
-```
+### class: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"NSString"`
+**Default Value**: `"NSURL"`
 **Allows Variables**: true
 
 

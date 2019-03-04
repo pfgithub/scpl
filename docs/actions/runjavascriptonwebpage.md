@@ -29,14 +29,9 @@ runjavascriptonwebpage javascript="string"
 
 ---
 
-### Text: javascript [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-JavaScript
-```
-**Default Value**:
-```
-var result = [];
+### javascript: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"JavaScript"`
+**Default Value**: `"var result = [];
 // Get all links from the page
 var elements = document.querySelectorAll("a");
 for (let element of elements) {
@@ -47,8 +42,7 @@ for (let element of elements) {
 }
 
 // Call completion to finish
-completion(result);
-```
+completion(result);"`
 **Allows Variables**: true
 
 

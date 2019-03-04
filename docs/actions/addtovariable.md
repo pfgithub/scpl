@@ -17,18 +17,17 @@ The updated contents of the variable.
 
 ### usage
 ```
-addtovariable variable=v:variableName|variableName
+addtovariable variable=(v:variableName | variableName)
 ```
 
 ### arguments
 
 ---
 
-### Variable Input: variable [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-field)
-**Placeholder**:
-```
-Variable Name
-```
+### variable: Variable Input [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-field)
+**Placeholder**: ```
+		Variable Name
+		```
 **Allows Variables**: true
 
 

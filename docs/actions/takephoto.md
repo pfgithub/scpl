@@ -17,18 +17,17 @@ Photo from the camera.
 
 ### usage
 ```
-takephoto showcamerapreview=true|false|variable wfphotocount=number camera="Front" | "Back"
+takephoto showcamerapreview=(true | f alse | variable) wfphotocount=number camera=("Front" | "Back")
 ```
 
 ### arguments
 
 ---
 
-### Switch: showcamerapreview [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
-**Default Value**:
-```
-true
-```
+### showcamerapreview: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+**Default Value**: ```
+		true
+		```
 **Allows Variables**: true
 
 
@@ -38,11 +37,8 @@ or a variable.
 
 ---
 
-### Stepper Number: wfphotocount [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
-**Default Value**:
-```
-1
-```
+### wfphotocount: Stepper Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
+**Default Value**: `1`
 **Allows Variables**: true
 
 **Only enabled if**: argument WFCameraCaptureShowPreview = `true`
@@ -53,11 +49,8 @@ or a variable.
 
 ---
 
-### Enumeration: camera [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-**Default Value**:
-```
-Back
-```
+### camera: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+**Default Value**: `"Back"`
 **Allows Variables**: true
 
 
@@ -68,8 +61,6 @@ containing one of the options:
 
 - `Front`
 - `Back`
-
-[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 
 ---
 

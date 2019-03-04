@@ -18,15 +18,9 @@ getfileoftype type="string"
 
 ---
 
-### Text: type [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-UTI
-```
-**Default Value**:
-```
-public.rtf
-```
+### type: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"UTI"`
+**Default Value**: `"public.rtf"`
 **Allows Variables**: true
 
 

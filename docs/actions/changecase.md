@@ -11,18 +11,15 @@ Changes the case of the text passed into the action to UPPERCASE, lowercase, or 
 
 ### usage
 ```
-changecase case="UPPERCASE" | "lowercase" | "Capitalize Every Word" | "Capitalize with Title Case" | "Capitalize with sentence case." | "cApItAlIzE wItH aLtErNaTiNg CaSe."
+changecase case=("UPPERCASE" | "lowercase" | "Capitalize Every Word" | "Capitalize with Title Case" | "Capitalize with sentence case." | "cApItAlIzE wItH aLtErNaTiNg CaSe.")
 ```
 
 ### arguments
 
 ---
 
-### Enumeration: case [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-**Default Value**:
-```
-UPPERCASE
-```
+### case: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+**Default Value**: `"UPPERCASE"`
 **Allows Variables**: true
 
 
@@ -37,8 +34,6 @@ containing one of the options:
 - `Capitalize with Title Case`
 - `Capitalize with sentence case.`
 - `cApItAlIzE wItH aLtErNaTiNg CaSe.`
-
-[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 
 ---
 

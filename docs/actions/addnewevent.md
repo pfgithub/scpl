@@ -19,18 +19,15 @@ The new event
 
 ### usage
 ```
-addnewevent title="string" location="string" undefined=NotImplemented date=true|false startdate="string" enddate="string" allday=true|false|variable alert="At time of event" | "5 minutes before" | "15 minutes before" | "30 minutes before" | "1 hour before" | "2 hours before" | "1 day before" | "2 days before" | "1 week before" | "Custom" alerttime="string" notes="string"
+addnewevent title="string" location="string" undefined=NotImplemented date=(true | false) startdate="string" enddate="string" allday=(true | f alse | variable) alert=("At time of event" | "5 minutes before" | "15 minutes before" | "30 minutes before" | "1 hour before" | "2 hours before" | "1 day before" | "2 days before" | "1 week before" | "Custom") alerttime="string" notes="string"
 ```
 
 ### arguments
 
 ---
 
-### Text: title [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-Lunch with Tim
-```
+### title: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"Lunch with Tim"`
 **Allows Variables**: true
 
 
@@ -41,11 +38,8 @@ with the text.
 
 ---
 
-### Text: location [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-optional
-```
+### location: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"optional"`
 **Allows Variables**: true
 
 
@@ -60,7 +54,7 @@ with the text.
 
 ---
 
-### Expand Arrow: date [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### date: Expand Arrow [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 
 
 Accepts a boolean for if this
@@ -72,11 +66,8 @@ labels, these can be ignored.
 
 ---
 
-### Date: startdate [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-Tomorrow at noon
-```
+### startdate: Date [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"Tomorrow at noon"`
 **Allows Variables**: true
 
 **Only enabled if**: argument WFCalendarItemDates = `true`
@@ -87,11 +78,8 @@ with the text.
 
 ---
 
-### Date: enddate [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-Tomorrow at 1pm
-```
+### enddate: Date [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"Tomorrow at 1pm"`
 **Allows Variables**: true
 
 **Only enabled if**: argument WFCalendarItemDates = `true`
@@ -102,7 +90,7 @@ with the text.
 
 ---
 
-### Switch: allday [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### allday: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 **Only enabled if**: argument WFCalendarItemDates = `true`
@@ -112,7 +100,7 @@ or a variable.
 
 ---
 
-### Enumeration: alert [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### alert: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Allows Variables**: true
 
 
@@ -132,15 +120,10 @@ containing one of the options:
 - `1 week before`
 - `Custom`
 
-[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-
 ---
 
-### Text: alerttime [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-Tomorrow at 4pm
-```
+### alerttime: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"Tomorrow at 4pm"`
 **Allows Variables**: true
 
 **Only enabled if**: argument WFAlertTime = `Custom`
@@ -151,11 +134,8 @@ with the text.
 
 ---
 
-### Text: notes [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-Notes
-```
+### notes: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"Notes"`
 **Allows Variables**: true
 
 

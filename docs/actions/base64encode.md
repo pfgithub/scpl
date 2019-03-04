@@ -11,18 +11,15 @@ Encodes or decodes text or files using Base64 encoding.
 
 ### usage
 ```
-base64encode mode="Encode" | "Decode" linebreaks="None" | "Every 64 Characters" | "Every 76 Characters"
+base64encode mode=("Encode" | "Decode") linebreaks=("None" | "Every 64 Characters" | "Every 76 Characters")
 ```
 
 ### arguments
 
 ---
 
-### Enumeration: mode [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-**Default Value**:
-```
-Encode
-```
+### mode: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+**Default Value**: `"Encode"`
 **Allows Variables**: true
 
 
@@ -34,15 +31,10 @@ containing one of the options:
 - `Encode`
 - `Decode`
 
-[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-
 ---
 
-### Enumeration: linebreaks [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-**Default Value**:
-```
-Every 76 Characters
-```
+### linebreaks: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+**Default Value**: `"Every 76 Characters"`
 **Allows Variables**: true
 
 **Only enabled if**: argument WFEncodeMode = `Encode`
@@ -54,8 +46,6 @@ containing one of the options:
 - `None`
 - `Every 64 Characters`
 - `Every 76 Characters`
-
-[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 
 ---
 

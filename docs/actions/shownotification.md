@@ -18,18 +18,15 @@ An image or video to include in the notification
 
 ### usage
 ```
-shownotification title="string" body="string" playsound=true|false|variable
+shownotification title="string" body="string" playsound=(true | f alse | variable)
 ```
 
 ### arguments
 
 ---
 
-### Text: title [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-optional
-```
+### title: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"optional"`
 **Allows Variables**: true
 
 
@@ -40,15 +37,9 @@ with the text.
 
 ---
 
-### Text: body [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**:
-```
-Charming notification message
-```
-**Default Value**:
-```
-Hello World
-```
+### body: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"Charming notification message"`
+**Default Value**: `"Hello World"`
 **Allows Variables**: true
 
 
@@ -59,11 +50,10 @@ with the text.
 
 ---
 
-### Switch: playsound [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
-**Default Value**:
-```
-true
-```
+### playsound: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+**Default Value**: ```
+		true
+		```
 **Allows Variables**: true
 
 

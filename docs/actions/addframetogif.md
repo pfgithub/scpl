@@ -20,14 +20,14 @@ An animated GIF
 
 ### usage
 ```
-addframetogif image=v:myvar|mv:myvar|s:myvar delaytime=number autosize=true|false|variable width=number height=number
+addframetogif image=(v:myvar | mv:myvar | s:myvar) delaytime=number autosize=(true | f alse | variable) width=number height=number
 ```
 
 ### arguments
 
 ---
 
-### Variable Picker: image [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+### image: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
 **Allows Variables**: true
 
 
@@ -36,15 +36,9 @@ Accepts a variable.
 
 ---
 
-### Number: delaytime [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
-**Placeholder**:
-```
-0.25
-```
-**Default Value**:
-```
-0.25
-```
+### delaytime: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+**Placeholder**: `0.25`
+**Default Value**: `0.25`
 **Allows Variables**: true
 
 
@@ -55,11 +49,10 @@ Accepts a variable.
 
 ---
 
-### Switch: autosize [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
-**Default Value**:
-```
-true
-```
+### autosize: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+**Default Value**: ```
+		true
+		```
 **Allows Variables**: true
 
 
@@ -69,11 +62,8 @@ or a variable.
 
 ---
 
-### Number: width [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
-**Placeholder**:
-```
-500
-```
+### width: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+**Placeholder**: `500`
 **Allows Variables**: true
 
 **Only enabled if**: argument WFGIFAutoSize = `false`
@@ -84,11 +74,8 @@ or a variable.
 
 ---
 
-### Number: height [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
-**Placeholder**:
-```
-500
-```
+### height: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+**Placeholder**: `500`
 **Allows Variables**: true
 
 **Only enabled if**: argument WFGIFAutoSize = `false`

@@ -10,7 +10,7 @@ Banner by ROP#2788 on the [routinehub.co](https://routinehub.co) discord server.
 
 [Try Shortcutslang in a web browser](https://pfgithub.github.io/shortcutslang/tryit.html)
 
-206/266 builtin actions supported
+210/266 builtin actions supported
 
 ## All Actions:
 
@@ -97,7 +97,7 @@ Banner by ROP#2788 on the [routinehub.co](https://routinehub.co) discord server.
 - [Get Current IP Address (`getcurrentipaddress`)](actions/getcurrentipaddress)
 - [Get Current Location (`getcurrentlocation`)](actions/getcurrentlocation)
 - [Get Current Song (`getcurrentsong`)](actions/getcurrentsong)
-- [Get Current Weather (`getcurrentweather`)](actions/getcurrentweather) (Incomplete)
+- [Get Current Weather (`getcurrentweather`)](actions/getcurrentweather)
 - [Get Dates from Input (`getdatesfrominput`)](actions/getdatesfrominput)
 - [Get Details of App Store App (`getdetailsofappstoreapp`)](actions/getdetailsofappstoreapp)
 - [Get Details of Calendar Events (`getdetailsofcalendarevents`)](actions/getdetailsofcalendarevents)
@@ -126,7 +126,7 @@ Banner by ROP#2788 on the [routinehub.co](https://routinehub.co) discord server.
 - [Get File of Type (`getfileoftype`)](actions/getfileoftype)
 - [Get Frames from Image (`getframesfromimage`)](actions/getframesfromimage)
 - [Get Group from Matched Text (`getgroupfrommatchedtext`)](actions/getgroupfrommatchedtext)
-- [Get Halfway Point (`gethalfwaypoint`)](actions/gethalfwaypoint) (Incomplete)
+- [Get Halfway Point (`gethalfwaypoint`)](actions/gethalfwaypoint)
 - [Get Headers of URL (`getheadersofurl`)](actions/getheadersofurl)
 - [Get Images from Input (`getimagesfrominput`)](actions/getimagesfrominput)
 - [Get Instapaper Bookmarks (`getinstapaperbookmarks`)](actions/getinstapaperbookmarks) (Incomplete)
@@ -155,14 +155,14 @@ Banner by ROP#2788 on the [routinehub.co](https://routinehub.co) discord server.
 - [Get Street View Image (`getstreetviewimage`)](actions/getstreetviewimage)
 - [Get Text from Input (`gettextfrominput`)](actions/gettextfrominput)
 - [Get Time Between Dates (`gettimebetweendates`)](actions/gettimebetweendates)
-- [Get Travel Time (`gettraveltime`)](actions/gettraveltime) (Incomplete)
+- [Get Travel Time (`gettraveltime`)](actions/gettraveltime)
 - [Get Trello Items (`gettrelloitems`)](actions/gettrelloitems) (Incomplete)
 - [Get Type (`gettype`)](actions/gettype)
 - [Get URLs from Input (`geturlsfrominput`)](actions/geturlsfrominput)
 - [Get Upcoming Events (`getupcomingevents`)](actions/getupcomingevents) (Incomplete)
 - [Get Upcoming Reminders (`getupcomingreminders`)](actions/getupcomingreminders) (Incomplete)
 - [Get Variable (`getvariable`)](actions/getvariable)
-- [Get Weather Forecast (`getweatherforecast`)](actions/getweatherforecast) (Incomplete)
+- [Get Weather Forecast (`getweatherforecast`)](actions/getweatherforecast)
 - [If (`if`)](actions/if)
 - [Import to Lightroom (`importtolightroom`)](actions/importtolightroom) (Incomplete)
 - [List (`list`)](actions/list)
@@ -350,7 +350,7 @@ Banner by ROP#2788 on the [routinehub.co](https://routinehub.co) discord server.
 - [ ] 5: WFIntentAppPickerParameter
 - [x] Complete - 5: WFDictionaryParameter
 - [x] Complete - 5: WFSliderParameter
-- [ ] 8: WFLocationFieldParameter
+- [x] Complete - 8: WFLocationFieldParameter
 - [x] Complete - 8: WFExpandingParameter
 - [x] Complete - 9: WFVariablePickerParameter
 - [ ] 14: WFDynamicEnumerationParameter

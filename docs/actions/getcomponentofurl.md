@@ -11,18 +11,15 @@ Gets the specified part of the URL passed into the action.
 
 ### usage
 ```
-getcomponentofurl component="Scheme" | "User" | "Password" | "Host" | "Port" | "Path" | "Query" | "Fragment"
+getcomponentofurl component=("Scheme" | "User" | "Password" | "Host" | "Port" | "Path" | "Query" | "Fragment")
 ```
 
 ### arguments
 
 ---
 
-### Enumeration: component [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-**Default Value**:
-```
-Scheme
-```
+### component: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+**Default Value**: `"Scheme"`
 **Allows Variables**: true
 
 
@@ -39,8 +36,6 @@ containing one of the options:
 - `Path`
 - `Query`
 - `Fragment`
-
-[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 
 ---
 

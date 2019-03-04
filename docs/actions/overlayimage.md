@@ -22,14 +22,14 @@ The combined images
 
 ### usage
 ```
-overlayimage image=v:myvar|mv:myvar|s:myvar showimageeditor=true|false|variable position="Center" | "Top Left" | "Top Right" | "Bottom Left" | "Bottom Right" | "Custom" width=number height=number xcoordinate=number ycoordinate=number rotationdegrees=number opacity=number
+overlayimage image=(v:myvar | mv:myvar | s:myvar) showimageeditor=(true | f alse | variable) position=("Center" | "Top Left" | "Top Right" | "Bottom Left" | "Bottom Right" | "Custom") width=number height=number xcoordinate=number ycoordinate=number rotationdegrees=number opacity=number
 ```
 
 ### arguments
 
 ---
 
-### Variable Picker: image [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+### image: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
 **Allows Variables**: true
 
 
@@ -38,11 +38,10 @@ Accepts a variable.
 
 ---
 
-### Switch: showimageeditor [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
-**Default Value**:
-```
-true
-```
+### showimageeditor: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+**Default Value**: ```
+		true
+		```
 **Allows Variables**: true
 
 
@@ -52,11 +51,8 @@ or a variable.
 
 ---
 
-### Enumeration: position [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-**Default Value**:
-```
-Center
-```
+### position: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+**Default Value**: `"Center"`
 **Allows Variables**: true
 
 **Only enabled if**: argument WFShouldShowImageEditor = `false`
@@ -72,15 +68,10 @@ containing one of the options:
 - `Bottom Right`
 - `Custom`
 
-[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-
 ---
 
-### Number: width [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
-**Placeholder**:
-```
-Auto
-```
+### width: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+**Placeholder**: `Auto`
 **Allows Variables**: true
 
 **Only enabled if**: argument WFShouldShowImageEditor = `false`
@@ -91,11 +82,8 @@ Auto
 
 ---
 
-### Number: height [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
-**Placeholder**:
-```
-Auto
-```
+### height: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+**Placeholder**: `Auto`
 **Allows Variables**: true
 
 **Only enabled if**: argument WFShouldShowImageEditor = `false`
@@ -106,11 +94,8 @@ Auto
 
 ---
 
-### Number: xcoordinate [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
-**Placeholder**:
-```
-0
-```
+### xcoordinate: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+**Placeholder**: `0`
 **Allows Variables**: true
 
 **Only enabled if**: argument WFShouldShowImageEditor = `false`
@@ -123,11 +108,8 @@ Auto
 
 ---
 
-### Number: ycoordinate [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
-**Placeholder**:
-```
-0
-```
+### ycoordinate: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+**Placeholder**: `0`
 **Allows Variables**: true
 
 **Only enabled if**: argument WFShouldShowImageEditor = `false`
@@ -140,11 +122,8 @@ Auto
 
 ---
 
-### Number: rotationdegrees [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
-**Placeholder**:
-```
-0
-```
+### rotationdegrees: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+**Placeholder**: `0`
 **Allows Variables**: true
 
 **Only enabled if**: argument WFShouldShowImageEditor = `false`
@@ -155,15 +134,9 @@ Auto
 
 ---
 
-### Number: opacity [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
-**Placeholder**:
-```
-100%
-```
-**Default Value**:
-```
-100
-```
+### opacity: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+**Placeholder**: `100%`
+**Default Value**: `100`
 **Allows Variables**: true
 
 **Only enabled if**: argument WFShouldShowImageEditor = `false`

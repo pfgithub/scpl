@@ -13,14 +13,14 @@ Opens BlindSquare showing information about the place passed as input, so you ca
 
 ### usage
 ```
-showinblindsquare startsimulation=true|false|variable
+showinblindsquare startsimulation=(true | f alse | variable)
 ```
 
 ### arguments
 
 ---
 
-### Switch: startsimulation [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### startsimulation: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 

@@ -11,18 +11,17 @@ Sets the value of the specified variable to the input of this action.
 
 ### usage
 ```
-setvariable variable=v:variableName|variableName
+setvariable variable=(v:variableName | variableName)
 ```
 
 ### arguments
 
 ---
 
-### Variable Input: variable [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-field)
-**Placeholder**:
-```
-Variable Name
-```
+### variable: Variable Input [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-field)
+**Placeholder**: ```
+		Variable Name
+		```
 **Allows Variables**: true
 
 

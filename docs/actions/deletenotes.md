@@ -13,18 +13,17 @@ Deletes the notes passed as input from Evernote.
 
 ### usage
 ```
-deletenotes confirmbeforedeleting=true|false|variable
+deletenotes confirmbeforedeleting=(true | f alse | variable)
 ```
 
 ### arguments
 
 ---
 
-### Switch: confirmbeforedeleting [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
-**Default Value**:
-```
-true
-```
+### confirmbeforedeleting: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+**Default Value**: ```
+		true
+		```
 **Allows Variables**: true
 
 

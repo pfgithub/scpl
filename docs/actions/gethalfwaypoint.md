@@ -1,8 +1,6 @@
 
 ## Get Halfway Point / gethalfwaypoint (internally `is.workflow.actions.gethalfwaypoint`)
 
-> This action is not yet complete. Some arguments may be missing.
-
 
 ## description
 
@@ -13,18 +11,34 @@ Gets the halfway point between two locations.
 
 ### usage
 ```
-gethalfwaypoint undefined=NotImplemented undefined=NotImplemented
+gethalfwaypoint firstlocation="string" secondlocation="string"
 ```
 
 ### arguments
 
 ---
 
-#### This paramtype is not implemented. WFLocationFieldParameter
+### firstlocation: Location [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"San Francisco, CA"`
+**Allows Variables**: true
+
+
+
+Accepts a string 
+or text
+with the text.
 
 ---
 
-#### This paramtype is not implemented. WFLocationFieldParameter
+### secondlocation: Location [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"Philadelphia, PA"`
+**Allows Variables**: true
+
+
+
+Accepts a string 
+or text
+with the text.
 
 ---
 

@@ -11,18 +11,15 @@ Generates a MD5/SHA1 hash from the input.
 
 ### usage
 ```
-generatehash type="MD5" | "SHA1" | "SHA256" | "SHA512"
+generatehash type=("MD5" | "SHA1" | "SHA256" | "SHA512")
 ```
 
 ### arguments
 
 ---
 
-### Enumeration: type [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-**Default Value**:
-```
-MD5
-```
+### type: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+**Default Value**: `"MD5"`
 **Allows Variables**: true
 
 
@@ -35,8 +32,6 @@ containing one of the options:
 - `SHA1`
 - `SHA256`
 - `SHA512`
-
-[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 
 ---
 

@@ -11,18 +11,15 @@ Rounds the number(s) passed into the action.
 
 ### usage
 ```
-roundnumber round="Left of Decimal" | "Right of Decimal" mode="Normal" | "Always Round Up" | "Always Round Down" wfrounddecimalplaces=number
+roundnumber round=("Left of Decimal" | "Right of Decimal") mode=("Normal" | "Always Round Up" | "Always Round Down") wfrounddecimalplaces=number
 ```
 
 ### arguments
 
 ---
 
-### Enumeration: round [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-**Default Value**:
-```
-Left of Decimal
-```
+### round: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+**Default Value**: `"Left of Decimal"`
 **Allows Variables**: true
 
 
@@ -34,15 +31,10 @@ containing one of the options:
 - `Left of Decimal`
 - `Right of Decimal`
 
-[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-
 ---
 
-### Enumeration: mode [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-**Default Value**:
-```
-Normal
-```
+### mode: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+**Default Value**: `"Normal"`
 **Allows Variables**: true
 
 
@@ -55,11 +47,9 @@ containing one of the options:
 - `Always Round Up`
 - `Always Round Down`
 
-[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-
 ---
 
-### Stepper Number: wfrounddecimalplaces [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
+### wfrounddecimalplaces: Stepper Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
 **Allows Variables**: true
 
 
