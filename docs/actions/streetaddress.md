@@ -13,14 +13,14 @@ Passes the specified address to the next action.
 
 ### usage
 ```
-streetaddress a{line1=[string|text] line2=[string|text] city=[string|text] state=[string|text] postalcode=[string|text] undefined=[???]}
+streetaddress line1="string" line2="string" city="string" state="string" postalcode="string" undefined=NotImplemented
 ```
 
 ### arguments
 
 ---
 
-### Text: Line 1 / line1 (internally `WFAddressLine1`)
+### Text: line1 [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 One Apple Park Way
@@ -35,7 +35,7 @@ with the text.
 
 ---
 
-### Text: Line 2 / line2 (internally `WFAddressLine2`)
+### Text: line2 [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Allows Variables**: true
 
 
@@ -46,7 +46,7 @@ with the text.
 
 ---
 
-### Text: City / city (internally `WFCity`)
+### Text: city [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 Cupertino
@@ -61,7 +61,7 @@ with the text.
 
 ---
 
-### Text: State / state (internally `WFState`)
+### Text: state [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 California
@@ -76,7 +76,7 @@ with the text.
 
 ---
 
-### Text: Postal Code / postalcode (internally `WFPostalCode`)
+### Text: postalcode [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 95014
@@ -95,7 +95,7 @@ with the text.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

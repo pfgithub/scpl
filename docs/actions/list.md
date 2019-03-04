@@ -11,14 +11,14 @@ Allows you to specify a list of items to be passed to the next action.
 
 ### usage
 ```
-list a{items=[list]}
+list items=[list, items]
 ```
 
 ### arguments
 
 ---
 
-### List: Items / items (internally `WFItems`)
+### undefined: items [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#list-field)
 **Default Value**:
 ```
 One,Two
@@ -31,7 +31,7 @@ Accepts a list.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

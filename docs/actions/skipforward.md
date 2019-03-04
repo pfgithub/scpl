@@ -13,7 +13,7 @@ Skips to the next song in the current music queue.
 
 ### usage
 ```
-skipforward a{}
+skipforward 
 ```
 
 ### arguments
@@ -24,7 +24,7 @@ skipforward a{}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

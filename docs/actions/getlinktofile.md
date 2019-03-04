@@ -11,7 +11,7 @@ Gets a public link to the file passed into the action.
 
 ### usage
 ```
-getlinktofile a{}
+getlinktofile 
 ```
 
 ### arguments
@@ -22,7 +22,7 @@ getlinktofile a{}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

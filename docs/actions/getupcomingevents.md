@@ -15,7 +15,7 @@ Gets upcoming calendar events, ordered from nearest to farthest away in time.
 
 ### usage
 ```
-getupcomingevents a{undefined=[???] wfgetupcomingitemcount=[number] day=[string <Any Day | Today | Tomorrow | Specified Day>] specifiedday=[string|text]}
+getupcomingevents undefined=NotImplemented wfgetupcomingitemcount=number day="Any Day" | "Today" | "Tomorrow" | "Specified Day" specifiedday="string"
 ```
 
 ### arguments
@@ -26,7 +26,7 @@ getupcomingevents a{undefined=[???] wfgetupcomingitemcount=[number] day=[string 
 
 ---
 
-### Stepper Number: wfgetupcomingitemcount / wfgetupcomingitemcount (internally `WFGetUpcomingItemCount`)
+### Stepper Number: wfgetupcomingitemcount [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
 **Default Value**:
 ```
 1
@@ -35,13 +35,13 @@ getupcomingevents a{undefined=[???] wfgetupcomingitemcount=[number] day=[string 
 
 
 
-Accepts a number 
-or variable
-with a number.
+		Accepts a number 
+		or variable
+		with a number.
 
 ---
 
-### Enumeration: Day / day (internally `WFDateSpecifier`)
+### Enumeration: day [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**:
 ```
 Any Day
@@ -59,9 +59,11 @@ containing one of the options:
 - `Tomorrow`
 - `Specified Day`
 
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+
 ---
 
-### Date: Specified Day / specifiedday (internally `WFSpecifiedDate`)
+### Date: specifiedday [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 June 29, 2007
@@ -76,7 +78,7 @@ with the text.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

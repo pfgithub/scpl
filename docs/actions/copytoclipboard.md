@@ -13,14 +13,14 @@ Copies the result of the last action to the clipboard.
 
 ### usage
 ```
-copytoclipboard a{localonly=[string boolean|variable] expireat=[string|text]}
+copytoclipboard localonly=true|false|variable expireat="string"
 ```
 
 ### arguments
 
 ---
 
-### Switch: Local Only / localonly (internally `WFLocalOnly`)
+### Switch: localonly [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 
@@ -30,7 +30,7 @@ or a variable.
 
 ---
 
-### Date: Expire At / expireat (internally `WFExpirationDate`)
+### Date: expireat [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 Today at 3 PM
@@ -45,7 +45,7 @@ with the text.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

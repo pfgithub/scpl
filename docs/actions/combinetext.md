@@ -11,14 +11,14 @@ Joins text together, inserting the separator between each join.
 
 ### usage
 ```
-combinetext a{separator=[string <New Lines | Spaces | Custom>] custom=[string|text]}
+combinetext separator="New Lines" | "Spaces" | "Custom" custom="string"
 ```
 
 ### arguments
 
 ---
 
-### Enumeration: Separator / separator (internally `WFTextSeparator`)
+### Enumeration: separator [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**:
 ```
 Spaces
@@ -35,9 +35,11 @@ containing one of the options:
 - `Spaces`
 - `Custom`
 
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+
 ---
 
-### Text: Custom / custom (internally `WFTextCustomSeparator`)
+### Text: custom [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 Text
@@ -52,7 +54,7 @@ with the text.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

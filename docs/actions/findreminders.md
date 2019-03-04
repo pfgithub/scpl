@@ -7,7 +7,7 @@
 
 ### usage
 ```
-findreminders a{}
+findreminders 
 ```
 
 ### arguments
@@ -18,7 +18,7 @@ findreminders a{}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

@@ -13,14 +13,14 @@ Adds the URL passed into the action to your Pinboard.
 
 ### usage
 ```
-addtopinboard a{title=[string|text] tags=[string|text] public=[string boolean|variable] unread=[string boolean|variable] description=[string|text]}
+addtopinboard title="string" tags="string" public=true|false|variable unread=true|false|variable description="string"
 ```
 
 ### arguments
 
 ---
 
-### Text: Title / title (internally `WFPinTitle`)
+### Text: title [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 optional
@@ -35,7 +35,7 @@ with the text.
 
 ---
 
-### Text: Tags / tags (internally `WFPinTags`)
+### Text: tags [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 apple longread
@@ -50,7 +50,7 @@ with the text.
 
 ---
 
-### Switch: Public / public (internally `WFPinPublic`)
+### Switch: public [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Default Value**:
 ```
 true
@@ -64,7 +64,7 @@ or a variable.
 
 ---
 
-### Switch: Unread / unread (internally `WFPinUnread`)
+### Switch: unread [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Default Value**:
 ```
 true
@@ -78,7 +78,7 @@ or a variable.
 
 ---
 
-### Text: Description / description (internally `WFPinDescription`)
+### Text: description [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 Description
@@ -93,7 +93,7 @@ with the text.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

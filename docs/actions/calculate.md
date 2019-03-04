@@ -11,14 +11,14 @@ Performs a number operation on the input and returns the result.
 
 ### usage
 ```
-calculate a{operation=[string <+ | - | × | ÷ | …>] scientificoperation=[string <Modulus | x^2 | x^3 | x^y | e^x | 10^x | ln(x) | log(x) | √x | ∛x | x! | sin(x) | cos(x) | tan(x) | abs(x)>] operand=[number] operand=[number]}
+calculate operation="+" | "-" | "×" | "÷" | "…" scientificoperation="Modulus" | "x^2" | "x^3" | "x^y" | "e^x" | "10^x" | "ln(x)" | "log(x)" | "√x" | "∛x" | "x!" | "sin(x)" | "cos(x)" | "tan(x)" | "abs(x)" operand=number operand2=number
 ```
 
 ### arguments
 
 ---
 
-### Enumeration: Operation / operation (internally `WFMathOperation`)
+### Enumeration: operation [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**:
 ```
 +
@@ -37,9 +37,11 @@ containing one of the options:
 - `÷`
 - `…`
 
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+
 ---
 
-### Enumeration: Scientific Operation / scientificoperation (internally `WFScientificMathOperation`)
+### Enumeration: scientificoperation [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Allows Variables**: true
 
 **Only enabled if**: argument WFMathOperation = `…`
@@ -64,9 +66,11 @@ containing one of the options:
 - `tan(x)`
 - `abs(x)`
 
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+
 ---
 
-### Number: Operand / operand (internally `WFMathOperand`)
+### Number: operand [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**:
 ```
 0
@@ -75,13 +79,13 @@ containing one of the options:
 
 **Only enabled if**: argument WFMathOperation != `…`
 
-Accepts a number 
-or variable
-with a number.
+		Accepts a number 
+		or variable
+		with a number.
 
 ---
 
-### Number: Operand / operand (internally `WFScientificMathOperand`)
+### Number: operand2 [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**:
 ```
 3
@@ -92,13 +96,13 @@ with a number.
 
 **Only enabled if**: argument WFScientificMathOperation = `Modulus` or `x^y`
 
-Accepts a number 
-or variable
-with a number.
+		Accepts a number 
+		or variable
+		with a number.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

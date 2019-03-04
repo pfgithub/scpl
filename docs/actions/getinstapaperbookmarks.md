@@ -15,7 +15,7 @@ Gets the contents of a folder in Instapaper. Requires Instapaper Premium.
 
 ### usage
 ```
-getinstapaperbookmarks a{undefined=[???] wfbookmarkcount=[number]}
+getinstapaperbookmarks undefined=NotImplemented wfbookmarkcount=number
 ```
 
 ### arguments
@@ -26,7 +26,7 @@ getinstapaperbookmarks a{undefined=[???] wfbookmarkcount=[number]}
 
 ---
 
-### Stepper Number: wfbookmarkcount / wfbookmarkcount (internally `WFBookmarkCount`)
+### Stepper Number: wfbookmarkcount [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
 **Default Value**:
 ```
 5
@@ -35,13 +35,13 @@ getinstapaperbookmarks a{undefined=[???] wfbookmarkcount=[number]}
 
 
 
-Accepts a number 
-or variable
-with a number.
+		Accepts a number 
+		or variable
+		with a number.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

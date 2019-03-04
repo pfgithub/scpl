@@ -11,7 +11,7 @@ Plays the audio file passed as input, or a default notification sound if no audi
 
 ### usage
 ```
-playsound a{}
+playsound 
 ```
 
 ### arguments
@@ -22,7 +22,7 @@ playsound a{}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

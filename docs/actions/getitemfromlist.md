@@ -11,14 +11,14 @@ Returns one or more items from the list passed as input. You can get the first i
 
 ### usage
 ```
-getitemfromlist a{get=[string <First Item | Last Item | Random Item | Item At Index | Items in Range>] index=[number] getitemsfromindex=[number] toindex=[number]}
+getitemfromlist get="First Item" | "Last Item" | "Random Item" | "Item At Index" | "Items in Range" index=number getitemsfromindex=number toindex=number
 ```
 
 ### arguments
 
 ---
 
-### Enumeration: Get / get (internally `WFItemSpecifier`)
+### Enumeration: get [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**:
 ```
 First Item
@@ -37,9 +37,11 @@ containing one of the options:
 - `Item At Index`
 - `Items in Range`
 
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+
 ---
 
-### Number: Index / index (internally `WFItemIndex`)
+### Number: index [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**:
 ```
 1
@@ -48,13 +50,13 @@ containing one of the options:
 
 **Only enabled if**: argument WFItemSpecifier = `Item At Index`
 
-Accepts a number 
-or variable
-with a number.
+		Accepts a number 
+		or variable
+		with a number.
 
 ---
 
-### Number: Get Items From Index / getitemsfromindex (internally `WFItemRangeStart`)
+### Number: getitemsfromindex [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**:
 ```
 optional
@@ -67,13 +69,13 @@ optional
 
 **Only enabled if**: argument WFItemSpecifier = `Items in Range`
 
-Accepts a number 
-or variable
-with a number.
+		Accepts a number 
+		or variable
+		with a number.
 
 ---
 
-### Number: To Index / toindex (internally `WFItemRangeEnd`)
+### Number: toindex [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**:
 ```
 optional
@@ -82,13 +84,13 @@ optional
 
 **Only enabled if**: argument WFItemSpecifier = `Items in Range`
 
-Accepts a number 
-or variable
-with a number.
+		Accepts a number 
+		or variable
+		with a number.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

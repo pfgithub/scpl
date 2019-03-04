@@ -15,14 +15,14 @@ Gets cards, lists, or boards in your Trello account.
 
 ### usage
 ```
-gettrelloitems a{get=[string <Boards | Lists | Cards>] undefined=[???] undefined=[???]}
+gettrelloitems get="Boards" | "Lists" | "Cards" undefined=NotImplemented undefined=NotImplemented
 ```
 
 ### arguments
 
 ---
 
-### Enumeration: Get / get (internally `WFTrelloItemType`)
+### Enumeration: get [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**:
 ```
 Boards
@@ -39,6 +39,8 @@ containing one of the options:
 - `Lists`
 - `Cards`
 
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+
 ---
 
 #### This paramtype is not implemented. WFTrelloBoardPickerParameter
@@ -49,7 +51,7 @@ containing one of the options:
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

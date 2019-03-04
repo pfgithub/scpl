@@ -13,14 +13,14 @@ Shows the specified text in Siri or in an alert.
 
 ### usage
 ```
-showresult a{text=[string|text]}
+showresult text="string"
 ```
 
 ### arguments
 
 ---
 
-### Text: text / text (internally `Text`)
+### Text: text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 Enter text...
@@ -35,7 +35,7 @@ with the text.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

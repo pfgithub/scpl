@@ -13,7 +13,7 @@ Gets the halfway point between two locations.
 
 ### usage
 ```
-gethalfwaypoint a{undefined=[???] undefined=[???]}
+gethalfwaypoint undefined=NotImplemented undefined=NotImplemented
 ```
 
 ### arguments
@@ -28,7 +28,7 @@ gethalfwaypoint a{undefined=[???] undefined=[???]}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

@@ -13,14 +13,14 @@ Sets the device’s Wi-Fi to on or off.
 
 ### usage
 ```
-setwifi a{wifi=[string boolean|variable]}
+setwifi wifi=true|false|variable
 ```
 
 ### arguments
 
 ---
 
-### Switch: Wi-Fi / wifi (internally `OnValue`)
+### Switch: wifi [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Default Value**:
 ```
 true
@@ -34,7 +34,7 @@ or a variable.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

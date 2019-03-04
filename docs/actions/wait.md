@@ -13,14 +13,14 @@ Waits for the specified number of seconds before continuing with the next action
 
 ### usage
 ```
-wait a{wfdelaytime=[number]}
+wait wfdelaytime=number
 ```
 
 ### arguments
 
 ---
 
-### Stepper Number: wfdelaytime / wfdelaytime (internally `WFDelayTime`)
+### Stepper Number: wfdelaytime [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
 **Default Value**:
 ```
 1
@@ -29,13 +29,13 @@ wait a{wfdelaytime=[number]}
 
 
 
-Accepts a number 
-or variable
-with a number.
+		Accepts a number 
+		or variable
+		with a number.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

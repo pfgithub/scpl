@@ -13,7 +13,7 @@ Prompts to share the input via AirDrop.
 
 ### usage
 ```
-airdrop a{}
+airdrop 
 ```
 
 ### arguments
@@ -24,7 +24,7 @@ airdrop a{}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

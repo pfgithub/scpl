@@ -17,14 +17,14 @@ The updated contents of the variable.
 
 ### usage
 ```
-addtovariable a{variable=[string|variable v:variableName]}
+addtovariable variable=v:variableName|variableName
 ```
 
 ### arguments
 
 ---
 
-### Variable Field: Variable / variable (internally `WFVariableName`)
+### Variable Input: variable [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-field)
 **Placeholder**:
 ```
 Variable Name
@@ -39,7 +39,7 @@ or a named variable (v:) that you want to set.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

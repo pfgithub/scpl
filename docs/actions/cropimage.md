@@ -11,14 +11,14 @@ Crops images to a smaller rectangle.
 
 ### usage
 ```
-cropimage a{position=[string <Center | Top Left | Top Right | Bottom Left | Bottom Right | Custom>] xcoordinate=[number] ycoordinate=[number] width=[number] height=[number]}
+cropimage position="Center" | "Top Left" | "Top Right" | "Bottom Left" | "Bottom Right" | "Custom" xcoordinate=number ycoordinate=number width=number height=number
 ```
 
 ### arguments
 
 ---
 
-### Enumeration: Position / position (internally `WFImageCropPosition`)
+### Enumeration: position [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**:
 ```
 Center
@@ -38,9 +38,11 @@ containing one of the options:
 - `Bottom Right`
 - `Custom`
 
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+
 ---
 
-### Number: X Coordinate / xcoordinate (internally `WFImageCropX`)
+### Number: xcoordinate [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**:
 ```
 0
@@ -49,13 +51,13 @@ containing one of the options:
 
 **Only enabled if**: argument WFImageCropPosition = `Custom`
 
-Accepts a number 
-or variable
-with a number.
+		Accepts a number 
+		or variable
+		with a number.
 
 ---
 
-### Number: Y Coordinate / ycoordinate (internally `WFImageCropY`)
+### Number: ycoordinate [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**:
 ```
 0
@@ -64,13 +66,13 @@ with a number.
 
 **Only enabled if**: argument WFImageCropPosition = `Custom`
 
-Accepts a number 
-or variable
-with a number.
+		Accepts a number 
+		or variable
+		with a number.
 
 ---
 
-### Number: Width / width (internally `WFImageCropWidth`)
+### Number: width [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**:
 ```
 100
@@ -83,13 +85,13 @@ with a number.
 
 
 
-Accepts a number 
-or variable
-with a number.
+		Accepts a number 
+		or variable
+		with a number.
 
 ---
 
-### Number: Height / height (internally `WFImageCropHeight`)
+### Number: height [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**:
 ```
 100
@@ -102,13 +104,13 @@ with a number.
 
 
 
-Accepts a number 
-or variable
-with a number.
+		Accepts a number 
+		or variable
+		with a number.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

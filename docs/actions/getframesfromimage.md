@@ -20,7 +20,7 @@ The frames
 
 ### usage
 ```
-getframesfromimage a{}
+getframesfromimage 
 ```
 
 ### arguments
@@ -31,7 +31,7 @@ getframesfromimage a{}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

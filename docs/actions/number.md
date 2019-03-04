@@ -11,14 +11,14 @@ Passes a number to the next action.
 
 ### usage
 ```
-number a{number=[number]}
+number number=number
 ```
 
 ### arguments
 
 ---
 
-### Number: Number / number (internally `WFNumberActionNumber`)
+### Number: number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**:
 ```
 42
@@ -27,13 +27,13 @@ number a{number=[number]}
 
 
 
-Accepts a number 
-or variable
-with a number.
+		Accepts a number 
+		or variable
+		with a number.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

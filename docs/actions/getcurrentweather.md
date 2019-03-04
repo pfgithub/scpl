@@ -15,14 +15,14 @@ Gets the current weather conditions at the specified location.
 
 ### usage
 ```
-getcurrentweather a{at=[string <Current Location | Custom Location>|variable] undefined=[???]}
+getcurrentweather at="Current Location" | "Custom Location"|variable undefined=NotImplemented
 ```
 
 ### arguments
 
 ---
 
-### Enumeration: At / at (internally `WFWeatherLocation`)
+### Enumeration: at [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**:
 ```
 Current Location
@@ -35,13 +35,15 @@ containing one of the options:
 - `Current Location`
 - `Custom Location`
 
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+
 ---
 
 #### This paramtype is not implemented. WFLocationFieldParameter
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

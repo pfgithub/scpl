@@ -13,7 +13,7 @@ Prompts to pick a phone number from your contacts and passes the selection to th
 
 ### usage
 ```
-selectphonenumber a{}
+selectphonenumber 
 ```
 
 ### arguments
@@ -24,7 +24,7 @@ selectphonenumber a{}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

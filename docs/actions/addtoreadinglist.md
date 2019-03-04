@@ -11,7 +11,7 @@ Adds URLs passed into the action to your reading list.
 
 ### usage
 ```
-addtoreadinglist a{}
+addtoreadinglist 
 ```
 
 ### arguments
@@ -22,7 +22,7 @@ addtoreadinglist a{}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

@@ -13,14 +13,14 @@ Shows the web URL passed into the action in a Safari View Controller, allowing y
 
 ### usage
 ```
-showwebpage a{entersafarireader=[string boolean|variable]}
+showwebpage entersafarireader=true|false|variable
 ```
 
 ### arguments
 
 ---
 
-### Switch: Enter Safari Reader / entersafarireader (internally `WFEnterSafariReader`)
+### Switch: entersafarireader [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 
@@ -30,7 +30,7 @@ or a variable.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

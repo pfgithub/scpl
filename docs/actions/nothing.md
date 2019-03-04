@@ -11,7 +11,7 @@ This action does nothing and produces no output. It is useful to separate blocks
 
 ### usage
 ```
-nothing a{}
+nothing 
 ```
 
 ### arguments
@@ -22,7 +22,7 @@ nothing a{}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

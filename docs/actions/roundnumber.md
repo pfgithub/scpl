@@ -11,14 +11,14 @@ Rounds the number(s) passed into the action.
 
 ### usage
 ```
-roundnumber a{round=[string <Left of Decimal | Right of Decimal>] mode=[string <Normal | Always Round Up | Always Round Down>] wfrounddecimalplaces=[number]}
+roundnumber round="Left of Decimal" | "Right of Decimal" mode="Normal" | "Always Round Up" | "Always Round Down" wfrounddecimalplaces=number
 ```
 
 ### arguments
 
 ---
 
-### Enumeration: Round / round (internally `WFRoundType`)
+### Enumeration: round [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**:
 ```
 Left of Decimal
@@ -34,9 +34,11 @@ containing one of the options:
 - `Left of Decimal`
 - `Right of Decimal`
 
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+
 ---
 
-### Enumeration: Mode / mode (internally `WFRoundMode`)
+### Enumeration: mode [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**:
 ```
 Normal
@@ -53,20 +55,22 @@ containing one of the options:
 - `Always Round Up`
 - `Always Round Down`
 
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+
 ---
 
-### Stepper Number: wfrounddecimalplaces / wfrounddecimalplaces (internally `WFRoundDecimalPlaces`)
+### Stepper Number: wfrounddecimalplaces [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
 **Allows Variables**: true
 
 
 
-Accepts a number 
-or variable
-with a number.
+		Accepts a number 
+		or variable
+		with a number.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

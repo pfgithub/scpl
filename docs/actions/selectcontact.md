@@ -13,14 +13,14 @@ Prompts to pick a person from your contacts and passes the selection to the next
 
 ### usage
 ```
-selectcontact a{selectmultiple=[string boolean|variable]}
+selectcontact selectmultiple=true|false|variable
 ```
 
 ### arguments
 
 ---
 
-### Switch: Select Multiple / selectmultiple (internally `WFSelectMultiple`)
+### Switch: selectmultiple [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 
@@ -30,7 +30,7 @@ or a variable.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

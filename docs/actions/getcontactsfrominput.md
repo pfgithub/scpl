@@ -13,7 +13,7 @@ Gets contacts from the result of the previous action.
 
 ### usage
 ```
-getcontactsfrominput a{}
+getcontactsfrominput 
 ```
 
 ### arguments
@@ -24,7 +24,7 @@ getcontactsfrominput a{}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

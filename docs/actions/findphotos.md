@@ -7,7 +7,7 @@
 
 ### usage
 ```
-findphotos a{}
+findphotos 
 ```
 
 ### arguments
@@ -18,7 +18,7 @@ findphotos a{}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

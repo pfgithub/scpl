@@ -11,14 +11,14 @@ Encodes or decodes text or files using Base64 encoding.
 
 ### usage
 ```
-base64encode a{mode=[string <Encode | Decode>] linebreaks=[string <None | Every 64 Characters | Every 76 Characters>]}
+base64encode mode="Encode" | "Decode" linebreaks="None" | "Every 64 Characters" | "Every 76 Characters"
 ```
 
 ### arguments
 
 ---
 
-### Enumeration: Mode / mode (internally `WFEncodeMode`)
+### Enumeration: mode [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**:
 ```
 Encode
@@ -34,9 +34,11 @@ containing one of the options:
 - `Encode`
 - `Decode`
 
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+
 ---
 
-### Enumeration: Line Breaks / linebreaks (internally `WFBase64LineBreakMode`)
+### Enumeration: linebreaks [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**:
 ```
 Every 76 Characters
@@ -53,9 +55,11 @@ containing one of the options:
 - `Every 64 Characters`
 - `Every 76 Characters`
 
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

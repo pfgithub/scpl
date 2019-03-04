@@ -11,14 +11,14 @@ Sets the device’s Do Not Disturb to on or off
 
 ### usage
 ```
-setdonotdisturb a{donotdisturb=[string boolean|variable] until=[string <Turned Off | Time | I Leave | Event Ends>] event=[variable] time=[string|text]}
+setdonotdisturb donotdisturb=true|false|variable until="Turned Off" | "Time" | "I Leave" | "Event Ends" event=v:myvar|mv:myvar|s:myvar time="string"
 ```
 
 ### arguments
 
 ---
 
-### Switch: Do Not Disturb / donotdisturb (internally `Enabled`)
+### Switch: donotdisturb [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 
@@ -28,7 +28,7 @@ or a variable.
 
 ---
 
-### Enumeration: Until / until (internally `AssertionType`)
+### Enumeration: until [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**:
 ```
 Turned Off
@@ -48,9 +48,11 @@ containing one of the options:
 - `I Leave`
 - `Event Ends`
 
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+
 ---
 
-### Variable Picker: Event / event (internally `Event`)
+### Variable Picker: event [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
 **Allows Variables**: true
 
 **Only enabled if**: argument Enabled = `true`
@@ -63,7 +65,7 @@ Accepts a variable.
 
 ---
 
-### Date: Time / time (internally `Time`)
+### Date: time [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 7 PM
@@ -82,7 +84,7 @@ with the text.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

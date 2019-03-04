@@ -17,14 +17,14 @@ CloudApp URL
 
 ### usage
 ```
-uploadtocloudapp a{linkprivacy=[string <Private | Public>]}
+uploadtocloudapp linkprivacy="Private" | "Public"
 ```
 
 ### arguments
 
 ---
 
-### Enumeration: Link Privacy / linkprivacy (internally `WFCloudAppPrivacyType`)
+### Enumeration: linkprivacy [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**:
 ```
 Private
@@ -40,9 +40,11 @@ containing one of the options:
 - `Private`
 - `Public`
 
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

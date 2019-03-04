@@ -11,14 +11,14 @@ Encodes or decodes text passed into the action to be suitable for inclusion in a
 
 ### usage
 ```
-urlencode a{mode=[string <Encode | Decode>]}
+urlencode mode="Encode" | "Decode"
 ```
 
 ### arguments
 
 ---
 
-### Enumeration: Mode / mode (internally `WFEncodeMode`)
+### Enumeration: mode [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**:
 ```
 Encode
@@ -34,9 +34,11 @@ containing one of the options:
 - `Encode`
 - `Decode`
 
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

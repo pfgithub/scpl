@@ -11,14 +11,14 @@ Returns the local or external IP address of the device.
 
 ### usage
 ```
-getcurrentipaddress a{address=[string <External | Local>] type=[string <IPv4 | IPv6>]}
+getcurrentipaddress address="External" | "Local" type="IPv4" | "IPv6"
 ```
 
 ### arguments
 
 ---
 
-### Enumeration: Address / address (internally `WFIPAddressSourceOption`)
+### Enumeration: address [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**:
 ```
 External
@@ -34,9 +34,11 @@ containing one of the options:
 - `External`
 - `Local`
 
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+
 ---
 
-### Enumeration: Type / type (internally `WFIPAddressTypeOption`)
+### Enumeration: type [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**:
 ```
 IPv4
@@ -52,9 +54,11 @@ containing one of the options:
 - `IPv4`
 - `IPv6`
 
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

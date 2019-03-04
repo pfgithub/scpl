@@ -13,14 +13,14 @@ Passes the specified email addresses to the next action.
 
 ### usage
 ```
-emailaddress a{wfemailaddress=[string|string array|variable]}
+emailaddress wfemailaddress="string"|[list, of, strings]|variable
 ```
 
 ### arguments
 
 ---
 
-### Text Input: wfemailaddress / wfemailaddress (internally `WFEmailAddress`)
+### Email: wfemailaddress [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Placeholder**:
 ```
 Type in an email address
@@ -33,7 +33,7 @@ Accepts a string or string array or variable of email addresses.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

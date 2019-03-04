@@ -101,7 +101,7 @@ class WFParameterRelationResource extends WFResource {
 }
 resourceTypes.WFParameterRelationResource = WFParameterRelationResource;
 class WFParameter {
-    constructor(data, typeName) {
+    constructor(data, typeName, docs) {
         this._data = data;
         this.defaultValue = this._data.DefaultValue;
         this.requiredResources = this._data.RequiredResources || [];
@@ -111,6 +111,7 @@ class WFParameter {
         this.shortName = genShortName(this.name, this.internalName);
         this.name = this.name || this.shortName;
         this.typeName = typeName;
+        this.docs = docs;
         this.requiredResources = this.requiredResources.map((resource) => {
             const type = resource.WFResourceClass;
             const resourceClass = resourceTypes[type];
@@ -134,7 +135,7 @@ class WFParameter {
         return `:${this._data.DefaultValue ? `${this.genDocsArgName()}:"${this._data.DefaultValue}"` : `${this.genDocsArgName()}`}`;
     }
     genDocs() {
-        let docs = `### ${this.typeName}: ${this.name} / ${this.shortName} (internally \`${this.internalName}\`)\n`;
+        let docs = `### ${this.typeName}: ${this.shortName} [(Docs)](${this.docs})\n`;
         if (this._data.Placeholder) {
             docs += `**Placeholder**:
 \`\`\`
@@ -161,16 +162,16 @@ ${this._data.DefaultValue}
 }
 const types = {};
 class WFEnumerationParameter extends WFParameter {
-    constructor(data, name) {
-        super(data, name || "Enumeration");
+    constructor(data, name = "Enumeration", docs = "https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field") {
+        super(data, name, docs);
         this.options = this._data.Items;
     }
     genDocsAutocompletePlaceholder() {
         return `|${this.options.map(o => `"${o}"`).join(",")}${this.allowsVariables ? `,variable` : ``}|`;
     }
     genDocsArgName() {
-        const strInfo = this.options.join(" | ");
-        return this.allowsVariables ? `[string <${strInfo}>]` : `[string <${strInfo}>|variable]`;
+        const strInfo = this.options.join("\" | \"");
+        return this.allowsVariables ? `"${strInfo}"` : `"${strInfo}"|variable`;
     }
     genDocs() {
         return `${super.genDocs()}
@@ -179,7 +180,9 @@ Accepts a string ${this.allowsVariables ? `
 or variable` : ""}
 containing one of the options:
 
-- \`${this.options.join(`\`\n- \``)}\``;
+- \`${this.options.join(`\`\n- \``)}\`
+
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)`;
     }
     build(cc, parse) {
         // asVariable may require additional actions to be inserted above this one.
@@ -205,25 +208,25 @@ containing one of the options:
 }
 types.WFEnumerationParameter = WFEnumerationParameter;
 class WFStorageServicePickerParameter extends WFEnumerationParameter {
-    constructor(data, name) {
-        super(data, name || "Storage Service Picker");
+    constructor(data, name, docs = "https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field") {
+        super(data, name, docs);
         this.options = ["iCloud Drive", "Dropbox"];
     }
 }
 types.WFStorageServicePickerParameter = WFStorageServicePickerParameter;
 class WFWorkflowPickerParameter extends WFParameter {
-    constructor(data, name = "Shortcut Picker") {
-        super(data, name);
+    constructor(data, name = "Shortcut Picker", docs = "https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields") {
+        super(data, name, docs);
     }
     genDocsArgName() {
-        return `[string|variable]`;
+        return `"string"|variable]`;
     }
     genDocs() {
         return `${super.genDocs()}
 
-	Accepts a string ${this.allowsVariables ? `
-	or variable` : ""}
-	with the name of the shortcut to run`;
+		Accepts a string ${this.allowsVariables ? `
+		or variable` : ""}
+		with the name of the shortcut to run.`;
     }
     build(cc, parse) {
         // asVariable may require additional actions to be inserted above this one.
@@ -241,18 +244,18 @@ class WFWorkflowPickerParameter extends WFParameter {
 }
 types.WFWorkflowPickerParameter = WFWorkflowPickerParameter;
 class WFNumberFieldParameter extends WFParameter {
-    constructor(data, name = "Number") {
-        super(data, name);
+    constructor(data, name = "Number", docs = "https://pfgithub.github.io/shortcutslang/gettingstarted#number-field") {
+        super(data, name, docs);
     }
     genDocsArgName() {
-        return this.allowsVariables ? `[number]` : `[number|variable]`;
+        return this.allowsVariables ? `number` : `number|variable`;
     }
     genDocs() {
         return `${super.genDocs()}
 
-Accepts a number ${this.allowsVariables ? `
-or variable` : ""}
-with a number.`;
+		Accepts a number ${this.allowsVariables ? `
+		or variable` : ""}
+		with a number.`;
     }
     build(cc, parse) {
         if (parse.canBeVariable(cc)) {
@@ -271,8 +274,8 @@ with a number.`;
 }
 types.WFNumberFieldParameter = WFNumberFieldParameter;
 class WFStepperParameter extends WFNumberFieldParameter {
-    constructor(data) {
-        super(data, "Stepper Number");
+    constructor(data, name = "Stepper Number", docs = "https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields") {
+        super(data, name, docs);
     }
     build(cc, parse) {
         const val = super.build(cc, parse);
@@ -285,8 +288,8 @@ class WFStepperParameter extends WFNumberFieldParameter {
     }
 }
 class WFSliderParameter extends WFNumberFieldParameter {
-    constructor(data) {
-        super(data, "Slider Number");
+    constructor(data, name = "Slider Number", docs = "https://pfgithub.github.io/shortcutslang/gettingstarted#slider-number-fields") {
+        super(data, name);
     }
     build(cc, parse) {
         const val = super.build(cc, parse);
@@ -300,11 +303,11 @@ class WFSliderParameter extends WFNumberFieldParameter {
 }
 types.WFStepperParameter = WFStepperParameter;
 class WFContentArrayParameter extends WFParameter {
-    constructor(data) {
-        super(data, "List");
+    constructor(data, name, docs = "https://pfgithub.github.io/shortcutslang/gettingstarted#list-field") {
+        super(data, name, docs);
     }
     genDocsArgName() {
-        return `[list]`;
+        return `[list, items]`;
     }
     genDocs() {
         return `${super.genDocs()}
@@ -324,11 +327,11 @@ types.WFArrayParameter = class extends WFContentArrayParameter {
 }; // not sure what the difference is
 types.WFSliderParameter = WFSliderParameter;
 class WFVariablePickerParameter extends WFParameter {
-    constructor(data) {
-        super(data, "Variable Picker");
+    constructor(data, name = "Variable Picker", docs = "https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields") {
+        super(data, name, docs);
     }
     genDocsArgName() {
-        return `[variable]`;
+        return `v:myvar|mv:myvar|s:myvar`;
     }
     genDocs() {
         return `${super.genDocs()}
@@ -345,11 +348,11 @@ Accepts a variable.`;
 }
 types.WFVariablePickerParameter = WFVariablePickerParameter;
 class WFTextInputParameter extends WFParameter {
-    constructor(data, name) {
-        super(data, name || "Text");
+    constructor(data, name = "Text", docs = "https://pfgithub.github.io/shortcutslang/gettingstarted#text-field") {
+        super(data, name, docs);
     }
     genDocsArgName() {
-        return !this.allowsVariables ? `[string]` : `[string|text]`;
+        return `"string"`;
     }
     genDocs() {
         return `${super.genDocs()}
@@ -373,17 +376,17 @@ with the text.`;
 }
 types.WFTextInputParameter = WFTextInputParameter;
 class WFDateFieldParameter extends WFTextInputParameter {
-    constructor(data, name) {
-        super(data, name || "Date");
+    constructor(data, name = "Date", docs = "https://pfgithub.github.io/shortcutslang/gettingstarted#text-field") {
+        super(data, name, docs);
     }
 }
 types.WFDateFieldParameter = WFDateFieldParameter;
 class WFEmailAddressFieldParameter extends WFParameter {
-    constructor(data) {
-        super(data, "Text Input");
+    constructor(data, name = "Email", docs = "https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields") {
+        super(data, name, docs);
     }
     genDocsArgName() {
-        return `[string|string array|variable]`;
+        return `"string"|[list, of, strings]|variable`;
     }
     genDocs() {
         return `${super.genDocs()}
@@ -405,11 +408,11 @@ Accepts a string or string array or variable of email addresses.`;
 }
 types.WFEmailAddressFieldParameter = WFEmailAddressFieldParameter;
 class WFDictionaryParameter extends WFParameter {
-    constructor(data) {
-        super(data, "Dictionary");
+    constructor(data, name = "Dictionary", docs = "https://pfgithub.github.io/shortcutslang/gettingstarted#dictionary-field") {
+        super(data, name, docs);
     }
     genDocsArgName() {
-        return `[dictionary]`;
+        return `{dictionary}`;
     }
     genDocs() {
         return `${super.genDocs()}
@@ -425,11 +428,11 @@ Accepts a dictionary.`;
 }
 types.WFDictionaryParameter = WFDictionaryParameter;
 class WFSwitchParameter extends WFParameter {
-    constructor(data) {
-        super(data, "Switch");
+    constructor(data, name = "Switch", docs = "https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields") {
+        super(data, name, docs);
     }
     genDocsArgName() {
-        return this.allowsVariables ? `[string boolean|variable]` : `[string boolean]`;
+        return this.allowsVariables ? `true|false|variable` : `true|false`;
     }
     genDocs() {
         return `${super.genDocs()}
@@ -452,18 +455,22 @@ or a variable.` : ""}`;
 }
 types.WFSwitchParameter = WFSwitchParameter;
 class WFExpandingParameter extends WFParameter {
-    constructor(data) {
-        super(data, "Expand Arrow");
+    constructor(data, name = "Expand Arrow", docs = "https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields") {
+        super(data, name, docs);
         this.allowsVariables = false;
     }
     genDocsArgName() {
-        return `[boolean]`;
+        return `true|false`;
     }
     genDocs() {
         return `${super.genDocs()}
 
 Accepts a boolean for if this
-parameter is expanded or not.`;
+parameter is expanded or not.
+Often expanding fields will
+enable or disable other
+arguments. If you are using
+labels, these can be ignored.`;
     }
     build(cc, parse) {
         if (parse.canBeBoolean(cc)) {
@@ -474,11 +481,11 @@ parameter is expanded or not.`;
 }
 types.WFExpandingParameter = WFExpandingParameter;
 class WFVariableFieldParameter extends WFParameter {
-    constructor(data) {
-        super(data, "Variable Field");
+    constructor(data, name = "Variable Input", docs = "https://pfgithub.github.io/shortcutslang/gettingstarted#variable-field") {
+        super(data, name, docs);
     }
     genDocsArgName() {
-        return `[string|variable v:variableName]`;
+        return `v:variableName|variableName`;
     }
     genDocs() {
         const docs = `${super.genDocs()}
@@ -504,6 +511,11 @@ class WFAction {
         this.id = id;
         this.isComplete = true;
         this._parameters = [];
+        this.internalName = this.id;
+        this.name = this._data.Name;
+        this.shortName = genShortName(this.name, this.internalName);
+        this.name = this.name || this.shortName;
+        const parameterNames = {};
         if (this._data.Parameters) {
             this._parameters = this._data.Parameters.map((param) => {
                 _debugTypes[param.Class] = {
@@ -515,7 +527,12 @@ class WFAction {
                 };
                 if (types[param.Class]) {
                     const type = types[param.Class];
-                    return new type(param);
+                    const paramVal = new type(param);
+                    if (parameterNames[paramVal.shortName]) {
+                        paramVal.shortName += "2";
+                    }
+                    parameterNames[paramVal.shortName] = true;
+                    return paramVal;
                 }
                 this.isComplete = false;
                 _debugMissingTypes[param.Class] =
@@ -532,10 +549,6 @@ class WFAction {
                 Items: Object.values(getTypes).map(t => t.name),
             }, "Get Property"));
         }
-        this.internalName = this.id;
-        this.name = this._data.Name;
-        this.shortName = genShortName(this.name, this.internalName);
-        this.name = this.name || this.shortName;
     }
     get actionOutputType() {
         // TODO !!! used for the default output type in variables
@@ -553,7 +566,7 @@ class WFAction {
     genDocsParams() {
         return this._parameters.map(param => {
             if (typeof param === "string") {
-                return { argType: `[???]` };
+                return { argType: `NotImplemented` };
             }
             return {
                 argName: param.shortName,
@@ -570,7 +583,7 @@ ${this.genDocsParams().map((arg, i) => `  ${arg.argName}=\${${i + 1}${arg.argAut
     }
     genDocsUsage() {
         return `\`\`\`
-${this.shortName} a{${this.genDocsParams().map(({ argName, argType }) => `${argName}=${argType}`).join(" ")}}${this._data.BlockInfo ? this._data.BlockInfo.Example : ""}
+${this.shortName} ${this.genDocsParams().map(({ argName, argType }) => `${argName}=${argType}`).join(" ")}${this._data.BlockInfo ? this._data.BlockInfo.Example : ""}
 \`\`\``;
     }
     genDocs() {
@@ -615,7 +628,7 @@ ${this._parameters.map(param => (typeof param === "string") ? `#### ${param}` : 
 
 ---
 
-### source json
+### source json (for developers)
 
 \`\`\`json
 ${JSON.stringify(this._data, null, "\t")}
@@ -740,15 +753,13 @@ Banner by ROP#2788 on the [routinehub.co](https://routinehub.co) discord server.
 
 [Getting Started Guide](https://pfgithub.github.io/shortcutslang/gettingstarted.html)
 
-[Syntax Documentation](https://pfgithub.github.io/shortcutslang/syntax.html)
-
 [Try Shortcutslang in a web browser](https://pfgithub.github.io/shortcutslang/tryit.html)
 
 ${completedActions}/${totalActions} builtin actions supported
 
 ## All Actions:
 
-${Object.values(actionsByID).sort((a, b) => a.name > b.name ? 1 : (a.name < b.name ? -1 : 0)).map(action => `- [${action.name}](actions/${action.shortName})${action.isComplete ? "" : " (Incomplete)"}`).join(`\n`)}
+${Object.values(actionsByID).sort((a, b) => a.name > b.name ? 1 : (a.name < b.name ? -1 : 0)).map(action => `- [${action.name} (\`${action.shortName}\`)](actions/${action.shortName})${action.isComplete ? "" : " (Incomplete)"}`).join(`\n`)}
 
 ## Parameter Types:
 

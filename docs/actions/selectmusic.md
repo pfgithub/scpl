@@ -13,14 +13,14 @@ Prompts to select music from your local music library.
 
 ### usage
 ```
-selectmusic a{selectmultiplesongs=[string boolean|variable]}
+selectmusic selectmultiplesongs=true|false|variable
 ```
 
 ### arguments
 
 ---
 
-### Switch: Select Multiple Songs / selectmultiplesongs (internally `WFExportSongActionSelectMultiple`)
+### Switch: selectmultiplesongs [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 
@@ -30,7 +30,7 @@ or a variable.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

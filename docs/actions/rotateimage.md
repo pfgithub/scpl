@@ -11,14 +11,14 @@ Turns an image clockwise by a particular number of degrees.
 
 ### usage
 ```
-rotateimage a{degrees=[number]}
+rotateimage degrees=number
 ```
 
 ### arguments
 
 ---
 
-### Number: Degrees / degrees (internally `WFImageRotateAmount`)
+### Number: degrees [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**:
 ```
 90
@@ -31,13 +31,13 @@ rotateimage a{degrees=[number]}
 
 
 
-Accepts a number 
-or variable
-with a number.
+		Accepts a number 
+		or variable
+		with a number.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

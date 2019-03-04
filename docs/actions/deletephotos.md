@@ -13,7 +13,7 @@ Deletes the photos passed as input from the device's photo library. This action 
 
 ### usage
 ```
-deletephotos a{}
+deletephotos 
 ```
 
 ### arguments
@@ -24,7 +24,7 @@ deletephotos a{}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

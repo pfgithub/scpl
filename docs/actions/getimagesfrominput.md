@@ -13,7 +13,7 @@ For example, this action can get the album art of a song, or all the images on a
 
 ### usage
 ```
-getimagesfrominput a{}
+getimagesfrominput 
 ```
 
 ### arguments
@@ -24,7 +24,7 @@ getimagesfrominput a{}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

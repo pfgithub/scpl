@@ -11,7 +11,7 @@ Retrieves the HTTP headers of the URL passed as input using a HEAD request.
 
 ### usage
 ```
-getheadersofurl a{}
+getheadersofurl 
 ```
 
 ### arguments
@@ -22,7 +22,7 @@ getheadersofurl a{}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

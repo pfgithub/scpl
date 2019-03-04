@@ -1,0 +1,11 @@
+remote_theme: pfgithub/cayman
+custom_buttons:
+  -
+    title: Github
+    url: https://github.com/pfgithub/shortcutslang
+  -
+    title: Try it
+    url: https://github.com/pfgithub/atom-markdown-editor
+  -
+    title: Getting Started
+    url: https://github.com/pfgithub/atom-markdown-editor

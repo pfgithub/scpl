@@ -15,7 +15,7 @@ Gets upcoming reminders, ordered from nearest to farthest away due date.
 
 ### usage
 ```
-getupcomingreminders a{undefined=[???] wfgetupcomingitemcount=[number]}
+getupcomingreminders undefined=NotImplemented wfgetupcomingitemcount=number
 ```
 
 ### arguments
@@ -26,7 +26,7 @@ getupcomingreminders a{undefined=[???] wfgetupcomingitemcount=[number]}
 
 ---
 
-### Stepper Number: wfgetupcomingitemcount / wfgetupcomingitemcount (internally `WFGetUpcomingItemCount`)
+### Stepper Number: wfgetupcomingitemcount [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
 **Default Value**:
 ```
 1
@@ -35,13 +35,13 @@ getupcomingreminders a{undefined=[???] wfgetupcomingitemcount=[number]}
 
 
 
-Accepts a number 
-or variable
-with a number.
+		Accepts a number 
+		or variable
+		with a number.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

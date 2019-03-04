@@ -13,14 +13,14 @@ Skips to the previous song in the current music queue.
 
 ### usage
 ```
-skipback a{skipto=[string <Beginning | Previous Song>]}
+skipback skipto="Beginning" | "Previous Song"
 ```
 
 ### arguments
 
 ---
 
-### Enumeration: Skip To / skipto (internally `WFSkipBackBehavior`)
+### Enumeration: skipto [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**:
 ```
 Beginning
@@ -36,9 +36,11 @@ containing one of the options:
 - `Beginning`
 - `Previous Song`
 
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

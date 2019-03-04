@@ -13,14 +13,14 @@ Imports the photos passed as input into Lightroom
 
 ### usage
 ```
-importtolightroom a{applypreset=[string boolean|variable] presetgroup=[string <B&W | Color | Creative | Curve | Grain | Sharpening | Vignetting>] undefined=[???]}
+importtolightroom applypreset=true|false|variable presetgroup="B&W" | "Color" | "Creative" | "Curve" | "Grain" | "Sharpening" | "Vignetting" undefined=NotImplemented
 ```
 
 ### arguments
 
 ---
 
-### Switch: Apply Preset / applypreset (internally `applyPreset`)
+### Switch: applypreset [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 
@@ -30,7 +30,7 @@ or a variable.
 
 ---
 
-### Enumeration: Preset Group / presetgroup (internally `presetGroup`)
+### Enumeration: presetgroup [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**:
 ```
 Color
@@ -51,13 +51,15 @@ containing one of the options:
 - `Sharpening`
 - `Vignetting`
 
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+
 ---
 
 #### This paramtype is not implemented. WFLightroomPresetPickerParameter
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

@@ -18,14 +18,14 @@ Items in your music library or items from the Search iTunes action.
 
 ### usage
 ```
-createplaylist a{name=[string|text] author=[string|text] description=[string|text]}
+createplaylist name="string" author="string" description="string"
 ```
 
 ### arguments
 
 ---
 
-### Text: Name / name (internally `WFPlaylistName`)
+### Text: name [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 Greatest Hits
@@ -40,7 +40,7 @@ with the text.
 
 ---
 
-### Text: Author / author (internally `WFPlaylistAuthor`)
+### Text: author [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 Shortcuts
@@ -55,7 +55,7 @@ with the text.
 
 ---
 
-### Text: Description / description (internally `WFPlaylistDescription`)
+### Text: description [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 All of my favorites
@@ -70,7 +70,7 @@ with the text.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

@@ -17,14 +17,14 @@ The saved files
 
 ### usage
 ```
-savefile a{service=[string <iCloud Drive | Dropbox>] askwheretosave=[string boolean|variable] destinationpath=[string|text] overwriteiffileexists=[string boolean|variable]}
+savefile service="iCloud Drive" | "Dropbox" askwheretosave=true|false|variable destinationpath="string" overwriteiffileexists=true|false|variable
 ```
 
 ### arguments
 
 ---
 
-### Storage Service Picker: Service / service (internally `WFFileStorageService`)
+### Enumeration: service [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Allows Variables**: true
 
 
@@ -36,9 +36,11 @@ containing one of the options:
 - `iCloud Drive`
 - `Dropbox`
 
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+
 ---
 
-### Switch: Ask Where to Save / askwheretosave (internally `WFAskWhereToSave`)
+### Switch: askwheretosave [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Default Value**:
 ```
 true
@@ -52,7 +54,7 @@ or a variable.
 
 ---
 
-### Text: Destination Path / destinationpath (internally `WFFileDestinationPath`)
+### Text: destinationpath [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Allows Variables**: true
 
 **Only enabled if**: argument WFAskWhereToSave = `false`
@@ -63,7 +65,7 @@ with the text.
 
 ---
 
-### Switch: Overwrite If File Exists / overwriteiffileexists (internally `WFSaveFileOverwrite`)
+### Switch: overwriteiffileexists [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 **Only enabled if**: argument WFAskWhereToSave = `false`
@@ -73,7 +75,7 @@ or a variable.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

@@ -11,14 +11,14 @@ Makes a PDF out of the input. The resulting PDF can optionally include a quarter
 
 ### usage
 ```
-makepdf a{includemargin=[string boolean|variable] include=[string <All Pages | Single Page | Page Range>] page=[number] startpage=[number] endpage=[number]}
+makepdf includemargin=true|false|variable include="All Pages" | "Single Page" | "Page Range" page=number startpage=number endpage=number
 ```
 
 ### arguments
 
 ---
 
-### Switch: Include Margin / includemargin (internally `WFPDFIncludeMargin`)
+### Switch: includemargin [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 
@@ -28,7 +28,7 @@ or a variable.
 
 ---
 
-### Enumeration: Include / include (internally `WFPDFIncludedPages`)
+### Enumeration: include [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**:
 ```
 All Pages
@@ -45,9 +45,11 @@ containing one of the options:
 - `Single Page`
 - `Page Range`
 
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+
 ---
 
-### Number: Page # / page (internally `WFPDFSinglePage`)
+### Number: page [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**:
 ```
 1
@@ -56,13 +58,13 @@ containing one of the options:
 
 **Only enabled if**: argument WFPDFIncludedPages = `Single Page`
 
-Accepts a number 
-or variable
-with a number.
+		Accepts a number 
+		or variable
+		with a number.
 
 ---
 
-### Number: Start Page # / startpage (internally `WFPDFPageRangeStart`)
+### Number: startpage [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**:
 ```
 1
@@ -71,13 +73,13 @@ with a number.
 
 **Only enabled if**: argument WFPDFIncludedPages = `Page Range`
 
-Accepts a number 
-or variable
-with a number.
+		Accepts a number 
+		or variable
+		with a number.
 
 ---
 
-### Number: End Page # / endpage (internally `WFPDFPageRangeEnd`)
+### Number: endpage [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**:
 ```
 3
@@ -86,13 +88,13 @@ with a number.
 
 **Only enabled if**: argument WFPDFIncludedPages = `Page Range`
 
-Accepts a number 
-or variable
-with a number.
+		Accepts a number 
+		or variable
+		with a number.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

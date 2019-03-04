@@ -11,14 +11,14 @@ Reverses the direction of images either horizontally or vertically.
 
 ### usage
 ```
-flipimage a{direction=[string <Horizontal | Vertical>]}
+flipimage direction="Horizontal" | "Vertical"
 ```
 
 ### arguments
 
 ---
 
-### Enumeration: Direction / direction (internally `WFImageFlipDirection`)
+### Enumeration: direction [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**:
 ```
 Horizontal
@@ -34,9 +34,11 @@ containing one of the options:
 - `Horizontal`
 - `Vertical`
 
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

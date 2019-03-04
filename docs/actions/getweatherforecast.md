@@ -15,14 +15,14 @@ Gets an hourly or daily weather forecast at the specified location.
 
 ### usage
 ```
-getweatherforecast a{at=[string <Current Location | Custom Location>|variable] undefined=[???] type=[string <Hourly | Daily>]}
+getweatherforecast at="Current Location" | "Custom Location"|variable undefined=NotImplemented type="Hourly" | "Daily"
 ```
 
 ### arguments
 
 ---
 
-### Enumeration: At / at (internally `WFWeatherLocation`)
+### Enumeration: at [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**:
 ```
 Current Location
@@ -35,13 +35,15 @@ containing one of the options:
 - `Current Location`
 - `Custom Location`
 
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+
 ---
 
 #### This paramtype is not implemented. WFLocationFieldParameter
 
 ---
 
-### Enumeration: Type / type (internally `WFWeatherForecastType`)
+### Enumeration: type [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**:
 ```
 Daily
@@ -57,9 +59,11 @@ containing one of the options:
 - `Hourly`
 - `Daily`
 
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

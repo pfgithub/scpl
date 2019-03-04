@@ -17,14 +17,14 @@ Archive
 
 ### usage
 ```
-makearchive a{archivename=[string|text] undefined=[???]}
+makearchive archivename="string" undefined=NotImplemented
 ```
 
 ### arguments
 
 ---
 
-### Text: Archive Name / archivename (internally `WFZIPName`)
+### Text: archivename [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 optional
@@ -43,7 +43,7 @@ with the text.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

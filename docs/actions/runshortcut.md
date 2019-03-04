@@ -22,25 +22,25 @@ The shortcut's result
 
 ### usage
 ```
-runshortcut a{shortcut=[string|variable] showwhilerunning=[string boolean|variable]}
+runshortcut shortcut="string"|variable] showwhilerunning=true|false|variable
 ```
 
 ### arguments
 
 ---
 
-### Shortcut Picker: Shortcut / shortcut (internally `WFWorkflowName`)
+### Shortcut Picker: shortcut [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Allows Variables**: true
 
 
 
-	Accepts a string 
-	or variable
-	with the name of the shortcut to run
+		Accepts a string 
+		or variable
+		with the name of the shortcut to run.
 
 ---
 
-### Switch: Show While Running / showwhilerunning (internally `WFShowWorkflow`)
+### Switch: showwhilerunning [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Default Value**:
 ```
 true
@@ -54,7 +54,7 @@ or a variable.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

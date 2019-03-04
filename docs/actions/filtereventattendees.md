@@ -5,7 +5,7 @@
 
 ### usage
 ```
-filtereventattendees a{}
+filtereventattendees 
 ```
 
 ### arguments
@@ -16,7 +16,7 @@ filtereventattendees a{}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

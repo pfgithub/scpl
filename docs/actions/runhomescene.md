@@ -15,7 +15,7 @@ Sets a Home scene.
 
 ### usage
 ```
-runhomescene a{undefined=[???] undefined=[???]}
+runhomescene undefined=NotImplemented undefined=NotImplemented
 ```
 
 ### arguments
@@ -30,7 +30,7 @@ runhomescene a{undefined=[???] undefined=[???]}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

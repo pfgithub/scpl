@@ -11,7 +11,7 @@ Returns any dates found in the output from the previous action.
 
 ### usage
 ```
-getdatesfrominput a{}
+getdatesfrominput 
 ```
 
 ### arguments
@@ -22,7 +22,7 @@ getdatesfrominput a{}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

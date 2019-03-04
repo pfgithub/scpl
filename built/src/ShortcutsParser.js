@@ -5,7 +5,7 @@ const ParserHelper_js_1 = require("./ParserHelper.js");
 // THINGS TO NOTE:
 // https://github.com/no-context/moo
 // supports string interpolation
-ParserHelper_js_1.o.identifier = ParserHelper_js_1.regex(/^[A-Za-z0-9@_]+/)
+ParserHelper_js_1.o.identifier = ParserHelper_js_1.regex(/^[A-Za-z@_][A-Za-z0-9@_]*/)
     .scb(([fullmatch], start, end) => new ParserData_js_1.IdentifierParse(start, end, fullmatch));
 ParserHelper_js_1.o.newline = ParserHelper_js_1.p(ParserHelper_js_1.o.space, ParserHelper_js_1.optional(ParserHelper_js_1.o.eolComment), ParserHelper_js_1.plus(ParserHelper_js_1.p(ParserHelper_js_1.o.space, ParserHelper_js_1.or(ParserHelper_js_1.c `\n`, ParserHelper_js_1.c `;`), ParserHelper_js_1.o.space))).scb(_ => null);
 ParserHelper_js_1.o.multilineComment = ParserHelper_js_1.or(ParserHelper_js_1.regex(/^--\[\[[\s\S]+?--\]\]/), // --[[ Lua style multiline comments --]]

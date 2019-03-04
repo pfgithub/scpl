@@ -13,14 +13,14 @@ Formats a date and time into text.
 
 ### usage
 ```
-formatdate a{dateformat=[string <None | Short | Medium | Long | Relative | RFC 2822 | ISO 8601 | Custom>] alternateformat=[string <Short | Medium | Long>] timeformat=[string <None | Short | Medium | Long | Relative>] includeiso8601time=[string boolean|variable] undefined=[???]}
+formatdate dateformat="None" | "Short" | "Medium" | "Long" | "Relative" | "RFC 2822" | "ISO 8601" | "Custom" alternateformat="Short" | "Medium" | "Long" timeformat="None" | "Short" | "Medium" | "Long" | "Relative" includeiso8601time=true|false|variable undefined=NotImplemented
 ```
 
 ### arguments
 
 ---
 
-### Enumeration: Date Format / dateformat (internally `WFDateFormatStyle`)
+### Enumeration: dateformat [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**:
 ```
 Short
@@ -42,9 +42,11 @@ containing one of the options:
 - `ISO 8601`
 - `Custom`
 
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+
 ---
 
-### Enumeration: Alternate Format / alternateformat (internally `WFRelativeDateFormatStyle`)
+### Enumeration: alternateformat [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**:
 ```
 Medium
@@ -61,9 +63,11 @@ containing one of the options:
 - `Medium`
 - `Long`
 
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+
 ---
 
-### Enumeration: Time Format / timeformat (internally `WFTimeFormatStyle`)
+### Enumeration: timeformat [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**:
 ```
 Short
@@ -82,9 +86,11 @@ containing one of the options:
 - `Long`
 - `Relative`
 
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+
 ---
 
-### Switch: Include ISO 8601 Time / includeiso8601time (internally `WFISO8601IncludeTime`)
+### Switch: includeiso8601time [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 **Only enabled if**: argument WFDateFormatStyle = `ISO 8601`
@@ -98,7 +104,7 @@ or a variable.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

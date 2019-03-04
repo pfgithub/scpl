@@ -15,14 +15,14 @@ Uses the microphone to record audio.
 
 ### usage
 ```
-recordaudio a{audioquality=[string <Normal | Very High>] startrecording=[string <On Tap | Immediately>] finishrecording=[string <On Tap | After Time>] undefined=[???]}
+recordaudio audioquality="Normal" | "Very High" startrecording="On Tap" | "Immediately" finishrecording="On Tap" | "After Time" undefined=NotImplemented
 ```
 
 ### arguments
 
 ---
 
-### Enumeration: Audio Quality / audioquality (internally `WFRecordingCompression`)
+### Enumeration: audioquality [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**:
 ```
 Normal
@@ -38,9 +38,11 @@ containing one of the options:
 - `Normal`
 - `Very High`
 
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+
 ---
 
-### Enumeration: Start Recording / startrecording (internally `WFRecordingStart`)
+### Enumeration: startrecording [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**:
 ```
 On Tap
@@ -56,9 +58,11 @@ containing one of the options:
 - `On Tap`
 - `Immediately`
 
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+
 ---
 
-### Enumeration: Finish Recording / finishrecording (internally `WFRecordingEnd`)
+### Enumeration: finishrecording [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**:
 ```
 On Tap
@@ -74,13 +78,15 @@ containing one of the options:
 - `On Tap`
 - `After Time`
 
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+
 ---
 
 #### This paramtype is not implemented. WFTimeIntervalParameter
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

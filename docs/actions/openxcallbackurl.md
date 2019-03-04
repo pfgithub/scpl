@@ -17,14 +17,14 @@ When the app that's opened calls back to Shortcuts using x-success, it may inclu
 
 ### usage
 ```
-openxcallbackurl a{customcallback=[string boolean|variable] successkey=[string|text] cancelkey=[string|text] errorkey=[string|text] customxsuccessurl=[string boolean|variable] xsuccessurl=[string|text]}
+openxcallbackurl customcallback=true|false|variable successkey="string" cancelkey="string" errorkey="string" customxsuccessurl=true|false|variable xsuccessurl="string"
 ```
 
 ### arguments
 
 ---
 
-### Switch: Custom Callback / customcallback (internally `WFXCallbackCustomCallbackEnabled`)
+### Switch: customcallback [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 
@@ -34,7 +34,7 @@ or a variable.
 
 ---
 
-### Text: Success Key / successkey (internally `WFXCallbackCustomSuccessKey`)
+### Text: successkey [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Default Value**:
 ```
 x-success
@@ -49,7 +49,7 @@ with the text.
 
 ---
 
-### Text: Cancel Key / cancelkey (internally `WFXCallbackCustomCancelKey`)
+### Text: cancelkey [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 optional
@@ -64,7 +64,7 @@ with the text.
 
 ---
 
-### Text: Error Key / errorkey (internally `WFXCallbackCustomErrorKey`)
+### Text: errorkey [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 optional
@@ -79,7 +79,7 @@ with the text.
 
 ---
 
-### Switch: Custom X-Success URL / customxsuccessurl (internally `WFXCallbackCustomSuccessURLEnabled`)
+### Switch: customxsuccessurl [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 
@@ -89,7 +89,7 @@ or a variable.
 
 ---
 
-### Text: X-Success URL / xsuccessurl (internally `WFXCallbackCustomSuccessURL`)
+### Text: xsuccessurl [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Default Value**:
 ```
 shortcuts://callback
@@ -104,7 +104,7 @@ with the text.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

@@ -13,7 +13,7 @@ Sends the input to another device via DeskConnect. DeskConnect makes it easy to 
 
 ### usage
 ```
-sendviadeskconnect a{}
+sendviadeskconnect 
 ```
 
 ### arguments
@@ -24,7 +24,7 @@ sendviadeskconnect a{}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

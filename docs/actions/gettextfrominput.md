@@ -13,7 +13,7 @@ For example, this action can get the name of a photo or song, or the text of a w
 
 ### usage
 ```
-gettextfrominput a{}
+gettextfrominput 
 ```
 
 ### arguments
@@ -24,7 +24,7 @@ gettextfrominput a{}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

@@ -22,7 +22,7 @@ Every item passed to the “End Repeat” action
 
 ### usage
 ```
-repeatwitheach a{}
+repeatwitheach 
   ...
 end
 ```
@@ -35,7 +35,7 @@ end
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

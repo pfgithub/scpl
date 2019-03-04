@@ -13,7 +13,7 @@ Gets information about the currently connected networks.
 
 ### usage
 ```
-getnetworkdetails a{undefined=[???] get=[string <Network Name | BSSID>] get=[string <Carrier Name | Radio Technology | Country Code>]}
+getnetworkdetails undefined=NotImplemented get="Network Name" | "BSSID" get2="Carrier Name" | "Radio Technology" | "Country Code"
 ```
 
 ### arguments
@@ -24,7 +24,7 @@ getnetworkdetails a{undefined=[???] get=[string <Network Name | BSSID>] get=[str
 
 ---
 
-### Enumeration: Get / get (internally `WFWiFiDetail`)
+### Enumeration: get [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**:
 ```
 Network Name
@@ -40,9 +40,11 @@ containing one of the options:
 - `Network Name`
 - `BSSID`
 
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+
 ---
 
-### Enumeration: Get / get (internally `WFCellularDetail`)
+### Enumeration: get2 [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**:
 ```
 Carrier Name
@@ -59,9 +61,11 @@ containing one of the options:
 - `Radio Technology`
 - `Country Code`
 
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

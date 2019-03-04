@@ -15,7 +15,7 @@ Passes the specified phone numbers to the next action.
 
 ### usage
 ```
-phonenumber a{undefined=[???]}
+phonenumber undefined=NotImplemented
 ```
 
 ### arguments
@@ -26,7 +26,7 @@ phonenumber a{undefined=[???]}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

@@ -24,7 +24,7 @@ The saved items
 
 ### usage
 ```
-savetophotoalbum a{undefined=[???]}
+savetophotoalbum undefined=NotImplemented
 ```
 
 ### arguments
@@ -35,7 +35,7 @@ savetophotoalbum a{undefined=[???]}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

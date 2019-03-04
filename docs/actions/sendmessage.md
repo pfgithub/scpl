@@ -15,7 +15,7 @@ Sends an iMessage or SMS. Pass images, videos, or other files as input to includ
 
 ### usage
 ```
-sendmessage a{undefined=[???] showwhenrun=[string boolean|variable] undefined=[???] wfsendmessagecontent=[string|text] prefix=[string|text]}
+sendmessage undefined=NotImplemented showwhenrun=true|false|variable undefined=NotImplemented wfsendmessagecontent="string" prefix="string"
 ```
 
 ### arguments
@@ -26,7 +26,7 @@ sendmessage a{undefined=[???] showwhenrun=[string boolean|variable] undefined=[?
 
 ---
 
-### Switch: Show When Run / showwhenrun (internally `ShowWhenRun`)
+### Switch: showwhenrun [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Default Value**:
 ```
 true
@@ -44,7 +44,7 @@ or a variable.
 
 ---
 
-### Text: wfsendmessagecontent / wfsendmessagecontent (internally `WFSendMessageContent`)
+### Text: wfsendmessagecontent [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 Message
@@ -59,7 +59,7 @@ with the text.
 
 ---
 
-### Text: Prefix / prefix (internally `WFSendMessagePrefix`)
+### Text: prefix [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Allows Variables**: true
 
 **Only enabled if**: This action is always **disabled** inside Shortcutslang.
@@ -70,7 +70,7 @@ with the text.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

@@ -13,7 +13,7 @@ Opens URLs passed into the action in Safari.
 
 ### usage
 ```
-openurls a{}
+openurls 
 ```
 
 ### arguments
@@ -24,7 +24,7 @@ openurls a{}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

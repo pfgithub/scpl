@@ -13,7 +13,7 @@ Tests if any item passed as input matches the specified condition, and if so, ru
 
 ### usage
 ```
-if a{input=[string <Equals | Contains | Is Greater Than | Is Less Than>|variable] number=[number] value=[string|text]}
+if input="Equals" | "Contains" | "Is Greater Than" | "Is Less Than"|variable number=number value="string"
   ...
 otherwise
   ...
@@ -24,7 +24,7 @@ end
 
 ---
 
-### Enumeration: Input / input (internally `WFCondition`)
+### Enumeration: input [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**:
 ```
 Contains
@@ -39,9 +39,11 @@ containing one of the options:
 - `Is Greater Than`
 - `Is Less Than`
 
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+
 ---
 
-### Number: Number / number (internally `WFNumberValue`)
+### Number: number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**:
 ```
 7
@@ -50,13 +52,13 @@ containing one of the options:
 
 **Only enabled if**: argument WFCondition = `Is Greater Than` or `Is Less Than`
 
-Accepts a number 
-or variable
-with a number.
+		Accepts a number 
+		or variable
+		with a number.
 
 ---
 
-### Text: Value / value (internally `WFConditionalActionString`)
+### Text: value [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 example
@@ -71,7 +73,7 @@ with the text.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

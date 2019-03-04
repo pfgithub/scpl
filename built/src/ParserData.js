@@ -4,7 +4,6 @@ const OutputData_1 = require("./OutputData");
 const ActionData_1 = require("./ActionData");
 const Converter_js_1 = require("./Converter.js");
 const HelpfulActions_1 = require("./HelpfulActions");
-const PreprocessorActions_1 = require("./PreprocessorActions");
 class PositionedError extends Error {
     constructor(message, start, end) {
         super(`Error from ${start.toString()} to ${end.toString()}: ${message}`);
@@ -363,7 +362,7 @@ class ActionParse extends Parse {
             wfAction = controlFlowData.wfaction;
         }
         else if (actionName.startsWith("@")) {
-            const preprocessorAction = PreprocessorActions_1.default[actionName.toLowerCase()];
+            const preprocessorAction = cc.getParserAction(actionName.toLowerCase());
             if (preprocessorAction) {
                 preprocessorAction(cc, ...this.args);
             }
@@ -558,13 +557,19 @@ class ActionsParse extends Parse {
             }
             lastAction = action.asAction(cc);
         });
+        console.log("THIS.ACTIONS = ", this.actions.length, lastAction);
         if (!lastAction) {
             throw this.error("There must be at least one action");
         }
         return lastAction;
     }
-    asShortcut() {
+    asShortcut(converterActions) {
         const cc = new Converter_js_1.ConvertingContext();
+        if (converterActions) {
+            Object.keys(converterActions).forEach(key => {
+                cc.setParserAction(key, converterActions[key]);
+            });
+        }
         this.asAction(cc);
         if (cc.controlFlowStack.length !== 0) {
             throw new Error(`There are ${cc.controlFlowStack.length} unended block actions. Check to make sure that every block has an end.`);

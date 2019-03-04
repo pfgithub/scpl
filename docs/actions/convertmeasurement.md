@@ -13,7 +13,7 @@ Converts the measurements passed into the action to the specified unit.
 
 ### usage
 ```
-convertmeasurement a{undefined=[???] undefined=[???]}
+convertmeasurement undefined=NotImplemented undefined=NotImplemented
 ```
 
 ### arguments
@@ -28,7 +28,7 @@ convertmeasurement a{undefined=[???] undefined=[???]}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

@@ -11,7 +11,7 @@ Returns the name of every item passed as input. Depending on the input, this cou
 
 ### usage
 ```
-getname a{}
+getname 
 ```
 
 ### arguments
@@ -22,7 +22,7 @@ getname a{}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

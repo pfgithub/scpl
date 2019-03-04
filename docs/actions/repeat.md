@@ -13,7 +13,7 @@ Repeats the contained actions, running them the specified number of times.
 
 ### usage
 ```
-repeat a{wfrepeatcount=[number]}
+repeat wfrepeatcount=number
   ...
 end
 ```
@@ -22,18 +22,18 @@ end
 
 ---
 
-### Stepper Number: wfrepeatcount / wfrepeatcount (internally `WFRepeatCount`)
+### Stepper Number: wfrepeatcount [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
 **Allows Variables**: true
 
 
 
-Accepts a number 
-or variable
-with a number.
+		Accepts a number 
+		or variable
+		with a number.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

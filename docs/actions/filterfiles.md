@@ -5,7 +5,7 @@
 
 ### usage
 ```
-filterfiles a{}
+filterfiles 
 ```
 
 ### arguments
@@ -16,7 +16,7 @@ filterfiles a{}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

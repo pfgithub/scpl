@@ -13,7 +13,7 @@ Pauses the currently playing music.
 
 ### usage
 ```
-pausemusic a{}
+pausemusic 
 ```
 
 ### arguments
@@ -24,7 +24,7 @@ pausemusic a{}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

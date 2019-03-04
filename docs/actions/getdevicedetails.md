@@ -11,14 +11,14 @@ Gets information about the current device.
 
 ### usage
 ```
-getdevicedetails a{get=[string <Device Name | Device Model | System Version | Screen Width | Screen Height | Current Volume | Current Brightness>]}
+getdevicedetails get="Device Name" | "Device Model" | "System Version" | "Screen Width" | "Screen Height" | "Current Volume" | "Current Brightness"
 ```
 
 ### arguments
 
 ---
 
-### Enumeration: Get / get (internally `WFDeviceDetail`)
+### Enumeration: get [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**:
 ```
 Device Name
@@ -39,9 +39,11 @@ containing one of the options:
 - `Current Volume`
 - `Current Brightness`
 
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

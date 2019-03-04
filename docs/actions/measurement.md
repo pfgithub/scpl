@@ -13,7 +13,7 @@ Passes the specified measurement (including number and unit) to the next action.
 
 ### usage
 ```
-measurement a{undefined=[???] undefined=[???]}
+measurement undefined=NotImplemented undefined=NotImplemented
 ```
 
 ### arguments
@@ -28,7 +28,7 @@ measurement a{undefined=[???] undefined=[???]}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

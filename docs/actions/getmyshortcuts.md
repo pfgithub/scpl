@@ -11,7 +11,7 @@ Gets the shortcuts stored on this device. For example, you could use this action
 
 ### usage
 ```
-getmyshortcuts a{}
+getmyshortcuts 
 ```
 
 ### arguments
@@ -22,7 +22,7 @@ getmyshortcuts a{}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

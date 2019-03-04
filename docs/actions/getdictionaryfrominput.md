@@ -11,7 +11,7 @@ Makes a dictionary from the text passed as input. JSON (like {"foo": "bar"}), ke
 
 ### usage
 ```
-getdictionaryfrominput a{}
+getdictionaryfrominput 
 ```
 
 ### arguments
@@ -22,7 +22,7 @@ getdictionaryfrominput a{}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

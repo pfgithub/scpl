@@ -1,6 +1,7 @@
 import * as uuidv4 from "uuid/v4";
 import {Shortcut, Action} from "./OutputData";
 import {AsAble} from "./ParserData";
+import defaultPreprocessorActions from "./PreprocessorActions";
 
 export class ConvertingContext {
 	namedVariables: {[key: string]: boolean}
@@ -9,12 +10,14 @@ export class ConvertingContext {
 	lastVariableAction?: Action
 	controlFlowStack: Array<{uuid: string, number: number, wfaction: any}>
 	parserVariables: {[key: string]: AsAble}
+	parserActions: {[key: string]: (cc: ConvertingContext, ...args: AsAble[]) => void}
 	above?: ConvertingContext
 
 	constructor(above?: ConvertingContext) {
 		this.namedVariables = {};
 		this.magicVariables = {};
 		this.parserVariables = {};
+		this.parserActions = {};
 		
 		this.shortcut = new Shortcut("My Great Shortcut");
 		this.lastVariableAction = undefined;
@@ -54,6 +57,16 @@ export class ConvertingContext {
 	}
 	setParserVariable(name: string, value: AsAble) {
 		this.parserVariables[name] = value;
+	}
+	
+	getParserAction(name: string): ((cc: ConvertingContext, ...args: AsAble[]) => void) | undefined {
+		if(defaultPreprocessorActions[name]) {return defaultPreprocessorActions[name];}
+		if(this.parserActions[name]) {return this.parserActions[name];}
+		if(this.above) {return this.above.getParserAction(name);}
+		return undefined;
+	}
+	setParserAction(name: string, value: (cc: ConvertingContext, ...args: AsAble[]) => void) {
+		this.parserActions[name] = value;
 	}
 	
 	in(): ConvertingContext	{

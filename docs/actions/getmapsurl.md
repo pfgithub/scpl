@@ -11,7 +11,7 @@ Creates a URL to search for the location, place, or text that was passed into th
 
 ### usage
 ```
-getmapsurl a{}
+getmapsurl 
 ```
 
 ### arguments
@@ -22,7 +22,7 @@ getmapsurl a{}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

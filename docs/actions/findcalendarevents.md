@@ -7,7 +7,7 @@
 
 ### usage
 ```
-findcalendarevents a{}
+findcalendarevents 
 ```
 
 ### arguments
@@ -18,7 +18,7 @@ findcalendarevents a{}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

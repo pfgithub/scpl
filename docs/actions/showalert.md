@@ -13,14 +13,14 @@ Displays an alert with a title, a message, and two buttons. If the user selects 
 
 ### usage
 ```
-showalert a{title=[string|text] message=[string|text] showcancelbutton=[string boolean|variable]}
+showalert title="string" message="string" showcancelbutton=true|false|variable
 ```
 
 ### arguments
 
 ---
 
-### Text: Title / title (internally `WFAlertActionTitle`)
+### Text: title [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 Attention-grabbing title
@@ -39,7 +39,7 @@ with the text.
 
 ---
 
-### Text: Message / message (internally `WFAlertActionMessage`)
+### Text: message [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 Informational message
@@ -58,7 +58,7 @@ with the text.
 
 ---
 
-### Switch: Show Cancel Button / showcancelbutton (internally `WFAlertActionCancelButtonShown`)
+### Switch: showcancelbutton [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Default Value**:
 ```
 true
@@ -72,7 +72,7 @@ or a variable.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

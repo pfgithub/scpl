@@ -24,7 +24,7 @@ The contents of the updated playlist
 
 ### usage
 ```
-addtoplaylist a{undefined=[???]}
+addtoplaylist undefined=NotImplemented
 ```
 
 ### arguments
@@ -35,7 +35,7 @@ addtoplaylist a{undefined=[???]}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

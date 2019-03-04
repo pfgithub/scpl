@@ -11,7 +11,7 @@ Gets the names of emoji passed into the action.
 
 ### usage
 ```
-getnameofemoji a{}
+getnameofemoji 
 ```
 
 ### arguments
@@ -22,7 +22,7 @@ getnameofemoji a{}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

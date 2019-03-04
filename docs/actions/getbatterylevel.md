@@ -11,7 +11,7 @@ Outputs the percentage of battery remaining as a number from 0 to 100.
 
 ### usage
 ```
-getbatterylevel a{}
+getbatterylevel 
 ```
 
 ### arguments
@@ -22,7 +22,7 @@ getbatterylevel a{}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

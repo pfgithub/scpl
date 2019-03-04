@@ -11,14 +11,14 @@ Returns a particular object class from the input.
 
 ### usage
 ```
-getobjectofclass a{class=[string|text]}
+getobjectofclass class="string"
 ```
 
 ### arguments
 
 ---
 
-### Text: Class / class (internally `Class`)
+### Text: class [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 NSString
@@ -37,7 +37,7 @@ with the text.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

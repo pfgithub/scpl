@@ -2,11 +2,13 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const uuidv4 = require("uuid/v4");
 const OutputData_1 = require("./OutputData");
+const PreprocessorActions_1 = require("./PreprocessorActions");
 class ConvertingContext {
     constructor(above) {
         this.namedVariables = {};
         this.magicVariables = {};
         this.parserVariables = {};
+        this.parserActions = {};
         this.shortcut = new OutputData_1.Shortcut("My Great Shortcut");
         this.lastVariableAction = undefined;
         ///
@@ -55,6 +57,21 @@ class ConvertingContext {
     }
     setParserVariable(name, value) {
         this.parserVariables[name] = value;
+    }
+    getParserAction(name) {
+        if (PreprocessorActions_1.default[name]) {
+            return PreprocessorActions_1.default[name];
+        }
+        if (this.parserActions[name]) {
+            return this.parserActions[name];
+        }
+        if (this.above) {
+            return this.above.getParserAction(name);
+        }
+        return undefined;
+    }
+    setParserAction(name, value) {
+        this.parserActions[name] = value;
     }
     in() {
         return new ConvertingContext(this);

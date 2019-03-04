@@ -17,14 +17,14 @@ Photo from the camera.
 
 ### usage
 ```
-takephoto a{showcamerapreview=[string boolean|variable] wfphotocount=[number] camera=[string <Front | Back>]}
+takephoto showcamerapreview=true|false|variable wfphotocount=number camera="Front" | "Back"
 ```
 
 ### arguments
 
 ---
 
-### Switch: Show Camera Preview / showcamerapreview (internally `WFCameraCaptureShowPreview`)
+### Switch: showcamerapreview [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Default Value**:
 ```
 true
@@ -38,7 +38,7 @@ or a variable.
 
 ---
 
-### Stepper Number: wfphotocount / wfphotocount (internally `WFPhotoCount`)
+### Stepper Number: wfphotocount [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
 **Default Value**:
 ```
 1
@@ -47,13 +47,13 @@ or a variable.
 
 **Only enabled if**: argument WFCameraCaptureShowPreview = `true`
 
-Accepts a number 
-or variable
-with a number.
+		Accepts a number 
+		or variable
+		with a number.
 
 ---
 
-### Enumeration: Camera / camera (internally `WFCameraCaptureDevice`)
+### Enumeration: camera [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**:
 ```
 Back
@@ -69,9 +69,11 @@ containing one of the options:
 - `Front`
 - `Back`
 
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

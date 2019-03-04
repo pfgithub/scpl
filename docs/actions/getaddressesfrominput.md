@@ -11,7 +11,7 @@ Returns any street addresses found in the output from the previous action.
 
 ### usage
 ```
-getaddressesfrominput a{}
+getaddressesfrominput 
 ```
 
 ### arguments
@@ -22,7 +22,7 @@ getaddressesfrominput a{}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

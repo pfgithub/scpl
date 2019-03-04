@@ -11,7 +11,7 @@ Returns any links found in the output from the previous action.
 
 ### usage
 ```
-geturlsfrominput a{}
+geturlsfrominput 
 ```
 
 ### arguments
@@ -22,7 +22,7 @@ geturlsfrominput a{}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

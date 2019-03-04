@@ -11,14 +11,14 @@ Passes the specified URL to the next action.
 
 ### usage
 ```
-url a{url=[string|text]}
+url url="string"
 ```
 
 ### arguments
 
 ---
 
-### Text: URL / url (internally `WFURLActionURL`)
+### Text: url [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 example.com
@@ -33,7 +33,7 @@ with the text.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

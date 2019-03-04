@@ -15,7 +15,7 @@ Presents a menu and runs different actions based on which menu item was chosen.
 
 ### usage
 ```
-choosefrommenu a{prompt=[string|text] items=[list]}
+choosefrommenu prompt="string" items=[list, items]
 case
   ...
 case
@@ -27,7 +27,7 @@ end
 
 ---
 
-### Text: Prompt / prompt (internally `WFMenuPrompt`)
+### Text: prompt [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 optional
@@ -42,7 +42,7 @@ with the text.
 
 ---
 
-### List: Items / items (internally `WFMenuItems`)
+### undefined: items [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#list-field)
 **Default Value**:
 ```
 One,Two
@@ -55,7 +55,7 @@ Accepts a list.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

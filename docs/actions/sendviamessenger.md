@@ -13,7 +13,7 @@ Sends the input via Facebook Messenger
 
 ### usage
 ```
-sendviamessenger a{}
+sendviamessenger 
 ```
 
 ### arguments
@@ -24,7 +24,7 @@ sendviamessenger a{}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

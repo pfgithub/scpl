@@ -11,14 +11,14 @@ Passes the specified list of key-value pairs to the next action as a dictionary.
 
 ### usage
 ```
-dictionary a{items=[dictionary]}
+dictionary items={dictionary}
 ```
 
 ### arguments
 
 ---
 
-### Dictionary: Items / items (internally `WFItems`)
+### Dictionary: items [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#dictionary-field)
 **Allows Variables**: true
 
 
@@ -27,7 +27,7 @@ Accepts a dictionary.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

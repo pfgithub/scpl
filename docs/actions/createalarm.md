@@ -15,14 +15,14 @@ Creates an alarm in the Clock app.
 
 ### usage
 ```
-createalarm a{label=[string|text] time=[string|text] undefined=[???]}
+createalarm label="string" time="string" undefined=NotImplemented
 ```
 
 ### arguments
 
 ---
 
-### Text: Label / label (internally `WFLabel`)
+### Text: label [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 Alarm
@@ -37,7 +37,7 @@ with the text.
 
 ---
 
-### Date: Time / time (internally `WFTime`)
+### Date: time [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 8 AM
@@ -56,7 +56,7 @@ with the text.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

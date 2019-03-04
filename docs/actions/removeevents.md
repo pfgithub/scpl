@@ -13,14 +13,14 @@ Removes all events passed into the action from the calendars they are contained 
 
 ### usage
 ```
-removeevents a{includefutureevents=[string boolean|variable]}
+removeevents includefutureevents=true|false|variable
 ```
 
 ### arguments
 
 ---
 
-### Switch: Include Future Events / includefutureevents (internally `WFCalendarIncludeFutureEvents`)
+### Switch: includefutureevents [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 
@@ -30,7 +30,7 @@ or a variable.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

@@ -15,7 +15,7 @@ Adds a data point into the Health app. You can log anything that the Health app 
 
 ### usage
 ```
-loghealthsample a{undefined=[???] undefined=[???] undefined=[???] undefined=[???] undefined=[???] undefined=[???] undefined=[???] undefined=[???]}
+loghealthsample undefined=NotImplemented undefined=NotImplemented undefined=NotImplemented undefined=NotImplemented undefined=NotImplemented undefined=NotImplemented undefined=NotImplemented undefined=NotImplemented
 ```
 
 ### arguments
@@ -54,7 +54,7 @@ loghealthsample a{undefined=[???] undefined=[???] undefined=[???] undefined=[???
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

@@ -24,14 +24,14 @@ The distance to the location in miles or kilometers.
 
 ### usage
 ```
-getdistance a{from=[string <Current Location | Custom Location>|variable] undefined=[???] routetype=[string <Direct | Driving | Walking>] undefined=[???]}
+getdistance from="Current Location" | "Custom Location"|variable undefined=NotImplemented routetype="Direct" | "Driving" | "Walking" undefined=NotImplemented
 ```
 
 ### arguments
 
 ---
 
-### Enumeration: From / from (internally `WFGetDirectionsFrom`)
+### Enumeration: from [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**:
 ```
 Current Location
@@ -44,13 +44,15 @@ containing one of the options:
 - `Current Location`
 - `Custom Location`
 
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+
 ---
 
 #### This paramtype is not implemented. WFLocationFieldParameter
 
 ---
 
-### Enumeration: Route Type / routetype (internally `WFGetDirectionsActionMode`)
+### Enumeration: routetype [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**:
 ```
 Direct
@@ -67,13 +69,15 @@ containing one of the options:
 - `Driving`
 - `Walking`
 
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+
 ---
 
 #### This paramtype is not implemented. WFGetDistanceUnitPickerParameter
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

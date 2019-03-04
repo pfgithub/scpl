@@ -15,7 +15,7 @@ Opens the specified app.
 
 ### usage
 ```
-openapp a{undefined=[???] wfappname=[string|text]}
+openapp undefined=NotImplemented wfappname="string"
 ```
 
 ### arguments
@@ -26,7 +26,7 @@ openapp a{undefined=[???] wfappname=[string|text]}
 
 ---
 
-### Text: wfappname / wfappname (internally `WFAppName`)
+### Text: wfappname [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Allows Variables**: true
 
 **Only enabled if**: This action is always **disabled** inside Shortcutslang.
@@ -37,7 +37,7 @@ with the text.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

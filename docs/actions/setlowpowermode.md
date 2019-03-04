@@ -13,14 +13,14 @@ Sets the device’s Low Power Mode to on or off.
 
 ### usage
 ```
-setlowpowermode a{lowpowermode=[string boolean|variable]}
+setlowpowermode lowpowermode=true|false|variable
 ```
 
 ### arguments
 
 ---
 
-### Switch: Low Power Mode / lowpowermode (internally `OnValue`)
+### Switch: lowpowermode [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Default Value**:
 ```
 true
@@ -34,7 +34,7 @@ or a variable.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

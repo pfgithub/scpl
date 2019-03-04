@@ -7,7 +7,7 @@
 
 ### usage
 ```
-findcontacts a{}
+findcontacts 
 ```
 
 ### arguments
@@ -18,7 +18,7 @@ findcontacts a{}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

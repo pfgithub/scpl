@@ -11,14 +11,14 @@ Returns a particular file type from the input.
 
 ### usage
 ```
-getfileoftype a{type=[string|text]}
+getfileoftype type="string"
 ```
 
 ### arguments
 
 ---
 
-### Text: Type / type (internally `WFFileType`)
+### Text: type [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 UTI
@@ -37,7 +37,7 @@ with the text.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

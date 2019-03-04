@@ -16,7 +16,7 @@ HTML
 
 ### usage
 ```
-makerichtextfromhtml a{}
+makerichtextfromhtml 
 ```
 
 ### arguments
@@ -27,7 +27,7 @@ makerichtextfromhtml a{}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

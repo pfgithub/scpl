@@ -20,14 +20,14 @@ The output from the shell script (stdout)
 
 ### usage
 ```
-runscriptoverssh a{host=[string|text] port=[string|text] user=[string|text] password=[string|text] script=[string|text]}
+runscriptoverssh host="string" port="string" user="string" password="string" script="string"
 ```
 
 ### arguments
 
 ---
 
-### Text: Host / host (internally `WFSSHHost`)
+### Text: host [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 192.168.1.100
@@ -42,7 +42,7 @@ with the text.
 
 ---
 
-### Text: Port / port (internally `WFSSHPort`)
+### Text: port [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 22
@@ -61,7 +61,7 @@ with the text.
 
 ---
 
-### Text: User / user (internally `WFSSHUser`)
+### Text: user [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 root
@@ -76,7 +76,7 @@ with the text.
 
 ---
 
-### Text: Password / password (internally `WFSSHPassword`)
+### Text: password [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 ••••••••
@@ -91,7 +91,7 @@ with the text.
 
 ---
 
-### Text: Script / script (internally `WFSSHScript`)
+### Text: script [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 Script
@@ -106,7 +106,7 @@ with the text.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

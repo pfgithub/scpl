@@ -3,7 +3,6 @@ import {getActionFromName} from "./ActionData";
 import {ConvertingContext} from "./Converter.js";
 import {setVariable, getVariable} from "./HelpfulActions";
 import {Position} from "./Production";
-import preprocessorActions from "./PreprocessorActions";
 
 export class PositionedError extends Error { // an error at a position
 	start: Position
@@ -372,7 +371,7 @@ export class ActionParse extends Parse implements AsText, AsVariable, AsAction {
 			if(!controlFlowData) {throw this.name.error("There are no open block actions. Make you have a block action such as `if` or `chooseFromMenu` and that you don't have any extra ends.");}
 			wfAction = controlFlowData.wfaction;
 		}else if(actionName.startsWith("@")) {
-			const preprocessorAction = preprocessorActions[actionName.toLowerCase()];
+			const preprocessorAction = cc.getParserAction(actionName.toLowerCase());
 			if(preprocessorAction) {
 				preprocessorAction(cc, ...this.args);
 			}else{
@@ -540,8 +539,11 @@ export class ActionsParse extends Parse implements AsAction, AsVariable, AsText 
 		if(!lastAction) {throw this.error("There must be at least one action");}
 		return lastAction;
 	}
-	asShortcut() {
+	asShortcut(converterActions?: {[key: string]: (cc: ConvertingContext, ...args: AsAble[]) => void}) {
 		const cc = new ConvertingContext();
+		if(converterActions) {Object.keys(converterActions).forEach(key =>  {
+			cc.setParserAction(key, converterActions[key]);
+		});}
 		this.asAction(cc);
 		if(cc.controlFlowStack.length !== 0) {
 			throw new Error(`There are ${cc.controlFlowStack.length} unended block actions. Check to make sure that every block has an end.`);

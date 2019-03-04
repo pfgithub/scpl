@@ -15,7 +15,7 @@ Transcribes what you say aloud into text and passes the result to the next actio
 
 ### usage
 ```
-dictatetext a{undefined=[???] stoplistening=[string <After Pause | After Short Pause | On Tap>]}
+dictatetext undefined=NotImplemented stoplistening="After Pause" | "After Short Pause" | "On Tap"
 ```
 
 ### arguments
@@ -26,7 +26,7 @@ dictatetext a{undefined=[???] stoplistening=[string <After Pause | After Short P
 
 ---
 
-### Enumeration: Stop Listening / stoplistening (internally `WFDictateTextStopListening`)
+### Enumeration: stoplistening [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**:
 ```
 After Pause
@@ -43,9 +43,11 @@ containing one of the options:
 - `After Short Pause`
 - `On Tap`
 
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

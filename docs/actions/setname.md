@@ -11,14 +11,14 @@ Sets the name of the item passed as input.
 
 ### usage
 ```
-setname a{name=[string|text] advanced=[boolean] dontincludefileextension=[string boolean|variable]}
+setname name="string" advanced=true|false dontincludefileextension=true|false|variable
 ```
 
 ### arguments
 
 ---
 
-### Text: Name / name (internally `WFName`)
+### Text: name [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 example
@@ -33,15 +33,19 @@ with the text.
 
 ---
 
-### Expand Arrow: Advanced / advanced (internally `Advanced`)
+### Expand Arrow: advanced [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 
 
 Accepts a boolean for if this
 parameter is expanded or not.
+Often expanding fields will
+enable or disable other
+arguments. If you are using
+labels, these can be ignored.
 
 ---
 
-### Switch: Don't Include File Extension / dontincludefileextension (internally `WFDontIncludeFileExtension`)
+### Switch: dontincludefileextension [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 **Only enabled if**: argument Advanced = `true`
@@ -51,7 +55,7 @@ or a variable.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

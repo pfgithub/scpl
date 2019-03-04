@@ -15,7 +15,7 @@ This action might be useful after an action that switches apps, to pause executi
 
 ### usage
 ```
-waittoreturn a{}
+waittoreturn 
 ```
 
 ### arguments
@@ -26,7 +26,7 @@ waittoreturn a{}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

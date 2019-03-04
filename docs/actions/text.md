@@ -11,14 +11,14 @@ Passes the specified text to the next action.
 
 ### usage
 ```
-text a{wftextactiontext=[string|text]}
+text wftextactiontext="string"
 ```
 
 ### arguments
 
 ---
 
-### Text: wftextactiontext / wftextactiontext (internally `WFTextActionText`)
+### Text: wftextactiontext [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 Enter text...
@@ -33,7 +33,7 @@ with the text.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

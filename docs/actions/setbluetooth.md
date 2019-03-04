@@ -13,14 +13,14 @@ Sets the device’s Bluetooth to on or off.
 
 ### usage
 ```
-setbluetooth a{bluetooth=[string boolean|variable]}
+setbluetooth bluetooth=true|false|variable
 ```
 
 ### arguments
 
 ---
 
-### Switch: Bluetooth / bluetooth (internally `OnValue`)
+### Switch: bluetooth [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Default Value**:
 ```
 true
@@ -34,7 +34,7 @@ or a variable.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

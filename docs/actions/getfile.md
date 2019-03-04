@@ -13,14 +13,14 @@ Get files from iCloud Drive or Dropbox. Turn off “Show Document Picker” to s
 
 ### usage
 ```
-getfile a{service=[string <iCloud Drive | Dropbox>] showdocumentpicker=[string boolean|variable] selectmultiple=[string boolean|variable] filepath=[string|text] initialpath=[string|text] errorifnotfound=[string boolean|variable]}
+getfile service="iCloud Drive" | "Dropbox" showdocumentpicker=true|false|variable selectmultiple=true|false|variable filepath="string" initialpath="string" errorifnotfound=true|false|variable
 ```
 
 ### arguments
 
 ---
 
-### Storage Service Picker: Service / service (internally `WFFileStorageService`)
+### Enumeration: service [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Allows Variables**: true
 
 
@@ -32,9 +32,11 @@ containing one of the options:
 - `iCloud Drive`
 - `Dropbox`
 
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+
 ---
 
-### Switch: Show Document Picker / showdocumentpicker (internally `WFShowFilePicker`)
+### Switch: showdocumentpicker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Default Value**:
 ```
 true
@@ -48,7 +50,7 @@ or a variable.
 
 ---
 
-### Switch: Select Multiple / selectmultiple (internally `SelectMultiple`)
+### Switch: selectmultiple [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 **Only enabled if**: argument WFShowFilePicker = `true`
@@ -58,7 +60,7 @@ or a variable.
 
 ---
 
-### Text: File Path / filepath (internally `WFGetFilePath`)
+### Text: filepath [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 example.txt
@@ -73,7 +75,7 @@ with the text.
 
 ---
 
-### Text: Initial Path / initialpath (internally `WFGetFileInitialDirectoryPath`)
+### Text: initialpath [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 optional
@@ -88,7 +90,7 @@ with the text.
 
 ---
 
-### Switch: Error If Not Found / errorifnotfound (internally `WFFileErrorIfNotFound`)
+### Switch: errorifnotfound [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Default Value**:
 ```
 true
@@ -102,7 +104,7 @@ or a variable.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

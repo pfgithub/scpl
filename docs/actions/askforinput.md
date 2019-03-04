@@ -13,14 +13,14 @@ Displays a dialog prompting the user to enter a piece of information.
 
 ### usage
 ```
-askforinput a{question=[string|text] defaultanswer=[string|text] defaultanswer=[string|text] inputtype=[string <Text | Number | URL | Date>] granularity=[string <Date | Time | Date and Time>] skiptowatchdictation=[string boolean|variable]}
+askforinput question="string" defaultanswer="string" defaultanswer2="string" inputtype="Text" | "Number" | "URL" | "Date" granularity="Date" | "Time" | "Date and Time" skiptowatchdictation=true|false|variable
 ```
 
 ### arguments
 
 ---
 
-### Text: Question / question (internally `WFAskActionPrompt`)
+### Text: question [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 Enter text
@@ -35,7 +35,7 @@ with the text.
 
 ---
 
-### Text: Default Answer / defaultanswer (internally `WFAskActionDefaultAnswer`)
+### Text: defaultanswer [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 optional
@@ -50,7 +50,7 @@ with the text.
 
 ---
 
-### Date: Default Answer / defaultanswer (internally `WFAskActionDefaultAnswerDate`)
+### Date: defaultanswer2 [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 June 29, 2007
@@ -65,7 +65,7 @@ with the text.
 
 ---
 
-### Enumeration: Input Type / inputtype (internally `WFInputType`)
+### Enumeration: inputtype [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**:
 ```
 Text
@@ -83,9 +83,11 @@ containing one of the options:
 - `URL`
 - `Date`
 
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+
 ---
 
-### Enumeration: Granularity / granularity (internally `WFAskActionDateGranularity`)
+### Enumeration: granularity [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**:
 ```
 Date
@@ -102,9 +104,11 @@ containing one of the options:
 - `Time`
 - `Date and Time`
 
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+
 ---
 
-### Switch: Skip to Watch Dictation / skiptowatchdictation (internally `WFAskActionImmediateDictation`)
+### Switch: skiptowatchdictation [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 **Only enabled if**: argument WFInputType != `Date`
@@ -118,7 +122,7 @@ or a variable.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

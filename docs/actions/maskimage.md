@@ -20,14 +20,14 @@ The masked images
 
 ### usage
 ```
-maskimage a{type=[string <Rounded Rectangle | Ellipse | Icon | Custom Image>|variable] cornerradius=[number] imagemask=[variable]}
+maskimage type="Rounded Rectangle" | "Ellipse" | "Icon" | "Custom Image"|variable cornerradius=number imagemask=v:myvar|mv:myvar|s:myvar
 ```
 
 ### arguments
 
 ---
 
-### Enumeration: Type / type (internally `WFMaskType`)
+### Enumeration: type [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 
 
 Accepts a string 
@@ -38,9 +38,11 @@ containing one of the options:
 - `Icon`
 - `Custom Image`
 
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+
 ---
 
-### Number: Corner Radius / cornerradius (internally `WFMaskCornerRadius`)
+### Number: cornerradius [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**:
 ```
 0
@@ -49,13 +51,13 @@ containing one of the options:
 
 **Only enabled if**: argument WFMaskType = `Rounded Rectangle`
 
-Accepts a number 
-or variable
-with a number.
+		Accepts a number 
+		or variable
+		with a number.
 
 ---
 
-### Variable Picker: Image Mask / imagemask (internally `WFCustomMaskImage`)
+### Variable Picker: imagemask [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
 **Allows Variables**: true
 
 **Only enabled if**: argument WFMaskType = `Custom Image`
@@ -64,7 +66,7 @@ Accepts a variable.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

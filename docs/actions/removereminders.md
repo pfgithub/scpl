@@ -13,7 +13,7 @@ Removes all reminders passed into the action from the lists they are contained i
 
 ### usage
 ```
-removereminders a{}
+removereminders 
 ```
 
 ### arguments
@@ -24,7 +24,7 @@ removereminders a{}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

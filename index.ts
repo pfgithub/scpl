@@ -2,11 +2,10 @@ import parser from "./src/ShortcutsParser";
 import * as bplistc from "bplist-creator";
 import {PositionedError, AsAble} from "./src/ParserData";
 import {ConvertingContext} from "./src/Converter";
-import preprocessorActions from "./src/PreprocessorActions";
 // export {default as parser} from "./src/ShortcutsParser";
 export {PositionedError, ConvertingContext, AsAble};
 
-export function parse(string: string, options: {makePlist?: boolean, extraParseActions?: {[key: string]: (cc: ConvertingContext, ...args: AsAble[]) => void}}) {
+export function parse(string: string, options: {makePlist?: boolean, makeShortcut?: boolean, extraParseActions?: {[key: string]: (cc: ConvertingContext, ...args: AsAble[]) => void}}) {
 	const parsed = parser.parse(`${string}\n`, [1, 1]);
 	if(!parsed.success) {
 		throw new PositionedError("Failed to parse anything", [1, 1], [100, 1]);
@@ -18,7 +17,7 @@ export function parse(string: string, options: {makePlist?: boolean, extraParseA
 
 	let shortcut;
 	try{
-		shortcut = parsed.data.asShortcut();
+		shortcut = parsed.data.asShortcut(options.extraParseActions);
 	}catch(er) {
 		if(er instanceof PositionedError) {
 			throw er;
@@ -28,4 +27,5 @@ export function parse(string: string, options: {makePlist?: boolean, extraParseA
 	if(options.makePlist) {
 		return (<any>bplistc)(shortcut.build());
 	}
+	return shortcut;
 }

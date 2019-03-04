@@ -13,14 +13,14 @@ Searches the iTunes Store, returning the items that match the specified search t
 
 ### usage
 ```
-searchitunesstore a{search=[string|text] undefined=[???] undefined=[???] undefined=[???] undefined=[???] wfitemlimit=[number]}
+searchitunesstore search="string" undefined=NotImplemented undefined=NotImplemented undefined=NotImplemented undefined=NotImplemented wfitemlimit=number
 ```
 
 ### arguments
 
 ---
 
-### Text: Search / search (internally `WFSearchTerm`)
+### Text: search [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 U2
@@ -51,7 +51,7 @@ with the text.
 
 ---
 
-### Stepper Number: wfitemlimit / wfitemlimit (internally `WFItemLimit`)
+### Stepper Number: wfitemlimit [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
 **Default Value**:
 ```
 25
@@ -60,13 +60,13 @@ with the text.
 
 
 
-Accepts a number 
-or variable
-with a number.
+		Accepts a number 
+		or variable
+		with a number.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

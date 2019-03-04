@@ -11,7 +11,7 @@ Returns the type of every item passed as input. For example, if a URL is passed,
 
 ### usage
 ```
-gettype a{}
+gettype 
 ```
 
 ### arguments
@@ -22,7 +22,7 @@ gettype a{}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

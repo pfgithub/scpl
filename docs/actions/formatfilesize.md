@@ -16,14 +16,14 @@ A file size from another action, or a number of bytes
 
 ### usage
 ```
-formatfilesize a{format=[string <Automatic | Bytes | KB | MB | GB | TB | PB | EB | ZB | YB or Higher>] includeunits=[string boolean|variable]}
+formatfilesize format="Automatic" | "Bytes" | "KB" | "MB" | "GB" | "TB" | "PB" | "EB" | "ZB" | "YB or Higher" includeunits=true|false|variable
 ```
 
 ### arguments
 
 ---
 
-### Enumeration: Format / format (internally `WFFileSizeFormat`)
+### Enumeration: format [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**:
 ```
 Automatic
@@ -47,9 +47,11 @@ containing one of the options:
 - `ZB`
 - `YB or Higher`
 
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+
 ---
 
-### Switch: Include Units / includeunits (internally `WFFileSizeIncludeUnits`)
+### Switch: includeunits [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Default Value**:
 ```
 true
@@ -63,7 +65,7 @@ or a variable.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

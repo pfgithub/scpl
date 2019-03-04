@@ -13,7 +13,7 @@ Opens a file in GoodReader.
 
 ### usage
 ```
-openingoodreader a{}
+openingoodreader 
 ```
 
 ### arguments
@@ -24,7 +24,7 @@ openingoodreader a{}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

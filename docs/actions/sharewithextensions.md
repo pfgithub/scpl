@@ -13,7 +13,7 @@ Prompts to share the input using action extensions and sharing extensions provid
 
 ### usage
 ```
-sharewithextensions a{}
+sharewithextensions 
 ```
 
 ### arguments
@@ -24,7 +24,7 @@ sharewithextensions a{}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

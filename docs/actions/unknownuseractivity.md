@@ -5,7 +5,7 @@
 
 ### usage
 ```
-unknownuseractivity a{}
+unknownuseractivity 
 ```
 
 ### arguments
@@ -16,7 +16,7 @@ unknownuseractivity a{}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

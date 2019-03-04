@@ -11,14 +11,14 @@ Counts the number of items, characters, words, sentences, or lines passed as inp
 
 ### usage
 ```
-count a{count=[string <Items | Characters | Words | Sentences | Lines>]}
+count count="Items" | "Characters" | "Words" | "Sentences" | "Lines"
 ```
 
 ### arguments
 
 ---
 
-### Enumeration: Count / count (internally `WFCountType`)
+### Enumeration: count [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Allows Variables**: true
 
 
@@ -33,9 +33,11 @@ containing one of the options:
 - `Sentences`
 - `Lines`
 
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

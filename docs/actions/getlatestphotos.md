@@ -13,14 +13,14 @@ Gets the most recent photos from the camera roll.
 
 ### usage
 ```
-getlatestphotos a{wfgetlatestphotocount=[number] includescreenshots=[string boolean|variable]}
+getlatestphotos wfgetlatestphotocount=number includescreenshots=true|false|variable
 ```
 
 ### arguments
 
 ---
 
-### Stepper Number: wfgetlatestphotocount / wfgetlatestphotocount (internally `WFGetLatestPhotoCount`)
+### Stepper Number: wfgetlatestphotocount [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
 **Default Value**:
 ```
 1
@@ -29,13 +29,13 @@ getlatestphotos a{wfgetlatestphotocount=[number] includescreenshots=[string bool
 
 
 
-Accepts a number 
-or variable
-with a number.
+		Accepts a number 
+		or variable
+		with a number.
 
 ---
 
-### Switch: Include Screenshots / includescreenshots (internally `WFGetLatestPhotosActionIncludeScreenshots`)
+### Switch: includescreenshots [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Default Value**:
 ```
 true
@@ -49,7 +49,7 @@ or a variable.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

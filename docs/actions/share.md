@@ -13,7 +13,7 @@ Prompts to share the input.
 
 ### usage
 ```
-share a{}
+share 
 ```
 
 ### arguments
@@ -24,7 +24,7 @@ share a{}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

@@ -13,7 +13,7 @@ Gets the current location of the device.
 
 ### usage
 ```
-getcurrentlocation a{}
+getcurrentlocation 
 ```
 
 ### arguments
@@ -24,7 +24,7 @@ getcurrentlocation a{}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

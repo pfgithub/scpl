@@ -11,14 +11,14 @@ Combines the images passed into the action horizontally, vertically, or in a gri
 
 ### usage
 ```
-combineimages a{mode=[string <Side-by-Side | Grid>] direction=[string <Horizontal | Vertical>] spacing=[number]}
+combineimages mode="Side-by-Side" | "Grid" direction="Horizontal" | "Vertical" spacing=number
 ```
 
 ### arguments
 
 ---
 
-### Enumeration: Mode / mode (internally `WFImageCombineMode`)
+### Enumeration: mode [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**:
 ```
 Side-by-Side
@@ -34,9 +34,11 @@ containing one of the options:
 - `Side-by-Side`
 - `Grid`
 
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+
 ---
 
-### Enumeration: Direction / direction (internally `WFImageCombineDirection`)
+### Enumeration: direction [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**:
 ```
 Horizontal
@@ -52,9 +54,11 @@ containing one of the options:
 - `Horizontal`
 - `Vertical`
 
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+
 ---
 
-### Number: Spacing / spacing (internally `WFImageCombineSpacing`)
+### Number: spacing [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**:
 ```
 0
@@ -63,13 +67,13 @@ containing one of the options:
 
 
 
-Accepts a number 
-or variable
-with a number.
+		Accepts a number 
+		or variable
+		with a number.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

@@ -13,7 +13,7 @@ Stops execution of the current shortcut and dismisses the shortcut on screen. No
 
 ### usage
 ```
-exitshortcut a{}
+exitshortcut 
 ```
 
 ### arguments
@@ -24,7 +24,7 @@ exitshortcut a{}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

@@ -15,7 +15,7 @@ Adds or subtracts an amount of time from the date passed into the action.
 
 ### usage
 ```
-adjustdate a{undefined=[???]}
+adjustdate undefined=NotImplemented
 ```
 
 ### arguments
@@ -26,7 +26,7 @@ adjustdate a{undefined=[???]}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

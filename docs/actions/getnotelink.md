@@ -13,14 +13,14 @@ Gets a link to the Evernote note passed into the action, which can be shared.
 
 ### usage
 ```
-getnotelink a{inapplink=[string boolean|variable]}
+getnotelink inapplink=true|false|variable
 ```
 
 ### arguments
 
 ---
 
-### Switch: In-App Link / inapplink (internally `WFEvernoteShareInAppLink`)
+### Switch: inapplink [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 
@@ -30,7 +30,7 @@ or a variable.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

@@ -13,7 +13,7 @@ Gets photos of the locations passed as input, using Google Street View.
 
 ### usage
 ```
-getstreetviewimage a{}
+getstreetviewimage 
 ```
 
 ### arguments
@@ -24,7 +24,7 @@ getstreetviewimage a{}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

@@ -11,14 +11,14 @@ Generates a QR code from the input text.
 
 ### usage
 ```
-generateqrcode a{errorcorrection=[string <Low | Medium | Quartile | High>]}
+generateqrcode errorcorrection="Low" | "Medium" | "Quartile" | "High"
 ```
 
 ### arguments
 
 ---
 
-### Enumeration: Error Correction / errorcorrection (internally `WFQRErrorCorrectionLevel`)
+### Enumeration: errorcorrection [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**:
 ```
 Medium
@@ -36,9 +36,11 @@ containing one of the options:
 - `Quartile`
 - `High`
 
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

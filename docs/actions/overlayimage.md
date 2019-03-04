@@ -22,14 +22,14 @@ The combined images
 
 ### usage
 ```
-overlayimage a{image=[variable] showimageeditor=[string boolean|variable] position=[string <Center | Top Left | Top Right | Bottom Left | Bottom Right | Custom>] width=[number] height=[number] xcoordinate=[number] ycoordinate=[number] rotationdegrees=[number] opacity=[number]}
+overlayimage image=v:myvar|mv:myvar|s:myvar showimageeditor=true|false|variable position="Center" | "Top Left" | "Top Right" | "Bottom Left" | "Bottom Right" | "Custom" width=number height=number xcoordinate=number ycoordinate=number rotationdegrees=number opacity=number
 ```
 
 ### arguments
 
 ---
 
-### Variable Picker: Image / image (internally `WFImage`)
+### Variable Picker: image [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
 **Allows Variables**: true
 
 
@@ -38,7 +38,7 @@ Accepts a variable.
 
 ---
 
-### Switch: Show Image Editor / showimageeditor (internally `WFShouldShowImageEditor`)
+### Switch: showimageeditor [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Default Value**:
 ```
 true
@@ -52,7 +52,7 @@ or a variable.
 
 ---
 
-### Enumeration: Position / position (internally `WFImagePosition`)
+### Enumeration: position [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**:
 ```
 Center
@@ -72,9 +72,11 @@ containing one of the options:
 - `Bottom Right`
 - `Custom`
 
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+
 ---
 
-### Number: Width / width (internally `WFImageWidth`)
+### Number: width [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**:
 ```
 Auto
@@ -83,13 +85,13 @@ Auto
 
 **Only enabled if**: argument WFShouldShowImageEditor = `false`
 
-Accepts a number 
-or variable
-with a number.
+		Accepts a number 
+		or variable
+		with a number.
 
 ---
 
-### Number: Height / height (internally `WFImageHeight`)
+### Number: height [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**:
 ```
 Auto
@@ -98,13 +100,13 @@ Auto
 
 **Only enabled if**: argument WFShouldShowImageEditor = `false`
 
-Accepts a number 
-or variable
-with a number.
+		Accepts a number 
+		or variable
+		with a number.
 
 ---
 
-### Number: X Coordinate / xcoordinate (internally `WFImageX`)
+### Number: xcoordinate [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**:
 ```
 0
@@ -115,13 +117,13 @@ with a number.
 
 **Only enabled if**: argument WFImagePosition = `Custom`
 
-Accepts a number 
-or variable
-with a number.
+		Accepts a number 
+		or variable
+		with a number.
 
 ---
 
-### Number: Y Coordinate / ycoordinate (internally `WFImageY`)
+### Number: ycoordinate [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**:
 ```
 0
@@ -132,13 +134,13 @@ with a number.
 
 **Only enabled if**: argument WFImagePosition = `Custom`
 
-Accepts a number 
-or variable
-with a number.
+		Accepts a number 
+		or variable
+		with a number.
 
 ---
 
-### Number: Rotation (Degrees) / rotationdegrees (internally `WFRotation`)
+### Number: rotationdegrees [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**:
 ```
 0
@@ -147,13 +149,13 @@ with a number.
 
 **Only enabled if**: argument WFShouldShowImageEditor = `false`
 
-Accepts a number 
-or variable
-with a number.
+		Accepts a number 
+		or variable
+		with a number.
 
 ---
 
-### Number: Opacity / opacity (internally `WFOverlayImageOpacity`)
+### Number: opacity [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**:
 ```
 100%
@@ -166,13 +168,13 @@ with a number.
 
 **Only enabled if**: argument WFShouldShowImageEditor = `false`
 
-Accepts a number 
-or variable
-with a number.
+		Accepts a number 
+		or variable
+		with a number.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

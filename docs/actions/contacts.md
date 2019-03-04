@@ -15,7 +15,7 @@ Passes the specified contacts to the next action.
 
 ### usage
 ```
-contacts a{undefined=[???]}
+contacts undefined=NotImplemented
 ```
 
 ### arguments
@@ -26,7 +26,7 @@ contacts a{undefined=[???]}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

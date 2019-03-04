@@ -11,14 +11,14 @@ Delete the files passed in as input.
 
 ### usage
 ```
-deletefiles a{confirmbeforedeleting=[string boolean|variable]}
+deletefiles confirmbeforedeleting=true|false|variable
 ```
 
 ### arguments
 
 ---
 
-### Switch: Confirm Before Deleting / confirmbeforedeleting (internally `WFDeleteFileConfirmDeletion`)
+### Switch: confirmbeforedeleting [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Default Value**:
 ```
 true
@@ -32,7 +32,7 @@ or a variable.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

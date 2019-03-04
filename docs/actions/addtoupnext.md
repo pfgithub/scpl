@@ -18,14 +18,14 @@ Items in your music library or items from the Search iTunes action.
 
 ### usage
 ```
-addtoupnext a{play=[string <Next | Later>]}
+addtoupnext play="Next" | "Later"
 ```
 
 ### arguments
 
 ---
 
-### Enumeration: Play / play (internally `WFWhenToPlay`)
+### Enumeration: play [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**:
 ```
 Next
@@ -41,9 +41,11 @@ containing one of the options:
 - `Next`
 - `Later`
 
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

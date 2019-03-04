@@ -24,14 +24,14 @@ The amount of time it will take to get to the destination. If passed into an act
 
 ### usage
 ```
-gettraveltime a{from=[string <Current Location | Custom Location>|variable] undefined=[???] transportationmode=[string <Driving | Walking | Transit>]}
+gettraveltime from="Current Location" | "Custom Location"|variable undefined=NotImplemented transportationmode="Driving" | "Walking" | "Transit"
 ```
 
 ### arguments
 
 ---
 
-### Enumeration: From / from (internally `WFGetDirectionsFrom`)
+### Enumeration: from [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**:
 ```
 Current Location
@@ -44,13 +44,15 @@ containing one of the options:
 - `Current Location`
 - `Custom Location`
 
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+
 ---
 
 #### This paramtype is not implemented. WFLocationFieldParameter
 
 ---
 
-### Enumeration: Transportation Mode / transportationmode (internally `WFGetDirectionsActionMode`)
+### Enumeration: transportationmode [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**:
 ```
 Driving
@@ -67,9 +69,11 @@ containing one of the options:
 - `Walking`
 - `Transit`
 
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

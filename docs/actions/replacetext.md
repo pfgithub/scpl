@@ -11,14 +11,14 @@ Replaces some text passed into the action with other text.
 
 ### usage
 ```
-replacetext a{findtext=[string|text] replacewith=[string|text] casesensitive=[string boolean|variable] regularexpression=[string boolean|variable]}
+replacetext findtext="string" replacewith="string" casesensitive=true|false|variable regularexpression=true|false|variable
 ```
 
 ### arguments
 
 ---
 
-### Text: Find Text / findtext (internally `WFReplaceTextFind`)
+### Text: findtext [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 hello
@@ -33,7 +33,7 @@ with the text.
 
 ---
 
-### Text: Replace With / replacewith (internally `WFReplaceTextReplace`)
+### Text: replacewith [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 world
@@ -48,7 +48,7 @@ with the text.
 
 ---
 
-### Switch: Case Sensitive / casesensitive (internally `WFReplaceTextCaseSensitive`)
+### Switch: casesensitive [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Default Value**:
 ```
 true
@@ -62,7 +62,7 @@ or a variable.
 
 ---
 
-### Switch: Regular Expression / regularexpression (internally `WFReplaceTextRegularExpression`)
+### Switch: regularexpression [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 
@@ -72,7 +72,7 @@ or a variable.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

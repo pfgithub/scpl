@@ -11,14 +11,14 @@ Re-encodes the media passed as input at the specified size, optionally convertin
 
 ### usage
 ```
-encodemedia a{audioonly=[string boolean|variable] format=[string <M4A | AIFF>] size=[string <640x480 | 960x540 | 1280x720 | 1920x1080 | HEVC 1920x1080 | HEVC 3840x2160 | Passthrough>] speed=[string <0.5X | Normal | 2X | Custom>] customspeed=[number] metadata=[boolean] title=[string|text] artist=[string|text] album=[string|text] genre=[string|text] year=[string|text] artwork=[variable]}
+encodemedia audioonly=true|false|variable format="M4A" | "AIFF" size="640x480" | "960x540" | "1280x720" | "1920x1080" | "HEVC 1920x1080" | "HEVC 3840x2160" | "Passthrough" speed="0.5X" | "Normal" | "2X" | "Custom" customspeed=number metadata=true|false title="string" artist="string" album="string" genre="string" year="string" artwork=v:myvar|mv:myvar|s:myvar
 ```
 
 ### arguments
 
 ---
 
-### Switch: Audio Only / audioonly (internally `WFMediaAudioOnly`)
+### Switch: audioonly [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 
@@ -28,7 +28,7 @@ or a variable.
 
 ---
 
-### Enumeration: Format / format (internally `WFMediaAudioFormat`)
+### Enumeration: format [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**:
 ```
 M4A
@@ -44,9 +44,11 @@ containing one of the options:
 - `M4A`
 - `AIFF`
 
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+
 ---
 
-### Enumeration: Size / size (internally `WFMediaSize`)
+### Enumeration: size [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**:
 ```
 Passthrough
@@ -67,9 +69,11 @@ containing one of the options:
 - `HEVC 3840x2160`
 - `Passthrough`
 
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+
 ---
 
-### Enumeration: Speed / speed (internally `WFMediaSpeed`)
+### Enumeration: speed [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**:
 ```
 Normal
@@ -87,9 +91,11 @@ containing one of the options:
 - `2X`
 - `Custom`
 
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+
 ---
 
-### Number: Custom Speed / customspeed (internally `WFMediaCustomSpeed`)
+### Number: customspeed [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**:
 ```
 1.0
@@ -98,21 +104,25 @@ containing one of the options:
 
 **Only enabled if**: argument WFMediaSpeed = `Custom`
 
-Accepts a number 
-or variable
-with a number.
+		Accepts a number 
+		or variable
+		with a number.
 
 ---
 
-### Expand Arrow: Metadata / metadata (internally `Metadata`)
+### Expand Arrow: metadata [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 
 
 Accepts a boolean for if this
 parameter is expanded or not.
+Often expanding fields will
+enable or disable other
+arguments. If you are using
+labels, these can be ignored.
 
 ---
 
-### Text: Title / title (internally `WFMetadataTitle`)
+### Text: title [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 My Great Track
@@ -127,7 +137,7 @@ with the text.
 
 ---
 
-### Text: Artist / artist (internally `WFMetadataArtist`)
+### Text: artist [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 Nicholas Fryingpan
@@ -142,7 +152,7 @@ with the text.
 
 ---
 
-### Text: Album / album (internally `WFMetadataAlbum`)
+### Text: album [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 Abbey Road
@@ -157,7 +167,7 @@ with the text.
 
 ---
 
-### Text: Genre / genre (internally `WFMetadataGenre`)
+### Text: genre [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 Indie
@@ -172,7 +182,7 @@ with the text.
 
 ---
 
-### Text: Year / year (internally `WFMetadataYear`)
+### Text: year [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 2001
@@ -187,7 +197,7 @@ with the text.
 
 ---
 
-### Variable Picker: Artwork / artwork (internally `WFMetadataArtwork`)
+### Variable Picker: artwork [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
 **Allows Variables**: true
 
 **Only enabled if**: argument Metadata = `true`
@@ -196,7 +206,7 @@ Accepts a variable.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

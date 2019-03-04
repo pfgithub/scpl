@@ -19,6 +19,9 @@ export declare class ConvertingContext {
     parserVariables: {
         [key: string]: AsAble;
     };
+    parserActions: {
+        [key: string]: (cc: ConvertingContext, ...args: AsAble[]) => void;
+    };
     above?: ConvertingContext;
     constructor(above?: ConvertingContext);
     getNamedVariable(name: string): boolean | undefined;
@@ -29,6 +32,8 @@ export declare class ConvertingContext {
     setMagicVariable(name: string, action: Action): void;
     getParserVariable(name: string): AsAble | undefined;
     setParserVariable(name: string, value: AsAble): void;
+    getParserAction(name: string): ((cc: ConvertingContext, ...args: AsAble[]) => void) | undefined;
+    setParserAction(name: string, value: (cc: ConvertingContext, ...args: AsAble[]) => void): void;
     in(): ConvertingContext;
     pushControlFlow(wfaction: any): {
         uuid: string;

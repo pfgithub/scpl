@@ -15,7 +15,7 @@ Gets every song in the specified playlist.
 
 ### usage
 ```
-getplaylist a{undefined=[???]}
+getplaylist undefined=NotImplemented
 ```
 
 ### arguments
@@ -26,7 +26,7 @@ getplaylist a{undefined=[???]}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

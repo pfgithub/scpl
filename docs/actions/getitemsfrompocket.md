@@ -13,25 +13,25 @@ Returns items in your Pocket account.
 
 ### usage
 ```
-getitemsfrompocket a{wfpocketitemcount=[number] type=[string <Unread | Archived | All>] search=[string|text] tag=[string|text]}
+getitemsfrompocket wfpocketitemcount=number type="Unread" | "Archived" | "All" search="string" tag="string"
 ```
 
 ### arguments
 
 ---
 
-### Stepper Number: wfpocketitemcount / wfpocketitemcount (internally `WFPocketItemCount`)
+### Stepper Number: wfpocketitemcount [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
 **Allows Variables**: true
 
 
 
-Accepts a number 
-or variable
-with a number.
+		Accepts a number 
+		or variable
+		with a number.
 
 ---
 
-### Enumeration: Type / type (internally `WFPocketItemState`)
+### Enumeration: type [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**:
 ```
 All
@@ -48,9 +48,11 @@ containing one of the options:
 - `Archived`
 - `All`
 
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+
 ---
 
-### Text: Search / search (internally `WFPocketItemSearchTerm`)
+### Text: search [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 optional
@@ -65,7 +67,7 @@ with the text.
 
 ---
 
-### Text: Tag / tag (internally `WFPocketItemSearchTags`)
+### Text: tag [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 optional
@@ -80,7 +82,7 @@ with the text.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

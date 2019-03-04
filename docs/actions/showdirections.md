@@ -20,7 +20,7 @@ The destination address
 
 ### usage
 ```
-showdirections a{undefined=[???] undefined=[???]}
+showdirections undefined=NotImplemented undefined=NotImplemented
 ```
 
 ### arguments
@@ -35,7 +35,7 @@ showdirections a{undefined=[???] undefined=[???]}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

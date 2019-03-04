@@ -16,7 +16,7 @@ Archive
 
 ### usage
 ```
-extractarchive a{}
+extractarchive 
 ```
 
 ### arguments
@@ -27,7 +27,7 @@ extractarchive a{}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

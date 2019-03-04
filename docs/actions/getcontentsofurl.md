@@ -15,22 +15,26 @@ The fetched data
 
 ### usage
 ```
-getcontentsofurl a{advanced=[boolean] method=[string <GET | POST | PUT | PATCH | DELETE>] headers=[boolean] headers=[dictionary] requestbody=[string <JSON | Form | File>|variable] formvalues=[dictionary] jsonvalues=[dictionary] file=[variable]}
+getcontentsofurl advanced=true|false method="GET" | "POST" | "PUT" | "PATCH" | "DELETE" headers=true|false headers2={dictionary} requestbody="JSON" | "Form" | "File"|variable formvalues={dictionary} jsonvalues={dictionary} file=v:myvar|mv:myvar|s:myvar
 ```
 
 ### arguments
 
 ---
 
-### Expand Arrow: Advanced / advanced (internally `Advanced`)
+### Expand Arrow: advanced [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 
 
 Accepts a boolean for if this
 parameter is expanded or not.
+Often expanding fields will
+enable or disable other
+arguments. If you are using
+labels, these can be ignored.
 
 ---
 
-### Enumeration: Method / method (internally `WFHTTPMethod`)
+### Enumeration: method [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**:
 ```
 GET
@@ -49,17 +53,23 @@ containing one of the options:
 - `PATCH`
 - `DELETE`
 
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+
 ---
 
-### Expand Arrow: Headers / headers (internally `ShowHeaders`)
+### Expand Arrow: headers [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Only enabled if**: argument Advanced = `true`
 
 Accepts a boolean for if this
 parameter is expanded or not.
+Often expanding fields will
+enable or disable other
+arguments. If you are using
+labels, these can be ignored.
 
 ---
 
-### Dictionary: Headers / headers (internally `WFHTTPHeaders`)
+### Dictionary: headers2 [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#dictionary-field)
 **Allows Variables**: true
 
 **Only enabled if**: argument Advanced = `true`
@@ -70,7 +80,7 @@ Accepts a dictionary.
 
 ---
 
-### Enumeration: Request Body / requestbody (internally `WFHTTPBodyType`)
+### Enumeration: requestbody [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**:
 ```
 JSON
@@ -86,9 +96,11 @@ containing one of the options:
 - `Form`
 - `File`
 
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+
 ---
 
-### Dictionary: Form Values / formvalues (internally `WFFormValues`)
+### Dictionary: formvalues [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#dictionary-field)
 **Allows Variables**: true
 
 **Only enabled if**: argument Advanced = `true`
@@ -101,7 +113,7 @@ Accepts a dictionary.
 
 ---
 
-### Dictionary: JSON Values / jsonvalues (internally `WFJSONValues`)
+### Dictionary: jsonvalues [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#dictionary-field)
 **Allows Variables**: true
 
 **Only enabled if**: argument Advanced = `true`
@@ -114,7 +126,7 @@ Accepts a dictionary.
 
 ---
 
-### Variable Picker: File / file (internally `WFRequestVariable`)
+### Variable Picker: file [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
 **Allows Variables**: true
 
 **Only enabled if**: argument Advanced = `true`
@@ -127,7 +139,7 @@ Accepts a variable.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

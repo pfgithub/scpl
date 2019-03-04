@@ -11,14 +11,14 @@ Calculates statistics on the numbers that are provided as input.
 
 ### usage
 ```
-calculatestatistics a{operation=[string <Average | Minimum | Maximum | Sum | Median | Mode | Range | Standard Deviation>]}
+calculatestatistics operation="Average" | "Minimum" | "Maximum" | "Sum" | "Median" | "Mode" | "Range" | "Standard Deviation"
 ```
 
 ### arguments
 
 ---
 
-### Enumeration: Operation / operation (internally `WFStatisticsOperation`)
+### Enumeration: operation [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**:
 ```
 Average
@@ -40,9 +40,11 @@ containing one of the options:
 - `Range`
 - `Standard Deviation`
 
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

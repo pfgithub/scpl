@@ -11,14 +11,14 @@ Scales images to a particular width and height.
 
 ### usage
 ```
-resizeimage a{width=[number] height=[number]}
+resizeimage width=number height=number
 ```
 
 ### arguments
 
 ---
 
-### Number: Width / width (internally `WFImageResizeWidth`)
+### Number: width [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**:
 ```
 Auto
@@ -31,13 +31,13 @@ Auto
 
 
 
-Accepts a number 
-or variable
-with a number.
+		Accepts a number 
+		or variable
+		with a number.
 
 ---
 
-### Number: Height / height (internally `WFImageResizeHeight`)
+### Number: height [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**:
 ```
 Auto
@@ -46,13 +46,13 @@ Auto
 
 
 
-Accepts a number 
-or variable
-with a number.
+		Accepts a number 
+		or variable
+		with a number.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

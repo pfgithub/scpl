@@ -18,14 +18,14 @@ The music to be played
 
 ### usage
 ```
-playmusic a{shuffle=[string <Off | Songs>] repeat=[string <None | One | All>]}
+playmusic shuffle="Off" | "Songs" repeat="None" | "One" | "All"
 ```
 
 ### arguments
 
 ---
 
-### Enumeration: Shuffle / shuffle (internally `WFPlayMusicActionShuffle`)
+### Enumeration: shuffle [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Allows Variables**: true
 
 
@@ -37,9 +37,11 @@ containing one of the options:
 - `Off`
 - `Songs`
 
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+
 ---
 
-### Enumeration: Repeat / repeat (internally `WFPlayMusicActionRepeat`)
+### Enumeration: repeat [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Allows Variables**: true
 
 
@@ -52,9 +54,11 @@ containing one of the options:
 - `One`
 - `All`
 
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

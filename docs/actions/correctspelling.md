@@ -11,7 +11,7 @@ Autocorrects the spelling of text passed into the action.
 
 ### usage
 ```
-correctspelling a{}
+correctspelling 
 ```
 
 ### arguments
@@ -22,7 +22,7 @@ correctspelling a{}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

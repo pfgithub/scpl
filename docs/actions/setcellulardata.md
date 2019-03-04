@@ -13,14 +13,14 @@ Sets the device’s Cellular Data to on or off.
 
 ### usage
 ```
-setcellulardata a{cellulardata=[string boolean|variable]}
+setcellulardata cellulardata=true|false|variable
 ```
 
 ### arguments
 
 ---
 
-### Switch: Cellular Data / cellulardata (internally `OnValue`)
+### Switch: cellulardata [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Default Value**:
 ```
 true
@@ -34,7 +34,7 @@ or a variable.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

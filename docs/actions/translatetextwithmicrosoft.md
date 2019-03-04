@@ -13,7 +13,7 @@ Translates the text passed into the action into another language.
 
 ### usage
 ```
-translatetextwithmicrosoft a{undefined=[???] undefined=[???]}
+translatetextwithmicrosoft undefined=NotImplemented undefined=NotImplemented
 ```
 
 ### arguments
@@ -28,7 +28,7 @@ translatetextwithmicrosoft a{undefined=[???] undefined=[???]}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

@@ -13,7 +13,7 @@ Shows the definition of the word passed into the action.
 
 ### usage
 ```
-showdefinition a{}
+showdefinition 
 ```
 
 ### arguments
@@ -24,7 +24,7 @@ showdefinition a{}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

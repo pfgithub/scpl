@@ -13,7 +13,7 @@ Passes the contents of the clipboard to the next action.
 
 ### usage
 ```
-getclipboard a{}
+getclipboard 
 ```
 
 ### arguments
@@ -24,7 +24,7 @@ getclipboard a{}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

@@ -24,14 +24,14 @@ The URL of the newly created task
 
 ### usage
 ```
-addwunderlisttask a{title=[string|text] undefined=[???] duedate=[string|text] reminder=[string|text] starred=[string boolean|variable] notes=[string|text]}
+addwunderlisttask title="string" undefined=NotImplemented duedate="string" reminder="string" starred=true|false|variable notes="string"
 ```
 
 ### arguments
 
 ---
 
-### Text: Title / title (internally `WFWunderlistTitle`)
+### Text: title [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 Buy some milk
@@ -50,7 +50,7 @@ with the text.
 
 ---
 
-### Date: Due Date / duedate (internally `WFWunderlistDueDate`)
+### Date: duedate [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 optional
@@ -65,7 +65,7 @@ with the text.
 
 ---
 
-### Date: Reminder / reminder (internally `WFWunderlistReminder`)
+### Date: reminder [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 optional
@@ -80,7 +80,7 @@ with the text.
 
 ---
 
-### Switch: Starred / starred (internally `WFWunderlistStarred`)
+### Switch: starred [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 
@@ -90,7 +90,7 @@ or a variable.
 
 ---
 
-### Text: Notes / notes (internally `WFWunderlistNotes`)
+### Text: notes [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 Notes
@@ -105,7 +105,7 @@ with the text.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

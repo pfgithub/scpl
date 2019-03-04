@@ -13,14 +13,14 @@ Vibrates the device for a short amount of time.
 
 ### usage
 ```
-vibratedevice a{hapticpattern=[string <Default | Up Direction | Down Direction | Success | Failure | Retry | Start | Stop | Click>]}
+vibratedevice hapticpattern="Default" | "Up Direction" | "Down Direction" | "Success" | "Failure" | "Retry" | "Start" | "Stop" | "Click"
 ```
 
 ### arguments
 
 ---
 
-### Enumeration: Haptic Pattern / hapticpattern (internally `WFVibrateHapticType`)
+### Enumeration: hapticpattern [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**:
 ```
 Default
@@ -45,9 +45,11 @@ containing one of the options:
 - `Stop`
 - `Click`
 
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

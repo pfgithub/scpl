@@ -5,14 +5,14 @@
 
 ### usage
 ```
-unknownintent a{showwhenrun=[string boolean|variable]}
+unknownintent showwhenrun=true|false|variable
 ```
 
 ### arguments
 
 ---
 
-### Switch: Show When Run / showwhenrun (internally `ShowWhenRun`)
+### Switch: showwhenrun [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Default Value**:
 ```
 true
@@ -26,7 +26,7 @@ or a variable.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

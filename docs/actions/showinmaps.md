@@ -13,7 +13,7 @@ Opens your choice of Maps, Google Maps, or Waze and searches for the location, p
 
 ### usage
 ```
-showinmaps a{undefined=[???]}
+showinmaps undefined=NotImplemented
 ```
 
 ### arguments
@@ -24,7 +24,7 @@ showinmaps a{undefined=[???]}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

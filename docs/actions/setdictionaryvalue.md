@@ -11,14 +11,14 @@ Sets a value in the dictionary passed into the action.
 
 ### usage
 ```
-setdictionaryvalue a{key=[string|text] value=[string|text]}
+setdictionaryvalue key="string" value="string"
 ```
 
 ### arguments
 
 ---
 
-### Text: Key / key (internally `WFDictionaryKey`)
+### Text: key [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 name
@@ -33,7 +33,7 @@ with the text.
 
 ---
 
-### Text: Value / value (internally `WFDictionaryValue`)
+### Text: value [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 example
@@ -48,7 +48,7 @@ with the text.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

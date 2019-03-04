@@ -11,14 +11,14 @@ Sets the system volume.
 
 ### usage
 ```
-setvolume a{volume=[number]}
+setvolume volume=number
 ```
 
 ### arguments
 
 ---
 
-### Slider Number: Volume / volume (internally `WFVolume`)
+### Slider Number: volume [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Default Value**:
 ```
 0.5
@@ -27,13 +27,13 @@ setvolume a{volume=[number]}
 
 
 
-Accepts a number 
-or variable
-with a number.
+		Accepts a number 
+		or variable
+		with a number.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

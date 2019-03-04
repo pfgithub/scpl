@@ -22,14 +22,14 @@ The output from the JavaScript (JSON)
 
 ### usage
 ```
-runjavascriptonwebpage a{javascript=[string|text]}
+runjavascriptonwebpage javascript="string"
 ```
 
 ### arguments
 
 ---
 
-### Text: JavaScript / javascript (internally `WFJavaScript`)
+### Text: javascript [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 JavaScript
@@ -59,7 +59,7 @@ with the text.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

@@ -11,7 +11,7 @@ Extracts the contents of the web pages passed into the action.
 
 ### usage
 ```
-getcontentsofwebpage a{}
+getcontentsofwebpage 
 ```
 
 ### arguments
@@ -22,7 +22,7 @@ getcontentsofwebpage a{}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

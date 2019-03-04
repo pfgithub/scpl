@@ -18,14 +18,14 @@ A location to search near.
 
 ### usage
 ```
-searchlocalbusinesses a{search=[string|text] radiuskm=[number]}
+searchlocalbusinesses search="string" radiuskm=number
 ```
 
 ### arguments
 
 ---
 
-### Text: Search / search (internally `WFSearchQuery`)
+### Text: search [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 coffee shops
@@ -40,7 +40,7 @@ with the text.
 
 ---
 
-### Number: Radius (km) / radiuskm (internally `WFSearchRadius`)
+### Number: radiuskm [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**:
 ```
 1.5
@@ -53,13 +53,13 @@ with the text.
 
 
 
-Accepts a number 
-or variable
-with a number.
+		Accepts a number 
+		or variable
+		with a number.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

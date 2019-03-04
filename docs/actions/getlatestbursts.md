@@ -13,14 +13,14 @@ Gets the most recent burst photos from the camera roll.
 
 ### usage
 ```
-getlatestbursts a{wfgetlatestphotocount=[number]}
+getlatestbursts wfgetlatestphotocount=number
 ```
 
 ### arguments
 
 ---
 
-### Stepper Number: wfgetlatestphotocount / wfgetlatestphotocount (internally `WFGetLatestPhotoCount`)
+### Stepper Number: wfgetlatestphotocount [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
 **Default Value**:
 ```
 1
@@ -29,13 +29,13 @@ getlatestbursts a{wfgetlatestphotocount=[number]}
 
 
 
-Accepts a number 
-or variable
-with a number.
+		Accepts a number 
+		or variable
+		with a number.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

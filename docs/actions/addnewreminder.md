@@ -19,14 +19,14 @@ The new reminder
 
 ### usage
 ```
-addnewreminder a{title=[string|text] undefined=[???] remindme=[boolean] remind=[string <At Time | At Location>] wheni=[string <Enter | Leave>] radius=[number] undefined=[???] alerttime=[string|text] notes=[string|text]}
+addnewreminder title="string" undefined=NotImplemented remindme=true|false remind="At Time" | "At Location" wheni="Enter" | "Leave" radius=number undefined=NotImplemented alerttime="string" notes="string"
 ```
 
 ### arguments
 
 ---
 
-### Text: Title / title (internally `WFCalendarItemTitle`)
+### Text: title [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 Buy some milk
@@ -45,15 +45,19 @@ with the text.
 
 ---
 
-### Expand Arrow: Remind Me / remindme (internally `WFCalendarItemAlert`)
+### Expand Arrow: remindme [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 
 
 Accepts a boolean for if this
 parameter is expanded or not.
+Often expanding fields will
+enable or disable other
+arguments. If you are using
+labels, these can be ignored.
 
 ---
 
-### Enumeration: Remind / remind (internally `WFAlertTrigger`)
+### Enumeration: remind [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Allows Variables**: true
 
 **Only enabled if**: argument WFCalendarItemAlert = `true`
@@ -65,9 +69,11 @@ containing one of the options:
 - `At Time`
 - `At Location`
 
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+
 ---
 
-### Enumeration: When I... / wheni (internally `WFAlertLocationProximity`)
+### Enumeration: wheni [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Allows Variables**: true
 
 **Only enabled if**: argument WFCalendarItemAlert = `true`
@@ -81,9 +87,11 @@ containing one of the options:
 - `Enter`
 - `Leave`
 
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+
 ---
 
-### Number: Radius / radius (internally `WFAlertLocationRadius`)
+### Number: radius [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**:
 ```
 in meters
@@ -98,9 +106,9 @@ in meters
 
 **Only enabled if**: argument WFAlertTrigger = `At Location`
 
-Accepts a number 
-or variable
-with a number.
+		Accepts a number 
+		or variable
+		with a number.
 
 ---
 
@@ -108,7 +116,7 @@ with a number.
 
 ---
 
-### Date: Alert Time / alerttime (internally `WFAlertCustomTime`)
+### Date: alerttime [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 Tomorrow at 4pm
@@ -125,7 +133,7 @@ with the text.
 
 ---
 
-### Text: Notes / notes (internally `WFCalendarItemNotes`)
+### Text: notes [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 Notes
@@ -140,7 +148,7 @@ with the text.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

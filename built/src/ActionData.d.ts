@@ -16,7 +16,8 @@ declare class WFParameter {
     internalName: string;
     shortName: string;
     typeName: string;
-    constructor(data: any, typeName: string);
+    docs: string;
+    constructor(data: any, typeName: string, docs: string);
     shouldEnable(action: Action): boolean;
     genDocsArgName(): string;
     genDocsAutocompletePlaceholder(): string;

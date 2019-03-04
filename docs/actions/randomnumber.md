@@ -11,14 +11,14 @@ Passes a random number between the given minimum and maximum to the next action.
 
 ### usage
 ```
-randomnumber a{minimum=[number] maximum=[number]}
+randomnumber minimum=number maximum=number
 ```
 
 ### arguments
 
 ---
 
-### Number: Minimum / minimum (internally `WFRandomNumberMinimum`)
+### Number: minimum [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**:
 ```
 0
@@ -27,13 +27,13 @@ randomnumber a{minimum=[number] maximum=[number]}
 
 
 
-Accepts a number 
-or variable
-with a number.
+		Accepts a number 
+		or variable
+		with a number.
 
 ---
 
-### Number: Maximum / maximum (internally `WFRandomNumberMaximum`)
+### Number: maximum [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**:
 ```
 100
@@ -42,13 +42,13 @@ with a number.
 
 
 
-Accepts a number 
-or variable
-with a number.
+		Accepts a number 
+		or variable
+		with a number.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

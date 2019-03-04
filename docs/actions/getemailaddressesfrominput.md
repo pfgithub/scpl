@@ -11,7 +11,7 @@ Returns any email addresses found in the output from the previous action.
 
 ### usage
 ```
-getemailaddressesfrominput a{}
+getemailaddressesfrominput 
 ```
 
 ### arguments
@@ -22,7 +22,7 @@ getemailaddressesfrominput a{}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

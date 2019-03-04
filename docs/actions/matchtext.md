@@ -15,14 +15,14 @@ A list of text items that matched the regular expression
 
 ### usage
 ```
-matchtext a{pattern=[string|text] casesensitive=[string boolean|variable]}
+matchtext pattern="string" casesensitive=true|false|variable
 ```
 
 ### arguments
 
 ---
 
-### Text: Pattern / pattern (internally `WFMatchTextPattern`)
+### Text: pattern [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Default Value**:
 ```
 [0-9a-zA-Z]
@@ -37,7 +37,7 @@ with the text.
 
 ---
 
-### Switch: Case Sensitive / casesensitive (internally `WFMatchTextCaseSensitive`)
+### Switch: casesensitive [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Default Value**:
 ```
 true
@@ -51,7 +51,7 @@ or a variable.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

@@ -19,14 +19,14 @@ The new event
 
 ### usage
 ```
-addnewevent a{title=[string|text] location=[string|text] undefined=[???] date=[boolean] startdate=[string|text] enddate=[string|text] allday=[string boolean|variable] alert=[string <At time of event | 5 minutes before | 15 minutes before | 30 minutes before | 1 hour before | 2 hours before | 1 day before | 2 days before | 1 week before | Custom>] alerttime=[string|text] notes=[string|text]}
+addnewevent title="string" location="string" undefined=NotImplemented date=true|false startdate="string" enddate="string" allday=true|false|variable alert="At time of event" | "5 minutes before" | "15 minutes before" | "30 minutes before" | "1 hour before" | "2 hours before" | "1 day before" | "2 days before" | "1 week before" | "Custom" alerttime="string" notes="string"
 ```
 
 ### arguments
 
 ---
 
-### Text: Title / title (internally `WFCalendarItemTitle`)
+### Text: title [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 Lunch with Tim
@@ -41,7 +41,7 @@ with the text.
 
 ---
 
-### Text: Location / location (internally `WFCalendarItemLocation`)
+### Text: location [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 optional
@@ -60,15 +60,19 @@ with the text.
 
 ---
 
-### Expand Arrow: Date / date (internally `WFCalendarItemDates`)
+### Expand Arrow: date [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 
 
 Accepts a boolean for if this
 parameter is expanded or not.
+Often expanding fields will
+enable or disable other
+arguments. If you are using
+labels, these can be ignored.
 
 ---
 
-### Date: Start Date / startdate (internally `WFCalendarItemStartDate`)
+### Date: startdate [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 Tomorrow at noon
@@ -83,7 +87,7 @@ with the text.
 
 ---
 
-### Date: End Date / enddate (internally `WFCalendarItemEndDate`)
+### Date: enddate [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 Tomorrow at 1pm
@@ -98,7 +102,7 @@ with the text.
 
 ---
 
-### Switch: All Day / allday (internally `WFCalendarItemAllDay`)
+### Switch: allday [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 **Only enabled if**: argument WFCalendarItemDates = `true`
@@ -108,7 +112,7 @@ or a variable.
 
 ---
 
-### Enumeration: Alert / alert (internally `WFAlertTime`)
+### Enumeration: alert [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Allows Variables**: true
 
 
@@ -128,9 +132,11 @@ containing one of the options:
 - `1 week before`
 - `Custom`
 
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+
 ---
 
-### Text: Alert Time / alerttime (internally `WFAlertCustomTime`)
+### Text: alerttime [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 Tomorrow at 4pm
@@ -145,7 +151,7 @@ with the text.
 
 ---
 
-### Text: Notes / notes (internally `WFCalendarItemNotes`)
+### Text: notes [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 Notes
@@ -160,7 +166,7 @@ with the text.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

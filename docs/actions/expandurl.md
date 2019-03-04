@@ -15,7 +15,7 @@ The full, expanded URL, or the original URL if the URL was not shortened
 
 ### usage
 ```
-expandurl a{}
+expandurl 
 ```
 
 ### arguments
@@ -26,7 +26,7 @@ expandurl a{}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

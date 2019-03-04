@@ -11,7 +11,7 @@ Detects the language of the text provided as input.
 
 ### usage
 ```
-detectlanguagewithmicrosoft a{}
+detectlanguagewithmicrosoft 
 ```
 
 ### arguments
@@ -22,7 +22,7 @@ detectlanguagewithmicrosoft a{}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

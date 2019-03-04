@@ -13,7 +13,7 @@ Shows the results of the previous action in the Content Graph.
 
 ### usage
 ```
-viewcontentgraph a{}
+viewcontentgraph 
 ```
 
 ### arguments
@@ -24,7 +24,7 @@ viewcontentgraph a{}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

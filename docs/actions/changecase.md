@@ -11,14 +11,14 @@ Changes the case of the text passed into the action to UPPERCASE, lowercase, or 
 
 ### usage
 ```
-changecase a{case=[string <UPPERCASE | lowercase | Capitalize Every Word | Capitalize with Title Case | Capitalize with sentence case. | cApItAlIzE wItH aLtErNaTiNg CaSe.>]}
+changecase case="UPPERCASE" | "lowercase" | "Capitalize Every Word" | "Capitalize with Title Case" | "Capitalize with sentence case." | "cApItAlIzE wItH aLtErNaTiNg CaSe."
 ```
 
 ### arguments
 
 ---
 
-### Enumeration: Case / case (internally `WFCaseType`)
+### Enumeration: case [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**:
 ```
 UPPERCASE
@@ -38,9 +38,11 @@ containing one of the options:
 - `Capitalize with sentence case.`
 - `cApItAlIzE wItH aLtErNaTiNg CaSe.`
 
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

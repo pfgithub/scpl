@@ -13,7 +13,7 @@ Scans a QR code or bar code using the camera, and returns the text/URL that is f
 
 ### usage
 ```
-scanqrbarcode a{}
+scanqrbarcode 
 ```
 
 ### arguments
@@ -24,7 +24,7 @@ scanqrbarcode a{}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

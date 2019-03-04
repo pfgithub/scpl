@@ -20,14 +20,14 @@ The content to include in your new note
 
 ### usage
 ```
-createnewnote a{notetitle=[string|text] undefined=[???] undefined=[???]}
+createnewnote notetitle="string" undefined=NotImplemented undefined=NotImplemented
 ```
 
 ### arguments
 
 ---
 
-### Text: Note Title / notetitle (internally `WFEvernoteNoteTitle`)
+### Text: notetitle [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 optional
@@ -50,7 +50,7 @@ with the text.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

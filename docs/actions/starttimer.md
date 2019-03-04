@@ -15,7 +15,7 @@ Starts a timer in the Clock app for the specified amount of time.
 
 ### usage
 ```
-starttimer a{undefined=[???]}
+starttimer undefined=NotImplemented
 ```
 
 ### arguments
@@ -26,7 +26,7 @@ starttimer a{undefined=[???]}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

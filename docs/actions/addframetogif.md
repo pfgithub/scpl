@@ -20,14 +20,14 @@ An animated GIF
 
 ### usage
 ```
-addframetogif a{image=[variable] delaytime=[number] autosize=[string boolean|variable] width=[number] height=[number]}
+addframetogif image=v:myvar|mv:myvar|s:myvar delaytime=number autosize=true|false|variable width=number height=number
 ```
 
 ### arguments
 
 ---
 
-### Variable Picker: Image / image (internally `WFImage`)
+### Variable Picker: image [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
 **Allows Variables**: true
 
 
@@ -36,7 +36,7 @@ Accepts a variable.
 
 ---
 
-### Number: Delay Time / delaytime (internally `WFGIFDelayTime`)
+### Number: delaytime [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**:
 ```
 0.25
@@ -49,13 +49,13 @@ Accepts a variable.
 
 
 
-Accepts a number 
-or variable
-with a number.
+		Accepts a number 
+		or variable
+		with a number.
 
 ---
 
-### Switch: Auto Size / autosize (internally `WFGIFAutoSize`)
+### Switch: autosize [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Default Value**:
 ```
 true
@@ -69,7 +69,7 @@ or a variable.
 
 ---
 
-### Number: Width / width (internally `WFGIFManualSizeWidth`)
+### Number: width [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**:
 ```
 500
@@ -78,13 +78,13 @@ or a variable.
 
 **Only enabled if**: argument WFGIFAutoSize = `false`
 
-Accepts a number 
-or variable
-with a number.
+		Accepts a number 
+		or variable
+		with a number.
 
 ---
 
-### Number: Height / height (internally `WFGIFManualSizeHeight`)
+### Number: height [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**:
 ```
 500
@@ -93,13 +93,13 @@ with a number.
 
 **Only enabled if**: argument WFGIFAutoSize = `false`
 
-Accepts a number 
-or variable
-with a number.
+		Accepts a number 
+		or variable
+		with a number.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

@@ -11,14 +11,14 @@ Gets the specified part of the URL passed into the action.
 
 ### usage
 ```
-getcomponentofurl a{component=[string <Scheme | User | Password | Host | Port | Path | Query | Fragment>]}
+getcomponentofurl component="Scheme" | "User" | "Password" | "Host" | "Port" | "Path" | "Query" | "Fragment"
 ```
 
 ### arguments
 
 ---
 
-### Enumeration: Component / component (internally `WFURLComponent`)
+### Enumeration: component [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**:
 ```
 Scheme
@@ -40,9 +40,11 @@ containing one of the options:
 - `Query`
 - `Fragment`
 
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

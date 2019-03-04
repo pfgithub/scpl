@@ -17,14 +17,14 @@ The selected photos/videos
 
 ### usage
 ```
-selectphotos a{selectmultiple=[string boolean|variable]}
+selectphotos selectmultiple=true|false|variable
 ```
 
 ### arguments
 
 ---
 
-### Switch: Select Multiple / selectmultiple (internally `WFSelectMultiplePhotos`)
+### Switch: selectmultiple [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 
@@ -34,7 +34,7 @@ or a variable.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

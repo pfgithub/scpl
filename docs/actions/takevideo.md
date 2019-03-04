@@ -17,14 +17,14 @@ Video from the camera.
 
 ### usage
 ```
-takevideo a{camera=[string <Front | Back>] quality=[string <Low | Medium | High>] startrecording=[string <On Tap | Immediately>]}
+takevideo camera="Front" | "Back" quality="Low" | "Medium" | "High" startrecording="On Tap" | "Immediately"
 ```
 
 ### arguments
 
 ---
 
-### Enumeration: Camera / camera (internally `WFCameraCaptureDevice`)
+### Enumeration: camera [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**:
 ```
 Back
@@ -40,9 +40,11 @@ containing one of the options:
 - `Front`
 - `Back`
 
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+
 ---
 
-### Enumeration: Quality / quality (internally `WFCameraCaptureQuality`)
+### Enumeration: quality [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**:
 ```
 Medium
@@ -59,9 +61,11 @@ containing one of the options:
 - `Medium`
 - `High`
 
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+
 ---
 
-### Enumeration: Start Recording / startrecording (internally `WFRecordingStart`)
+### Enumeration: startrecording [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**:
 ```
 Immediately
@@ -77,9 +81,11 @@ containing one of the options:
 - `On Tap`
 - `Immediately`
 
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

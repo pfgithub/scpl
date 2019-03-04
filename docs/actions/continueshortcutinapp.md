@@ -13,7 +13,7 @@ Switches into the Shortcuts app and continues to the next action.
 
 ### usage
 ```
-continueshortcutinapp a{}
+continueshortcutinapp 
 ```
 
 ### arguments
@@ -24,7 +24,7 @@ continueshortcutinapp a{}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

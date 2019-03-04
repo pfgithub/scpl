@@ -13,7 +13,7 @@ Clears all the music in your Up Next queue.
 
 ### usage
 ```
-clearupnext a{}
+clearupnext 
 ```
 
 ### arguments
@@ -24,7 +24,7 @@ clearupnext a{}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

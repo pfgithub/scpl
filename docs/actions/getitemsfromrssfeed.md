@@ -11,14 +11,14 @@ Downloads the latest items from an RSS feed.
 
 ### usage
 ```
-getitemsfromrssfeed a{url=[string|text] wfrssitemquantity=[number]}
+getitemsfromrssfeed url="string" wfrssitemquantity=number
 ```
 
 ### arguments
 
 ---
 
-### Text: URL / url (internally `WFRSSFeedURL`)
+### Text: url [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Default Value**:
 ```
 https://www.apple.com/newsroom/rss-feed.rss
@@ -33,7 +33,7 @@ with the text.
 
 ---
 
-### Stepper Number: wfrssitemquantity / wfrssitemquantity (internally `WFRSSItemQuantity`)
+### Stepper Number: wfrssitemquantity [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
 **Default Value**:
 ```
 10
@@ -42,13 +42,13 @@ with the text.
 
 
 
-Accepts a number 
-or variable
-with a number.
+		Accepts a number 
+		or variable
+		with a number.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

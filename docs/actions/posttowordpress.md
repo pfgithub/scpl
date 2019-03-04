@@ -19,7 +19,7 @@ The URL of the new blog post
 
 ### usage
 ```
-posttowordpress a{undefined=[???] undefined=[???] title=[string|text] undefined=[???] undefined=[???] undefined=[???] undefined=[???] undefined=[???] advanced=[boolean] allowcomments=[string boolean|variable] slug=[string|text] excerpt=[string|text] publishdate=[string|text] undefined=[???] featuredimage=[variable] customfields=[boolean] customfields=[dictionary]}
+posttowordpress undefined=NotImplemented undefined=NotImplemented title="string" undefined=NotImplemented undefined=NotImplemented undefined=NotImplemented undefined=NotImplemented undefined=NotImplemented advanced=true|false allowcomments=true|false|variable slug="string" excerpt="string" publishdate="string" undefined=NotImplemented featuredimage=v:myvar|mv:myvar|s:myvar customfields=true|false customfields2={dictionary}
 ```
 
 ### arguments
@@ -34,7 +34,7 @@ posttowordpress a{undefined=[???] undefined=[???] title=[string|text] undefined=
 
 ---
 
-### Text: Title / title (internally `Title`)
+### Text: title [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 Quarterly Results
@@ -69,15 +69,19 @@ with the text.
 
 ---
 
-### Expand Arrow: Advanced / advanced (internally `Advanced`)
+### Expand Arrow: advanced [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 
 
 Accepts a boolean for if this
 parameter is expanded or not.
+Often expanding fields will
+enable or disable other
+arguments. If you are using
+labels, these can be ignored.
 
 ---
 
-### Switch: Allow Comments / allowcomments (internally `AllowComments`)
+### Switch: allowcomments [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 **Only enabled if**: argument Advanced = `true`
@@ -87,7 +91,7 @@ or a variable.
 
 ---
 
-### Text: Slug / slug (internally `Slug`)
+### Text: slug [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 quarterly-results
@@ -102,7 +106,7 @@ with the text.
 
 ---
 
-### Text: Excerpt / excerpt (internally `Excerpt`)
+### Text: excerpt [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 An overall great quarter
@@ -117,7 +121,7 @@ with the text.
 
 ---
 
-### Date: Publish Date / publishdate (internally `Date`)
+### Date: publishdate [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 optional
@@ -136,7 +140,7 @@ with the text.
 
 ---
 
-### Variable Picker: Featured Image / featuredimage (internally `ThumbnailImage`)
+### Variable Picker: featuredimage [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
 **Allows Variables**: true
 
 **Only enabled if**: argument Advanced = `true`
@@ -145,15 +149,19 @@ Accepts a variable.
 
 ---
 
-### Expand Arrow: Custom Fields / customfields (internally `ShowCustomFields`)
+### Expand Arrow: customfields [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Only enabled if**: argument Advanced = `true`
 
 Accepts a boolean for if this
 parameter is expanded or not.
+Often expanding fields will
+enable or disable other
+arguments. If you are using
+labels, these can be ignored.
 
 ---
 
-### Dictionary: Custom Fields / customfields (internally `CustomFields`)
+### Dictionary: customfields2 [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#dictionary-field)
 **Allows Variables**: true
 
 **Only enabled if**: argument Advanced = `true`
@@ -164,7 +172,7 @@ Accepts a dictionary.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

@@ -11,14 +11,14 @@ Gets the value for the specified key in the dictionary passed into the action.
 
 ### usage
 ```
-getdictionaryvalue a{get=[string <Value | All Keys | All Values>|variable] key=[string|text]}
+getdictionaryvalue get="Value" | "All Keys" | "All Values"|variable key="string"
 ```
 
 ### arguments
 
 ---
 
-### Enumeration: Get / get (internally `WFGetDictionaryValueType`)
+### Enumeration: get [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**:
 ```
 Value
@@ -32,9 +32,11 @@ containing one of the options:
 - `All Keys`
 - `All Values`
 
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+
 ---
 
-### Text: Key / key (internally `WFDictionaryKey`)
+### Text: key [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 example
@@ -49,7 +51,7 @@ with the text.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

@@ -8,7 +8,7 @@
 
 ### usage
 ```
-findhealthsamples a{}
+findhealthsamples 
 ```
 
 ### arguments
@@ -19,7 +19,7 @@ findhealthsamples a{}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

@@ -24,14 +24,14 @@ The shareable link to your Uber ride
 
 ### usage
 ```
-requestuber a{showestimate=[string boolean|variable] undefined=[???] undefined=[???] pickupat=[string <Current Location | Custom Location>] undefined=[???]}
+requestuber showestimate=true|false|variable undefined=NotImplemented undefined=NotImplemented pickupat="Current Location" | "Custom Location" undefined=NotImplemented
 ```
 
 ### arguments
 
 ---
 
-### Switch: Show Estimate / showestimate (internally `UberShowEstimate`)
+### Switch: showestimate [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 
@@ -49,7 +49,7 @@ or a variable.
 
 ---
 
-### Enumeration: Pick Up At / pickupat (internally `UberPickupAt`)
+### Enumeration: pickupat [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**:
 ```
 Current Location
@@ -65,13 +65,15 @@ containing one of the options:
 - `Current Location`
 - `Custom Location`
 
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+
 ---
 
 #### This paramtype is not implemented. WFLocationFieldParameter
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

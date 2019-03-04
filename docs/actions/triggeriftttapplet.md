@@ -15,7 +15,7 @@ Triggers an IFTTT applet. Configure which applet in the IFTTT app.
 
 ### usage
 ```
-triggeriftttapplet a{undefined=[???] wfiftttextraingredients=[number|variable] ingredient1=[string|text] ingredient2=[string|text] ingredient3=[string|text] ingredient4=[string|text] ingredient5=[string|text] ingredient6=[string|text] ingredient7=[string|text] ingredient8=[string|text] ingredient9=[string|text] ingredient10=[string|text] undefined=[???]}
+triggeriftttapplet undefined=NotImplemented wfiftttextraingredients=number|variable ingredient1="string" ingredient2="string" ingredient3="string" ingredient4="string" ingredient5="string" ingredient6="string" ingredient7="string" ingredient8="string" ingredient9="string" ingredient10="string" undefined=NotImplemented
 ```
 
 ### arguments
@@ -26,15 +26,15 @@ triggeriftttapplet a{undefined=[???] wfiftttextraingredients=[number|variable] i
 
 ---
 
-### Stepper Number: wfiftttextraingredients / wfiftttextraingredients (internally `WFIFTTTExtraIngredients`)
+### Stepper Number: wfiftttextraingredients [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
 
 
-Accepts a number 
-with a number.
+		Accepts a number 
+		with a number.
 
 ---
 
-### Text: Ingredient 1 / ingredient1 (internally `WFIFTTTExtraIngredient1`)
+### Text: ingredient1 [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 optional
@@ -49,7 +49,7 @@ with the text.
 
 ---
 
-### Text: Ingredient 2 / ingredient2 (internally `WFIFTTTExtraIngredient2`)
+### Text: ingredient2 [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 optional
@@ -64,7 +64,7 @@ with the text.
 
 ---
 
-### Text: Ingredient 3 / ingredient3 (internally `WFIFTTTExtraIngredient3`)
+### Text: ingredient3 [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 optional
@@ -79,7 +79,7 @@ with the text.
 
 ---
 
-### Text: Ingredient 4 / ingredient4 (internally `WFIFTTTExtraIngredient4`)
+### Text: ingredient4 [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 optional
@@ -94,7 +94,7 @@ with the text.
 
 ---
 
-### Text: Ingredient 5 / ingredient5 (internally `WFIFTTTExtraIngredient5`)
+### Text: ingredient5 [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 optional
@@ -109,7 +109,7 @@ with the text.
 
 ---
 
-### Text: Ingredient 6 / ingredient6 (internally `WFIFTTTExtraIngredient6`)
+### Text: ingredient6 [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 optional
@@ -124,7 +124,7 @@ with the text.
 
 ---
 
-### Text: Ingredient 7 / ingredient7 (internally `WFIFTTTExtraIngredient7`)
+### Text: ingredient7 [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 optional
@@ -139,7 +139,7 @@ with the text.
 
 ---
 
-### Text: Ingredient 8 / ingredient8 (internally `WFIFTTTExtraIngredient8`)
+### Text: ingredient8 [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 optional
@@ -154,7 +154,7 @@ with the text.
 
 ---
 
-### Text: Ingredient 9 / ingredient9 (internally `WFIFTTTExtraIngredient9`)
+### Text: ingredient9 [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 optional
@@ -169,7 +169,7 @@ with the text.
 
 ---
 
-### Text: Ingredient 10 / ingredient10 (internally `WFIFTTTExtraIngredient10`)
+### Text: ingredient10 [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 optional
@@ -188,7 +188,7 @@ with the text.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

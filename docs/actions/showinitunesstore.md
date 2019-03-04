@@ -13,7 +13,7 @@ Shows the iTunes products or App Store apps passed as input in a store sheet. Th
 
 ### usage
 ```
-showinitunesstore a{}
+showinitunesstore 
 ```
 
 ### arguments
@@ -24,7 +24,7 @@ showinitunesstore a{}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

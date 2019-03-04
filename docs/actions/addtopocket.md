@@ -13,14 +13,14 @@ Adds the input to Pocket.
 
 ### usage
 ```
-addtopocket a{tags=[string|text]}
+addtopocket tags="string"
 ```
 
 ### arguments
 
 ---
 
-### Text: Tags / tags (internally `WFPocketTags`)
+### Text: tags [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 example, tags
@@ -35,7 +35,7 @@ with the text.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

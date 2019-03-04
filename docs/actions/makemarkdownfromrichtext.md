@@ -15,7 +15,7 @@ Markdown
 
 ### usage
 ```
-makemarkdownfromrichtext a{}
+makemarkdownfromrichtext 
 ```
 
 ### arguments
@@ -26,7 +26,7 @@ makemarkdownfromrichtext a{}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

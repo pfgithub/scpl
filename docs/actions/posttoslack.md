@@ -15,7 +15,7 @@ Posts the input to the specified Slack channel.
 
 ### usage
 ```
-posttoslack a{undefined=[???] undefined=[???]}
+posttoslack undefined=NotImplemented undefined=NotImplemented
 ```
 
 ### arguments
@@ -30,7 +30,7 @@ posttoslack a{undefined=[???] undefined=[???]}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

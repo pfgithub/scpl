@@ -7,7 +7,7 @@
 
 ### usage
 ```
-findmusic a{}
+findmusic 
 ```
 
 ### arguments
@@ -18,7 +18,7 @@ findmusic a{}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

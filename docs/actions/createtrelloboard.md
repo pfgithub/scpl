@@ -13,14 +13,14 @@ Creates a new board in your Trello account.
 
 ### usage
 ```
-createtrelloboard a{name=[string|text] wftrellodescription=[string|text]}
+createtrelloboard name="string" wftrellodescription="string"
 ```
 
 ### arguments
 
 ---
 
-### Text: Name / name (internally `WFTrelloName`)
+### Text: name [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 Shortcuts
@@ -35,7 +35,7 @@ with the text.
 
 ---
 
-### Text: wftrellodescription / wftrellodescription (internally `WFTrelloDescription`)
+### Text: wftrellodescription [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 Description
@@ -50,7 +50,7 @@ with the text.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

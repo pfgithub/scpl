@@ -20,14 +20,14 @@ The content to add to your note
 
 ### usage
 ```
-appendtonote a{notetitle=[string|text] mode=[string <Append | Prepend>] undefined=[???]}
+appendtonote notetitle="string" mode="Append" | "Prepend" undefined=NotImplemented
 ```
 
 ### arguments
 
 ---
 
-### Text: Note Title / notetitle (internally `WFEvernoteNotesTitleSearch`)
+### Text: notetitle [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 example note
@@ -42,7 +42,7 @@ with the text.
 
 ---
 
-### Enumeration: Mode / mode (internally `WFEvernoteWriteMode`)
+### Enumeration: mode [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**:
 ```
 Append
@@ -58,13 +58,15 @@ containing one of the options:
 - `Append`
 - `Prepend`
 
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+
 ---
 
 #### This paramtype is not implemented. WFEvernoteNotebookPickerParameter
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

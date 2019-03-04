@@ -15,7 +15,7 @@ Calls the phone number passed in as input.
 
 ### usage
 ```
-call a{undefined=[???]}
+call undefined=NotImplemented
 ```
 
 ### arguments
@@ -26,7 +26,7 @@ call a{undefined=[???]}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

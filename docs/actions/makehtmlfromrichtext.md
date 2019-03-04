@@ -15,14 +15,14 @@ HTML
 
 ### usage
 ```
-makehtmlfromrichtext a{makefulldocument=[string boolean|variable]}
+makehtmlfromrichtext makefulldocument=true|false|variable
 ```
 
 ### arguments
 
 ---
 
-### Switch: Make Full Document / makefulldocument (internally `WFMakeFullDocument`)
+### Switch: makefulldocument [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 
@@ -32,7 +32,7 @@ or a variable.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

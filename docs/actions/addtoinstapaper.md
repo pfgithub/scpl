@@ -15,7 +15,7 @@ Adds the input to Instapaper.
 
 ### usage
 ```
-addtoinstapaper a{undefined=[???]}
+addtoinstapaper undefined=NotImplemented
 ```
 
 ### arguments
@@ -26,7 +26,7 @@ addtoinstapaper a{undefined=[???]}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

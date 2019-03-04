@@ -17,7 +17,7 @@ The edited content
 
 ### usage
 ```
-markup a{}
+markup 
 ```
 
 ### arguments
@@ -28,7 +28,7 @@ markup a{}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

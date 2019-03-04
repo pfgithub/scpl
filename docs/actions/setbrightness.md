@@ -13,14 +13,14 @@ Sets the device brightness.
 
 ### usage
 ```
-setbrightness a{brightness=[number]}
+setbrightness brightness=number
 ```
 
 ### arguments
 
 ---
 
-### Slider Number: Brightness / brightness (internally `WFBrightness`)
+### Slider Number: brightness [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Default Value**:
 ```
 0.5
@@ -29,13 +29,13 @@ setbrightness a{brightness=[number]}
 
 
 
-Accepts a number 
-or variable
-with a number.
+		Accepts a number 
+		or variable
+		with a number.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

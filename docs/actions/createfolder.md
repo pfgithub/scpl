@@ -11,14 +11,14 @@ Makes a new folder in the specified file storage service.
 
 ### usage
 ```
-createfolder a{service=[string <iCloud Drive | Dropbox>] path=[string|text]}
+createfolder service="iCloud Drive" | "Dropbox" path="string"
 ```
 
 ### arguments
 
 ---
 
-### Storage Service Picker: Service / service (internally `WFFileStorageService`)
+### Enumeration: service [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Allows Variables**: true
 
 
@@ -30,9 +30,11 @@ containing one of the options:
 - `iCloud Drive`
 - `Dropbox`
 
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+
 ---
 
-### Text: Path / path (internally `WFFilePath`)
+### Text: path [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Allows Variables**: true
 
 
@@ -43,7 +45,7 @@ with the text.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

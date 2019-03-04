@@ -5,7 +5,7 @@
 
 ### usage
 ```
-isworkflowactionspostonfacebook a{}
+isworkflowactionspostonfacebook 
 ```
 
 ### arguments
@@ -16,7 +16,7 @@ isworkflowactionspostonfacebook a{}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

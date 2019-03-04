@@ -13,14 +13,14 @@ Gets bookmarks in your Pinboard account.
 
 ### usage
 ```
-getpinboardbookmarks a{tags=[string|text] wfbookmarkcount=[number]}
+getpinboardbookmarks tags="string" wfbookmarkcount=number
 ```
 
 ### arguments
 
 ---
 
-### Text: Tags / tags (internally `WFPinTags`)
+### Text: tags [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 apple longread
@@ -35,7 +35,7 @@ with the text.
 
 ---
 
-### Stepper Number: wfbookmarkcount / wfbookmarkcount (internally `WFBookmarkCount`)
+### Stepper Number: wfbookmarkcount [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
 **Default Value**:
 ```
 5
@@ -44,13 +44,13 @@ with the text.
 
 
 
-Accepts a number 
-or variable
-with a number.
+		Accepts a number 
+		or variable
+		with a number.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

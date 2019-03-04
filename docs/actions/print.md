@@ -13,7 +13,7 @@ Prints the input using AirPrint.
 
 ### usage
 ```
-print a{}
+print 
 ```
 
 ### arguments
@@ -24,7 +24,7 @@ print a{}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

@@ -19,7 +19,7 @@ function parse(string, options) {
     }
     let shortcut;
     try {
-        shortcut = parsed.data.asShortcut();
+        shortcut = parsed.data.asShortcut(options.extraParseActions);
     }
     catch (er) {
         if (er instanceof ParserData_1.PositionedError) {
@@ -30,5 +30,6 @@ function parse(string, options) {
     if (options.makePlist) {
         return bplistc(shortcut.build());
     }
+    return shortcut;
 }
 exports.parse = parse;

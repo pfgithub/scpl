@@ -13,7 +13,7 @@ Prompts to pick an email address from your contacts and passes the selection to 
 
 ### usage
 ```
-selectemailaddress a{}
+selectemailaddress 
 ```
 
 ### arguments
@@ -24,7 +24,7 @@ selectemailaddress a{}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

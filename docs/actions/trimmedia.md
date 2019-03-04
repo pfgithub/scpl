@@ -22,7 +22,7 @@ The trimmed media.
 
 ### usage
 ```
-trimmedia a{}
+trimmedia 
 ```
 
 ### arguments
@@ -33,7 +33,7 @@ trimmedia a{}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

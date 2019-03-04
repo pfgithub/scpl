@@ -18,14 +18,14 @@ An image or video to include in the notification
 
 ### usage
 ```
-shownotification a{title=[string|text] body=[string|text] playsound=[string boolean|variable]}
+shownotification title="string" body="string" playsound=true|false|variable
 ```
 
 ### arguments
 
 ---
 
-### Text: Title / title (internally `WFNotificationActionTitle`)
+### Text: title [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 optional
@@ -40,7 +40,7 @@ with the text.
 
 ---
 
-### Text: Body / body (internally `WFNotificationActionBody`)
+### Text: body [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 Charming notification message
@@ -59,7 +59,7 @@ with the text.
 
 ---
 
-### Switch: Play Sound / playsound (internally `WFNotificationActionSound`)
+### Switch: playsound [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Default Value**:
 ```
 true
@@ -73,7 +73,7 @@ or a variable.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

@@ -15,14 +15,14 @@ An animated GIF
 
 ### usage
 ```
-makegif a{secondsperphoto=[number] loopforever=[string boolean|variable] wfmakegifactionloopcount=[number] autosize=[string boolean|variable] width=[number] height=[number]}
+makegif secondsperphoto=number loopforever=true|false|variable wfmakegifactionloopcount=number autosize=true|false|variable width=number height=number
 ```
 
 ### arguments
 
 ---
 
-### Number: Seconds Per Photo / secondsperphoto (internally `WFMakeGIFActionDelayTime`)
+### Number: secondsperphoto [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**:
 ```
 0.2
@@ -35,13 +35,13 @@ makegif a{secondsperphoto=[number] loopforever=[string boolean|variable] wfmakeg
 
 
 
-Accepts a number 
-or variable
-with a number.
+		Accepts a number 
+		or variable
+		with a number.
 
 ---
 
-### Switch: Loop Forever / loopforever (internally `WFMakeGIFActionLoopEnabled`)
+### Switch: loopforever [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Default Value**:
 ```
 true
@@ -55,18 +55,18 @@ or a variable.
 
 ---
 
-### Stepper Number: wfmakegifactionloopcount / wfmakegifactionloopcount (internally `WFMakeGIFActionLoopCount`)
+### Stepper Number: wfmakegifactionloopcount [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
 **Allows Variables**: true
 
 **Only enabled if**: argument WFMakeGIFActionLoopEnabled = `false`
 
-Accepts a number 
-or variable
-with a number.
+		Accepts a number 
+		or variable
+		with a number.
 
 ---
 
-### Switch: Auto Size / autosize (internally `WFMakeGIFActionAutoSize`)
+### Switch: autosize [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Default Value**:
 ```
 true
@@ -80,7 +80,7 @@ or a variable.
 
 ---
 
-### Number: Width / width (internally `WFMakeGIFActionManualSizeWidth`)
+### Number: width [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**:
 ```
 500
@@ -89,13 +89,13 @@ or a variable.
 
 **Only enabled if**: argument WFMakeGIFActionAutoSize = `false`
 
-Accepts a number 
-or variable
-with a number.
+		Accepts a number 
+		or variable
+		with a number.
 
 ---
 
-### Number: Height / height (internally `WFMakeGIFActionManualSizeHeight`)
+### Number: height [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**:
 ```
 500
@@ -104,13 +104,13 @@ with a number.
 
 **Only enabled if**: argument WFMakeGIFActionAutoSize = `false`
 
-Accepts a number 
-or variable
-with a number.
+		Accepts a number 
+		or variable
+		with a number.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

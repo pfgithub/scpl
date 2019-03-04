@@ -11,7 +11,7 @@ Returns any phone numbers found in the output from the previous action.
 
 ### usage
 ```
-getphonenumbersfrominput a{}
+getphonenumbersfrominput 
 ```
 
 ### arguments
@@ -22,7 +22,7 @@ getphonenumbersfrominput a{}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

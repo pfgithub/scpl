@@ -15,7 +15,7 @@ Sends a payment to the specified people using a payment app on your device.
 
 ### usage
 ```
-sendpayment a{undefined=[???] undefined=[???] amount=[number] openinapp=[string boolean|variable] note=[string|text]}
+sendpayment undefined=NotImplemented undefined=NotImplemented amount=number openinapp=true|false|variable note="string"
 ```
 
 ### arguments
@@ -30,7 +30,7 @@ sendpayment a{undefined=[???] undefined=[???] amount=[number] openinapp=[string 
 
 ---
 
-### Number: Amount / amount (internally `WFVenmoActionAmount`)
+### Number: amount [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**:
 ```
 7.00
@@ -39,13 +39,13 @@ sendpayment a{undefined=[???] undefined=[???] amount=[number] openinapp=[string 
 
 
 
-Accepts a number 
-or variable
-with a number.
+		Accepts a number 
+		or variable
+		with a number.
 
 ---
 
-### Switch: Open in App / openinapp (internally `WFVenmoActionAppSwitch`)
+### Switch: openinapp [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 
@@ -55,7 +55,7 @@ or a variable.
 
 ---
 
-### Text: Note / note (internally `WFVenmoActionNote`)
+### Text: note [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 Note
@@ -70,7 +70,7 @@ with the text.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

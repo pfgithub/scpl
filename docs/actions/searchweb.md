@@ -13,14 +13,14 @@ Searches the web for the text provided as input.
 
 ### usage
 ```
-searchweb a{search=[string <Amazon | Bing | DuckDuckGo | eBay | Google | Reddit | Twitter | Yahoo! | YouTube>]}
+searchweb search="Amazon" | "Bing" | "DuckDuckGo" | "eBay" | "Google" | "Reddit" | "Twitter" | "Yahoo!" | "YouTube"
 ```
 
 ### arguments
 
 ---
 
-### Enumeration: Search / search (internally `WFSearchWebDestination`)
+### Enumeration: search [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**:
 ```
 Google
@@ -43,9 +43,11 @@ containing one of the options:
 - `Yahoo!`
 - `YouTube`
 
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

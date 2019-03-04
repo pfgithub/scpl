@@ -11,7 +11,7 @@ Extracts any RSS feed URLs from the given web URLs or web page.
 
 ### usage
 ```
-getrssfeedsfrompage a{}
+getrssfeedsfrompage 
 ```
 
 ### arguments
@@ -22,7 +22,7 @@ getrssfeedsfrompage a{}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

@@ -24,14 +24,14 @@ The URL of the newly created item
 
 ### usage
 ```
-addtodoistitem a{content=[string|text] undefined=[???] duedate=[string|text] remindmeon=[string|text] remindertype=[string <Email | Push Notification | Text Message>] priority=[string <4 | 3 | 2 | 1>] notes=[string|text]}
+addtodoistitem content="string" undefined=NotImplemented duedate="string" remindmeon="string" remindertype="Email" | "Push Notification" | "Text Message" priority="4" | "3" | "2" | "1" notes="string"
 ```
 
 ### arguments
 
 ---
 
-### Text: Content / content (internally `WFTodoistContent`)
+### Text: content [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 Buy some milk
@@ -50,7 +50,7 @@ with the text.
 
 ---
 
-### Date: Due Date / duedate (internally `WFTodoistDueDate`)
+### Date: duedate [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 May 23
@@ -65,7 +65,7 @@ with the text.
 
 ---
 
-### Date: Remind Me On / remindmeon (internally `WFTodoistReminder`)
+### Date: remindmeon [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 May 23 at 1 PM
@@ -80,7 +80,7 @@ with the text.
 
 ---
 
-### Enumeration: Reminder Type / remindertype (internally `WFTodoistReminderType`)
+### Enumeration: remindertype [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**:
 ```
 Email
@@ -97,9 +97,11 @@ containing one of the options:
 - `Push Notification`
 - `Text Message`
 
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+
 ---
 
-### Enumeration: Priority / priority (internally `WFTodoistPriority`)
+### Enumeration: priority [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**:
 ```
 4
@@ -117,9 +119,11 @@ containing one of the options:
 - `2`
 - `1`
 
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+
 ---
 
-### Text: Notes / notes (internally `WFTodoistNotes`)
+### Text: notes [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 Notes
@@ -134,7 +138,7 @@ with the text.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

@@ -13,7 +13,7 @@ Returns the song that is currently playing in the Music app, if any.
 
 ### usage
 ```
-getcurrentsong a{}
+getcurrentsong 
 ```
 
 ### arguments
@@ -24,7 +24,7 @@ getcurrentsong a{}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

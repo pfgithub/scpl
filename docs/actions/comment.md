@@ -11,14 +11,14 @@ This action lets you explain how part of a shortcut works. When run, this action
 
 ### usage
 ```
-comment a{wfcommentactiontext=[string]}
+comment wfcommentactiontext="string"
 ```
 
 ### arguments
 
 ---
 
-### Text: wfcommentactiontext / wfcommentactiontext (internally `WFCommentActionText`)
+### Text: wfcommentactiontext [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 Enter comment...
@@ -30,7 +30,7 @@ with the text.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

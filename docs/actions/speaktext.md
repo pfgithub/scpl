@@ -13,14 +13,14 @@ Speaks the inputted text aloud.
 
 ### usage
 ```
-speaktext a{waituntilfinished=[string boolean|variable] undefined=[???] pitch=[number] undefined=[???] undefined=[???]}
+speaktext waituntilfinished=true|false|variable undefined=NotImplemented pitch=number undefined=NotImplemented undefined=NotImplemented
 ```
 
 ### arguments
 
 ---
 
-### Switch: Wait Until Finished / waituntilfinished (internally `WFSpeakTextWait`)
+### Switch: waituntilfinished [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Default Value**:
 ```
 true
@@ -38,7 +38,7 @@ or a variable.
 
 ---
 
-### Slider Number: Pitch / pitch (internally `WFSpeakTextPitch`)
+### Slider Number: pitch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Default Value**:
 ```
 1
@@ -47,9 +47,9 @@ or a variable.
 
 
 
-Accepts a number 
-or variable
-with a number.
+		Accepts a number 
+		or variable
+		with a number.
 
 ---
 
@@ -61,7 +61,7 @@ with a number.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

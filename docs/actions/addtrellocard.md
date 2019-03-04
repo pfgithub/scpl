@@ -15,14 +15,14 @@ Creates a new card on the specified list and board in your Trello account.
 
 ### usage
 ```
-addtrellocard a{name=[string|text] undefined=[???] undefined=[???] due=[string|text] position=[string <Top | Bottom>] attachments=[variable] wftrellodescription=[string|text]}
+addtrellocard name="string" undefined=NotImplemented undefined=NotImplemented due="string" position="Top" | "Bottom" attachments=v:myvar|mv:myvar|s:myvar wftrellodescription="string"
 ```
 
 ### arguments
 
 ---
 
-### Text: Name / name (internally `WFTrelloName`)
+### Text: name [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 Be productive
@@ -45,7 +45,7 @@ with the text.
 
 ---
 
-### Date: Due / due (internally `WFTrelloDueDate`)
+### Date: due [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 Tomorrow at 1pm
@@ -60,7 +60,7 @@ with the text.
 
 ---
 
-### Enumeration: Position / position (internally `WFTrelloCardPosition`)
+### Enumeration: position [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**:
 ```
 Top
@@ -76,9 +76,11 @@ containing one of the options:
 - `Top`
 - `Bottom`
 
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+
 ---
 
-### Variable Picker: Attachments / attachments (internally `WFTrelloAttachments`)
+### Variable Picker: attachments [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
 **Allows Variables**: true
 
 
@@ -87,7 +89,7 @@ Accepts a variable.
 
 ---
 
-### Text: wftrellodescription / wftrellodescription (internally `WFTrelloDescription`)
+### Text: wftrellodescription [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 Description
@@ -102,7 +104,7 @@ with the text.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

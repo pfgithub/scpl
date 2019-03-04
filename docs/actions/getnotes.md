@@ -15,14 +15,14 @@ Get recent notes from Evernote, optionally filtering based on criteria.
 
 ### usage
 ```
-getnotes a{titlesearch=[string|text] undefined=[???] undefined=[???] wfevernotenotescount=[number]}
+getnotes titlesearch="string" undefined=NotImplemented undefined=NotImplemented wfevernotenotescount=number
 ```
 
 ### arguments
 
 ---
 
-### Text: Title Search / titlesearch (internally `WFEvernoteNotesTitleSearch`)
+### Text: titlesearch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 optional
@@ -45,7 +45,7 @@ with the text.
 
 ---
 
-### Stepper Number: wfevernotenotescount / wfevernotenotescount (internally `WFEvernoteNotesCount`)
+### Stepper Number: wfevernotenotescount [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
 **Default Value**:
 ```
 1
@@ -54,13 +54,13 @@ with the text.
 
 
 
-Accepts a number 
-or variable
-with a number.
+		Accepts a number 
+		or variable
+		with a number.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

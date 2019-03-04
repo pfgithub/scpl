@@ -5,7 +5,7 @@
 
 ### usage
 ```
-filterlocations a{}
+filterlocations 
 ```
 
 ### arguments
@@ -16,7 +16,7 @@ filterlocations a{}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

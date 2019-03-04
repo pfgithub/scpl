@@ -5,7 +5,7 @@
 
 ### usage
 ```
-isworkflowactionstweet a{}
+isworkflowactionstweet 
 ```
 
 ### arguments
@@ -16,7 +16,7 @@ isworkflowactionstweet a{}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

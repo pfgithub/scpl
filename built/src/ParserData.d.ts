@@ -187,6 +187,8 @@ export declare class ActionsParse extends Parse implements AsAction, AsVariable,
     asVariable(cc: ConvertingContext): MagicVariable;
     canBeAction(_cc: ConvertingContext): boolean;
     asAction(cc: ConvertingContext): Action;
-    asShortcut(): import("./OutputData").Shortcut;
+    asShortcut(converterActions?: {
+        [key: string]: (cc: ConvertingContext, ...args: AsAble[]) => void;
+    }): import("./OutputData").Shortcut;
 }
 export {};

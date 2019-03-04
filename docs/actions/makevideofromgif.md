@@ -20,14 +20,14 @@ A video
 
 ### usage
 ```
-makevideofromgif a{wfmakevideofromgifactionloopcount=[number]}
+makevideofromgif wfmakevideofromgifactionloopcount=number
 ```
 
 ### arguments
 
 ---
 
-### Stepper Number: wfmakevideofromgifactionloopcount / wfmakevideofromgifactionloopcount (internally `WFMakeVideoFromGIFActionLoopCount`)
+### Stepper Number: wfmakevideofromgifactionloopcount [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
 **Default Value**:
 ```
 1
@@ -36,13 +36,13 @@ makevideofromgif a{wfmakevideofromgifactionloopcount=[number]}
 
 
 
-Accepts a number 
-or variable
-with a number.
+		Accepts a number 
+		or variable
+		with a number.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

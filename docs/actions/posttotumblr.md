@@ -19,7 +19,7 @@ The URL of the new post
 
 ### usage
 ```
-posttotumblr a{undefined=[???] undefined=[???] undefined=[???] poststatus=[string <Post Now | Add to Queue | Save as Draft | Post Privately>] title=[string|text] source=[string|text] caption=[string|text] tags=[string|text] description=[string|text]}
+posttotumblr undefined=NotImplemented undefined=NotImplemented undefined=NotImplemented poststatus="Post Now" | "Add to Queue" | "Save as Draft" | "Post Privately" title="string" source="string" caption="string" tags="string" description="string"
 ```
 
 ### arguments
@@ -38,7 +38,7 @@ posttotumblr a{undefined=[???] undefined=[???] undefined=[???] poststatus=[strin
 
 ---
 
-### Enumeration: Post Status / poststatus (internally `WFPostState`)
+### Enumeration: poststatus [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**:
 ```
 Post Now
@@ -56,9 +56,11 @@ containing one of the options:
 - `Save as Draft`
 - `Post Privately`
 
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+
 ---
 
-### Text: Title / title (internally `WFPostTitle`)
+### Text: title [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 optional
@@ -73,7 +75,7 @@ with the text.
 
 ---
 
-### Text: Source / source (internally `WFPostSource`)
+### Text: source [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 optional
@@ -88,7 +90,7 @@ with the text.
 
 ---
 
-### Text: Caption / caption (internally `WFPostCaption`)
+### Text: caption [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 optional
@@ -105,7 +107,7 @@ with the text.
 
 ---
 
-### Text: Tags / tags (internally `WFPostTags`)
+### Text: tags [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 shortcuts, apple
@@ -120,7 +122,7 @@ with the text.
 
 ---
 
-### Text: Description / description (internally `WFPostDescription`)
+### Text: description [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 Description
@@ -135,7 +137,7 @@ with the text.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

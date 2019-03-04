@@ -11,14 +11,14 @@ Gets the value of the specified variable and passes it to the next action.
 
 ### usage
 ```
-getvariable a{variable=[variable]}
+getvariable variable=v:myvar|mv:myvar|s:myvar
 ```
 
 ### arguments
 
 ---
 
-### Variable Picker: Variable / variable (internally `WFVariable`)
+### Variable Picker: variable [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
 **Allows Variables**: true
 
 
@@ -27,7 +27,7 @@ Accepts a variable.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

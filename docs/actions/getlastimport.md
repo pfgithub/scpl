@@ -13,7 +13,7 @@ Gets the most recent photo import from the Photos app.
 
 ### usage
 ```
-getlastimport a{}
+getlastimport 
 ```
 
 ### arguments
@@ -24,7 +24,7 @@ getlastimport a{}
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

@@ -15,14 +15,14 @@ The file that was appended to
 
 ### usage
 ```
-appendtofile a{service=[string <iCloud Drive | Dropbox>] filepath=[string|text] mode=[string <Append | Prepend>] makenewline=[string boolean|variable]}
+appendtofile service="iCloud Drive" | "Dropbox" filepath="string" mode="Append" | "Prepend" makenewline=true|false|variable
 ```
 
 ### arguments
 
 ---
 
-### Storage Service Picker: Service / service (internally `WFFileStorageService`)
+### Enumeration: service [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Allows Variables**: true
 
 
@@ -34,9 +34,11 @@ containing one of the options:
 - `iCloud Drive`
 - `Dropbox`
 
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+
 ---
 
-### Text: File Path / filepath (internally `WFFilePath`)
+### Text: filepath [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 example.txt
@@ -51,7 +53,7 @@ with the text.
 
 ---
 
-### Enumeration: Mode / mode (internally `WFAppendFileWriteMode`)
+### Enumeration: mode [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**:
 ```
 Append
@@ -67,9 +69,11 @@ containing one of the options:
 - `Append`
 - `Prepend`
 
+[Documentation](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+
 ---
 
-### Switch: Make New Line / makenewline (internally `WFAppendOnNewLine`)
+### Switch: makenewline [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Default Value**:
 ```
 true
@@ -83,7 +87,7 @@ or a variable.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

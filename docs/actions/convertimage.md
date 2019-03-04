@@ -13,7 +13,7 @@ Converts the images passed into the action to the specified image format.
 
 ### usage
 ```
-convertimage a{undefined=[???] quality=[number] preservemetadata=[string boolean|variable]}
+convertimage undefined=NotImplemented quality=number preservemetadata=true|false|variable
 ```
 
 ### arguments
@@ -24,7 +24,7 @@ convertimage a{undefined=[???] quality=[number] preservemetadata=[string boolean
 
 ---
 
-### Slider Number: Quality / quality (internally `WFImageCompressionQuality`)
+### Slider Number: quality [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Default Value**:
 ```
 0.75
@@ -33,13 +33,13 @@ convertimage a{undefined=[???] quality=[number] preservemetadata=[string boolean
 
 **Only enabled if**: argument WFImageFormat = `JPEG` or `JPEG-2000`
 
-Accepts a number 
-or variable
-with a number.
+		Accepts a number 
+		or variable
+		with a number.
 
 ---
 
-### Switch: Preserve Metadata / preservemetadata (internally `WFImagePreserveMetadata`)
+### Switch: preservemetadata [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Default Value**:
 ```
 true
@@ -53,7 +53,7 @@ or a variable.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

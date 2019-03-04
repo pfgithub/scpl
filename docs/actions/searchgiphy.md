@@ -13,14 +13,14 @@ Searches for GIFs representing the text specified using Giphy.
 
 ### usage
 ```
-searchgiphy a{search=[string|text] showgifpicker=[string boolean|variable] wfgiphylimit=[number] selectmultiple=[string boolean|variable]}
+searchgiphy search="string" showgifpicker=true|false|variable wfgiphylimit=number selectmultiple=true|false|variable
 ```
 
 ### arguments
 
 ---
 
-### Text: Search / search (internally `WFGiphyQuery`)
+### Text: search [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 leave blank for trending
@@ -35,7 +35,7 @@ with the text.
 
 ---
 
-### Switch: Show GIF Picker / showgifpicker (internally `WFGiphyShowPicker`)
+### Switch: showgifpicker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Default Value**:
 ```
 true
@@ -49,7 +49,7 @@ or a variable.
 
 ---
 
-### Stepper Number: wfgiphylimit / wfgiphylimit (internally `WFGiphyLimit`)
+### Stepper Number: wfgiphylimit [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
 **Default Value**:
 ```
 1
@@ -58,13 +58,13 @@ or a variable.
 
 **Only enabled if**: argument WFGiphyShowPicker = `false`
 
-Accepts a number 
-or variable
-with a number.
+		Accepts a number 
+		or variable
+		with a number.
 
 ---
 
-### Switch: Select Multiple / selectmultiple (internally `WFGiphySelectMultiple`)
+### Switch: selectmultiple [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 **Only enabled if**: argument WFGiphyShowPicker = `true`
@@ -74,7 +74,7 @@ or a variable.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

@@ -15,14 +15,14 @@ Presents an email composer. Pass text into the action to set the email body. Oth
 
 ### usage
 ```
-sendemail a{showcomposesheet=[string boolean|variable] undefined=[???] from=[string|text] to=[string|string array|variable] cc=[string|string array|variable] bcc=[string|string array|variable] subject=[string|text]}
+sendemail showcomposesheet=true|false|variable undefined=NotImplemented from="string" to="string"|[list, of, strings]|variable cc="string"|[list, of, strings]|variable bcc="string"|[list, of, strings]|variable subject="string"
 ```
 
 ### arguments
 
 ---
 
-### Switch: Show Compose Sheet / showcomposesheet (internally `WFSendEmailActionShowComposeSheet`)
+### Switch: showcomposesheet [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Default Value**:
 ```
 true
@@ -40,7 +40,7 @@ or a variable.
 
 ---
 
-### Text: From / from (internally `WFSendEmailActionFrom`)
+### Text: from [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 optional
@@ -57,7 +57,7 @@ with the text.
 
 ---
 
-### Text Input: To / to (internally `WFSendEmailActionToRecipients`)
+### Email: to [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Placeholder**:
 ```
 Email addresses
@@ -70,7 +70,7 @@ Accepts a string or string array or variable of email addresses.
 
 ---
 
-### Text Input: Cc / cc (internally `WFSendEmailActionCcRecipients`)
+### Email: cc [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Placeholder**:
 ```
 Email addresses
@@ -83,7 +83,7 @@ Accepts a string or string array or variable of email addresses.
 
 ---
 
-### Text Input: Bcc / bcc (internally `WFSendEmailActionBccRecipients`)
+### Email: bcc [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Placeholder**:
 ```
 Email addresses
@@ -96,7 +96,7 @@ Accepts a string or string array or variable of email addresses.
 
 ---
 
-### Text: Subject / subject (internally `WFSendEmailActionSubject`)
+### Text: subject [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**:
 ```
 optional
@@ -111,7 +111,7 @@ with the text.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {

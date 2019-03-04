@@ -8,7 +8,7 @@ import {p, regex, star, plus, optional, or, c, o} from "./ParserHelper.js";
 
 
 
-o.identifier = regex(/^[A-Za-z0-9@_]+/)
+o.identifier = regex(/^[A-Za-z@_][A-Za-z0-9@_]*/)
 	.scb(([fullmatch], start, end) => new IdentifierParse(start, end, fullmatch));
 
 o.newline = p(

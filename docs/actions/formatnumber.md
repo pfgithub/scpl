@@ -11,14 +11,14 @@ Formats a number into text.
 
 ### usage
 ```
-formatnumber a{wfnumberformatdecimalplaces=[number]}
+formatnumber wfnumberformatdecimalplaces=number
 ```
 
 ### arguments
 
 ---
 
-### Stepper Number: wfnumberformatdecimalplaces / wfnumberformatdecimalplaces (internally `WFNumberFormatDecimalPlaces`)
+### Stepper Number: wfnumberformatdecimalplaces [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
 **Default Value**:
 ```
 2
@@ -27,13 +27,13 @@ formatnumber a{wfnumberformatdecimalplaces=[number]}
 
 
 
-Accepts a number 
-or variable
-with a number.
+		Accepts a number 
+		or variable
+		with a number.
 
 ---
 
-### source json
+### source json (for developers)
 
 ```json
 {
