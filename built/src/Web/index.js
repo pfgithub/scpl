@@ -1,35 +1,35 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const bplistc = require("bplist-creator");
-const CodeMirror = require("codemirror");
-const ShortcutsParser_1 = require("../ShortcutsParser");
+// import * as CodeMirror from "codemirror";
+const index_1 = require("../../index");
 const ParserData_1 = require("../ParserData");
 const inputArea = document.getElementById("inputArea");
 const messageArea = document.getElementById("messageArea");
 const outputArea = document.getElementById("outputArea");
+//@ts-ignore
+let editor = ace.edit("editor");
+editor.setTheme("ace/theme/ambiance");
+editor.session.setMode("ace/mode/scpl");
 // inputArea should keep its text from the browser
 messageArea.value = "";
 outputArea.value = "";
 const downloadShortcutBtn = document.getElementById("downloadShortcutBtn");
 let bufferToDownload;
 let timeout;
-const cm = CodeMirror.fromTextArea(inputArea, {
-    lineNumbers: true,
-    mode: "text/plain",
-    indentWithTabs: true
-});
-cm.on("change", () => {
-    messageArea.value = "";
-    outputArea.value = "";
-    if (timeout) {
-        clearTimeout(timeout);
-    }
-    timeout = setTimeout(convert, 200);
-});
-inputArea.addEventListener("input", () => {
-});
-// @ts-ignore
-global.cm = cm;
+// const cm = CodeMirror.fromTextArea(inputArea, {
+// 	lineNumbers: true,
+// 	mode: "text/plain",
+// 	indentWithTabs: true
+// });
+// cm.on("change", () => {
+// 	messageArea.value = "";
+// 	outputArea.value = "";
+// 	if(timeout) {
+// 		clearTimeout(timeout);
+// 	}
+// 	timeout = setTimeout(convert, 200);
+// });
+console.log("Code loaded");
 function downloadBlob(data, fileName, mimeType) {
     const blob = new Blob([data], {
         type: mimeType
@@ -58,57 +58,26 @@ global.textMarks = textMarks;
 function convert() {
     messageArea.value = "Loading...";
     outputArea.value = "Loading...";
-    textMarks.forEach(mark => mark.clear());
-    textMarks = [];
-    const startedConversion = time();
-    const parsed = ShortcutsParser_1.default.parse(`${cm.getValue()}\n`, [1, 1]);
-    if (!parsed.success) {
-        bufferToDownload = undefined;
-        textMarks.push(cm.getDoc().markText({ line: 0, ch: 0 }, { line: 100, ch: 0 }, {
-            className: "error",
-            inclusiveLeft: false,
-            inclusiveRight: false
-        }));
-        messageArea.value = (`Error, completely failed to parse. Took ${time() - startedConversion}ms.`);
-        outputArea.value = "Error!";
-        throw new Error("Str remaining");
-    }
-    if (parsed.remainingStr) {
-        bufferToDownload = undefined;
-        textMarks.push(cm.getDoc().markText({ line: parsed.pos[0] - 1, ch: parsed.pos[1] - 1 }, { line: parsed.pos[0] + 100, ch: 0 }, {
-            className: "error",
-            inclusiveLeft: false,
-            inclusiveRight: false
-        }));
-        messageArea.value = (`Error, could not parse. Took ${time() - startedConversion}ms. Ended at line ${parsed.pos[0]}, character ${parsed.pos[1]}`);
-        outputArea.value = "Error!";
-        throw new Error("Str remaining");
-    }
-    const finishedParsing = time();
-    let shortcut;
+    console.log("Converting...");
+    let output;
     try {
-        shortcut = parsed.data.asShortcut();
+        console.log("Parsing " + editor.getValue());
+        output = index_1.parse(editor.getValue() + "\n", { makePlist: true });
     }
     catch (er) {
-        if (er instanceof ParserData_1.PositionedError) {
-            textMarks.push(cm.getDoc().markText({ line: er.start[0] - 1, ch: er.start[1] - 1 }, { line: er.end[0] - 1, ch: er.end[1] - 1 }, {
-                className: "error",
-                inclusiveLeft: false,
-                inclusiveRight: false,
-                // @ts-ignore
-                attributes: { title: er.message }
-            }));
+        console.log(er);
+        if (!(er instanceof ParserData_1.PositionedError)) {
+            throw new Error("Not positioned");
         }
-        messageArea.value = (`Error, could not convert. Took ${time() - startedConversion}ms. ${er.message}`);
-        outputArea.value = "Error!";
-        // throw er;
-        return;
+        console.log("Setting annotation at ");
+        editor.getSession().setAnnotations([{
+                row: er.start[0] - 1,
+                column: er.end[0] - 1,
+                text: er.message,
+                type: "error" // also warning and information
+            }]);
     }
-    const shortcutData = shortcut.build();
-    messageArea.value = `Success in ${time() - startedConversion}ms. Parsed in ${finishedParsing - startedConversion}ms. Converted in ${time() - finishedParsing}ms.`;
-    outputArea.value = JSON.stringify(shortcutData, null, "\t");
-    // @ts-ignore
-    const buffer = bplistc(shortcutData);
+    const buffer = output;
     bufferToDownload = buffer;
     // TODO (https://github.com/pine/arraybuffer-loader)
 }

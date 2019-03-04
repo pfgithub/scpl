@@ -1,9 +1,9 @@
 #################################################################
 ## Iro
-################################################################ 
+################################################################
 ##
 ## * Press Ctrl + '+'/'-' To Zoom in
-## * Press Ctrl + S to save and recalculate... 
+## * Press Ctrl + S to save and recalculate...
 ## * Documents are saved to web storage.
 ## * Only one save slot supported.
 ## * Matches cannot span lines.
@@ -63,10 +63,23 @@ styles [] {
    pygments_scope        = Punctuation
 }
 
+.escape : style {
+   color     = red_2
+   ace_scope             = escape
+   textmate_scope        = constant.character.escape
+   pygments_scope        = String.Escape
+}
+.action : style {
+    color = orange
+    ace_scope = function
+    textmate_scope = entity.name.function
+   pygments_scope        = Name.Function
+}
+
 .text : style {
    color                 = brown
-   ace_scope             = text
-   textmate_scope        = string
+   ace_scope             = string
+   textmate_scope        = string.quoted.double
    pygments_scope        = String
 }
 
@@ -179,14 +192,14 @@ barlist : context {
 escape : context {
    : pattern {
       regex          \= (\\["'\\n])
-      styles []       = .punctuation;
+      styles []       = .escape;
    }
    : inline_push {
       regex          \= (\\\()
-      styles []       = .punctuation;
+      styles []       = .escape;
       : pop {
          regex       \= (\))
-         styles []    = .punctuation;
+         styles []    = .escape;
       }
       : include "action";
    }
@@ -229,5 +242,5 @@ inline_comment : context {
       styles [] = .comment;
    }
 }
-   
+
 }
