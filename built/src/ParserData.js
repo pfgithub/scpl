@@ -557,7 +557,6 @@ class ActionsParse extends Parse {
             }
             lastAction = action.asAction(cc);
         });
-        console.log("THIS.ACTIONS = ", this.actions.length, lastAction);
         if (!lastAction) {
             throw this.error("There must be at least one action");
         }
