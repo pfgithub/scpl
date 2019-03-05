@@ -7,7 +7,8 @@ const inputArea = document.getElementById("inputArea");
 const messageArea = document.getElementById("messageArea");
 const outputArea = document.getElementById("outputArea");
 //@ts-ignore
-let editor = ace.edit("editor");
+const editor = ace.edit("editor");
+const Range = ace.require("ace/range").Range;
 editor.setTheme("ace/theme/ambiance");
 editor.session.setMode("ace/mode/scpl");
 // inputArea should keep its text from the browser
@@ -16,19 +17,17 @@ outputArea.value = "";
 const downloadShortcutBtn = document.getElementById("downloadShortcutBtn");
 let bufferToDownload;
 let timeout;
-// const cm = CodeMirror.fromTextArea(inputArea, {
-// 	lineNumbers: true,
-// 	mode: "text/plain",
-// 	indentWithTabs: true
-// });
-// cm.on("change", () => {
-// 	messageArea.value = "";
-// 	outputArea.value = "";
-// 	if(timeout) {
-// 		clearTimeout(timeout);
-// 	}
-// 	timeout = setTimeout(convert, 200);
-// });
+let textMarks = [];
+editor.getSession().on("change", () => {
+    textMarks.forEach(mark => editor.getSession().removeMarker(mark));
+    textMarks = [];
+    messageArea.value = "";
+    outputArea.value = "";
+    if (timeout) {
+        clearTimeout(timeout);
+    }
+    timeout = setTimeout(convert, 200);
+});
 console.log("Code loaded");
 function downloadBlob(data, fileName, mimeType) {
     const blob = new Blob([data], {
@@ -52,16 +51,15 @@ function downloadURL(data, fileName) {
 }
 const time = () => (new Date).getTime();
 document.getElementById("convertBtn").addEventListener("click", convert);
-let textMarks = [];
-// @ts-ignore
-global.textMarks = textMarks;
 function convert() {
     messageArea.value = "Loading...";
     outputArea.value = "Loading...";
+    textMarks.forEach(mark => editor.getSession().removeMarker(mark));
+    textMarks = [];
     console.log("Converting...");
+    let started = (new Date).getTime();
     let output;
     try {
-        console.log("Parsing " + editor.getValue());
         output = index_1.parse(editor.getValue() + "\n", { makePlist: true });
     }
     catch (er) {
@@ -70,15 +68,23 @@ function convert() {
             throw new Error("Not positioned");
         }
         console.log("Setting annotation at ");
+        // new
+        // ace.require("ace/range").range;
         editor.getSession().setAnnotations([{
                 row: er.start[0] - 1,
-                column: er.end[0] - 1,
+                column: er.start[1] - 1,
                 text: er.message,
                 type: "error" // also warning and information
             }]);
+        textMarks.push(editor.getSession().addMarker(new Range(er.start[0] - 1, er.start[1] - 1, er.end[0] - 1, er.end[1] - 1), "ace_active-line error", "background")); // ace_active-line
+        messageArea.value = er.message + ". Errored in " + ((new Date).getTime() - started) + "ms";
+        outputArea.value = er.message;
+        return;
     }
     const buffer = output;
     bufferToDownload = buffer;
+    messageArea.value = "Success in " + ((new Date).getTime() - started) + "ms";
+    outputArea.value = "Success";
     // TODO (https://github.com/pine/arraybuffer-loader)
 }
 downloadShortcutBtn.addEventListener("click", () => {

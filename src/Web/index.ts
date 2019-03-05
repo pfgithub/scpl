@@ -10,7 +10,7 @@ const messageArea = <HTMLTextAreaElement>document.getElementById("messageArea");
 const outputArea = <HTMLTextAreaElement>document.getElementById("outputArea");
 
 //@ts-ignore
-let editor = ace.edit("editor");
+const editor = ace.edit("editor"); const Range = ace.require("ace/range").Range;
 editor.setTheme("ace/theme/ambiance");
 editor.session.setMode("ace/mode/scpl");
 
@@ -24,19 +24,19 @@ let bufferToDownload: Buffer | undefined;
 
 let timeout: NodeJS.Timeout;
 
-// const cm = CodeMirror.fromTextArea(inputArea, {
-// 	lineNumbers: true,
-// 	mode: "text/plain",
-// 	indentWithTabs: true
-// });
-// cm.on("change", () => {
-// 	messageArea.value = "";
-// 	outputArea.value = "";
-// 	if(timeout) {
-// 		clearTimeout(timeout);
-// 	}
-// 	timeout = setTimeout(convert, 200);
-// });
+
+let textMarks: number[] = [];
+
+editor.getSession().on("change", () => {
+	textMarks.forEach(mark => editor.getSession().removeMarker(mark));
+	textMarks = [];
+	messageArea.value = "";
+	outputArea.value = "";
+	if(timeout) {
+		clearTimeout(timeout);
+	}
+	timeout = setTimeout(convert, 200);
+});
 
 console.log("Code loaded");
 
@@ -67,34 +67,41 @@ const time = () => (new Date).getTime();
 
 (<HTMLButtonElement>document.getElementById("convertBtn")).addEventListener("click", convert);
 
-let textMarks: CodeMirror.TextMarker[] = [];
-// @ts-ignore
-global.textMarks = textMarks;
-
 function convert() {
 	messageArea.value = "Loading...";
 	outputArea.value = "Loading...";
 
+	textMarks.forEach(mark => editor.getSession().removeMarker(mark));
+	textMarks = [];
+
 	console.log("Converting...");
 
+	let started = (new Date).getTime();
 	let output;
 	try {
-		console.log("Parsing "+editor.getValue());
 		output = parse(editor.getValue() + "\n", { makePlist: true });
 	} catch (er) {
 		console.log(er);
 		if(!(er instanceof PositionedError)){throw new Error("Not positioned");}
 		console.log("Setting annotation at ");
+		// new
+		// ace.require("ace/range").range;
 		editor.getSession().setAnnotations([{
 			row: er.start[0] - 1,
-			column: er.end[0] - 1,
+			column: er.start[1] - 1,
 			text: er.message, // Or the Json reply from the parser
 			type: "error" // also warning and information
 		}]);
+		textMarks.push(editor.getSession().addMarker(new Range(er.start[0]-1, er.start[1]-1, er.end[0]-1, er.end[1]-1), "ace_active-line error", "background")); // ace_active-line
+		messageArea.value = er.message + ". Errored in "+((new Date).getTime() - started)+"ms";
+		outputArea.value = er.message;
+		return;
 	}
 
 	const buffer = output;
 	bufferToDownload = buffer;
+	messageArea.value = "Success in "+((new Date).getTime() - started)+"ms";
+	outputArea.value = "Success";
 	// TODO (https://github.com/pine/arraybuffer-loader)
 }
 

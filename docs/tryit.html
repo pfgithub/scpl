@@ -3,15 +3,13 @@
 <html>
 
 <head>
-	<link rel="stylesheet" href="codemirror/codemirror.css">
 	<style>
 		.error {
-			color: red;
-			text-decoration: underline;
+			background-color:#960000 !important;
 		}
 
 		#editor {
-			height: 500px;
+			position:fixed;top:0;left:0;width:100%;height:100%;margin-top:125px;
 		}
 	</style>
 </head>
@@ -23,8 +21,7 @@
 	<button id="convertBtn">Convert</button>
 	<button id="downloadShortcutBtn">Download .shortcut</button>
 	<a href="https://www.icloud.com/shortcuts/ec0c5df3f0d04554b6516678dacad9d8">This shortcut</a> is required to download .shortcut on iOS. Click download .shortcut and then choose to open it in shortcuts &gt; that shortcut.
-	<div id="editor">
-	</div>
+	<div id="editor">ShowResult "Hello ScPL"</div>
 	<script src="ace-builds/src-min-noconflict/ace.js" charset="utf-8"></script>
 	<script src="dist/converter.bundle.js" charset="utf-8"></script>
 </body>
