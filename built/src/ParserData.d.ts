@@ -11,7 +11,7 @@ export declare class Parse {
     start: Position;
     end: Position;
     constructor(start: Position, end: Position);
-    error(message: string): PositionedError;
+    error(_cc: ConvertingContext, message: string): PositionedError;
     canBeString(_cc: ConvertingContext): this is AsString;
     canBeBoolean(_cc: ConvertingContext): this is AsBoolean;
     canBeText(_cc: ConvertingContext): this is AsText;
@@ -77,6 +77,8 @@ export declare class ConvertVariableParse extends Parse {
     name: AsAble;
     options?: AsAble;
     constructor(start: Position, end: Position, name: AsAble, options?: AsAble);
+    getValue(cc: ConvertingContext): AsAble;
+    error(cc: ConvertingContext, message: string): PositionedError;
 }
 export declare class DictionaryParse extends Parse implements AsRawDictionary, AsRawKeyedDictionary, AsDictionary {
     keyvaluepairs: Array<{
@@ -128,7 +130,7 @@ export declare class IdentifierParse extends Parse implements AsNumber, AsString
     canBeString(_cc: ConvertingContext): boolean;
     asString(_cc: ConvertingContext): string;
     canBeNumber(_cc: ConvertingContext): boolean;
-    asNumber(_cc: ConvertingContext): number;
+    asNumber(cc: ConvertingContext): number;
     canBeBoolean(_cc: ConvertingContext): boolean;
     asBoolean(cc: ConvertingContext): boolean;
     canBeText(_cc: ConvertingContext): boolean;

@@ -4,7 +4,7 @@ import {ConvertingContext} from "./Converter";
 const preprocessorActions : {[key: string]: (cc: ConvertingContext, ...args: AsAble[]) => void} = {
 	"@set": (cc: ConvertingContext, name: AsAble, value: AsAble) => { // sets a variable with name name to value value
 		if(!name.canBeString(cc)) {
-			throw name.error("Name to set must be a string with no variables.");
+			throw name.error(cc, "Name to set must be a string with no variables.");
 		}
 		cc.setParserVariable(name.asString(cc), value);
 	}

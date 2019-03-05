@@ -57,10 +57,10 @@ function convert() {
     textMarks.forEach(mark => editor.getSession().removeMarker(mark));
     textMarks = [];
     console.log("Converting...");
-    let started = (new Date).getTime();
+    const started = (new Date).getTime();
     let output;
     try {
-        output = index_1.parse(editor.getValue() + "\n", { makePlist: true });
+        output = index_1.parse(`${editor.getValue()}\n`, { makePlist: true });
     }
     catch (er) {
         console.log(er);
@@ -77,13 +77,13 @@ function convert() {
                 type: "error" // also warning and information
             }]);
         textMarks.push(editor.getSession().addMarker(new Range(er.start[0] - 1, er.start[1] - 1, er.end[0] - 1, er.end[1] - 1), "ace_active-line error", "background")); // ace_active-line
-        messageArea.value = er.message + ". Errored in " + ((new Date).getTime() - started) + "ms";
+        messageArea.value = `${er.message}. Errored in ${(new Date).getTime() - started}ms`;
         outputArea.value = er.message;
         return;
     }
     const buffer = output;
     bufferToDownload = buffer;
-    messageArea.value = "Success in " + ((new Date).getTime() - started) + "ms";
+    messageArea.value = `Success in ${(new Date).getTime() - started}ms`;
     outputArea.value = "Success";
     // TODO (https://github.com/pine/arraybuffer-loader)
 }

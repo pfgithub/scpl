@@ -18,7 +18,7 @@ declare class WFParameter {
     genDocsDefaultValue(value: string): string;
     genDocsAutocompletePlaceholder(): string;
     genDocs(): string;
-    build(_cc: ConvertingContext, parse: AsAble): ParameterType;
+    build(cc: ConvertingContext, parse: AsAble): ParameterType;
 }
 export declare class WFAction {
     _data: any;

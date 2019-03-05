@@ -66,8 +66,8 @@ class WFParameter {
         docs += `${this.requiredResources.map(resource => `**Only enabled if**: ${resource.genDocs()}`).join("\n\n")}`;
         return docs;
     }
-    build(_cc, parse) {
-        throw parse.error("This parameter was implemented wrong in ScPL. build() should be overridden by subclasses of WFParameter.");
+    build(cc, parse) {
+        throw parse.error(cc, "This parameter was implemented wrong in ScPL. build() should be overridden by subclasses of WFParameter.");
     }
 }
 const types = {};
@@ -101,7 +101,7 @@ containing one of the options:
         if (parse.canBeVariable(cc)) {
             const res = parse.asVariable(cc);
             if (!this.allowsVariables) {
-                throw parse.error("This enum field does not accept variables.");
+                throw parse.error(cc, "This enum field does not accept variables.");
             }
             return res;
         }
@@ -110,10 +110,10 @@ containing one of the options:
             if (this.options.indexOf(res) > -1) {
                 return res;
             }
-            throw parse.error(`This enumeration field must be one of the following: \`${this.options.join("`, `")}\``);
+            throw parse.error(cc, `This enumeration field must be one of the following: \`${this.options.join("`, `")}\``);
         }
         else {
-            throw parse.error("Enumeration fields only accept strings and variables.");
+            throw parse.error(cc, "Enumeration fields only accept strings and variables.");
         }
     }
 }
@@ -150,7 +150,7 @@ class WFWorkflowPickerParameter extends WFParameter {
             const res = parse.asString(cc); // asString returns a string like ""
             return res;
         }
-        throw parse.error("Shortcut picker fields can only contain strings and variables.");
+        throw parse.error(cc, "Shortcut picker fields can only contain strings and variables.");
     }
 }
 types.WFWorkflowPickerParameter = WFWorkflowPickerParameter;
@@ -175,7 +175,7 @@ class WFNumberFieldParameter extends WFParameter {
         if (parse.canBeVariable(cc)) {
             const res = parse.asVariable(cc);
             if (!this.allowsVariables) {
-                throw parse.error("This number field does not acccept variables.");
+                throw parse.error(cc, "This number field does not acccept variables.");
             }
             return res;
         }
@@ -183,7 +183,7 @@ class WFNumberFieldParameter extends WFParameter {
             const num = parse.asNumber(cc); // asString returns a string like "" <-- that's a string
             return num;
         }
-        throw parse.error("Number fields only accept numbers and variables.");
+        throw parse.error(cc, "Number fields only accept numbers and variables.");
     }
 }
 types.WFNumberFieldParameter = WFNumberFieldParameter;
@@ -195,7 +195,7 @@ class WFStepperParameter extends WFNumberFieldParameter {
         const val = super.build(cc, parse);
         if (typeof val === "number") {
             if (!Number.isInteger(val) || val < 0) {
-                throw parse.error("Stepper fields only accept positive integer numbers.");
+                throw parse.error(cc, "Stepper fields only accept positive integer numbers.");
             }
         }
         return val;
@@ -209,7 +209,7 @@ class WFSliderParameter extends WFNumberFieldParameter {
         const val = super.build(cc, parse);
         if (typeof val === "number") {
             if (val < 0 || val > 1) {
-                throw parse.error("Slider fields only accept numbers from 0 to 1");
+                throw parse.error(cc, "Slider fields only accept numbers from 0 to 1");
             }
         }
         return val;
@@ -230,7 +230,7 @@ Accepts a list.`;
     }
     build(cc, parse) {
         if (!parse.canBeList(cc)) {
-            throw parse.error("List fields only accept lists.");
+            throw parse.error(cc, "List fields only accept lists.");
         }
         const list = parse.asList(cc);
         return list;
@@ -254,7 +254,7 @@ Accepts a variable.`;
     }
     build(cc, parse) {
         if (!parse.canBeVariable(cc)) {
-            throw parse.error("Variable picker fields only accept variables.");
+            throw parse.error(cc, "Variable picker fields only accept variables.");
         }
         const variable = parse.asVariable(cc);
         return variable;
@@ -281,12 +281,12 @@ with the text.`;
     build(cc, parse) {
         if (!this.allowsVariables) {
             if (!parse.canBeString(cc)) {
-                throw parse.error("This text field only accepts text with no variables.");
+                throw parse.error(cc, "This text field only accepts text with no variables.");
             }
             return parse.asString(cc);
         }
         if (!parse.canBeText(cc)) {
-            throw parse.error("Text fields only accept text.");
+            throw parse.error(cc, "Text fields only accept text.");
         }
         return parse.asText(cc);
     }
@@ -326,7 +326,7 @@ Accepts a string or string array or variable of email addresses.`;
         if (parse.canBeString(cc)) {
             return [parse.asString(cc)];
         }
-        throw parse.error("Email adress fields only accept variables, lists without variables, and strings without variables.");
+        throw parse.error(cc, "Email adress fields only accept variables, lists without variables, and strings without variables.");
     }
 }
 types.WFEmailAddressFieldParameter = WFEmailAddressFieldParameter;
@@ -344,7 +344,7 @@ Accepts a dictionary.`;
     }
     build(cc, parse) {
         if (!parse.canBeDictionary(cc)) {
-            throw parse.error("Dictionary fields only accept fields.");
+            throw parse.error(cc, "Dictionary fields only accept fields.");
         }
         return parse.asDictionary(cc);
     }
@@ -366,14 +366,14 @@ or a variable.` : ""}`;
     build(cc, parse) {
         if (parse.canBeVariable(cc)) {
             if (!this.allowsVariables) {
-                throw parse.error("This toggle switch field does not accept variables.");
+                throw parse.error(cc, "This toggle switch field does not accept variables.");
             }
             return parse.asVariable(cc);
         }
         else if (parse.canBeBoolean(cc)) {
             return parse.asBoolean(cc);
         }
-        throw parse.error("Toggle switch fields only accept booleans (true/false) and variables.");
+        throw parse.error(cc, "Toggle switch fields only accept booleans (true/false) and variables.");
     }
 }
 types.WFSwitchParameter = WFSwitchParameter;
@@ -399,7 +399,7 @@ labels, these can be ignored.`;
         if (parse.canBeBoolean(cc)) {
             return parse.asBoolean(cc);
         }
-        throw parse.error("Expanding fields only accept booleans (true/false).");
+        throw parse.error(cc, "Expanding fields only accept booleans (true/false).");
     }
 }
 types.WFExpandingParameter = WFExpandingParameter;
@@ -419,7 +419,7 @@ or a named variable (v:) that you want to set.
         return docs;
     }
     build(cc, parse) {
-        const varname = parse.canBeString(cc) ? parse.asString(cc) : parse.canBeStringVariable(cc) ? parse.asStringVariable(cc) : (() => { throw parse.error("Variable fields only accept strings and named variables with no aggrandizements."); })();
+        const varname = parse.canBeString(cc) ? parse.asString(cc) : parse.canBeStringVariable(cc) ? parse.asStringVariable(cc) : (() => { throw parse.error(cc, "Variable fields only accept strings and named variables with no aggrandizements."); })();
         cc.setNamedVariable(varname);
         return varname;
     }
@@ -580,17 +580,17 @@ ${JSON.stringify(this._data, null, "\t")}
         params.forEach(param => {
             if (param.special === "InputArg") {
                 if (!param.canBeAction(cc)) {
-                    throw param.error("InputArg fields only accept actions and variables.");
+                    throw param.error(cc, "InputArg fields only accept actions and variables.");
                 }
                 actionAbove = param.asAction(cc);
                 return;
             }
             if (param.special === "ControlFlowMode") {
-                throw param.error("This type of parameter is no longer implemented. Please use the `flow` and `end` pseudoactions in place of >c:1:gid:x and >c>2:gid:x.");
+                throw param.error(cc, "This type of parameter is no longer implemented. Please use the `flow` and `end` pseudoactions in place of >c:1:gid:x and >c>2:gid:x.");
             }
             if (param.special === "Arglist") {
                 if (!param.canBeRawKeyedDictionary(cc)) {
-                    throw param.error("ArgList fields only accept dictionaries.");
+                    throw param.error(cc, "ArgList fields only accept dictionaries.");
                 }
                 const dictionary = param.asRawKeyedDictionary(cc);
                 Object.keys(dictionary).forEach(key => {
@@ -598,13 +598,13 @@ ${JSON.stringify(this._data, null, "\t")}
                     const shortKey = genShortName(key);
                     const paramtype = this._parameters.find(param => typeof param !== "string" && param.shortName === shortKey);
                     if (typeof paramtype === "string") {
-                        throw value.error("This should never happen. Find should exclude string paramtypes.");
+                        throw value.error(cc, "This should never happen. Find should exclude string paramtypes.");
                     }
                     if (!paramtype) {
-                        throw param.error(`This action does not have a parameter named ${shortKey}.`);
+                        throw param.error(cc, `This action does not have a parameter named ${shortKey}.`);
                     }
                     if (action.parameters.has(paramtype.internalName)) {
-                        throw value.error(`The parameter named ${shortKey} has already been set for this action.`);
+                        throw value.error(cc, `The parameter named ${shortKey} has already been set for this action.`);
                     }
                     action.parameters.set(paramtype.internalName, paramtype.build(cc, value));
                 });
@@ -614,10 +614,10 @@ ${JSON.stringify(this._data, null, "\t")}
             while (!paramtype) {
                 paramtype = this._parameters[parami];
                 if (!paramtype) {
-                    throw param.error(`This action does not have any more arguments. Check the documentation page for a list of arguments.`);
+                    throw param.error(cc, `This action does not have any more arguments. Check the documentation page for a list of arguments.`);
                 }
                 if (typeof paramtype === "string") {
-                    throw param.error(`This field is not supported yet. If you need this field, submit an issue or pull request on github requesting it. Reason: ${paramtype}`);
+                    throw param.error(cc, `This field is not supported yet. If you need this field, submit an issue or pull request on github requesting it. Reason: ${paramtype}`);
                 }
                 if (action.parameters.has(paramtype.internalName)) {
                     paramtype = undefined;

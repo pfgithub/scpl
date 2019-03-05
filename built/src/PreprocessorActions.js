@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const preprocessorActions = {
     "@set": (cc, name, value) => {
         if (!name.canBeString(cc)) {
-            throw name.error("Name to set must be a string with no variables.");
+            throw name.error(cc, "Name to set must be a string with no variables.");
         }
         cc.setParserVariable(name.asString(cc), value);
     }
