@@ -52,8 +52,10 @@ WFRelativeDateFormatStyle?: WFRelativeDateFormatStyle;
 
 From Shortcuts-js
  */
-
-const coercionTypes: {[name: string]: string} = {
+ 
+import {CoercionTypeClass, AggrandizementPropertyName, isAggrandizementPropertyName, isCoercionTypeClass} from "./WFTypes/Types";
+ 
+const coercionTypes: {[name: string]: CoercionTypeClass} = { // remove name:string and make it typed too
 	anything: "WFContentItem",
 	appstoreapp: "WFAppStoreAppContentItem",
 	article: "WFArticleContentItem",
@@ -82,36 +84,50 @@ const coercionTypes: {[name: string]: string} = {
 };
 
 
-import * as getTypes from "./Data/GetTypes.json";
+
+
+import getTypes from "./Data/GetTypes"; // resdata = {};console.dir( actionData.filter(action => action.WFWorkflowActionIdentifier === "is.workflow.actions.gettext").map(action => Object.values(action.WFWorkflowActionParameters.WFTextActionText.Value.attachmentsByRange).filter(d=>d.Type !== "Clipboard" && d.Aggrandizements && d.Aggrandizements[1]).map(d=>({coerce:d.Aggrandizements[0].CoercionItemClass,property:d.Aggrandizements[1]}))).forEach(a=>a.forEach(({coerce, property})=>{if(!resdata[coerce]){resdata[coerce]={};};resdata[coerce][property.PropertyName.toLowerCase().replace(/[^A-Za-z]/g,"")]=({name:property.PropertyName,data:property.PropertyUserInfo});})) ,{depth:null});console.log(JSON.stringify(resdata,null,"\t"));
+
 
 export class Aggrandizements {
-	aggrandizements: Array<{Type: string, PropertyName?: string, CoercionItemClass?: string, DictionaryKey?: string, PropertyUserInfo?: string | number}> // TODO class Aggrandizement, or maybe make aggrandizement just an object with three keys
+	coercionType?: CoercionTypeClass;
+	getProperty?: {name: string, data?: string};
+	getForKey?: string
 	constructor() {
-		this.aggrandizements = [];
+		this.coercionType = undefined;
+		this.getProperty = undefined;
+		this.getForKey = undefined;
 	}
 	build() {
-		return this.aggrandizements;
+		const aggrandizements = [];
+		if(this.coercionType) {
+			aggrandizements.push({CoercionItemClass: this.coercionType, Type: "WFCoercionVariableAggrandizement"});
+		}
+		if(this.getProperty) {
+			aggrandizements.push({PropertyName: this.getProperty.name, ...(this.getProperty.data ? {PropertyUserInfo: this.getProperty.data} : {}), Type: "WFCoercionVariableAggrandizement"});
+		}
+		if(this.getForKey) {
+			aggrandizements.push({DictionaryKey: this.getForKey, Type: "WFDictionaryValueVariableAggrandizement"});
+		}
+		return aggrandizements;
 	}
-	property(getType: string) {
-		getType = getType.toLowerCase().split(" ").join("");
-		const typeValue = (<any>getTypes)[getType];
-		if(!typeValue) {throw new Error(`\`${type}\` is not a valid coercion class. Valid are: ${Object.keys(getTypes).join(", ")}`);}
-		this.aggrandizements.push({
-			PropertyName: typeValue.name,
-			...(typeValue.value ? {PropertyUserInfo: typeValue.value} : {}),
-			Type: "WFPropertyVariableAggrandizement"
-		});
+	property(getType: string): string | undefined {
+		// if !this.coercionType throw error(to get a property must have coercion type. fix this by adding as:)
+		getType = getType.toLowerCase().replace(/[^A-Za-z]/g, "");
+		if(!this.coercionType) {return "To get a property of a variable, you must have a coercion type set. Fix this by adding `as:` to your aggrandizements dictionary.";}
+		if(!isAggrandizementPropertyName(getType)) {return "This is not a valid aggrandizement get type. Valid are: ???.";}
+		const typeValue = getTypes[this.coercionType][getType];
+		if(!typeValue) {return `\`${type}\` is not a valid coercion class. Valid are: ${Object.keys(getTypes).join(", ")}`;}
 	}
-	coerce(type: string) {
+	coerce(type: string) {// if gettype, error
+		// if !coercion type exists throw error(coercion type does not exist)
 		type = type.toLowerCase().split(" ").join("");
 		const coercionClass = coercionTypes[type];
 		if(!coercionClass) {throw new Error(`\`${type}\` is not a valid coercion class. Valid are: ${Object.keys(coercionTypes).join(", ")}`);}
-		this.aggrandizements.push({
-			CoercionItemClass: coercionClass,
-			Type: "WFCoercionVariableAggrandizement",
-		});
+		this.coercionType = coercionClass;
 	}
 	forKey(key: string) {
+		// if !coercion type === dictionary throw error(coercion type must be dictionary)
 		this.aggrandizements.push({
 			DictionaryKey: key,
 			Type: "WFDictionaryValueVariableAggrandizement",
