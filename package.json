@@ -17,18 +17,18 @@
 		"url": "https://pfgithub.github.io/"
 	},
 	"bin": {
-		"scpl": "./bin/scpl.js"
+		"scpl": "./built/bin/scpl.js"
 	},
 	"repository": "github:pfgithub/shortcutslang",
 	"man": "./man/scpl.1",
 	"files": [
 		"/man",
-		"/built",
-		"/bin"
+		"/built"
 	],
 	"dependencies": {
 		"@types/node": "^11.9.5",
 		"@types/uuid": "^3.4.4",
+		"@types/yargs": "^12.0.9",
 		"bplist-creator": "^0.0.7",
 		"bplist-parser": "^0.1.1",
 		"chalk": "^2.4.2",

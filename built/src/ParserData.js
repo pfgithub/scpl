@@ -515,7 +515,7 @@ class VariableParse extends Parse {
             const shortKey = key.toLowerCase().replace(/[^a-z]/g, "");
             if (shortKey === "key"
                 || shortKey === "forkey") {
-                const result = variable.aggrandizements.setProperty(value);
+                const result = variable.aggrandizements.setForKey(value);
                 if (typeof result === "string") {
                     throw valueA.error(cc, result);
                 }
