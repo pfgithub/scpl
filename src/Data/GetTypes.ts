@@ -287,6 +287,10 @@ const data: GetTypesData = {
 		lastmodifieddate: {
 			name: "Last Modified Date",
 			data: "WFFileModificationDate"
+		},
+		name: {
+			name: "Name",
+			data: "WFItemName"
 		}
 	},
 	WFImageContentItem: {
@@ -356,6 +360,10 @@ const data: GetTypesData = {
 		lastmodifieddate: {
 			name: "Last Modified Date",
 			data: "WFFileModificationDate"
+		},
+		name: {
+			name: "Name",
+			data: "WFItemName"
 		}
 	},
 	WFMPMediaContentItem: {
@@ -595,6 +603,10 @@ const data: GetTypesData = {
 		artist: {
 			name: "Artist",
 			data: "artist"
+		},
+		name: {
+			name: "Name",
+			data: "WFItemName"
 		}
 	},
 	WFNumberContentItem: {
@@ -698,6 +710,10 @@ const data: GetTypesData = {
 		},
 		metadatadictionary: {
 			name: "Metadata Dictionary"
+		},
+		name: {
+			name: "Name",
+			data: "WFItemName"
 		}
 	},
 	WFMKMapItemContentItem: {
@@ -765,6 +781,10 @@ const data: GetTypesData = {
 		lastmodifieddate: {
 			name: "Last Modified Date",
 			data: "WFFileModificationDate"
+		},
+		name: {
+			name: "Name",
+			data: "WFItemName"
 		}
 	}
 } as  GetTypesData;

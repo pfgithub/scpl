@@ -5,7 +5,7 @@
 
 ### usage
 ```
-getdetailsoffiles get=("Creation Date" | "File Size" | "File Extension" | "Last Modified Date")
+getdetailsoffiles get=("Creation Date" | "File Size" | "File Extension" | "Last Modified Date" | "Name")
 ```
 
 ### arguments
@@ -25,6 +25,7 @@ containing one of the options:
 - `File Size`
 - `File Extension`
 - `Last Modified Date`
+- `Name`
 
 ---
 

@@ -283,6 +283,10 @@ const data = {
         lastmodifieddate: {
             name: "Last Modified Date",
             data: "WFFileModificationDate"
+        },
+        name: {
+            name: "Name",
+            data: "WFItemName"
         }
     },
     WFImageContentItem: {
@@ -352,6 +356,10 @@ const data = {
         lastmodifieddate: {
             name: "Last Modified Date",
             data: "WFFileModificationDate"
+        },
+        name: {
+            name: "Name",
+            data: "WFItemName"
         }
     },
     WFMPMediaContentItem: {
@@ -591,6 +599,10 @@ const data = {
         artist: {
             name: "Artist",
             data: "artist"
+        },
+        name: {
+            name: "Name",
+            data: "WFItemName"
         }
     },
     WFNumberContentItem: {
@@ -694,6 +706,10 @@ const data = {
         },
         metadatadictionary: {
             name: "Metadata Dictionary"
+        },
+        name: {
+            name: "Name",
+            data: "WFItemName"
         }
     },
     WFMKMapItemContentItem: {
@@ -761,6 +777,10 @@ const data = {
         lastmodifieddate: {
             name: "Last Modified Date",
             data: "WFFileModificationDate"
+        },
+        name: {
+            name: "Name",
+            data: "WFItemName"
         }
     }
 };
