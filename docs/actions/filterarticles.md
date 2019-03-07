@@ -1,18 +1,20 @@
 
 ## Filter Articles / filterarticles (internally `is.workflow.actions.filter.articles`)
 
+> This action is not yet complete. Some arguments may be missing.
+
 
 
 ### usage
 ```
-filterarticles 
+filterarticles undefined=NotImplemented
 ```
 
 ### arguments
 
 ---
 
-
+#### Filter * actions are not implemented yet.
 
 ---
 

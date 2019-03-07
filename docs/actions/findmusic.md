@@ -1,20 +1,22 @@
 
 ## Find Music / findmusic (internally `is.workflow.actions.filter.music`)
 
+> This action is not yet complete. Some arguments may be missing.
+
 > This action requires that Shortcuts has permission to use WFAppleMusicAccessResource.
 
 
 
 ### usage
 ```
-findmusic 
+findmusic undefined=NotImplemented
 ```
 
 ### arguments
 
 ---
 
-
+#### Filter * actions are not implemented yet.
 
 ---
 

@@ -1,20 +1,22 @@
 
 ## Find Photos / findphotos (internally `is.workflow.actions.filter.photos`)
 
+> This action is not yet complete. Some arguments may be missing.
+
 > This action requires that Shortcuts has permission to use WFPhotoAccessResource.
 
 
 
 ### usage
 ```
-findphotos 
+findphotos undefined=NotImplemented
 ```
 
 ### arguments
 
 ---
 
-
+#### Filter * actions are not implemented yet.
 
 ---
 

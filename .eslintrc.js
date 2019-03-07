@@ -135,8 +135,9 @@ module.exports = {
     "radix": 2,                 // require use of the second argument for parseInt() (off by default)
     "vars-on-top": 0,           // requires to declare all vars on top of their containing scope (off by default)
     "wrap-iife": 2,             // require immediate function invocation to be wrapped in parentheses (off by default)
-    "yoda": 0,                  // require or disallow Yoda conditions
+    "yoda": 1,                  // require or disallow Yoda conditions
 
+    // "max-len": 1, // there is no fixer for this
 
     ////////// Strict Mode //////////
 
