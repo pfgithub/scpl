@@ -92,7 +92,7 @@ _n).scb(([, key, , , , value]) => ({ key: key, value: value }));
 // o.canBeString
 // o.canBeText
 // ...
-ParserHelper_js_1.o.variable = ParserHelper_js_1.p(ParserHelper_js_1.o.identifier, ParserHelper_js_1.c `:`, ParserHelper_js_1.or(ParserHelper_js_1.o.identifier, ParserHelper_js_1.o.string), ParserHelper_js_1.optional(ParserHelper_js_1.p(ParserHelper_js_1.c `:`, ParserHelper_js_1.or(ParserHelper_js_1.o.identifier, ParserHelper_js_1.o.string)).scb(([, val]) => val)).scb(([val]) => val), ParserHelper_js_1.optional(ParserHelper_js_1.o.dictionary).scb(([dict]) => dict)).scb(([type, , name, forkey, options], start, end) => {
+ParserHelper_js_1.o.variable = ParserHelper_js_1.p(ParserHelper_js_1.o.identifier, ParserHelper_js_1.c `:`, ParserHelper_js_1.or(ParserHelper_js_1.o.identifier, ParserHelper_js_1.o.string), ParserHelper_js_1.optional(ParserHelper_js_1.or(ParserHelper_js_1.p(ParserHelper_js_1.c `:`, ParserHelper_js_1.or(ParserHelper_js_1.o.identifier, ParserHelper_js_1.o.string)), ParserHelper_js_1.p(ParserHelper_js_1.c `.`, ParserHelper_js_1.or(ParserHelper_js_1.o.identifier, ParserHelper_js_1.o.string))).scb(([, val]) => val)).scb(([val]) => val), ParserHelper_js_1.optional(ParserHelper_js_1.o.dictionary).scb(([dict]) => dict)).scb(([type, , name, forkey, options], start, end) => {
     if (type.value === "@") {
         return new ParserData_js_1.ConvertVariableParse(start, end, name, options);
     }

@@ -178,7 +178,10 @@ o.keyvaluepair = p(
 
 o.variable = p(
 	o.identifier, c`:`, or(o.identifier, o.string),
-	optional(p(c`:`, or(o.identifier, o.string)).scb(([, val])=>val)).scb(([val])=>val),
+	optional(or(
+		p(c`:`, or(o.identifier, o.string)),
+		p(c`.`, or(o.identifier, o.string))
+	).scb(([, val])=>val)).scb(([val])=>val),
 	optional(o.dictionary).scb(([dict]) => dict)
 ).scb(([type, , name, forkey, options], start, end)=>{
 	if(type.value === "@") {
