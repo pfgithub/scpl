@@ -1,8 +1,6 @@
 
 ## Add Trello Card / addtrellocard (internally `is.workflow.actions.trello.add.card`)
 
-> This action is not yet complete. Some arguments may be missing.
-
 > This action requires that Shortcuts has permission to use WFTrelloAccessResource.
 
 
@@ -15,7 +13,7 @@ Creates a new card on the specified list and board in your Trello account.
 
 ### usage
 ```
-addtrellocard name="string" undefined=NotImplemented undefined=NotImplemented due="string" position=("Top" | "Bottom") attachments=(v:myvar | mv:myvar | s:myvar) wftrellodescription="string"
+addtrellocard name="string" board=("string" | variable)] list=("string" | variable)] due="string" position=("Top" | "Bottom") attachments=(v:myvar | mv:myvar | s:myvar) wftrellodescription="string"
 ```
 
 ### arguments
@@ -34,11 +32,21 @@ with the text.
 
 ---
 
-#### This paramtype is not implemented. WFTrelloBoardPickerParameter
+### board: Trello Board Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+**Allows Variables**: true
+
+
+
+		Accepts a string or variable containing the option. Check the shortcuts app for a list of available options. 
 
 ---
 
-#### This paramtype is not implemented. WFTrelloListPickerParameter
+### list: Trello List Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+**Allows Variables**: true
+
+
+
+		Accepts a string or variable containing the option. Check the shortcuts app for a list of available options. 
 
 ---
 

@@ -25,7 +25,7 @@ getupcomingevents calendar=("string" | variable)] wfgetupcomingitemcount=number 
 
 
 
-		Accepts a string or variable with the name of the calendar.
+		Accepts a string or variable containing the option. Check the shortcuts app for a list of available options. 
 
 ---
 

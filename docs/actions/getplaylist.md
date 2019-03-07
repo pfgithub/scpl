@@ -1,8 +1,6 @@
 
 ## Get Playlist / getplaylist (internally `is.workflow.actions.get.playlist`)
 
-> This action is not yet complete. Some arguments may be missing.
-
 > This action requires that Shortcuts has permission to use WFAppleMusicAccessResource.
 
 
@@ -15,14 +13,19 @@ Gets every song in the specified playlist.
 
 ### usage
 ```
-getplaylist undefined=NotImplemented
+getplaylist playlist=("string" | variable)]
 ```
 
 ### arguments
 
 ---
 
-#### This paramtype is not implemented. WFPlaylistPickerParameter
+### playlist: Music Playlist Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+**Allows Variables**: true
+
+
+
+		Accepts a string or variable containing the option. Check the shortcuts app for a list of available options. 
 
 ---
 

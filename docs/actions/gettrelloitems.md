@@ -1,8 +1,6 @@
 
 ## Get Trello Items / gettrelloitems (internally `is.workflow.actions.trello.get`)
 
-> This action is not yet complete. Some arguments may be missing.
-
 > This action requires that Shortcuts has permission to use WFTrelloAccessResource.
 
 
@@ -15,7 +13,7 @@ Gets cards, lists, or boards in your Trello account.
 
 ### usage
 ```
-gettrelloitems get=("Boards" | "Lists" | "Cards") undefined=NotImplemented undefined=NotImplemented
+gettrelloitems get=("Boards" | "Lists" | "Cards") board=("string" | variable)] list=("string" | variable)]
 ```
 
 ### arguments
@@ -38,11 +36,21 @@ containing one of the options:
 
 ---
 
-#### This paramtype is not implemented. WFTrelloBoardPickerParameter
+### board: Trello Board Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+**Allows Variables**: true
+
+**Only enabled if**: argument WFTrelloItemType == `Lists` or `Cards`
+
+		Accepts a string or variable containing the option. Check the shortcuts app for a list of available options. 
 
 ---
 
-#### This paramtype is not implemented. WFTrelloListPickerParameter
+### list: Trello List Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+**Allows Variables**: true
+
+**Only enabled if**: argument WFTrelloItemType == `Cards`
+
+		Accepts a string or variable containing the option. Check the shortcuts app for a list of available options. 
 
 ---
 

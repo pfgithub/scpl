@@ -15,14 +15,22 @@ Requests a payment from the specified people using a payment app on your device.
 
 ### usage
 ```
-requestpayment undefined=NotImplemented undefined=NotImplemented amount=number openinapp=(true | f alse | variable) note="string"
+requestpayment app=("string" | variable)] undefined=NotImplemented amount=number openinapp=(true | f alse | variable) note="string"
 ```
 
 ### arguments
 
 ---
 
-#### This paramtype is not implemented. WFIntentAppPickerParameter
+### app: Intent App Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+**Default Value**: ```
+		com.apple.PassKit.PassKitIntentsExtension
+		```
+**Allows Variables**: true
+
+
+
+		Accepts a string or variable containing the option. Check the shortcuts app for a list of available options. 
 
 ---
 

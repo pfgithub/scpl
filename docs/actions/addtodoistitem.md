@@ -1,8 +1,6 @@
 
 ## Add Todoist Item / addtodoistitem (internally `is.workflow.actions.todoist.add`)
 
-> This action is not yet complete. Some arguments may be missing.
-
 > This action requires that Shortcuts has permission to use [object Object].
 
 
@@ -24,7 +22,7 @@ The URL of the newly created item
 
 ### usage
 ```
-addtodoistitem content="string" undefined=NotImplemented duedate="string" remindmeon="string" remindertype=("Email" | "Push Notification" | "Text Message") priority=("4" | "3" | "2" | "1") notes="string"
+addtodoistitem content="string" project=("string" | variable)] duedate="string" remindmeon="string" remindertype=("Email" | "Push Notification" | "Text Message") priority=("4" | "3" | "2" | "1") notes="string"
 ```
 
 ### arguments
@@ -43,7 +41,15 @@ with the text.
 
 ---
 
-#### This paramtype is not implemented. WFTodoistProjectPickerParameter
+### project: Todoist Project Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+**Default Value**: ```
+		Inbox
+		```
+**Allows Variables**: true
+
+
+
+		Accepts a string or variable containing the option. Check the shortcuts app for a list of available options. 
 
 ---
 

@@ -24,7 +24,7 @@ savefile service=("iCloud Drive" | "Dropbox") askwheretosave=(true | f alse | va
 
 ---
 
-### service: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### service: Storage Service Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Allows Variables**: true
 
 

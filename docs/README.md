@@ -10,19 +10,19 @@ Banner by ROP#2788 on the [routinehub.co](https://routinehub.co) discord server.
 
 [Try Shortcutslang in a web browser](https://pfgithub.github.io/shortcutslang/tryit.html)
 
-196/266 builtin actions supported
+225/266 builtin actions supported
 
 ## All Actions:
 
 - [Add Frame to GIF (`addframetogif`)](actions/addframetogif)
 - [Add New Event (`addnewevent`)](actions/addnewevent)
 - [Add New Reminder (`addnewreminder`)](actions/addnewreminder)
-- [Add Todoist Item (`addtodoistitem`)](actions/addtodoistitem) (Incomplete)
-- [Add Trello Card (`addtrellocard`)](actions/addtrellocard) (Incomplete)
-- [Add Wunderlist Task (`addwunderlisttask`)](actions/addwunderlisttask) (Incomplete)
-- [Add to Instapaper (`addtoinstapaper`)](actions/addtoinstapaper) (Incomplete)
+- [Add Todoist Item (`addtodoistitem`)](actions/addtodoistitem)
+- [Add Trello Card (`addtrellocard`)](actions/addtrellocard)
+- [Add Wunderlist Task (`addwunderlisttask`)](actions/addwunderlisttask)
+- [Add to Instapaper (`addtoinstapaper`)](actions/addtoinstapaper)
 - [Add to Pinboard (`addtopinboard`)](actions/addtopinboard)
-- [Add to Playlist (`addtoplaylist`)](actions/addtoplaylist) (Incomplete)
+- [Add to Playlist (`addtoplaylist`)](actions/addtoplaylist)
 - [Add to Pocket (`addtopocket`)](actions/addtopocket)
 - [Add to Reading List (`addtoreadinglist`)](actions/addtoreadinglist)
 - [Add to Up Next (`addtoupnext`)](actions/addtoupnext)
@@ -30,12 +30,12 @@ Banner by ROP#2788 on the [routinehub.co](https://routinehub.co) discord server.
 - [Adjust Date (`adjustdate`)](actions/adjustdate) (Incomplete)
 - [AirDrop (`airdrop`)](actions/airdrop)
 - [Append to File (`appendtofile`)](actions/appendtofile)
-- [Append to Note (`appendtonote`)](actions/appendtonote) (Incomplete)
+- [Append to Note (`appendtonote`)](actions/appendtonote)
 - [Ask for Input (`askforinput`)](actions/askforinput)
 - [Base64 Encode (`base64encode`)](actions/base64encode)
 - [Calculate (`calculate`)](actions/calculate)
 - [Calculate Statistics (`calculatestatistics`)](actions/calculatestatistics)
-- [Call (`call`)](actions/call) (Incomplete)
+- [Call (`call`)](actions/call)
 - [Change Case (`changecase`)](actions/changecase)
 - [Choose from List (`choosefromlist`)](actions/choosefromlist)
 - [Choose from Menu (`choosefrommenu`)](actions/choosefrommenu)
@@ -45,7 +45,7 @@ Banner by ROP#2788 on the [routinehub.co](https://routinehub.co) discord server.
 - [Comment (`comment`)](actions/comment)
 - [Contacts (`contacts`)](actions/contacts) (Incomplete)
 - [Continue Shortcut in App (`continueshortcutinapp`)](actions/continueshortcutinapp)
-- [Convert Image (`convertimage`)](actions/convertimage) (Incomplete)
+- [Convert Image (`convertimage`)](actions/convertimage)
 - [Convert Measurement (`convertmeasurement`)](actions/convertmeasurement) (Incomplete)
 - [Copy to Clipboard (`copytoclipboard`)](actions/copytoclipboard)
 - [Correct Spelling (`correctspelling`)](actions/correctspelling)
@@ -55,21 +55,21 @@ Banner by ROP#2788 on the [routinehub.co](https://routinehub.co) discord server.
 - [Create New Note (`createnewnote`)](actions/createnewnote) (Incomplete)
 - [Create Playlist (`createplaylist`)](actions/createplaylist)
 - [Create Trello Board (`createtrelloboard`)](actions/createtrelloboard)
-- [Create Trello List (`createtrellolist`)](actions/createtrellolist) (Incomplete)
+- [Create Trello List (`createtrellolist`)](actions/createtrellolist)
 - [Crop Image (`cropimage`)](actions/cropimage)
 - [Date (`date`)](actions/date)
 - [Delete Files (`deletefiles`)](actions/deletefiles)
 - [Delete Notes (`deletenotes`)](actions/deletenotes)
 - [Delete Photos (`deletephotos`)](actions/deletephotos)
 - [Detect Language with Microsoft (`detectlanguagewithmicrosoft`)](actions/detectlanguagewithmicrosoft)
-- [Dictate Text (`dictatetext`)](actions/dictatetext) (Incomplete)
+- [Dictate Text (`dictatetext`)](actions/dictatetext)
 - [Dictionary (`dictionary`)](actions/dictionary)
 - [Email Address (`emailaddress`)](actions/emailaddress)
 - [Encode Media (`encodemedia`)](actions/encodemedia)
 - [Exit Shortcut (`exitshortcut`)](actions/exitshortcut)
 - [Expand URL (`expandurl`)](actions/expandurl)
 - [Extract Archive (`extractarchive`)](actions/extractarchive)
-- [FaceTime (`facetime`)](actions/facetime) (Incomplete)
+- [FaceTime (`facetime`)](actions/facetime)
 - [Filter Articles (`filterarticles`)](actions/filterarticles) (Incomplete)
 - [Filter Event Attendees (`filtereventattendees`)](actions/filtereventattendees) (Incomplete)
 - [Filter Files (`filterfiles`)](actions/filterfiles) (Incomplete)
@@ -82,7 +82,7 @@ Banner by ROP#2788 on the [routinehub.co](https://routinehub.co) discord server.
 - [Find Photos (`findphotos`)](actions/findphotos) (Incomplete)
 - [Find Reminders (`findreminders`)](actions/findreminders) (Incomplete)
 - [Flip Image (`flipimage`)](actions/flipimage)
-- [Format Date (`formatdate`)](actions/formatdate) (Incomplete)
+- [Format Date (`formatdate`)](actions/formatdate)
 - [Format File Size (`formatfilesize`)](actions/formatfilesize)
 - [Format Number (`formatnumber`)](actions/formatnumber)
 - [Generate Hash (`generatehash`)](actions/generatehash)
@@ -129,7 +129,7 @@ Banner by ROP#2788 on the [routinehub.co](https://routinehub.co) discord server.
 - [Get Halfway Point (`gethalfwaypoint`)](actions/gethalfwaypoint)
 - [Get Headers of URL (`getheadersofurl`)](actions/getheadersofurl)
 - [Get Images from Input (`getimagesfrominput`)](actions/getimagesfrominput)
-- [Get Instapaper Bookmarks (`getinstapaperbookmarks`)](actions/getinstapaperbookmarks) (Incomplete)
+- [Get Instapaper Bookmarks (`getinstapaperbookmarks`)](actions/getinstapaperbookmarks)
 - [Get Item from List (`getitemfromlist`)](actions/getitemfromlist)
 - [Get Items from Pocket (`getitemsfrompocket`)](actions/getitemsfrompocket)
 - [Get Items from RSS Feed (`getitemsfromrssfeed`)](actions/getitemsfromrssfeed)
@@ -144,19 +144,19 @@ Banner by ROP#2788 on the [routinehub.co](https://routinehub.co) discord server.
 - [Get My Shortcuts (`getmyshortcuts`)](actions/getmyshortcuts)
 - [Get Name (`getname`)](actions/getname)
 - [Get Name of Emoji (`getnameofemoji`)](actions/getnameofemoji)
-- [Get Network Details (`getnetworkdetails`)](actions/getnetworkdetails) (Incomplete)
+- [Get Network Details (`getnetworkdetails`)](actions/getnetworkdetails)
 - [Get Note Link (`getnotelink`)](actions/getnotelink)
 - [Get Notes (`getnotes`)](actions/getnotes) (Incomplete)
 - [Get Object of Class (`getobjectofclass`)](actions/getobjectofclass)
 - [Get Phone Numbers from Input (`getphonenumbersfrominput`)](actions/getphonenumbersfrominput)
 - [Get Pinboard Bookmarks (`getpinboardbookmarks`)](actions/getpinboardbookmarks)
-- [Get Playlist (`getplaylist`)](actions/getplaylist) (Incomplete)
+- [Get Playlist (`getplaylist`)](actions/getplaylist)
 - [Get RSS Feeds from Page (`getrssfeedsfrompage`)](actions/getrssfeedsfrompage)
 - [Get Street View Image (`getstreetviewimage`)](actions/getstreetviewimage)
 - [Get Text from Input (`gettextfrominput`)](actions/gettextfrominput)
 - [Get Time Between Dates (`gettimebetweendates`)](actions/gettimebetweendates)
 - [Get Travel Time (`gettraveltime`)](actions/gettraveltime)
-- [Get Trello Items (`gettrelloitems`)](actions/gettrelloitems) (Incomplete)
+- [Get Trello Items (`gettrelloitems`)](actions/gettrelloitems)
 - [Get Type (`gettype`)](actions/gettype)
 - [Get URLs from Input (`geturlsfrominput`)](actions/geturlsfrominput)
 - [Get Upcoming Events (`getupcomingevents`)](actions/getupcomingevents)
@@ -164,11 +164,11 @@ Banner by ROP#2788 on the [routinehub.co](https://routinehub.co) discord server.
 - [Get Variable (`getvariable`)](actions/getvariable)
 - [Get Weather Forecast (`getweatherforecast`)](actions/getweatherforecast)
 - [If (`if`)](actions/if)
-- [Import to Lightroom (`importtolightroom`)](actions/importtolightroom) (Incomplete)
+- [Import to Lightroom (`importtolightroom`)](actions/importtolightroom)
 - [List (`list`)](actions/list)
 - [Log Health Sample (`loghealthsample`)](actions/loghealthsample) (Incomplete)
 - [Log Workout (`logworkout`)](actions/logworkout) (Incomplete)
-- [Make Archive (`makearchive`)](actions/makearchive) (Incomplete)
+- [Make Archive (`makearchive`)](actions/makearchive)
 - [Make GIF (`makegif`)](actions/makegif)
 - [Make HTML from Rich Text (`makehtmlfromrichtext`)](actions/makehtmlfromrichtext)
 - [Make Markdown from Rich Text (`makemarkdownfromrichtext`)](actions/makemarkdownfromrichtext)
@@ -192,7 +192,7 @@ Banner by ROP#2788 on the [routinehub.co](https://routinehub.co) discord server.
 - [Phone Number (`phonenumber`)](actions/phonenumber) (Incomplete)
 - [Play Music (`playmusic`)](actions/playmusic)
 - [Play Sound (`playsound`)](actions/playsound)
-- [Post to Slack (`posttoslack`)](actions/posttoslack) (Incomplete)
+- [Post to Slack (`posttoslack`)](actions/posttoslack)
 - [Post to Tumblr (`posttotumblr`)](actions/posttotumblr) (Incomplete)
 - [Post to WordPress (`posttowordpress`)](actions/posttowordpress) (Incomplete)
 - [Print (`print`)](actions/print)
@@ -214,19 +214,19 @@ Banner by ROP#2788 on the [routinehub.co](https://routinehub.co) discord server.
 - [Run Script Over SSH (`runscriptoverssh`)](actions/runscriptoverssh)
 - [Run Shortcut (`runshortcut`)](actions/runshortcut)
 - [Save File (`savefile`)](actions/savefile)
-- [Save to Photo Album (`savetophotoalbum`)](actions/savetophotoalbum) (Incomplete)
+- [Save to Photo Album (`savetophotoalbum`)](actions/savetophotoalbum)
 - [Scan QR/Bar Code (`scanqrbarcode`)](actions/scanqrbarcode)
-- [Search App Store (`searchappstore`)](actions/searchappstore) (Incomplete)
+- [Search App Store (`searchappstore`)](actions/searchappstore)
 - [Search Giphy (`searchgiphy`)](actions/searchgiphy)
 - [Search Local Businesses (`searchlocalbusinesses`)](actions/searchlocalbusinesses)
 - [Search Web (`searchweb`)](actions/searchweb)
-- [Search iTunes Store (`searchitunesstore`)](actions/searchitunesstore) (Incomplete)
+- [Search iTunes Store (`searchitunesstore`)](actions/searchitunesstore)
 - [Select Contact (`selectcontact`)](actions/selectcontact)
 - [Select Email Address (`selectemailaddress`)](actions/selectemailaddress)
 - [Select Music (`selectmusic`)](actions/selectmusic)
 - [Select Phone Number (`selectphonenumber`)](actions/selectphonenumber)
 - [Select Photos (`selectphotos`)](actions/selectphotos)
-- [Send Email (`sendemail`)](actions/sendemail) (Incomplete)
+- [Send Email (`sendemail`)](actions/sendemail)
 - [Send Message (`sendmessage`)](actions/sendmessage) (Incomplete)
 - [Send Payment (`sendpayment`)](actions/sendpayment) (Incomplete)
 - [Send via DeskConnect (`sendviadeskconnect`)](actions/sendviadeskconnect)
@@ -247,25 +247,25 @@ Banner by ROP#2788 on the [routinehub.co](https://routinehub.co) discord server.
 - [Share with Extensions (`sharewithextensions`)](actions/sharewithextensions)
 - [Show Alert (`showalert`)](actions/showalert)
 - [Show Definition (`showdefinition`)](actions/showdefinition)
-- [Show Directions (`showdirections`)](actions/showdirections) (Incomplete)
+- [Show Directions (`showdirections`)](actions/showdirections)
 - [Show Notification (`shownotification`)](actions/shownotification)
 - [Show Result (`showresult`)](actions/showresult)
 - [Show Web Page (`showwebpage`)](actions/showwebpage)
 - [Show in BlindSquare (`showinblindsquare`)](actions/showinblindsquare)
 - [Show in Calendar (`showincalendar`)](actions/showincalendar)
-- [Show in Maps (`showinmaps`)](actions/showinmaps) (Incomplete)
+- [Show in Maps (`showinmaps`)](actions/showinmaps)
 - [Show in iTunes Store (`showinitunesstore`)](actions/showinitunesstore)
 - [Skip Back (`skipback`)](actions/skipback)
 - [Skip Forward (`skipforward`)](actions/skipforward)
-- [Speak Text (`speaktext`)](actions/speaktext) (Incomplete)
+- [Speak Text (`speaktext`)](actions/speaktext)
 - [Split Text (`splittext`)](actions/splittext)
 - [Start Timer (`starttimer`)](actions/starttimer) (Incomplete)
-- [Street Address (`streetaddress`)](actions/streetaddress) (Incomplete)
+- [Street Address (`streetaddress`)](actions/streetaddress)
 - [Take Photo (`takephoto`)](actions/takephoto)
 - [Take Video (`takevideo`)](actions/takevideo)
 - [Text (`text`)](actions/text)
-- [Toggle Alarm (`togglealarm`)](actions/togglealarm) (Incomplete)
-- [Translate Text with Microsoft (`translatetextwithmicrosoft`)](actions/translatetextwithmicrosoft) (Incomplete)
+- [Toggle Alarm (`togglealarm`)](actions/togglealarm)
+- [Translate Text with Microsoft (`translatetextwithmicrosoft`)](actions/translatetextwithmicrosoft)
 - [Trigger IFTTT Applet (`triggeriftttapplet`)](actions/triggeriftttapplet) (Incomplete)
 - [Trim Media (`trimmedia`)](actions/trimmedia)
 - [URL (`url`)](actions/url)
@@ -287,16 +287,16 @@ Banner by ROP#2788 on the [routinehub.co](https://routinehub.co) discord server.
 
 - [ ] 1: WFUberProductPickerParameter
 - [ ] 1: WFUberSeatCountPickerParameter
-- [ ] 1: WFCountryFieldParameter
+- [x] Complete - 1: WFCountryFieldParameter
 - [ ] 1: WFTimeOffsetParameter
 - [ ] 1: WFAlarmFrequencyPickerParameter
-- [ ] 1: WFAlarmPickerParameter
+- [x] Complete - 1: WFAlarmPickerParameter
 - [x] Complete - 1: WFArrayParameter
 - [ ] 1: WFContactFieldParameter
-- [ ] 1: WFDictateTextLanguagePickerParameter
-- [ ] 1: WFCustomDateFormatParameter
+- [x] Complete - 1: WFDictateTextLanguagePickerParameter
+- [x] Complete - 1: WFCustomDateFormatParameter
 - [ ] 1: WFGetDistanceUnitPickerParameter
-- [ ] 1: WFNetworkPickerParameter
+- [x] Complete - 1: WFNetworkPickerParameter
 - [ ] 1: WFQuantityTypePickerParameter
 - [ ] 1: WFHealthQuantityAdditionalFieldParameter
 - [ ] 1: WFHealthQuantityAdditionalPickerParameter
@@ -305,12 +305,12 @@ Banner by ROP#2788 on the [routinehub.co](https://routinehub.co) discord server.
 - [ ] 1: WFHealthCategoryStartDateFieldParameter
 - [ ] 1: WFHealthCategoryEndDateFieldParameter
 - [ ] 1: WFWorkoutTypePickerParameter
-- [ ] 1: WFIFTTTTriggerNameParameter
+- [x] Complete - 1: WFIFTTTTriggerNameParameter
 - [ ] 1: WFIFTTTAddRecipeParameter
-- [ ] 1: WFImageConvertFormatPickerParameter
-- [ ] 1: WFLightroomPresetPickerParameter
+- [x] Complete - 1: WFImageConvertFormatPickerParameter
+- [x] Complete - 1: WFLightroomPresetPickerParameter
 - [x] Complete - 1: WFContentArrayParameter
-- [ ] 1: WFArchiveFormatParameter
+- [x] Complete - 1: WFArchiveFormatParameter
 - [ ] 1: WFMeasurementUnitPickerParameter
 - [ ] 1: WFUnitPickerParameter
 - [ ] 1: WFPhoneNumberFieldParameter
@@ -318,42 +318,42 @@ Banner by ROP#2788 on the [routinehub.co](https://routinehub.co) discord server.
 - [ ] 1: WFHomePickerParameter
 - [ ] 1: WFHomeScenePickerParameter
 - [x] Complete - 1: WFWorkflowPickerParameter
-- [ ] 1: WFPhotoAlbumPickerParameter
-- [ ] 1: WFEmailAccountPickerParameter
-- [ ] 1: WFSlackChannelPickerParameter
-- [ ] 1: WFSpeakTextRateParameter
-- [ ] 1: WFSpeakTextLanguagePickerParameter
-- [ ] 1: WFSpeakTextVoicePickerParameter
-- [ ] 1: WFTodoistProjectPickerParameter
+- [x] Complete - 1: WFPhotoAlbumPickerParameter
+- [x] Complete - 1: WFEmailAccountPickerParameter
+- [x] Complete - 1: WFSlackChannelPickerParameter
+- [x] Complete - 1: WFSpeakTextRateParameter
+- [x] Complete - 1: WFSpeakTextLanguagePickerParameter
+- [x] Complete - 1: WFSpeakTextVoicePickerParameter
+- [x] Complete - 1: WFTodoistProjectPickerParameter
 - [ ] 1: WFTumblrComposeInAppParameter
-- [ ] 1: WFTumblrBlogPickerParameter
-- [ ] 1: WFWunderlistListPickerParameter
-- [ ] 2: WFPlaylistPickerParameter
+- [x] Complete - 1: WFTumblrBlogPickerParameter
+- [x] Complete - 1: WFWunderlistListPickerParameter
+- [x] Complete - 2: WFPlaylistPickerParameter
 - [x] Complete - 2: WFVariableFieldParameter
 - [ ] 2: WFEvernoteTagsTagFieldParameter
-- [ ] 2: WFMapsAppPickerParameter
+- [x] Complete - 2: WFMapsAppPickerParameter
 - [ ] 2: WFDurationQuantityFieldParameter
-- [ ] 2: WFUnitTypePickerParameter
+- [x] Complete - 2: WFUnitTypePickerParameter
 - [ ] 2: WFAppPickerParameter
-- [ ] 2: WFiTunesStoreCountryPickerParameter
-- [ ] 2: WFAccountPickerParameter
-- [ ] 2: WFTranslateTextLanguagePickerParameter
-- [ ] 2: WFTrelloListPickerParameter
+- [x] Complete - 2: WFiTunesStoreCountryPickerParameter
+- [x] Complete - 2: WFAccountPickerParameter
+- [x] Complete - 2: WFTranslateTextLanguagePickerParameter
+- [x] Complete - 2: WFTrelloListPickerParameter
 - [ ] 2: WFDynamicTagFieldParameter
-- [ ] 3: WFEvernoteNotebookPickerParameter
+- [x] Complete - 3: WFEvernoteNotebookPickerParameter
 - [ ] 3: WFHealthQuantityFieldParameter
 - [ ] 3: WFContactHandleFieldParameter
-- [ ] 3: WFTrelloBoardPickerParameter
+- [x] Complete - 3: WFTrelloBoardPickerParameter
 - [x] Complete - 4: WFCalendarPickerParameter
 - [x] Complete - 4: WFStorageServicePickerParameter
 - [x] Complete - 4: WFEmailAddressFieldParameter
-- [ ] 5: WFIntentAppPickerParameter
+- [x] Complete - 5: WFIntentAppPickerParameter
 - [x] Complete - 5: WFDictionaryParameter
 - [x] Complete - 5: WFSliderParameter
 - [x] Complete - 8: WFLocationFieldParameter
 - [x] Complete - 8: WFExpandingParameter
 - [x] Complete - 9: WFVariablePickerParameter
-- [ ] 14: WFDynamicEnumerationParameter
+- [x] Complete - 14: WFDynamicEnumerationParameter
 - [x] Complete - 17: WFDateFieldParameter
 - [x] Complete - 23: WFStepperParameter
 - [x] Complete - 39: WFNumberFieldParameter

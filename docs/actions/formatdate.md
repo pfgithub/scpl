@@ -1,8 +1,6 @@
 
 ## Format Date / formatdate (internally `is.workflow.actions.format.date`)
 
-> This action is not yet complete. Some arguments may be missing.
-
 
 ## description
 
@@ -13,7 +11,7 @@ Formats a date and time into text.
 
 ### usage
 ```
-formatdate dateformat=("None" | "Short" | "Medium" | "Long" | "Relative" | "RFC 2822" | "ISO 8601" | "Custom") alternateformat=("Short" | "Medium" | "Long") timeformat=("None" | "Short" | "Medium" | "Long" | "Relative") includeiso8601time=(true | f alse | variable) undefined=NotImplemented
+formatdate dateformat=("None" | "Short" | "Medium" | "Long" | "Relative" | "RFC 2822" | "ISO 8601" | "Custom") alternateformat=("Short" | "Medium" | "Long") timeformat=("None" | "Short" | "Medium" | "Long" | "Relative") includeiso8601time=(true | f alse | variable) formatstring="string"
 ```
 
 ### arguments
@@ -85,7 +83,14 @@ or a variable.
 
 ---
 
-#### This paramtype is not implemented. WFCustomDateFormatParameter
+### formatstring: Date Format String [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Allows Variables**: true
+
+**Only enabled if**: argument WFDateFormatStyle == `Custom`
+
+Accepts a string 
+or text
+with the text.
 
 ---
 

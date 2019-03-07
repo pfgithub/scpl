@@ -1,8 +1,6 @@
 
 ## Add to Instapaper / addtoinstapaper (internally `is.workflow.actions.instapaper.add`)
 
-> This action is not yet complete. Some arguments may be missing.
-
 > This action requires that Shortcuts has permission to use WFInstapaperAccessResource,WFMainThreadResource.
 
 
@@ -15,14 +13,19 @@ Adds the input to Instapaper.
 
 ### usage
 ```
-addtoinstapaper undefined=NotImplemented
+addtoinstapaper folder=("string" | variable)]
 ```
 
 ### arguments
 
 ---
 
-#### This paramtype is not implemented. WFDynamicEnumerationParameter
+### folder: Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+**Allows Variables**: true
+
+
+
+		Accepts a string or variable containing the option. Check the shortcuts app for a list of available options. 
 
 ---
 

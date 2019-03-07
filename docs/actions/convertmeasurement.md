@@ -13,14 +13,22 @@ Converts the measurements passed into the action to the specified unit.
 
 ### usage
 ```
-convertmeasurement undefined=NotImplemented undefined=NotImplemented
+convertmeasurement type=("string" | variable)] undefined=NotImplemented
 ```
 
 ### arguments
 
 ---
 
-#### This paramtype is not implemented. WFUnitTypePickerParameter
+### type: Unit Type Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+**Default Value**: ```
+		Length
+		```
+**Allows Variables**: true
+
+
+
+		Accepts a string or variable containing the option. Check the shortcuts app for a list of available options. 
 
 ---
 

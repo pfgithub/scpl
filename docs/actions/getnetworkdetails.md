@@ -1,8 +1,6 @@
 
 ## Get Network Details / getnetworkdetails (internally `is.workflow.actions.getwifi`)
 
-> This action is not yet complete. Some arguments may be missing.
-
 
 ## description
 
@@ -13,14 +11,24 @@ Gets information about the currently connected networks.
 
 ### usage
 ```
-getnetworkdetails undefined=NotImplemented get=("Network Name" | "BSSID") get2=("Carrier Name" | "Radio Technology" | "Country Code")
+getnetworkdetails network=("iCloud Drive" | "Dropbox") get=("Network Name" | "BSSID") get2=("Carrier Name" | "Radio Technology" | "Country Code")
 ```
 
 ### arguments
 
 ---
 
-#### This paramtype is not implemented. WFNetworkPickerParameter
+### network: Network Type Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+**Allows Variables**: true
+
+
+
+Accepts a string 
+or variable
+containing one of the options:
+
+- `iCloud Drive`
+- `Dropbox`
 
 ---
 

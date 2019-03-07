@@ -1,8 +1,6 @@
 
 ## Import to Lightroom / importtolightroom (internally `is.workflow.actions.lightroom.import`)
 
-> This action is not yet complete. Some arguments may be missing.
-
 
 ## description
 
@@ -13,7 +11,7 @@ Imports the photos passed as input into Lightroom
 
 ### usage
 ```
-importtolightroom applypreset=(true | f alse | variable) presetgroup=("B&W" | "Color" | "Creative" | "Curve" | "Grain" | "Sharpening" | "Vignetting") undefined=NotImplemented
+importtolightroom applypreset=(true | f alse | variable) presetgroup=("B&W" | "Color" | "Creative" | "Curve" | "Grain" | "Sharpening" | "Vignetting") preset=("string" | variable)]
 ```
 
 ### arguments
@@ -50,7 +48,14 @@ containing one of the options:
 
 ---
 
-#### This paramtype is not implemented. WFLightroomPresetPickerParameter
+### preset: Lightroom Preset Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+**Allows Variables**: true
+
+**Only enabled if**: argument applyPreset == `true`
+
+**Only enabled if**: argument presetGroup ?? ``
+
+		Accepts a string or variable containing the option. Check the shortcuts app for a list of available options. 
 
 ---
 

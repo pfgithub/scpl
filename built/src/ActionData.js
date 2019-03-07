@@ -118,15 +118,8 @@ containing one of the options:
     }
 }
 types.WFEnumerationParameter = WFEnumerationParameter;
-class WFStorageServicePickerParameter extends WFEnumerationParameter {
-    constructor(data, name, docs = "https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field") {
-        super(data, name, docs);
-        this.options = ["iCloud Drive", "Dropbox"];
-    }
-}
-types.WFStorageServicePickerParameter = WFStorageServicePickerParameter;
-class WFWorkflowPickerParameter extends WFParameter {
-    constructor(data, name = "Shortcut Picker", docs = "https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields") {
+class WFDynamicEnumerationParameter extends WFParameter {
+    constructor(data, name = "Picker", docs = "https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields") {
         super(data, name, docs);
     }
     genDocsArgName() {
@@ -135,34 +128,7 @@ class WFWorkflowPickerParameter extends WFParameter {
     genDocs() {
         return `${super.genDocs()}
 
-		Accepts a string or variable with the name of the shortcut to run.`;
-    }
-    build(cc, parse) {
-        // asVariable may require additional actions to be inserted above this one.
-        // for example, if ^("hello") (v:comparison) "hi"
-        if (parse.canBeVariable(cc)) {
-            const res = parse.asVariable(cc);
-            return res;
-        }
-        else if (parse.canBeString(cc)) {
-            const res = parse.asString(cc); // asString returns a string like ""
-            return res;
-        }
-        throw parse.error(cc, "Shortcut picker fields can only contain strings and variables.");
-    }
-}
-types.WFWorkflowPickerParameter = WFWorkflowPickerParameter;
-class WFCalendarPickerParameter extends WFParameter {
-    constructor(data, name = "Calendar Picker", docs = "https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields") {
-        super(data, name, docs);
-    }
-    genDocsArgName() {
-        return `("string" | variable)]`;
-    }
-    genDocs() {
-        return `${super.genDocs()}
-
-		Accepts a string or variable with the name of the calendar.`;
+		Accepts a string or variable containing the option. Check the shortcuts app for a list of available options. `;
     }
     build(cc, parse) {
         if (parse.canBeVariable(cc)) {
@@ -173,10 +139,63 @@ class WFCalendarPickerParameter extends WFParameter {
             const res = parse.asString(cc);
             return res;
         }
-        throw parse.error(cc, "Calendar picker fields can only contain strings and variables.");
+        throw parse.error(cc, `${this.name} fields can only contain strings and variables.`);
     }
 }
-types.WFCalendarPickerParameter = WFCalendarPickerParameter;
+types.WFDynamicEnumerationParameter = WFDynamicEnumerationParameter;
+function addStaticEnum(internalName, visibleName, options) {
+    types[internalName] = class extends WFEnumerationParameter {
+        constructor(data, name = visibleName, docs = "https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field") {
+            super(data, name, docs);
+            this.options = ["iCloud Drive", "Dropbox"];
+            this.allowsVariables = true;
+        }
+    };
+}
+function addDynamicEnum(internalName, visibleName) {
+    types[internalName] = class extends WFDynamicEnumerationParameter {
+        constructor(data, name = visibleName, docs = "https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields") {
+            super(data, name, docs);
+        }
+    };
+}
+addDynamicEnum("WFWorkflowPickerParameter", "Shortcut Picker");
+addDynamicEnum("WFCalendarPickerParameter", "Calendar Picker");
+addDynamicEnum("WFWunderlistListPickerParameter", "Wunderlist List Picker");
+addDynamicEnum("WFTrelloBoardPickerParameter", "Trello Board Picker");
+addDynamicEnum("WFTrelloListPickerParameter", "Trello List Picker");
+addDynamicEnum("WFTodoistProjectPickerParameter", "Todoist Project Picker");
+addDynamicEnum("WFPlaylistPickerParameter", "Music Playlist Picker");
+addDynamicEnum("WFEvernoteNotebookPickerParameter", "Evernote Notebook Picker");
+addDynamicEnum("WFIntentAppPickerParameter", "Intent App Picker");
+addDynamicEnum("WFDictateTextLanguagePickerParameter", "Language Picker");
+addDynamicEnum("WFLightroomPresetPickerParameter", "Lightroom Preset Picker");
+addDynamicEnum("WFPhotoAlbumPickerParameter", "Photo Album Picker");
+addDynamicEnum("WFiTunesStoreCountryPickerParameter", "iTunes Store Country Picker");
+addDynamicEnum("WFEmailAccountPickerParameter", "Email Account Picker");
+// addDynamicEnum("WFAppPickerParameter", "App Identifier"); // open app uses app ids like com.apple.appname, don't add it for now
+addDynamicEnum("WFAccountPickerParameter", "Account Picker");
+addDynamicEnum("WFSlackChannelPickerParameter", "Slack Channel Picker");
+addDynamicEnum("WFTumblrBlogPickerParameter", "Tumblr Blog Picker");
+addDynamicEnum("WFSpeakTextLanguagePickerParameter", "Speak Text Language Picker");
+addDynamicEnum("WFSpeakTextVoicePickerParameter", "Speak Text Voice Picker");
+addDynamicEnum("WFAlarmPickerParameter", "Alarm Picker");
+addDynamicEnum("WFTranslateTextLanguagePickerParameter", "Translate Language Picker");
+addDynamicEnum("WFIFTTTTriggerNameParameter", "IFTTT Trigger Name Picker"); // RIP ifttt support, you will be missed.
+// addDynamicEnum("aaaa", "aaaa Picker");
+addStaticEnum("WFStorageServicePickerParameter", "Storage Service Picker", ["iCloud Drive", "Dropbox"]);
+addStaticEnum("WFImageConvertFormatPickerParameter", "Image Format Picker", ["JPEG", "PNG", "TIFF", "GIF", "JPEG-2000", "BMP", "PDF", "Match Input"]);
+addStaticEnum("WFUnitTypePickerParameter", "Unit Picker", ["Acceleration", "Angle", "Area", "Concentration Mass", "Dispersion", "Duration", "Eletric Charge", "Electric Potential Difference",
+    "Electric Resistance", "Energy", "Frequency", "Fuel Efficiency", "Illuminance", "Length", "Mass", "Power", "Pressure", "Speed", "Temperature", "Volume"]);
+addDynamicEnum("WFUnitTypePickerParameter", "Unit Type Picker"); // it's different for every unit type...
+addStaticEnum("WFNetworkPickerParameter", "Network Type Picker", ["Wi-Fi", "Cellular"]);
+addStaticEnum("WFArchiveFormatParameter", "Archive Format", [".zip", ".tar.gz", ".tar.bz2", ".tar.xz", ".tar", ".gz", ".cpio", ".iso"]);
+addStaticEnum("WFMapsAppPickerParameter", "Maps App", ["Maps", "Google Maps", "Waze"]);
+// TODO WFDynamicTagFieldParameter gives a list of options that you can check
+// AlarmFrequencyPicker is a static tag, accepts an array of values which must be one of [Sunday,Monday,...]. Check what the output looks like.
+// WFEvernoteTagsTagFieldParameter is a dynamic tag
+// phone number is like email but accepts phone numbers
+// WFContactHandleField: Must be Ask When Run or Variable
 class WFNumberFieldParameter extends WFParameter {
     constructor(data, name = "Number", docs = "https://pfgithub.github.io/shortcutslang/gettingstarted#number-field") {
         super(data, name, docs);
@@ -224,9 +243,10 @@ class WFStepperParameter extends WFNumberFieldParameter {
         return val;
     }
 }
+types.WFStepperParameter = WFStepperParameter;
 class WFSliderParameter extends WFNumberFieldParameter {
     constructor(data, name = "Slider Number", docs = "https://pfgithub.github.io/shortcutslang/gettingstarted#slider-number-fields") {
-        super(data, name);
+        super(data, name, docs);
     }
     build(cc, parse) {
         const val = super.build(cc, parse);
@@ -238,7 +258,22 @@ class WFSliderParameter extends WFNumberFieldParameter {
         return val;
     }
 }
-types.WFStepperParameter = WFStepperParameter;
+types.WFSliderParameter = WFSliderParameter;
+class WFSpeakTextRateParameter extends WFNumberFieldParameter {
+    constructor(data, name = "Speak Text Rate", docs = "https://pfgithub.github.io/shortcutslang/gettingstarted#slider-number-fields") {
+        super(data, name, docs);
+    }
+    build(cc, parse) {
+        const val = super.build(cc, parse);
+        if (typeof val === "number") {
+            if (val < 0 || val > 2) {
+                throw parse.error(cc, "Speak text rate fields only accept numbers from 0 to 2");
+            }
+        }
+        return val;
+    }
+}
+types.WFSpeakTextRateParameter = WFSpeakTextRateParameter;
 class WFContentArrayParameter extends WFParameter {
     constructor(data, name, docs = "https://pfgithub.github.io/shortcutslang/gettingstarted#list-field") {
         super(data, name, docs);
@@ -262,7 +297,6 @@ Accepts a list.`;
 types.WFContentArrayParameter = WFContentArrayParameter;
 types.WFArrayParameter = class extends WFContentArrayParameter {
 }; // not sure what the difference is
-types.WFSliderParameter = WFSliderParameter;
 class WFVariablePickerParameter extends WFParameter {
     constructor(data, name = "Variable Picker", docs = "https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields") {
         super(data, name, docs);
@@ -315,6 +349,18 @@ with the text.`;
     }
 }
 types.WFTextInputParameter = WFTextInputParameter;
+class WFCustomDateFormatParameter extends WFTextInputParameter {
+    constructor(data, name = "Date Format String", docs = "https://pfgithub.github.io/shortcutslang/gettingstarted#text-field") {
+        super(data, name, docs);
+    }
+}
+types.WFCustomDateFormatParameter = WFCustomDateFormatParameter;
+class WFCountryFieldParameter extends WFTextInputParameter {
+    constructor(data, name = "Country", docs = "https://pfgithub.github.io/shortcutslang/gettingstarted#text-field") {
+        super(data, name, docs);
+    }
+}
+types.WFCountryFieldParameter = WFCountryFieldParameter;
 class WFDateFieldParameter extends WFTextInputParameter {
     constructor(data, name = "Date", docs = "https://pfgithub.github.io/shortcutslang/gettingstarted#text-field") {
         super(data, name, docs);

@@ -1,8 +1,6 @@
 
 ## Send Email / sendemail (internally `is.workflow.actions.sendemail`)
 
-> This action is not yet complete. Some arguments may be missing.
-
 > This action requires that Shortcuts has permission to use [object Object],[object Object],[object Object].
 
 
@@ -15,7 +13,7 @@ Presents an email composer. Pass text into the action to set the email body. Oth
 
 ### usage
 ```
-sendemail showcomposesheet=(true | f alse | variable) undefined=NotImplemented from="string" to=("string" | [list, of, strings] | variable) cc=("string" | [list, of, strings] | variable) bcc=("string" | [list, of, strings] | variable) subject="string"
+sendemail showcomposesheet=(true | f alse | variable) from=("string" | variable)] from2="string" to=("string" | [list, of, strings] | variable) cc=("string" | [list, of, strings] | variable) bcc=("string" | [list, of, strings] | variable) subject="string"
 ```
 
 ### arguments
@@ -35,11 +33,16 @@ or a variable.
 
 ---
 
-#### This paramtype is not implemented. WFEmailAccountPickerParameter
+### from: Email Account Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+**Allows Variables**: true
+
+**Only enabled if**: argument WFSendEmailActionShowComposeSheet == `false`
+
+		Accepts a string or variable containing the option. Check the shortcuts app for a list of available options. 
 
 ---
 
-### from: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### from2: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"optional"`
 **Allows Variables**: true
 

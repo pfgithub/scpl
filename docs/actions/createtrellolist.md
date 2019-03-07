@@ -1,8 +1,6 @@
 
 ## Create Trello List / createtrellolist (internally `is.workflow.actions.trello.add.list`)
 
-> This action is not yet complete. Some arguments may be missing.
-
 > This action requires that Shortcuts has permission to use WFTrelloAccessResource.
 
 
@@ -15,7 +13,7 @@ Creates a new list on the specified board in your Trello account.
 
 ### usage
 ```
-createtrellolist name="string" undefined=NotImplemented position=("Top" | "Bottom")
+createtrellolist name="string" board=("string" | variable)] position=("Top" | "Bottom")
 ```
 
 ### arguments
@@ -34,7 +32,12 @@ with the text.
 
 ---
 
-#### This paramtype is not implemented. WFTrelloBoardPickerParameter
+### board: Trello Board Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+**Allows Variables**: true
+
+
+
+		Accepts a string or variable containing the option. Check the shortcuts app for a list of available options. 
 
 ---
 

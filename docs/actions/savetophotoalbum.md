@@ -1,8 +1,6 @@
 
 ## Save to Photo Album / savetophotoalbum (internally `is.workflow.actions.savetocameraroll`)
 
-> This action is not yet complete. Some arguments may be missing.
-
 > This action requires that Shortcuts has permission to use WFPhotoAccessResource.
 
 
@@ -24,14 +22,19 @@ The saved items
 
 ### usage
 ```
-savetophotoalbum undefined=NotImplemented
+savetophotoalbum album=("string" | variable)]
 ```
 
 ### arguments
 
 ---
 
-#### This paramtype is not implemented. WFPhotoAlbumPickerParameter
+### album: Photo Album Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+**Allows Variables**: true
+
+
+
+		Accepts a string or variable containing the option. Check the shortcuts app for a list of available options. 
 
 ---
 

@@ -1,8 +1,6 @@
 
 ## Translate Text with Microsoft / translatetextwithmicrosoft (internally `is.workflow.actions.text.translate`)
 
-> This action is not yet complete. Some arguments may be missing.
-
 
 ## description
 
@@ -13,18 +11,28 @@ Translates the text passed into the action into another language.
 
 ### usage
 ```
-translatetextwithmicrosoft undefined=NotImplemented undefined=NotImplemented
+translatetextwithmicrosoft from=("string" | variable)] to=("string" | variable)]
 ```
 
 ### arguments
 
 ---
 
-#### This paramtype is not implemented. WFTranslateTextLanguagePickerParameter
+### from: Translate Language Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+**Allows Variables**: true
+
+
+
+		Accepts a string or variable containing the option. Check the shortcuts app for a list of available options. 
 
 ---
 
-#### This paramtype is not implemented. WFTranslateTextLanguagePickerParameter
+### to: Translate Language Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+**Allows Variables**: true
+
+
+
+		Accepts a string or variable containing the option. Check the shortcuts app for a list of available options. 
 
 ---
 

@@ -1,8 +1,6 @@
 
 ## Street Address / streetaddress (internally `is.workflow.actions.address`)
 
-> This action is not yet complete. Some arguments may be missing.
-
 
 ## description
 
@@ -13,7 +11,7 @@ Passes the specified address to the next action.
 
 ### usage
 ```
-streetaddress line1="string" line2="string" city="string" state="string" postalcode="string" undefined=NotImplemented
+streetaddress line1="string" line2="string" city="string" state="string" postalcode="string" country="string"
 ```
 
 ### arguments
@@ -79,7 +77,15 @@ with the text.
 
 ---
 
-#### This paramtype is not implemented. WFCountryFieldParameter
+### country: Country [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"United States"`
+**Allows Variables**: true
+
+
+
+Accepts a string 
+or text
+with the text.
 
 ---
 

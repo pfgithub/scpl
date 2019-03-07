@@ -1,8 +1,6 @@
 
 ## Post to Slack / posttoslack (internally `is.workflow.actions.slack.send`)
 
-> This action is not yet complete. Some arguments may be missing.
-
 > This action requires that Shortcuts has permission to use WFUnavailableResource,[object Object].
 
 
@@ -15,18 +13,26 @@ Posts the input to the specified Slack channel.
 
 ### usage
 ```
-posttoslack undefined=NotImplemented undefined=NotImplemented
+posttoslack account=("string" | variable)] channel=("string" | variable)]
 ```
 
 ### arguments
 
 ---
 
-#### This paramtype is not implemented. WFAccountPickerParameter
+### account: Account Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+
+
+		Accepts a string or variable containing the option. Check the shortcuts app for a list of available options. 
 
 ---
 
-#### This paramtype is not implemented. WFSlackChannelPickerParameter
+### channel: Slack Channel Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+**Allows Variables**: true
+
+
+
+		Accepts a string or variable containing the option. Check the shortcuts app for a list of available options. 
 
 ---
 

@@ -1,8 +1,6 @@
 
 ## Search App Store / searchappstore (internally `is.workflow.actions.searchappstore`)
 
-> This action is not yet complete. Some arguments may be missing.
-
 
 ## description
 
@@ -13,7 +11,7 @@ Searches the App Store, returning the apps that match the specified search terms
 
 ### usage
 ```
-searchappstore search="string" undefined=NotImplemented undefined=NotImplemented undefined=NotImplemented wfitemlimit=number
+searchappstore search="string" searchby=("string" | variable)] results=("string" | variable)] country=("string" | variable)] wfitemlimit=number
 ```
 
 ### arguments
@@ -32,15 +30,30 @@ with the text.
 
 ---
 
-#### This paramtype is not implemented. WFDynamicEnumerationParameter
+### searchby: Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+**Allows Variables**: true
+
+
+
+		Accepts a string or variable containing the option. Check the shortcuts app for a list of available options. 
 
 ---
 
-#### This paramtype is not implemented. WFDynamicEnumerationParameter
+### results: Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+**Allows Variables**: true
+
+
+
+		Accepts a string or variable containing the option. Check the shortcuts app for a list of available options. 
 
 ---
 
-#### This paramtype is not implemented. WFiTunesStoreCountryPickerParameter
+### country: iTunes Store Country Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+**Allows Variables**: true
+
+
+
+		Accepts a string or variable containing the option. Check the shortcuts app for a list of available options. 
 
 ---
 

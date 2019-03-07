@@ -1,8 +1,6 @@
 
 ## Search iTunes Store / searchitunesstore (internally `is.workflow.actions.searchitunes`)
 
-> This action is not yet complete. Some arguments may be missing.
-
 
 ## description
 
@@ -13,7 +11,7 @@ Searches the iTunes Store, returning the items that match the specified search t
 
 ### usage
 ```
-searchitunesstore search="string" undefined=NotImplemented undefined=NotImplemented undefined=NotImplemented undefined=NotImplemented wfitemlimit=number
+searchitunesstore search="string" category=("string" | variable)] searchby=("string" | variable)] results=("string" | variable)] country=("string" | variable)] wfitemlimit=number
 ```
 
 ### arguments
@@ -32,19 +30,39 @@ with the text.
 
 ---
 
-#### This paramtype is not implemented. WFDynamicEnumerationParameter
+### category: Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+**Allows Variables**: true
+
+
+
+		Accepts a string or variable containing the option. Check the shortcuts app for a list of available options. 
 
 ---
 
-#### This paramtype is not implemented. WFDynamicEnumerationParameter
+### searchby: Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+**Allows Variables**: true
+
+
+
+		Accepts a string or variable containing the option. Check the shortcuts app for a list of available options. 
 
 ---
 
-#### This paramtype is not implemented. WFDynamicEnumerationParameter
+### results: Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+**Allows Variables**: true
+
+
+
+		Accepts a string or variable containing the option. Check the shortcuts app for a list of available options. 
 
 ---
 
-#### This paramtype is not implemented. WFiTunesStoreCountryPickerParameter
+### country: iTunes Store Country Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+**Allows Variables**: true
+
+
+
+		Accepts a string or variable containing the option. Check the shortcuts app for a list of available options. 
 
 ---
 

@@ -1,8 +1,6 @@
 
 ## Call / call (internally `com.apple.mobilephone.call`)
 
-> This action is not yet complete. Some arguments may be missing.
-
 > This action requires that Shortcuts has permission to use WFContactAccessResource.
 
 
@@ -15,14 +13,22 @@ Calls the phone number passed in as input.
 
 ### usage
 ```
-call undefined=NotImplemented
+call app=("string" | variable)]
 ```
 
 ### arguments
 
 ---
 
-#### This paramtype is not implemented. WFIntentAppPickerParameter
+### app: Intent App Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+**Default Value**: ```
+		com.apple.TelephonyUtilities.PhoneIntentHandler
+		```
+**Allows Variables**: true
+
+**Only enabled if**: This action is always **disabled** inside Shortcutslang.
+
+		Accepts a string or variable containing the option. Check the shortcuts app for a list of available options. 
 
 ---
 

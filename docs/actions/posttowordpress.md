@@ -19,18 +19,24 @@ The URL of the new blog post
 
 ### usage
 ```
-posttowordpress undefined=NotImplemented undefined=NotImplemented title="string" undefined=NotImplemented undefined=NotImplemented undefined=NotImplemented undefined=NotImplemented undefined=NotImplemented advanced=(true | false) allowcomments=(true | f alse | variable) slug="string" excerpt="string" publishdate="string" undefined=NotImplemented featuredimage=(v:myvar | mv:myvar | s:myvar) customfields=(true | false) customfields2={dictionary}
+posttowordpress account=("string" | variable)] blog=("string" | variable)] title="string" type=("string" | variable)] format=("string" | variable)] status=("string" | variable)] undefined=NotImplemented undefined=NotImplemented advanced=(true | false) allowcomments=(true | f alse | variable) slug="string" excerpt="string" publishdate="string" template=("string" | variable)] featuredimage=(v:myvar | mv:myvar | s:myvar) customfields=(true | false) customfields2={dictionary}
 ```
 
 ### arguments
 
 ---
 
-#### This paramtype is not implemented. WFAccountPickerParameter
+### account: Account Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+
+
+		Accepts a string or variable containing the option. Check the shortcuts app for a list of available options. 
 
 ---
 
-#### This paramtype is not implemented. WFDynamicEnumerationParameter
+### blog: Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+
+
+		Accepts a string or variable containing the option. Check the shortcuts app for a list of available options. 
 
 ---
 
@@ -46,15 +52,30 @@ with the text.
 
 ---
 
-#### This paramtype is not implemented. WFDynamicEnumerationParameter
+### type: Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+**Allows Variables**: true
+
+
+
+		Accepts a string or variable containing the option. Check the shortcuts app for a list of available options. 
 
 ---
 
-#### This paramtype is not implemented. WFDynamicEnumerationParameter
+### format: Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+**Allows Variables**: true
+
+
+
+		Accepts a string or variable containing the option. Check the shortcuts app for a list of available options. 
 
 ---
 
-#### This paramtype is not implemented. WFDynamicEnumerationParameter
+### status: Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+**Allows Variables**: true
+
+
+
+		Accepts a string or variable containing the option. Check the shortcuts app for a list of available options. 
 
 ---
 
@@ -124,7 +145,12 @@ with the text.
 
 ---
 
-#### This paramtype is not implemented. WFDynamicEnumerationParameter
+### template: Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+**Allows Variables**: true
+
+**Only enabled if**: argument Advanced == `true`
+
+		Accepts a string or variable containing the option. Check the shortcuts app for a list of available options. 
 
 ---
 

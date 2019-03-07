@@ -19,7 +19,7 @@ The URL of the new post
 
 ### usage
 ```
-posttotumblr undefined=NotImplemented undefined=NotImplemented undefined=NotImplemented poststatus=("Post Now" | "Add to Queue" | "Save as Draft" | "Post Privately") title="string" source="string" caption="string" tags="string" description="string"
+posttotumblr undefined=NotImplemented blog=("string" | variable)] type=("string" | variable)] poststatus=("Post Now" | "Add to Queue" | "Save as Draft" | "Post Privately") title="string" source="string" caption="string" tags="string" description="string"
 ```
 
 ### arguments
@@ -30,11 +30,24 @@ posttotumblr undefined=NotImplemented undefined=NotImplemented undefined=NotImpl
 
 ---
 
-#### This paramtype is not implemented. WFTumblrBlogPickerParameter
+### blog: Tumblr Blog Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+**Allows Variables**: true
+
+**Only enabled if**: argument WFComposeInApp == `false`
+
+		Accepts a string or variable containing the option. Check the shortcuts app for a list of available options. 
 
 ---
 
-#### This paramtype is not implemented. WFDynamicEnumerationParameter
+### type: Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+**Default Value**: ```
+		Text
+		```
+**Allows Variables**: true
+
+
+
+		Accepts a string or variable containing the option. Check the shortcuts app for a list of available options. 
 
 ---
 

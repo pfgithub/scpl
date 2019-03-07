@@ -1,8 +1,6 @@
 
 ## Show in Maps / showinmaps (internally `is.workflow.actions.searchmaps`)
 
-> This action is not yet complete. Some arguments may be missing.
-
 
 ## description
 
@@ -13,14 +11,25 @@ Opens your choice of Maps, Google Maps, or Waze and searches for the location, p
 
 ### usage
 ```
-showinmaps undefined=NotImplemented
+showinmaps mapsapp=("iCloud Drive" | "Dropbox")
 ```
 
 ### arguments
 
 ---
 
-#### This paramtype is not implemented. WFMapsAppPickerParameter
+### mapsapp: Maps App [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+**Default Value**: `"Maps"`
+**Allows Variables**: true
+
+**Only enabled if**: This action is always **disabled** inside Shortcutslang.
+
+Accepts a string 
+or variable
+containing one of the options:
+
+- `iCloud Drive`
+- `Dropbox`
 
 ---
 

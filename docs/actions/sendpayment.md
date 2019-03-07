@@ -15,14 +15,20 @@ Sends a payment to the specified people using a payment app on your device.
 
 ### usage
 ```
-sendpayment undefined=NotImplemented undefined=NotImplemented amount=number openinapp=(true | f alse | variable) note="string"
+sendpayment app=("string" | variable)] undefined=NotImplemented amount=number openinapp=(true | f alse | variable) note="string"
 ```
 
 ### arguments
 
 ---
 
-#### This paramtype is not implemented. WFIntentAppPickerParameter
+### app: Intent App Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+**Default Value**: ```
+		com.apple.PassKit.PassKitIntentsExtension
+		```
+
+
+		Accepts a string or variable containing the option. Check the shortcuts app for a list of available options. 
 
 ---
 

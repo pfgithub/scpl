@@ -22,7 +22,7 @@ appendtofile service=("iCloud Drive" | "Dropbox") filepath="string" mode=("Appen
 
 ---
 
-### service: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### service: Storage Service Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Allows Variables**: true
 
 

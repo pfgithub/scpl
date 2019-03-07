@@ -1,8 +1,6 @@
 
 ## Show Directions / showdirections (internally `is.workflow.actions.getdirections`)
 
-> This action is not yet complete. Some arguments may be missing.
-
 > This action requires that Shortcuts has permission to use WFURLOpenResource.
 
 
@@ -20,18 +18,37 @@ The destination address
 
 ### usage
 ```
-showdirections undefined=NotImplemented undefined=NotImplemented
+showdirections mapsapp=("iCloud Drive" | "Dropbox") mode=("string" | variable)]
 ```
 
 ### arguments
 
 ---
 
-#### This paramtype is not implemented. WFMapsAppPickerParameter
+### mapsapp: Maps App [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+**Default Value**: `"Maps"`
+**Allows Variables**: true
+
+
+
+Accepts a string 
+or variable
+containing one of the options:
+
+- `iCloud Drive`
+- `Dropbox`
 
 ---
 
-#### This paramtype is not implemented. WFDynamicEnumerationParameter
+### mode: Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+**Default Value**: ```
+		Driving
+		```
+**Allows Variables**: true
+
+**Only enabled if**: argument WFGetDirectionsActionApp == `Maps` or `Google Maps` or `Transit` or `Waze`
+
+		Accepts a string or variable containing the option. Check the shortcuts app for a list of available options. 
 
 ---
 

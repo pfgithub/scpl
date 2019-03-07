@@ -1,8 +1,6 @@
 
 ## Speak Text / speaktext (internally `is.workflow.actions.speaktext`)
 
-> This action is not yet complete. Some arguments may be missing.
-
 
 ## description
 
@@ -13,7 +11,7 @@ Speaks the inputted text aloud.
 
 ### usage
 ```
-speaktext waituntilfinished=(true | f alse | variable) undefined=NotImplemented pitch=number undefined=NotImplemented undefined=NotImplemented
+speaktext waituntilfinished=(true | f alse | variable) rate=number pitch=number language=("string" | variable)] voice=("string" | variable)]
 ```
 
 ### arguments
@@ -33,11 +31,18 @@ or a variable.
 
 ---
 
-#### This paramtype is not implemented. WFSpeakTextRateParameter
+### rate: Speak Text Rate [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#slider-number-fields)
+**Allows Variables**: true
+
+
+
+		Accepts a number 
+		or variable
+		with a number.
 
 ---
 
-### pitch: Slider Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+### pitch: Slider Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#slider-number-fields)
 **Default Value**: `1`
 **Allows Variables**: true
 
@@ -49,11 +54,27 @@ or a variable.
 
 ---
 
-#### This paramtype is not implemented. WFSpeakTextLanguagePickerParameter
+### language: Speak Text Language Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+**Default Value**: ```
+		Default
+		```
+**Allows Variables**: true
+
+
+
+		Accepts a string or variable containing the option. Check the shortcuts app for a list of available options. 
 
 ---
 
-#### This paramtype is not implemented. WFSpeakTextVoicePickerParameter
+### voice: Speak Text Voice Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+**Default Value**: ```
+		Default
+		```
+**Allows Variables**: true
+
+**Only enabled if**: argument WFSpeakTextLanguage ?? ``
+
+		Accepts a string or variable containing the option. Check the shortcuts app for a list of available options. 
 
 ---
 

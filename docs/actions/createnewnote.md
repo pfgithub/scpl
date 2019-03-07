@@ -20,7 +20,7 @@ The content to include in your new note
 
 ### usage
 ```
-createnewnote notetitle="string" undefined=NotImplemented undefined=NotImplemented
+createnewnote notetitle="string" notebook=("string" | variable)] undefined=NotImplemented
 ```
 
 ### arguments
@@ -39,7 +39,12 @@ with the text.
 
 ---
 
-#### This paramtype is not implemented. WFEvernoteNotebookPickerParameter
+### notebook: Evernote Notebook Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+**Allows Variables**: true
+
+
+
+		Accepts a string or variable containing the option. Check the shortcuts app for a list of available options. 
 
 ---
 

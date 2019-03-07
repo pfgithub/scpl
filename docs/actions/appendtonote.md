@@ -1,8 +1,6 @@
 
 ## Append to Note / appendtonote (internally `is.workflow.actions.evernote.append`)
 
-> This action is not yet complete. Some arguments may be missing.
-
 > This action requires that Shortcuts has permission to use WFEvernoteAccessResource.
 
 
@@ -20,7 +18,7 @@ The content to add to your note
 
 ### usage
 ```
-appendtonote notetitle="string" mode=("Append" | "Prepend") undefined=NotImplemented
+appendtonote notetitle="string" mode=("Append" | "Prepend") innotebook=("string" | variable)]
 ```
 
 ### arguments
@@ -54,7 +52,12 @@ containing one of the options:
 
 ---
 
-#### This paramtype is not implemented. WFEvernoteNotebookPickerParameter
+### innotebook: Evernote Notebook Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+**Allows Variables**: true
+
+
+
+		Accepts a string or variable containing the option. Check the shortcuts app for a list of available options. 
 
 ---
 

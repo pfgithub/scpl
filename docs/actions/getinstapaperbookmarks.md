@@ -1,8 +1,6 @@
 
 ## Get Instapaper Bookmarks / getinstapaperbookmarks (internally `is.workflow.actions.instapaper.get`)
 
-> This action is not yet complete. Some arguments may be missing.
-
 > This action requires that Shortcuts has permission to use WFInstapaperAccessResource.
 
 
@@ -15,14 +13,19 @@ Gets the contents of a folder in Instapaper. Requires Instapaper Premium.
 
 ### usage
 ```
-getinstapaperbookmarks undefined=NotImplemented wfbookmarkcount=number
+getinstapaperbookmarks folder=("string" | variable)] wfbookmarkcount=number
 ```
 
 ### arguments
 
 ---
 
-#### This paramtype is not implemented. WFDynamicEnumerationParameter
+### folder: Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+**Allows Variables**: true
+
+
+
+		Accepts a string or variable containing the option. Check the shortcuts app for a list of available options. 
 
 ---
 

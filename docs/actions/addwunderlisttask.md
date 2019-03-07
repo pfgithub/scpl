@@ -1,8 +1,6 @@
 
 ## Add Wunderlist Task / addwunderlisttask (internally `is.workflow.actions.wunderlist.add`)
 
-> This action is not yet complete. Some arguments may be missing.
-
 > This action requires that Shortcuts has permission to use [object Object].
 
 
@@ -24,7 +22,7 @@ The URL of the newly created task
 
 ### usage
 ```
-addwunderlisttask title="string" undefined=NotImplemented duedate="string" reminder="string" starred=(true | f alse | variable) notes="string"
+addwunderlisttask title="string" list=("string" | variable)] duedate="string" reminder="string" starred=(true | f alse | variable) notes="string"
 ```
 
 ### arguments
@@ -43,7 +41,12 @@ with the text.
 
 ---
 
-#### This paramtype is not implemented. WFWunderlistListPickerParameter
+### list: Wunderlist List Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+**Allows Variables**: true
+
+
+
+		Accepts a string or variable containing the option. Check the shortcuts app for a list of available options. 
 
 ---
 

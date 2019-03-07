@@ -1,8 +1,6 @@
 
 ## Convert Image / convertimage (internally `is.workflow.actions.image.convert`)
 
-> This action is not yet complete. Some arguments may be missing.
-
 
 ## description
 
@@ -13,18 +11,29 @@ Converts the images passed into the action to the specified image format.
 
 ### usage
 ```
-convertimage undefined=NotImplemented quality=number preservemetadata=(true | f alse | variable)
+convertimage format=("iCloud Drive" | "Dropbox") quality=number preservemetadata=(true | f alse | variable)
 ```
 
 ### arguments
 
 ---
 
-#### This paramtype is not implemented. WFImageConvertFormatPickerParameter
+### format: Image Format Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+**Default Value**: `"JPEG"`
+**Allows Variables**: true
+
+
+
+Accepts a string 
+or variable
+containing one of the options:
+
+- `iCloud Drive`
+- `Dropbox`
 
 ---
 
-### quality: Slider Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+### quality: Slider Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#slider-number-fields)
 **Default Value**: `0.75`
 **Allows Variables**: true
 

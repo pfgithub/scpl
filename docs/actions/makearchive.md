@@ -1,8 +1,6 @@
 
 ## Make Archive / makearchive (internally `is.workflow.actions.makezip`)
 
-> This action is not yet complete. Some arguments may be missing.
-
 
 ## description
 
@@ -17,7 +15,7 @@ Archive
 
 ### usage
 ```
-makearchive archivename="string" undefined=NotImplemented
+makearchive archivename="string" format=("iCloud Drive" | "Dropbox")
 ```
 
 ### arguments
@@ -36,7 +34,17 @@ with the text.
 
 ---
 
-#### This paramtype is not implemented. WFArchiveFormatParameter
+### format: Archive Format [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+**Allows Variables**: true
+
+
+
+Accepts a string 
+or variable
+containing one of the options:
+
+- `iCloud Drive`
+- `Dropbox`
 
 ---
 

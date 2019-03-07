@@ -15,14 +15,22 @@ Triggers an IFTTT applet. Configure which applet in the IFTTT app.
 
 ### usage
 ```
-triggeriftttapplet undefined=NotImplemented wfiftttextraingredients=(number | variable) ingredient1="string" ingredient2="string" ingredient3="string" ingredient4="string" ingredient5="string" ingredient6="string" ingredient7="string" ingredient8="string" ingredient9="string" ingredient10="string" undefined=NotImplemented
+triggeriftttapplet triggername=("string" | variable)] wfiftttextraingredients=(number | variable) ingredient1="string" ingredient2="string" ingredient3="string" ingredient4="string" ingredient5="string" ingredient6="string" ingredient7="string" ingredient8="string" ingredient9="string" ingredient10="string" undefined=NotImplemented
 ```
 
 ### arguments
 
 ---
 
-#### This paramtype is not implemented. WFIFTTTTriggerNameParameter
+### triggername: IFTTT Trigger Name Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+**Placeholder**: ```
+		Log to Google Sheets
+		```
+**Allows Variables**: true
+
+
+
+		Accepts a string or variable containing the option. Check the shortcuts app for a list of available options. 
 
 ---
 

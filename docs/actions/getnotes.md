@@ -15,7 +15,7 @@ Get recent notes from Evernote, optionally filtering based on criteria.
 
 ### usage
 ```
-getnotes titlesearch="string" undefined=NotImplemented undefined=NotImplemented wfevernotenotescount=number
+getnotes titlesearch="string" undefined=NotImplemented innotebook=("string" | variable)] wfevernotenotescount=number
 ```
 
 ### arguments
@@ -38,7 +38,12 @@ with the text.
 
 ---
 
-#### This paramtype is not implemented. WFEvernoteNotebookPickerParameter
+### innotebook: Evernote Notebook Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+**Allows Variables**: true
+
+
+
+		Accepts a string or variable containing the option. Check the shortcuts app for a list of available options. 
 
 ---
 

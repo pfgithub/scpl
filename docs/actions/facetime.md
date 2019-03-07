@@ -1,8 +1,6 @@
 
 ## FaceTime / facetime (internally `com.apple.facetime.facetime`)
 
-> This action is not yet complete. Some arguments may be missing.
-
 > This action requires that Shortcuts has permission to use WFContactAccessResource.
 
 
@@ -15,14 +13,22 @@ Calls the contact passed in as input using FaceTime.
 
 ### usage
 ```
-facetime undefined=NotImplemented calltype=("Video" | "Audio")
+facetime app=("string" | variable)] calltype=("Video" | "Audio")
 ```
 
 ### arguments
 
 ---
 
-#### This paramtype is not implemented. WFIntentAppPickerParameter
+### app: Intent App Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+**Default Value**: ```
+		com.apple.TelephonyUtilities.PhoneIntentHandler
+		```
+**Allows Variables**: true
+
+**Only enabled if**: This action is always **disabled** inside Shortcutslang.
+
+		Accepts a string or variable containing the option. Check the shortcuts app for a list of available options. 
 
 ---
 

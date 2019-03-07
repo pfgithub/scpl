@@ -15,14 +15,24 @@ Sends an iMessage or SMS. Pass images, videos, or other files as input to includ
 
 ### usage
 ```
-sendmessage undefined=NotImplemented showwhenrun=(true | f alse | variable) undefined=NotImplemented wfsendmessagecontent="string" prefix="string"
+sendmessage app=("string" | variable)] showwhenrun=(true | f alse | variable) undefined=NotImplemented wfsendmessagecontent="string" prefix="string"
 ```
 
 ### arguments
 
 ---
 
-#### This paramtype is not implemented. WFIntentAppPickerParameter
+### app: Intent App Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+**Default Value**: ```
+		com.apple.MobileSMS
+		```
+**Allows Variables**: true
+
+**Only enabled if**: Device attributes match `{"WFDeviceAttributeSystemVersion":{"WFSystemVersion":"12.0","WFSystemVersionRelation":">="}}` This action is always enabled inside Shortcutslang.
+
+**Only enabled if**: This action is always **disabled** inside Shortcutslang.
+
+		Accepts a string or variable containing the option. Check the shortcuts app for a list of available options. 
 
 ---
 

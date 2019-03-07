@@ -1,8 +1,6 @@
 
 ## Dictate Text / dictatetext (internally `is.workflow.actions.dictatetext`)
 
-> This action is not yet complete. Some arguments may be missing.
-
 > This action requires that Shortcuts has permission to use [object Object],WFUserInteractionResource,WFSpeechRecognitionAccessResource,WFMicrophoneAccessResource.
 
 
@@ -15,14 +13,19 @@ Transcribes what you say aloud into text and passes the result to the next actio
 
 ### usage
 ```
-dictatetext undefined=NotImplemented stoplistening=("After Pause" | "After Short Pause" | "On Tap")
+dictatetext language=("string" | variable)] stoplistening=("After Pause" | "After Short Pause" | "On Tap")
 ```
 
 ### arguments
 
 ---
 
-#### This paramtype is not implemented. WFDictateTextLanguagePickerParameter
+### language: Language Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+**Allows Variables**: true
+
+
+
+		Accepts a string or variable containing the option. Check the shortcuts app for a list of available options. 
 
 ---
 
