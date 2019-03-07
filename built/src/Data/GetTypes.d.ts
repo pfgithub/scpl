@@ -4,7 +4,7 @@ declare type GetTypesData = {
         [Name in AggrandizementPropertyName]: {
             name: string;
             data?: string | number;
-        } | undefined;
+        };
     };
 };
 declare const data: GetTypesData;

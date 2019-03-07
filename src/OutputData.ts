@@ -53,7 +53,7 @@ WFRelativeDateFormatStyle?: WFRelativeDateFormatStyle;
 From Shortcuts-js
  */
  
-import {CoercionTypeClass, AggrandizementPropertyName, isAggrandizementPropertyName, isCoercionTypeClass} from "./WFTypes/Types";
+import {CoercionTypeClass, AggrandizementPropertyName, isAggrandizementPropertyName, isCoercionTypeClass, propertyNameMap} from "./WFTypes/Types";
  
 const coercionTypes: {[name: string]: CoercionTypeClass} = { // remove name:string and make it typed too
 	anything: "WFContentItem",
@@ -91,7 +91,7 @@ import getTypes from "./Data/GetTypes"; // resdata = {};console.dir( actionData.
 
 export class Aggrandizements {
 	coercionType?: CoercionTypeClass;
-	getProperty?: {name: string, data?: string};
+	getProperty?: {name: string, data?: string|number};
 	getForKey?: string
 	constructor() {
 		this.coercionType = undefined;
@@ -111,27 +111,28 @@ export class Aggrandizements {
 		}
 		return aggrandizements;
 	}
-	property(getType: string): string | undefined {
+	
+	setProperty(getType: string): string | void {
 		// if !this.coercionType throw error(to get a property must have coercion type. fix this by adding as:)
 		getType = getType.toLowerCase().replace(/[^A-Za-z]/g, "");
 		if(!this.coercionType) {return "To get a property of a variable, you must have a coercion type set. Fix this by adding `as:` to your aggrandizements dictionary.";}
-		if(!isAggrandizementPropertyName(getType)) {return "This is not a valid aggrandizement get type. Valid are: ???.";}
+		if(!isAggrandizementPropertyName(getType)) {return `${getType} is not a valid aggrandizement get type. Valid are: ${Object.keys(getTypes[this.coercionType])}.`;}
 		const typeValue = getTypes[this.coercionType][getType];
-		if(!typeValue) {return `\`${type}\` is not a valid coercion class. Valid are: ${Object.keys(getTypes).join(", ")}`;}
+		if(!typeValue) {return `${getType} is not a valid aggrandizement get type for this as. Valid are: ${Object.keys(getTypes[this.coercionType])}.`;}
+		this.getProperty = typeValue;
 	}
-	coerce(type: string) {// if gettype, error
+	setCoercionType(type: string): string | void {// if gettype, error
 		// if !coercion type exists throw error(coercion type does not exist)
 		type = type.toLowerCase().split(" ").join("");
 		const coercionClass = coercionTypes[type];
-		if(!coercionClass) {throw new Error(`\`${type}\` is not a valid coercion class. Valid are: ${Object.keys(coercionTypes).join(", ")}`);}
+		if(!coercionClass) {return (`\`${type}\` is not a valid as type. Valid are: ${Object.keys(coercionTypes).join(", ")}`);}
+		if(this.getProperty || this.getForKey) {return `Cannot change as type when get property/get for key is already set.`;}
 		this.coercionType = coercionClass;
 	}
-	forKey(key: string) {
+	setForKey(key: string): string | void {
 		// if !coercion type === dictionary throw error(coercion type must be dictionary)
-		this.aggrandizements.push({
-			DictionaryKey: key,
-			Type: "WFDictionaryValueVariableAggrandizement",
-		});
+		if(this.coercionType !== "WFDictionaryContentItem") {return `As type must be dictionary to use key. Fix this by adding as:Dictionary.`;}
+		this.getForKey = key;
 	}
 }
 

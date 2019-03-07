@@ -1,20 +1,22 @@
 
 ## Find Contacts / findcontacts (internally `is.workflow.actions.filter.contacts`)
 
+> This action is not yet complete. Some arguments may be missing.
+
 > This action requires that Shortcuts has permission to use WFContactAccessResource.
 
 
 
 ### usage
 ```
-findcontacts 
+findcontacts undefined=NotImplemented
 ```
 
 ### arguments
 
 ---
 
-
+#### Filter * actions are not implemented yet.
 
 ---
 

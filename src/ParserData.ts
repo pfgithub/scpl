@@ -454,10 +454,10 @@ export class VariableParse extends Parse implements AsStringVariable, AsNameType
 		if(!this.type.canBeString(cc)) {throw this.type.error(cc, "This variable must have a string type with no variables.");}
 		const name = this.name.asString(cc);
 		const type = this.type.asString(cc);
-		let aggrandizements: {[key: string]: string};
+		let aggrandizements: {[key: string]: AsAble};
 		if(this.options) {
-			if(!this.options.canBeRawDictionary(cc)) {throw this.options.error(cc, "The aggrandizements for this variable must be a dictionary with no variables.");}
-			aggrandizements = this.options.asRawDictionary(cc); // should be asRawKeyedDictionary and then use asstirng inside
+			if(!this.options.canBeRawKeyedDictionary(cc)) {throw this.options.error(cc, "The aggrandizements for this variable must be a dictionary with no variables in keys.");}
+			aggrandizements = this.options.asRawKeyedDictionary(cc); // should be asRawKeyedDictionary and then use asstirng inside
 		}else{
 			aggrandizements = {};
 		}
@@ -483,27 +483,32 @@ export class VariableParse extends Parse implements AsStringVariable, AsNameType
 			throw this.type.error(cc, `Variables must be either v: named variables, mv: magic variables, or s: special variables.`);
 		}
 		if(this.forkey) {
-			variable.aggrandizements.coerce("dictionary");
+			variable.aggrandizements.setCoercionType("dictionary");
 			if(!this.forkey.canBeString(cc)) {throw this.forkey.error(cc, "The forkey section of this variable must be a string with no variables.");}
-			variable.aggrandizements.forKey(this.forkey.asString(cc));
+			variable.aggrandizements.setForKey(this.forkey.asString(cc));
 		}
-		Object.keys(aggrandizements).forEach(key => {
-			const value = aggrandizements[key];
-			switch (key.toLowerCase()) {
-				case "key":
-				case "forkey":
-					variable.aggrandizements.forKey(value);
-					break;
-				case "as":
-				case "coerce":
-					variable.aggrandizements.coerce(value);
-					break;
-				case "get":
-				case "property":
-					variable.aggrandizements.property(value);
-					break;
-				default:
-					throw this.options.error(cc, `The aggrandizement ${key.toLowerCase()} has not been implemented yet or is invalid. Valid are \`key\`, \`as\`, or \`get\`]`);
+		["as", "coerce", "key", "forkey", "get", "property"].forEach(key => {
+			const valueA = aggrandizements[key];
+			if(!valueA) {return;} // skip
+			if(!valueA.canBeString(cc)) {throw valueA.error(cc, "Aggrandizements dictionary values must be strings");}
+			const value = valueA.asString(cc);
+			const shortKey = key.toLowerCase().replace(/[^a-z]/g, "");
+			if(shortKey === "key"
+			|| shortKey === "forkey") {
+				const result = variable.aggrandizements.setProperty(value);
+				if(typeof result === "string") {throw valueA.error(cc, result);}
+			}else if(shortKey === "as"
+			|| shortKey === "coerce") {
+				const result = variable.aggrandizements.setCoercionType(value);
+				if(typeof result === "string") {throw valueA.error(cc, result);}
+			}else if(shortKey === "get"
+			|| shortKey === "property") {
+				const result = variable.aggrandizements.setProperty(value);
+				if(typeof result === "string") {throw valueA.error(cc, result);}
+			}else{
+				// it would be better to throw at the key but asRawKyeedDictionary doesn't allow that
+				// throwing at the value has strange problems with @; parser variables where it throws in the wrong place
+				throw valueA.error(cc, `The aggrandizement ${key.toLowerCase()} has not been implemented yet or is invalid. Valid are \`key\`, \`as\`, or \`get\`]`);
 			}
 		});
 		return variable;

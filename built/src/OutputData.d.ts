@@ -4,7 +4,7 @@ export declare class Aggrandizements {
     coercionType?: CoercionTypeClass;
     getProperty?: {
         name: string;
-        data?: string;
+        data?: string | number;
     };
     getForKey?: string;
     constructor();
@@ -14,7 +14,7 @@ export declare class Aggrandizements {
         DictionaryKey?: undefined;
     } | {
         Type: string;
-        PropertyUserInfo: string;
+        PropertyUserInfo: string | number;
         PropertyName: string;
         CoercionItemClass?: undefined;
         DictionaryKey?: undefined;
@@ -28,9 +28,9 @@ export declare class Aggrandizements {
         Type: string;
         CoercionItemClass?: undefined;
     })[];
-    property(getType: string): string | undefined;
-    coerce(type: string): void;
-    forKey(key: string): void;
+    setProperty(getType: string): string | void;
+    setCoercionType(type: string): string | void;
+    setForKey(key: string): string | void;
 }
 export declare class Parameter {
     constructor();
@@ -58,7 +58,7 @@ export declare class Attachment extends Parameter {
             DictionaryKey?: undefined;
         } | {
             Type: string;
-            PropertyUserInfo: string;
+            PropertyUserInfo: string | number;
             PropertyName: string;
             CoercionItemClass?: undefined;
             DictionaryKey?: undefined;
@@ -79,7 +79,7 @@ export declare class Variable extends Attachment {
             DictionaryKey?: undefined;
         } | {
             Type: string;
-            PropertyUserInfo: string;
+            PropertyUserInfo: string | number;
             PropertyName: string;
             CoercionItemClass?: undefined;
             DictionaryKey?: undefined;
@@ -101,7 +101,7 @@ export declare class NamedVariable extends Variable {
             DictionaryKey?: undefined;
         } | {
             Type: string;
-            PropertyUserInfo: string;
+            PropertyUserInfo: string | number;
             PropertyName: string;
             CoercionItemClass?: undefined;
             DictionaryKey?: undefined;
@@ -126,7 +126,7 @@ export declare class MagicVariable extends Variable {
             DictionaryKey?: undefined;
         } | {
             Type: string;
-            PropertyUserInfo: string;
+            PropertyUserInfo: string | number;
             PropertyName: string;
             CoercionItemClass?: undefined;
             DictionaryKey?: undefined;

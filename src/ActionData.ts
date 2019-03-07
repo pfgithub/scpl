@@ -431,7 +431,8 @@ types.WFVariableFieldParameter = WFVariableFieldParameter;
 const _debugMissingTypes: {[key: string]: number} = {};
 const _debugTypes: {[key: string]: {paramClass: string, missing: boolean, count: number}} = {};
 
-import * as getTypes from "./Data/GetTypes.json";
+import getTypes from "./Data/GetTypes";
+import {isCoercionTypeClass} from "./WFTypes/Types";
 
 export class WFAction {
 	_data: any
@@ -479,12 +480,18 @@ export class WFAction {
 				return `This paramtype is not implemented. ${param.Class}`;
 			});
 		}
-		if(this._data.ActionClass === "WFContentItemPropertiesAction") { // get details of files and similar
-			this._parameters.push(new WFEnumerationParameter({
+		if(this._data.ActionClass === "WFContentItemPropertiesAction") { // TODO use a seperate Get Type Class instead of writing json for WFEnumerationParameter
+			const getTypeItemClass = this._data.WFContentItemClass;
+			if(!isCoercionTypeClass(getTypeItemClass)) {this._parameters.push(`Get Details Of ${getTypeItemClass} is not yet implemented.`); this.isComplete = false;}
+			else{this._parameters.push(new WFEnumerationParameter({
 				Key: "WFContentItemPropertyName",
-				Name: "Get Type",
-				Items: Object.values(getTypes).map(t => t.name),
-			}, "Get Property"));
+				Label: "Get",
+				Items: Object.values(getTypes[getTypeItemClass]).map(t => t.name),
+			}, "Get Property"));}
+		}
+		if(this._data.ActionClass === "WFContentItemFilterAction") {
+			this._parameters.push(`Filter * actions are not implemented yet.`);
+			this.isComplete = false;
 		}
 	}
 	get actionOutputType() {
