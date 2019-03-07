@@ -1,8 +1,6 @@
 
 ## Get Upcoming Reminders / getupcomingreminders (internally `is.workflow.actions.getupcomingreminders`)
 
-> This action is not yet complete. Some arguments may be missing.
-
 > This action requires that Shortcuts has permission to use WFReminderAccessResource.
 
 
@@ -15,14 +13,19 @@ Gets upcoming reminders, ordered from nearest to farthest away due date.
 
 ### usage
 ```
-getupcomingreminders undefined=NotImplemented wfgetupcomingitemcount=number
+getupcomingreminders list=("string" | variable)] wfgetupcomingitemcount=number
 ```
 
 ### arguments
 
 ---
 
-#### This paramtype is not implemented. WFCalendarPickerParameter
+### list: Calendar Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+**Allows Variables**: true
+
+
+
+		Accepts a string or variable with the name of the calendar.
 
 ---
 

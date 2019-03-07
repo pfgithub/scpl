@@ -142,9 +142,7 @@ class WFWorkflowPickerParameter extends WFParameter {
 	genDocs() {
 		return `${super.genDocs()}
 
-		Accepts a string ${this.allowsVariables ? `
-		or variable`: ""}
-		with the name of the shortcut to run.`;
+		Accepts a string or variable with the name of the shortcut to run.`;
 	}
 	build(cc: ConvertingContext, parse: AsAble) {
 		// asVariable may require additional actions to be inserted above this one.
@@ -160,6 +158,31 @@ class WFWorkflowPickerParameter extends WFParameter {
 	}
 }
 types.WFWorkflowPickerParameter = WFWorkflowPickerParameter;
+
+class WFCalendarPickerParameter extends WFParameter {
+	constructor(data: any, name = "Calendar Picker", docs: string = "https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields") {
+		super(data, name, docs);
+	}
+	genDocsArgName() {
+		return `("string" | variable)]`;
+	}
+	genDocs() {
+		return `${super.genDocs()}
+
+		Accepts a string or variable with the name of the calendar.`;
+	}
+	build(cc: ConvertingContext, parse: AsAble) {
+		if(parse.canBeVariable(cc)) {
+			const res = parse.asVariable(cc);
+			return res;
+		}else if(parse.canBeString(cc)) {
+			const res = parse.asString(cc);
+			return res;
+		}
+		throw parse.error(cc, "Calendar picker fields can only contain strings and variables.");
+	}
+}
+types.WFCalendarPickerParameter = WFCalendarPickerParameter;
 
 class WFNumberFieldParameter extends WFParameter {
 	constructor(data: any, name: string = "Number", docs: string = "https://pfgithub.github.io/shortcutslang/gettingstarted#number-field") {

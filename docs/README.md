@@ -10,13 +10,13 @@ Banner by ROP#2788 on the [routinehub.co](https://routinehub.co) discord server.
 
 [Try Shortcutslang in a web browser](https://pfgithub.github.io/shortcutslang/tryit.html)
 
-192/266 builtin actions supported
+196/266 builtin actions supported
 
 ## All Actions:
 
 - [Add Frame to GIF (`addframetogif`)](actions/addframetogif)
-- [Add New Event (`addnewevent`)](actions/addnewevent) (Incomplete)
-- [Add New Reminder (`addnewreminder`)](actions/addnewreminder) (Incomplete)
+- [Add New Event (`addnewevent`)](actions/addnewevent)
+- [Add New Reminder (`addnewreminder`)](actions/addnewreminder)
 - [Add Todoist Item (`addtodoistitem`)](actions/addtodoistitem) (Incomplete)
 - [Add Trello Card (`addtrellocard`)](actions/addtrellocard) (Incomplete)
 - [Add Wunderlist Task (`addwunderlisttask`)](actions/addwunderlisttask) (Incomplete)
@@ -159,8 +159,8 @@ Banner by ROP#2788 on the [routinehub.co](https://routinehub.co) discord server.
 - [Get Trello Items (`gettrelloitems`)](actions/gettrelloitems) (Incomplete)
 - [Get Type (`gettype`)](actions/gettype)
 - [Get URLs from Input (`geturlsfrominput`)](actions/geturlsfrominput)
-- [Get Upcoming Events (`getupcomingevents`)](actions/getupcomingevents) (Incomplete)
-- [Get Upcoming Reminders (`getupcomingreminders`)](actions/getupcomingreminders) (Incomplete)
+- [Get Upcoming Events (`getupcomingevents`)](actions/getupcomingevents)
+- [Get Upcoming Reminders (`getupcomingreminders`)](actions/getupcomingreminders)
 - [Get Variable (`getvariable`)](actions/getvariable)
 - [Get Weather Forecast (`getweatherforecast`)](actions/getweatherforecast)
 - [If (`if`)](actions/if)
@@ -344,7 +344,7 @@ Banner by ROP#2788 on the [routinehub.co](https://routinehub.co) discord server.
 - [ ] 3: WFHealthQuantityFieldParameter
 - [ ] 3: WFContactHandleFieldParameter
 - [ ] 3: WFTrelloBoardPickerParameter
-- [ ] 4: WFCalendarPickerParameter
+- [x] Complete - 4: WFCalendarPickerParameter
 - [x] Complete - 4: WFStorageServicePickerParameter
 - [x] Complete - 4: WFEmailAddressFieldParameter
 - [ ] 5: WFIntentAppPickerParameter

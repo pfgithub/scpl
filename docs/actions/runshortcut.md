@@ -34,9 +34,7 @@ runshortcut shortcut=("string" | variable)] showwhilerunning=(true | f alse | va
 
 
 
-		Accepts a string 
-		or variable
-		with the name of the shortcut to run.
+		Accepts a string or variable with the name of the shortcut to run.
 
 ---
 

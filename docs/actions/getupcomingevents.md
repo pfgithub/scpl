@@ -1,8 +1,6 @@
 
 ## Get Upcoming Events / getupcomingevents (internally `is.workflow.actions.getupcomingevents`)
 
-> This action is not yet complete. Some arguments may be missing.
-
 > This action requires that Shortcuts has permission to use WFCalendarAccessResource.
 
 
@@ -15,14 +13,19 @@ Gets upcoming calendar events, ordered from nearest to farthest away in time.
 
 ### usage
 ```
-getupcomingevents undefined=NotImplemented wfgetupcomingitemcount=number day=("Any Day" | "Today" | "Tomorrow" | "Specified Day") specifiedday="string"
+getupcomingevents calendar=("string" | variable)] wfgetupcomingitemcount=number day=("Any Day" | "Today" | "Tomorrow" | "Specified Day") specifiedday="string"
 ```
 
 ### arguments
 
 ---
 
-#### This paramtype is not implemented. WFCalendarPickerParameter
+### calendar: Calendar Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+**Allows Variables**: true
+
+
+
+		Accepts a string or variable with the name of the calendar.
 
 ---
 

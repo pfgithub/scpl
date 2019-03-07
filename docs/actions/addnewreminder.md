@@ -1,8 +1,6 @@
 
 ## Add New Reminder / addnewreminder (internally `is.workflow.actions.addnewreminder`)
 
-> This action is not yet complete. Some arguments may be missing.
-
 > This action requires that Shortcuts has permission to use WFReminderAccessResource.
 
 
@@ -19,7 +17,7 @@ The new reminder
 
 ### usage
 ```
-addnewreminder title="string" undefined=NotImplemented remindme=(true | false) remind=("At Time" | "At Location") wheni=("Enter" | "Leave") radius=number oflocation="string" alerttime="string" notes="string"
+addnewreminder title="string" list=("string" | variable)] remindme=(true | false) remind=("At Time" | "At Location") wheni=("Enter" | "Leave") radius=number oflocation="string" alerttime="string" notes="string"
 ```
 
 ### arguments
@@ -38,7 +36,12 @@ with the text.
 
 ---
 
-#### This paramtype is not implemented. WFCalendarPickerParameter
+### list: Calendar Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+**Allows Variables**: true
+
+
+
+		Accepts a string or variable with the name of the calendar.
 
 ---
 
