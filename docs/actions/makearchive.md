@@ -15,7 +15,7 @@ Archive
 
 ### usage
 ```
-makearchive archivename="string" format=("iCloud Drive" | "Dropbox")
+makearchive archivename="string" format=(".zip" | ".tar.gz" | ".tar.bz2" | ".tar.xz" | ".tar" | ".gz" | ".cpio" | ".iso")
 ```
 
 ### arguments
@@ -43,8 +43,14 @@ Accepts a string
 or variable
 containing one of the options:
 
-- `iCloud Drive`
-- `Dropbox`
+- `.zip`
+- `.tar.gz`
+- `.tar.bz2`
+- `.tar.xz`
+- `.tar`
+- `.gz`
+- `.cpio`
+- `.iso`
 
 ---
 

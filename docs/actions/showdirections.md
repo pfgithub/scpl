@@ -18,7 +18,7 @@ The destination address
 
 ### usage
 ```
-showdirections mapsapp=("iCloud Drive" | "Dropbox") mode=("string" | variable)]
+showdirections mapsapp=("Maps" | "Google Maps" | "Waze") mode=("string" | variable)]
 ```
 
 ### arguments
@@ -35,8 +35,9 @@ Accepts a string
 or variable
 containing one of the options:
 
-- `iCloud Drive`
-- `Dropbox`
+- `Maps`
+- `Google Maps`
+- `Waze`
 
 ---
 

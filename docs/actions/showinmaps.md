@@ -11,7 +11,7 @@ Opens your choice of Maps, Google Maps, or Waze and searches for the location, p
 
 ### usage
 ```
-showinmaps mapsapp=("iCloud Drive" | "Dropbox")
+showinmaps mapsapp=("Maps" | "Google Maps" | "Waze")
 ```
 
 ### arguments
@@ -28,8 +28,9 @@ Accepts a string
 or variable
 containing one of the options:
 
-- `iCloud Drive`
-- `Dropbox`
+- `Maps`
+- `Google Maps`
+- `Waze`
 
 ---
 

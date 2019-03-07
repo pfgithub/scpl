@@ -147,7 +147,7 @@ function addStaticEnum(internalName, visibleName, options) {
     types[internalName] = class extends WFEnumerationParameter {
         constructor(data, name = visibleName, docs = "https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field") {
             super(data, name, docs);
-            this.options = ["iCloud Drive", "Dropbox"];
+            this.options = options;
             this.allowsVariables = true;
         }
     };

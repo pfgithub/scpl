@@ -11,7 +11,7 @@ Gets information about the currently connected networks.
 
 ### usage
 ```
-getnetworkdetails network=("iCloud Drive" | "Dropbox") get=("Network Name" | "BSSID") get2=("Carrier Name" | "Radio Technology" | "Country Code")
+getnetworkdetails network=("Wi-Fi" | "Cellular") get=("Network Name" | "BSSID") get2=("Carrier Name" | "Radio Technology" | "Country Code")
 ```
 
 ### arguments
@@ -27,8 +27,8 @@ Accepts a string
 or variable
 containing one of the options:
 
-- `iCloud Drive`
-- `Dropbox`
+- `Wi-Fi`
+- `Cellular`
 
 ---
 
