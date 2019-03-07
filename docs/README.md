@@ -361,4 +361,3 @@ Banner by ROP#2788 on the [routinehub.co](https://routinehub.co) discord server.
 - [x] Complete - 87: WFEnumerationParameter
 - [x] Complete - 112: WFTextInputParameter
 
-.
