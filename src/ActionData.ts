@@ -78,6 +78,7 @@ class WFParameter {
 }
 
 const types: {[key: string]: any } = {};
+types.WFParameter = WFParameter;
 
 class WFEnumerationParameter extends WFParameter {
 	options: Array<string>
@@ -790,6 +791,7 @@ export function getActionFromName(name: string): WFAction | undefined {
 	return actionsByName[name];
 }
 export const allActions = Object.values(actionsByID);
+export const WFTypes = types;
 
 // let getValueForKeyAction = new WFAction(actionList[0]["is.workflow.actions.getvalueforkey"], "is.workflow.acitons.getvalueforkey");
 // console.log(

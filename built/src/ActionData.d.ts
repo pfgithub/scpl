@@ -55,4 +55,7 @@ export declare function genReadme(): string;
 export declare function getActionFromID(id: string): WFAction;
 export declare function getActionFromName(name: string): WFAction | undefined;
 export declare const allActions: WFAction[];
+export declare const WFTypes: {
+    [key: string]: any;
+};
 export {};
