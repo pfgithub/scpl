@@ -8,7 +8,7 @@ const messageArea = document.getElementById("messageArea");
 const outputArea = document.getElementById("outputArea");
 //@ts-ignore
 const editor = ace.edit("editor");
-const Range = ace.require("ace/range").Range;
+const Range = ace.require("ace/range").Range; //eslint-disable-line
 editor.setTheme("ace/theme/ambiance");
 editor.session.setMode("ace/mode/scpl");
 // inputArea should keep its text from the browser
@@ -28,7 +28,6 @@ editor.getSession().on("change", () => {
     }
     timeout = setTimeout(convert, 200);
 });
-console.log("Code loaded");
 function downloadBlob(data, fileName, mimeType) {
     const blob = new Blob([data], {
         type: mimeType
@@ -56,18 +55,15 @@ function convert() {
     outputArea.value = "Loading...";
     textMarks.forEach(mark => editor.getSession().removeMarker(mark));
     textMarks = [];
-    console.log("Converting...");
     const started = (new Date).getTime();
     let output;
     try {
-        output = index_1.parse(`${editor.getValue()}\n`, { makePlist: true });
+        output = index_1.parse(`${editor.getValue()}\n`, { make: ["shortcutjson", "shortcutplist"] });
     }
     catch (er) {
-        console.log(er);
         if (!(er instanceof ParserData_1.PositionedError)) {
             throw new Error("Not positioned");
         }
-        console.log("Setting annotation at ");
         // new
         // ace.require("ace/range").range;
         editor.getSession().setAnnotations([{
@@ -81,10 +77,10 @@ function convert() {
         outputArea.value = er.message;
         return;
     }
-    const buffer = output;
+    const buffer = output.shortcutplist;
     bufferToDownload = buffer;
     messageArea.value = `Success in ${(new Date).getTime() - started}ms`;
-    outputArea.value = "Success";
+    outputArea.value = JSON.stringify(output.shortcutjson, null, "\t");
     // TODO (https://github.com/pine/arraybuffer-loader)
 }
 downloadShortcutBtn.addEventListener("click", () => {

@@ -27,6 +27,20 @@ function parse(string, options) {
         }
         throw new ParserData_1.PositionedError(`Unknown location in error: ${er.message}`, [1, 1], [100, 1]);
     }
+    if (options.make) {
+        const data = shortcut.build();
+        const output = {};
+        if (options.make.indexOf("outputdata") > -1) {
+            output.outputdata = shortcut;
+        }
+        if (options.make.indexOf("shortcutjson") > -1) {
+            output.shortcutjson = data;
+        }
+        if (options.make.indexOf("shortcutplist") > -1) {
+            output.shortcutplist = bplistc(data);
+        }
+        return output;
+    }
     if (options.makePlist) {
         return bplistc(shortcut.build());
     }

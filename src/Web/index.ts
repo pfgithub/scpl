@@ -10,7 +10,7 @@ const messageArea = <HTMLTextAreaElement>document.getElementById("messageArea");
 const outputArea = <HTMLTextAreaElement>document.getElementById("outputArea");
 
 //@ts-ignore
-const editor = ace.edit("editor"); const Range = ace.require("ace/range").Range;
+const editor = ace.edit("editor"); const Range = ace.require("ace/range").Range; //eslint-disable-line
 editor.setTheme("ace/theme/ambiance");
 editor.session.setMode("ace/mode/scpl");
 
@@ -37,8 +37,6 @@ editor.getSession().on("change", () => {
 	}
 	timeout = setTimeout(convert, 200);
 });
-
-console.log("Code loaded");
 
 
 function downloadBlob(data: string | Buffer | ArrayBufferView | ArrayBuffer | Blob, fileName: string, mimeType: string) {
@@ -74,16 +72,12 @@ function convert() {
 	textMarks.forEach(mark => editor.getSession().removeMarker(mark));
 	textMarks = [];
 
-	console.log("Converting...");
-
 	const started = (new Date).getTime();
-	let output;
+	let output: {shortcutjson: any, shortcutplist: Buffer};
 	try {
-		output = parse(`${editor.getValue()  }\n`, { makePlist: true });
+		output = parse(`${editor.getValue()  }\n`, { make: ["shortcutjson", "shortcutplist"] });
 	} catch (er) {
-		console.log(er);
 		if(!(er instanceof PositionedError)) {throw new Error("Not positioned");}
-		console.log("Setting annotation at ");
 		// new
 		// ace.require("ace/range").range;
 		editor.getSession().setAnnotations([{
@@ -98,10 +92,10 @@ function convert() {
 		return;
 	}
 
-	const buffer = output;
+	const buffer = output.shortcutplist;
 	bufferToDownload = buffer;
 	messageArea.value = `Success in ${(new Date).getTime() - started}ms`;
-	outputArea.value = "Success";
+	outputArea.value = JSON.stringify(output.shortcutjson, null, "\t");
 	// TODO (https://github.com/pine/arraybuffer-loader)
 }
 
