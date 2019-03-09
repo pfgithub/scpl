@@ -400,7 +400,7 @@ export class ActionParse extends Parse implements AsText, AsVariable, AsAction {
 				cc.add(setVariable(name));
 				cc.setNamedVariable(name);
 			}else if(type === "mv") {
-				action.magicvarname = `${type}:${name}`;
+				action.magicvarname = name;
 				cc.setMagicVariable(name, action);
 			}
 		}
