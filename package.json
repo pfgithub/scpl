@@ -9,7 +9,8 @@
 		"url": "https://github.com/pfgithub/shortcutslang"
 	},
 	"scripts": {
-		"docs": "tsc && node ./built/src/GenDocs && webpack"
+		"docs": "tsc && node ./built/src/GenDocs && webpack",
+		"test": "tsc && ava ./built/test/index.js"
 	},
 	"author": {
 		"name": "pfg",
@@ -17,18 +18,20 @@
 		"url": "https://pfgithub.github.io/"
 	},
 	"bin": {
-		"scpl": "./bin/scpl.js"
+		"scpl": "./built/bin/scpl.js"
 	},
 	"repository": "github:pfgithub/shortcutslang",
 	"man": "./man/scpl.1",
 	"files": [
 		"/man",
-		"/built",
-		"/bin"
+		"/built/index.js",
+		"/built/src",
+		"/built/bin"
 	],
 	"dependencies": {
 		"@types/node": "^11.9.5",
 		"@types/uuid": "^3.4.4",
+		"@types/yargs": "^12.0.9",
 		"bplist-creator": "^0.0.7",
 		"bplist-parser": "^0.1.1",
 		"chalk": "^2.4.2",
@@ -41,10 +44,11 @@
 		"@types/codemirror": "^0.0.72",
 		"@typescript-eslint/eslint-plugin": "^1.4.2",
 		"@typescript-eslint/parser": "^1.4.2",
+		"ava": "^1.3.1",
+		"ava-ts": "^0.25.2",
 		"eslint": "^5.14.1",
-		"mocha": "^5.2.0",
-		"nyc": "^13.1.0",
 		"raw-loader": "^1.0.0",
+		"ts-node": "^8.0.3",
 		"typescript": "^3.3.3333",
 		"webpack": "^4.29.5",
 		"webpack-cli": "^3.2.3"

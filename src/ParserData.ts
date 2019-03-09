@@ -449,7 +449,7 @@ export class VariableParse extends Parse implements AsStringVariable, AsNameType
 	canBeVariable(_cc: ConvertingContext): boolean {return true;}
 	asVariable(cc: ConvertingContext) { //Converts this v:variable to a variable
 		let variable: Attachment;
-		
+
 		if(!this.name.canBeString(cc)) {throw this.name.error(cc, "This variable must have a string name with no variables.");}
 		if(!this.type.canBeString(cc)) {throw this.type.error(cc, "This variable must have a string type with no variables.");}
 		const name = this.name.asString(cc);
@@ -495,7 +495,7 @@ export class VariableParse extends Parse implements AsStringVariable, AsNameType
 			const shortKey = key.toLowerCase().replace(/[^a-z]/g, "");
 			if(shortKey === "key"
 			|| shortKey === "forkey") {
-				const result = variable.aggrandizements.setProperty(value);
+				const result = variable.aggrandizements.setForKey(value);
 				if(typeof result === "string") {throw valueA.error(cc, result);}
 			}else if(shortKey === "as"
 			|| shortKey === "coerce") {

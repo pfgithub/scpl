@@ -71,6 +71,7 @@ class WFParameter {
     }
 }
 const types = {};
+types.WFParameter = WFParameter;
 class WFEnumerationParameter extends WFParameter {
     constructor(data, name = "Enumeration", docs = "https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field") {
         super(data, name, docs);
@@ -800,6 +801,7 @@ function getActionFromName(name) {
 }
 exports.getActionFromName = getActionFromName;
 exports.allActions = Object.values(actionsByID);
+exports.WFTypes = types;
 // let getValueForKeyAction = new WFAction(actionList[0]["is.workflow.actions.getvalueforkey"], "is.workflow.acitons.getvalueforkey");
 // console.log(
 // 	getValueForKeyAction.build(
