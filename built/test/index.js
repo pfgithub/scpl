@@ -4,6 +4,7 @@ const ava_1 = require("ava");
 const ActionData_1 = require("../src/ActionData");
 const ParserData_1 = require("../src/ParserData");
 const Converter_1 = require("../src/Converter");
+const index_1 = require("../index");
 function noUUID(obj) {
     const uuids = [];
     return JSON.parse(JSON.stringify(obj, (key, value) => {
@@ -37,4 +38,21 @@ ava_1.default("text field", t => {
             }
         }
     ]);
+});
+ava_1.default("parsing things", t => {
+    const output = index_1.parse(`text "test"`, { makePlist: false });
+    const [scdata] = output.build();
+    const actions = scdata.WFWorkflowActions;
+    t.deepEqual(noUUID(actions), [
+        {
+            WFWorkflowActionIdentifier: "is.workflow.actions.gettext",
+            WFWorkflowActionParameters: {
+                UUID: "<uuid1>",
+                WFTextActionText: "test"
+            }
+        }
+    ]);
+});
+ava_1.default("lists cannot be used as strings", t => {
+    t.throws(() => index_1.parse(`text [list]`, { makePlist: false }));
 });

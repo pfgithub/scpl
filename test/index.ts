@@ -2,6 +2,7 @@ import test from "ava";
 import {getActionFromName, WFTypes} from "../src/ActionData";
 import {AsAble, IdentifierParse} from "../src/ParserData";
 import {ConvertingContext} from "../src/Converter";
+import { parse } from "../index";
 
 function noUUID(obj: any) {
 	const uuids: string[] = [];
@@ -35,4 +36,23 @@ test("text field", t => {
 			}
 		}
 	]);
+});
+
+test("parsing things", t => {
+	const output = parse(`text "test"`, {makePlist: false});
+	const [scdata] = output.build();
+	const actions = scdata.WFWorkflowActions;
+	t.deepEqual(noUUID(actions), [
+		{
+			WFWorkflowActionIdentifier: "is.workflow.actions.gettext",
+			WFWorkflowActionParameters: {
+				UUID: "<uuid1>",
+				WFTextActionText: "test"
+			}
+		}
+	]);
+});
+
+test("lists cannot be used as strings", t => {
+	t.throws(() => parse(`text [list]`, {makePlist: false}));
 });
