@@ -590,7 +590,7 @@ class ActionsParse extends Parse {
         }
         this.asAction(cc);
         if (cc.controlFlowStack.length !== 0) {
-            throw new Error(`There are ${cc.controlFlowStack.length} unended block actions. Check to make sure that every block has an end.`);
+            throw this.error(cc, `There are ${cc.controlFlowStack.length} unended block actions. Check to make sure that every block has an end.`);
         }
         return cc.shortcut;
     }
