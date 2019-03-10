@@ -1,0 +1,627 @@
+// sample shortcut to make sure it parses
+
+Comment
+| Made by pfg
+| https://routinehub.co/user/pfg
+| /u/pfg___
+| pfg#4865
+| " quote ' quote
+
+GetDictionaryFromInput
+SetVariable Input
+
+Text "Icon List V2" -> v:ThisShortcut
+
+createfolder service="iCloud Drive" "/IconListV2"
+createfolder service="iCloud Drive" "/IconListV2/MyLists"
+
+Dictionary{
+    name=v:ThisShortcut
+    version="0.1.0"
+} -> mv:CFUDictionary
+getfile "iCloud Drive" false 'AutoUpdateData.json' false
+SetDictionaryValue "2140" mv:CFUDictionary
+savefile "iCloud Drive" false "AutoUpdateData.json" true
+
+/*
+// Usage: Escape "text"
+@defmacro Escape @:text{type:text}
+    runShortcut v:ThisShortcut false ^(Dictionary{ action: Escape, text: "\(@:text)" })
+@defend
+*/
+
+GetVariable v:Input:action
+
+@set Escape (runShortcut v:ThisShortcut false ^(Dictionary{ action: Escape, text: @:text }))
+// @:Escape{text:hi}
+-- ————————————————————-----
+-- escapes a string for use in a vcard
+if Equals "Escape"
+    GetVariable v:Input:text
+    replacetext "\\" '\\\\'
+    replacetext (Text "\n") " "
+    replacetext ";" "\\;"
+    exitShortcut
+otherwise
+end --[ comment test --]
+
+@set CreateCard (runShortcut v:ThisShortcut false ^(Dictionary{ action: CreateCard, carddata: @:carddata }))
+// runShortcut v:ThisShortcut false ^(Dictionary{ action: CreateCard, carddata: {name, description, note, photo?} })
+// ————————————————————-----
+// creates a text out of a dictionary containing card data
+if Equals "CreateCard" 
+    getVariable v:Input:carddata -> v:CardData
+
+    if ^(Count "Characters" ^(v:CardData:photo)) "Equals" 1
+        text ""
+    otherwise
+        text "PHOTO;ENCODING=b:\(v:CardData:photo)"
+    end -> mv:Photo
+
+    if ^(Count "Characters" ^(v:CardData:name)) "Equals" 0
+        text "No Title"
+    otherwise
+        getVariable v:CardData:name
+    end -> mv:Name
+
+    text -> mv:Result
+    | BEGIN:VCARD
+    | VERSION:3.0
+    | N;CHARSET=utf-8:\(@:Escape{text: mv:Name});;;
+    | ORG;CHARSET=utf-8:\(@:Escape{text: v:CardData:description})
+    | NOTE;CHARSET=utf-8:\(@:Escape{text: v:CardData:note})
+    | \(mv:Photo)
+    | END:VCARD
+
+    // return as text
+    exitShortcut ^(mv:Result)
+otherwise
+end
+
+@set AsContact (runShortcut v:ThisShortcut false ^(Dictionary{ action: AsContact, vcard: @:vcard })) // could be vcard: sv:ActionInput and then you could call it like Text "hi"; @:AsContact
+// runShortcut v:ThisShortcut false ^(Dictionary{ action: AsContact, vcard: "<vCard Text Here>" }) 
+// ————————————————————-----
+// converts a given vcard string to a contact
+if Equals "AsContact"
+    getVariable v:Input:vcard
+    setName "a.vcf" -> mv:vCard
+    exitShortcut ^(mv:vCard{as:Contact})
+otherwise
+end
+
+@set ChoosePhoto (runShortcut v:ThisShortcut false ^(Dictionary{ action: ChoosePhoto }))
+// runShortcut v:ThisShortcut false ^(Dictionary{ action: ChoosePhoto }) 
+// ————————————————————-----
+// prompts to select a photo
+if Equals "ChoosePhoto"
+    selectphotos selectmultiple=false -> mv:SelectedPhoto
+
+    // resize to 123x123 (@3x)
+    resizeimage width=123 -> v:Image
+    getVariable v:Image{as:Image,get:Height}
+    
+    if "Is Greater Than" 123
+        getVariable ^(v:Image) -> v:FilledImage
+        resizeimage ^(mv:SelectedPhoto) width="" height=123 -> v:Image
+    otherwise
+        resizeimage ^(mv:SelectedPhoto) width="" height=123 -> v:FilledImage
+    end
+    
+    // place on top of a transparent image to make a 123x123
+    Text "R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAICTAEAOw=="
+    base64encode mode="Decode"
+    resizeimage width=123 height=123 -> mv:TransparentImage
+
+    overlayimage ^(mv:TransparentImage) v:Image showimageeditor=false position="Center" -> v:Image
+    overlayimage ^(mv:TransparentImage) v:Image showimageeditor=false position="Center" width=87 height=87 -> v:FitImage
+    overlayimage ^(mv:TransparentImage) v:FilledImage showimageeditor=false position="Center" -> v:FilledImage
+    
+    base64encode ^(v:Image) mode="Encode" linebreaks="None" -> v:Image
+    base64encode ^(v:FitImage) mode="Encode" linebreaks="None" -> v:FitImage
+    base64encode ^(v:FilledImage) mode="Encode" linebreaks="None" -> v:FilledImage
+    
+
+    // show both and pick which to use
+    text -> v:vCard
+    | BEGIN:VCARD\nVERSION:3.0\nPHOTO;ENCODING=b:\(v:FilledImage)\nNOTE;CHARSET=utf-8:filledImage\nN;CHARSET=utf-8:Fill Circle;;;\nEND:VCARD
+    | BEGIN:VCARD\nVERSION:3.0\nPHOTO;ENCODING=b:\(v:Image)\nNOTE;CHARSET=utf-8:standardImage\nN;CHARSET=utf-8:Original Size;;;\nEND:VCARD
+    | BEGIN:VCARD\nVERSION:3.0\nPHOTO;ENCODING=b:\(v:FitImage)\nNOTE;CHARSET=utf-8:fitImage\nN;CHARSET=utf-8:Fit in Circle;;;\nEND:VCARD
+    | BEGIN:VCARD\nVERSION:3.0\nNOTE;CHARSET=utf-8:noImage\nN;CHARSET=utf-8:No Image;;;\nEND:VCARD
+    | BEGIN:VCARD\nVERSION:3.0\nNOTE;CHARSET=utf-8:differentPhoto\nN;CHARSET=utf-8:Choose Different Photo;;;\nEND:VCARD
+    
+    @:AsContact{vcard:vCard}
+    chooseFromList -> mv:ChosenItem
+
+    getVariable mv:ChosenItem{as:Contact,get:Notes}
+
+    if Equals "filledImage"; getVariable v:FilledImage; otherwise; end
+    if Equals "standardImage"; getVariable v:Image; otherwise; end
+    if Equals "fitImage"; getVariable v:FitImage; otherwise; end
+    if Equals "noImage"; text " "; otherwise; end
+    if Equals "differentPhoto"; runShortcut v:ThisShortcut false ^(Dictionary{ action: ChoosePhoto }); otherwise; end
+
+    exitShortcut
+otherwise
+end
+
+@set EditItem (runShortcut v:ThisShortcut false ^(Dictionary{ action: EditItem, carddata: @:carddata }))
+// runShortcut v:ThisShortcut false ^(Dictionary{ action: EditItem, carddata: {name, description, note, photo} }) 
+// ————————————————————-----
+// edits a given item
+if Equals "EditItem"
+
+    getVariable v:Input:carddata -> v:CardData
+
+    nothing -> v:ActionList
+    
+    // 
+    text -> mv:vCard
+    | \(@:CreateCard{carddata: v:CardData})
+    | BEGIN:VCARD\nVERSION:3.0\nN;CHARSET=utf-8:—————;;;\nEND:VCARD
+    | BEGIN:VCARD\nVERSION:3.0\nNOTE;CHARSET=utf-8:setIcon\nN;CHARSET=utf-8:Icon;;;\nEND:VCARD
+    | BEGIN:VCARD\nVERSION:3.0\nNOTE;CHARSET=utf-8:setName\nN;CHARSET=utf-8:Title;;;\nORG;CHARSET=utf-8:\(@:Escape{text: v:CardData:name})\nEND:VCARD
+    | BEGIN:VCARD\nVERSION:3.0\nNOTE;CHARSET=utf-8:setDescription\nN;CHARSET=utf-8:Description;;;\nORG;CHARSET=utf-8:\(@:Escape{text: v:CardData:description})\nEND:VCARD
+    | BEGIN:VCARD\nVERSION:3.0\nNOTE;CHARSET=utf-8:setNote\nN;CHARSET=utf-8:Note (Hidden);;;\nORG;CHARSET=utf-8:\(@:Escape{text: v:CardData:note})\nEND:VCARD
+    | BEGIN:VCARD\nVERSION:3.0\nN;CHARSET=utf-8:—————;;;\nEND:VCARD
+    | BEGIN:VCARD\nVERSION:3.0\nNOTE;CHARSET=utf-8:doneEditing\nN;CHARSET=utf-8:Save;;;\nEND:VCARD
+
+    @:AsContact{vcard: mv:vCard}
+
+    chooseFromList -> mv:ChosenItem
+
+    getVariable mv:ChosenItem{as:Contact,get:Notes} -> mv:Notes
+
+    if Equals "setIcon"
+        v:CardData = setDictionaryValue ^(v:CardData) "photo" (@:ChoosePhoto)
+
+        nothing
+    otherwise
+    end
+    
+
+    if Equals "setName"
+        askforinput question="New Name" defaultanswer=v:CardData:name -> mv:NewValue
+        v:CardData = setDictionaryValue ^(v:CardData) "name" mv:NewValue
+
+        nothing
+    otherwise
+    end
+
+    if Equals "setDescription"
+        askforinput question="New Description" defaultanswer=v:CardData:description -> mv:NewValue
+        v:CardData = setDictionaryValue ^(v:CardData) "description" mv:NewValue
+        
+        nothing
+    otherwise
+    end
+
+    if Equals "setNote"
+        askforinput question="New Note" defaultanswer=v:CardData:note -> mv:NewValue
+        v:CardData = setDictionaryValue ^(v:CardData) "note" mv:NewValue
+        
+        nothing
+    otherwise
+    end
+
+    if Equals "doneEditing"
+        exitShortcut ^(v:CardData)
+    otherwise
+    end
+
+    @:EditItem{carddata: v:CardData}
+    exitShortcut
+otherwise
+end
+
+@set NewItem (runShortcut v:ThisShortcut false ^(Dictionary{ action: EditItem, carddata: {name: "", description: "", note: "", photo: " "} }))
+// ————————————————————-----
+// creates a new list item and starts editing it
+
+
+
+@set RemoveItemAtIndex @{
+    Dictionary{ action: RemoveItemAtIndex, list: [], index: @:index }
+    setDictionaryValue list @:list // not needed here but for other shortcuts, count items if equals 0 don't do this end
+    runshortcut v:ThisShortcut false
+}
+// Dictionary{ action: RemoveItemAtIndex, list: [], index: num }
+// setDictionaryValue list [...items]
+// runShortcut v:ThisShortcut false
+// ————————————————————-----
+// removes a specified item from a given list
+if Equals "RemoveItemAtIndex"
+    getVariable v:Input:index -> v:Index
+    getVariable v:Input:list -> v:List
+    count Items -> v:Length
+
+    // If the list has one item, return an empty list
+    if ^(v:Length) Equals 1
+        list []
+        exitShortcut
+    otherwise
+    end
+
+    // If the index is 1, return 2..
+    if ^(v:Index) Equals 1
+        getitemfromlist ^(v:List) get="Items in Range" 2 v:Length
+        exitShortcut
+    otherwise
+    end
+
+    // If the index is equal to the length, return 1..length-1
+    if ^(v:Index) Equals v:Length
+        getitemfromlist ^(v:List) get="Items in Range" 1 (Calculate ^(v:Length) "-" 1)
+        exitShortcut
+    otherwise
+    end
+
+    // Otherwise get items 1..Index-1 and get items Index+1..Length
+
+    getitemfromlist ^(v:List) get="Items in Range" 1 (Calculate ^(v:Index) "-" 1)
+    setVariable v:ResList
+    getitemfromlist ^(v:List) get="Items in Range" (Calculate ^(v:Index) "+" 1) v:Length
+    addToVariable v:ResList
+
+    exitShortcut
+otherwise
+end
+
+
+@set AddItemAtIndex @{
+    Dictionary{ action: AddItemAtIndex, list: [], item: @:item, index: @:index }
+    setDictionaryValue list @:list // not needed here but for other shortcuts, count items if equals 0 don't do this end
+    runshortcut v:ThisShortcut false
+}
+// Dictionary{ action: AddItemAtIndex, list: [], item: any, index: num }
+// setDictionaryValue list [...items]
+// runShortcut v:ThisShortcut false
+// ————————————————————-----
+// inserts a specified item at a specified index of a specified list
+if Equals "AddItemAtIndex"
+    getVariable v:Input:index -> v:Index
+    getVariable v:Input:item -> v:ItemToAdd
+    getVariable v:Input:list -> v:List
+    count Items -> v:Length
+
+    // If the list has zero items, return a list with the item
+    if ^(v:Length) Equals 0
+        getVariable v:ItemToAdd
+        exitShortcut
+    otherwise
+    end
+
+    // If the index is 1, return a list with the item and the list
+    if ^(v:Index) Equals 1
+        getVariable v:ItemToAdd
+        setVariable v:ResList
+        getVariable v:List
+        addToVariable v:ResList
+        
+        exitShortcut
+    otherwise
+    end
+
+    // If the index is 1, return a list with the list and the item
+    if ^(v:Index) Equals (Calculate ^(v:Length) "+" 1)
+        getVariable v:List
+        setVariable v:ResList
+        getVariable v:ItemToAdd
+        addToVariable v:ResList
+        
+        exitShortcut
+    otherwise
+    end
+
+    // Otherwise, get items 1..index-1 and index..end and add the item in the middle
+    getitemfromlist ^(v:List) get="Items in Range" 1 (Calculate ^(v:Index) "-" 1)
+    setVariable v:ResList
+
+    getVariable v:ItemToAdd
+    addToVariable v:ResList
+
+    getitemfromlist ^(v:List) get="Items in Range" v:Index v:Length
+    addToVariable v:ResList
+
+    exitShortcut
+otherwise
+end
+
+@set QuickAdd (runShortcut v:ThisShortcut false ^(Dictionary{ action: QuickAdd }))
+// runShortcut v:ThisShortcut false ^(Dictionary{ action: QuickAdd })
+// ————————————————————-----
+// starts QuickAdd to quickly add a list of items
+if Equals "QuickAdd"
+    showResult
+    | QuickAdd lets you quickly add a list of items with titles, note values, and descriptions all at once.
+    |
+    | Items should be added as 'Item Title/Note Value/Description'
+    
+
+    choosefrommenu "Use QuickAdd?"
+    | Start QuickAdd
+    | Don't
+    case "start"
+    case "don't"
+        nothing
+        exitShortcut
+    end
+    
+    List ["Title/Note/Description\(s:askwhenrun)"]
+    repeatWithEach
+        if Equals "Title/Note/Description"
+            nothing
+        otherwise
+
+            splittext separator="Custom" custom="/" -> v:TitleNoteDescription
+
+            List ["", "", ""]
+            addToVariable v:TitleNoteDescription // To prevent out of range errors
+
+            getitemfromlist ^(v:TitleNoteDescription) "Item At Index" 1 -> mv:Title
+            getitemfromlist ^(v:TitleNoteDescription) "Item At Index" 2 -> mv:Note
+            getitemfromlist ^(v:TitleNoteDescription) "Item At Index" 3 -> mv:Description
+            
+            Dictionary{
+                name: mv:Title
+                note: mv:Note
+                description: mv:Description
+                photo: " "
+            }
+        end if
+    end
+    
+    exitShortcut
+otherwise
+end
+
+
+@set FindUnusedFilename (runShortcut v:ThisShortcut false ^(Dictionary{ action: FindUnusedFilename }))
+// runShortcut v:ThisShortcut false ^(Dictionary{ action: FindUnusedFilename })
+// ————————————————————-----
+// asks for a name
+if Equals "FindUnusedFilename"
+
+    askForInput "Pick a name for this list" -> mv:Filename
+    
+    getFile "iCloud Drive" false "/IconListV2/MyLists/\(mv:Filename).iconlist2" false
+    count Items
+
+    if Equals 0
+        getVariable mv:Filename
+        exitShortcut
+    otherwise
+        showResult "The filename \(mv:Filename) is already taken"
+    end
+
+    @:FindUnusedFilename
+
+    exitShortcut
+otherwise
+end
+
+// to move an item, repeat over each item of the list adding an item before it with "Add here" and note index
+
+@set EditList @{
+    Dictionary{ action: EditList, items: [], filename: @:filename }
+    setDictionaryValue items @:items // not needed here but for other shortcuts, count items if equals 0 don't do this end
+    runshortcut v:ThisShortcut false
+}
+// Dictionary{ action: EditList, items: [], filename: string||"" }
+// setDictionaryValue items [...items]
+// runShortcut v:ThisShortcut false
+// ————————————————————-----
+// edits a given list of items
+// remember, to pass a list into a dictionary you need to create a dictionary with no list and set dictionary value
+if Equals "EditList"
+
+    getVariable v:Input:items -> v:Items
+    getVariable v:Input:filename -> v:Filename
+
+    if ^(count ^(v:Filename) Characters) Equals 0
+        text -> v:SaveItem
+        | BEGIN:VCARD\nVERSION:3.0\nNOTE;CHARSET=utf-8:saveList\nN;CHARSET=utf-8:! Save List;;;\nORG;CHARSET=utf-8:This list is not saved and may be lost.\nEND:VCARD
+
+        text "⚠️ This list is not saved." -> v:StatusText
+    otherwise
+        // save the file
+        dictionary{list = []}
+        setDictionaryValue list v:Items // Saves the file as {list: [...items]}
+        setName "\(v:Filename).iconlist2" advanced=true true
+        // why do you have to "don't include extension" to include extension? because you do.
+        savefile a{
+          service="iCloud Drive",
+          askwheretosave=false,
+          destinationpath="/IconListV2/MyLists/\(v:Filename).iconlist2",
+          overwriteiffileexists=true
+        }
+        
+        text "✅ This list is saved to `IconListV2/MyLists/\(v:Filename)`" -> v:StatusText
+        text -> v:SaveItem
+        | BEGIN:VCARD\nVERSION:3.0\nNOTE;CHARSET=utf-8:saveList\nN;CHARSET=utf-8:Save As;;;\nEND:VCARD
+    end
+
+    repeatWithEach ^(v:Items)
+
+        if Equals "_blank_" // to make sure there is always at least one item in the list
+
+            nothing
+        otherwise
+
+            getVariable v:'Repeat Item'
+            setdictionaryvalue key="note" value=(v:"Repeat Index") -> mv:CardData
+            @:CreateCard{carddata: mv:CardData}
+
+        end
+        
+    end repeat
+
+    combinetext separator="New Lines" -> mv:CurrentListvCard
+
+    text -> mv:vCard
+    | \(mv:CurrentListvCard)
+    | BEGIN:VCARD\nVERSION:3.0\nN;CHARSET=utf-8:—————;;;\nEND:VCARD
+    | BEGIN:VCARD\nVERSION:3.0\nNOTE;CHARSET=utf-8:addItem\nN;CHARSET=utf-8:+ Add Item;;;\nEND:VCARD
+    | BEGIN:VCARD\nVERSION:3.0\nNOTE;CHARSET=utf-8:quickAdd\nN;CHARSET=utf-8:QuickAdd;;;\nEND:VCARD
+    | BEGIN:VCARD\nVERSION:3.0\nN;CHARSET=utf-8:—————;;;\nEND:VCARD
+    | \(v:SaveItem)
+    | BEGIN:VCARD\nVERSION:3.0\nNOTE;CHARSET=utf-8:copyToClipboard\nN;CHARSET=utf-8:Export List;;;\nEND:VCARD
+
+    @:AsContact{vcard: mv:vCard}
+    
+    chooseFromList v:StatusText -> mv:ChosenItem
+    getVariable mv:ChosenItem{as:Contact, get:Notes} -> mv:ChosenData
+
+    if Equals "addItem"
+        @:NewItem
+        addToVariable v:Items
+
+        text "" // text is used because of an upcoming count characters
+    otherwise
+    end
+
+    if Equals "quickAdd"
+        @:QuickAdd
+        addToVariable v:Items
+
+        text ""
+    otherwise
+    end
+
+    if Equals "saveList"
+        @:FindUnusedFilename
+        setVariable v:Filename
+
+        text ""
+    otherwise
+    end
+
+    if Equals "copyToClipboard"
+        chooseFromMenu "Copy list to clipboard?"
+        | Copy to clipboard
+        | Nevermind
+        case copy
+            getVariable mv:CurrentListvCard
+            copytoclipboard
+            chooseFromMenu "The list has been copied.\n\(v:StatusText)"
+            | Continue Editing
+            case continue
+            end
+        case nevermind
+        end
+
+        text ""
+    otherwise
+    end
+
+    count Characters // notes has 1 item but 0 characters even when the notes field is undefined... :thinking:
+
+    if Equals 0
+        nothing
+    otherwise
+        number mv:ChosenData -> mv:Index
+
+        getVariable v:Items
+        getitemfromlist a{
+          get="Item At Index"
+          index=mv:Index
+        } -> mv:ItemToEdit
+
+        @:EditItem{carddata: mv:ItemToEdit}
+        setVariable v:NewItem
+
+        // remove item from list
+        @:RemoveItemAtIndex{list: v:Items, index: mv:Index}
+        setVariable v:Items
+
+        // insert item back into list at the index
+        @:AddItemAtIndex{list: v:Items, index: mv:Index, item: v:NewItem}
+        setVariable v:Items
+
+        nothing
+    end
+
+    @:EditList{items: v:Items, filename: v:Filename}
+
+    exitShortcut
+otherwise
+end
+
+@set MainMenu (runShortcut v:ThisShortcut false ^(Dictionary{ action: MainMenu }))
+// runShortcut v:ThisShortcut false ^(Dictionary{ action: MainMenu })
+// ————————————————————-----
+// the "main" screen of the shortcut
+if Equals "MainMenu"
+    getFile a{
+      service="iCloud Drive",
+      showdocumentpicker=false,
+      filepath="IconListV2/MyLists/",
+      errorifnotfound=false
+    }
+    repeatWithEach
+        getVariable v:"Repeat Item"{as: File} -> mv:CurrentItem
+        @:Escape{text: mv:CurrentItem{as:File,get:Name}}
+        setVariable v:Name
+        getVariable mv:CurrentItem
+        setName "a.json"
+        getDictionaryValue Value list
+        count Items 
+        calculate "-" 1 -> mv:Count // to remove _blank_
+        if Equals 1; text "item"; otherwise; text "items"; end -> mv:IfResult
+        Text
+        | BEGIN:VCARD
+        | VERSION:3.0
+        | N;CHARSET=utf-8:\(v:Name);;;
+        | ORG;CHARSET=utf-8:\(mv:Count) \(mv:IfResult)
+        | NOTE;CHARSET=utf-8:editList
+        | END:VCARD
+    end
+    combinetext separator="New Lines" -> mv:CombinedText
+
+    Text -> mv:vCard
+    | \(mv:CombinedText)
+    | BEGIN:VCARD\nVERSION:3.0\nN;CHARSET=utf-8:—————;;;\nEND:VCARD
+    | BEGIN:VCARD\nVERSION:3.0\nNOTE;CHARSET=utf-8:newList\nN;CHARSET=utf-8:+ New List;;;\nEND:VCARD
+
+    @:AsContact{vcard: mv:vCard}
+
+    chooseFromList -> mv:ChosenItem
+
+    getVariable mv:ChosenItem{as:Contact,get:Notes} -> mv:Notes
+
+    if Equals "newList"
+        // the new list will have its own save button, we don't need to get the filename now
+        runShortcut v:ThisShortcut false ^(Dictionary{ action: EditList, filename: "", items: ["_blank_"] })
+
+        nothing
+    otherwise
+    end
+
+    if Equals "oldList"
+
+    otherwise
+    end
+
+    if Equals "editList"
+        getVariable mv:ChosenItem
+        getName -> mv:Name
+        
+
+        getFile "iCloud Drive" false "/IconListV2/MyLists/\(mv:Name).iconlist2" true
+        setName "a.json"
+        getDictionaryValue Value list -> mv:Items
+
+        @:EditList{filename: mv:Name, items: mv:Items}
+
+        nothing
+    otherwise
+    end
+    
+    
+    @:MainMenu
+
+    exitShortcut
+otherwise
+end
+
+@:MainMenu
+exitShortcut

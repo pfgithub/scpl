@@ -5,6 +5,8 @@ const ActionData_1 = require("../src/ActionData");
 const ParserData_1 = require("../src/ParserData");
 const Converter_1 = require("../src/Converter");
 const index_1 = require("../index");
+const fs = require("fs");
+const sampleshortcutdata = require("./sampleshortcut.json");
 function noUUID(obj) {
     const uuids = [];
     return JSON.parse(JSON.stringify(obj, (key, value) => {
@@ -251,5 +253,11 @@ ava_1.default("inputarg with variables without parenthesis", t => {
             }
         }
     ]);
+});
+ava_1.default("long shortcut", t => {
+    const output = index_1.parse(fs.readFileSync(`./test/sampleshortcut.scpl`, "utf8"), { makePlist: false });
+    const [scdata] = output.build();
+    const actions = scdata.WFWorkflowActions;
+    t.deepEqual(noUUID(actions), sampleshortcutdata);
 });
 // console.log(JSON.stringify(noUUID(actions), null, "\t"));

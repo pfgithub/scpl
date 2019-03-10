@@ -3,6 +3,10 @@ import {getActionFromName, WFTypes} from "../src/ActionData";
 import {AsAble, IdentifierParse} from "../src/ParserData";
 import {ConvertingContext} from "../src/Converter";
 import { parse } from "../index";
+import * as fs from "fs";
+import * as path from "path";
+
+import * as sampleshortcutdata from "./sampleshortcut.json";
 
 function noUUID(obj: any) {
 	const uuids: string[] = [];
@@ -256,6 +260,13 @@ test("inputarg with variables without parenthesis", t => {
 			}
 		}
 	]);
+});
+
+test("long shortcut", t => {
+	const output = parse(fs.readFileSync(`./test/sampleshortcut.scpl`, "utf8"), {makePlist: false});
+	const [scdata] = output.build();
+	const actions = scdata.WFWorkflowActions;
+	t.deepEqual(noUUID(actions), sampleshortcutdata);
 });
 
 // console.log(JSON.stringify(noUUID(actions), null, "\t"));
