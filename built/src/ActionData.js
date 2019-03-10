@@ -715,7 +715,7 @@ ${JSON.stringify(this._data, null, "\t")}
             }
             action.parameters.set(paramtype.internalName, paramtype.build(cc, param));
         });
-        if (actionAbove && this.requiresInput && actionAbove.uuid !== (cc.lastVariableAction || { uuid: undefined }).uuid) {
+        if (actionAbove && this.requiresInput && actionAbove !== cc.lastVariableAction) {
             cc.add(HelpfulActions_1.getVariable(new OutputData_1.MagicVariable(actionAbove)));
         }
         // TODO if(actionAbove) cc.add(getVariableAction(actionAbove))

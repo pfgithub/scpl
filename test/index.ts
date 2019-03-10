@@ -38,7 +38,6 @@ test("text field", t => {
 		{
 			WFWorkflowActionIdentifier: "is.workflow.actions.gettext",
 			WFWorkflowActionParameters: {
-				UUID: "<uuid1>",
 				WFTextActionText: "Data"
 			}
 		}
@@ -53,7 +52,6 @@ test("parsing things", t => {
 		{
 			WFWorkflowActionIdentifier: "is.workflow.actions.gettext",
 			WFWorkflowActionParameters: {
-				UUID: "<uuid1>",
 				WFTextActionText: "test"
 			}
 		}
@@ -72,14 +70,12 @@ test("variables", t => {
 		{
 			WFWorkflowActionIdentifier: "is.workflow.actions.setvariable",
 			WFWorkflowActionParameters: {
-				UUID: "<uuid1>",
 				WFVariableName: "myvar"
 			}
 		},
 		{
 			WFWorkflowActionIdentifier: "is.workflow.actions.gettext",
 			WFWorkflowActionParameters: {
-				UUID: "<uuid2>",
 				WFTextActionText: {
 					WFSerializationType: "WFTextTokenString",
 					Value: {
@@ -114,7 +110,6 @@ test("magic variables", t => {
 		{
 			WFWorkflowActionIdentifier: "is.workflow.actions.gettext",
 			WFWorkflowActionParameters: {
-				UUID: "<uuid2>",
 				WFTextActionText: {
 					WFSerializationType: "WFTextTokenString",
 					Value: {
@@ -162,7 +157,6 @@ test("inputarg with actions and other action args", t => {
 		{
 			WFWorkflowActionIdentifier: "is.workflow.actions.getvariable",
 			WFWorkflowActionParameters: {
-				UUID: "<uuid3>",
 				WFVariable: {
 					Value: {
 						Type: "ActionOutput",
@@ -177,7 +171,6 @@ test("inputarg with actions and other action args", t => {
 		{
 			WFWorkflowActionIdentifier: "is.workflow.actions.math",
 			WFWorkflowActionParameters: {
-				UUID: "<uuid4>",
 				WFMathOperation: "+",
 				WFMathOperand: {
 					Value: {
@@ -185,6 +178,42 @@ test("inputarg with actions and other action args", t => {
 						Aggrandizements: [],
 						OutputName: "Number",
 						OutputUUID: "<uuid2>"
+					},
+					WFSerializationType: "WFTextTokenAttachment"
+				}
+			}
+		}
+	]);
+});
+
+test("inputarg with no get variable needed", t => {
+	const output = parse(`calculate "+" (number 5) ^(number 1)`, {makePlist: false});
+	const [scdata] = output.build();
+	const actions = scdata.WFWorkflowActions;
+	t.deepEqual(noUUID(actions), [
+		{
+			WFWorkflowActionIdentifier: "is.workflow.actions.number",
+			WFWorkflowActionParameters: {
+				UUID: "<uuid1>",
+				WFNumberActionNumber: 5
+			}
+		},
+		{
+			WFWorkflowActionIdentifier: "is.workflow.actions.number",
+			WFWorkflowActionParameters: {
+				WFNumberActionNumber: 1
+			}
+		},
+		{
+			WFWorkflowActionIdentifier: "is.workflow.actions.math",
+			WFWorkflowActionParameters: {
+				WFMathOperation: "+",
+				WFMathOperand: {
+					Value: {
+						Type: "ActionOutput",
+						Aggrandizements: [],
+						OutputName: "Number",
+						OutputUUID: "<uuid1>"
 					},
 					WFSerializationType: "WFTextTokenAttachment"
 				}
@@ -231,7 +260,6 @@ test("inputarg with variables without parenthesis", t => {
 		{
 			WFWorkflowActionIdentifier: "is.workflow.actions.getvariable",
 			WFWorkflowActionParameters: {
-				UUID: "<uuid4>",
 				WFVariable: {
 					Value: {
 						Type: "ActionOutput",
@@ -246,7 +274,6 @@ test("inputarg with variables without parenthesis", t => {
 		{
 			WFWorkflowActionIdentifier: "is.workflow.actions.math",
 			WFWorkflowActionParameters: {
-				UUID: "<uuid5>",
 				WFMathOperation: "+",
 				WFMathOperand: {
 					Value: {
@@ -266,7 +293,8 @@ test("long shortcut", t => {
 	const output = parse(fs.readFileSync(`./test/sampleshortcut.scpl`, "utf8"), {makePlist: false});
 	const [scdata] = output.build();
 	const actions = scdata.WFWorkflowActions;
-	t.deepEqual(noUUID(actions), sampleshortcutdata);
+	// fs.writeFileSync("./test/sampleshortcut.json", JSON.stringify(noUUID([scdata])), "utf8");
+	t.deepEqual(noUUID([scdata]), sampleshortcutdata);
 });
 
 // console.log(JSON.stringify(noUUID(actions), null, "\t"));

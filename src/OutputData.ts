@@ -343,16 +343,20 @@ export class Parameters {
 export class Action {
 	name: string
 	id: string
-	uuid: string
+	_uuid: string | undefined
 	parameters: Parameters
 	magicvarname?: string
 	constructor(name: string, id: string) {
 		this.name = name;
 		this.id = id;
-		this.uuid = uuidv4();//}
 		this.parameters = new Parameters();
 		this.magicvarname = undefined;
-		if(this.uuid) {this.parameters.set("UUID", this.uuid);}
+	}
+	get uuid(): string {
+		if(this._uuid) {return this._uuid;}
+		this._uuid = uuidv4();
+		this.parameters.set("UUID", this._uuid);
+		return this._uuid;
 	}
 	build() {
 		if(this.magicvarname) {this.parameters.set("CustomOutputName", this.magicvarname);}
