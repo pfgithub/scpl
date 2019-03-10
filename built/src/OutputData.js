@@ -5,30 +5,6 @@
 // ========≠==========
 Object.defineProperty(exports, "__esModule", { value: true });
 const uuidv4 = require("uuid/v4");
-const type = {
-    appStoreApp: "WFAppStoreAppContentItem",
-    article: "WFArticleContentItem",
-    boolean: "",
-    contact: "WFContactContentItem",
-    date: "WFDateContentItem",
-    dictionary: "",
-    emailAddress: "WFEmailAddressContentItem",
-    file: "WFGenericFileContentItem",
-    image: "WFImageContentItem",
-    iTunesMedia: "",
-    iTunesProduct: "WFiTunesProductContentItem",
-    location: "WFLocationContentItem",
-    mapsLink: "WFDCMapsLinkContentItem",
-    media: "WFAVAssetContentItem",
-    number: "",
-    pdf: "WFPDFContentItem",
-    phoneNumber: "WFPhoneNumberContentItem",
-    place: "",
-    richText: "WFRichTextContentItem",
-    text: "WFStringContentItem",
-    url: "WFURLContentItem",
-    vCard: ""
-};
 // DisplayType would be a better name maybe
 const SERIALIZATIONTYPE = {
     variable: "WFTextTokenAttachment",
@@ -331,11 +307,13 @@ class Parameters {
 }
 exports.Parameters = Parameters;
 class Action {
-    constructor(name, id) {
+    constructor(start, end, name, id) {
         this.name = name;
         this.id = id;
         this.parameters = new Parameters();
         this.magicvarname = undefined;
+        this.start = start;
+        this.end = end;
     }
     get uuid() {
         if (this._uuid) {
@@ -351,7 +329,8 @@ class Action {
         }
         return {
             WFWorkflowActionIdentifier: this.id,
-            WFWorkflowActionParameters: this.parameters.build()
+            WFWorkflowActionParameters: this.parameters.build(),
+            SCPLData: { Position: { start: this.start, end: this.end } }
         };
     }
 }

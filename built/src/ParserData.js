@@ -381,7 +381,7 @@ class ActionParse extends Parse {
         if (!wfAction) {
             throw this.name.error(cc, `The action named ${actionName.toLowerCase()} could not be found.`);
         }
-        const action = wfAction.build(cc, controlFlowData, ...this.args);
+        const action = wfAction.build(cc, this, controlFlowData, ...this.args);
         // WFAction adds it to cc for us, no need to do it ourselves.
         // now add any required set variable actions
         if (this.variable) {
@@ -390,7 +390,7 @@ class ActionParse extends Parse {
             }
             const { name, type } = this.variable.asNameType(cc); // TODO not this
             if (type === "v") {
-                cc.add(HelpfulActions_1.setVariable(name));
+                cc.add(HelpfulActions_1.setVariable(this.variable, name));
                 cc.setNamedVariable(name);
             }
             else if (type === "mv") {
@@ -544,7 +544,7 @@ class VariableParse extends Parse {
     }
     canBeAction(_cc) { return true; }
     asAction(cc) {
-        const action = HelpfulActions_1.getVariable(this.asVariable(cc));
+        const action = HelpfulActions_1.getVariable(this, this.asVariable(cc));
         cc.add(action);
         return action;
     }

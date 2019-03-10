@@ -641,12 +641,12 @@ ${JSON.stringify(this._data, null, "\t")}
 `;
         return docs;
     }
-    build(cc, controlFlowData, ...params) {
+    build(cc, actionPosition, controlFlowData, ...params) {
         let parami = 0;
         let actionAbove = cc.lastVariableAction;
         // TODO actionAbove = cc.lastVariableAction
         //
-        const action = new OutputData_1.Action(this.name, this.id);
+        const action = new OutputData_1.Action(actionPosition.start, actionPosition.end, this.name, this.id);
         if (controlFlowData) {
             const { uuid, number } = controlFlowData;
             action.parameters.set("WFControlFlowMode", number);
@@ -716,7 +716,7 @@ ${JSON.stringify(this._data, null, "\t")}
             action.parameters.set(paramtype.internalName, paramtype.build(cc, param));
         });
         if (actionAbove && this.requiresInput && actionAbove !== cc.lastVariableAction) {
-            cc.add(HelpfulActions_1.getVariable(new OutputData_1.MagicVariable(actionAbove)));
+            cc.add(HelpfulActions_1.getVariable({ start: actionAbove.start, end: actionAbove.end }, new OutputData_1.MagicVariable(actionAbove)));
         }
         // TODO if(actionAbove) cc.add(getVariableAction(actionAbove))
         cc.add(action);
