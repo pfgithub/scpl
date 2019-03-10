@@ -9,7 +9,7 @@ export {PositionedError, ConvertingContext, AsAble};
 
 
 export function parse(string: string, options: {make?: ["shortcutjson"?, "shortcutplist"?, "outputdata"?], makePlist?: boolean, makeShortcut?: boolean, extraParseActions?: {[key: string]: (cc: ConvertingContext, ...args: AsAble[]) => void}}) {
-	const parsed = parser.parse(`${string}\n`, [1, 1]);
+	const parsed = parser.parse(string, [1, 1]);
 	if(!parsed.success) {
 		throw new PositionedError("Failed to parse anything", [1, 1], [100, 1]);
 	}
