@@ -119,7 +119,7 @@ o.arglist = p(
 	c`}`
 ).scb(([, kvps, ], start, end) => new ArglistParse(start, end, kvps));
 o.controlFlowMode = p(c`>c:`, o.identifier, c`:gid:`, o.identifier).scb(([, controlFlowMode, , groupingIdentifier]) => {return {special: "ControlFlowMode", controlFlowMode, groupingIdentifier};}); // TEMP >c:1
-o.inputarg = p(c`^`, _, o.parenthesis, _).scb(([, , paren, ]) => {paren.special = "InputArg"; return paren;});
+o.inputarg = p(c`^`, _, or(o.parenthesis, o.variable), _).scb(([, , paren, ]) => {paren.special = "InputArg"; return paren;});
 o.flaggedaction = p(o.variable, _, c`=`, _, o.action)
 	.scb(([variable, , , , action]) => {
 		if(action.variable) {throw new Error("Actions cannot output to multiple variables");}

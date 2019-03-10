@@ -132,3 +132,124 @@ ava_1.default("undefined variables throw errors", t => {
     t.throws(() => index_1.parse(`text mv:undefinedmagicvariable`, { makePlist: false }));
     t.throws(() => index_1.parse(`text s:invalidspecialvariable`, { makePlist: false }));
 });
+ava_1.default("inputarg with actions and other action args", t => {
+    const output = index_1.parse(`calculate ^(number 1) "+" (number 5)`, { makePlist: false });
+    const [scdata] = output.build();
+    const actions = scdata.WFWorkflowActions;
+    t.deepEqual(noUUID(actions), [
+        {
+            WFWorkflowActionIdentifier: "is.workflow.actions.number",
+            WFWorkflowActionParameters: {
+                UUID: "<uuid1>",
+                WFNumberActionNumber: 1
+            }
+        },
+        {
+            WFWorkflowActionIdentifier: "is.workflow.actions.number",
+            WFWorkflowActionParameters: {
+                UUID: "<uuid2>",
+                WFNumberActionNumber: 5
+            }
+        },
+        {
+            WFWorkflowActionIdentifier: "is.workflow.actions.getvariable",
+            WFWorkflowActionParameters: {
+                UUID: "<uuid3>",
+                WFVariable: {
+                    Value: {
+                        Type: "ActionOutput",
+                        Aggrandizements: [],
+                        OutputName: "Number",
+                        OutputUUID: "<uuid1>"
+                    },
+                    WFSerializationType: "WFTextTokenAttachment"
+                }
+            }
+        },
+        {
+            WFWorkflowActionIdentifier: "is.workflow.actions.math",
+            WFWorkflowActionParameters: {
+                UUID: "<uuid4>",
+                WFMathOperation: "+",
+                WFMathOperand: {
+                    Value: {
+                        Type: "ActionOutput",
+                        Aggrandizements: [],
+                        OutputName: "Number",
+                        OutputUUID: "<uuid2>"
+                    },
+                    WFSerializationType: "WFTextTokenAttachment"
+                }
+            }
+        }
+    ]);
+});
+ava_1.default("inputarg with variables without parenthesis", t => {
+    const output = index_1.parse(`number 1 -> mv:mynum; calculate ^mv:mynum "+" (number 5)`, { makePlist: false });
+    const [scdata] = output.build();
+    const actions = scdata.WFWorkflowActions;
+    t.deepEqual(noUUID(actions), [
+        {
+            WFWorkflowActionIdentifier: "is.workflow.actions.number",
+            WFWorkflowActionParameters: {
+                UUID: "<uuid1>",
+                WFNumberActionNumber: 1,
+                CustomOutputName: "mynum"
+            }
+        },
+        {
+            WFWorkflowActionIdentifier: "is.workflow.actions.getvariable",
+            WFWorkflowActionParameters: {
+                UUID: "<uuid2>",
+                WFVariable: {
+                    Value: {
+                        Type: "ActionOutput",
+                        Aggrandizements: [],
+                        OutputName: "mynum",
+                        OutputUUID: "<uuid1>"
+                    },
+                    WFSerializationType: "WFTextTokenAttachment"
+                }
+            }
+        },
+        {
+            WFWorkflowActionIdentifier: "is.workflow.actions.number",
+            WFWorkflowActionParameters: {
+                UUID: "<uuid3>",
+                WFNumberActionNumber: 5
+            }
+        },
+        {
+            WFWorkflowActionIdentifier: "is.workflow.actions.getvariable",
+            WFWorkflowActionParameters: {
+                UUID: "<uuid4>",
+                WFVariable: {
+                    Value: {
+                        Type: "ActionOutput",
+                        Aggrandizements: [],
+                        OutputName: "get variable",
+                        OutputUUID: "<uuid2>"
+                    },
+                    WFSerializationType: "WFTextTokenAttachment"
+                }
+            }
+        },
+        {
+            WFWorkflowActionIdentifier: "is.workflow.actions.math",
+            WFWorkflowActionParameters: {
+                UUID: "<uuid5>",
+                WFMathOperation: "+",
+                WFMathOperand: {
+                    Value: {
+                        Type: "ActionOutput",
+                        Aggrandizements: [],
+                        OutputName: "Number",
+                        OutputUUID: "<uuid3>"
+                    },
+                    WFSerializationType: "WFTextTokenAttachment"
+                }
+            }
+        }
+    ]);
+});
+// console.log(JSON.stringify(noUUID(actions), null, "\t"));

@@ -56,7 +56,7 @@ ParserHelper_js_1.o.macroBlock = ParserHelper_js_1.p(ParserHelper_js_1.c `@{`, P
 ParserHelper_js_1.o.action = ParserHelper_js_1.or(ParserHelper_js_1.o.flaggedaction, ParserHelper_js_1.o.variable, ParserHelper_js_1.o.onlyaction);
 ParserHelper_js_1.o.arglist = ParserHelper_js_1.p(ParserHelper_js_1.c `a{`, ParserHelper_js_1.star(ParserHelper_js_1.p(_, ParserHelper_js_1.o.keyvaluepair, _).scb(([, v]) => v)), ParserHelper_js_1.c `}`).scb(([, kvps,], start, end) => new ParserData_js_1.ArglistParse(start, end, kvps));
 ParserHelper_js_1.o.controlFlowMode = ParserHelper_js_1.p(ParserHelper_js_1.c `>c:`, ParserHelper_js_1.o.identifier, ParserHelper_js_1.c `:gid:`, ParserHelper_js_1.o.identifier).scb(([, controlFlowMode, , groupingIdentifier]) => { return { special: "ControlFlowMode", controlFlowMode, groupingIdentifier }; }); // TEMP >c:1
-ParserHelper_js_1.o.inputarg = ParserHelper_js_1.p(ParserHelper_js_1.c `^`, _, ParserHelper_js_1.o.parenthesis, _).scb(([, , paren,]) => { paren.special = "InputArg"; return paren; });
+ParserHelper_js_1.o.inputarg = ParserHelper_js_1.p(ParserHelper_js_1.c `^`, _, ParserHelper_js_1.or(ParserHelper_js_1.o.parenthesis, ParserHelper_js_1.o.variable), _).scb(([, , paren,]) => { paren.special = "InputArg"; return paren; });
 ParserHelper_js_1.o.flaggedaction = ParserHelper_js_1.p(ParserHelper_js_1.o.variable, _, ParserHelper_js_1.c `=`, _, ParserHelper_js_1.o.action)
     .scb(([variable, , , , action]) => {
     if (action.variable) {
