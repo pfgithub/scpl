@@ -4,6 +4,11 @@
 
 ## description
 
+### note
+
+Powered by Diffbot (diffbot.com)
+
+
 ### usage
 ```
 getdetailsofdiffbotarticle get=("Name" | "Title" | "Published Date" | "Author" | "Number of Words" | "Main Image URL" | "URL" | "Excerpt")

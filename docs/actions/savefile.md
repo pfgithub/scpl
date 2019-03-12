@@ -11,6 +11,11 @@
 Save files to iCloud Drive or Dropbox. Turn off “Ask Where to Save” in order to specify a destination path.
 
 
+### note
+
+In the iCloud picker, tap “Locations” to see document pickers from other apps.
+
+
 ### output
 
 The saved files

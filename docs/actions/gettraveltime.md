@@ -11,6 +11,11 @@
 Estimates the amount of time it will take to travel to the location passed into this action.
 
 
+### note
+
+Travel times are provided by Apple Maps and take into account current traffic conditions.
+
+
 ### input
 
 The destination

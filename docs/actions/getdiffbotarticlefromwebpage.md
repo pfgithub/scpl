@@ -9,6 +9,13 @@
 Gets article details, including body text, author, publish date, and more, from every URL passed into the action.
 
 
+### note
+
+Use a Get Details of Diffbot Article action immediately after this action to get specific details about the article. This action only supports getting one article from each URL.
+
+Powered by Diffbot (diffbot.com)
+
+
 ### usage
 ```
 getdiffbotarticlefromwebpage 

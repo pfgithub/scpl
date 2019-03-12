@@ -9,6 +9,11 @@
 Returns one or more items from the list passed as input. You can get the first item, the last item, a random item, the item at a particular index, or items in a range of indexes.
 
 
+### note
+
+Lists are one-indexed, so the first item is at index 1, the second is at index 2, etc.
+
+
 ### usage
 ```
 getitemfromlist get=("First Item" | "Last Item" | "Random Item" | "Item At Index" | "Items in Range") index=number getitemsfromindex=number toindex=number

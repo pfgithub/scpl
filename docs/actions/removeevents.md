@@ -11,6 +11,11 @@
 Removes all events passed into the action from the calendars they are contained in.
 
 
+### note
+
+This is a destructive and permanent action. You will be asked to confirm before events are removed.
+
+
 ### usage
 ```
 removeevents includefutureevents=(true | f alse | variable)

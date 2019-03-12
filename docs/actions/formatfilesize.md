@@ -9,6 +9,11 @@
 Formats a file size into text.
 
 
+### note
+
+1000 bytes are shown as 1 KB.
+
+
 ### input
 
 A file size from another action, or a number of bytes

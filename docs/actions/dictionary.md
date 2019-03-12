@@ -9,6 +9,11 @@
 Passes the specified list of key-value pairs to the next action as a dictionary.
 
 
+### note
+
+When coerced to text, the dictionary is represented as JSON.
+
+
 ### usage
 ```
 dictionary items={dictionary}

@@ -11,6 +11,11 @@
 Runs JavaScript on a Safari web page passed in as input
 
 
+### note
+
+Safari Web Page items are only available when running your shortcut as an Action Extension in Safari.
+
+
 ### input
 
 Safari web pages

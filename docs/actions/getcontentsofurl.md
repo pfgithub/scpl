@@ -9,6 +9,11 @@
 Gets the contents of URLs passed into the action. Useful for downloading files and web content, or for making API requests.
 
 
+### note
+
+To make a multipart HTTP request, choose "Form" as the request body type and add files as field values.
+
+
 ### output
 
 The fetched data

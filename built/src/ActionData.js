@@ -607,6 +607,11 @@ ${this._data.Description ? `
 ### summary
 
 ${this._data.Description.DescriptionSummary}
+` : ""}${this._data.Description.DescriptionNote ? `
+
+### note
+
+${this._data.Description.DescriptionNote}
 ` : ""}${this._data.Description.DescriptionInput ? `
 
 ### input

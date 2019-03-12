@@ -9,6 +9,11 @@
 Gets the specified part of the URL passed into the action.
 
 
+### note
+
+URLs are structured as follows: scheme://user:password@host:port/path?query#fragment
+
+
 ### usage
 ```
 getcomponentofurl component=("Scheme" | "User" | "Password" | "Host" | "Port" | "Path" | "Query" | "Fragment")

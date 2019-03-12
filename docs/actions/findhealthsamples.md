@@ -6,6 +6,11 @@
 
 ## description
 
+### note
+
+If you only see some but not all of your data in the results, make sure that “Allow Shortcuts to read data” is set to on in the Health app.
+
+
 ### usage
 ```
 findhealthsamples 

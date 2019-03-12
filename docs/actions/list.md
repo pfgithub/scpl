@@ -9,6 +9,11 @@
 Allows you to specify a list of items to be passed to the next action.
 
 
+### note
+
+If you specify a variable, the contents of that variable will be included in the list.
+
+
 ### usage
 ```
 list items=[list, items]

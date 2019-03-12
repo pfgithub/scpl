@@ -13,6 +13,11 @@
 Adds or subtracts an amount of time from the date passed into the action.
 
 
+### note
+
+This action supports decimal numbers when adding or subtracting seconds, minutes, hours, or days. Otherwise only integers are supported.
+
+
 ### usage
 ```
 adjustdate undefined=NotImplemented

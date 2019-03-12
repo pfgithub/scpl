@@ -11,6 +11,11 @@
 Searches for GIFs representing the text specified using Giphy.
 
 
+### note
+
+Powered by Giphy (giphy.com)
+
+
 ### usage
 ```
 searchgiphy search="string" showgifpicker=(true | f alse | variable) wfgiphylimit=number selectmultiple=(true | f alse | variable)

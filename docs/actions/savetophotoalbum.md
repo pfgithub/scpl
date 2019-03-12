@@ -11,6 +11,11 @@
 Adds the photos and videos passed as input to the specified photo album.
 
 
+### note
+
+If a photo passed as input is already in the specified album, the photo will be duplicated.
+
+
 ### input
 
 Photos, videos, or audio to save

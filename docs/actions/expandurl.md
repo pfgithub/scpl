@@ -9,6 +9,11 @@
 This action expands and cleans up URLs which have been shortened using a URL shortening service like TinyURL or Bit.ly.
 
 
+### note
+
+The expanded URL is cleaned, removing unnecessary parameters such as "utm_source".
+
+
 ### output
 
 The full, expanded URL, or the original URL if the URL was not shortened
