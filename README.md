@@ -6,7 +6,7 @@ ScPL is a text based language for creating shortcuts in the iOS shortcuts app.
 
 [Getting Started Guide](https://pfgithub.github.io/shortcutslang/gettingstarted.html)
 
-[Try Shortcutslang Online](https://pfgithub.github.io/shortcutslang/tryit)
+[Try Shortcutslang Online](https://scpl.dev)
 
 ```bash
 scpl [filename] -o [outputfile]
