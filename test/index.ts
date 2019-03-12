@@ -294,7 +294,7 @@ test("long shortcut", t => {
 	const output = parse(fs.readFileSync(`./test/sampleshortcut.scpl`, "utf8"), {makePlist: false});
 	const [scdata] = output.build();
 	const actions = scdata.WFWorkflowActions;
-	fs.writeFileSync("./test/sampleshortcut.json", JSON.stringify(noUUID([scdata]), null, "\t"), "utf8");
+	// fs.writeFileSync("./test/sampleshortcut.json", JSON.stringify(noUUID([scdata]), null, "\t"), "utf8");
 	t.deepEqual(noUUID([scdata]), sampleshortcutdata);
 });
 

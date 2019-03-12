@@ -1676,7 +1676,7 @@
                                 },
                                 {
                                     "PropertyName": "Height",
-                                    "Type": "WFCoercionVariableAggrandizement"
+                                    "Type": "WFPropertyVariableAggrandizement"
                                 }
                             ],
                             "VariableName": "Image"
@@ -2577,7 +2577,7 @@
                                 {
                                     "PropertyName": "Notes",
                                     "PropertyUserInfo": 14,
-                                    "Type": "WFCoercionVariableAggrandizement"
+                                    "Type": "WFPropertyVariableAggrandizement"
                                 }
                             ],
                             "OutputName": "ChosenItem",
@@ -3841,7 +3841,7 @@
                                 {
                                     "PropertyName": "Notes",
                                     "PropertyUserInfo": 14,
-                                    "Type": "WFCoercionVariableAggrandizement"
+                                    "Type": "WFPropertyVariableAggrandizement"
                                 }
                             ],
                             "OutputName": "ChosenItem",
@@ -9103,7 +9103,7 @@
                                 {
                                     "PropertyName": "Notes",
                                     "PropertyUserInfo": 14,
-                                    "Type": "WFCoercionVariableAggrandizement"
+                                    "Type": "WFPropertyVariableAggrandizement"
                                 }
                             ],
                             "OutputName": "ChosenItem",
@@ -10836,7 +10836,7 @@
                                                         {
                                                             "PropertyName": "Name",
                                                             "PropertyUserInfo": "WFItemName",
-                                                            "Type": "WFCoercionVariableAggrandizement"
+                                                            "Type": "WFPropertyVariableAggrandizement"
                                                         }
                                                     ],
                                                     "OutputName": "CurrentItem",
@@ -11383,7 +11383,7 @@
                                 {
                                     "PropertyName": "Notes",
                                     "PropertyUserInfo": 14,
-                                    "Type": "WFCoercionVariableAggrandizement"
+                                    "Type": "WFPropertyVariableAggrandizement"
                                 }
                             ],
                             "OutputName": "ChosenItem",

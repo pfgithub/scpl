@@ -79,7 +79,7 @@ export class Aggrandizements {
 			aggrandizements.push({CoercionItemClass: this.coercionType, Type: "WFCoercionVariableAggrandizement"});
 		}
 		if(this.getProperty) {
-			aggrandizements.push({PropertyName: this.getProperty.name, ...(this.getProperty.data ? {PropertyUserInfo: this.getProperty.data} : {}), Type: "WFCoercionVariableAggrandizement"});
+			aggrandizements.push({PropertyName: this.getProperty.name, ...(this.getProperty.data ? {PropertyUserInfo: this.getProperty.data} : {}), Type: "WFPropertyVariableAggrandizement"});
 		}
 		if(this.getForKey) {
 			aggrandizements.push({DictionaryKey: this.getForKey, Type: "WFDictionaryValueVariableAggrandizement"});
