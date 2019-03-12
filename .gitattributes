@@ -1,1 +1,2 @@
-docs/* linguist-documentation
+docs/**/* linguist-documentation=true
+built/**/* linguist-generated=true
