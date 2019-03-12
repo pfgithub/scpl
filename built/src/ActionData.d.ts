@@ -45,7 +45,7 @@ export declare class WFAction {
     genDocsAutocompleteUsage(): string;
     genDocsUsage(): string;
     genDocs(): string;
-    build(cc: ConvertingContext, controlFlowData?: {
+    build(cc: ConvertingContext, actionPosition: AsAble, controlFlowData?: {
         uuid: string;
         number: number;
         wfaction: any;

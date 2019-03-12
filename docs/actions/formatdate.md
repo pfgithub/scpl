@@ -9,6 +9,11 @@
 Formats a date and time into text.
 
 
+### note
+
+Custom format strings use the format patterns from Unicode Technical Standard #35 (unicode.org/reports/tr35/tr35-31/tr35-dates.html#Date_Format_Patterns).
+
+
 ### usage
 ```
 formatdate dateformat=("None" | "Short" | "Medium" | "Long" | "Relative" | "RFC 2822" | "ISO 8601" | "Custom") alternateformat=("Short" | "Medium" | "Long") timeformat=("None" | "Short" | "Medium" | "Long" | "Relative") includeiso8601time=(true | f alse | variable) formatstring="string"

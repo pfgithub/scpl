@@ -9,6 +9,11 @@
 Detects the language of the text provided as input.
 
 
+### note
+
+Powered by Microsoft Cognitive Services (microsoft.com/cognitive-services)
+
+
 ### usage
 ```
 detectlanguagewithmicrosoft 

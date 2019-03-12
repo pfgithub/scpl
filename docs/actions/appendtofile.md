@@ -9,6 +9,11 @@
 Adds the text passed as input to the end of the specified file.
 
 
+### note
+
+If no file exists yet at the specified path, a new file will be created. Make sure to include a file extension (usually .txt) at the end of your path.
+
+
 ### output
 
 The file that was appended to

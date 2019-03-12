@@ -9,6 +9,11 @@
 Scales images to a particular width and height.
 
 
+### note
+
+If the width or height is not set, that dimension is automatically calculated to maintain the original image's aspect ratio.
+
+
 ### usage
 ```
 resizeimage width=number height=number

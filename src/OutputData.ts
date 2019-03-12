@@ -5,31 +5,6 @@
 
 import * as uuidv4 from "uuid/v4";
 
-const type = {
-	appStoreApp: "WFAppStoreAppContentItem",
-	article: "WFArticleContentItem",
-	boolean: "",
-	contact: "WFContactContentItem",
-	date: "WFDateContentItem",
-	dictionary: "",
-	emailAddress: "WFEmailAddressContentItem",
-	file: "WFGenericFileContentItem",
-	image: "WFImageContentItem",
-	iTunesMedia: "",
-	iTunesProduct: "WFiTunesProductContentItem",
-	location: "WFLocationContentItem",
-	mapsLink: "WFDCMapsLinkContentItem",
-	media: "WFAVAssetContentItem",
-	number: "",
-	pdf: "WFPDFContentItem",
-	phoneNumber: "WFPhoneNumberContentItem",
-	place: "",
-	richText: "WFRichTextContentItem",
-	text: "WFStringContentItem",
-	url: "WFURLContentItem",
-	vCard: ""
-};
-
 
 // DisplayType would be a better name maybe
 const SERIALIZATIONTYPE = { // how a value will be rendered in shortcuts, forex variables are texttokenattachments
@@ -53,7 +28,7 @@ WFRelativeDateFormatStyle?: WFRelativeDateFormatStyle;
 From Shortcuts-js
  */
  
-import {CoercionTypeClass, AggrandizementPropertyName, isAggrandizementPropertyName, isCoercionTypeClass, propertyNameMap} from "./WFTypes/Types";
+import {CoercionTypeClass, isAggrandizementPropertyName} from "./WFTypes/Types";
  
 const coercionTypes: {[name: string]: CoercionTypeClass} = { // remove name:string and make it typed too
 	anything: "WFContentItem",
@@ -104,7 +79,7 @@ export class Aggrandizements {
 			aggrandizements.push({CoercionItemClass: this.coercionType, Type: "WFCoercionVariableAggrandizement"});
 		}
 		if(this.getProperty) {
-			aggrandizements.push({PropertyName: this.getProperty.name, ...(this.getProperty.data ? {PropertyUserInfo: this.getProperty.data} : {}), Type: "WFCoercionVariableAggrandizement"});
+			aggrandizements.push({PropertyName: this.getProperty.name, ...(this.getProperty.data ? {PropertyUserInfo: this.getProperty.data} : {}), Type: "WFPropertyVariableAggrandizement"});
 		}
 		if(this.getForKey) {
 			aggrandizements.push({DictionaryKey: this.getForKey, Type: "WFDictionaryValueVariableAggrandizement"});
@@ -343,22 +318,34 @@ export class Parameters {
 export class Action {
 	name: string
 	id: string
-	uuid: string
+	_uuid: string | undefined
 	parameters: Parameters
 	magicvarname?: string
-	constructor(name: string, id: string) {
+	
+	start: [number, number]
+	end: [number, number]
+	
+	constructor(start: [number, number], end: [number, number], name: string, id: string) {
 		this.name = name;
 		this.id = id;
-		this.uuid = uuidv4();//}
 		this.parameters = new Parameters();
 		this.magicvarname = undefined;
-		if(this.uuid) {this.parameters.set("UUID", this.uuid);}
+		
+		this.start = start;
+		this.end = end;
+	}
+	get uuid(): string {
+		if(this._uuid) {return this._uuid;}
+		this._uuid = uuidv4();
+		this.parameters.set("UUID", this._uuid);
+		return this._uuid;
 	}
 	build() {
 		if(this.magicvarname) {this.parameters.set("CustomOutputName", this.magicvarname);}
 		return {
 			WFWorkflowActionIdentifier: this.id,
-			WFWorkflowActionParameters: this.parameters.build()
+			WFWorkflowActionParameters: this.parameters.build(),
+			SCPLData: {Position: {start: this.start, end: this.end}}
 		};
 	}
 }

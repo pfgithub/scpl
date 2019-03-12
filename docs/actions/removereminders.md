@@ -11,6 +11,11 @@
 Removes all reminders passed into the action from the lists they are contained in.
 
 
+### note
+
+This is a destructive and permanent action. You will be asked to confirm before reminders are removed.
+
+
 ### usage
 ```
 removereminders 

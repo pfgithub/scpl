@@ -390,17 +390,17 @@ export class ActionParse extends Parse implements AsText, AsVariable, AsAction {
 		if(!wfAction) {
 			throw this.name.error(cc, `The action named ${actionName.toLowerCase()} could not be found.`);
 		}
-		const action = wfAction.build(cc, controlFlowData, ...this.args);
+		const action = wfAction.build(cc, this, controlFlowData, ...this.args);
 		// WFAction adds it to cc for us, no need to do it ourselves.
 		// now add any required set variable actions
 		if(this.variable) {
 			if(!this.variable.canBeNameType(cc)) {throw this.variable.error(cc, "To set an output variable, the output variable must be a variable.");}
 			const {name, type} = this.variable.asNameType(cc); // TODO not this
 			if(type === "v") {
-				cc.add(setVariable(name));
+				cc.add(setVariable(this.variable, name));
 				cc.setNamedVariable(name);
 			}else if(type === "mv") {
-				action.magicvarname = `${type}:${name}`;
+				action.magicvarname = name;
 				cc.setMagicVariable(name, action);
 			}
 		}
@@ -515,7 +515,7 @@ export class VariableParse extends Parse implements AsStringVariable, AsNameType
 	}
 	canBeAction(_cc: ConvertingContext): boolean {return true;}
 	asAction(cc: ConvertingContext) {
-		const action = getVariable(this.asVariable(cc));
+		const action = getVariable(this, this.asVariable(cc));
 		cc.add(action);
 		return action;
 	}
@@ -556,7 +556,7 @@ export class ActionsParse extends Parse implements AsAction, AsVariable, AsText 
 		});}
 		this.asAction(cc);
 		if(cc.controlFlowStack.length !== 0) {
-			throw new Error(`There are ${cc.controlFlowStack.length} unended block actions. Check to make sure that every block has an end.`);
+			throw this.error(cc, `There are ${cc.controlFlowStack.length} unended block actions. Check to make sure that every block has an end.`);
 		}
 		return cc.shortcut;
 	}

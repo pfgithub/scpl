@@ -2,11 +2,14 @@ import parser from "./src/ShortcutsParser";
 import * as bplistc from "bplist-creator";
 import {PositionedError, AsAble} from "./src/ParserData";
 import {ConvertingContext} from "./src/Converter";
+import {Shortcut} from "./src/OutputData";
 // export {default as parser} from "./src/ShortcutsParser";
 export {PositionedError, ConvertingContext, AsAble};
 
-export function parse(string: string, options: {makePlist?: boolean, makeShortcut?: boolean, extraParseActions?: {[key: string]: (cc: ConvertingContext, ...args: AsAble[]) => void}}) {
-	const parsed = parser.parse(`${string}\n`, [1, 1]);
+
+
+export function parse(string: string, options: {make?: ["shortcutjson"?, "shortcutplist"?, "outputdata"?], makePlist?: boolean, makeShortcut?: boolean, extraParseActions?: {[key: string]: (cc: ConvertingContext, ...args: AsAble[]) => void}}) {
+	const parsed = parser.parse(string, [1, 1]);
 	if(!parsed.success) {
 		throw new PositionedError("Failed to parse anything", [1, 1], [100, 1]);
 	}
@@ -23,6 +26,14 @@ export function parse(string: string, options: {makePlist?: boolean, makeShortcu
 			throw er;
 		}
 		throw new PositionedError(`Unknown location in error: ${er.message}`, [1, 1], [100, 1]);
+	}
+	if(options.make) {
+		const data = shortcut.build();
+		const output: {shortcutjson?: any, shortcutplist?: Buffer, outputdata?: Shortcut} = {};
+		if(options.make.indexOf("outputdata") > -1) {output.outputdata = shortcut;}
+		if(options.make.indexOf("shortcutjson") > -1) {output.shortcutjson = data;}
+		if(options.make.indexOf("shortcutplist") > -1) {output.shortcutplist = (<any>bplistc)(data);}
+		return output;
 	}
 	if(options.makePlist) {
 		return (<any>bplistc)(shortcut.build());

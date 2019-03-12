@@ -14,11 +14,16 @@ o.identifier = regex(/^[A-Za-z@_][A-Za-z0-9@_]*/)
 o.newline = p(
 	o.space,
 	optional(o.eolComment),
-	plus(p(
-		o.space,
-		or(c`\n`, c`;`),
-		o.space)
-	)
+	plus(
+		p(
+			o.space,
+			or(
+				c`\n`,
+				c`;`
+			)
+		)
+	),
+	o.space
 ).scb(_ => null);
 o.multilineComment = or(
 	regex(/^--\[\[[\s\S]+?--\]\]/), // --[[ Lua style multiline comments --]]
@@ -119,7 +124,7 @@ o.arglist = p(
 	c`}`
 ).scb(([, kvps, ], start, end) => new ArglistParse(start, end, kvps));
 o.controlFlowMode = p(c`>c:`, o.identifier, c`:gid:`, o.identifier).scb(([, controlFlowMode, , groupingIdentifier]) => {return {special: "ControlFlowMode", controlFlowMode, groupingIdentifier};}); // TEMP >c:1
-o.inputarg = p(c`^`, _, o.parenthesis, _).scb(([, , paren, ]) => {paren.special = "InputArg"; return paren;});
+o.inputarg = p(c`^`, _, or(o.parenthesis, o.variable), _).scb(([, , paren, ]) => {paren.special = "InputArg"; return paren;});
 o.flaggedaction = p(o.variable, _, c`=`, _, o.action)
 	.scb(([variable, , , , action]) => {
 		if(action.variable) {throw new Error("Actions cannot output to multiple variables");}
@@ -191,9 +196,16 @@ o.variable = p(
 o.parenthesis = p(c`(`, or(o.action, o.variable), c`)`) .scb(([, actionOrVariable, ]) => actionOrVariable);
 // TODO paramlistparens like (name=hi,value=hmm) for=things like Get Contents Of URL which have lots of complex parameters
 
-o.actions = star(
-	p(_n, o.action, newline).scb(([, action, ]) => action) // newlines action newline star ok sure but why isn't vv happening
-).scb((list, start, end) => new ActionsParse(start, end, list)); // THIS CB ISN"T GETTING CALLED, why not?
+o.actions = p(
+	_n,
+	star(
+		p(_n, o.action, newline).scb(([, action, ]) => action)
+	),
+	optional(
+		p(_n, o.action).scb(([, action, ]) => action)
+	),
+	_n
+).scb(([, v, e, ], start, end) => new ActionsParse(start, end, e ? [...v, ...e] : v));
 
 
 // TODO [arrays of things]

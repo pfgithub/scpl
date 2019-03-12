@@ -4,6 +4,11 @@
 
 ## description
 
+### note
+
+Safari Web Page items are only available when running your shortcut as an Action Extension in Safari.
+
+
 ### usage
 ```
 getdetailsofsafariwebpage get=("Name" | "Page Contents" | "Page URL" | "Page Selection")

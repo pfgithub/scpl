@@ -9,6 +9,11 @@
 Translates the text passed into the action into another language.
 
 
+### note
+
+Powered by Microsoft Cognitive Services (microsoft.com/cognitive-services). Your text input will be sent to Microsoft to translate your request.
+
+
 ### usage
 ```
 translatetextwithmicrosoft from=("string" | variable)] to=("string" | variable)]

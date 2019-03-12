@@ -9,6 +9,11 @@
 Subtracts the specified date from the date passed into the action. For example, this action could get the number of minutes from now until a calendar event passed in as input.
 
 
+### note
+
+This action outputs a negative number if the input date takes place before the specified date.
+
+
 ### usage
 ```
 gettimebetweendates gettimefrom=("Right Now" | "Other" | variable) otherdate="string" in=("Total Time" | "Seconds" | "Minutes" | "Hours" | "Days" | "Weeks" | "Months" | "Years")

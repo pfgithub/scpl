@@ -9,6 +9,11 @@
 Counts the number of items, characters, words, sentences, or lines passed as input.
 
 
+### note
+
+This is just like the Count in Sesame Street, but instead of a vampire, it's a Shortcuts action.
+
+
 ### usage
 ```
 count count=("Items" | "Characters" | "Words" | "Sentences" | "Lines")

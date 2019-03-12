@@ -11,6 +11,11 @@
 Get files from iCloud Drive or Dropbox. Turn off “Show Document Picker” to specify a path to retrieve.
 
 
+### note
+
+In the iCloud picker, tap “Locations” to see document pickers from other apps.
+
+
 ### usage
 ```
 getfile service=("iCloud Drive" | "Dropbox") showdocumentpicker=(true | f alse | variable) selectmultiple=(true | f alse | variable) filepath="string" initialpath="string" errorifnotfound=(true | f alse | variable)

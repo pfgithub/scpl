@@ -171,14 +171,23 @@ export declare class Parameters {
 export declare class Action {
     name: string;
     id: string;
-    uuid: string;
+    _uuid: string | undefined;
     parameters: Parameters;
     magicvarname?: string;
-    constructor(name: string, id: string);
+    start: [number, number];
+    end: [number, number];
+    constructor(start: [number, number], end: [number, number], name: string, id: string);
+    readonly uuid: string;
     build(): {
         WFWorkflowActionIdentifier: string;
         WFWorkflowActionParameters: {
             [internalName: string]: any;
+        };
+        SCPLData: {
+            Position: {
+                start: [number, number];
+                end: [number, number];
+            };
         };
     };
 }
@@ -202,6 +211,12 @@ export declare class Shortcut {
             WFWorkflowActionIdentifier: string;
             WFWorkflowActionParameters: {
                 [internalName: string]: any;
+            };
+            SCPLData: {
+                Position: {
+                    start: [number, number];
+                    end: [number, number];
+                };
             };
         }[];
     }[];

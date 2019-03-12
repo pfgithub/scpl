@@ -11,6 +11,11 @@
 Uploads the input to Imgur.
 
 
+### note
+
+Powered by Imgur (imgur.com)
+
+
 ### usage
 ```
 uploadtoimgur uploadanonymously=(true | f alse | variable) directlink=(true | f alse | variable) createalbum=(true | f alse | variable) albumlayout=("Blog" | "Grid" | "Horizontal" | "Vertical") albumprivacy=("Public" | "Hidden" | "Secret") title="string" description="string"

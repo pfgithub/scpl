@@ -5,30 +5,6 @@
 // ========≠==========
 Object.defineProperty(exports, "__esModule", { value: true });
 const uuidv4 = require("uuid/v4");
-const type = {
-    appStoreApp: "WFAppStoreAppContentItem",
-    article: "WFArticleContentItem",
-    boolean: "",
-    contact: "WFContactContentItem",
-    date: "WFDateContentItem",
-    dictionary: "",
-    emailAddress: "WFEmailAddressContentItem",
-    file: "WFGenericFileContentItem",
-    image: "WFImageContentItem",
-    iTunesMedia: "",
-    iTunesProduct: "WFiTunesProductContentItem",
-    location: "WFLocationContentItem",
-    mapsLink: "WFDCMapsLinkContentItem",
-    media: "WFAVAssetContentItem",
-    number: "",
-    pdf: "WFPDFContentItem",
-    phoneNumber: "WFPhoneNumberContentItem",
-    place: "",
-    richText: "WFRichTextContentItem",
-    text: "WFStringContentItem",
-    url: "WFURLContentItem",
-    vCard: ""
-};
 // DisplayType would be a better name maybe
 const SERIALIZATIONTYPE = {
     variable: "WFTextTokenAttachment",
@@ -90,7 +66,7 @@ class Aggrandizements {
             aggrandizements.push({ CoercionItemClass: this.coercionType, Type: "WFCoercionVariableAggrandizement" });
         }
         if (this.getProperty) {
-            aggrandizements.push(Object.assign({ PropertyName: this.getProperty.name }, (this.getProperty.data ? { PropertyUserInfo: this.getProperty.data } : {}), { Type: "WFCoercionVariableAggrandizement" }));
+            aggrandizements.push(Object.assign({ PropertyName: this.getProperty.name }, (this.getProperty.data ? { PropertyUserInfo: this.getProperty.data } : {}), { Type: "WFPropertyVariableAggrandizement" }));
         }
         if (this.getForKey) {
             aggrandizements.push({ DictionaryKey: this.getForKey, Type: "WFDictionaryValueVariableAggrandizement" });
@@ -331,15 +307,21 @@ class Parameters {
 }
 exports.Parameters = Parameters;
 class Action {
-    constructor(name, id) {
+    constructor(start, end, name, id) {
         this.name = name;
         this.id = id;
-        this.uuid = uuidv4(); //}
         this.parameters = new Parameters();
         this.magicvarname = undefined;
-        if (this.uuid) {
-            this.parameters.set("UUID", this.uuid);
+        this.start = start;
+        this.end = end;
+    }
+    get uuid() {
+        if (this._uuid) {
+            return this._uuid;
         }
+        this._uuid = uuidv4();
+        this.parameters.set("UUID", this._uuid);
+        return this._uuid;
     }
     build() {
         if (this.magicvarname) {
@@ -347,7 +329,8 @@ class Action {
         }
         return {
             WFWorkflowActionIdentifier: this.id,
-            WFWorkflowActionParameters: this.parameters.build()
+            WFWorkflowActionParameters: this.parameters.build(),
+            SCPLData: { Position: { start: this.start, end: this.end } }
         };
     }
 }
