@@ -285,4 +285,35 @@ ava_1.default("long shortcut", t => {
     // fs.writeFileSync("./test/sampleshortcut.json", JSON.stringify(noUUID([scdata]), null, "\t"), "utf8");
     t.deepEqual(noUUID([scdata]), sampleshortcutdata);
 });
+ava_1.default("foreach macro", t => {
+    const output = index_1.parse(`@foreach [item1, item2, item3] @{text @:repeatitem}; text "item 4"`, { makePlist: false });
+    const [scdata] = output.build();
+    const actions = scdata.WFWorkflowActions;
+    t.deepEqual(noUUID(actions, { noSCPLData: true }), [
+        {
+            WFWorkflowActionIdentifier: "is.workflow.actions.gettext",
+            WFWorkflowActionParameters: {
+                WFTextActionText: "item1"
+            }
+        },
+        {
+            WFWorkflowActionIdentifier: "is.workflow.actions.gettext",
+            WFWorkflowActionParameters: {
+                WFTextActionText: "item2"
+            }
+        },
+        {
+            WFWorkflowActionIdentifier: "is.workflow.actions.gettext",
+            WFWorkflowActionParameters: {
+                WFTextActionText: "item3"
+            }
+        },
+        {
+            WFWorkflowActionIdentifier: "is.workflow.actions.gettext",
+            WFWorkflowActionParameters: {
+                WFTextActionText: "item 4"
+            }
+        }
+    ]);
+});
 // console.log(JSON.stringify(noUUID(actions), null, "\t"));

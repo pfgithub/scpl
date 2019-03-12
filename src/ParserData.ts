@@ -29,6 +29,7 @@ export class Parse {
 	canBeText(_cc: ConvertingContext): this is AsText {return false;}
 	canBeList(_cc: ConvertingContext): this is AsList {return false;}
 	canBeArray(_cc: ConvertingContext): this is AsArray {return false;}
+	canBeAbleArray(_cc: ConvertingContext): this is AsAbleArray {return false;}
 	canBeVariable(_cc: ConvertingContext): this is AsVariable {return false;}
 	canBeAction(_cc: ConvertingContext): this is AsAction {return false;}
 	canBeDictionary(_cc: ConvertingContext): this is AsDictionary {return false;}
@@ -57,6 +58,10 @@ interface AsList extends Parse{
 
 interface AsArray extends Parse{
 	asArray(cc: ConvertingContext): Array<string>
+}
+
+interface AsAbleArray extends Parse{
+	asAbleArray(cc: ConvertingContext): Array<AsAble>
 }
 
 interface AsVariable extends Parse{
@@ -114,7 +119,7 @@ export class ConvertVariableParse extends Parse {
 	}
 }
 // there has to be a better way
-["String", "Boolean", "Text", "List", "Array", "Variable", "Action", "Dictionary", "RawDictionary", "RawKeyedDictionary", "NameType", "StringVariable", "Number"].forEach(val => {
+["String", "Boolean", "Text", "List", "Array", "AbleArray", "Variable", "Action", "Dictionary", "RawDictionary", "RawKeyedDictionary", "NameType", "StringVariable", "Number"].forEach(val => {
 	(<any>ConvertVariableParse).prototype[`canBe${val}`] = function(cc: ConvertingContext) { //eslint-disable-line func-names
 		const me = this.getValue(cc);
 		return (<any>me)[`canBe${val}`](cc);
@@ -187,7 +192,7 @@ export class DictionaryParse extends Parse implements AsRawDictionary, AsRawKeye
 		return dictionary;
 	}
 }
-export class ListParse extends Parse implements AsArray, AsList {
+export class ListParse extends Parse implements AsArray, AsList, AsAbleArray {
 	items: Array<AsAble>;
 
 	constructor(start: Position, end: Position, items: Array<AsAble>) {
@@ -200,6 +205,10 @@ export class ListParse extends Parse implements AsArray, AsList {
 			if(!item.canBeString(cc)) {throw item.error(cc, "This list can only contain strings with no variables.");}
 			return item.asString(cc);
 		});
+	}
+	canBeAbleArray(_cc: ConvertingContext): boolean {return true;}
+	asAbleArray(_cc: ConvertingContext){
+		return this.items;
 	}
 	canBeList(_cc: ConvertingContext): boolean {return true;}
 	asList(cc: ConvertingContext) { // -> Text[]

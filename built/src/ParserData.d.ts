@@ -17,6 +17,7 @@ export declare class Parse {
     canBeText(_cc: ConvertingContext): this is AsText;
     canBeList(_cc: ConvertingContext): this is AsList;
     canBeArray(_cc: ConvertingContext): this is AsArray;
+    canBeAbleArray(_cc: ConvertingContext): this is AsAbleArray;
     canBeVariable(_cc: ConvertingContext): this is AsVariable;
     canBeAction(_cc: ConvertingContext): this is AsAction;
     canBeDictionary(_cc: ConvertingContext): this is AsDictionary;
@@ -40,6 +41,9 @@ interface AsList extends Parse {
 }
 interface AsArray extends Parse {
     asArray(cc: ConvertingContext): Array<string>;
+}
+interface AsAbleArray extends Parse {
+    asAbleArray(cc: ConvertingContext): Array<AsAble>;
 }
 interface AsVariable extends Parse {
     asVariable(cc: ConvertingContext): Variable;
@@ -100,11 +104,13 @@ export declare class DictionaryParse extends Parse implements AsRawDictionary, A
     canBeDictionary(_cc: ConvertingContext): boolean;
     asDictionary(cc: ConvertingContext): Dictionary;
 }
-export declare class ListParse extends Parse implements AsArray, AsList {
+export declare class ListParse extends Parse implements AsArray, AsList, AsAbleArray {
     items: Array<AsAble>;
     constructor(start: Position, end: Position, items: Array<AsAble>);
     canBeArray(_cc: ConvertingContext): boolean;
     asArray(cc: ConvertingContext): string[];
+    canBeAbleArray(_cc: ConvertingContext): boolean;
+    asAbleArray(_cc: ConvertingContext): Parse[];
     canBeList(_cc: ConvertingContext): boolean;
     asList(cc: ConvertingContext): List;
 }

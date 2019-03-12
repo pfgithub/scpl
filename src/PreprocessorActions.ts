@@ -7,6 +7,19 @@ const preprocessorActions : {[key: string]: (cc: ConvertingContext, ...args: AsA
 			throw name.error(cc, "Name to set must be a string with no variables.");
 		}
 		cc.setParserVariable(name.asString(cc), value);
+	},
+	"@foreach": (cc: ConvertingContext, list: AsAble, method: AsAble) => {
+		if(!list.canBeAbleArray(cc)){
+			throw list.error(cc, "List must be a list.");
+		}
+		if(!method.canBeAction(cc)){
+			throw method.error(cc, "Method must be action, for example `@{Text \"\\(@:repeatitem)\"}`");
+		}
+		list.asAbleArray(cc).forEach(item => {
+			let newCC = cc.in();
+			newCC.setParserVariable("repeatitem", item);
+			method.asAction(newCC);
+		});
 	}
 };
 export default preprocessorActions;

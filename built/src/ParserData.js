@@ -25,6 +25,7 @@ class Parse {
     canBeText(_cc) { return false; }
     canBeList(_cc) { return false; }
     canBeArray(_cc) { return false; }
+    canBeAbleArray(_cc) { return false; }
     canBeVariable(_cc) { return false; }
     canBeAction(_cc) { return false; }
     canBeDictionary(_cc) { return false; }
@@ -59,7 +60,7 @@ class ConvertVariableParse extends Parse {
 }
 exports.ConvertVariableParse = ConvertVariableParse;
 // there has to be a better way
-["String", "Boolean", "Text", "List", "Array", "Variable", "Action", "Dictionary", "RawDictionary", "RawKeyedDictionary", "NameType", "StringVariable", "Number"].forEach(val => {
+["String", "Boolean", "Text", "List", "Array", "AbleArray", "Variable", "Action", "Dictionary", "RawDictionary", "RawKeyedDictionary", "NameType", "StringVariable", "Number"].forEach(val => {
     ConvertVariableParse.prototype[`canBe${val}`] = function (cc) {
         const me = this.getValue(cc);
         return me[`canBe${val}`](cc);
@@ -169,6 +170,10 @@ class ListParse extends Parse {
             }
             return item.asString(cc);
         });
+    }
+    canBeAbleArray(_cc) { return true; }
+    asAbleArray(_cc) {
+        return this.items;
     }
     canBeList(_cc) { return true; }
     asList(cc) {
