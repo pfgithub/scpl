@@ -23,7 +23,7 @@ Text "This is my text"
 
 ## Try making shortcuts
 
-You can convert ScPL to .shortcut on the [tryit page](https://pfgithub.github.io/shortcutslang/tryit). Copy the .shortcut file to your phone through airdrop or iCloud files and open it in Shortcuts.
+You can convert ScPL to .shortcut on the [tryit page](https://editor.scpl.dev). Copy the .shortcut file to your phone through airdrop or iCloud files and open it in Shortcuts.
 
 ### Argument Labels
 

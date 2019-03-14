@@ -8,7 +8,7 @@ Banner by ROP#2788 on the [routinehub.co](https://routinehub.co) discord server.
 
 [Getting Started Guide](https://pfgithub.github.io/shortcutslang/gettingstarted.html)
 
-[Try Shortcutslang in a web browser](https://scpl.dev)
+[Try Shortcutslang in a web browser](https://editor.scpl.dev)
 
 225/266 builtin actions supported
 
