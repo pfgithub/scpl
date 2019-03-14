@@ -730,7 +730,7 @@ text "value is \(@:varname)"
 
 <div><details>
 <summary>Image</summary>
-Picture soon, outputs `text "value is value"`
+<img src="https://i.imgur.com/inOVLte.png" />
 </details></div>
 
 Parser variables inherit the properties of their values.
@@ -745,7 +745,7 @@ list @:list
 
 <div><details>
 <summary>Image</summary>
-Picture soon, outputs `number 0.5; list [1,2,3]`
+<img src="https://i.imgur.com/aB4TM6U.png" />
 </details></div>
 
 Parser variables can contain actions
@@ -758,7 +758,7 @@ Parser variables can contain actions
 
 <div><details>
 <summary>Image</summary>
-Picture soon, outputs `text "hi"`
+<img src="https://i.imgur.com/xkBcT8e.png" />
 </details></div>
 
 Parser variables can contain lists of actions
@@ -776,7 +776,7 @@ Text ";Hi there!\n\\"
 
 <div><details>
 <summary>Image</summary>
-Picture soon, outputs `Text ";Hi there!\n\\";replacetext "\\" "\\\\";replacetext (Text "\n") " ";replacetext ";" "\\;"`
+<img src="https://i.imgur.com/Aoc3SaZ.png" />
 </details></div>
 
 Parser variables can take input as a dictionary of parser variables to set
@@ -789,7 +789,7 @@ Parser variables can take input as a dictionary of parser variables to set
 
 <div><details>
 <summary>Image</summary>
-Picture soon, outputs `Text "Hi!"`
+<img src="https://i.imgur.com/vqUZLfk.png" />
 </details></div>
 
 #### Use cases
@@ -813,5 +813,5 @@ AskForInput "Text to escape" -> mv:InputtedText
 
 <div><details>
 <summary>Image</summary>
-Screenshots coming soon.
+<img src="https://i.imgur.com/Y80VCQ9.png" />
 </details></div>
