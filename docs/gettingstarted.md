@@ -718,6 +718,8 @@ Shortcuts has 5 special variables, 2 of which seem to have no reason for existin
 
 ### Macros and Parser Variables
 
+#### The @set macro
+
 Parser variables are variables that only exist in your scpl file. When the shortcut is generated, they are replaced with their value.
 
 Set a parser variable with `@set`, use a parser variable with `@:variable`
@@ -814,4 +816,19 @@ AskForInput "Text to escape" -> mv:InputtedText
 <div><details>
 <summary>Image</summary>
 <img src="https://i.imgur.com/Y80VCQ9.png" />
+</details></div>
+
+#### The @foreach macro
+
+Foreach will repeat an action multiple times
+
+```
+@foreach ["Item 1", "Item 2", "Item 3", "Item 4"] @{
+	Text @:repeatitem
+}
+```
+
+<div><details>
+<summary>Image</summary>
+<img src="https://i.imgur.com/MVwvypc.png" />
 </details></div>
