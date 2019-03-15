@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const OutputData_1 = require("./OutputData");
 const HelpfulActions_1 = require("./HelpfulActions");
 const WFResource_1 = require("./WFResource");
+const AppNames_1 = require("./Data/AppNames");
 const Actions_1 = require("./Data/Actions");
 function genShortName(longName, internalName) {
     // lower case
@@ -197,6 +198,39 @@ addStaticEnum("WFMapsAppPickerParameter", "Maps App", ["Maps", "Google Maps", "W
 // WFEvernoteTagsTagFieldParameter is a dynamic tag
 // phone number is like email but accepts phone numbers
 // WFContactHandleField: Must be Ask When Run or Variable
+class WFAppPickerParameter extends WFParameter {
+    constructor(data, name = "App", docs = "https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields") {
+        super(data, name, docs);
+    }
+    genDocsArgName() {
+        return `("app name" | "com.identifier.for.app")]`;
+    }
+    genDocs() {
+        return `${super.genDocs()}
+
+Accepts a string containing a supported app or an app identifier.
+You can use [this shortcut](https://www.icloud.com/shortcuts/7aff3fcdd0ca4bbc9c0d1b70e2825ed8) to get an app identifier for an unsupported app.
+Supported apps are:
+${Object.keys(AppNames_1.appNames).map(appName => `- \`${appName}\` (${AppNames_1.appNames[appName].name})`).join("\n")}
+- Any other app by entering its id from [this shortcut](https://www.icloud.com/shortcuts/7aff3fcdd0ca4bbc9c0d1b70e2825ed8)
+		`;
+    }
+    build(cc, parse) {
+        if (parse.canBeString(cc)) {
+            const res = parse.asString(cc);
+            const appName = res.toLowerCase().replace(/[^a-z0-9]/g, "");
+            if (AppNames_1.appNames[appName]) {
+                return AppNames_1.appNames[appName].id;
+            }
+            if (res.indexOf(".") === -1) {
+                throw parse.error(cc, `The app ${res} is not supported by default. Enter its app id which you can get from this shortcut: https://www.icloud.com/shortcuts/7aff3fcdd0ca4bbc9c0d1b70e2825ed8 (More info on the documentation page for this action)`);
+            }
+            return res;
+        }
+        throw parse.error(cc, `${this.name} fields can only contain strings with an app name or identifier.`);
+    }
+}
+types.WFAppPickerParameter = WFAppPickerParameter;
 class WFNumberFieldParameter extends WFParameter {
     constructor(data, name = "Number", docs = "https://pfgithub.github.io/shortcutslang/gettingstarted#number-field") {
         super(data, name, docs);

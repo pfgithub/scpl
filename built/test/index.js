@@ -316,4 +316,32 @@ ava_1.default("foreach macro", t => {
         }
     ]);
 });
+ava_1.default("open app action", t => {
+    const output = index_1.parse(`openapp Safari; openapp Shortcuts; openapp "is.workflow.my.app"`, { makePlist: false });
+    const [scdata] = output.build();
+    const actions = scdata.WFWorkflowActions;
+    t.deepEqual(noUUID(actions, { noSCPLData: true }), [
+        {
+            WFWorkflowActionIdentifier: "is.workflow.actions.openapp",
+            WFWorkflowActionParameters: {
+                WFAppIdentifier: "com.apple.mobilesafari"
+            }
+        },
+        {
+            WFWorkflowActionIdentifier: "is.workflow.actions.openapp",
+            WFWorkflowActionParameters: {
+                WFAppIdentifier: "is.workflow.my.app"
+            }
+        },
+        {
+            WFWorkflowActionIdentifier: "is.workflow.actions.openapp",
+            WFWorkflowActionParameters: {
+                WFAppIdentifier: "is.workflow.my.app"
+            }
+        }
+    ]);
+});
+ava_1.default("open app fails with invalid app name", t => {
+    t.throws(() => index_1.parse(`openapp myfavoriteapp`, { makePlist: false }));
+});
 // console.log(JSON.stringify(noUUID(actions), null, "\t"));

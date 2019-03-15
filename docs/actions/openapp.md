@@ -1,8 +1,6 @@
 
 ## Open App / openapp (internally `is.workflow.actions.openapp`)
 
-> This action is not yet complete. Some arguments may be missing.
-
 > This action requires that Shortcuts has permission to use WFURLOpenResource.
 
 
@@ -15,14 +13,27 @@ Opens the specified app.
 
 ### usage
 ```
-openapp undefined=NotImplemented wfappname="string"
+openapp app=("app name" | "com.identifier.for.app")] wfappname="string"
 ```
 
 ### arguments
 
 ---
 
-#### This paramtype is not implemented. WFAppPickerParameter
+### app: App [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+**Allows Variables**: true
+
+
+
+Accepts a string containing a supported app or an app identifier.
+You can use [this shortcut](https://www.icloud.com/shortcuts/7aff3fcdd0ca4bbc9c0d1b70e2825ed8) to get an app identifier for an unsupported app.
+Supported apps are:
+- `appstore` (App Store)
+- `files` (Files)
+- `shortcuts` (Shortcuts)
+- `safari` (Safari)
+- Any other app by entering its id from [this shortcut](https://www.icloud.com/shortcuts/7aff3fcdd0ca4bbc9c0d1b70e2825ed8)
+		
 
 ---
 

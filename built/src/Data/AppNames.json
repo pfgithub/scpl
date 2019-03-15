@@ -1,0 +1,18 @@
+{
+    "appstore": {
+        "name": "App Store",
+        "id": "com.apple.AppStore"
+    },
+    "files": {
+        "name": "Files",
+        "id": "com.apple.DocumentsApp"
+    },
+    "shortcuts": {
+        "name": "Shortcuts",
+        "id": "is.workflow.my.app"
+    },
+    "safari": {
+        "name": "Safari",
+        "id": "com.apple.mobilesafari"
+    }
+}

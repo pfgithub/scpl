@@ -1,8 +1,6 @@
 
 ## Open In... / openin (internally `is.workflow.actions.openin`)
 
-> This action is not yet complete. Some arguments may be missing.
-
 > This action requires that Shortcuts has permission to use WFUserInteractionResource.
 
 
@@ -15,7 +13,7 @@ Opens the input as a file in the specified app.
 
 ### usage
 ```
-openin showopeninmenu=(true | f alse | variable) undefined=NotImplemented wfappname="string"
+openin showopeninmenu=(true | f alse | variable) app=("app name" | "com.identifier.for.app")] wfappname="string"
 ```
 
 ### arguments
@@ -35,7 +33,20 @@ or a variable.
 
 ---
 
-#### This paramtype is not implemented. WFAppPickerParameter
+### app: App [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+**Allows Variables**: true
+
+**Only enabled if**: argument WFOpenInAskWhenRun == `false`
+
+Accepts a string containing a supported app or an app identifier.
+You can use [this shortcut](https://www.icloud.com/shortcuts/7aff3fcdd0ca4bbc9c0d1b70e2825ed8) to get an app identifier for an unsupported app.
+Supported apps are:
+- `appstore` (App Store)
+- `files` (Files)
+- `shortcuts` (Shortcuts)
+- `safari` (Safari)
+- Any other app by entering its id from [this shortcut](https://www.icloud.com/shortcuts/7aff3fcdd0ca4bbc9c0d1b70e2825ed8)
+		
 
 ---
 

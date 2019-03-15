@@ -10,7 +10,7 @@ Banner by ROP#2788 on the [routinehub.co](https://routinehub.co) discord server.
 
 [Try Shortcutslang in a web browser](https://editor.scpl.dev)
 
-225/266 builtin actions supported
+227/266 builtin actions supported
 
 ## All Actions:
 
@@ -182,8 +182,8 @@ Banner by ROP#2788 on the [routinehub.co](https://routinehub.co) discord server.
 - [Measurement (`measurement`)](actions/measurement) (Incomplete)
 - [Nothing (`nothing`)](actions/nothing)
 - [Number (`number`)](actions/number)
-- [Open App (`openapp`)](actions/openapp) (Incomplete)
-- [Open In... (`openin`)](actions/openin) (Incomplete)
+- [Open App (`openapp`)](actions/openapp)
+- [Open In... (`openin`)](actions/openin)
 - [Open URLs (`openurls`)](actions/openurls)
 - [Open X-Callback URL (`openxcallbackurl`)](actions/openxcallbackurl)
 - [Open in GoodReader (`openingoodreader`)](actions/openingoodreader)
@@ -334,7 +334,7 @@ Banner by ROP#2788 on the [routinehub.co](https://routinehub.co) discord server.
 - [x] Complete - 2: WFMapsAppPickerParameter
 - [ ] 2: WFDurationQuantityFieldParameter
 - [x] Complete - 2: WFUnitTypePickerParameter
-- [ ] 2: WFAppPickerParameter
+- [x] Complete - 2: WFAppPickerParameter
 - [x] Complete - 2: WFiTunesStoreCountryPickerParameter
 - [x] Complete - 2: WFAccountPickerParameter
 - [x] Complete - 2: WFTranslateTextLanguagePickerParameter

@@ -207,7 +207,7 @@ export class ListParse extends Parse implements AsArray, AsList, AsAbleArray {
 		});
 	}
 	canBeAbleArray(_cc: ConvertingContext): boolean {return true;}
-	asAbleArray(_cc: ConvertingContext){
+	asAbleArray(_cc: ConvertingContext) {
 		return this.items;
 	}
 	canBeList(_cc: ConvertingContext): boolean {return true;}
