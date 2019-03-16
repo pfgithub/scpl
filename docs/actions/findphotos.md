@@ -9,7 +9,7 @@
 
 ### usage
 ```
-findphotos undefined=NotImplemented get=("File Size" | "Camera Make" | "Last Modified Date" | "File Extension" | "Media Type" | "Creation Date" | "Location" | "Album" | "Photo Type" | "Date Taken" | "Duration" | "Width" | "Time Taken" | "Is a Screenshot" | "Is Hidden" | "Frame Rate" | "Height" | "Camera Model" | "Is Favorite" | "Orientation" | "Metadata Dictionary" | "Name" | "Random") get2=("Oldest First" | "Newest First") limit=(true | f alse | variable) getitems=number
+findphotos undefined=NotImplemented sortby=("File Size" | "Camera Make" | "Last Modified Date" | "File Extension" | "Media Type" | "Creation Date" | "Location" | "Album" | "Photo Type" | "Date Taken" | "Duration" | "Width" | "Time Taken" | "Is a Screenshot" | "Is Hidden" | "Frame Rate" | "Height" | "Camera Model" | "Is Favorite" | "Orientation" | "Metadata Dictionary" | "Name" | "Random") order=("Oldest First" | "Newest First") limit=(true | f alse | variable) getitems=number
 ```
 
 ### arguments
@@ -20,7 +20,7 @@ findphotos undefined=NotImplemented get=("File Size" | "Camera Make" | "Last Mod
 
 ---
 
-### get: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### sortby: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Allows Variables**: true
 
 
@@ -55,7 +55,7 @@ containing one of the options:
 
 ---
 
-### get2: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### order: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Allows Variables**: true
 
 **Only enabled if**: argument WFContentItemSortProperty != `Random`
@@ -125,7 +125,7 @@ or a variable.
 		{
 			"Class": "WFEnumerationParameter",
 			"Key": "WFContentItemSortProperty",
-			"Label": "Get",
+			"Label": "Sort by",
 			"Items": [
 				"File Size",
 				"Camera Make",
@@ -155,7 +155,7 @@ or a variable.
 		{
 			"Class": "WFEnumerationParameter",
 			"Key": "WFContentItemSortOrder",
-			"Label": "Get",
+			"Label": "Order",
 			"Items": [
 				"Oldest First",
 				"Newest First"

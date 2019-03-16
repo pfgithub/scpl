@@ -7,7 +7,7 @@
 
 ### usage
 ```
-filterlocations undefined=NotImplemented get=("Phone Number" | "State" | "Altitude" | "Name" | "Longitude" | "Country" | "City" | "Street" | "URL" | "Latitude" | "ZIP Code" | "Random") get2=("Oldest First" | "Newest First") limit=(true | f alse | variable) getitems=number
+filterlocations undefined=NotImplemented sortby=("Phone Number" | "State" | "Altitude" | "Name" | "Longitude" | "Country" | "City" | "Street" | "URL" | "Latitude" | "ZIP Code" | "Random") order=("Oldest First" | "Newest First") limit=(true | f alse | variable) getitems=number
 ```
 
 ### arguments
@@ -18,7 +18,7 @@ filterlocations undefined=NotImplemented get=("Phone Number" | "State" | "Altitu
 
 ---
 
-### get: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### sortby: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Allows Variables**: true
 
 
@@ -42,7 +42,7 @@ containing one of the options:
 
 ---
 
-### get2: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### order: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Allows Variables**: true
 
 **Only enabled if**: argument WFContentItemSortProperty != `Random`
@@ -97,7 +97,7 @@ or a variable.
 		{
 			"Class": "WFEnumerationParameter",
 			"Key": "WFContentItemSortProperty",
-			"Label": "Get",
+			"Label": "Sort by",
 			"Items": [
 				"Phone Number",
 				"State",
@@ -116,7 +116,7 @@ or a variable.
 		{
 			"Class": "WFEnumerationParameter",
 			"Key": "WFContentItemSortOrder",
-			"Label": "Get",
+			"Label": "Order",
 			"Items": [
 				"Oldest First",
 				"Newest First"

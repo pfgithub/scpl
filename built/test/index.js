@@ -352,7 +352,7 @@ ava_1.default("get details of * actions", t => {
         {
             WFWorkflowActionIdentifier: "is.workflow.actions.properties.contacts",
             WFWorkflowActionParameters: {
-                WFContentItemProperty: "Email Address"
+                WFContentItemPropertyName: "Email Address"
             }
         }
     ]);

@@ -3780,7 +3780,7 @@
 			{
 				"Class": "WFEnumerationParameter",
 				"Key": "WFContentItemSortProperty",
-				"Label": "Get",
+				"Label": "Sort by",
 				"Items": [
 					"Name",
 					"Title",
@@ -3796,7 +3796,7 @@
 			{
 				"Class": "WFEnumerationParameter",
 				"Key": "WFContentItemSortOrder",
-				"Label": "Get",
+				"Label": "Order",
 				"Items": [
 					"Oldest First",
 					"Newest First"
@@ -3867,7 +3867,7 @@
 			{
 				"Class": "WFEnumerationParameter",
 				"Key": "WFContentItemSortProperty",
-				"Label": "Get",
+				"Label": "Sort by",
 				"Items": [
 					"Email Address",
 					"Phonetic First Name",
@@ -3901,7 +3901,7 @@
 			{
 				"Class": "WFEnumerationParameter",
 				"Key": "WFContentItemSortOrder",
-				"Label": "Get",
+				"Label": "Order",
 				"Items": [
 					"Oldest First",
 					"Newest First"
@@ -3968,7 +3968,7 @@
 			{
 				"Class": "WFEnumerationParameter",
 				"Key": "WFContentItemSortProperty",
-				"Label": "Get",
+				"Label": "Sort by",
 				"Items": [
 					"Creation Date",
 					"File Size",
@@ -3981,7 +3981,7 @@
 			{
 				"Class": "WFEnumerationParameter",
 				"Key": "WFContentItemSortOrder",
-				"Label": "Get",
+				"Label": "Order",
 				"Items": [
 					"Oldest First",
 					"Newest First"
@@ -4063,7 +4063,7 @@
 			{
 				"Class": "WFEnumerationParameter",
 				"Key": "WFContentItemSortProperty",
-				"Label": "Get",
+				"Label": "Sort by",
 				"Items": [
 					"Width",
 					"Time Taken",
@@ -4093,7 +4093,7 @@
 			{
 				"Class": "WFEnumerationParameter",
 				"Key": "WFContentItemSortOrder",
-				"Label": "Get",
+				"Label": "Order",
 				"Items": [
 					"Oldest First",
 					"Newest First"
@@ -4138,7 +4138,7 @@
 			{
 				"Class": "WFEnumerationParameter",
 				"Key": "WFContentItemSortProperty",
-				"Label": "Get",
+				"Label": "Sort by",
 				"Items": [
 					"Phone Number",
 					"State",
@@ -4157,7 +4157,7 @@
 			{
 				"Class": "WFEnumerationParameter",
 				"Key": "WFContentItemSortOrder",
-				"Label": "Get",
+				"Label": "Order",
 				"Items": [
 					"Oldest First",
 					"Newest First"
@@ -4214,7 +4214,7 @@
 			{
 				"Class": "WFEnumerationParameter",
 				"Key": "WFContentItemSortProperty",
-				"Label": "Get",
+				"Label": "Sort by",
 				"Items": [
 					"Last Played Date",
 					"File Extension",
@@ -4248,7 +4248,7 @@
 			{
 				"Class": "WFEnumerationParameter",
 				"Key": "WFContentItemSortOrder",
-				"Label": "Get",
+				"Label": "Order",
 				"Items": [
 					"Oldest First",
 					"Newest First"
@@ -4308,7 +4308,7 @@
 			{
 				"Class": "WFEnumerationParameter",
 				"Key": "WFContentItemSortProperty",
-				"Label": "Get",
+				"Label": "Sort by",
 				"Items": [
 					"File Size",
 					"Camera Make",
@@ -4338,7 +4338,7 @@
 			{
 				"Class": "WFEnumerationParameter",
 				"Key": "WFContentItemSortOrder",
-				"Label": "Get",
+				"Label": "Order",
 				"Items": [
 					"Oldest First",
 					"Newest First"

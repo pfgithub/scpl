@@ -7,7 +7,7 @@
 
 ### usage
 ```
-filterfiles undefined=NotImplemented get=("Creation Date" | "File Size" | "File Extension" | "Last Modified Date" | "Name" | "Random") get2=("Oldest First" | "Newest First") limit=(true | f alse | variable) getitems=number
+filterfiles undefined=NotImplemented sortby=("Creation Date" | "File Size" | "File Extension" | "Last Modified Date" | "Name" | "Random") order=("Oldest First" | "Newest First") limit=(true | f alse | variable) getitems=number
 ```
 
 ### arguments
@@ -18,7 +18,7 @@ filterfiles undefined=NotImplemented get=("Creation Date" | "File Size" | "File 
 
 ---
 
-### get: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### sortby: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Allows Variables**: true
 
 
@@ -36,7 +36,7 @@ containing one of the options:
 
 ---
 
-### get2: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### order: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Allows Variables**: true
 
 **Only enabled if**: argument WFContentItemSortProperty != `Random`
@@ -98,7 +98,7 @@ or a variable.
 		{
 			"Class": "WFEnumerationParameter",
 			"Key": "WFContentItemSortProperty",
-			"Label": "Get",
+			"Label": "Sort by",
 			"Items": [
 				"Creation Date",
 				"File Size",
@@ -111,7 +111,7 @@ or a variable.
 		{
 			"Class": "WFEnumerationParameter",
 			"Key": "WFContentItemSortOrder",
-			"Label": "Get",
+			"Label": "Order",
 			"Items": [
 				"Oldest First",
 				"Newest First"

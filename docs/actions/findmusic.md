@@ -9,7 +9,7 @@
 
 ### usage
 ```
-findmusic undefined=NotImplemented get=("Last Played Date" | "File Extension" | "Release Date" | "Genre" | "Media Kind" | "Name" | "Artist" | "Creation Date" | "Composer" | "Duration" | "Disc #" | "Last Modified Date" | "Date Added" | "Play Count" | "Album Artwork" | "Album Track #" | "Has Album Artwork" | "Rating" | "Is Explicit" | "Comments" | "Skip Count" | "File Size" | "Lyrics" | "Is Cloud Item" | "Album Artist" | "Album" | "Random") get2=("Oldest First" | "Newest First") limit=(true | f alse | variable) getitems=number
+findmusic undefined=NotImplemented sortby=("Last Played Date" | "File Extension" | "Release Date" | "Genre" | "Media Kind" | "Name" | "Artist" | "Creation Date" | "Composer" | "Duration" | "Disc #" | "Last Modified Date" | "Date Added" | "Play Count" | "Album Artwork" | "Album Track #" | "Has Album Artwork" | "Rating" | "Is Explicit" | "Comments" | "Skip Count" | "File Size" | "Lyrics" | "Is Cloud Item" | "Album Artist" | "Album" | "Random") order=("Oldest First" | "Newest First") limit=(true | f alse | variable) getitems=number
 ```
 
 ### arguments
@@ -20,7 +20,7 @@ findmusic undefined=NotImplemented get=("Last Played Date" | "File Extension" | 
 
 ---
 
-### get: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### sortby: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Allows Variables**: true
 
 
@@ -59,7 +59,7 @@ containing one of the options:
 
 ---
 
-### get2: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### order: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Allows Variables**: true
 
 **Only enabled if**: argument WFContentItemSortProperty != `Random`
@@ -126,7 +126,7 @@ or a variable.
 		{
 			"Class": "WFEnumerationParameter",
 			"Key": "WFContentItemSortProperty",
-			"Label": "Get",
+			"Label": "Sort by",
 			"Items": [
 				"Last Played Date",
 				"File Extension",
@@ -160,7 +160,7 @@ or a variable.
 		{
 			"Class": "WFEnumerationParameter",
 			"Key": "WFContentItemSortOrder",
-			"Label": "Get",
+			"Label": "Order",
 			"Items": [
 				"Oldest First",
 				"Newest First"

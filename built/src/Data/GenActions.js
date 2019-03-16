@@ -58,13 +58,13 @@ Object.values(actions).forEach((action) => {
             action.Parameters.push({
                 Class: "WFEnumerationParameter",
                 Key: "WFContentItemSortProperty",
-                Label: "Get",
+                Label: "Sort by",
                 Items: [...Object.values(GetTypes_1.default[getTypeItemClass]).map(t => t.name), "Random"],
             });
             action.Parameters.push({
                 Class: "WFEnumerationParameter",
                 Key: "WFContentItemSortOrder",
-                Label: "Get",
+                Label: "Order",
                 Items: ["Oldest First", "Newest First"],
                 RequiredResources: [
                     {
