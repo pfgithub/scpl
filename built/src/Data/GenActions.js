@@ -65,7 +65,7 @@ Object.values(actions).forEach((action) => {
                 Class: "WFEnumerationParameter",
                 Key: "WFContentItemSortOrder",
                 Label: "Order",
-                Items: ["Oldest First", "Newest First"],
+                Items: ["Oldest First", "Newest First", "A to Z", "Z to A"],
                 RequiredResources: [
                     {
                         WFParameterKey: "WFContentItemSortProperty",
@@ -83,7 +83,14 @@ Object.values(actions).forEach((action) => {
             action.Parameters.push({
                 Class: "WFStepperParameter",
                 Key: "WFContentItemLimitNumber",
-                Label: "Get Items"
+                Label: "Get Items",
+                RequiredResources: [
+                    {
+                        WFParameterKey: "WFSwitchParameter",
+                        WFParameterValues: [true],
+                        WFResourceClass: "WFParameterRelationResource"
+                    }
+                ]
             });
         }
     }

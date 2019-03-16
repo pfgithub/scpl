@@ -3799,7 +3799,9 @@
 				"Label": "Order",
 				"Items": [
 					"Oldest First",
-					"Newest First"
+					"Newest First",
+					"A to Z",
+					"Z to A"
 				],
 				"RequiredResources": [
 					{
@@ -3820,7 +3822,16 @@
 			{
 				"Class": "WFStepperParameter",
 				"Key": "WFContentItemLimitNumber",
-				"Label": "Get Items"
+				"Label": "Get Items",
+				"RequiredResources": [
+					{
+						"WFParameterKey": "WFSwitchParameter",
+						"WFParameterValues": [
+							true
+						],
+						"WFResourceClass": "WFParameterRelationResource"
+					}
+				]
 			}
 		]
 	},
@@ -3904,7 +3915,9 @@
 				"Label": "Order",
 				"Items": [
 					"Oldest First",
-					"Newest First"
+					"Newest First",
+					"A to Z",
+					"Z to A"
 				],
 				"RequiredResources": [
 					{
@@ -3925,7 +3938,16 @@
 			{
 				"Class": "WFStepperParameter",
 				"Key": "WFContentItemLimitNumber",
-				"Label": "Get Items"
+				"Label": "Get Items",
+				"RequiredResources": [
+					{
+						"WFParameterKey": "WFSwitchParameter",
+						"WFParameterValues": [
+							true
+						],
+						"WFResourceClass": "WFParameterRelationResource"
+					}
+				]
 			}
 		]
 	},
@@ -3984,7 +4006,9 @@
 				"Label": "Order",
 				"Items": [
 					"Oldest First",
-					"Newest First"
+					"Newest First",
+					"A to Z",
+					"Z to A"
 				],
 				"RequiredResources": [
 					{
@@ -4005,7 +4029,16 @@
 			{
 				"Class": "WFStepperParameter",
 				"Key": "WFContentItemLimitNumber",
-				"Label": "Get Items"
+				"Label": "Get Items",
+				"RequiredResources": [
+					{
+						"WFParameterKey": "WFSwitchParameter",
+						"WFParameterValues": [
+							true
+						],
+						"WFResourceClass": "WFParameterRelationResource"
+					}
+				]
 			}
 		]
 	},
@@ -4096,7 +4129,9 @@
 				"Label": "Order",
 				"Items": [
 					"Oldest First",
-					"Newest First"
+					"Newest First",
+					"A to Z",
+					"Z to A"
 				],
 				"RequiredResources": [
 					{
@@ -4117,7 +4152,16 @@
 			{
 				"Class": "WFStepperParameter",
 				"Key": "WFContentItemLimitNumber",
-				"Label": "Get Items"
+				"Label": "Get Items",
+				"RequiredResources": [
+					{
+						"WFParameterKey": "WFSwitchParameter",
+						"WFParameterValues": [
+							true
+						],
+						"WFResourceClass": "WFParameterRelationResource"
+					}
+				]
 			}
 		]
 	},
@@ -4160,7 +4204,9 @@
 				"Label": "Order",
 				"Items": [
 					"Oldest First",
-					"Newest First"
+					"Newest First",
+					"A to Z",
+					"Z to A"
 				],
 				"RequiredResources": [
 					{
@@ -4181,7 +4227,16 @@
 			{
 				"Class": "WFStepperParameter",
 				"Key": "WFContentItemLimitNumber",
-				"Label": "Get Items"
+				"Label": "Get Items",
+				"RequiredResources": [
+					{
+						"WFParameterKey": "WFSwitchParameter",
+						"WFParameterValues": [
+							true
+						],
+						"WFResourceClass": "WFParameterRelationResource"
+					}
+				]
 			}
 		]
 	},
@@ -4251,7 +4306,9 @@
 				"Label": "Order",
 				"Items": [
 					"Oldest First",
-					"Newest First"
+					"Newest First",
+					"A to Z",
+					"Z to A"
 				],
 				"RequiredResources": [
 					{
@@ -4272,7 +4329,16 @@
 			{
 				"Class": "WFStepperParameter",
 				"Key": "WFContentItemLimitNumber",
-				"Label": "Get Items"
+				"Label": "Get Items",
+				"RequiredResources": [
+					{
+						"WFParameterKey": "WFSwitchParameter",
+						"WFParameterValues": [
+							true
+						],
+						"WFResourceClass": "WFParameterRelationResource"
+					}
+				]
 			}
 		]
 	},
@@ -4341,7 +4407,9 @@
 				"Label": "Order",
 				"Items": [
 					"Oldest First",
-					"Newest First"
+					"Newest First",
+					"A to Z",
+					"Z to A"
 				],
 				"RequiredResources": [
 					{
@@ -4362,7 +4430,16 @@
 			{
 				"Class": "WFStepperParameter",
 				"Key": "WFContentItemLimitNumber",
-				"Label": "Get Items"
+				"Label": "Get Items",
+				"RequiredResources": [
+					{
+						"WFParameterKey": "WFSwitchParameter",
+						"WFParameterValues": [
+							true
+						],
+						"WFResourceClass": "WFParameterRelationResource"
+					}
+				]
 			}
 		]
 	},

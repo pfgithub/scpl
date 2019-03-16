@@ -7,7 +7,7 @@
 
 ### usage
 ```
-filterimages undefined=NotImplemented sortby=("Width" | "Time Taken" | "Is a Screenshot" | "Media Type" | "Height" | "Location" | "Orientation" | "Date Taken" | "Duration" | "Camera Make" | "Is Hidden" | "Frame Rate" | "File Extension" | "Camera Model" | "Is Favorite" | "Creation Date" | "Album" | "Metadata Dictionary" | "File Size" | "Photo Type" | "Last Modified Date" | "Name" | "Random") order=("Oldest First" | "Newest First") limit=(true | f alse | variable) getitems=number
+filterimages undefined=NotImplemented sortby=("Width" | "Time Taken" | "Is a Screenshot" | "Media Type" | "Height" | "Location" | "Orientation" | "Date Taken" | "Duration" | "Camera Make" | "Is Hidden" | "Frame Rate" | "File Extension" | "Camera Model" | "Is Favorite" | "Creation Date" | "Album" | "Metadata Dictionary" | "File Size" | "Photo Type" | "Last Modified Date" | "Name" | "Random") order=("Oldest First" | "Newest First" | "A to Z" | "Z to A") limit=(true | f alse | variable) getitems=number
 ```
 
 ### arguments
@@ -64,6 +64,8 @@ containing one of the options:
 
 - `Oldest First`
 - `Newest First`
+- `A to Z`
+- `Z to A`
 
 ---
 
@@ -80,7 +82,7 @@ or a variable.
 ### getitems: Stepper Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFSwitchParameter == `true`
 
 		Accepts a number 
 		or variable
@@ -149,7 +151,9 @@ or a variable.
 			"Label": "Order",
 			"Items": [
 				"Oldest First",
-				"Newest First"
+				"Newest First",
+				"A to Z",
+				"Z to A"
 			],
 			"RequiredResources": [
 				{
@@ -170,7 +174,16 @@ or a variable.
 		{
 			"Class": "WFStepperParameter",
 			"Key": "WFContentItemLimitNumber",
-			"Label": "Get Items"
+			"Label": "Get Items",
+			"RequiredResources": [
+				{
+					"WFParameterKey": "WFSwitchParameter",
+					"WFParameterValues": [
+						true
+					],
+					"WFResourceClass": "WFParameterRelationResource"
+				}
+			]
 		}
 	]
 }
