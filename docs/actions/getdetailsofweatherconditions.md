@@ -14,7 +14,7 @@ getdetailsofweatherconditions undefined=NotImplemented
 
 ---
 
-#### Get Details Of WFWeatherDataContentItem is not yet implemented.
+#### This paramtype is not implemented. _UndefinedCoercionClass
 
 ---
 
@@ -29,6 +29,11 @@ getdetailsofweatherconditions undefined=NotImplemented
 	"IconName": "Weather.png",
 	"Name": "Get Details of Weather Conditions",
 	"Subcategory": "Weather",
-	"WFContentItemClass": "WFWeatherDataContentItem"
+	"WFContentItemClass": "WFWeatherDataContentItem",
+	"Parameters": [
+		{
+			"Class": "_UndefinedCoercionClass"
+		}
+	]
 }
 ```

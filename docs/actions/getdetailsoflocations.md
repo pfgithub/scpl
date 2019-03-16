@@ -12,7 +12,7 @@ getdetailsoflocations get=("Phone Number" | "State" | "Altitude" | "Name" | "Lon
 
 ---
 
-### get: Get Property [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### get: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Allows Variables**: true
 
 
@@ -49,6 +49,26 @@ containing one of the options:
 	"CreationDate": "2015-01-22T08:00:00.000Z",
 	"IconName": "Location.png",
 	"Name": "Get Details of Locations",
-	"WFContentItemClass": "WFLocationContentItem"
+	"WFContentItemClass": "WFLocationContentItem",
+	"Parameters": [
+		{
+			"Class": "WFEnumerationParameter",
+			"Key": "WFContentItemPropertyName",
+			"Label": "Get",
+			"Items": [
+				"Phone Number",
+				"State",
+				"Altitude",
+				"Name",
+				"Longitude",
+				"Country",
+				"City",
+				"Street",
+				"URL",
+				"Latitude",
+				"ZIP Code"
+			]
+		}
+	]
 }
 ```

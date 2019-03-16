@@ -16,7 +16,7 @@ getdetailsoftrelloitem undefined=NotImplemented
 
 ---
 
-#### Get Details Of WFTrelloItemContentItem is not yet implemented.
+#### This paramtype is not implemented. _UndefinedCoercionClass
 
 ---
 
@@ -41,6 +41,11 @@ getdetailsoftrelloitem undefined=NotImplemented
 	"RequiredResources": [
 		"WFTrelloAccessResource"
 	],
-	"WFContentItemClass": "WFTrelloItemContentItem"
+	"WFContentItemClass": "WFTrelloItemContentItem",
+	"Parameters": [
+		{
+			"Class": "_UndefinedCoercionClass"
+		}
+	]
 }
 ```

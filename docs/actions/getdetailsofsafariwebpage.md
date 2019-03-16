@@ -18,7 +18,7 @@ getdetailsofsafariwebpage get=("Name" | "Page Contents" | "Page URL" | "Page Sel
 
 ---
 
-### get: Get Property [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### get: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Allows Variables**: true
 
 
@@ -47,6 +47,19 @@ containing one of the options:
 	},
 	"Name": "Get Details of Safari Web Page",
 	"Subcategory": "Safari",
-	"WFContentItemClass": "WFSafariWebPageContentItem"
+	"WFContentItemClass": "WFSafariWebPageContentItem",
+	"Parameters": [
+		{
+			"Class": "WFEnumerationParameter",
+			"Key": "WFContentItemPropertyName",
+			"Label": "Get",
+			"Items": [
+				"Name",
+				"Page Contents",
+				"Page URL",
+				"Page Selection"
+			]
+		}
+	]
 }
 ```

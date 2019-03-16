@@ -14,7 +14,7 @@ getdetailsofhealthsample undefined=NotImplemented
 
 ---
 
-#### Get Details Of WFHKSampleContentItem is not yet implemented.
+#### This paramtype is not implemented. _UndefinedCoercionClass
 
 ---
 
@@ -28,6 +28,11 @@ getdetailsofhealthsample undefined=NotImplemented
 	"CreationDate": "2015-06-19T07:00:00.000Z",
 	"Name": "Get Details of Health Sample",
 	"Subcategory": "Get",
-	"WFContentItemClass": "WFHKSampleContentItem"
+	"WFContentItemClass": "WFHKSampleContentItem",
+	"Parameters": [
+		{
+			"Class": "_UndefinedCoercionClass"
+		}
+	]
 }
 ```

@@ -587,19 +587,6 @@ export class WFAction {
 				return `This paramtype is not implemented. ${param.Class}`;
 			});
 		}
-		if(this._data.ActionClass === "WFContentItemPropertiesAction") { // TODO use a seperate Get Type Class instead of writing json for WFEnumerationParameter
-			const getTypeItemClass = this._data.WFContentItemClass;
-			if(!isCoercionTypeClass(getTypeItemClass)) {this._parameters.push(`Get Details Of ${getTypeItemClass} is not yet implemented.`); this.isComplete = false;}
-			else{this._parameters.push(new WFEnumerationParameter({
-				Key: "WFContentItemPropertyName",
-				Label: "Get",
-				Items: Object.values(getTypes[getTypeItemClass]).map(t => t.name),
-			}, "Get Property"));}
-		}
-		if(this._data.ActionClass === "WFContentItemFilterAction") {
-			this._parameters.push(`Filter * actions are not implemented yet.`);
-			this.isComplete = false;
-		}
 	}
 	get actionOutputType() {
 		// TODO !!! used for the default output type in variables

@@ -531,8 +531,6 @@ or a named variable (v:) that you want to set.
 types.WFVariableFieldParameter = WFVariableFieldParameter;
 const _debugMissingTypes = {};
 const _debugTypes = {};
-const GetTypes_1 = require("./Data/GetTypes");
-const Types_1 = require("./WFTypes/Types");
 class WFAction {
     constructor(data, id) {
         this._data = data;
@@ -569,24 +567,6 @@ class WFAction {
                         : 1;
                 return `This paramtype is not implemented. ${param.Class}`;
             });
-        }
-        if (this._data.ActionClass === "WFContentItemPropertiesAction") { // TODO use a seperate Get Type Class instead of writing json for WFEnumerationParameter
-            const getTypeItemClass = this._data.WFContentItemClass;
-            if (!Types_1.isCoercionTypeClass(getTypeItemClass)) {
-                this._parameters.push(`Get Details Of ${getTypeItemClass} is not yet implemented.`);
-                this.isComplete = false;
-            }
-            else {
-                this._parameters.push(new WFEnumerationParameter({
-                    Key: "WFContentItemPropertyName",
-                    Label: "Get",
-                    Items: Object.values(GetTypes_1.default[getTypeItemClass]).map(t => t.name),
-                }, "Get Property"));
-            }
-        }
-        if (this._data.ActionClass === "WFContentItemFilterAction") {
-            this._parameters.push(`Filter * actions are not implemented yet.`);
-            this.isComplete = false;
         }
     }
     get actionOutputType() {

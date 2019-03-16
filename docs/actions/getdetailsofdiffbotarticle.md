@@ -18,7 +18,7 @@ getdetailsofdiffbotarticle get=("Name" | "Title" | "Published Date" | "Author" |
 
 ---
 
-### get: Get Property [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### get: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Allows Variables**: true
 
 
@@ -51,6 +51,23 @@ containing one of the options:
 	"IconName": "RichText.png",
 	"Name": "Get Details of Diffbot Article",
 	"Subcategory": "Articles",
-	"WFContentItemClass": "WFArticleContentItem"
+	"WFContentItemClass": "WFArticleContentItem",
+	"Parameters": [
+		{
+			"Class": "WFEnumerationParameter",
+			"Key": "WFContentItemPropertyName",
+			"Label": "Get",
+			"Items": [
+				"Name",
+				"Title",
+				"Published Date",
+				"Author",
+				"Number of Words",
+				"Main Image URL",
+				"URL",
+				"Excerpt"
+			]
+		}
+	]
 }
 ```

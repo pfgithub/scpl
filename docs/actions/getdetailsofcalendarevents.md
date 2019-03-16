@@ -14,7 +14,7 @@ getdetailsofcalendarevents undefined=NotImplemented
 
 ---
 
-#### Get Details Of WFCalendarEventContentItem is not yet implemented.
+#### This paramtype is not implemented. _UndefinedCoercionClass
 
 ---
 
@@ -28,6 +28,11 @@ getdetailsofcalendarevents undefined=NotImplemented
 	"CreationDate": "2015-01-22T08:00:00.000Z",
 	"Name": "Get Details of Calendar Events",
 	"Subcategory": "Calendar",
-	"WFContentItemClass": "WFCalendarEventContentItem"
+	"WFContentItemClass": "WFCalendarEventContentItem",
+	"Parameters": [
+		{
+			"Class": "_UndefinedCoercionClass"
+		}
+	]
 }
 ```

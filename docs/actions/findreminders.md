@@ -16,7 +16,7 @@ findreminders undefined=NotImplemented
 
 ---
 
-#### Filter * actions are not implemented yet.
+#### This paramtype is not implemented. _UndefinedCoercionClass
 
 ---
 
@@ -35,6 +35,11 @@ findreminders undefined=NotImplemented
 	"Subcategory": "Reminders",
 	"SuggestedAsInitialAction": false,
 	"WFContentItemClass": "WFReminderContentItem",
-	"WFContentItemDefaultProperty": "List"
+	"WFContentItemDefaultProperty": "List",
+	"Parameters": [
+		{
+			"Class": "_UndefinedCoercionClass"
+		}
+	]
 }
 ```

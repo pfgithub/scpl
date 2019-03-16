@@ -14,7 +14,7 @@ getdetailsofitunesartist undefined=NotImplemented
 
 ---
 
-#### Get Details Of WFiTunesArtistContentItem is not yet implemented.
+#### This paramtype is not implemented. _UndefinedCoercionClass
 
 ---
 
@@ -27,6 +27,11 @@ getdetailsofitunesartist undefined=NotImplemented
 	"Category": "Music",
 	"CreationDate": "2016-03-15T07:00:00.000Z",
 	"Name": "Get Details of iTunes Artist",
-	"WFContentItemClass": "WFiTunesArtistContentItem"
+	"WFContentItemClass": "WFiTunesArtistContentItem",
+	"Parameters": [
+		{
+			"Class": "_UndefinedCoercionClass"
+		}
+	]
 }
 ```

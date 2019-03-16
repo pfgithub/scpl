@@ -12,7 +12,7 @@ getdetailsofappstoreapp get=("Content Rating" | "Release Date" | "# of Ratings (
 
 ---
 
-### get: Get Property [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### get: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Allows Variables**: true
 
 
@@ -61,6 +61,43 @@ containing one of the options:
 	"Category": "Apps",
 	"CreationDate": "2016-03-15T07:00:00.000Z",
 	"Name": "Get Details of App Store App",
-	"WFContentItemClass": "WFAppStoreAppContentItem"
+	"WFContentItemClass": "WFAppStoreAppContentItem",
+	"Parameters": [
+		{
+			"Class": "WFEnumerationParameter",
+			"Key": "WFContentItemPropertyName",
+			"Label": "Get",
+			"Items": [
+				"Content Rating",
+				"Release Date",
+				"# of Ratings (This Version)",
+				"Price",
+				"Supported Languages",
+				"iPad Screenshot URLs",
+				"Store URL",
+				"Version",
+				"Artist",
+				"Description",
+				"Supports Game Center",
+				"Formatted Price",
+				"Minimum OS Version",
+				"Currency Code",
+				"Screenshot URLs",
+				"Rating",
+				"Store ID",
+				"Category",
+				"Release Notes",
+				"Artwork",
+				"Artwork URL",
+				"Name",
+				"Rating (This Version)",
+				"Is Universal",
+				"Download Size",
+				"Last Updated",
+				"Supported Devices",
+				"# of Ratings"
+			]
+		}
+	]
 }
 ```

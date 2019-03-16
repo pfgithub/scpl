@@ -7,14 +7,70 @@
 
 ### usage
 ```
-filterarticles undefined=NotImplemented
+filterarticles undefined=NotImplemented get=("Name" | "Title" | "Published Date" | "Author" | "Number of Words" | "Main Image URL" | "URL" | "Excerpt" | "Random") get2=("Oldest First" | "Newest First") limit=(true | f alse | variable) getitems=number
 ```
 
 ### arguments
 
 ---
 
-#### Filter * actions are not implemented yet.
+#### This paramtype is not implemented. WFFilterParameter
+
+---
+
+### get: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+**Allows Variables**: true
+
+
+
+Accepts a string 
+or variable
+containing one of the options:
+
+- `Name`
+- `Title`
+- `Published Date`
+- `Author`
+- `Number of Words`
+- `Main Image URL`
+- `URL`
+- `Excerpt`
+- `Random`
+
+---
+
+### get2: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+**Allows Variables**: true
+
+**Only enabled if**: argument WFContentItemSortProperty != `Random`
+
+Accepts a string 
+or variable
+containing one of the options:
+
+- `Oldest First`
+- `Newest First`
+
+---
+
+### limit: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+**Allows Variables**: true
+
+
+
+Accepts a boolean
+or a variable.
+
+---
+
+### getitems: Stepper Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
+**Allows Variables**: true
+
+
+
+		Accepts a number 
+		or variable
+		with a number.
 
 ---
 
@@ -28,6 +84,59 @@ filterarticles undefined=NotImplemented
 	"IconName": "RichText.png",
 	"Name": "Filter Articles",
 	"Subcategory": "Articles",
-	"WFContentItemClass": "WFArticleContentItem"
+	"WFContentItemClass": "WFArticleContentItem",
+	"Parameters": [
+		{
+			"Class": "WFFilterParameter",
+			"Key": "WFContentItemFilter",
+			"Label": "Filter",
+			"ContentItemClass": "WFArticleContentItem"
+		},
+		{
+			"Class": "WFEnumerationParameter",
+			"Key": "WFContentItemSortProperty",
+			"Label": "Get",
+			"Items": [
+				"Name",
+				"Title",
+				"Published Date",
+				"Author",
+				"Number of Words",
+				"Main Image URL",
+				"URL",
+				"Excerpt",
+				"Random"
+			]
+		},
+		{
+			"Class": "WFEnumerationParameter",
+			"Key": "WFContentItemSortOrder",
+			"Label": "Get",
+			"Items": [
+				"Oldest First",
+				"Newest First"
+			],
+			"RequiredResources": [
+				{
+					"WFParameterKey": "WFContentItemSortProperty",
+					"WFParameterValues": [
+						"Random"
+					],
+					"WFResourceClass": "WFParameterRelationResource",
+					"WFParameterRelation": "!="
+				}
+			]
+		},
+		{
+			"Class": "WFSwitchParameter",
+			"Key": "WFContentItemLimitEnabled",
+			"Label": "Limit"
+		},
+		{
+			"Class": "WFStepperParameter",
+			"Key": "WFContentItemLimitNumber",
+			"Label": "Get Items"
+		}
+	]
 }
 ```

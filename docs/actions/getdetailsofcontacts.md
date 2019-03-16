@@ -12,7 +12,7 @@ getdetailsofcontacts get=("Email Address" | "Phonetic First Name" | "Prefix" | "
 
 ---
 
-### get: Get Property [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### get: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Allows Variables**: true
 
 
@@ -60,6 +60,41 @@ containing one of the options:
 	"CreationDate": "2015-01-22T08:00:00.000Z",
 	"Name": "Get Details of Contacts",
 	"Subcategory": "Contacts",
-	"WFContentItemClass": "WFContactContentItem"
+	"WFContentItemClass": "WFContactContentItem",
+	"Parameters": [
+		{
+			"Class": "WFEnumerationParameter",
+			"Key": "WFContentItemPropertyName",
+			"Label": "Get",
+			"Items": [
+				"Email Address",
+				"Phonetic First Name",
+				"Prefix",
+				"URL",
+				"Nickname",
+				"Last Name",
+				"Phone Number",
+				"Has Photo",
+				"File Size",
+				"Creation Date",
+				"Last Modified Date",
+				"Middle Name",
+				"Company",
+				"Department",
+				"Name",
+				"Contact Photo",
+				"First Name",
+				"Phonetic Last Name",
+				"File Extension",
+				"Street Address",
+				"Suffix",
+				"Job Title",
+				"Notes",
+				"Birthday",
+				"Group",
+				"Phonetic Middle Name"
+			]
+		}
+	]
 }
 ```

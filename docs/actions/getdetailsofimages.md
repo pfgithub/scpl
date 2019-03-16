@@ -12,7 +12,7 @@ getdetailsofimages get=("Width" | "Time Taken" | "Is a Screenshot" | "Media Type
 
 ---
 
-### get: Get Property [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### get: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Allows Variables**: true
 
 
@@ -69,6 +69,37 @@ containing one of the options:
 	"LastModifiedDate": "2015-12-14T08:00:00.000Z",
 	"Name": "Get Details of Images",
 	"Subcategory": "Images",
-	"WFContentItemClass": "WFImageContentItem"
+	"WFContentItemClass": "WFImageContentItem",
+	"Parameters": [
+		{
+			"Class": "WFEnumerationParameter",
+			"Key": "WFContentItemPropertyName",
+			"Label": "Get",
+			"Items": [
+				"Width",
+				"Time Taken",
+				"Is a Screenshot",
+				"Media Type",
+				"Height",
+				"Location",
+				"Orientation",
+				"Date Taken",
+				"Duration",
+				"Camera Make",
+				"Is Hidden",
+				"Frame Rate",
+				"File Extension",
+				"Camera Model",
+				"Is Favorite",
+				"Creation Date",
+				"Album",
+				"Metadata Dictionary",
+				"File Size",
+				"Photo Type",
+				"Last Modified Date",
+				"Name"
+			]
+		}
+	]
 }
 ```

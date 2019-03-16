@@ -360,4 +360,18 @@ test("open app fails with invalid app name", t => {
 	t.throws(() => parse(`openapp myfavoriteapp`, {makePlist: false}));
 });
 
+test("get details of * actions", t => {
+	const output = parse(`getdetailsofcontacts "Email Address"`, {makePlist: false});
+	const [scdata] = output.build();
+	const actions = scdata.WFWorkflowActions;
+	t.deepEqual(noUUID(actions, {noSCPLData: true}), [
+		{
+			WFWorkflowActionIdentifier: "is.workflow.actions.properties.contacts",
+			WFWorkflowActionParameters: {
+				WFContentItemProperty: "Email Address"
+			}
+		}
+	]);
+});
+
 // console.log(JSON.stringify(noUUID(actions), null, "\t"));

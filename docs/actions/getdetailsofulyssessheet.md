@@ -14,7 +14,7 @@ getdetailsofulyssessheet undefined=NotImplemented
 
 ---
 
-#### Get Details Of WFUlyssesSheetContentItem is not yet implemented.
+#### This paramtype is not implemented. _UndefinedCoercionClass
 
 ---
 
@@ -34,6 +34,11 @@ getdetailsofulyssessheet undefined=NotImplemented
 		]
 	},
 	"Name": "Get Details of Ulysses Sheet",
-	"WFContentItemClass": "WFUlyssesSheetContentItem"
+	"WFContentItemClass": "WFUlyssesSheetContentItem",
+	"Parameters": [
+		{
+			"Class": "_UndefinedCoercionClass"
+		}
+	]
 }
 ```

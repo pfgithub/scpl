@@ -14,7 +14,7 @@ filtereventattendees undefined=NotImplemented
 
 ---
 
-#### Filter * actions are not implemented yet.
+#### This paramtype is not implemented. _UndefinedCoercionClass
 
 ---
 
@@ -29,6 +29,11 @@ filtereventattendees undefined=NotImplemented
 	"Name": "Filter Event Attendees",
 	"ShortName": "Filter Attendees",
 	"Subcategory": "Event Attendees",
-	"WFContentItemClass": "WFEKParticipantContentItem"
+	"WFContentItemClass": "WFEKParticipantContentItem",
+	"Parameters": [
+		{
+			"Class": "_UndefinedCoercionClass"
+		}
+	]
 }
 ```

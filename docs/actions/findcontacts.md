@@ -9,14 +9,88 @@
 
 ### usage
 ```
-findcontacts undefined=NotImplemented
+findcontacts undefined=NotImplemented get=("Email Address" | "Phonetic First Name" | "Prefix" | "URL" | "Nickname" | "Last Name" | "Phone Number" | "Has Photo" | "File Size" | "Creation Date" | "Last Modified Date" | "Middle Name" | "Company" | "Department" | "Name" | "Contact Photo" | "First Name" | "Phonetic Last Name" | "File Extension" | "Street Address" | "Suffix" | "Job Title" | "Notes" | "Birthday" | "Group" | "Phonetic Middle Name" | "Random") get2=("Oldest First" | "Newest First") limit=(true | f alse | variable) getitems=number
 ```
 
 ### arguments
 
 ---
 
-#### Filter * actions are not implemented yet.
+#### This paramtype is not implemented. WFFilterParameter
+
+---
+
+### get: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+**Allows Variables**: true
+
+
+
+Accepts a string 
+or variable
+containing one of the options:
+
+- `Email Address`
+- `Phonetic First Name`
+- `Prefix`
+- `URL`
+- `Nickname`
+- `Last Name`
+- `Phone Number`
+- `Has Photo`
+- `File Size`
+- `Creation Date`
+- `Last Modified Date`
+- `Middle Name`
+- `Company`
+- `Department`
+- `Name`
+- `Contact Photo`
+- `First Name`
+- `Phonetic Last Name`
+- `File Extension`
+- `Street Address`
+- `Suffix`
+- `Job Title`
+- `Notes`
+- `Birthday`
+- `Group`
+- `Phonetic Middle Name`
+- `Random`
+
+---
+
+### get2: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+**Allows Variables**: true
+
+**Only enabled if**: argument WFContentItemSortProperty != `Random`
+
+Accepts a string 
+or variable
+containing one of the options:
+
+- `Oldest First`
+- `Newest First`
+
+---
+
+### limit: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+**Allows Variables**: true
+
+
+
+Accepts a boolean
+or a variable.
+
+---
+
+### getitems: Stepper Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
+**Allows Variables**: true
+
+
+
+		Accepts a number 
+		or variable
+		with a number.
 
 ---
 
@@ -35,6 +109,77 @@ findcontacts undefined=NotImplemented
 	],
 	"Subcategory": "Contacts",
 	"SuggestedAsInitialAction": false,
-	"WFContentItemClass": "WFContactContentItem"
+	"WFContentItemClass": "WFContactContentItem",
+	"Parameters": [
+		{
+			"Class": "WFFilterParameter",
+			"Key": "WFContentItemFilter",
+			"Label": "Filter",
+			"ContentItemClass": "WFContactContentItem"
+		},
+		{
+			"Class": "WFEnumerationParameter",
+			"Key": "WFContentItemSortProperty",
+			"Label": "Get",
+			"Items": [
+				"Email Address",
+				"Phonetic First Name",
+				"Prefix",
+				"URL",
+				"Nickname",
+				"Last Name",
+				"Phone Number",
+				"Has Photo",
+				"File Size",
+				"Creation Date",
+				"Last Modified Date",
+				"Middle Name",
+				"Company",
+				"Department",
+				"Name",
+				"Contact Photo",
+				"First Name",
+				"Phonetic Last Name",
+				"File Extension",
+				"Street Address",
+				"Suffix",
+				"Job Title",
+				"Notes",
+				"Birthday",
+				"Group",
+				"Phonetic Middle Name",
+				"Random"
+			]
+		},
+		{
+			"Class": "WFEnumerationParameter",
+			"Key": "WFContentItemSortOrder",
+			"Label": "Get",
+			"Items": [
+				"Oldest First",
+				"Newest First"
+			],
+			"RequiredResources": [
+				{
+					"WFParameterKey": "WFContentItemSortProperty",
+					"WFParameterValues": [
+						"Random"
+					],
+					"WFResourceClass": "WFParameterRelationResource",
+					"WFParameterRelation": "!="
+				}
+			]
+		},
+		{
+			"Class": "WFSwitchParameter",
+			"Key": "WFContentItemLimitEnabled",
+			"Label": "Limit"
+		},
+		{
+			"Class": "WFStepperParameter",
+			"Key": "WFContentItemLimitNumber",
+			"Label": "Get Items"
+		}
+	]
 }
 ```

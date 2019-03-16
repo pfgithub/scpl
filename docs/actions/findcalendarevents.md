@@ -16,7 +16,7 @@ findcalendarevents undefined=NotImplemented
 
 ---
 
-#### Filter * actions are not implemented yet.
+#### This paramtype is not implemented. _UndefinedCoercionClass
 
 ---
 
@@ -36,6 +36,11 @@ findcalendarevents undefined=NotImplemented
 	"Subcategory": "Calendar",
 	"SuggestedAsInitialAction": false,
 	"WFContentItemClass": "WFCalendarEventContentItem",
-	"WFContentItemDefaultProperty": "Calendar"
+	"WFContentItemDefaultProperty": "Calendar",
+	"Parameters": [
+		{
+			"Class": "_UndefinedCoercionClass"
+		}
+	]
 }
 ```

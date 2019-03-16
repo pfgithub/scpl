@@ -344,4 +344,17 @@ ava_1.default("open app action", t => {
 ava_1.default("open app fails with invalid app name", t => {
     t.throws(() => index_1.parse(`openapp myfavoriteapp`, { makePlist: false }));
 });
+ava_1.default("get details of * actions", t => {
+    const output = index_1.parse(`getdetailsofcontacts "Email Address"`, { makePlist: false });
+    const [scdata] = output.build();
+    const actions = scdata.WFWorkflowActions;
+    t.deepEqual(noUUID(actions, { noSCPLData: true }), [
+        {
+            WFWorkflowActionIdentifier: "is.workflow.actions.properties.contacts",
+            WFWorkflowActionParameters: {
+                WFContentItemProperty: "Email Address"
+            }
+        }
+    ]);
+});
 // console.log(JSON.stringify(noUUID(actions), null, "\t"));

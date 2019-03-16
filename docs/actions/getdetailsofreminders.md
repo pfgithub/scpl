@@ -14,7 +14,7 @@ getdetailsofreminders undefined=NotImplemented
 
 ---
 
-#### Get Details Of WFReminderContentItem is not yet implemented.
+#### This paramtype is not implemented. _UndefinedCoercionClass
 
 ---
 
@@ -30,6 +30,11 @@ getdetailsofreminders undefined=NotImplemented
 	"Name": "Get Details of Reminders",
 	"Subcategory": "Reminders",
 	"WFContentItemClass": "WFReminderContentItem",
-	"WFContentItemDefaultProperty": "List"
+	"WFContentItemDefaultProperty": "List",
+	"Parameters": [
+		{
+			"Class": "_UndefinedCoercionClass"
+		}
+	]
 }
 ```

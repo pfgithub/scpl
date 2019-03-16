@@ -350,14 +350,16 @@ Banner by ROP#2788 on the [routinehub.co](https://routinehub.co) discord server.
 - [x] Complete - 5: WFIntentAppPickerParameter
 - [x] Complete - 5: WFDictionaryParameter
 - [x] Complete - 5: WFSliderParameter
+- [ ] 7: WFFilterParameter
 - [x] Complete - 8: WFLocationFieldParameter
 - [x] Complete - 8: WFExpandingParameter
 - [x] Complete - 9: WFVariablePickerParameter
+- [ ] 11: _UndefinedCoercionClass
 - [x] Complete - 14: WFDynamicEnumerationParameter
 - [x] Complete - 17: WFDateFieldParameter
-- [x] Complete - 23: WFStepperParameter
+- [x] Complete - 30: WFStepperParameter
 - [x] Complete - 39: WFNumberFieldParameter
-- [x] Complete - 67: WFSwitchParameter
-- [x] Complete - 87: WFEnumerationParameter
+- [x] Complete - 74: WFSwitchParameter
+- [x] Complete - 110: WFEnumerationParameter
 - [x] Complete - 112: WFTextInputParameter
 

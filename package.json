@@ -10,7 +10,8 @@
 	},
 	"scripts": {
 		"docs": "tsc && node ./built/src/GenDocs",
-		"test": "tsc && ava ./built/test/index.js"
+		"test": "tsc && ava ./built/test/index.js",
+		"actions": "tsc && node ./built/src/Data/GenActions"
 	},
 	"author": {
 		"name": "pfg",

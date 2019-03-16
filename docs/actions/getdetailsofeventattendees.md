@@ -14,7 +14,7 @@ getdetailsofeventattendees undefined=NotImplemented
 
 ---
 
-#### Get Details Of WFEKParticipantContentItem is not yet implemented.
+#### This paramtype is not implemented. _UndefinedCoercionClass
 
 ---
 
@@ -28,6 +28,11 @@ getdetailsofeventattendees undefined=NotImplemented
 	"CreationDate": "2015-01-22T08:00:00.000Z",
 	"Name": "Get Details of Event Attendees",
 	"Subcategory": "Event Attendees",
-	"WFContentItemClass": "WFEKParticipantContentItem"
+	"WFContentItemClass": "WFEKParticipantContentItem",
+	"Parameters": [
+		{
+			"Class": "_UndefinedCoercionClass"
+		}
+	]
 }
 ```

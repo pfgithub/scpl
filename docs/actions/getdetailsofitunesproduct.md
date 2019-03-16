@@ -12,7 +12,7 @@ getdetailsofitunesproduct get=("Currency Code" | "Is Explicit" | "Genre" | "Stor
 
 ---
 
-### get: Get Property [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### get: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Allows Variables**: true
 
 
@@ -48,6 +48,30 @@ containing one of the options:
 	"Category": "Music",
 	"CreationDate": "2016-03-15T07:00:00.000Z",
 	"Name": "Get Details of iTunes Product",
-	"WFContentItemClass": "WFiTunesProductContentItem"
+	"WFContentItemClass": "WFiTunesProductContentItem",
+	"Parameters": [
+		{
+			"Class": "WFEnumerationParameter",
+			"Key": "WFContentItemPropertyName",
+			"Label": "Get",
+			"Items": [
+				"Currency Code",
+				"Is Explicit",
+				"Genre",
+				"Store URL",
+				"Name",
+				"Release Date",
+				"Price",
+				"Artwork URL",
+				"Streamable",
+				"Store ID",
+				"Artist",
+				"Formatted Price",
+				"Artwork",
+				"Description",
+				"Duration"
+			]
+		}
+	]
 }
 ```

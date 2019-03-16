@@ -12,7 +12,7 @@ getdetailsoffiles get=("Creation Date" | "File Size" | "File Extension" | "Last 
 
 ---
 
-### get: Get Property [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### get: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Allows Variables**: true
 
 
@@ -45,6 +45,20 @@ containing one of the options:
 	"Name": "Get Details of Files",
 	"Subcategory": "Files",
 	"SuggestedNever": true,
-	"WFContentItemClass": "WFGenericFileContentItem"
+	"WFContentItemClass": "WFGenericFileContentItem",
+	"Parameters": [
+		{
+			"Class": "WFEnumerationParameter",
+			"Key": "WFContentItemPropertyName",
+			"Label": "Get",
+			"Items": [
+				"Creation Date",
+				"File Size",
+				"File Extension",
+				"Last Modified Date",
+				"Name"
+			]
+		}
+	]
 }
 ```
