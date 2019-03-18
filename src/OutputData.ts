@@ -63,6 +63,11 @@ const coercionTypes: {[name: string]: CoercionTypeClass} = { // remove name:stri
 
 import getTypes from "./Data/GetTypes"; // resdata = {};console.dir( actionData.filter(action => action.WFWorkflowActionIdentifier === "is.workflow.actions.gettext").map(action => Object.values(action.WFWorkflowActionParameters.WFTextActionText.Value.attachmentsByRange).filter(d=>d.Type !== "Clipboard" && d.Aggrandizements && d.Aggrandizements[1]).map(d=>({coerce:d.Aggrandizements[0].CoercionItemClass,property:d.Aggrandizements[1]}))).forEach(a=>a.forEach(({coerce, property})=>{if(!resdata[coerce]){resdata[coerce]={};};resdata[coerce][property.PropertyName.toLowerCase().replace(/[^A-Za-z]/g,"")]=({name:property.PropertyName,data:property.PropertyUserInfo});})) ,{depth:null});console.log(JSON.stringify(resdata,null,"\t"));
 
+type WFAggrandizements = [
+	{Type: "WFCoercionVariableAggrandizement", CoercionItemClass: CoercionTypeClass}?,
+	{Type: "WFPropertyVariableAggrandizement", PropertyName: string, PropertyUserInfo?: string|number}?,
+	{Type: "WFDictionaryValueVariableAggrandizement", DictionaryKey: string}?
+];
 
 export class Aggrandizements {
 	coercionType?: CoercionTypeClass;
@@ -73,8 +78,8 @@ export class Aggrandizements {
 		this.getProperty = undefined;
 		this.getForKey = undefined;
 	}
-	build() {
-		const aggrandizements = [];
+	build(): WFAggrandizements {
+		const aggrandizements: WFAggrandizements = [];
 		if(this.coercionType) {
 			aggrandizements.push({CoercionItemClass: this.coercionType, Type: "WFCoercionVariableAggrandizement"});
 		}
@@ -114,53 +119,94 @@ export class Aggrandizements {
 // // // // // //
 //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //
 
+type WFParameter = WFDictionaryParameter | WFAttachmentParameter | WFListParameter | WFTextParameter;
+
 export class Parameter {
 	constructor() {
 	}
-	build() {
+	build(): WFParameter {
 		throw new Error("Blank parameter cannot be built");
 	}
 }
 
+type DictionaryFieldValueItem = {
+	WFItemType: 1,
+	WFKey: WFTextParameter,
+	WFValue: {Value: WFDictionaryParameter, WFSerializationType: "WFDictionaryFieldValue"}
+} | {
+	WFItemType: 2,
+	WFKey: WFTextParameter,
+	WFValue: {Value: WFListParameter, WFSerializationType: "WFArrayParameterState"}
+} | {
+	WFItemType: 0,
+	WFKey: WFTextParameter,
+	WFValue: WFParameter
+}
+type WFDictionaryParameter = {
+	Value: {
+		WFDictionaryFieldValueItems: DictionaryFieldValueItem[]
+	},
+	WFSerializationType: "WFDictionaryFieldValue"
+};
+
 export class Dictionary extends Parameter {
-	items: Array<{key: Parameter, value: Parameter, type: number}>
+	items: Array<{key: Text, value: Parameter}>
 	constructor() {
 		super();
 		this.items = [];
 	}
-	add(key: Parameter, value: Parameter, type: number) { // todo why does the caller have to specify the type
-		this.items.push({key, value, type});
+	add(key: Text, value: Parameter) {
+		this.items.push({key, value});
 	}
-	build(): any {
+	build(): WFDictionaryParameter {
 		return {
 			Value: {
-				WFDictionaryFieldValueItems: this.items.map(({key, value, type}) => {
+				WFDictionaryFieldValueItems: this.items.map(({key, value}): DictionaryFieldValueItem => {
+					if(value instanceof Dictionary) {
+						// For unknown reasons, an extra serializationtype is needed on dictionaries
+						return {
+							WFItemType: 1,
+							WFKey: key.build(),
+							WFValue: {Value: value.build(), WFSerializationType: "WFDictionaryFieldValue"}
+						};
+					}
+					if(value instanceof List) {
+						// For unknown reasons, an extra serializationtype is needed on lists
+						return {
+							WFItemType: 2,
+							WFKey: key.build(),
+							WFValue: {Value: value.build(), WFSerializationType: "WFArrayParameterState"}
+						};
+					}
+					// For unknown reasons, an extra serializationtype is not needed on text and other parameters
 					return {
-						WFItemType: type,
+						WFItemType: 0,
 						WFKey: key.build(),
-						WFValue: value instanceof Dictionary
-							? {Value: value.build(), WFSerializationType: "WFDictionaryFieldValue"}
-							: (value instanceof List ? {
-								Value: value.build(),
-								WFSerializationType: "WFArrayParameterState"
-							} : value.build())
+						WFValue: value.build()
 					};
 				})
 			},
-			WFSerializationType: SERIALIZATIONTYPE.dictionaryFieldValue
+			WFSerializationType: "WFDictionaryFieldValue"
 		};
 	}
 }
 
+
+type WFAttachmentParameter = {
+	Type: string,
+	Aggrandizements: WFAggrandizements
+};
+
+export type AttachmentType = "Clipboard" | "Ask" | "CurrentDate" | "ExtensionInput" | "Input" | "Variable" | "ActionOutput";
 export class Attachment extends Parameter {
-	type: string
+	type: AttachmentType;
 	aggrandizements: Aggrandizements
-	constructor(type: string) {
+	constructor(type: AttachmentType) {
 		super();
 		this.type = type;
 		this.aggrandizements = new Aggrandizements();
 	}
-	build() {
+	build(): WFAttachmentParameter {
 		return {
 			Type: this.type,
 			Aggrandizements: this.aggrandizements.build()
@@ -168,8 +214,9 @@ export class Attachment extends Parameter {
 	}
 }
 
+type VariableType = "Variable" | "ActionOutput";
 export class Variable extends Attachment {
-	constructor(type: string) {
+	constructor(type: VariableType) {
 		super(type);
 	}
 	build() {
@@ -207,27 +254,38 @@ export class MagicVariable extends Variable {
 	}
 }
 
+type WFListParameter = Array<string | {WFItemType: number, WFValue: WFTextWithAttachments}>;
+
 export class List extends Parameter {
-	_list: Array<Parameter>
-	constructor(list: Array<Parameter>) {
+	_list: Array<Text>
+	constructor(list: Array<Text>) {
 		super();
 		this._list = list;
 	}
-	build() {
-		return [...this._list.map(i=>{
-			if(typeof i === "string") {return i;}
+	build(): WFListParameter {
+		return this._list.map(i=>{
 			const text = i.build();
 			if(typeof text === "string") {return text;}
 			return {WFItemType: 0, WFValue: text};
-		})];
+		});
 	}
 }
 
+type WFTextValue = {
+	attachmentsByRange: {[key: string]: WFAttachmentParameter},
+	string: string
+};
+type WFTextWithAttachments = {Value: WFTextValue, WFSerializationType: "WFTextTokenString"};
+type WFTextParameter = string | WFTextWithAttachments;
+
 export class Text extends Parameter {
-	_components: Array<Attachment | Text | string>
+	_components: Array<Attachment | string>
 	constructor() {
 		super();
 		this._components = [];
+	}
+	components(): Array<Attachment | string> {
+		return this._components;
 	}
 	get _last() {
 		return this._components[this._components.length - 1];
@@ -250,12 +308,12 @@ export class Text extends Parameter {
 
 		return this;
 	}
-	build() {
+	build(): WFTextParameter {
 		// if(this.components.length === 0) {return "";}
 		// if(this.components.length === 1 &&  typeof this._last === "string") {
 		// 	return this._last;
 		// }
-		const result: any = {
+		const result: WFTextValue = {
 			attachmentsByRange: {},
 			string: ""
 		};
@@ -276,12 +334,14 @@ export class Text extends Parameter {
 		if(!hasAttachments) {return result.string;}
 		return {
 			Value: result,
-			WFSerializationType: SERIALIZATIONTYPE.string
+			WFSerializationType: "WFTextTokenString"
 		};
 	}
 }
 
 export type ParameterType = Parameter | string | number | Array<string> | boolean
+
+type WFParameters = {[key: string]: any};
 
 export class Parameters {
 	values: {[internalName: string]: any} // no one knows what values really means, it's just an any
@@ -310,9 +370,15 @@ export class Parameters {
 	get(internalName: string) {
 		return this.values[internalName];
 	}
-	build() {
+	build(): WFParameters {
 		return this.values;
 	}
+}
+
+type WFAction = {
+	WFWorkflowActionIdentifier: string,
+	WFWorkflowActionParameters: WFParameters,
+	SCPLData?: {Position: {start: [number, number], end: [number, number]}}
 }
 
 export class Action {
@@ -322,10 +388,10 @@ export class Action {
 	parameters: Parameters
 	magicvarname?: string
 	
-	start: [number, number]
-	end: [number, number]
+	start?: [number, number]
+	end?: [number, number]
 	
-	constructor(start: [number, number], end: [number, number], name: string, id: string) {
+	constructor(start: [number, number] | undefined, end: [number, number] | undefined, name: string, id: string) {
 		this.name = name;
 		this.id = id;
 		this.parameters = new Parameters();
@@ -334,21 +400,41 @@ export class Action {
 		this.start = start;
 		this.end = end;
 	}
+	static inverse(data: WFAction) {
+		const action = new Action(undefined, undefined, "??unnamed??", data.WFWorkflowActionIdentifier);
+	}
 	get uuid(): string {
 		if(this._uuid) {return this._uuid;}
 		this._uuid = uuidv4();
 		this.parameters.set("UUID", this._uuid);
 		return this._uuid;
 	}
-	build() {
+	build(): WFAction {
 		if(this.magicvarname) {this.parameters.set("CustomOutputName", this.magicvarname);}
-		return {
+		const res: WFAction = {
 			WFWorkflowActionIdentifier: this.id,
-			WFWorkflowActionParameters: this.parameters.build(),
-			SCPLData: {Position: {start: this.start, end: this.end}}
+			WFWorkflowActionParameters: this.parameters.build()			
 		};
+		if(this.start && this.end) {res.SCPLData = {Position: {start: this.start, end: this.end}};}
+		return res;
 	}
 }
+
+type ExtensionInputContentItemClass = "WFAppStoreAppContentItem" | "WFArticleContentItem" | "WFContactContentItem" | "WFDateContentItem" | "WFEmailAddressContentItem" | "WFGenericFileContentItem" | "WFImageContentItem" | "WFiTunesProductContentItem" | "WFLocationContentItem" | "WFDCMapsLinkContentItem" | "WFAVAssetContentItem" | "WFPDFContentItem" | "WFPhoneNumberContentItem" | "WFRichTextContentItem" | "WFSafariWebPageContentItem" | "WFStringContentItem" | "WFURLContentItem";
+type WorkflowTypes = "NCWidget" | "WatchKit";
+type WFShortcut = [{
+	WFWorkflowClientVersion: string,
+	WFWorkflowClientRelese: string,
+	WFWorkflowMinimumClientVersion: number,
+	WFWorkflowIcon: {
+		WFWorkflowIconStartColor: number,
+		WFWorkflowIconImageData: Buffer,
+		WFWorkflowIconGlyphNumber: number
+	},
+	WFWorkflowTypes: WorkflowTypes[],
+	WFWorkflowInputContentItemClasses: ExtensionInputContentItemClass[],
+	WFWorkflowActions: WFAction[]	
+}]
 
 export class Shortcut {
 	name: string
@@ -360,7 +446,7 @@ export class Shortcut {
 	add(action: Action) {
 		this.actions.push(action);
 	}
-	build() {
+	build(): WFShortcut {
 		return [{
 			WFWorkflowClientVersion: "754",
 			WFWorkflowClientRelese: "2.1.2",

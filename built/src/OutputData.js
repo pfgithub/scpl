@@ -109,8 +109,6 @@ class Aggrandizements {
     }
 }
 exports.Aggrandizements = Aggrandizements;
-// // // // // //
-//  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //
 class Parameter {
     constructor() {
     }
@@ -124,26 +122,38 @@ class Dictionary extends Parameter {
         super();
         this.items = [];
     }
-    add(key, value, type) {
-        this.items.push({ key, value, type });
+    add(key, value) {
+        this.items.push({ key, value });
     }
     build() {
         return {
             Value: {
-                WFDictionaryFieldValueItems: this.items.map(({ key, value, type }) => {
+                WFDictionaryFieldValueItems: this.items.map(({ key, value }) => {
+                    if (value instanceof Dictionary) {
+                        // For unknown reasons, an extra serializationtype is needed on dictionaries
+                        return {
+                            WFItemType: 1,
+                            WFKey: key.build(),
+                            WFValue: { Value: value.build(), WFSerializationType: "WFDictionaryFieldValue" }
+                        };
+                    }
+                    if (value instanceof List) {
+                        // For unknown reasons, an extra serializationtype is needed on lists
+                        return {
+                            WFItemType: 2,
+                            WFKey: key.build(),
+                            WFValue: { Value: value.build(), WFSerializationType: "WFArrayParameterState" }
+                        };
+                    }
+                    // For unknown reasons, an extra serializationtype is not needed on text and other parameters
                     return {
-                        WFItemType: type,
+                        WFItemType: 0,
                         WFKey: key.build(),
-                        WFValue: value instanceof Dictionary
-                            ? { Value: value.build(), WFSerializationType: "WFDictionaryFieldValue" }
-                            : (value instanceof List ? {
-                                Value: value.build(),
-                                WFSerializationType: "WFArrayParameterState"
-                            } : value.build())
+                        WFValue: value.build()
                     };
                 })
             },
-            WFSerializationType: SERIALIZATIONTYPE.dictionaryFieldValue
+            WFSerializationType: "WFDictionaryFieldValue"
         };
     }
 }
@@ -203,16 +213,13 @@ class List extends Parameter {
         this._list = list;
     }
     build() {
-        return [...this._list.map(i => {
-                if (typeof i === "string") {
-                    return i;
-                }
-                const text = i.build();
-                if (typeof text === "string") {
-                    return text;
-                }
-                return { WFItemType: 0, WFValue: text };
-            })];
+        return this._list.map(i => {
+            const text = i.build();
+            if (typeof text === "string") {
+                return text;
+            }
+            return { WFItemType: 0, WFValue: text };
+        });
     }
 }
 exports.List = List;
@@ -220,6 +227,9 @@ class Text extends Parameter {
     constructor() {
         super();
         this._components = [];
+    }
+    components() {
+        return this._components;
     }
     get _last() {
         return this._components[this._components.length - 1];
@@ -270,7 +280,7 @@ class Text extends Parameter {
         }
         return {
             Value: result,
-            WFSerializationType: SERIALIZATIONTYPE.string
+            WFSerializationType: "WFTextTokenString"
         };
     }
 }
@@ -315,6 +325,9 @@ class Action {
         this.start = start;
         this.end = end;
     }
+    static inverse(data) {
+        const action = new Action(undefined, undefined, "??unnamed??", data.WFWorkflowActionIdentifier);
+    }
     get uuid() {
         if (this._uuid) {
             return this._uuid;
@@ -327,11 +340,14 @@ class Action {
         if (this.magicvarname) {
             this.parameters.set("CustomOutputName", this.magicvarname);
         }
-        return {
+        const res = {
             WFWorkflowActionIdentifier: this.id,
-            WFWorkflowActionParameters: this.parameters.build(),
-            SCPLData: { Position: { start: this.start, end: this.end } }
+            WFWorkflowActionParameters: this.parameters.build()
         };
+        if (this.start && this.end) {
+            res.SCPLData = { Position: { start: this.start, end: this.end } };
+        }
+        return res;
     }
 }
 exports.Action = Action;

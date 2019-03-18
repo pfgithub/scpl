@@ -131,27 +131,23 @@ class DictionaryParse extends Parse {
         // returns an Output Dictionary for this DictionaryParse
         const dictionary = new OutputData_1.Dictionary();
         this.keyvaluepairs.forEach(({ key, value }) => {
-            let type;
             let outputValue;
             if (!key.canBeText(cc)) {
                 throw key.error(cc, "Dictionary keys must be texts");
             }
             if (value.canBeList(cc)) {
-                type = 2;
                 outputValue = value.asList(cc);
             }
             else if (value.canBeDictionary(cc)) {
-                type = 1;
                 outputValue = value.asDictionary(cc);
             }
             else if (value.canBeText(cc)) {
-                type = 0;
                 outputValue = value.asText(cc);
             }
             else {
                 throw value.error(cc, "This value must be a list, string, or dictionary.");
             }
-            dictionary.add(key.asText(cc), outputValue, type);
+            dictionary.add(key.asText(cc), outputValue);
         });
         return dictionary;
     }

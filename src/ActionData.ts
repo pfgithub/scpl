@@ -538,9 +538,6 @@ types.WFVariableFieldParameter = WFVariableFieldParameter;
 const _debugMissingTypes: {[key: string]: number} = {};
 const _debugTypes: {[key: string]: {paramClass: string, missing: boolean, count: number}} = {};
 
-import getTypes from "./Data/GetTypes";
-import {isCoercionTypeClass} from "./WFTypes/Types";
-
 export class WFAction {
 	_data: any
 	id: string
@@ -735,7 +732,7 @@ ${JSON.stringify(this._data, null, "\t")}
 			action.parameters.set(paramtype.internalName, paramtype.build(cc, param));
 		});
 		if(actionAbove && this.requiresInput && actionAbove !== cc.lastVariableAction) {
-			cc.add(getVariable({start: actionAbove.start, end: actionAbove.end}, new MagicVariable(actionAbove)));
+			cc.add(getVariable({start: <[number, number]>actionAbove.start, end: <[number, number]>actionAbove.end}, new MagicVariable(actionAbove)));
 		}
 		// TODO if(actionAbove) cc.add(getVariableAction(actionAbove))
 		cc.add(action);

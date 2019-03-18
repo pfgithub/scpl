@@ -1,4 +1,4 @@
-import {Action, Dictionary, Text, MagicVariable, NamedVariable, Variable, Attachment, List} from "./OutputData";
+import {Action, Dictionary, Text, MagicVariable, NamedVariable, Variable, Attachment, List, AttachmentType} from "./OutputData";
 import {getActionFromName} from "./ActionData";
 import {ConvertingContext} from "./Converter.js";
 import {setVariable, getVariable} from "./HelpfulActions";
@@ -180,14 +180,13 @@ export class DictionaryParse extends Parse implements AsRawDictionary, AsRawKeye
 		// returns an Output Dictionary for this DictionaryParse
 		const dictionary = new Dictionary();
 		this.keyvaluepairs.forEach(({key, value}) => {
-			let type;
 			let outputValue;
 			if(!key.canBeText(cc)) {throw key.error(cc, "Dictionary keys must be texts");}
-			if(value.canBeList(cc)) {type = 2; outputValue = value.asList(cc);}
-			else if(value.canBeDictionary(cc)) {type = 1; outputValue = value.asDictionary(cc);}
-			else if(value.canBeText(cc)) {type = 0; outputValue = value.asText(cc);}
+			if(value.canBeList(cc)) {outputValue = value.asList(cc);}
+			else if(value.canBeDictionary(cc)) {outputValue = value.asDictionary(cc);}
+			else if(value.canBeText(cc)) {outputValue = value.asText(cc);}
 			else{throw value.error(cc, "This value must be a list, string, or dictionary.");}
-			dictionary.add(key.asText(cc), outputValue, type);
+			dictionary.add(key.asText(cc), outputValue);
 		});
 		return dictionary;
 	}
@@ -482,7 +481,7 @@ export class VariableParse extends Parse implements AsStringVariable, AsNameType
 			const mvact = vardata.action;
 			variable = new MagicVariable(mvact);
 		}else if(type === "s") { // special variable
-			const attachtype: {[key: string]: string} = {clipboard: "Clipboard", askwhenrun: "Ask", currentdate: "CurrentDate", shortcutinput: "ExtensionInput", actioninput: "Input"};
+			const attachtype: {[key: string]: AttachmentType | undefined} = {clipboard: "Clipboard", askwhenrun: "Ask", currentdate: "CurrentDate", shortcutinput: "ExtensionInput", actioninput: "Input"};
 			const attachvalue = attachtype[name.toLowerCase()];
 			if(!attachvalue) {
 				throw this.name.error(cc, `This special variable does not exist. Valid special variables are ${Object.keys(attachtype)}`);
