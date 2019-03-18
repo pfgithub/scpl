@@ -1,9 +1,24 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const ava_1 = require("ava");
+const OutputData_1 = require("../src/OutputData");
 const index_1 = require("../index");
 const fs = require("fs");
+// import * as path from "path";
 const sampleshortcutdata = require("./sampleshortcut.json");
+ava_1.default("invert a basic action", t => {
+    t.deepEqual(OutputData_1.Action.inverse({
+        WFWorkflowActionIdentifier: "is.workflow.actions.gettext",
+        WFWorkflowActionParameters: {
+            WFTextActionText: "Icon List V2"
+        }
+    }).build(), {
+        WFWorkflowActionIdentifier: "is.workflow.actions.gettext",
+        WFWorkflowActionParameters: {
+            WFTextActionText: "Icon List V2"
+        }
+    });
+});
 function noUUID(obj, options = {}) {
     const uuids = [];
     return JSON.parse(JSON.stringify(obj, (key, value) => {
@@ -281,7 +296,6 @@ ava_1.default("inputarg with variables without parenthesis", t => {
 ava_1.default("long shortcut", t => {
     const output = index_1.parse(fs.readFileSync(`./test/sampleshortcut.scpl`, "utf8"), { makePlist: false });
     const [scdata] = output.build();
-    const actions = scdata.WFWorkflowActions;
     // fs.writeFileSync("./test/sampleshortcut.json", JSON.stringify(noUUID([scdata]), null, "\t"), "utf8");
     t.deepEqual(noUUID([scdata]), sampleshortcutdata);
 });

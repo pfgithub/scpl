@@ -5,12 +5,6 @@
 // ========≠==========
 Object.defineProperty(exports, "__esModule", { value: true });
 const uuidv4 = require("uuid/v4");
-// DisplayType would be a better name maybe
-const SERIALIZATIONTYPE = {
-    variable: "WFTextTokenAttachment",
-    string: "WFTextTokenString",
-    dictionaryFieldValue: "WFDictionaryFieldValue"
-};
 /*
 CoercionItemClass?: AggrandizementCoercionItemClass;
 DictionaryKey?: string;
@@ -166,8 +160,11 @@ class Attachment extends Parameter {
     }
     build() {
         return {
-            Type: this.type,
-            Aggrandizements: this.aggrandizements.build()
+            Value: {
+                Type: this.type,
+                Aggrandizements: this.aggrandizements.build()
+            },
+            WFSerializationType: "WFTextTokenAttachment"
         };
     }
 }
@@ -177,7 +174,8 @@ class Variable extends Attachment {
         super(type);
     }
     build() {
-        return Object.assign(super.build(), {});
+        const sb = super.build();
+        return sb;
     }
 }
 exports.Variable = Variable;
@@ -187,9 +185,14 @@ class NamedVariable extends Variable {
         this.varname = varname;
     }
     build() {
-        return Object.assign(super.build(), {
-            VariableName: this.varname
-        });
+        return {
+            Value: {
+                Type: this.type,
+                Aggrandizements: this.aggrandizements.build(),
+                VariableName: this.varname
+            },
+            WFSerializationType: "WFTextTokenAttachment"
+        };
     }
 }
 exports.NamedVariable = NamedVariable;
@@ -200,10 +203,15 @@ class MagicVariable extends Variable {
         this.uuid = action.uuid;
     }
     build() {
-        return Object.assign(super.build(), {
-            OutputName: this.varname,
-            OutputUUID: this.uuid
-        });
+        return {
+            Value: {
+                Type: this.type,
+                Aggrandizements: this.aggrandizements.build(),
+                OutputName: this.varname,
+                OutputUUID: this.uuid
+            },
+            WFSerializationType: "WFTextTokenAttachment"
+        };
     }
 }
 exports.MagicVariable = MagicVariable;
@@ -265,7 +273,7 @@ class Text extends Parameter {
         this._components.forEach(component => {
             if (component instanceof Attachment) {
                 hasAttachments = true;
-                result.attachmentsByRange[`{${result.string.length}, 1}`] = component.build();
+                result.attachmentsByRange[`{${result.string.length}, 1}`] = component.build().Value;
                 result.string += "\uFFFC"; // special character to distinguish variables
                 return;
             }
@@ -289,20 +297,19 @@ class Parameters {
     constructor() {
         this.values = {};
     }
+    static inverse(data) {
+        const parameters = new Parameters();
+        Object.keys(data).forEach((paramkey) => {
+            parameters.set(paramkey, "");
+        });
+        return parameters;
+    }
     set(internalName, value) {
         if (!(value instanceof Parameter)) {
             this.values[internalName] = value;
             return this;
         }
-        if (value instanceof Attachment) {
-            // VALUE IS AN INSTANCEOF ATTACHMENT HOW CAN IT NOT BE BUILT
-            this.values[internalName] = {
-                Value: value.build(),
-                WFSerializationType: SERIALIZATIONTYPE.variable
-            };
-            return this;
-        }
-        this.values[internalName] = value.build(); // how does this get called if value doesn't have a build method, all parameters have a build
+        this.values[internalName] = value.build();
         return this;
     }
     has(internalName) {
@@ -327,14 +334,15 @@ class Action {
     }
     static inverse(data) {
         const action = new Action(undefined, undefined, "??unnamed??", data.WFWorkflowActionIdentifier);
+        action.parameters = Parameters.inverse(data.WFWorkflowActionParameters || {});
+        return action;
     }
     get uuid() {
-        if (this._uuid) {
-            return this._uuid;
+        if (this.parameters.has("UUID")) {
+            return this.parameters.get("UUID");
         }
-        this._uuid = uuidv4();
-        this.parameters.set("UUID", this._uuid);
-        return this._uuid;
+        this.parameters.set("UUID", uuidv4());
+        return this.parameters.get("UUID");
     }
     build() {
         if (this.magicvarname) {

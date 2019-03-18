@@ -58,6 +58,8 @@ module.exports = {
   ],
 
   "rules": {
+      "@typescript-eslint/indent": [1, "tab", {"SwitchCase": 1}],
+      
     ////////// Possible Errors //////////
 
     //"comma-dangle": 2,            // disallow trailing commas in object literals

@@ -6,13 +6,6 @@
 import * as uuidv4 from "uuid/v4";
 
 
-// DisplayType would be a better name maybe
-const SERIALIZATIONTYPE = { // how a value will be rendered in shortcuts, forex variables are texttokenattachments
-	variable: "WFTextTokenAttachment",
-	string: "WFTextTokenString",
-	dictionaryFieldValue: "WFDictionaryFieldValue"
-};
-
 /*
 CoercionItemClass?: AggrandizementCoercionItemClass;
 DictionaryKey?: string;
@@ -119,7 +112,7 @@ export class Aggrandizements {
 // // // // // //
 //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //
 
-type WFParameter = WFDictionaryParameter | WFAttachmentParameter | WFListParameter | WFTextParameter;
+type WFParameter = WFDictionaryParameter | WFAttachmentParameter | WFListParameter | WFTextParameter | string | boolean | number | string[];
 
 export class Parameter {
 	constructor() {
@@ -191,10 +184,23 @@ export class Dictionary extends Parameter {
 	}
 }
 
-
-type WFAttachmentParameter = {
+type WFAttachmentData = {
 	Type: string,
 	Aggrandizements: WFAggrandizements
+} | {
+	Type: string,
+	Aggrandizements: WFAggrandizements,
+	VariableName: string
+} | {
+	Type: string,
+	Aggrandizements: WFAggrandizements,
+	OutputName: string,
+	OutputUUID: string
+};
+
+type WFAttachmentParameter = {
+	Value: WFAttachmentData,
+	WFSerializationType: "WFTextTokenAttachment"
 };
 
 export type AttachmentType = "Clipboard" | "Ask" | "CurrentDate" | "ExtensionInput" | "Input" | "Variable" | "ActionOutput";
@@ -207,9 +213,12 @@ export class Attachment extends Parameter {
 		this.aggrandizements = new Aggrandizements();
 	}
 	build(): WFAttachmentParameter {
-		return {
-			Type: this.type,
-			Aggrandizements: this.aggrandizements.build()
+		return { 
+			Value: {
+				Type: this.type,
+				Aggrandizements: this.aggrandizements.build()
+			},
+			WFSerializationType: "WFTextTokenAttachment"
 		};
 	}
 }
@@ -219,8 +228,9 @@ export class Variable extends Attachment {
 	constructor(type: VariableType) {
 		super(type);
 	}
-	build() {
-		return Object.assign(super.build(), {});
+	build(): WFAttachmentParameter {
+		const sb = super.build();
+		return sb;
 	}
 	// the function that used to be in this place was used nowhere, ignore its lies
 }
@@ -231,10 +241,15 @@ export class NamedVariable extends Variable {
 		super("Variable");
 		this.varname = varname;
 	}
-	build() {
-		return Object.assign(super.build(), {
-			VariableName: this.varname
-		});
+	build(): WFAttachmentParameter {
+		return { 
+			Value: {
+				Type: this.type,
+				Aggrandizements: this.aggrandizements.build(),
+				VariableName: this.varname
+			},
+			WFSerializationType: "WFTextTokenAttachment"
+		};
 	}
 }
 
@@ -246,11 +261,16 @@ export class MagicVariable extends Variable {
 		this.varname = action.magicvarname || action.name;
 		this.uuid = action.uuid;
 	}
-	build() {
-		return Object.assign(super.build(), {
-			OutputName: this.varname,
-			OutputUUID: this.uuid
-		});
+	build(): WFAttachmentParameter {
+		return { 
+			Value: {
+				Type: this.type,
+				Aggrandizements: this.aggrandizements.build(),
+				OutputName: this.varname,
+				OutputUUID: this.uuid
+			},
+			WFSerializationType: "WFTextTokenAttachment"
+		};
 	}
 }
 
@@ -272,7 +292,7 @@ export class List extends Parameter {
 }
 
 type WFTextValue = {
-	attachmentsByRange: {[key: string]: WFAttachmentParameter},
+	attachmentsByRange: {[key: string]: WFAttachmentData},
 	string: string
 };
 type WFTextWithAttachments = {Value: WFTextValue, WFSerializationType: "WFTextTokenString"};
@@ -321,7 +341,7 @@ export class Text extends Parameter {
 		this._components.forEach(component => {
 			if(component instanceof Attachment) {
 				hasAttachments = true;
-				result.attachmentsByRange[`{${result.string.length}, 1}`] = component.build();
+				result.attachmentsByRange[`{${result.string.length}, 1}`] = component.build().Value;
 				result.string += "\uFFFC"; // special character to distinguish variables
 				return;
 			}
@@ -341,27 +361,26 @@ export class Text extends Parameter {
 
 export type ParameterType = Parameter | string | number | Array<string> | boolean
 
-type WFParameters = {[key: string]: any};
+type WFParameters = {[key: string]: WFParameter};
 
 export class Parameters {
-	values: {[internalName: string]: any} // no one knows what values really means, it's just an any
+	values: {[internalName: string]: WFParameter}
 	constructor() {
 		this.values = {};
+	}
+	static inverse(data: WFParameters): Parameters {
+		const parameters = new Parameters();
+		Object.keys(data).forEach((paramkey) => {
+			parameters.set(paramkey, "");
+		});
+		return parameters;
 	}
 	set(internalName: string, value: ParameterType) { // chainable
 		if(!(value instanceof Parameter)) {
 			this.values[internalName] = value;
 			return this;
 		}
-		if(value instanceof Attachment) {
-			// VALUE IS AN INSTANCEOF ATTACHMENT HOW CAN IT NOT BE BUILT
-			this.values[internalName] = {
-				Value: value.build(),
-				WFSerializationType: SERIALIZATIONTYPE.variable
-			};
-			return this;
-		}
-		this.values[internalName] = value.build(); // how does this get called if value doesn't have a build method, all parameters have a build
+		this.values[internalName] = value.build();
 		return this;
 	}
 	has(internalName: string) {
@@ -377,14 +396,13 @@ export class Parameters {
 
 type WFAction = {
 	WFWorkflowActionIdentifier: string,
-	WFWorkflowActionParameters: WFParameters,
+	WFWorkflowActionParameters?: WFParameters,
 	SCPLData?: {Position: {start: [number, number], end: [number, number]}}
 }
 
 export class Action {
 	name: string
 	id: string
-	_uuid: string | undefined
 	parameters: Parameters
 	magicvarname?: string
 	
@@ -400,14 +418,16 @@ export class Action {
 		this.start = start;
 		this.end = end;
 	}
-	static inverse(data: WFAction) {
+	static inverse(data: WFAction): Action {
 		const action = new Action(undefined, undefined, "??unnamed??", data.WFWorkflowActionIdentifier);
+		action.parameters = Parameters.inverse(data.WFWorkflowActionParameters || {});
+		
+		return action;
 	}
 	get uuid(): string {
-		if(this._uuid) {return this._uuid;}
-		this._uuid = uuidv4();
-		this.parameters.set("UUID", this._uuid);
-		return this._uuid;
+		if(this.parameters.has("UUID")) {return <string>this.parameters.get("UUID");}
+		this.parameters.set("UUID", uuidv4());
+		return <string>this.parameters.get("UUID");
 	}
 	build(): WFAction {
 		if(this.magicvarname) {this.parameters.set("CustomOutputName", this.magicvarname);}

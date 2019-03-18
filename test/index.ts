@@ -1,12 +1,27 @@
 import test from "ava";
-import {getActionFromName, WFTypes} from "../src/ActionData";
-import {AsAble, IdentifierParse} from "../src/ParserData";
-import {ConvertingContext} from "../src/Converter";
+import {Action} from "../src/OutputData";
 import { parse } from "../index";
 import * as fs from "fs";
-import * as path from "path";
+// import * as path from "path";
 
 import * as sampleshortcutdata from "./sampleshortcut.json";
+
+
+test("invert a basic action", t => {
+	t.deepEqual(Action.inverse({
+		WFWorkflowActionIdentifier: "is.workflow.actions.gettext",
+		WFWorkflowActionParameters: {
+			WFTextActionText: "Icon List V2"
+		}
+	}).build(), {
+		WFWorkflowActionIdentifier: "is.workflow.actions.gettext",
+		WFWorkflowActionParameters: {
+			WFTextActionText: "Icon List V2"
+		}
+	});
+});
+
+
 
 function noUUID(obj: any, options: {noSCPLData?: boolean} = {}) {
 	const uuids: string[] = [];
@@ -293,7 +308,6 @@ test("inputarg with variables without parenthesis", t => {
 test("long shortcut", t => {
 	const output = parse(fs.readFileSync(`./test/sampleshortcut.scpl`, "utf8"), {makePlist: false});
 	const [scdata] = output.build();
-	const actions = scdata.WFWorkflowActions;
 	// fs.writeFileSync("./test/sampleshortcut.json", JSON.stringify(noUUID([scdata]), null, "\t"), "utf8");
 	t.deepEqual(noUUID([scdata]), sampleshortcutdata);
 });

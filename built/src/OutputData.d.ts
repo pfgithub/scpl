@@ -24,7 +24,7 @@ export declare class Aggrandizements {
     setCoercionType(type: string): string | void;
     setForKey(key: string): string | void;
 }
-declare type WFParameter = WFDictionaryParameter | WFAttachmentParameter | WFListParameter | WFTextParameter;
+declare type WFParameter = WFDictionaryParameter | WFAttachmentParameter | WFListParameter | WFTextParameter | string | boolean | number | string[];
 export declare class Parameter {
     constructor();
     build(): WFParameter;
@@ -63,9 +63,22 @@ export declare class Dictionary extends Parameter {
     add(key: Text, value: Parameter): void;
     build(): WFDictionaryParameter;
 }
-declare type WFAttachmentParameter = {
+declare type WFAttachmentData = {
     Type: string;
     Aggrandizements: WFAggrandizements;
+} | {
+    Type: string;
+    Aggrandizements: WFAggrandizements;
+    VariableName: string;
+} | {
+    Type: string;
+    Aggrandizements: WFAggrandizements;
+    OutputName: string;
+    OutputUUID: string;
+};
+declare type WFAttachmentParameter = {
+    Value: WFAttachmentData;
+    WFSerializationType: "WFTextTokenAttachment";
 };
 export declare type AttachmentType = "Clipboard" | "Ask" | "CurrentDate" | "ExtensionInput" | "Input" | "Variable" | "ActionOutput";
 export declare class Attachment extends Parameter {
@@ -82,18 +95,13 @@ export declare class Variable extends Attachment {
 export declare class NamedVariable extends Variable {
     varname: string;
     constructor(varname: string);
-    build(): WFAttachmentParameter & {
-        VariableName: string;
-    };
+    build(): WFAttachmentParameter;
 }
 export declare class MagicVariable extends Variable {
     varname: string;
     uuid: string;
     constructor(action: Action);
-    build(): WFAttachmentParameter & {
-        OutputName: string;
-        OutputUUID: string;
-    };
+    build(): WFAttachmentParameter;
 }
 declare type WFListParameter = Array<string | {
     WFItemType: number;
@@ -106,7 +114,7 @@ export declare class List extends Parameter {
 }
 declare type WFTextValue = {
     attachmentsByRange: {
-        [key: string]: WFAttachmentParameter;
+        [key: string]: WFAttachmentData;
     };
     string: string;
 };
@@ -125,21 +133,22 @@ export declare class Text extends Parameter {
 }
 export declare type ParameterType = Parameter | string | number | Array<string> | boolean;
 declare type WFParameters = {
-    [key: string]: any;
+    [key: string]: WFParameter;
 };
 export declare class Parameters {
     values: {
-        [internalName: string]: any;
+        [internalName: string]: WFParameter;
     };
     constructor();
+    static inverse(data: WFParameters): Parameters;
     set(internalName: string, value: ParameterType): this;
     has(internalName: string): boolean;
-    get(internalName: string): any;
+    get(internalName: string): WFParameter;
     build(): WFParameters;
 }
 declare type WFAction = {
     WFWorkflowActionIdentifier: string;
-    WFWorkflowActionParameters: WFParameters;
+    WFWorkflowActionParameters?: WFParameters;
     SCPLData?: {
         Position: {
             start: [number, number];
@@ -150,13 +159,12 @@ declare type WFAction = {
 export declare class Action {
     name: string;
     id: string;
-    _uuid: string | undefined;
     parameters: Parameters;
     magicvarname?: string;
     start?: [number, number];
     end?: [number, number];
     constructor(start: [number, number] | undefined, end: [number, number] | undefined, name: string, id: string);
-    static inverse(data: WFAction): void;
+    static inverse(data: WFAction): Action;
     readonly uuid: string;
     build(): WFAction;
 }
