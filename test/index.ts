@@ -2,6 +2,7 @@ import test from "ava";
 import {Action} from "../src/OutputData";
 import { parse } from "../index";
 import * as fs from "fs";
+import {InverseConvertingContext} from "../src/InverseConvertingContext";
 // import * as path from "path";
 
 import * as sampleshortcutdata from "./sampleshortcut.json";
@@ -19,6 +20,22 @@ test("invert a basic action", t => {
 			WFTextActionText: "Icon List V2"
 		}
 	});
+});
+
+test("inversions for stringable", t => {
+	const icc = new InverseConvertingContext;
+	t.is(icc.createStringAble("myStringCanBeAn@Identifier_Neat23"), "myStringCanBeAn@Identifier_Neat23");
+	t.is(icc.createStringAble("2myStringCannotBeAn@Identifier"), "\"2myStringCannotBeAn@Identifier\"");
+	t.is(icc.createStringAble("251.62"), "251.62");
+	t.is(icc.createStringAble("this is my string"), '"this is my string"');
+	t.is(icc.createStringAble("my\\string\nneeds \"escapes\""), '"my\\\\string\\nneeds \\"escapes\\""');
+});
+
+test("inversions for numberable", t => {
+	const icc = new InverseConvertingContext;
+	t.is(icc.createNumberAble(25.6), "25.6");
+	t.is(icc.createNumberAble(-98.3), "-98.3");
+	t.is(icc.createNumberAble(8), "8");
 });
 
 

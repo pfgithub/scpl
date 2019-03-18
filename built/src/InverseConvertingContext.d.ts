@@ -3,7 +3,12 @@ export declare class InverseConvertingContext {
     magicVariables: {
         [key: string]: string | undefined;
     };
-    constructor();
+    quotes: '"' | "'";
+    indent: "\t" | number;
+    constructor(options?: {
+        quotes?: '"' | "'";
+        indent?: "\t" | number;
+    });
     handleThing(thing: unknown): string;
     createStringAble(value: string): string;
     createNumberAble(data: number): string;

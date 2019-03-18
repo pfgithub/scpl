@@ -18,17 +18,21 @@ Dictionary: {}
 
 
 */
-const NUMBER = /^-?(?:[0-9]*\.[0-9]+|[0-9]+)/;
-const IDENTIFIER = /^[A-Za-z@_][A-Za-z0-9@_]*/;
-const ESCAPEDQUOTEDSTRING = (value) => value.replace(/(["\\\n])/g, d => d === "\n" ? "\\n" : d);
-const STRING = (value) => `"${ESCAPEDQUOTEDSTRING(value)}"`;
+const NUMBER = /^-?(?:[0-9]*\.[0-9]+|[0-9]+)$/;
+const IDENTIFIER = /^[A-Za-z@_][A-Za-z0-9@_]*$/;
+const ESCAPEDQUOTEDSTRING = (value) => value.replace(/(["\\\n])/g, d => d === "\n" ? "\\n" : `\\${d}`);
+const DQUOTEDSTRING = (value) => `"${ESCAPEDQUOTEDSTRING(value)}"`;
+const ESCAPESQUOTEDSTRING = (value) => value.replace(/(['\\\n])/g, d => d === "\n" ? "\\n" : `\\${d}`);
+const SQUOTEDSTRING = (value) => `"${ESCAPESQUOTEDSTRING(value)}"`;
 // FOR NOW:
 // put argument labels on all arguments
 // FOR FUTURE:
 // look at wfrequiredresources and order things to avoid argument labels as much as possible
 class InverseConvertingContext {
-    constructor() {
+    constructor(options = {}) {
         this.magicVariables = {};
+        this.quotes = options.quotes || '"';
+        this.indent = options.indent || "\t";
     }
     handleThing(thing) {
         if (typeof thing === "string") {
@@ -53,7 +57,7 @@ class InverseConvertingContext {
         if (value.match(IDENTIFIER)) {
             return value;
         }
-        return STRING(value);
+        return DQUOTEDSTRING(value);
     }
     createNumberAble(data) {
         const value = data.toString();
@@ -63,14 +67,14 @@ class InverseConvertingContext {
         if (value.match(IDENTIFIER)) {
             return value;
         }
-        return STRING(value);
+        return DQUOTEDSTRING(value);
     }
     createVariableAble(value) {
         if (value instanceof OutputData_1.NamedVariable) {
             if (value.varname.match(IDENTIFIER)) {
                 return `v:${value.varname}`;
             }
-            return `v:${STRING(value.varname)}`;
+            return `v:${ESCAPEDQUOTEDSTRING(value.varname)}`;
         }
         if (value instanceof OutputData_1.MagicVariable) {
             const varname = this.magicVariables[value.uuid];
@@ -80,7 +84,7 @@ class InverseConvertingContext {
             if (varname.match(IDENTIFIER)) {
                 return `mv:${varname}`;
             }
-            return `mv:${STRING(varname)}`;
+            return `mv:${ESCAPEDQUOTEDSTRING(varname)}`;
         }
         const data = { Clipboard: "clipboard", Ask: "askWhenRun", CurrentDate: "currentDate", ExtensionInput: "shortcutinput", Input: "actioninput", Variable: undefined, ActionOutput: undefined };
         if (!data[value.type]) {

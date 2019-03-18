@@ -24,7 +24,7 @@ export declare class Aggrandizements {
     setCoercionType(type: string): string | void;
     setForKey(key: string): string | void;
 }
-declare type WFParameter = WFDictionaryParameter | WFAttachmentParameter | WFListParameter | WFTextParameter | string | boolean | number | string[];
+declare type WFParameter = WFDictionaryParameter | WFAttachmentParameter | WFListParameter | WFTextParameter | string | boolean | number;
 export declare class Parameter {
     constructor();
     build(): WFParameter;
@@ -126,10 +126,13 @@ declare type WFTextParameter = string | WFTextWithAttachments;
 export declare class Text extends Parameter {
     _components: Array<Attachment | string>;
     constructor();
+    static inverse(data: WFTextParameter): Text;
     components(): Array<Attachment | string>;
     readonly _last: string | Attachment;
     add(...objs: Array<Attachment | Text | string>): this;
     build(): WFTextParameter;
+}
+export declare class ErrorParameter extends Parameter {
 }
 export declare type ParameterType = Parameter | string | number | Array<string> | boolean;
 declare type WFParameters = {

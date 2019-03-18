@@ -236,6 +236,18 @@ class Text extends Parameter {
         super();
         this._components = [];
     }
+    static inverse(data) {
+        const res = new Text;
+        if (typeof data === "string") {
+        }
+        else {
+            data.Value.string.split("\uFFFC").forEach(textParts => {
+                res.add(textParts);
+                // res.add variable part
+            });
+        }
+        return res;
+    }
     components() {
         return this._components;
     }
@@ -293,6 +305,27 @@ class Text extends Parameter {
     }
 }
 exports.Text = Text;
+class ErrorParameter extends Parameter {
+}
+exports.ErrorParameter = ErrorParameter;
+function toParam(value) {
+    if (typeof value === "string") {
+        return value;
+    }
+    if (typeof value === "number") {
+        return value;
+    }
+    if (typeof value === "boolean") {
+        return value;
+    }
+    if (Array.isArray(value)) {
+        return new ErrorParameter;
+    }
+    if (value.WFSerializationType === "WFTextTokenString") {
+        return Text.inverse(value);
+    }
+    return new ErrorParameter;
+}
 class Parameters {
     constructor() {
         this.values = {};
@@ -300,7 +333,7 @@ class Parameters {
     static inverse(data) {
         const parameters = new Parameters();
         Object.keys(data).forEach((paramkey) => {
-            parameters.set(paramkey, "");
+            parameters.set(paramkey, toParam(data[paramkey]));
         });
         return parameters;
     }

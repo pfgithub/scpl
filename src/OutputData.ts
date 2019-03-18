@@ -112,7 +112,7 @@ export class Aggrandizements {
 // // // // // //
 //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //
 
-type WFParameter = WFDictionaryParameter | WFAttachmentParameter | WFListParameter | WFTextParameter | string | boolean | number | string[];
+type WFParameter = WFDictionaryParameter | WFAttachmentParameter | WFListParameter | WFTextParameter | string | boolean | number;
 
 export class Parameter {
 	constructor() {
@@ -304,6 +304,18 @@ export class Text extends Parameter {
 		super();
 		this._components = [];
 	}
+	static inverse(data: WFTextParameter): Text {
+		const res = new Text;
+		if(typeof data === "string") {
+            
+		}else{
+			data.Value.string.split("\uFFFC").forEach(textParts => {
+				res.add(textParts);
+				// res.add variable part
+			});
+		}
+		return res;
+	}
 	components(): Array<Attachment | string> {
 		return this._components;
 	}
@@ -359,6 +371,29 @@ export class Text extends Parameter {
 	}
 }
 
+export class ErrorParameter extends Parameter {
+    
+}
+
+function toParam(value: WFParameter): ParameterType {
+	if(typeof value === "string") {
+		return value;
+	}
+	if(typeof value === "number") {
+		return value;
+	}
+	if(typeof value === "boolean") {
+		return value;
+	}
+	if(Array.isArray(value)) {
+		return new ErrorParameter;
+	}
+	if(value.WFSerializationType === "WFTextTokenString") {
+		return Text.inverse(value);
+	}
+	return new ErrorParameter;
+}
+
 export type ParameterType = Parameter | string | number | Array<string> | boolean
 
 type WFParameters = {[key: string]: WFParameter};
@@ -371,7 +406,7 @@ export class Parameters {
 	static inverse(data: WFParameters): Parameters {
 		const parameters = new Parameters();
 		Object.keys(data).forEach((paramkey) => {
-			parameters.set(paramkey, "");
+			parameters.set(paramkey, toParam(data[paramkey]));
 		});
 		return parameters;
 	}
