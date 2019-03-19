@@ -1,16 +1,19 @@
 /// <reference types="node" />
 import { CoercionTypeClass } from "./WFTypes/Types";
-declare type WFAggrandizements = [{
+export declare const inverseCoercionTypes: {
+    [name in CoercionTypeClass]: string;
+};
+declare type WFAggrandizements = ({
     Type: "WFCoercionVariableAggrandizement";
     CoercionItemClass: CoercionTypeClass;
-}?, {
+} | {
     Type: "WFPropertyVariableAggrandizement";
     PropertyName: string;
     PropertyUserInfo?: string | number;
-}?, {
+} | {
     Type: "WFDictionaryValueVariableAggrandizement";
     DictionaryKey: string;
-}?];
+})[];
 export declare class Aggrandizements {
     coercionType?: CoercionTypeClass;
     getProperty?: {
@@ -19,12 +22,12 @@ export declare class Aggrandizements {
     };
     getForKey?: string;
     constructor();
+    static inverse(data: WFAggrandizements): Aggrandizements;
     build(): WFAggrandizements;
     setProperty(getType: string): string | void;
     setCoercionType(type: string): string | void;
     setForKey(key: string): string | void;
 }
-declare type WFParameter = WFDictionaryParameter | WFAttachmentParameter | WFListParameter | WFTextParameter | string | boolean | number;
 export declare class Parameter {
     constructor();
     build(): WFParameter;
@@ -63,21 +66,31 @@ export declare class Dictionary extends Parameter {
     add(key: Text, value: Parameter): void;
     build(): WFDictionaryParameter;
 }
-declare type WFAttachmentData = {
-    Type: string;
-    Aggrandizements: WFAggrandizements;
-} | {
-    Type: string;
-    Aggrandizements: WFAggrandizements;
+declare type WFVariableAttachmentData = {
+    Type: "Variable";
+    Aggrandizements?: WFAggrandizements;
     VariableName: string;
-} | {
-    Type: string;
-    Aggrandizements: WFAggrandizements;
+};
+declare type WFMagicVariableAttachmentData = {
+    Type: "ActionOutput";
+    Aggrandizements?: WFAggrandizements;
     OutputName: string;
     OutputUUID: string;
 };
+declare type WFAttachmentData = {
+    Type: AttachmentType;
+    Aggrandizements?: WFAggrandizements;
+} | WFVariableAttachmentData | WFMagicVariableAttachmentData;
 declare type WFAttachmentParameter = {
     Value: WFAttachmentData;
+    WFSerializationType: "WFTextTokenAttachment";
+};
+declare type WFVariableAttachmentParameter = {
+    Value: WFVariableAttachmentData;
+    WFSerializationType: "WFTextTokenAttachment";
+};
+declare type WFMagicVariableAttachmentParameter = {
+    Value: WFMagicVariableAttachmentData;
     WFSerializationType: "WFTextTokenAttachment";
 };
 export declare type AttachmentType = "Clipboard" | "Ask" | "CurrentDate" | "ExtensionInput" | "Input" | "Variable" | "ActionOutput";
@@ -85,6 +98,7 @@ export declare class Attachment extends Parameter {
     type: AttachmentType;
     aggrandizements: Aggrandizements;
     constructor(type: AttachmentType);
+    static inverse(value: WFAttachmentParameter): Attachment;
     build(): WFAttachmentParameter;
 }
 declare type VariableType = "Variable" | "ActionOutput";
@@ -95,12 +109,14 @@ export declare class Variable extends Attachment {
 export declare class NamedVariable extends Variable {
     varname: string;
     constructor(varname: string);
+    static inverse(data: WFVariableAttachmentParameter): NamedVariable;
     build(): WFAttachmentParameter;
 }
 export declare class MagicVariable extends Variable {
     varname: string;
     uuid: string;
-    constructor(action: Action);
+    constructor(...args: [Action] | [string, string]);
+    static inverse(data: WFMagicVariableAttachmentParameter): MagicVariable;
     build(): WFAttachmentParameter;
 }
 declare type WFListParameter = Array<string | {
@@ -110,6 +126,7 @@ declare type WFListParameter = Array<string | {
 export declare class List extends Parameter {
     _list: Array<Text>;
     constructor(list: Array<Text>);
+    getItems(): Text[];
     build(): WFListParameter;
 }
 declare type WFTextValue = {
@@ -134,10 +151,12 @@ export declare class Text extends Parameter {
 }
 export declare class ErrorParameter extends Parameter {
 }
+export declare function toParam(value: WFParameter): ParameterType;
 export declare type ParameterType = Parameter | string | number | Array<string> | boolean;
 declare type WFParameters = {
     [key: string]: WFParameter;
 };
+export declare type WFParameter = WFDictionaryParameter | WFAttachmentParameter | WFListParameter | WFTextParameter | string | boolean | number;
 export declare class Parameters {
     values: {
         [internalName: string]: WFParameter;
@@ -191,6 +210,7 @@ export declare class Shortcut {
     actions: Array<Action>;
     constructor(name: string);
     add(action: Action): void;
+    static inverse(data: WFShortcut): Shortcut;
     build(): WFShortcut;
 }
 export {};

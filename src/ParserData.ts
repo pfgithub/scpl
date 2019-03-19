@@ -69,7 +69,7 @@ interface AsVariable extends Parse{
 }
 
 interface AsAction extends Parse{
-	asAction(cc: ConvertingContext): Action
+	asAction(cc: ConvertingContext): Action | undefined
 }
 
 interface AsDictionary extends Parse{
@@ -362,12 +362,13 @@ export class ActionParse extends Parse implements AsText, AsVariable, AsAction {
 	canBeVariable(_cc: ConvertingContext): boolean {return true;}
 	asVariable(cc: ConvertingContext) { // returns the Variable for this ActionParse
 		const action = this.asAction(cc); // adds the action
+		if(!action) {throw this.error(cc, "This action does not have an action.");}
 		return new MagicVariable(action);
 		// otherwise: add a Set Variable action
 		// throw new Error(`Actions of type ${action.info.id} cannot be converted to a variable.`);
 	}
 	canBeAction(_cc: ConvertingContext): boolean {return true;}
-	asAction(cc: ConvertingContext) { // returns an Action for this ActionParse
+	asAction(cc: ConvertingContext): Action | undefined { // returns an Action for this ActionParse
 		if(!this.name.canBeString(cc)) {throw this.name.error(cc, "This action must contain a string name with no variables.");}
 		const actionName = this.name.asString(cc).toLowerCase();
 		let wfAction;

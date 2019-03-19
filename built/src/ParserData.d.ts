@@ -49,7 +49,7 @@ interface AsVariable extends Parse {
     asVariable(cc: ConvertingContext): Variable;
 }
 interface AsAction extends Parse {
-    asAction(cc: ConvertingContext): Action;
+    asAction(cc: ConvertingContext): Action | undefined;
 }
 interface AsDictionary extends Parse {
     asDictionary(cc: ConvertingContext): Dictionary;
@@ -164,7 +164,7 @@ export declare class ActionParse extends Parse implements AsText, AsVariable, As
     canBeVariable(_cc: ConvertingContext): boolean;
     asVariable(cc: ConvertingContext): MagicVariable;
     canBeAction(_cc: ConvertingContext): boolean;
-    asAction(cc: ConvertingContext): any;
+    asAction(cc: ConvertingContext): Action | undefined;
 }
 export declare class VariableParse extends Parse implements AsStringVariable, AsNameType, AsText, AsVariable, AsAction {
     type: AsAble;

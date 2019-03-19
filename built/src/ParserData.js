@@ -334,6 +334,9 @@ class ActionParse extends Parse {
     canBeVariable(_cc) { return true; }
     asVariable(cc) {
         const action = this.asAction(cc); // adds the action
+        if (!action) {
+            throw this.error(cc, "This action does not have an action.");
+        }
         return new OutputData_1.MagicVariable(action);
         // otherwise: add a Set Variable action
         // throw new Error(`Actions of type ${action.info.id} cannot be converted to a variable.`);

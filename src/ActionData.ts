@@ -676,6 +676,17 @@ ${JSON.stringify(this._data, null, "\t")}
 `;
 		return docs;
 	}
+	getParameters(): {[key: string]: WFParameter}{
+		let res: {[key: string]: WFParameter} = {};
+		this._parameters.forEach(param => {
+			if(typeof param === "string") return;
+			res[param.shortName] = param;
+		});
+		return res;
+	}
+	getParameterOrder(){
+		return this._parameters;
+	}
 	build(cc: ConvertingContext, actionPosition: AsAble, controlFlowData?: {uuid: string, number: number, wfaction: any}, ...params: Array<AsAble>) {
 		let parami = 0;
 		let actionAbove = cc.lastVariableAction;

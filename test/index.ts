@@ -1,5 +1,5 @@
 import test from "ava";
-import {Action} from "../src/OutputData";
+import {Action, Shortcut} from "../src/OutputData";
 import { parse } from "../index";
 import * as fs from "fs";
 import {InverseConvertingContext} from "../src/InverseConvertingContext";
@@ -8,7 +8,7 @@ import {InverseConvertingContext} from "../src/InverseConvertingContext";
 import * as sampleshortcutdata from "./sampleshortcut.json";
 
 
-test("invert a basic action", t => {
+test("invert and build a basic action", t => {
 	t.deepEqual(Action.inverse({
 		WFWorkflowActionIdentifier: "is.workflow.actions.gettext",
 		WFWorkflowActionParameters: {
@@ -20,6 +20,31 @@ test("invert a basic action", t => {
 			WFTextActionText: "Icon List V2"
 		}
 	});
+});
+test("invert and create text", t => {
+	let icc = new InverseConvertingContext;
+	t.deepEqual(icc.createActionAble(Action.inverse({
+		WFWorkflowActionIdentifier: "is.workflow.actions.gettext",
+		WFWorkflowActionParameters: {
+			WFTextActionText: "My Text"
+		}
+	})), "text wftextactiontext=\"My Text\"");
+});
+test("invert complex actions", t => {
+	let icc = new InverseConvertingContext;
+	t.deepEqual(icc.createActionsAble(Shortcut.inverse(parse(`
+text "test"
+if Equals "hmmm"
+	text "huh interesting"
+otherwise
+	text "huh uninteresting"
+end
+`, {make:["shortcutjson"]}).shortcutjson)), `text wftextactiontext=test
+if input=Equals value=hmmm
+	text wftextactiontext="huh interesting"
+otherwise
+	text wftextactiontext="huh uninteresting"
+end`);
 });
 
 test("inversions for stringable", t => {

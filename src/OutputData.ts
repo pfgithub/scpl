@@ -20,9 +20,9 @@ WFRelativeDateFormatStyle?: WFRelativeDateFormatStyle;
 
 From Shortcuts-js
  */
- 
+
 import {CoercionTypeClass, isAggrandizementPropertyName} from "./WFTypes/Types";
- 
+
 const coercionTypes: {[name: string]: CoercionTypeClass} = { // remove name:string and make it typed too
 	anything: "WFContentItem",
 	appstoreapp: "WFAppStoreAppContentItem",
@@ -50,17 +50,44 @@ const coercionTypes: {[name: string]: CoercionTypeClass} = { // remove name:stri
 	url: "WFURLContentItem",
 	vcard: "WFVCardContentItem"
 };
+export const inverseCoercionTypes: {[name in CoercionTypeClass]: string} = {
+	WFContentItem: "anything",
+	WFAppStoreAppContentItem: "appstoreapp",
+	WFArticleContentItem: "article",
+	WFBooleanContentItem: "boolean",
+	WFContactContentItem: "contact",
+	WFDateContentItem: "date",
+	WFDictionaryContentItem: "dictionary",
+	WFEmailAddressContentItem: "emailaddress",
+	WFGenericFileContentItem: "file",
+	WFImageContentItem: "image",
+	WFMPMediaContentItem: "itunesmedia",
+	WFiTunesProductContentItem: "itunesproduct",
+	WFLocationContentItem: "location",
+	WFDCMapsLinkContentItem: "mapslink",
+	WFAVAssetContentItem: "media",
+	WFNumberContentItem: "number",
+	WFPDFContentItem: "pdf",
+	WFPhoneNumberContentItem: "phonenumber",
+	WFPhotoMediaContentItem: "photomedia",
+	WFMKMapItemContentItem: "place",
+	WFRichTextContentItem: "richtext",
+	WFSafariWebPageContentItem: "safariwebpage",
+	WFStringContentItem: "text",
+	WFURLContentItem: "url",
+	WFVCardContentItem: "vcard"
+};
 
 
 
 
 import getTypes from "./Data/GetTypes"; // resdata = {};console.dir( actionData.filter(action => action.WFWorkflowActionIdentifier === "is.workflow.actions.gettext").map(action => Object.values(action.WFWorkflowActionParameters.WFTextActionText.Value.attachmentsByRange).filter(d=>d.Type !== "Clipboard" && d.Aggrandizements && d.Aggrandizements[1]).map(d=>({coerce:d.Aggrandizements[0].CoercionItemClass,property:d.Aggrandizements[1]}))).forEach(a=>a.forEach(({coerce, property})=>{if(!resdata[coerce]){resdata[coerce]={};};resdata[coerce][property.PropertyName.toLowerCase().replace(/[^A-Za-z]/g,"")]=({name:property.PropertyName,data:property.PropertyUserInfo});})) ,{depth:null});console.log(JSON.stringify(resdata,null,"\t"));
 
-type WFAggrandizements = [
-	{Type: "WFCoercionVariableAggrandizement", CoercionItemClass: CoercionTypeClass}?,
-	{Type: "WFPropertyVariableAggrandizement", PropertyName: string, PropertyUserInfo?: string|number}?,
-	{Type: "WFDictionaryValueVariableAggrandizement", DictionaryKey: string}?
-];
+type WFAggrandizements = (
+	{Type: "WFCoercionVariableAggrandizement", CoercionItemClass: CoercionTypeClass} |
+	{Type: "WFPropertyVariableAggrandizement", PropertyName: string, PropertyUserInfo?: string|number} |
+	{Type: "WFDictionaryValueVariableAggrandizement", DictionaryKey: string}
+)[];
 
 export class Aggrandizements {
 	coercionType?: CoercionTypeClass;
@@ -70,6 +97,24 @@ export class Aggrandizements {
 		this.coercionType = undefined;
 		this.getProperty = undefined;
 		this.getForKey = undefined;
+	}
+	static inverse(data: WFAggrandizements): Aggrandizements {
+		const res = new Aggrandizements;
+		data.forEach(aggrandizement => {
+			if(aggrandizement.Type === "WFCoercionVariableAggrandizement") {
+				res.coercionType = aggrandizement.CoercionItemClass;
+				return;
+			}
+			if(aggrandizement.Type === "WFPropertyVariableAggrandizement") {
+				res.getProperty = {name: aggrandizement.PropertyName, data: aggrandizement.PropertyUserInfo};
+				return;
+			}
+			if(aggrandizement.Type === "WFDictionaryValueVariableAggrandizement") {
+				res.getForKey = aggrandizement.DictionaryKey;
+				return;
+			}
+		});
+		return res;
 	}
 	build(): WFAggrandizements {
 		const aggrandizements: WFAggrandizements = [];
@@ -84,7 +129,7 @@ export class Aggrandizements {
 		}
 		return aggrandizements;
 	}
-	
+
 	setProperty(getType: string): string | void {
 		// if !this.coercionType throw error(to get a property must have coercion type. fix this by adding as:)
 		getType = getType.toLowerCase().replace(/[^A-Za-z]/g, "");
@@ -111,8 +156,6 @@ export class Aggrandizements {
 
 // // // // // //
 //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //
-
-type WFParameter = WFDictionaryParameter | WFAttachmentParameter | WFListParameter | WFTextParameter | string | boolean | number;
 
 export class Parameter {
 	constructor() {
@@ -183,23 +226,33 @@ export class Dictionary extends Parameter {
 		};
 	}
 }
-
-type WFAttachmentData = {
-	Type: string,
-	Aggrandizements: WFAggrandizements
-} | {
-	Type: string,
-	Aggrandizements: WFAggrandizements,
+type WFVariableAttachmentData = {
+	Type: "Variable",
+	Aggrandizements?: WFAggrandizements,
 	VariableName: string
-} | {
-	Type: string,
-	Aggrandizements: WFAggrandizements,
+};
+type WFMagicVariableAttachmentData = {
+	Type: "ActionOutput",
+	Aggrandizements?: WFAggrandizements,
 	OutputName: string,
 	OutputUUID: string
 };
 
+type WFAttachmentData = {
+	Type: AttachmentType,
+	Aggrandizements?: WFAggrandizements
+} | WFVariableAttachmentData | WFMagicVariableAttachmentData;
+
 type WFAttachmentParameter = {
 	Value: WFAttachmentData,
+	WFSerializationType: "WFTextTokenAttachment"
+};
+type WFVariableAttachmentParameter = {
+	Value: WFVariableAttachmentData,
+	WFSerializationType: "WFTextTokenAttachment"
+};
+type WFMagicVariableAttachmentParameter = {
+	Value: WFMagicVariableAttachmentData,
 	WFSerializationType: "WFTextTokenAttachment"
 };
 
@@ -212,8 +265,20 @@ export class Attachment extends Parameter {
 		this.type = type;
 		this.aggrandizements = new Aggrandizements();
 	}
+	static inverse(value: WFAttachmentParameter): Attachment {
+		let result: Attachment;
+		if(value.Value.Type === "Variable") {
+			result = NamedVariable.inverse(<WFVariableAttachmentParameter>value);
+		}else if(value.Value.Type === "ActionOutput") {
+			result = MagicVariable.inverse(<WFMagicVariableAttachmentParameter>value);
+		}else{
+			result = new Attachment(value.Value.Type);
+		}
+		if(value.Value.Aggrandizements) {result.aggrandizements = Aggrandizements.inverse(value.Value.Aggrandizements);}
+		return result;
+	}
 	build(): WFAttachmentParameter {
-		return { 
+		return {
 			Value: {
 				Type: this.type,
 				Aggrandizements: this.aggrandizements.build()
@@ -241,10 +306,13 @@ export class NamedVariable extends Variable {
 		super("Variable");
 		this.varname = varname;
 	}
+	static inverse(data: WFVariableAttachmentParameter): NamedVariable {
+		return new NamedVariable(data.Value.VariableName);
+	}
 	build(): WFAttachmentParameter {
-		return { 
+		return {
 			Value: {
-				Type: this.type,
+				Type: "Variable",
 				Aggrandizements: this.aggrandizements.build(),
 				VariableName: this.varname
 			},
@@ -256,15 +324,23 @@ export class NamedVariable extends Variable {
 export class MagicVariable extends Variable {
 	varname: string
 	uuid: string
-	constructor(action: Action) {
+	constructor(...args: [Action] | [string, string]) {
 		super("ActionOutput");
-		this.varname = action.magicvarname || action.name;
-		this.uuid = action.uuid;
+		if(args[0] instanceof Action) {
+    		this.varname = args[0].magicvarname || args[0].name;
+    		this.uuid = args[0].uuid;
+		}else if(typeof args[1] === "string") {
+			this.varname = args[0];
+			this.uuid = args[1];
+		}else{throw new Error("This is not possible.");}
+	}
+	static inverse(data: WFMagicVariableAttachmentParameter): MagicVariable {
+		return new MagicVariable(data.Value.OutputName, data.Value.OutputUUID);
 	}
 	build(): WFAttachmentParameter {
-		return { 
+		return {
 			Value: {
-				Type: this.type,
+				Type: "ActionOutput",
 				Aggrandizements: this.aggrandizements.build(),
 				OutputName: this.varname,
 				OutputUUID: this.uuid
@@ -282,6 +358,7 @@ export class List extends Parameter {
 		super();
 		this._list = list;
 	}
+	getItems(): Text[] {return this._list;}
 	build(): WFListParameter {
 		return this._list.map(i=>{
 			const text = i.build();
@@ -307,10 +384,20 @@ export class Text extends Parameter {
 	static inverse(data: WFTextParameter): Text {
 		const res = new Text;
 		if(typeof data === "string") {
-            
+
 		}else{
-			data.Value.string.split("\uFFFC").forEach(textParts => {
-				res.add(textParts);
+			let strPosition = 0;
+			data.Value.string.split("\uFFFC").forEach(textPart => {
+				res.add(textPart);
+				strPosition += textPart.length;
+				// get variable part
+				const attachment = data.Value.attachmentsByRange[`{${strPosition}, 1}`];
+				strPosition++;
+				if(!attachment) {return;}
+				res.add(<Attachment>toParam({
+					WFSerializationType: "WFTextTokenAttachment",
+					Value: attachment
+				}));
 				// res.add variable part
 			});
 		}
@@ -372,10 +459,10 @@ export class Text extends Parameter {
 }
 
 export class ErrorParameter extends Parameter {
-    
+
 }
 
-function toParam(value: WFParameter): ParameterType {
+export function toParam(value: WFParameter): ParameterType {
 	if(typeof value === "string") {
 		return value;
 	}
@@ -391,12 +478,17 @@ function toParam(value: WFParameter): ParameterType {
 	if(value.WFSerializationType === "WFTextTokenString") {
 		return Text.inverse(value);
 	}
+	if(value.WFSerializationType === "WFTextTokenAttachment") {
+		return Attachment.inverse(value);
+	}
 	return new ErrorParameter;
 }
 
 export type ParameterType = Parameter | string | number | Array<string> | boolean
 
 type WFParameters = {[key: string]: WFParameter};
+
+export type WFParameter = WFDictionaryParameter | WFAttachmentParameter | WFListParameter | WFTextParameter | string | boolean | number;
 
 export class Parameters {
 	values: {[internalName: string]: WFParameter}
@@ -440,23 +532,23 @@ export class Action {
 	id: string
 	parameters: Parameters
 	magicvarname?: string
-	
+
 	start?: [number, number]
 	end?: [number, number]
-	
+
 	constructor(start: [number, number] | undefined, end: [number, number] | undefined, name: string, id: string) {
 		this.name = name;
 		this.id = id;
 		this.parameters = new Parameters();
 		this.magicvarname = undefined;
-		
+
 		this.start = start;
 		this.end = end;
 	}
 	static inverse(data: WFAction): Action {
 		const action = new Action(undefined, undefined, "??unnamed??", data.WFWorkflowActionIdentifier);
 		action.parameters = Parameters.inverse(data.WFWorkflowActionParameters || {});
-		
+
 		return action;
 	}
 	get uuid(): string {
@@ -468,7 +560,7 @@ export class Action {
 		if(this.magicvarname) {this.parameters.set("CustomOutputName", this.magicvarname);}
 		const res: WFAction = {
 			WFWorkflowActionIdentifier: this.id,
-			WFWorkflowActionParameters: this.parameters.build()			
+			WFWorkflowActionParameters: this.parameters.build()
 		};
 		if(this.start && this.end) {res.SCPLData = {Position: {start: this.start, end: this.end}};}
 		return res;
@@ -488,7 +580,7 @@ type WFShortcut = [{
 	},
 	WFWorkflowTypes: WorkflowTypes[],
 	WFWorkflowInputContentItemClasses: ExtensionInputContentItemClass[],
-	WFWorkflowActions: WFAction[]	
+	WFWorkflowActions: WFAction[]
 }]
 
 export class Shortcut {
@@ -500,6 +592,11 @@ export class Shortcut {
 	}
 	add(action: Action) {
 		this.actions.push(action);
+	}
+	static inverse(data: WFShortcut): Shortcut{
+		let shortcut = new Shortcut("inverse");
+		data[0].WFWorkflowActions.forEach(action => {shortcut.add(Action.inverse(action))});
+		return shortcut;
 	}
 	build(): WFShortcut {
 		return [{

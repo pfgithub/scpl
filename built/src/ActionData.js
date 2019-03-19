@@ -660,6 +660,18 @@ ${JSON.stringify(this._data, null, "\t")}
 `;
         return docs;
     }
+    getParameters() {
+        let res = {};
+        this._parameters.forEach(param => {
+            if (typeof param === "string")
+                return;
+            res[param.shortName] = param;
+        });
+        return res;
+    }
+    getParameterOrder() {
+        return this._parameters;
+    }
     build(cc, actionPosition, controlFlowData, ...params) {
         let parami = 0;
         let actionAbove = cc.lastVariableAction;

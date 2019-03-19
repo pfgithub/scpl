@@ -1,17 +1,24 @@
-import { Attachment, Text } from "./OutputData";
+import { Attachment, Text, Shortcut, Action, ParameterType, List, Dictionary, Aggrandizements } from "./OutputData";
 export declare class InverseConvertingContext {
     magicVariables: {
-        [key: string]: string | undefined;
+        [key: string]: string;
     };
     quotes: '"' | "'";
-    indent: "\t" | number;
+    indent: string;
+    _indentLevel: number;
     constructor(options?: {
         quotes?: '"' | "'";
-        indent?: "\t" | number;
+        indent?: string | number;
     });
-    handleThing(thing: unknown): string;
+    createActionsAble(value: Shortcut): string;
+    createActionAble(value: Action): string;
+    handleArgument(thing: ParameterType): string;
     createStringAble(value: string): string;
     createNumberAble(data: number): string;
+    createListAble(value: List): string;
+    createDictionaryAble(value: Dictionary): string;
+    createAggrandizementsAble(value: Aggrandizements | undefined): string;
     createVariableAble(value: Attachment): string;
     createTextAble(value: Text): string;
+    quoteAndEscape(val: string): string;
 }

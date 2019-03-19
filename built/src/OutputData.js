@@ -47,12 +47,57 @@ const coercionTypes = {
     url: "WFURLContentItem",
     vcard: "WFVCardContentItem"
 };
+exports.inverseCoercionTypes = {
+    WFContentItem: "anything",
+    WFAppStoreAppContentItem: "appstoreapp",
+    WFArticleContentItem: "article",
+    WFBooleanContentItem: "boolean",
+    WFContactContentItem: "contact",
+    WFDateContentItem: "date",
+    WFDictionaryContentItem: "dictionary",
+    WFEmailAddressContentItem: "emailaddress",
+    WFGenericFileContentItem: "file",
+    WFImageContentItem: "image",
+    WFMPMediaContentItem: "itunesmedia",
+    WFiTunesProductContentItem: "itunesproduct",
+    WFLocationContentItem: "location",
+    WFDCMapsLinkContentItem: "mapslink",
+    WFAVAssetContentItem: "media",
+    WFNumberContentItem: "number",
+    WFPDFContentItem: "pdf",
+    WFPhoneNumberContentItem: "phonenumber",
+    WFPhotoMediaContentItem: "photomedia",
+    WFMKMapItemContentItem: "place",
+    WFRichTextContentItem: "richtext",
+    WFSafariWebPageContentItem: "safariwebpage",
+    WFStringContentItem: "text",
+    WFURLContentItem: "url",
+    WFVCardContentItem: "vcard"
+};
 const GetTypes_1 = require("./Data/GetTypes"); // resdata = {};console.dir( actionData.filter(action => action.WFWorkflowActionIdentifier === "is.workflow.actions.gettext").map(action => Object.values(action.WFWorkflowActionParameters.WFTextActionText.Value.attachmentsByRange).filter(d=>d.Type !== "Clipboard" && d.Aggrandizements && d.Aggrandizements[1]).map(d=>({coerce:d.Aggrandizements[0].CoercionItemClass,property:d.Aggrandizements[1]}))).forEach(a=>a.forEach(({coerce, property})=>{if(!resdata[coerce]){resdata[coerce]={};};resdata[coerce][property.PropertyName.toLowerCase().replace(/[^A-Za-z]/g,"")]=({name:property.PropertyName,data:property.PropertyUserInfo});})) ,{depth:null});console.log(JSON.stringify(resdata,null,"\t"));
 class Aggrandizements {
     constructor() {
         this.coercionType = undefined;
         this.getProperty = undefined;
         this.getForKey = undefined;
+    }
+    static inverse(data) {
+        const res = new Aggrandizements;
+        data.forEach(aggrandizement => {
+            if (aggrandizement.Type === "WFCoercionVariableAggrandizement") {
+                res.coercionType = aggrandizement.CoercionItemClass;
+                return;
+            }
+            if (aggrandizement.Type === "WFPropertyVariableAggrandizement") {
+                res.getProperty = { name: aggrandizement.PropertyName, data: aggrandizement.PropertyUserInfo };
+                return;
+            }
+            if (aggrandizement.Type === "WFDictionaryValueVariableAggrandizement") {
+                res.getForKey = aggrandizement.DictionaryKey;
+                return;
+            }
+        });
+        return res;
     }
     build() {
         const aggrandizements = [];
@@ -103,6 +148,8 @@ class Aggrandizements {
     }
 }
 exports.Aggrandizements = Aggrandizements;
+// // // // // //
+//  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //
 class Parameter {
     constructor() {
     }
@@ -158,6 +205,22 @@ class Attachment extends Parameter {
         this.type = type;
         this.aggrandizements = new Aggrandizements();
     }
+    static inverse(value) {
+        let result;
+        if (value.Value.Type === "Variable") {
+            result = NamedVariable.inverse(value);
+        }
+        else if (value.Value.Type === "ActionOutput") {
+            result = MagicVariable.inverse(value);
+        }
+        else {
+            result = new Attachment(value.Value.Type);
+        }
+        if (value.Value.Aggrandizements) {
+            result.aggrandizements = Aggrandizements.inverse(value.Value.Aggrandizements);
+        }
+        return result;
+    }
     build() {
         return {
             Value: {
@@ -184,10 +247,13 @@ class NamedVariable extends Variable {
         super("Variable");
         this.varname = varname;
     }
+    static inverse(data) {
+        return new NamedVariable(data.Value.VariableName);
+    }
     build() {
         return {
             Value: {
-                Type: this.type,
+                Type: "Variable",
                 Aggrandizements: this.aggrandizements.build(),
                 VariableName: this.varname
             },
@@ -197,15 +263,27 @@ class NamedVariable extends Variable {
 }
 exports.NamedVariable = NamedVariable;
 class MagicVariable extends Variable {
-    constructor(action) {
+    constructor(...args) {
         super("ActionOutput");
-        this.varname = action.magicvarname || action.name;
-        this.uuid = action.uuid;
+        if (args[0] instanceof Action) {
+            this.varname = args[0].magicvarname || args[0].name;
+            this.uuid = args[0].uuid;
+        }
+        else if (typeof args[1] === "string") {
+            this.varname = args[0];
+            this.uuid = args[1];
+        }
+        else {
+            throw new Error("This is not possible.");
+        }
+    }
+    static inverse(data) {
+        return new MagicVariable(data.Value.OutputName, data.Value.OutputUUID);
     }
     build() {
         return {
             Value: {
-                Type: this.type,
+                Type: "ActionOutput",
                 Aggrandizements: this.aggrandizements.build(),
                 OutputName: this.varname,
                 OutputUUID: this.uuid
@@ -220,6 +298,7 @@ class List extends Parameter {
         super();
         this._list = list;
     }
+    getItems() { return this._list; }
     build() {
         return this._list.map(i => {
             const text = i.build();
@@ -241,8 +320,20 @@ class Text extends Parameter {
         if (typeof data === "string") {
         }
         else {
-            data.Value.string.split("\uFFFC").forEach(textParts => {
-                res.add(textParts);
+            let strPosition = 0;
+            data.Value.string.split("\uFFFC").forEach(textPart => {
+                res.add(textPart);
+                strPosition += textPart.length;
+                // get variable part
+                const attachment = data.Value.attachmentsByRange[`{${strPosition}, 1}`];
+                strPosition++;
+                if (!attachment) {
+                    return;
+                }
+                res.add(toParam({
+                    WFSerializationType: "WFTextTokenAttachment",
+                    Value: attachment
+                }));
                 // res.add variable part
             });
         }
@@ -324,8 +415,12 @@ function toParam(value) {
     if (value.WFSerializationType === "WFTextTokenString") {
         return Text.inverse(value);
     }
+    if (value.WFSerializationType === "WFTextTokenAttachment") {
+        return Attachment.inverse(value);
+    }
     return new ErrorParameter;
 }
+exports.toParam = toParam;
 class Parameters {
     constructor() {
         this.values = {};
@@ -399,6 +494,11 @@ class Shortcut {
     }
     add(action) {
         this.actions.push(action);
+    }
+    static inverse(data) {
+        let shortcut = new Shortcut("inverse");
+        data[0].WFWorkflowActions.forEach(action => { shortcut.add(Action.inverse(action)); });
+        return shortcut;
     }
     build() {
         return [{

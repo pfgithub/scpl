@@ -7,7 +7,7 @@ const fs = require("fs");
 const InverseConvertingContext_1 = require("../src/InverseConvertingContext");
 // import * as path from "path";
 const sampleshortcutdata = require("./sampleshortcut.json");
-ava_1.default("invert a basic action", t => {
+ava_1.default("invert and build a basic action", t => {
     t.deepEqual(OutputData_1.Action.inverse({
         WFWorkflowActionIdentifier: "is.workflow.actions.gettext",
         WFWorkflowActionParameters: {
@@ -19,6 +19,31 @@ ava_1.default("invert a basic action", t => {
             WFTextActionText: "Icon List V2"
         }
     });
+});
+ava_1.default("invert and create text", t => {
+    let icc = new InverseConvertingContext_1.InverseConvertingContext;
+    t.deepEqual(icc.createActionAble(OutputData_1.Action.inverse({
+        WFWorkflowActionIdentifier: "is.workflow.actions.gettext",
+        WFWorkflowActionParameters: {
+            WFTextActionText: "My Text"
+        }
+    })), "text wftextactiontext=\"My Text\"");
+});
+ava_1.default("invert complex actions", t => {
+    let icc = new InverseConvertingContext_1.InverseConvertingContext;
+    t.deepEqual(icc.createActionsAble(OutputData_1.Shortcut.inverse(index_1.parse(`
+text "test"
+if Equals "hmmm"
+	text "huh interesting"
+otherwise
+	text "huh uninteresting"
+end
+`, { make: ["shortcutjson"] }).shortcutjson)), `text wftextactiontext=test
+if input=Equals value=hmmm
+	text wftextactiontext="huh interesting"
+otherwise
+	text wftextactiontext="huh uninteresting"
+end`);
 });
 ava_1.default("inversions for stringable", t => {
     const icc = new InverseConvertingContext_1.InverseConvertingContext;
@@ -32,6 +57,7 @@ ava_1.default("inversions for numberable", t => {
     const icc = new InverseConvertingContext_1.InverseConvertingContext;
     t.is(icc.createNumberAble(25.6), "25.6");
     t.is(icc.createNumberAble(-98.3), "-98.3");
+    t.is(icc.createNumberAble(8), "8");
 });
 function noUUID(obj, options = {}) {
     const uuids = [];
