@@ -21,16 +21,16 @@ ava_1.default("invert and build a basic action", t => {
     });
 });
 ava_1.default("invert and create text", t => {
-    let icc = new InverseConvertingContext_1.InverseConvertingContext;
+    const icc = new InverseConvertingContext_1.InverseConvertingContext;
     t.deepEqual(icc.createActionAble(OutputData_1.Action.inverse({
         WFWorkflowActionIdentifier: "is.workflow.actions.gettext",
         WFWorkflowActionParameters: {
             WFTextActionText: "My Text"
         }
-    })), "text wftextactiontext=\"My Text\"");
+    })), "text \"My Text\"");
 });
-ava_1.default("invert complex actions", t => {
-    let icc = new InverseConvertingContext_1.InverseConvertingContext;
+ava_1.default("invert block actions", t => {
+    const icc = new InverseConvertingContext_1.InverseConvertingContext;
     t.deepEqual(icc.createActionsAble(OutputData_1.Shortcut.inverse(index_1.parse(`
 text "test"
 if Equals "hmmm"
@@ -38,12 +38,24 @@ if Equals "hmmm"
 otherwise
 	text "huh uninteresting"
 end
-`, { make: ["shortcutjson"] }).shortcutjson)), `text wftextactiontext=test
+`, { make: ["shortcutjson"] }).shortcutjson)), `text test
 if input=Equals value=hmmm
-	text wftextactiontext="huh interesting"
+	text "huh interesting"
 otherwise
-	text wftextactiontext="huh uninteresting"
+	text "huh uninteresting"
 end`);
+});
+ava_1.default("invert variable aggrandizements", t => {
+    const icc = new InverseConvertingContext_1.InverseConvertingContext;
+    t.deepEqual(icc.createActionsAble(OutputData_1.Shortcut.inverse(index_1.parse(`
+setvariable v:thisismyvariable
+text v:thisismyvariable{as:dictionary,get:Name}
+text v:thisismyvariable{as:dictionary,key:mykey}
+text v:thisismyvariable{as:dictionary,key:mykey,get:name}
+`, { make: ["shortcutjson"] }).shortcutjson)), `setvariable thisismyvariable
+text v:thisismyvariable{as: dictionary, get: name}
+text v:thisismyvariable.mykey
+text v:thisismyvariable.mykey{get: name}`);
 });
 ava_1.default("inversions for stringable", t => {
     const icc = new InverseConvertingContext_1.InverseConvertingContext;

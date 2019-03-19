@@ -358,6 +358,9 @@ class Text extends Parameter {
             if (!(typeof obj === "string")) {
                 throw new Error("Add type must be string, Text, or Attachment");
             }
+            if (obj.length === 0) {
+                return;
+            } // nothing to add
             const str = obj;
             this._components.push(str);
         });
@@ -496,7 +499,7 @@ class Shortcut {
         this.actions.push(action);
     }
     static inverse(data) {
-        let shortcut = new Shortcut("inverse");
+        const shortcut = new Shortcut("inverse");
         data[0].WFWorkflowActions.forEach(action => { shortcut.add(Action.inverse(action)); });
         return shortcut;
     }

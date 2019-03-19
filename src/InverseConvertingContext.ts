@@ -46,6 +46,7 @@ export class InverseConvertingContext {
 
 			const paramValue = value.parameters.get(param.internalName);
 			if(!paramValue) {return;}
+			if(order.length === 1) {return result.push(this.handleArgument(toParam(paramValue)));}
 			result.push(`${param.shortName  }=${  this.handleArgument(toParam(paramValue))}`);
 		});
 
@@ -139,14 +140,14 @@ export class InverseConvertingContext {
 	}
 	createVariableAble(value: Attachment): string { // createVariAble
 		if(value instanceof NamedVariable) {
-			if(value.varname.match(IDENTIFIER)) {return `v:${value.varname}`;}
+			if(value.varname.match(IDENTIFIER)) {return `v:${value.varname}${this.createAggrandizementsAble(value.aggrandizements)}`;}
 			return `v:${this.quoteAndEscape(value.varname)}${this.createAggrandizementsAble(value.aggrandizements)}`;
 		}
 		if(value instanceof MagicVariable) {
 			const varname = this.magicVariables[value.uuid];
 
 			if(!varname) {return "mv:??broken magic variable??";}
-			if(varname.match(IDENTIFIER)) {return `mv:${varname}`;}
+			if(varname.match(IDENTIFIER)) {return `mv:${varname}${this.createAggrandizementsAble(value.aggrandizements)}`;}
 			return `mv:${this.quoteAndEscape(varname)}${this.createAggrandizementsAble(value.aggrandizements)}`;
 		}
 		const data: {[key in AttachmentType]: string | undefined} = {Clipboard: "clipboard", Ask: "askWhenRun", CurrentDate: "currentDate", ExtensionInput: "shortcutinput", Input: "actioninput", Variable: undefined, ActionOutput: undefined};
@@ -154,13 +155,18 @@ export class InverseConvertingContext {
 		return `s:${data[value.type]}${this.createAggrandizementsAble(value.aggrandizements)}`;
 	}
 	createTextAble(value: Text): string {
+		const components = value.components();
+		const firstComponent = components[0];
+		if(components.length === 1 && firstComponent instanceof Attachment) {
+			return this.createVariableAble(firstComponent);
+		}
 		let resstr = "";
-		value.components().forEach((component: Attachment | string) => {
+		components.forEach((component: Attachment | string) => {
 			if(typeof component === "string") {return resstr += ESCAPEDQUOTEDSTRING(component);}
-			resstr += `(${  this.createVariableAble(component)  })`;
+			resstr += `\\(${  this.createVariableAble(component)  })`;
 		});
 		if(resstr.match(IDENTIFIER)) {return resstr;} // \() will never match identifier
-		return this.quoteAndEscape(resstr);
+		return `"${  resstr  }"`;
 	}
 	quoteAndEscape(val: string): string {
 		if(this.quotes === "'") {return SQUOTEDSTRING(val);}

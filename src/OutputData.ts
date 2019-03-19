@@ -421,6 +421,7 @@ export class Text extends Parameter {
 			}
 			if(!(typeof obj === "string")) {throw new Error("Add type must be string, Text, or Attachment");}
 
+			if(obj.length === 0) {return;} // nothing to add
 			const str = obj;
 			this._components.push(str);
 		});

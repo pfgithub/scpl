@@ -661,10 +661,11 @@ ${JSON.stringify(this._data, null, "\t")}
         return docs;
     }
     getParameters() {
-        let res = {};
+        const res = {};
         this._parameters.forEach(param => {
-            if (typeof param === "string")
+            if (typeof param === "string") {
                 return;
+            }
             res[param.shortName] = param;
         });
         return res;

@@ -24,29 +24,32 @@ class InverseConvertingContext {
     }
     createActionsAble(value) {
         return value.actions.map(action => {
-            let createdAction = this.createActionAble(action);
+            const createdAction = this.createActionAble(action);
             return `${createdAction}`;
         }).join("\n");
     }
     createActionAble(value) {
-        let result = [];
+        const result = [];
         // get action data
-        let actionData = ActionData_1.getActionFromID(value.id);
+        const actionData = ActionData_1.getActionFromID(value.id);
         // let parameters = actionData.getParameters();
-        let order = actionData.getParameterOrder(); // TODO future
+        const order = actionData.getParameterOrder(); // TODO future
         order.forEach(param => {
             if (typeof param === "string") {
                 return;
             }
-            let paramValue = value.parameters.get(param.internalName);
+            const paramValue = value.parameters.get(param.internalName);
             if (!paramValue) {
                 return;
             }
-            result.push(param.shortName + "=" + this.handleArgument(OutputData_1.toParam(paramValue)));
+            if (order.length === 1) {
+                return result.push(this.handleArgument(OutputData_1.toParam(paramValue)));
+            }
+            result.push(`${param.shortName}=${this.handleArgument(OutputData_1.toParam(paramValue))}`);
         });
-        let uuid = value.parameters.get("UUID");
+        const uuid = value.parameters.get("UUID");
         if (uuid) {
-            let baseName = value.magicvarname || value.name || "?";
+            const baseName = value.magicvarname || value.name || "?";
             let name = baseName;
             if (this.magicVariables[name]) {
                 for (let i = 1; this.magicVariables[name]; i++) {
@@ -55,25 +58,25 @@ class InverseConvertingContext {
             }
             this.magicVariables[name] = uuid;
         }
-        let controlFlowMode = value.parameters.get("WFControlFlowMode");
+        const controlFlowMode = value.parameters.get("WFControlFlowMode");
         if (controlFlowMode === 1) {
             if (value.id === "is.workflow.actions.conditional") {
-                return this.indent.repeat(this._indentLevel - 1) + "otherwise";
+                return `${this.indent.repeat(this._indentLevel - 1)}otherwise`;
             }
             if (value.id === "is.workflow.actions.choosefrommenu") {
-                return this.indent.repeat(this._indentLevel - 1) + "case";
+                return `${this.indent.repeat(this._indentLevel - 1)}case`;
             }
-            return this.indent.repeat(this._indentLevel - 1) + "flow";
+            return `${this.indent.repeat(this._indentLevel - 1)}flow`;
         }
         else if (controlFlowMode === 2) {
             this._indentLevel--;
-            return this.indent.repeat(this._indentLevel) + "end";
+            return `${this.indent.repeat(this._indentLevel)}end`;
         }
-        let indentLevel = this._indentLevel;
+        const indentLevel = this._indentLevel;
         if (actionData._data.BlockInfo) {
             this._indentLevel++;
         }
-        return this.indent.repeat(indentLevel) + actionData.shortName + " " + result.join(" ");
+        return `${this.indent.repeat(indentLevel) + actionData.shortName} ${result.join(" ")}`;
     }
     handleArgument(thing) {
         if (typeof thing === "string") {
@@ -111,53 +114,51 @@ class InverseConvertingContext {
         return this.quoteAndEscape(value);
     }
     createListAble(value) {
-        let items = value.getItems();
-        let result = items.map(item => {
+        const items = value.getItems();
+        const result = items.map(item => {
             return this.createTextAble(item);
         });
-        return "[" + result.join(", ") + "]";
+        return `[${result.join(", ")}]`;
     }
     createDictionaryAble(value) {
-        let result = value.items.map(item => {
-            let key = this.createTextAble(item.key);
-            let value = this.handleArgument(item.value);
-            return key + ": " + value;
+        const result = value.items.map(item => {
+            const key = this.createTextAble(item.key);
+            const value = this.handleArgument(item.value);
+            return `${key}: ${value}`;
         });
-        return "{" + result.join(", ") + "}";
+        return `{${result.join(", ")}}`;
     }
     createAggrandizementsAble(value) {
         if (!value) {
             return "";
         }
-        let aggrandizements = [];
+        const aggrandizements = [];
         let forKey = "";
         if (value.getForKey) {
-            forKey = "." + this.createStringAble(value.getForKey);
+            forKey = `.${this.createStringAble(value.getForKey)}`;
         }
-        else {
-            if (value.coercionType) {
-                aggrandizements.push("as: " + OutputData_1.inverseCoercionTypes[value.coercionType]);
-            }
+        else if (value.coercionType) {
+            aggrandizements.push(`as: ${OutputData_1.inverseCoercionTypes[value.coercionType]}`);
         }
         if (value.getProperty) {
             if (!value.coercionType) {
-                return "??get: " + value.getProperty.name + " without as: value??";
+                return `??get: ${value.getProperty.name} without as: value??`;
             }
-            aggrandizements.push("get: " + value.getProperty.name.toLowerCase().replace(/[^a-z]/g, ""));
+            aggrandizements.push(`get: ${value.getProperty.name.toLowerCase().replace(/[^a-z]/g, "")}`);
         }
         let res = "";
         if (forKey) {
             res += forKey;
         }
         if (aggrandizements.length > 0) {
-            res += "{" + aggrandizements.join(", ") + "}";
+            res += `{${aggrandizements.join(", ")}}`;
         }
         return res;
     }
     createVariableAble(value) {
         if (value instanceof OutputData_1.NamedVariable) {
             if (value.varname.match(IDENTIFIER)) {
-                return `v:${value.varname}`;
+                return `v:${value.varname}${this.createAggrandizementsAble(value.aggrandizements)}`;
             }
             return `v:${this.quoteAndEscape(value.varname)}${this.createAggrandizementsAble(value.aggrandizements)}`;
         }
@@ -167,7 +168,7 @@ class InverseConvertingContext {
                 return "mv:??broken magic variable??";
             }
             if (varname.match(IDENTIFIER)) {
-                return `mv:${varname}`;
+                return `mv:${varname}${this.createAggrandizementsAble(value.aggrandizements)}`;
             }
             return `mv:${this.quoteAndEscape(varname)}${this.createAggrandizementsAble(value.aggrandizements)}`;
         }
@@ -178,23 +179,27 @@ class InverseConvertingContext {
         return `s:${data[value.type]}${this.createAggrandizementsAble(value.aggrandizements)}`;
     }
     createTextAble(value) {
+        const components = value.components();
+        const firstComponent = components[0];
+        if (components.length === 1 && firstComponent instanceof OutputData_1.Attachment) {
+            return this.createVariableAble(firstComponent);
+        }
         let resstr = "";
-        value.components().forEach((component) => {
+        components.forEach((component) => {
             if (typeof component === "string") {
                 return resstr += ESCAPEDQUOTEDSTRING(component);
             }
-            resstr += "\(" + this.createVariableAble(component) + ")";
+            resstr += `\\(${this.createVariableAble(component)})`;
         });
         if (resstr.match(IDENTIFIER)) {
             return resstr;
         } // \() will never match identifier
-        return this.quoteAndEscape(resstr);
+        return `"${resstr}"`;
     }
     quoteAndEscape(val) {
         if (this.quotes === "'") {
             return SQUOTEDSTRING(val);
         }
-        ;
         return DQUOTEDSTRING(val);
     }
 }

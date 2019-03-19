@@ -28,9 +28,9 @@ test("invert and create text", t => {
 		WFWorkflowActionParameters: {
 			WFTextActionText: "My Text"
 		}
-	})), "text wftextactiontext=\"My Text\"");
+	})), "text \"My Text\"");
 });
-test("invert complex actions", t => {
+test("invert block actions", t => {
 	const icc = new InverseConvertingContext;
 	t.deepEqual(icc.createActionsAble(Shortcut.inverse(parse(`
 text "test"
@@ -39,12 +39,24 @@ if Equals "hmmm"
 otherwise
 	text "huh uninteresting"
 end
-`, {make: ["shortcutjson"]}).shortcutjson)), `text wftextactiontext=test
+`, {make: ["shortcutjson"]}).shortcutjson)), `text test
 if input=Equals value=hmmm
-	text wftextactiontext="huh interesting"
+	text "huh interesting"
 otherwise
-	text wftextactiontext="huh uninteresting"
+	text "huh uninteresting"
 end`);
+});
+test("invert variable aggrandizements", t => {
+	const icc = new InverseConvertingContext;
+	t.deepEqual(icc.createActionsAble(Shortcut.inverse(parse(`
+setvariable v:thisismyvariable
+text v:thisismyvariable{as:dictionary,get:Name}
+text v:thisismyvariable{as:dictionary,key:mykey}
+text v:thisismyvariable{as:dictionary,key:mykey,get:name}
+`, {make: ["shortcutjson"]}).shortcutjson)), `setvariable thisismyvariable
+text v:thisismyvariable{as: dictionary, get: name}
+text v:thisismyvariable.mykey
+text v:thisismyvariable.mykey{get: name}`);
 });
 
 test("inversions for stringable", t => {
