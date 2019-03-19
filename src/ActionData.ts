@@ -676,15 +676,15 @@ ${JSON.stringify(this._data, null, "\t")}
 `;
 		return docs;
 	}
-	getParameters(): {[key: string]: WFParameter}{
-		let res: {[key: string]: WFParameter} = {};
+	getParameters(): {[key: string]: WFParameter} {
+		const res: {[key: string]: WFParameter} = {};
 		this._parameters.forEach(param => {
-			if(typeof param === "string") return;
+			if(typeof param === "string") {return;}
 			res[param.shortName] = param;
 		});
 		return res;
 	}
-	getParameterOrder(){
+	getParameterOrder() {
 		return this._parameters;
 	}
 	build(cc: ConvertingContext, actionPosition: AsAble, controlFlowData?: {uuid: string, number: number, wfaction: any}, ...params: Array<AsAble>) {

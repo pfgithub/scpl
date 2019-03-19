@@ -22,7 +22,7 @@ test("invert and build a basic action", t => {
 	});
 });
 test("invert and create text", t => {
-	let icc = new InverseConvertingContext;
+	const icc = new InverseConvertingContext;
 	t.deepEqual(icc.createActionAble(Action.inverse({
 		WFWorkflowActionIdentifier: "is.workflow.actions.gettext",
 		WFWorkflowActionParameters: {
@@ -31,7 +31,7 @@ test("invert and create text", t => {
 	})), "text wftextactiontext=\"My Text\"");
 });
 test("invert complex actions", t => {
-	let icc = new InverseConvertingContext;
+	const icc = new InverseConvertingContext;
 	t.deepEqual(icc.createActionsAble(Shortcut.inverse(parse(`
 text "test"
 if Equals "hmmm"
@@ -39,7 +39,7 @@ if Equals "hmmm"
 otherwise
 	text "huh uninteresting"
 end
-`, {make:["shortcutjson"]}).shortcutjson)), `text wftextactiontext=test
+`, {make: ["shortcutjson"]}).shortcutjson)), `text wftextactiontext=test
 if input=Equals value=hmmm
 	text wftextactiontext="huh interesting"
 otherwise

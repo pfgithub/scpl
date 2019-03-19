@@ -327,8 +327,8 @@ export class MagicVariable extends Variable {
 	constructor(...args: [Action] | [string, string]) {
 		super("ActionOutput");
 		if(args[0] instanceof Action) {
-    		this.varname = args[0].magicvarname || args[0].name;
-    		this.uuid = args[0].uuid;
+			this.varname = args[0].magicvarname || args[0].name;
+			this.uuid = args[0].uuid;
 		}else if(typeof args[1] === "string") {
 			this.varname = args[0];
 			this.uuid = args[1];
@@ -593,9 +593,9 @@ export class Shortcut {
 	add(action: Action) {
 		this.actions.push(action);
 	}
-	static inverse(data: WFShortcut): Shortcut{
-		let shortcut = new Shortcut("inverse");
-		data[0].WFWorkflowActions.forEach(action => {shortcut.add(Action.inverse(action))});
+	static inverse(data: WFShortcut): Shortcut {
+		const shortcut = new Shortcut("inverse");
+		data[0].WFWorkflowActions.forEach(action => {shortcut.add(Action.inverse(action));});
 		return shortcut;
 	}
 	build(): WFShortcut {
