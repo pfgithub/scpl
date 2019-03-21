@@ -176,8 +176,8 @@ type DictionaryFieldValueItem = {
 } | {
 	WFItemType: 0,
 	WFKey: WFTextParameter,
-	WFValue: WFParameter
-}
+	WFValue: WFTextParameter
+} | {WFItemType: -1, WFKey: WFTextParameter}
 type WFDictionaryParameter = {
 	Value: {
 		WFDictionaryFieldValueItems: DictionaryFieldValueItem[]
@@ -186,13 +186,29 @@ type WFDictionaryParameter = {
 };
 
 export class Dictionary extends Parameter {
-	items: Array<{key: Text, value: Parameter}>
+	items: Array<{key: Text, value: Dictionary | Text | List | ErrorParameter}>
 	constructor() {
 		super();
 		this.items = [];
 	}
-	add(key: Text, value: Parameter) {
+	add(key: Text, value: Dictionary | Text | List | ErrorParameter) {
 		this.items.push({key, value});
+	}
+	static inverse(data: WFDictionaryParameter): Dictionary {
+		const res = new Dictionary;
+		data.Value.WFDictionaryFieldValueItems.forEach(item => {
+			if(item.WFItemType === 1) {
+				return res.add(Text.inverse(item.WFKey), Dictionary.inverse(item.WFValue.Value));
+			}
+			if(item.WFItemType === 2) {
+				return res.add(Text.inverse(item.WFKey), List.inverse(item.WFValue.Value));
+			}
+			if(item.WFItemType === 0) {
+				return res.add(Text.inverse(item.WFKey), Text.inverse(item.WFValue));
+			}
+			return res.add(Text.inverse(item.WFKey), new ErrorParameter);
+		});
+		return res;
 	}
 	build(): WFDictionaryParameter {
 		return {
@@ -214,12 +230,15 @@ export class Dictionary extends Parameter {
 							WFValue: {Value: value.build(), WFSerializationType: "WFArrayParameterState"}
 						};
 					}
-					// For unknown reasons, an extra serializationtype is not needed on text and other parameters
-					return {
-						WFItemType: 0,
-						WFKey: key.build(),
-						WFValue: value.build()
-					};
+					// For unknown reasons, an extra serializationtype is not needed on text
+					if(value instanceof Text) {
+						return {
+							WFItemType: 0,
+							WFKey: key.build(),
+							WFValue: value.build()
+						};
+					}
+					throw new Error("Invalid value type");
 				})
 			},
 			WFSerializationType: "WFDictionaryFieldValue"
@@ -327,7 +346,7 @@ export class MagicVariable extends Variable {
 	constructor(...args: [Action] | [string, string]) {
 		super("ActionOutput");
 		if(args[0] instanceof Action) {
-			this.varname = args[0].magicvarname || args[0].name;
+			this.varname = args[0].magicvarname || args[0].name || "??unnamed??";
 			this.uuid = args[0].uuid;
 		}else if(typeof args[1] === "string") {
 			this.varname = args[0];
@@ -353,14 +372,32 @@ export class MagicVariable extends Variable {
 type WFListParameter = Array<string | {WFItemType: number, WFValue: WFTextWithAttachments}>;
 
 export class List extends Parameter {
-	_list: Array<Text>
+	_list: Array<Text | string | ErrorParameter>
 	constructor(list: Array<Text>) {
 		super();
 		this._list = list;
 	}
-	getItems(): Text[] {return this._list;}
+	add(item: string | Text | ErrorParameter) {
+		this._list.push(item);
+	}
+	static inverse(data: WFListParameter): List {
+		const reslist = new List([]);
+		data.forEach(item => {
+			if(typeof item === "string") {
+				return reslist.add(item);
+			}
+			if(item.WFItemType === 0) {
+				return reslist.add(Text.inverse(item.WFValue));
+			}
+			return reslist.add(new ErrorParameter());
+		});
+		return reslist;
+	}
+	getItems(): (Text | string | ErrorParameter)[] {return this._list;}
 	build(): WFListParameter {
 		return this._list.map(i=>{
+			if(i instanceof ErrorParameter) {throw new Error("Cannot build errorparameter");}
+			if(typeof i === "string") {return i;}
 			const text = i.build();
 			if(typeof text === "string") {return text;}
 			return {WFItemType: 0, WFValue: text};
@@ -384,7 +421,7 @@ export class Text extends Parameter {
 	static inverse(data: WFTextParameter): Text {
 		const res = new Text;
 		if(typeof data === "string") {
-
+			res.add(data);
 		}else{
 			let strPosition = 0;
 			data.Value.string.split("\uFFFC").forEach(textPart => {
@@ -394,7 +431,7 @@ export class Text extends Parameter {
 				const attachment = data.Value.attachmentsByRange[`{${strPosition}, 1}`];
 				strPosition++;
 				if(!attachment) {return;}
-				res.add(<Attachment>toParam({
+				res.add(Attachment.inverse({
 					WFSerializationType: "WFTextTokenAttachment",
 					Value: attachment
 				}));
@@ -451,6 +488,7 @@ export class Text extends Parameter {
 			}
 			throw new Error("Invalid component type. This should never happen.");
 		});
+		if(result.string === "\uFFFC" && !hasAttachments) {console.log("!!!!!result.string is ", result, " but somehow hasattachments is false");}
 		if(!hasAttachments) {return result.string;}
 		return {
 			Value: result,
@@ -463,6 +501,8 @@ export class ErrorParameter extends Parameter {
 
 }
 
+type WFErrorParameter = {WFSerializationType: "WFErrorParameter"};
+
 export function toParam(value: WFParameter): ParameterType {
 	if(typeof value === "string") {
 		return value;
@@ -474,13 +514,19 @@ export function toParam(value: WFParameter): ParameterType {
 		return value;
 	}
 	if(Array.isArray(value)) {
-		return new ErrorParameter;
+		return List.inverse(value);
 	}
 	if(value.WFSerializationType === "WFTextTokenString") {
 		return Text.inverse(value);
 	}
 	if(value.WFSerializationType === "WFTextTokenAttachment") {
 		return Attachment.inverse(value);
+	}
+	if(value.WFSerializationType === "WFDictionaryFieldValue") {
+		return Dictionary.inverse(value);
+	}
+	if(value.WFSerializationType === "WFErrorParameter") {
+		return new ErrorParameter;
 	}
 	return new ErrorParameter;
 }
@@ -489,36 +535,45 @@ export type ParameterType = Parameter | string | number | Array<string> | boolea
 
 type WFParameters = {[key: string]: WFParameter};
 
-export type WFParameter = WFDictionaryParameter | WFAttachmentParameter | WFListParameter | WFTextParameter | string | boolean | number;
+export type WFParameter = WFDictionaryParameter | WFAttachmentParameter | WFListParameter | WFTextParameter | WFErrorParameter | string | boolean | number;
 
 export class Parameters {
-	values: {[internalName: string]: WFParameter}
+	values: {[internalName: string]: ParameterType}
+	builtValues: {[internalName: string]: WFParameter}
 	constructor() {
 		this.values = {};
+		this.builtValues = {};
 	}
 	static inverse(data: WFParameters): Parameters {
 		const parameters = new Parameters();
 		Object.keys(data).forEach((paramkey) => {
-			parameters.set(paramkey, toParam(data[paramkey]));
+			parameters.set(paramkey, toParam(data[paramkey])); // why is it being converted just to be unconverted again
 		});
 		return parameters;
 	}
-	set(internalName: string, value: ParameterType) { // chainable
-		if(!(value instanceof Parameter)) {
-			this.values[internalName] = value;
-			return this;
-		}
-		this.values[internalName] = value.build();
-		return this;
+	set(internalName: string, value: ParameterType) {
+		this.values[internalName] = value;
 	}
 	has(internalName: string) {
 		return !!this.values[internalName];
 	}
-	get(internalName: string) {
-		return this.values[internalName];
+	get(internalName: string): WFParameter {
+		return this.buildValue(internalName);
+	}
+	buildValue(key: string): WFParameter {
+		if(this.builtValues[key]) {return this.builtValues[key];}
+		let value = this.values[key];
+		if(value instanceof Parameter) {
+			return value.build();
+		}
+		return value;
 	}
 	build(): WFParameters {
-		return this.values;
+		let result: {[key: string]: WFParameter} = {};
+		Object.keys(this.values).map(key => {
+			result[key] = this.buildValue(key);
+		});
+		return result;
 	}
 }
 
@@ -529,7 +584,7 @@ type WFAction = {
 }
 
 export class Action {
-	name: string
+	name?: string
 	id: string
 	parameters: Parameters
 	magicvarname?: string
@@ -537,7 +592,7 @@ export class Action {
 	start?: [number, number]
 	end?: [number, number]
 
-	constructor(start: [number, number] | undefined, end: [number, number] | undefined, name: string, id: string) {
+	constructor(start: [number, number] | undefined, end: [number, number] | undefined, name: string | undefined, id: string) {
 		this.name = name;
 		this.id = id;
 		this.parameters = new Parameters();
@@ -547,8 +602,10 @@ export class Action {
 		this.end = end;
 	}
 	static inverse(data: WFAction): Action {
-		const action = new Action(undefined, undefined, "??unnamed??", data.WFWorkflowActionIdentifier);
+		const action = new Action(undefined, undefined, undefined, data.WFWorkflowActionIdentifier);
 		action.parameters = Parameters.inverse(data.WFWorkflowActionParameters || {});
+		const customOutputName = <string|undefined>action.parameters.get("CustomOutputName");
+		if(customOutputName) {action.magicvarname = customOutputName;}
 
 		return action;
 	}
@@ -570,13 +627,13 @@ export class Action {
 
 type ExtensionInputContentItemClass = "WFAppStoreAppContentItem" | "WFArticleContentItem" | "WFContactContentItem" | "WFDateContentItem" | "WFEmailAddressContentItem" | "WFGenericFileContentItem" | "WFImageContentItem" | "WFiTunesProductContentItem" | "WFLocationContentItem" | "WFDCMapsLinkContentItem" | "WFAVAssetContentItem" | "WFPDFContentItem" | "WFPhoneNumberContentItem" | "WFRichTextContentItem" | "WFSafariWebPageContentItem" | "WFStringContentItem" | "WFURLContentItem";
 type WorkflowTypes = "NCWidget" | "WatchKit";
-type WFShortcut = [{
+export type WFShortcut = [{
 	WFWorkflowClientVersion: string,
 	WFWorkflowClientRelese: string,
 	WFWorkflowMinimumClientVersion: number,
 	WFWorkflowIcon: {
 		WFWorkflowIconStartColor: number,
-		WFWorkflowIconImageData: Buffer,
+		WFWorkflowIconImageData: Buffer | { "type": "Buffer", "data": [] },
 		WFWorkflowIconGlyphNumber: number
 	},
 	WFWorkflowTypes: WorkflowTypes[],

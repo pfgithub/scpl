@@ -6,6 +6,9 @@ const ParserData_1 = require("./src/ParserData");
 exports.PositionedError = ParserData_1.PositionedError;
 const Converter_1 = require("./src/Converter");
 exports.ConvertingContext = Converter_1.ConvertingContext;
+const OutputData_1 = require("./src/OutputData");
+const InverseConvertingContext_1 = require("./src/InverseConvertingContext");
+const bplistp = require("bplist-parser");
 function parse(string, options) {
     const parsed = ShortcutsParser_1.default.parse(string, [1, 1]);
     if (!parsed.success) {
@@ -47,3 +50,12 @@ function parse(string, options) {
     return shortcut;
 }
 exports.parse = parse;
+function inverse(data) {
+    const icc = new InverseConvertingContext_1.InverseConvertingContext;
+    if (data instanceof Buffer) {
+        data = bplistp.parseBuffer(data);
+    }
+    let result = icc.createActionsAble(OutputData_1.Shortcut.inverse(data));
+    return result;
+}
+exports.inverse = inverse;

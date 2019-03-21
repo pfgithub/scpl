@@ -7,6 +7,30 @@ const fs = require("fs");
 const InverseConvertingContext_1 = require("../src/InverseConvertingContext");
 // import * as path from "path";
 const sampleshortcutdata = require("./sampleshortcut.json");
+function noUUID(obj, options = {}) {
+    const uuids = [];
+    return JSON.parse(JSON.stringify(obj, (key, value) => {
+        if (options.noSCPLData && key === "SCPLData") {
+            return undefined;
+        }
+        if (typeof value === "string") {
+            if (value.match(/[a-z0-9]{6}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}/)) {
+                let index = uuids.indexOf(value);
+                if (index === -1) {
+                    index = uuids.push(value) - 1; // push returns array length
+                }
+                return `<uuid${index + 1}>`;
+            }
+            if (options.ignoreOutputName && (key === "CustomOutputName" || key === "OutputName")) {
+                return undefined;
+            }
+            return value.split("\uFFFC").join("[attachment]");
+        }
+        return value;
+    }));
+}
+// test("noUUID functions properly", t => {
+// });
 ava_1.default("invert and build a basic action", t => {
     t.deepEqual(OutputData_1.Action.inverse({
         WFWorkflowActionIdentifier: "is.workflow.actions.gettext",
@@ -57,6 +81,25 @@ text v:thisismyvariable{as: dictionary, get: name}
 text v:thisismyvariable.mykey
 text v:thisismyvariable.mykey{get: name}`);
 });
+ava_1.default("invert dictionaries", t => {
+    const icc = new InverseConvertingContext_1.InverseConvertingContext;
+    t.deepEqual(icc.createActionsAble(OutputData_1.Shortcut.inverse(index_1.parse(`
+dictionary{a:b}
+dictionary{key:"my string","\\(s:actioninput)": "var key",normalkey: "\\(s:actioninput)"}
+`, { make: ["shortcutjson"] }).shortcutjson)), `dictionary {a: b}
+dictionary {key: "my string", "\\(s:actioninput)": "var key", normalkey: s:actioninput}`);
+});
+ava_1.default("invert complete valid shortcut and ensure output is exact when compiled", t => {
+    // generate sample data
+    const output = index_1.parse(fs.readFileSync(`./test/sampleshortcut.scpl`, "utf8"), { makePlist: false });
+    const scdata = output.build();
+    // invert
+    let inverted = index_1.inverse(scdata);
+    fs.writeFileSync("./test/sampleshortcut-converted.scpl", inverted, "utf8");
+    let parsed = index_1.parse(inverted, { make: ["shortcutjson"] }).shortcutjson;
+    // compare
+    t.deepEqual(noUUID(sampleshortcutdata[0].WFWorkflowActions, { noSCPLData: true, ignoreOutputName: true }), noUUID(parsed[0].WFWorkflowActions, { noSCPLData: true, ignoreOutputName: true }));
+});
 ava_1.default("inversions for stringable", t => {
     const icc = new InverseConvertingContext_1.InverseConvertingContext;
     t.is(icc.createStringAble("myStringCanBeAn@Identifier_Neat23"), "myStringCanBeAn@Identifier_Neat23");
@@ -71,25 +114,6 @@ ava_1.default("inversions for numberable", t => {
     t.is(icc.createNumberAble(-98.3), "-98.3");
     t.is(icc.createNumberAble(8), "8");
 });
-function noUUID(obj, options = {}) {
-    const uuids = [];
-    return JSON.parse(JSON.stringify(obj, (key, value) => {
-        if (options.noSCPLData && key === "SCPLData") {
-            return undefined;
-        }
-        if (typeof value === "string") {
-            if (value.match(/[a-z0-9]{6}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}/)) {
-                let index = uuids.indexOf(value);
-                if (index === -1) {
-                    index = uuids.push(value) - 1; // push returns array length
-                }
-                return `<uuid${index + 1}>`;
-            }
-            return value.split("\uFFFC").join("[attachment]");
-        }
-        return value;
-    }));
-}
 // test("text field", t => {
 // 	const cc = new ConvertingContext();
 // 	// let text = new WFTypes.WFTextInputParameter();

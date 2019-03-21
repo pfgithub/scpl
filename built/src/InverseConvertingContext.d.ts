@@ -1,6 +1,9 @@
 import { Attachment, Text, Shortcut, Action, ParameterType, List, Dictionary, Aggrandizements } from "./OutputData";
 export declare class InverseConvertingContext {
-    magicVariables: {
+    magicVariablesByUUID: {
+        [key: string]: string;
+    };
+    magicVariablesByName: {
         [key: string]: string;
     };
     quotes: '"' | "'";
@@ -19,6 +22,8 @@ export declare class InverseConvertingContext {
     createDictionaryAble(value: Dictionary): string;
     createAggrandizementsAble(value: Aggrandizements | undefined): string;
     createVariableAble(value: Attachment): string;
-    createTextAble(value: Text): string;
+    createTextAble(value: Text, options?: {
+        dontAllowOnlyVariable?: boolean;
+    }): string;
     quoteAndEscape(val: string): string;
 }

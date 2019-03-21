@@ -166,6 +166,22 @@ class Dictionary extends Parameter {
     add(key, value) {
         this.items.push({ key, value });
     }
+    static inverse(data) {
+        const res = new Dictionary;
+        data.Value.WFDictionaryFieldValueItems.forEach(item => {
+            if (item.WFItemType === 1) {
+                return res.add(Text.inverse(item.WFKey), Dictionary.inverse(item.WFValue.Value));
+            }
+            if (item.WFItemType === 2) {
+                return res.add(Text.inverse(item.WFKey), List.inverse(item.WFValue.Value));
+            }
+            if (item.WFItemType === 0) {
+                return res.add(Text.inverse(item.WFKey), Text.inverse(item.WFValue));
+            }
+            return res.add(Text.inverse(item.WFKey), new ErrorParameter);
+        });
+        return res;
+    }
     build() {
         return {
             Value: {
@@ -186,12 +202,15 @@ class Dictionary extends Parameter {
                             WFValue: { Value: value.build(), WFSerializationType: "WFArrayParameterState" }
                         };
                     }
-                    // For unknown reasons, an extra serializationtype is not needed on text and other parameters
-                    return {
-                        WFItemType: 0,
-                        WFKey: key.build(),
-                        WFValue: value.build()
-                    };
+                    // For unknown reasons, an extra serializationtype is not needed on text
+                    if (value instanceof Text) {
+                        return {
+                            WFItemType: 0,
+                            WFKey: key.build(),
+                            WFValue: value.build()
+                        };
+                    }
+                    throw new Error("Invalid value type");
                 })
             },
             WFSerializationType: "WFDictionaryFieldValue"
@@ -266,7 +285,7 @@ class MagicVariable extends Variable {
     constructor(...args) {
         super("ActionOutput");
         if (args[0] instanceof Action) {
-            this.varname = args[0].magicvarname || args[0].name;
+            this.varname = args[0].magicvarname || args[0].name || "??unnamed??";
             this.uuid = args[0].uuid;
         }
         else if (typeof args[1] === "string") {
@@ -298,9 +317,31 @@ class List extends Parameter {
         super();
         this._list = list;
     }
+    add(item) {
+        this._list.push(item);
+    }
+    static inverse(data) {
+        const reslist = new List([]);
+        data.forEach(item => {
+            if (typeof item === "string") {
+                return reslist.add(item);
+            }
+            if (item.WFItemType === 0) {
+                return reslist.add(Text.inverse(item.WFValue));
+            }
+            return reslist.add(new ErrorParameter());
+        });
+        return reslist;
+    }
     getItems() { return this._list; }
     build() {
         return this._list.map(i => {
+            if (i instanceof ErrorParameter) {
+                throw new Error("Cannot build errorparameter");
+            }
+            if (typeof i === "string") {
+                return i;
+            }
             const text = i.build();
             if (typeof text === "string") {
                 return text;
@@ -318,6 +359,7 @@ class Text extends Parameter {
     static inverse(data) {
         const res = new Text;
         if (typeof data === "string") {
+            res.add(data);
         }
         else {
             let strPosition = 0;
@@ -330,7 +372,7 @@ class Text extends Parameter {
                 if (!attachment) {
                     return;
                 }
-                res.add(toParam({
+                res.add(Attachment.inverse({
                     WFSerializationType: "WFTextTokenAttachment",
                     Value: attachment
                 }));
@@ -389,6 +431,9 @@ class Text extends Parameter {
             }
             throw new Error("Invalid component type. This should never happen.");
         });
+        if (result.string === "\uFFFC" && !hasAttachments) {
+            console.log("!!!!!result.string is ", result, " but somehow hasattachments is false");
+        }
         if (!hasAttachments) {
             return result.string;
         }
@@ -413,7 +458,7 @@ function toParam(value) {
         return value;
     }
     if (Array.isArray(value)) {
-        return new ErrorParameter;
+        return List.inverse(value);
     }
     if (value.WFSerializationType === "WFTextTokenString") {
         return Text.inverse(value);
@@ -421,36 +466,52 @@ function toParam(value) {
     if (value.WFSerializationType === "WFTextTokenAttachment") {
         return Attachment.inverse(value);
     }
+    if (value.WFSerializationType === "WFDictionaryFieldValue") {
+        return Dictionary.inverse(value);
+    }
+    if (value.WFSerializationType === "WFErrorParameter") {
+        return new ErrorParameter;
+    }
     return new ErrorParameter;
 }
 exports.toParam = toParam;
 class Parameters {
     constructor() {
         this.values = {};
+        this.builtValues = {};
     }
     static inverse(data) {
         const parameters = new Parameters();
         Object.keys(data).forEach((paramkey) => {
-            parameters.set(paramkey, toParam(data[paramkey]));
+            parameters.set(paramkey, toParam(data[paramkey])); // why is it being converted just to be unconverted again
         });
         return parameters;
     }
     set(internalName, value) {
-        if (!(value instanceof Parameter)) {
-            this.values[internalName] = value;
-            return this;
-        }
-        this.values[internalName] = value.build();
-        return this;
+        this.values[internalName] = value;
     }
     has(internalName) {
         return !!this.values[internalName];
     }
     get(internalName) {
-        return this.values[internalName];
+        return this.buildValue(internalName);
+    }
+    buildValue(key) {
+        if (this.builtValues[key]) {
+            return this.builtValues[key];
+        }
+        let value = this.values[key];
+        if (value instanceof Parameter) {
+            return value.build();
+        }
+        return value;
     }
     build() {
-        return this.values;
+        let result = {};
+        Object.keys(this.values).map(key => {
+            result[key] = this.buildValue(key);
+        });
+        return result;
     }
 }
 exports.Parameters = Parameters;
@@ -464,8 +525,12 @@ class Action {
         this.end = end;
     }
     static inverse(data) {
-        const action = new Action(undefined, undefined, "??unnamed??", data.WFWorkflowActionIdentifier);
+        const action = new Action(undefined, undefined, undefined, data.WFWorkflowActionIdentifier);
         action.parameters = Parameters.inverse(data.WFWorkflowActionParameters || {});
+        const customOutputName = action.parameters.get("CustomOutputName");
+        if (customOutputName) {
+            action.magicvarname = customOutputName;
+        }
         return action;
     }
     get uuid() {

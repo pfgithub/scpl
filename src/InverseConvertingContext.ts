@@ -15,12 +15,14 @@ const SQUOTEDSTRING = (value: string) => `"${ESCAPESQUOTEDSTRING(value)}"`;
 // look at wfrequiredresources and order things to avoid argument labels as much as possible
 
 export class InverseConvertingContext {
-	magicVariables: {[key: string]: string};
+	magicVariablesByUUID: {[key: string]: string};
+	magicVariablesByName: {[key: string]: string};
 	quotes: '"' | "'";
 	indent: string;
 	_indentLevel: number;
 	constructor(options: {quotes?: '"' | "'", indent?: string | number} = {}) {
-		this.magicVariables = {};
+		this.magicVariablesByName = {};
+		this.magicVariablesByUUID = {};
 		this.quotes = options.quotes || '"';
 		if(typeof options.indent === "number") {options.indent = " ".repeat(options.indent);}
 		this.indent = options.indent || "\t";
@@ -45,36 +47,48 @@ export class InverseConvertingContext {
 			if(typeof param === "string") {return;}
 
 			const paramValue = value.parameters.get(param.internalName);
-			if(!paramValue) {return;}
+			if(paramValue == undefined) {return;}
 			if(order.length === 1) {return result.push(this.handleArgument(toParam(paramValue)));}
 			result.push(`${param.shortName  }=${  this.handleArgument(toParam(paramValue))}`);
 		});
 
 		const uuid = <string|undefined>value.parameters.get("UUID");
 		if(uuid) {
-			const baseName = value.magicvarname || value.name || "?";
+			const baseName = value.magicvarname || value.name || actionData.name || actionData.shortName || actionData.internalName || "??unnamed??";
 			let name = baseName;
-			if(this.magicVariables[name]) {
-				for(let i = 1; this.magicVariables[name]; i++) {
+			if(this.magicVariablesByName[name]) { // magic variables needs to be both by name and by uuid
+				for(let i = 1; this.magicVariablesByName[name]; i++) {
 					name = baseName + i;
 				}
 			}
-			this.magicVariables[name] = uuid;
+			this.magicVariablesByName[name] = uuid;
+			this.magicVariablesByUUID[uuid] = name;
+			// add -> argument
+			if(name.match(IDENTIFIER)) {result.push("-> mv:"+name);}
+			else{result.push(`-> mv:${this.quoteAndEscape(name)}`);}
 		}
+
+		// const magicVariable = <number|undefined>value.parameters.get("WFControlFlowMode");
+
+		let actionName = actionData.shortName;
+		let indentLevel = this._indentLevel;
+		const paramResult = result.join(" ");
 
 		const controlFlowMode = <number|undefined>value.parameters.get("WFControlFlowMode");
 		if(controlFlowMode === 1) {
-			if(value.id === "is.workflow.actions.conditional") {return `${this.indent.repeat(this._indentLevel - 1)  }otherwise`;}
-			if(value.id === "is.workflow.actions.choosefrommenu") {return `${this.indent.repeat(this._indentLevel - 1)  }case`;}
-			return `${this.indent.repeat(this._indentLevel - 1)  }flow`;
+			indentLevel = this._indentLevel - 1;
+			if(value.id === "is.workflow.actions.conditional") {actionName = "otherwise";}
+			else if(value.id === "is.workflow.actions.choosefrommenu") {actionName = "case";}
+			else {actionName = "flow";}
 		}else if(controlFlowMode === 2) {
 			this._indentLevel--;
-			return `${this.indent.repeat(this._indentLevel)  }end`;
+			indentLevel = this._indentLevel;
+			actionName = "end";
+		}else if(actionData._data.BlockInfo) {
+			this._indentLevel++;
 		}
-		const indentLevel = this._indentLevel;
-		if(actionData._data.BlockInfo) {this._indentLevel++;}
 
-		return `${this.indent.repeat(indentLevel) + actionData.shortName  } ${  result.join(" ")}`;
+		return this.indent.repeat(indentLevel) + (actionName + " " + paramResult).trim();
 	}
 
 	handleArgument(thing: ParameterType): string {
@@ -84,11 +98,20 @@ export class InverseConvertingContext {
 		if(typeof thing === "number") {
 			return this.createNumberAble(thing);
 		}
+		if(typeof thing === "boolean") {
+			return thing.toString();
+		}
 		if(thing instanceof Attachment) {
 			return this.createVariableAble(thing);
 		}
 		if(thing instanceof Text) {
 			return this.createTextAble(thing);
+		}
+		if(thing instanceof Dictionary) {
+			return this.createDictionaryAble(thing);
+		}
+		if(thing instanceof List) {
+			return this.createListAble(thing);
 		}
 		return "??this argument type is not supported yet??";
 	}
@@ -108,13 +131,15 @@ export class InverseConvertingContext {
 	createListAble(value: List): string {
 		const items = value.getItems();
 		const result = items.map(item => {
-			return this.createTextAble(item);
+			if(typeof item === "string") {return this.createStringAble(item);}
+			if(item instanceof Text){return this.createTextAble(item)}
+			return "??this argument type is not supported yet??";
 		});
 		return `[${result.join(", ")}]`;
 	}
 	createDictionaryAble(value: Dictionary): string {
 		const result = value.items.map(item => {
-			const key = this.createTextAble(item.key);
+			const key = this.createTextAble(item.key, {dontAllowOnlyVariable: true});
 			const value = this.handleArgument(item.value);
 			return `${key  }: ${  value}`;
 		});
@@ -144,7 +169,7 @@ export class InverseConvertingContext {
 			return `v:${this.quoteAndEscape(value.varname)}${this.createAggrandizementsAble(value.aggrandizements)}`;
 		}
 		if(value instanceof MagicVariable) {
-			const varname = this.magicVariables[value.uuid];
+			const varname = this.magicVariablesByUUID[value.uuid];
 
 			if(!varname) {return "mv:??broken magic variable??";}
 			if(varname.match(IDENTIFIER)) {return `mv:${varname}${this.createAggrandizementsAble(value.aggrandizements)}`;}
@@ -154,10 +179,10 @@ export class InverseConvertingContext {
 		if(!data[value.type]) {throw new Error("Attachment type is either Variable or ActionOutput. This should've been caught earlier.");}
 		return `s:${data[value.type]}${this.createAggrandizementsAble(value.aggrandizements)}`;
 	}
-	createTextAble(value: Text): string {
+	createTextAble(value: Text, options: {dontAllowOnlyVariable?: boolean} = {}): string {
 		const components = value.components();
 		const firstComponent = components[0];
-		if(components.length === 1 && firstComponent instanceof Attachment) {
+		if(components.length === 1 && firstComponent instanceof Attachment && !options.dontAllowOnlyVariable) {
 			return this.createVariableAble(firstComponent);
 		}
 		let resstr = "";

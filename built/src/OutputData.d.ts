@@ -49,7 +49,10 @@ declare type DictionaryFieldValueItem = {
 } | {
     WFItemType: 0;
     WFKey: WFTextParameter;
-    WFValue: WFParameter;
+    WFValue: WFTextParameter;
+} | {
+    WFItemType: -1;
+    WFKey: WFTextParameter;
 };
 declare type WFDictionaryParameter = {
     Value: {
@@ -60,10 +63,11 @@ declare type WFDictionaryParameter = {
 export declare class Dictionary extends Parameter {
     items: Array<{
         key: Text;
-        value: Parameter;
+        value: Dictionary | Text | List | ErrorParameter;
     }>;
     constructor();
-    add(key: Text, value: Parameter): void;
+    add(key: Text, value: Dictionary | Text | List | ErrorParameter): void;
+    static inverse(data: WFDictionaryParameter): Dictionary;
     build(): WFDictionaryParameter;
 }
 declare type WFVariableAttachmentData = {
@@ -124,9 +128,11 @@ declare type WFListParameter = Array<string | {
     WFValue: WFTextWithAttachments;
 }>;
 export declare class List extends Parameter {
-    _list: Array<Text>;
+    _list: Array<Text | string | ErrorParameter>;
     constructor(list: Array<Text>);
-    getItems(): Text[];
+    add(item: string | Text | ErrorParameter): void;
+    static inverse(data: WFListParameter): List;
+    getItems(): (Text | string | ErrorParameter)[];
     build(): WFListParameter;
 }
 declare type WFTextValue = {
@@ -151,21 +157,28 @@ export declare class Text extends Parameter {
 }
 export declare class ErrorParameter extends Parameter {
 }
+declare type WFErrorParameter = {
+    WFSerializationType: "WFErrorParameter";
+};
 export declare function toParam(value: WFParameter): ParameterType;
 export declare type ParameterType = Parameter | string | number | Array<string> | boolean;
 declare type WFParameters = {
     [key: string]: WFParameter;
 };
-export declare type WFParameter = WFDictionaryParameter | WFAttachmentParameter | WFListParameter | WFTextParameter | string | boolean | number;
+export declare type WFParameter = WFDictionaryParameter | WFAttachmentParameter | WFListParameter | WFTextParameter | WFErrorParameter | string | boolean | number;
 export declare class Parameters {
     values: {
+        [internalName: string]: ParameterType;
+    };
+    builtValues: {
         [internalName: string]: WFParameter;
     };
     constructor();
     static inverse(data: WFParameters): Parameters;
-    set(internalName: string, value: ParameterType): this;
+    set(internalName: string, value: ParameterType): void;
     has(internalName: string): boolean;
     get(internalName: string): WFParameter;
+    buildValue(key: string): WFParameter;
     build(): WFParameters;
 }
 declare type WFAction = {
@@ -179,26 +192,29 @@ declare type WFAction = {
     };
 };
 export declare class Action {
-    name: string;
+    name?: string;
     id: string;
     parameters: Parameters;
     magicvarname?: string;
     start?: [number, number];
     end?: [number, number];
-    constructor(start: [number, number] | undefined, end: [number, number] | undefined, name: string, id: string);
+    constructor(start: [number, number] | undefined, end: [number, number] | undefined, name: string | undefined, id: string);
     static inverse(data: WFAction): Action;
     readonly uuid: string;
     build(): WFAction;
 }
 declare type ExtensionInputContentItemClass = "WFAppStoreAppContentItem" | "WFArticleContentItem" | "WFContactContentItem" | "WFDateContentItem" | "WFEmailAddressContentItem" | "WFGenericFileContentItem" | "WFImageContentItem" | "WFiTunesProductContentItem" | "WFLocationContentItem" | "WFDCMapsLinkContentItem" | "WFAVAssetContentItem" | "WFPDFContentItem" | "WFPhoneNumberContentItem" | "WFRichTextContentItem" | "WFSafariWebPageContentItem" | "WFStringContentItem" | "WFURLContentItem";
 declare type WorkflowTypes = "NCWidget" | "WatchKit";
-declare type WFShortcut = [{
+export declare type WFShortcut = [{
     WFWorkflowClientVersion: string;
     WFWorkflowClientRelese: string;
     WFWorkflowMinimumClientVersion: number;
     WFWorkflowIcon: {
         WFWorkflowIconStartColor: number;
-        WFWorkflowIconImageData: Buffer;
+        WFWorkflowIconImageData: Buffer | {
+            "type": "Buffer";
+            "data": [];
+        };
         WFWorkflowIconGlyphNumber: number;
     };
     WFWorkflowTypes: WorkflowTypes[];
