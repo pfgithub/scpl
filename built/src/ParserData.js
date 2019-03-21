@@ -87,6 +87,9 @@ exports.ConvertVariableParse = ConvertVariableParse;
         return me[`as${val}`](newCC);
     };
 });
+class ErrorParse extends Parse {
+}
+exports.ErrorParse = ErrorParse;
 class DictionaryParse extends Parse {
     constructor(start, end, keyvaluepairs) {
         super(start, end);
@@ -131,27 +134,23 @@ class DictionaryParse extends Parse {
         // returns an Output Dictionary for this DictionaryParse
         const dictionary = new OutputData_1.Dictionary();
         this.keyvaluepairs.forEach(({ key, value }) => {
-            let type;
             let outputValue;
             if (!key.canBeText(cc)) {
                 throw key.error(cc, "Dictionary keys must be texts");
             }
             if (value.canBeList(cc)) {
-                type = 2;
                 outputValue = value.asList(cc);
             }
             else if (value.canBeDictionary(cc)) {
-                type = 1;
                 outputValue = value.asDictionary(cc);
             }
             else if (value.canBeText(cc)) {
-                type = 0;
                 outputValue = value.asText(cc);
             }
             else {
                 throw value.error(cc, "This value must be a list, string, or dictionary.");
             }
-            dictionary.add(key.asText(cc), outputValue, type);
+            dictionary.add(key.asText(cc), outputValue);
         });
         return dictionary;
     }
@@ -338,6 +337,9 @@ class ActionParse extends Parse {
     canBeVariable(_cc) { return true; }
     asVariable(cc) {
         const action = this.asAction(cc); // adds the action
+        if (!action) {
+            throw this.error(cc, "This action does not have an action.");
+        }
         return new OutputData_1.MagicVariable(action);
         // otherwise: add a Set Variable action
         // throw new Error(`Actions of type ${action.info.id} cannot be converted to a variable.`);

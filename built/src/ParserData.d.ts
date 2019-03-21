@@ -49,7 +49,7 @@ interface AsVariable extends Parse {
     asVariable(cc: ConvertingContext): Variable;
 }
 interface AsAction extends Parse {
-    asAction(cc: ConvertingContext): Action;
+    asAction(cc: ConvertingContext): Action | undefined;
 }
 interface AsDictionary extends Parse {
     asDictionary(cc: ConvertingContext): Dictionary;
@@ -83,6 +83,8 @@ export declare class ConvertVariableParse extends Parse {
     constructor(start: Position, end: Position, name: AsAble, options?: AsAble);
     getValue(cc: ConvertingContext): AsAble;
     error(cc: ConvertingContext, message: string): PositionedError;
+}
+export declare class ErrorParse extends Parse {
 }
 export declare class DictionaryParse extends Parse implements AsRawDictionary, AsRawKeyedDictionary, AsDictionary {
     keyvaluepairs: Array<{
@@ -164,7 +166,7 @@ export declare class ActionParse extends Parse implements AsText, AsVariable, As
     canBeVariable(_cc: ConvertingContext): boolean;
     asVariable(cc: ConvertingContext): MagicVariable;
     canBeAction(_cc: ConvertingContext): boolean;
-    asAction(cc: ConvertingContext): any;
+    asAction(cc: ConvertingContext): Action | undefined;
 }
 export declare class VariableParse extends Parse implements AsStringVariable, AsNameType, AsText, AsVariable, AsAction {
     type: AsAble;

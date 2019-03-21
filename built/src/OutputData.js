@@ -5,12 +5,6 @@
 // ========≠==========
 Object.defineProperty(exports, "__esModule", { value: true });
 const uuidv4 = require("uuid/v4");
-// DisplayType would be a better name maybe
-const SERIALIZATIONTYPE = {
-    variable: "WFTextTokenAttachment",
-    string: "WFTextTokenString",
-    dictionaryFieldValue: "WFDictionaryFieldValue"
-};
 /*
 CoercionItemClass?: AggrandizementCoercionItemClass;
 DictionaryKey?: string;
@@ -53,12 +47,57 @@ const coercionTypes = {
     url: "WFURLContentItem",
     vcard: "WFVCardContentItem"
 };
+exports.inverseCoercionTypes = {
+    WFContentItem: "anything",
+    WFAppStoreAppContentItem: "appstoreapp",
+    WFArticleContentItem: "article",
+    WFBooleanContentItem: "boolean",
+    WFContactContentItem: "contact",
+    WFDateContentItem: "date",
+    WFDictionaryContentItem: "dictionary",
+    WFEmailAddressContentItem: "emailaddress",
+    WFGenericFileContentItem: "file",
+    WFImageContentItem: "image",
+    WFMPMediaContentItem: "itunesmedia",
+    WFiTunesProductContentItem: "itunesproduct",
+    WFLocationContentItem: "location",
+    WFDCMapsLinkContentItem: "mapslink",
+    WFAVAssetContentItem: "media",
+    WFNumberContentItem: "number",
+    WFPDFContentItem: "pdf",
+    WFPhoneNumberContentItem: "phonenumber",
+    WFPhotoMediaContentItem: "photomedia",
+    WFMKMapItemContentItem: "place",
+    WFRichTextContentItem: "richtext",
+    WFSafariWebPageContentItem: "safariwebpage",
+    WFStringContentItem: "text",
+    WFURLContentItem: "url",
+    WFVCardContentItem: "vcard"
+};
 const GetTypes_1 = require("./Data/GetTypes"); // resdata = {};console.dir( actionData.filter(action => action.WFWorkflowActionIdentifier === "is.workflow.actions.gettext").map(action => Object.values(action.WFWorkflowActionParameters.WFTextActionText.Value.attachmentsByRange).filter(d=>d.Type !== "Clipboard" && d.Aggrandizements && d.Aggrandizements[1]).map(d=>({coerce:d.Aggrandizements[0].CoercionItemClass,property:d.Aggrandizements[1]}))).forEach(a=>a.forEach(({coerce, property})=>{if(!resdata[coerce]){resdata[coerce]={};};resdata[coerce][property.PropertyName.toLowerCase().replace(/[^A-Za-z]/g,"")]=({name:property.PropertyName,data:property.PropertyUserInfo});})) ,{depth:null});console.log(JSON.stringify(resdata,null,"\t"));
 class Aggrandizements {
     constructor() {
         this.coercionType = undefined;
         this.getProperty = undefined;
         this.getForKey = undefined;
+    }
+    static inverse(data) {
+        const res = new Aggrandizements;
+        data.forEach(aggrandizement => {
+            if (aggrandizement.Type === "WFCoercionVariableAggrandizement") {
+                res.coercionType = aggrandizement.CoercionItemClass;
+                return;
+            }
+            if (aggrandizement.Type === "WFPropertyVariableAggrandizement") {
+                res.getProperty = { name: aggrandizement.PropertyName, data: aggrandizement.PropertyUserInfo };
+                return;
+            }
+            if (aggrandizement.Type === "WFDictionaryValueVariableAggrandizement") {
+                res.getForKey = aggrandizement.DictionaryKey;
+                return;
+            }
+        });
+        return res;
     }
     build() {
         const aggrandizements = [];
@@ -124,26 +163,57 @@ class Dictionary extends Parameter {
         super();
         this.items = [];
     }
-    add(key, value, type) {
-        this.items.push({ key, value, type });
+    add(key, value) {
+        this.items.push({ key, value });
+    }
+    static inverse(data) {
+        const res = new Dictionary;
+        data.Value.WFDictionaryFieldValueItems.forEach(item => {
+            if (item.WFItemType === 1) {
+                return res.add(Text.inverse(item.WFKey), Dictionary.inverse(item.WFValue.Value));
+            }
+            if (item.WFItemType === 2) {
+                return res.add(Text.inverse(item.WFKey), List.inverse(item.WFValue.Value));
+            }
+            if (item.WFItemType === 0) {
+                return res.add(Text.inverse(item.WFKey), Text.inverse(item.WFValue));
+            }
+            return res.add(Text.inverse(item.WFKey), new ErrorParameter);
+        });
+        return res;
     }
     build() {
         return {
             Value: {
-                WFDictionaryFieldValueItems: this.items.map(({ key, value, type }) => {
-                    return {
-                        WFItemType: type,
-                        WFKey: key.build(),
-                        WFValue: value instanceof Dictionary
-                            ? { Value: value.build(), WFSerializationType: "WFDictionaryFieldValue" }
-                            : (value instanceof List ? {
-                                Value: value.build(),
-                                WFSerializationType: "WFArrayParameterState"
-                            } : value.build())
-                    };
+                WFDictionaryFieldValueItems: this.items.map(({ key, value }) => {
+                    if (value instanceof Dictionary) {
+                        // For unknown reasons, an extra serializationtype is needed on dictionaries
+                        return {
+                            WFItemType: 1,
+                            WFKey: key.build(),
+                            WFValue: { Value: value.build(), WFSerializationType: "WFDictionaryFieldValue" }
+                        };
+                    }
+                    if (value instanceof List) {
+                        // For unknown reasons, an extra serializationtype is needed on lists
+                        return {
+                            WFItemType: 2,
+                            WFKey: key.build(),
+                            WFValue: { Value: value.build(), WFSerializationType: "WFArrayParameterState" }
+                        };
+                    }
+                    // For unknown reasons, an extra serializationtype is not needed on text
+                    if (value instanceof Text) {
+                        return {
+                            WFItemType: 0,
+                            WFKey: key.build(),
+                            WFValue: value.build()
+                        };
+                    }
+                    throw new Error("Invalid value type");
                 })
             },
-            WFSerializationType: SERIALIZATIONTYPE.dictionaryFieldValue
+            WFSerializationType: "WFDictionaryFieldValue"
         };
     }
 }
@@ -154,10 +224,29 @@ class Attachment extends Parameter {
         this.type = type;
         this.aggrandizements = new Aggrandizements();
     }
+    static inverse(value) {
+        let result;
+        if (value.Value.Type === "Variable") {
+            result = NamedVariable.inverse(value);
+        }
+        else if (value.Value.Type === "ActionOutput") {
+            result = MagicVariable.inverse(value);
+        }
+        else {
+            result = new Attachment(value.Value.Type);
+        }
+        if (value.Value.Aggrandizements) {
+            result.aggrandizements = Aggrandizements.inverse(value.Value.Aggrandizements);
+        }
+        return result;
+    }
     build() {
         return {
-            Type: this.type,
-            Aggrandizements: this.aggrandizements.build()
+            Value: {
+                Type: this.type,
+                Aggrandizements: this.aggrandizements.build()
+            },
+            WFSerializationType: "WFTextTokenAttachment"
         };
     }
 }
@@ -167,7 +256,8 @@ class Variable extends Attachment {
         super(type);
     }
     build() {
-        return Object.assign(super.build(), {});
+        const sb = super.build();
+        return sb;
     }
 }
 exports.Variable = Variable;
@@ -176,24 +266,49 @@ class NamedVariable extends Variable {
         super("Variable");
         this.varname = varname;
     }
+    static inverse(data) {
+        return new NamedVariable(data.Value.VariableName);
+    }
     build() {
-        return Object.assign(super.build(), {
-            VariableName: this.varname
-        });
+        return {
+            Value: {
+                Type: "Variable",
+                Aggrandizements: this.aggrandizements.build(),
+                VariableName: this.varname
+            },
+            WFSerializationType: "WFTextTokenAttachment"
+        };
     }
 }
 exports.NamedVariable = NamedVariable;
 class MagicVariable extends Variable {
-    constructor(action) {
+    constructor(...args) {
         super("ActionOutput");
-        this.varname = action.magicvarname || action.name;
-        this.uuid = action.uuid;
+        if (args[0] instanceof Action) {
+            this.varname = args[0].magicvarname || args[0].name || "??unnamed??";
+            this.uuid = args[0].uuid;
+        }
+        else if (typeof args[1] === "string") {
+            this.varname = args[0];
+            this.uuid = args[1];
+        }
+        else {
+            throw new Error("This is not possible.");
+        }
+    }
+    static inverse(data) {
+        return new MagicVariable(data.Value.OutputName, data.Value.OutputUUID);
     }
     build() {
-        return Object.assign(super.build(), {
-            OutputName: this.varname,
-            OutputUUID: this.uuid
-        });
+        return {
+            Value: {
+                Type: "ActionOutput",
+                Aggrandizements: this.aggrandizements.build(),
+                OutputName: this.varname,
+                OutputUUID: this.uuid
+            },
+            WFSerializationType: "WFTextTokenAttachment"
+        };
     }
 }
 exports.MagicVariable = MagicVariable;
@@ -202,17 +317,37 @@ class List extends Parameter {
         super();
         this._list = list;
     }
+    add(item) {
+        this._list.push(item);
+    }
+    static inverse(data) {
+        const reslist = new List([]);
+        data.forEach(item => {
+            if (typeof item === "string") {
+                return reslist.add(item);
+            }
+            if (item.WFItemType === 0) {
+                return reslist.add(Text.inverse(item.WFValue));
+            }
+            return reslist.add(new ErrorParameter());
+        });
+        return reslist;
+    }
+    getItems() { return this._list; }
     build() {
-        return [...this._list.map(i => {
-                if (typeof i === "string") {
-                    return i;
-                }
-                const text = i.build();
-                if (typeof text === "string") {
-                    return text;
-                }
-                return { WFItemType: 0, WFValue: text };
-            })];
+        return this._list.map(i => {
+            if (i instanceof ErrorParameter) {
+                throw new Error("Cannot build errorparameter");
+            }
+            if (typeof i === "string") {
+                return i;
+            }
+            const text = i.build();
+            if (typeof text === "string") {
+                return text;
+            }
+            return { WFItemType: 0, WFValue: text };
+        });
     }
 }
 exports.List = List;
@@ -220,6 +355,34 @@ class Text extends Parameter {
     constructor() {
         super();
         this._components = [];
+    }
+    static inverse(data) {
+        const res = new Text;
+        if (typeof data === "string") {
+            res.add(data);
+        }
+        else {
+            let strPosition = 0;
+            data.Value.string.split("\uFFFC").forEach(textPart => {
+                res.add(textPart);
+                strPosition += textPart.length;
+                // get variable part
+                const attachment = data.Value.attachmentsByRange[`{${strPosition}, 1}`];
+                strPosition++;
+                if (!attachment) {
+                    return;
+                }
+                res.add(Attachment.inverse({
+                    WFSerializationType: "WFTextTokenAttachment",
+                    Value: attachment
+                }));
+                // res.add variable part
+            });
+        }
+        return res;
+    }
+    components() {
+        return this._components;
     }
     get _last() {
         return this._components[this._components.length - 1];
@@ -237,6 +400,9 @@ class Text extends Parameter {
             if (!(typeof obj === "string")) {
                 throw new Error("Add type must be string, Text, or Attachment");
             }
+            if (obj.length === 0) {
+                return;
+            } // nothing to add
             const str = obj;
             this._components.push(str);
         });
@@ -255,7 +421,7 @@ class Text extends Parameter {
         this._components.forEach(component => {
             if (component instanceof Attachment) {
                 hasAttachments = true;
-                result.attachmentsByRange[`{${result.string.length}, 1}`] = component.build();
+                result.attachmentsByRange[`{${result.string.length}, 1}`] = component.build().Value;
                 result.string += "\uFFFC"; // special character to distinguish variables
                 return;
             }
@@ -265,44 +431,87 @@ class Text extends Parameter {
             }
             throw new Error("Invalid component type. This should never happen.");
         });
+        if (result.string === "\uFFFC" && !hasAttachments) {
+            console.log("!!!!!result.string is ", result, " but somehow hasattachments is false");
+        }
         if (!hasAttachments) {
             return result.string;
         }
         return {
             Value: result,
-            WFSerializationType: SERIALIZATIONTYPE.string
+            WFSerializationType: "WFTextTokenString"
         };
     }
 }
 exports.Text = Text;
+class ErrorParameter extends Parameter {
+}
+exports.ErrorParameter = ErrorParameter;
+function toParam(value) {
+    if (typeof value === "string") {
+        return value;
+    }
+    if (typeof value === "number") {
+        return value;
+    }
+    if (typeof value === "boolean") {
+        return value;
+    }
+    if (Array.isArray(value)) {
+        return List.inverse(value);
+    }
+    if (value.WFSerializationType === "WFTextTokenString") {
+        return Text.inverse(value);
+    }
+    if (value.WFSerializationType === "WFTextTokenAttachment") {
+        return Attachment.inverse(value);
+    }
+    if (value.WFSerializationType === "WFDictionaryFieldValue") {
+        return Dictionary.inverse(value);
+    }
+    if (value.WFSerializationType === "WFErrorParameter") {
+        return new ErrorParameter;
+    }
+    return new ErrorParameter;
+}
+exports.toParam = toParam;
 class Parameters {
     constructor() {
         this.values = {};
+        this.builtValues = {};
+    }
+    static inverse(data) {
+        const parameters = new Parameters();
+        Object.keys(data).forEach((paramkey) => {
+            parameters.set(paramkey, toParam(data[paramkey])); // why is it being converted just to be unconverted again
+        });
+        return parameters;
     }
     set(internalName, value) {
-        if (!(value instanceof Parameter)) {
-            this.values[internalName] = value;
-            return this;
-        }
-        if (value instanceof Attachment) {
-            // VALUE IS AN INSTANCEOF ATTACHMENT HOW CAN IT NOT BE BUILT
-            this.values[internalName] = {
-                Value: value.build(),
-                WFSerializationType: SERIALIZATIONTYPE.variable
-            };
-            return this;
-        }
-        this.values[internalName] = value.build(); // how does this get called if value doesn't have a build method, all parameters have a build
-        return this;
+        this.values[internalName] = value;
     }
     has(internalName) {
         return !!this.values[internalName];
     }
     get(internalName) {
-        return this.values[internalName];
+        return this.buildValue(internalName);
+    }
+    buildValue(key) {
+        if (this.builtValues[key]) {
+            return this.builtValues[key];
+        }
+        let value = this.values[key];
+        if (value instanceof Parameter) {
+            return value.build();
+        }
+        return value;
     }
     build() {
-        return this.values;
+        let result = {};
+        Object.keys(this.values).map(key => {
+            result[key] = this.buildValue(key);
+        });
+        return result;
     }
 }
 exports.Parameters = Parameters;
@@ -315,23 +524,34 @@ class Action {
         this.start = start;
         this.end = end;
     }
-    get uuid() {
-        if (this._uuid) {
-            return this._uuid;
+    static inverse(data) {
+        const action = new Action(undefined, undefined, undefined, data.WFWorkflowActionIdentifier);
+        action.parameters = Parameters.inverse(data.WFWorkflowActionParameters || {});
+        const customOutputName = action.parameters.get("CustomOutputName");
+        if (customOutputName) {
+            action.magicvarname = customOutputName;
         }
-        this._uuid = uuidv4();
-        this.parameters.set("UUID", this._uuid);
-        return this._uuid;
+        return action;
+    }
+    get uuid() {
+        if (this.parameters.has("UUID")) {
+            return this.parameters.get("UUID");
+        }
+        this.parameters.set("UUID", uuidv4());
+        return this.parameters.get("UUID");
     }
     build() {
         if (this.magicvarname) {
             this.parameters.set("CustomOutputName", this.magicvarname);
         }
-        return {
+        const res = {
             WFWorkflowActionIdentifier: this.id,
-            WFWorkflowActionParameters: this.parameters.build(),
-            SCPLData: { Position: { start: this.start, end: this.end } }
+            WFWorkflowActionParameters: this.parameters.build()
         };
+        if (this.start && this.end) {
+            res.SCPLData = { Position: { start: this.start, end: this.end } };
+        }
+        return res;
     }
 }
 exports.Action = Action;
@@ -342,6 +562,11 @@ class Shortcut {
     }
     add(action) {
         this.actions.push(action);
+    }
+    static inverse(data) {
+        const shortcut = new Shortcut("inverse");
+        data[0].WFWorkflowActions.forEach(action => { shortcut.add(Action.inverse(action)); });
+        return shortcut;
     }
     build() {
         return [{

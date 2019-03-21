@@ -1,14 +1,16 @@
 import test from "ava";
-import {getActionFromName, WFTypes} from "../src/ActionData";
-import {AsAble, IdentifierParse} from "../src/ParserData";
-import {ConvertingContext} from "../src/Converter";
-import { parse } from "../index";
+import {Action, Shortcut} from "../src/OutputData";
+import { parse, inverse } from "../index";
 import * as fs from "fs";
-import * as path from "path";
+import {InverseConvertingContext} from "../src/InverseConvertingContext";
+// import * as path from "path";
 
 import * as sampleshortcutdata from "./sampleshortcut.json";
 
-function noUUID(obj: any, options: {noSCPLData?: boolean} = {}) {
+
+
+
+function noUUID(obj: any, options: {noSCPLData?: boolean, ignoreOutputName?: boolean} = {}) {
 	const uuids: string[] = [];
 	return JSON.parse(JSON.stringify(obj, (key, value: unknown) => {
 		if(options.noSCPLData && key === "SCPLData") {return undefined;}
@@ -20,11 +22,107 @@ function noUUID(obj: any, options: {noSCPLData?: boolean} = {}) {
 				}
 				return `<uuid${index+1}>`;
 			}
+			if(options.ignoreOutputName && (key === "CustomOutputName" || key === "OutputName")) {return undefined;}
 			return value.split("\uFFFC").join("[attachment]");
 		}
 		return value;
 	}));
 }
+
+
+// test("noUUID functions properly", t => {
+// });
+
+test("invert and build a basic action", t => {
+	t.deepEqual(Action.inverse({
+		WFWorkflowActionIdentifier: "is.workflow.actions.gettext",
+		WFWorkflowActionParameters: {
+			WFTextActionText: "Icon List V2"
+		}
+	}).build(), {
+		WFWorkflowActionIdentifier: "is.workflow.actions.gettext",
+		WFWorkflowActionParameters: {
+			WFTextActionText: "Icon List V2"
+		}
+	});
+});
+test("invert and create text", t => {
+	const icc = new InverseConvertingContext;
+	t.deepEqual(icc.createActionAble(Action.inverse({
+		WFWorkflowActionIdentifier: "is.workflow.actions.gettext",
+		WFWorkflowActionParameters: {
+			WFTextActionText: "My Text"
+		}
+	})), "text \"My Text\"");
+});
+test("invert block actions", t => {
+	const icc = new InverseConvertingContext;
+	t.deepEqual(icc.createActionsAble(Shortcut.inverse(parse(`
+text "test"
+if Equals "hmmm"
+	text "huh interesting"
+otherwise
+	text "huh uninteresting"
+end
+`, {make: ["shortcutjson"]}).shortcutjson)), `text test
+if input=Equals value=hmmm
+	text "huh interesting"
+otherwise
+	text "huh uninteresting"
+end`);
+});
+test("invert variable aggrandizements", t => {
+	const icc = new InverseConvertingContext;
+	t.deepEqual(icc.createActionsAble(Shortcut.inverse(parse(`
+setvariable v:thisismyvariable
+text v:thisismyvariable{as:dictionary,get:Name}
+text v:thisismyvariable{as:dictionary,key:mykey}
+text v:thisismyvariable{as:dictionary,key:mykey,get:name}
+`, {make: ["shortcutjson"]}).shortcutjson)), `setvariable thisismyvariable
+text v:thisismyvariable{as: dictionary, get: name}
+text v:thisismyvariable.mykey
+text v:thisismyvariable.mykey{get: name}`);
+});
+test("invert dictionaries", t => {
+	const icc = new InverseConvertingContext;
+	t.deepEqual(icc.createActionsAble(Shortcut.inverse(parse(`
+dictionary{a:b}
+dictionary{key:"my string","\\(s:actioninput)": "var key",normalkey: "\\(s:actioninput)"}
+`, {make: ["shortcutjson"]}).shortcutjson)), `dictionary {a: b}
+dictionary {key: "my string", "\\(s:actioninput)": "var key", normalkey: s:actioninput}`);
+});
+
+test("invert complete valid shortcut and ensure output is exact when compiled", t => {
+	// generate sample data
+	const output = parse(fs.readFileSync(`./test/sampleshortcut.scpl`, "utf8"), {makePlist: false});
+	const scdata = output.build();
+	// invert
+	let inverted = inverse(scdata);
+	fs.writeFileSync("./test/sampleshortcut-converted.scpl", inverted, "utf8");
+	let parsed = parse(inverted, {make: ["shortcutjson"]}).shortcutjson;
+	// compare
+	t.deepEqual(
+		noUUID(sampleshortcutdata[0].WFWorkflowActions, {noSCPLData: true, ignoreOutputName: true}),
+		noUUID(parsed[0].WFWorkflowActions, {noSCPLData: true, ignoreOutputName: true})
+	);
+});
+
+
+test("inversions for stringable", t => {
+	const icc = new InverseConvertingContext;
+	t.is(icc.createStringAble("myStringCanBeAn@Identifier_Neat23"), "myStringCanBeAn@Identifier_Neat23");
+	t.is(icc.createStringAble("2myStringCannotBeAn@Identifier"), "\"2myStringCannotBeAn@Identifier\"");
+	t.is(icc.createStringAble("251.62"), "251.62");
+	t.is(icc.createStringAble("this is my string"), '"this is my string"');
+	t.is(icc.createStringAble("my\\string\nneeds \"escapes\""), '"my\\\\string\\nneeds \\"escapes\\""');
+});
+
+test("inversions for numberable", t => {
+	const icc = new InverseConvertingContext;
+	t.is(icc.createNumberAble(25.6), "25.6");
+	t.is(icc.createNumberAble(-98.3), "-98.3");
+	t.is(icc.createNumberAble(8), "8");
+});
 
 // test("text field", t => {
 // 	const cc = new ConvertingContext();
@@ -293,7 +391,6 @@ test("inputarg with variables without parenthesis", t => {
 test("long shortcut", t => {
 	const output = parse(fs.readFileSync(`./test/sampleshortcut.scpl`, "utf8"), {makePlist: false});
 	const [scdata] = output.build();
-	const actions = scdata.WFWorkflowActions;
 	// fs.writeFileSync("./test/sampleshortcut.json", JSON.stringify(noUUID([scdata]), null, "\t"), "utf8");
 	t.deepEqual(noUUID([scdata]), sampleshortcutdata);
 });

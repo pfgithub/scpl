@@ -21,6 +21,13 @@ if (!argv._ || !argv._[0]) {
 }
 const outputPath = path.join(process.cwd(), (argv.o || argv.output));
 const inputPath = path.join(process.cwd(), (argv._[0]));
+if (argv.inverse) {
+    console.log("Inverting");
+    // read buffer
+    const data = fs.readFileSync(inputPath);
+    fs.writeFileSync(outputPath, index_1.inverse(data), "utf8");
+    process.exit(0);
+}
 function throwError(filename, fileContent, error) {
     process.stdout.write("\n");
     filename = path.relative(process.cwd(), filename);

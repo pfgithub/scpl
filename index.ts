@@ -2,9 +2,11 @@ import parser from "./src/ShortcutsParser";
 import * as bplistc from "bplist-creator";
 import {PositionedError, AsAble} from "./src/ParserData";
 import {ConvertingContext} from "./src/Converter";
-import {Shortcut} from "./src/OutputData";
+import {Shortcut, WFShortcut} from "./src/OutputData";
+import {InverseConvertingContext} from "./src/InverseConvertingContext";
+import * as bplistp from "bplist-parser";
 // export {default as parser} from "./src/ShortcutsParser";
-export {PositionedError, ConvertingContext, AsAble};
+export {PositionedError, ConvertingContext, AsAble, WFShortcut};
 
 
 
@@ -39,4 +41,13 @@ export function parse(string: string, options: {make?: ["shortcutjson"?, "shortc
 		return (<any>bplistc)(shortcut.build());
 	}
 	return shortcut;
+}
+
+export function inverse(data: WFShortcut | Buffer): string{
+	const icc = new InverseConvertingContext;
+	if(data instanceof Buffer){
+		data = <WFShortcut>bplistp.parseBuffer(data);
+	}
+	let result = icc.createActionsAble(Shortcut.inverse(data))
+	return result;
 }

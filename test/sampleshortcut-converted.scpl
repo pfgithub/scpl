@@ -1,0 +1,503 @@
+comment "Made by pfg\nhttps://routinehub.co/user/pfg\n/u/pfg___\npfg#4865\n\" quote ' quote"
+getdictionaryfrominput
+setvariable Input
+text "Icon List V2"
+setvariable ThisShortcut
+createfolder service="iCloud Drive" path="/IconListV2"
+createfolder service="iCloud Drive" path="/IconListV2/MyLists"
+dictionary {name: v:ThisShortcut, version: "0.1.0"} -> mv:CFUDictionary
+getfile service="iCloud Drive" showdocumentpicker=false filepath="AutoUpdateData.json" errorifnotfound=false
+setdictionaryvalue key=2140 value=mv:CFUDictionary
+savefile service="iCloud Drive" askwheretosave=false destinationpath="AutoUpdateData.json" overwriteiffileexists=true
+getvariable v:Input.action
+if input=Equals value=Escape
+	getvariable v:Input.text
+	replacetext findtext="\\" replacewith="\\\\" -> mv:"Replace Text"
+	text "\n" -> mv:Text
+	getvariable mv:"Replace Text"
+	replacetext findtext=mv:Text replacewith=" "
+	replacetext findtext=";" replacewith="\\;"
+	exitshortcut
+otherwise
+end
+if input=Equals value=CreateCard
+	getvariable v:Input.carddata
+	setvariable CardData
+	getvariable v:CardData.photo
+	count Characters
+	if input=Equals value=1
+		text ""
+	otherwise
+		text "PHOTO;ENCODING=b:\(v:CardData.photo)"
+	end -> mv:Photo
+	getvariable v:CardData.name
+	count Characters
+	if input=Equals value=0
+		text "No Title"
+	otherwise
+		getvariable v:CardData.name
+	end -> mv:Name
+	dictionary {action: Escape, text: mv:Name} -> mv:Dictionary
+	getvariable mv:Dictionary
+	runshortcut shortcut=v:ThisShortcut showwhilerunning=false -> mv:"Run Shortcut"
+	dictionary {action: Escape, text: v:CardData.description} -> mv:Dictionary1
+	getvariable mv:Dictionary1
+	runshortcut shortcut=v:ThisShortcut showwhilerunning=false -> mv:"Run Shortcut1"
+	dictionary {action: Escape, text: v:CardData.note} -> mv:Dictionary2
+	getvariable mv:Dictionary2
+	runshortcut shortcut=v:ThisShortcut showwhilerunning=false -> mv:"Run Shortcut2"
+	getvariable mv:Name
+	text "BEGIN:VCARD\nVERSION:3.0\nN;CHARSET=utf-8:\(mv:"Run Shortcut");;;\nORG;CHARSET=utf-8:\(mv:"Run Shortcut1")\nNOTE;CHARSET=utf-8:\(mv:"Run Shortcut2")\n\(mv:Photo)\nEND:VCARD" -> mv:Result
+	getvariable mv:Result
+	exitshortcut
+otherwise
+end
+if input=Equals value=AsContact
+	getvariable v:Input.vcard
+	setname name="a.vcf" -> mv:vCard
+	getvariable mv:vCard{as: contact}
+	exitshortcut
+otherwise
+end
+if input=Equals value=ChoosePhoto
+	selectphotos false -> mv:SelectedPhoto
+	resizeimage width=123
+	setvariable Image
+	getvariable v:Image{as: image, get: height}
+	if input="Is Greater Than" number=123
+		getvariable v:Image
+		getvariable
+		setvariable FilledImage
+		getvariable mv:SelectedPhoto
+		resizeimage width=0 height=123
+		setvariable Image
+	otherwise
+		getvariable mv:SelectedPhoto
+		resizeimage width=0 height=123
+		setvariable FilledImage
+	end
+	text "R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAICTAEAOw=="
+	base64encode mode=Decode
+	resizeimage width=123 height=123 -> mv:TransparentImage
+	getvariable mv:TransparentImage
+	overlayimage image=v:Image showimageeditor=false position=Center
+	setvariable Image
+	getvariable mv:TransparentImage
+	overlayimage image=v:Image showimageeditor=false position=Center width=87 height=87
+	setvariable FitImage
+	getvariable mv:TransparentImage
+	overlayimage image=v:FilledImage showimageeditor=false position=Center
+	setvariable FilledImage
+	getvariable v:Image
+	base64encode mode=Encode linebreaks=None
+	setvariable Image
+	getvariable v:FitImage
+	base64encode mode=Encode linebreaks=None
+	setvariable FitImage
+	getvariable v:FilledImage
+	base64encode mode=Encode linebreaks=None
+	setvariable FilledImage
+	text "BEGIN:VCARD\nVERSION:3.0\nPHOTO;ENCODING=b:\(v:FilledImage)\nNOTE;CHARSET=utf-8:filledImage\nN;CHARSET=utf-8:Fill Circle;;;\nEND:VCARD\nBEGIN:VCARD\nVERSION:3.0\nPHOTO;ENCODING=b:\(v:Image)\nNOTE;CHARSET=utf-8:standardImage\nN;CHARSET=utf-8:Original Size;;;\nEND:VCARD\nBEGIN:VCARD\nVERSION:3.0\nPHOTO;ENCODING=b:\(v:FitImage)\nNOTE;CHARSET=utf-8:fitImage\nN;CHARSET=utf-8:Fit in Circle;;;\nEND:VCARD\nBEGIN:VCARD\nVERSION:3.0\nNOTE;CHARSET=utf-8:noImage\nN;CHARSET=utf-8:No Image;;;\nEND:VCARD\nBEGIN:VCARD\nVERSION:3.0\nNOTE;CHARSET=utf-8:differentPhoto\nN;CHARSET=utf-8:Choose Different Photo;;;\nEND:VCARD"
+	setvariable vCard
+	dictionary {action: AsContact, vcard: vCard} -> mv:Dictionary3
+	getvariable mv:Dictionary3
+	runshortcut shortcut=v:ThisShortcut showwhilerunning=false
+	choosefromlist -> mv:ChosenItem
+	getvariable mv:ChosenItem{as: contact, get: notes}
+	if input=Equals value=filledImage
+		getvariable v:FilledImage
+	otherwise
+	end
+	if input=Equals value=standardImage
+		getvariable v:Image
+	otherwise
+	end
+	if input=Equals value=fitImage
+		getvariable v:FitImage
+	otherwise
+	end
+	if input=Equals value=noImage
+		text " "
+	otherwise
+	end
+	if input=Equals value=differentPhoto
+		dictionary {action: ChoosePhoto}
+		runshortcut shortcut=v:ThisShortcut showwhilerunning=false
+	otherwise
+	end
+	exitshortcut
+otherwise
+end
+if input=Equals value=EditItem
+	getvariable v:Input.carddata
+	setvariable CardData
+	nothing
+	setvariable ActionList -> mv:"Set Variable"
+	dictionary {action: CreateCard, carddata: v:CardData} -> mv:Dictionary4
+	getvariable mv:Dictionary4
+	runshortcut shortcut=v:ThisShortcut showwhilerunning=false -> mv:"Run Shortcut3"
+	dictionary {action: Escape, text: v:CardData.name} -> mv:Dictionary5
+	getvariable mv:Dictionary5
+	runshortcut shortcut=v:ThisShortcut showwhilerunning=false -> mv:"Run Shortcut4"
+	dictionary {action: Escape, text: v:CardData.description} -> mv:Dictionary6
+	getvariable mv:Dictionary6
+	runshortcut shortcut=v:ThisShortcut showwhilerunning=false -> mv:"Run Shortcut5"
+	dictionary {action: Escape, text: v:CardData.note} -> mv:Dictionary7
+	getvariable mv:Dictionary7
+	runshortcut shortcut=v:ThisShortcut showwhilerunning=false -> mv:"Run Shortcut6"
+	getvariable mv:"Set Variable"
+	text "\(mv:"Run Shortcut3")\nBEGIN:VCARD\nVERSION:3.0\nN;CHARSET=utf-8:—————;;;\nEND:VCARD\nBEGIN:VCARD\nVERSION:3.0\nNOTE;CHARSET=utf-8:setIcon\nN;CHARSET=utf-8:Icon;;;\nEND:VCARD\nBEGIN:VCARD\nVERSION:3.0\nNOTE;CHARSET=utf-8:setName\nN;CHARSET=utf-8:Title;;;\nORG;CHARSET=utf-8:\(mv:"Run Shortcut4")\nEND:VCARD\nBEGIN:VCARD\nVERSION:3.0\nNOTE;CHARSET=utf-8:setDescription\nN;CHARSET=utf-8:Description;;;\nORG;CHARSET=utf-8:\(mv:"Run Shortcut5")\nEND:VCARD\nBEGIN:VCARD\nVERSION:3.0\nNOTE;CHARSET=utf-8:setNote\nN;CHARSET=utf-8:Note (Hidden);;;\nORG;CHARSET=utf-8:\(mv:"Run Shortcut6")\nEND:VCARD\nBEGIN:VCARD\nVERSION:3.0\nN;CHARSET=utf-8:—————;;;\nEND:VCARD\nBEGIN:VCARD\nVERSION:3.0\nNOTE;CHARSET=utf-8:doneEditing\nN;CHARSET=utf-8:Save;;;\nEND:VCARD" -> mv:vCard1
+	dictionary {action: AsContact, vcard: mv:vCard1} -> mv:Dictionary8
+	getvariable mv:Dictionary8
+	runshortcut shortcut=v:ThisShortcut showwhilerunning=false
+	choosefromlist -> mv:ChosenItem1
+	getvariable mv:ChosenItem1{as: contact, get: notes}
+	if input=Equals value=setIcon
+		getvariable v:CardData -> mv:"Get Variable"
+		dictionary {action: ChoosePhoto} -> mv:Dictionary9
+		getvariable mv:Dictionary9
+		runshortcut shortcut=v:ThisShortcut showwhilerunning=false -> mv:"Run Shortcut7"
+		getvariable mv:"Get Variable"
+		setdictionaryvalue key=photo value=mv:"Run Shortcut7"
+		setvariable CardData
+		nothing
+	otherwise
+	end
+	if input=Equals value=setName
+		askforinput question="New Name" defaultanswer=v:CardData.name -> mv:NewValue
+		getvariable v:CardData
+		setdictionaryvalue key=name value=mv:NewValue
+		setvariable CardData
+		nothing
+	otherwise
+	end
+	if input=Equals value=setDescription
+		askforinput question="New Description" defaultanswer=v:CardData.description -> mv:NewValue1
+		getvariable v:CardData
+		setdictionaryvalue key=description value=mv:NewValue1
+		setvariable CardData
+		nothing
+	otherwise
+	end
+	if input=Equals value=setNote
+		askforinput question="New Note" defaultanswer=v:CardData.note -> mv:NewValue2
+		getvariable v:CardData
+		setdictionaryvalue key=note value=mv:NewValue2
+		setvariable CardData
+		nothing
+	otherwise
+	end
+	if input=Equals value=doneEditing
+		getvariable v:CardData
+		exitshortcut
+	otherwise
+	end
+	dictionary {action: EditItem, carddata: v:CardData} -> mv:Dictionary10
+	getvariable mv:Dictionary10
+	runshortcut shortcut=v:ThisShortcut showwhilerunning=false
+	exitshortcut
+otherwise
+end
+if input=Equals value=RemoveItemAtIndex
+	getvariable v:Input.index
+	setvariable Index
+	getvariable v:Input.list
+	setvariable List
+	count Items
+	setvariable Length
+	getvariable v:Length
+	if input=Equals value=1
+		list []
+		exitshortcut
+	otherwise
+	end
+	getvariable v:Index
+	if input=Equals value=1
+		getvariable v:List
+		getitemfromlist get="Items in Range" getitemsfromindex=2 toindex=v:Length
+		exitshortcut
+	otherwise
+	end
+	getvariable v:Index
+	if input=Equals value=v:Length
+		getvariable v:List -> mv:"Get Variable1"
+		getvariable v:Length
+		calculate operation="-" operand=1 -> mv:Calculate
+		getvariable mv:"Get Variable1"
+		getitemfromlist get="Items in Range" getitemsfromindex=1 toindex=mv:Calculate
+		exitshortcut
+	otherwise
+	end
+	getvariable v:List -> mv:"Get Variable2"
+	getvariable v:Index
+	calculate operation="-" operand=1 -> mv:Calculate1
+	getvariable mv:"Get Variable2"
+	getitemfromlist get="Items in Range" getitemsfromindex=1 toindex=mv:Calculate1
+	setvariable ResList
+	getvariable v:List -> mv:"Get Variable3"
+	getvariable v:Index
+	calculate operation="+" operand=1 -> mv:Calculate2
+	getvariable mv:"Get Variable3"
+	getitemfromlist get="Items in Range" getitemsfromindex=mv:Calculate2 toindex=v:Length
+	addtovariable ResList
+	exitshortcut
+otherwise
+end
+if input=Equals value=AddItemAtIndex
+	getvariable v:Input.index
+	setvariable Index
+	getvariable v:Input.item
+	setvariable ItemToAdd
+	getvariable v:Input.list
+	setvariable List
+	count Items
+	setvariable Length
+	getvariable v:Length
+	if input=Equals value=0
+		getvariable v:ItemToAdd
+		exitshortcut
+	otherwise
+	end
+	getvariable v:Index
+	if input=Equals value=1
+		getvariable v:ItemToAdd
+		setvariable ResList
+		getvariable v:List
+		addtovariable ResList
+		exitshortcut
+	otherwise
+	end
+	getvariable v:Index -> mv:"Get Variable4"
+	getvariable v:Length
+	calculate operation="+" operand=1 -> mv:Calculate3
+	getvariable mv:"Get Variable4"
+	if input=Equals value=mv:Calculate3
+		getvariable v:List
+		setvariable ResList
+		getvariable v:ItemToAdd
+		addtovariable ResList
+		exitshortcut
+	otherwise
+	end
+	getvariable v:List -> mv:"Get Variable5"
+	getvariable v:Index
+	calculate operation="-" operand=1 -> mv:Calculate4
+	getvariable mv:"Get Variable5"
+	getitemfromlist get="Items in Range" getitemsfromindex=1 toindex=mv:Calculate4
+	setvariable ResList
+	getvariable v:ItemToAdd
+	addtovariable ResList
+	getvariable v:List
+	getitemfromlist get="Items in Range" getitemsfromindex=v:Index toindex=v:Length
+	addtovariable ResList
+	exitshortcut
+otherwise
+end
+if input=Equals value=QuickAdd
+	showresult "QuickAdd lets you quickly add a list of items with titles, note values, and descriptions all at once.\n\nItems should be added as 'Item Title/Note Value/Description'"
+	choosefrommenu prompt="Use QuickAdd?" items=["Start QuickAdd", "Don't"]
+	case
+	case
+		nothing
+		exitshortcut
+	end
+	list ["Title/Note/Description\(s:askWhenRun)"]
+	repeatwitheach
+		if input=Equals value="Title/Note/Description"
+			nothing
+		otherwise
+			splittext separator=Custom custom="/"
+			setvariable TitleNoteDescription
+			list ["", "", ""]
+			addtovariable TitleNoteDescription
+			getvariable v:TitleNoteDescription
+			getitemfromlist get="Item At Index" index=1 -> mv:Title
+			getvariable v:TitleNoteDescription
+			getitemfromlist get="Item At Index" index=2 -> mv:Note
+			getvariable v:TitleNoteDescription
+			getitemfromlist get="Item At Index" index=3 -> mv:Description
+			dictionary {name: mv:Title, note: mv:Note, description: mv:Description, photo: " "}
+		end
+	end
+	exitshortcut
+otherwise
+end
+if input=Equals value=FindUnusedFilename
+	askforinput question="Pick a name for this list" -> mv:Filename
+	getfile service="iCloud Drive" showdocumentpicker=false filepath="/IconListV2/MyLists/\(mv:Filename).iconlist2" errorifnotfound=false
+	count Items
+	if input=Equals value=0
+		getvariable mv:Filename
+		exitshortcut
+	otherwise
+		showresult "The filename \(mv:Filename) is already taken"
+	end
+	dictionary {action: FindUnusedFilename} -> mv:Dictionary11
+	getvariable mv:Dictionary11
+	runshortcut shortcut=v:ThisShortcut showwhilerunning=false
+	exitshortcut
+otherwise
+end
+if input=Equals value=EditList
+	getvariable v:Input.items
+	setvariable Items
+	getvariable v:Input.filename
+	setvariable Filename
+	getvariable v:Filename
+	count Characters
+	if input=Equals value=0
+		text "BEGIN:VCARD\nVERSION:3.0\nNOTE;CHARSET=utf-8:saveList\nN;CHARSET=utf-8:! Save List;;;\nORG;CHARSET=utf-8:This list is not saved and may be lost.\nEND:VCARD"
+		setvariable SaveItem
+		text "⚠️ This list is not saved."
+		setvariable StatusText
+	otherwise
+		dictionary {list: []}
+		setdictionaryvalue key=list value=v:Items
+		setname name="\(v:Filename).iconlist2" advanced=true dontincludefileextension=true
+		savefile service="iCloud Drive" askwheretosave=false destinationpath="/IconListV2/MyLists/\(v:Filename).iconlist2" overwriteiffileexists=true
+		text "✅ This list is saved to `IconListV2/MyLists/\(v:Filename)`"
+		setvariable StatusText
+		text "BEGIN:VCARD\nVERSION:3.0\nNOTE;CHARSET=utf-8:saveList\nN;CHARSET=utf-8:Save As;;;\nEND:VCARD"
+		setvariable SaveItem
+	end
+	getvariable v:Items
+	repeatwitheach
+		if input=Equals value=_blank_
+			nothing
+		otherwise
+			getvariable v:"Repeat Item"
+			setdictionaryvalue key=note value=v:"Repeat Index" -> mv:CardData
+			dictionary {action: CreateCard, carddata: mv:CardData} -> mv:Dictionary12
+			getvariable mv:Dictionary12
+			runshortcut shortcut=v:ThisShortcut showwhilerunning=false
+		end
+	end
+	combinetext separator="New Lines" -> mv:CurrentListvCard
+	text "\(mv:CurrentListvCard)\nBEGIN:VCARD\nVERSION:3.0\nN;CHARSET=utf-8:—————;;;\nEND:VCARD\nBEGIN:VCARD\nVERSION:3.0\nNOTE;CHARSET=utf-8:addItem\nN;CHARSET=utf-8:+ Add Item;;;\nEND:VCARD\nBEGIN:VCARD\nVERSION:3.0\nNOTE;CHARSET=utf-8:quickAdd\nN;CHARSET=utf-8:QuickAdd;;;\nEND:VCARD\nBEGIN:VCARD\nVERSION:3.0\nN;CHARSET=utf-8:—————;;;\nEND:VCARD\n\(v:SaveItem)\nBEGIN:VCARD\nVERSION:3.0\nNOTE;CHARSET=utf-8:copyToClipboard\nN;CHARSET=utf-8:Export List;;;\nEND:VCARD" -> mv:vCard2
+	dictionary {action: AsContact, vcard: mv:vCard2} -> mv:Dictionary13
+	getvariable mv:Dictionary13
+	runshortcut shortcut=v:ThisShortcut showwhilerunning=false
+	choosefromlist prompt=v:StatusText -> mv:ChosenItem2
+	getvariable mv:ChosenItem2{as: contact, get: notes} -> mv:ChosenData
+	if input=Equals value=addItem
+		dictionary {action: EditItem, carddata: {name: "", description: "", note: "", photo: " "}} -> mv:Dictionary14
+		getvariable mv:Dictionary14
+		runshortcut shortcut=v:ThisShortcut showwhilerunning=false
+		addtovariable Items
+		text ""
+	otherwise
+	end
+	if input=Equals value=quickAdd
+		dictionary {action: QuickAdd} -> mv:Dictionary15
+		getvariable mv:Dictionary15
+		runshortcut shortcut=v:ThisShortcut showwhilerunning=false
+		addtovariable Items
+		text ""
+	otherwise
+	end
+	if input=Equals value=saveList
+		dictionary {action: FindUnusedFilename} -> mv:Dictionary16
+		getvariable mv:Dictionary16
+		runshortcut shortcut=v:ThisShortcut showwhilerunning=false
+		setvariable Filename
+		text ""
+	otherwise
+	end
+	if input=Equals value=copyToClipboard
+		choosefrommenu prompt="Copy list to clipboard?" items=["Copy to clipboard", Nevermind]
+		case
+			getvariable mv:CurrentListvCard
+			copytoclipboard
+			choosefrommenu prompt="The list has been copied.\n\(v:StatusText)" items=["Continue Editing"]
+			case
+			end
+		case
+		end
+		text ""
+	otherwise
+	end
+	count Characters
+	if input=Equals value=0
+		nothing
+	otherwise
+		number mv:ChosenData -> mv:Index
+		getvariable v:Items
+		getitemfromlist get="Item At Index" index=mv:Index -> mv:ItemToEdit
+		dictionary {action: EditItem, carddata: mv:ItemToEdit} -> mv:Dictionary17
+		getvariable mv:Dictionary17
+		runshortcut shortcut=v:ThisShortcut showwhilerunning=false
+		setvariable NewItem
+		dictionary {action: RemoveItemAtIndex, list: [], index: mv:Index}
+		setdictionaryvalue key=list value=v:Items
+		runshortcut shortcut=v:ThisShortcut showwhilerunning=false
+		setvariable Items
+		dictionary {action: AddItemAtIndex, list: [], item: v:NewItem, index: mv:Index}
+		setdictionaryvalue key=list value=v:Items
+		runshortcut shortcut=v:ThisShortcut showwhilerunning=false
+		setvariable Items
+		nothing
+	end
+	dictionary {action: EditList, items: [], filename: v:Filename}
+	setdictionaryvalue key=items value=v:Items
+	runshortcut shortcut=v:ThisShortcut showwhilerunning=false
+	exitshortcut
+otherwise
+end
+if input=Equals value=MainMenu
+	getfile service="iCloud Drive" showdocumentpicker=false filepath="IconListV2/MyLists/" errorifnotfound=false
+	repeatwitheach
+		getvariable v:"Repeat Item"{as: file} -> mv:CurrentItem
+		dictionary {action: Escape, text: mv:CurrentItem{as: file, get: name}} -> mv:Dictionary18
+		getvariable mv:Dictionary18
+		runshortcut shortcut=v:ThisShortcut showwhilerunning=false
+		setvariable Name
+		getvariable mv:CurrentItem
+		setname name="a.json"
+		getdictionaryvalue get=Value key=list
+		count Items
+		calculate operation="-" operand=1 -> mv:Count
+		if input=Equals value=1
+			text item
+		otherwise
+			text items
+		end -> mv:IfResult
+		text "BEGIN:VCARD\nVERSION:3.0\nN;CHARSET=utf-8:\(v:Name);;;\nORG;CHARSET=utf-8:\(mv:Count) \(mv:IfResult)\nNOTE;CHARSET=utf-8:editList\nEND:VCARD"
+	end
+	combinetext separator="New Lines" -> mv:CombinedText
+	text "\(mv:CombinedText)\nBEGIN:VCARD\nVERSION:3.0\nN;CHARSET=utf-8:—————;;;\nEND:VCARD\nBEGIN:VCARD\nVERSION:3.0\nNOTE;CHARSET=utf-8:newList\nN;CHARSET=utf-8:+ New List;;;\nEND:VCARD" -> mv:vCard3
+	dictionary {action: AsContact, vcard: mv:vCard3} -> mv:Dictionary19
+	getvariable mv:Dictionary19
+	runshortcut shortcut=v:ThisShortcut showwhilerunning=false
+	choosefromlist -> mv:ChosenItem3
+	getvariable mv:ChosenItem3{as: contact, get: notes}
+	if input=Equals value=newList
+		dictionary {action: EditList, filename: "", items: [_blank_]}
+		runshortcut shortcut=v:ThisShortcut showwhilerunning=false
+		nothing
+	otherwise
+	end
+	if input=Equals value=oldList
+	otherwise
+	end
+	if input=Equals value=editList
+		getvariable mv:ChosenItem3
+		getname -> mv:Name1
+		getfile service="iCloud Drive" showdocumentpicker=false filepath="/IconListV2/MyLists/\(mv:Name1).iconlist2" errorifnotfound=true
+		setname name="a.json"
+		getdictionaryvalue get=Value key=list -> mv:Items
+		dictionary {action: EditList, items: [], filename: mv:Name1}
+		setdictionaryvalue key=items value=mv:Items
+		runshortcut shortcut=v:ThisShortcut showwhilerunning=false
+		nothing
+	otherwise
+	end
+	dictionary {action: MainMenu} -> mv:Dictionary20
+	getvariable mv:Dictionary20
+	runshortcut shortcut=v:ThisShortcut showwhilerunning=false
+	exitshortcut
+otherwise
+end
+dictionary {action: MainMenu} -> mv:Dictionary21
+getvariable mv:Dictionary21
+runshortcut shortcut=v:ThisShortcut showwhilerunning=false
+exitshortcut

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import * as yargs from 'yargs'
-import {parse, PositionedError, ConvertingContext, AsAble} from "../index";
+import {parse, PositionedError, ConvertingContext, AsAble, inverse} from "../index";
 import * as fs from "fs";
 import * as path from "path";
 import chalk from "chalk";
@@ -22,6 +22,15 @@ if(!argv._ || !argv._[0]) {
 
 const outputPath = path.join(process.cwd(), <string>(argv.o || argv.output));
 const inputPath = path.join(process.cwd(), <string>(argv._[0]));
+
+if(argv.inverse){
+	console.log("Inverting");
+	// read buffer
+	const data = fs.readFileSync(inputPath);
+	fs.writeFileSync(outputPath, inverse(data), "utf8");
+	process.exit(0);
+}
+
 
 function throwError(filename: string, fileContent: string, error: PositionedError | Error) {
 	process.stdout.write("\n");

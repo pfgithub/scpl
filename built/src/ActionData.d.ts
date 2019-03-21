@@ -45,6 +45,10 @@ export declare class WFAction {
     genDocsAutocompleteUsage(): string;
     genDocsUsage(): string;
     genDocs(): string;
+    getParameters(): {
+        [key: string]: WFParameter;
+    };
+    getParameterOrder(): (string | WFParameter)[];
     build(cc: ConvertingContext, actionPosition: AsAble, controlFlowData?: {
         uuid: string;
         number: number;

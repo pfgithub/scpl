@@ -1,4 +1,4 @@
-import {Action, Dictionary, Text, MagicVariable, NamedVariable, Variable, Attachment, List} from "./OutputData";
+import {Action, Dictionary, Text, MagicVariable, NamedVariable, Variable, Attachment, List, AttachmentType} from "./OutputData";
 import {getActionFromName} from "./ActionData";
 import {ConvertingContext} from "./Converter.js";
 import {setVariable, getVariable} from "./HelpfulActions";
@@ -69,7 +69,7 @@ interface AsVariable extends Parse{
 }
 
 interface AsAction extends Parse{
-	asAction(cc: ConvertingContext): Action
+	asAction(cc: ConvertingContext): Action | undefined
 }
 
 interface AsDictionary extends Parse{
@@ -145,6 +145,9 @@ export class ConvertVariableParse extends Parse {
 	};
 });
 
+export class ErrorParse extends Parse {
+}
+
 export class DictionaryParse extends Parse implements AsRawDictionary, AsRawKeyedDictionary, AsDictionary {
 	keyvaluepairs: Array<{key: AsAble, value: AsAble}>
 	constructor(start: Position, end: Position, keyvaluepairs: Array<{key: AsAble, value: AsAble}>) {
@@ -180,14 +183,13 @@ export class DictionaryParse extends Parse implements AsRawDictionary, AsRawKeye
 		// returns an Output Dictionary for this DictionaryParse
 		const dictionary = new Dictionary();
 		this.keyvaluepairs.forEach(({key, value}) => {
-			let type;
 			let outputValue;
 			if(!key.canBeText(cc)) {throw key.error(cc, "Dictionary keys must be texts");}
-			if(value.canBeList(cc)) {type = 2; outputValue = value.asList(cc);}
-			else if(value.canBeDictionary(cc)) {type = 1; outputValue = value.asDictionary(cc);}
-			else if(value.canBeText(cc)) {type = 0; outputValue = value.asText(cc);}
+			if(value.canBeList(cc)) {outputValue = value.asList(cc);}
+			else if(value.canBeDictionary(cc)) {outputValue = value.asDictionary(cc);}
+			else if(value.canBeText(cc)) {outputValue = value.asText(cc);}
 			else{throw value.error(cc, "This value must be a list, string, or dictionary.");}
-			dictionary.add(key.asText(cc), outputValue, type);
+			dictionary.add(key.asText(cc), outputValue);
 		});
 		return dictionary;
 	}
@@ -363,12 +365,13 @@ export class ActionParse extends Parse implements AsText, AsVariable, AsAction {
 	canBeVariable(_cc: ConvertingContext): boolean {return true;}
 	asVariable(cc: ConvertingContext) { // returns the Variable for this ActionParse
 		const action = this.asAction(cc); // adds the action
+		if(!action) {throw this.error(cc, "This action does not have an action.");}
 		return new MagicVariable(action);
 		// otherwise: add a Set Variable action
 		// throw new Error(`Actions of type ${action.info.id} cannot be converted to a variable.`);
 	}
 	canBeAction(_cc: ConvertingContext): boolean {return true;}
-	asAction(cc: ConvertingContext) { // returns an Action for this ActionParse
+	asAction(cc: ConvertingContext): Action | undefined { // returns an Action for this ActionParse
 		if(!this.name.canBeString(cc)) {throw this.name.error(cc, "This action must contain a string name with no variables.");}
 		const actionName = this.name.asString(cc).toLowerCase();
 		let wfAction;
@@ -482,7 +485,7 @@ export class VariableParse extends Parse implements AsStringVariable, AsNameType
 			const mvact = vardata.action;
 			variable = new MagicVariable(mvact);
 		}else if(type === "s") { // special variable
-			const attachtype: {[key: string]: string} = {clipboard: "Clipboard", askwhenrun: "Ask", currentdate: "CurrentDate", shortcutinput: "ExtensionInput", actioninput: "Input"};
+			const attachtype: {[key: string]: AttachmentType | undefined} = {clipboard: "Clipboard", askwhenrun: "Ask", currentdate: "CurrentDate", shortcutinput: "ExtensionInput", actioninput: "Input"};
 			const attachvalue = attachtype[name.toLowerCase()];
 			if(!attachvalue) {
 				throw this.name.error(cc, `This special variable does not exist. Valid special variables are ${Object.keys(attachtype)}`);

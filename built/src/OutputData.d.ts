@@ -1,5 +1,19 @@
 /// <reference types="node" />
 import { CoercionTypeClass } from "./WFTypes/Types";
+export declare const inverseCoercionTypes: {
+    [name in CoercionTypeClass]: string;
+};
+declare type WFAggrandizements = ({
+    Type: "WFCoercionVariableAggrandizement";
+    CoercionItemClass: CoercionTypeClass;
+} | {
+    Type: "WFPropertyVariableAggrandizement";
+    PropertyName: string;
+    PropertyUserInfo?: string | number;
+} | {
+    Type: "WFDictionaryValueVariableAggrandizement";
+    DictionaryKey: string;
+})[];
 export declare class Aggrandizements {
     coercionType?: CoercionTypeClass;
     getProperty?: {
@@ -8,216 +22,211 @@ export declare class Aggrandizements {
     };
     getForKey?: string;
     constructor();
-    build(): ({
-        CoercionItemClass: CoercionTypeClass;
-        Type: string;
-        DictionaryKey?: undefined;
-    } | {
-        Type: string;
-        PropertyUserInfo: string | number;
-        PropertyName: string;
-        CoercionItemClass?: undefined;
-        DictionaryKey?: undefined;
-    } | {
-        Type: string;
-        PropertyName: string;
-        CoercionItemClass?: undefined;
-        DictionaryKey?: undefined;
-    } | {
-        DictionaryKey: string;
-        Type: string;
-        CoercionItemClass?: undefined;
-    })[];
+    static inverse(data: WFAggrandizements): Aggrandizements;
+    build(): WFAggrandizements;
     setProperty(getType: string): string | void;
     setCoercionType(type: string): string | void;
     setForKey(key: string): string | void;
 }
 export declare class Parameter {
     constructor();
-    build(): void;
+    build(): WFParameter;
 }
+declare type DictionaryFieldValueItem = {
+    WFItemType: 1;
+    WFKey: WFTextParameter;
+    WFValue: {
+        Value: WFDictionaryParameter;
+        WFSerializationType: "WFDictionaryFieldValue";
+    };
+} | {
+    WFItemType: 2;
+    WFKey: WFTextParameter;
+    WFValue: {
+        Value: WFListParameter;
+        WFSerializationType: "WFArrayParameterState";
+    };
+} | {
+    WFItemType: 0;
+    WFKey: WFTextParameter;
+    WFValue: WFTextParameter;
+} | {
+    WFItemType: -1;
+    WFKey: WFTextParameter;
+};
+declare type WFDictionaryParameter = {
+    Value: {
+        WFDictionaryFieldValueItems: DictionaryFieldValueItem[];
+    };
+    WFSerializationType: "WFDictionaryFieldValue";
+};
 export declare class Dictionary extends Parameter {
     items: Array<{
-        key: Parameter;
-        value: Parameter;
-        type: number;
+        key: Text;
+        value: Dictionary | Text | List | ErrorParameter;
     }>;
     constructor();
-    add(key: Parameter, value: Parameter, type: number): void;
-    build(): any;
+    add(key: Text, value: Dictionary | Text | List | ErrorParameter): void;
+    static inverse(data: WFDictionaryParameter): Dictionary;
+    build(): WFDictionaryParameter;
 }
+declare type WFVariableAttachmentData = {
+    Type: "Variable";
+    Aggrandizements?: WFAggrandizements;
+    VariableName: string;
+};
+declare type WFMagicVariableAttachmentData = {
+    Type: "ActionOutput";
+    Aggrandizements?: WFAggrandizements;
+    OutputName: string;
+    OutputUUID: string;
+};
+declare type WFAttachmentData = {
+    Type: AttachmentType;
+    Aggrandizements?: WFAggrandizements;
+} | WFVariableAttachmentData | WFMagicVariableAttachmentData;
+declare type WFAttachmentParameter = {
+    Value: WFAttachmentData;
+    WFSerializationType: "WFTextTokenAttachment";
+};
+declare type WFVariableAttachmentParameter = {
+    Value: WFVariableAttachmentData;
+    WFSerializationType: "WFTextTokenAttachment";
+};
+declare type WFMagicVariableAttachmentParameter = {
+    Value: WFMagicVariableAttachmentData;
+    WFSerializationType: "WFTextTokenAttachment";
+};
+export declare type AttachmentType = "Clipboard" | "Ask" | "CurrentDate" | "ExtensionInput" | "Input" | "Variable" | "ActionOutput";
 export declare class Attachment extends Parameter {
-    type: string;
+    type: AttachmentType;
     aggrandizements: Aggrandizements;
-    constructor(type: string);
-    build(): {
-        Type: string;
-        Aggrandizements: ({
-            CoercionItemClass: CoercionTypeClass;
-            Type: string;
-            DictionaryKey?: undefined;
-        } | {
-            Type: string;
-            PropertyUserInfo: string | number;
-            PropertyName: string;
-            CoercionItemClass?: undefined;
-            DictionaryKey?: undefined;
-        } | {
-            DictionaryKey: string;
-            Type: string;
-            CoercionItemClass?: undefined;
-        })[];
-    };
+    constructor(type: AttachmentType);
+    static inverse(value: WFAttachmentParameter): Attachment;
+    build(): WFAttachmentParameter;
 }
+declare type VariableType = "Variable" | "ActionOutput";
 export declare class Variable extends Attachment {
-    constructor(type: string);
-    build(): {
-        Type: string;
-        Aggrandizements: ({
-            CoercionItemClass: CoercionTypeClass;
-            Type: string;
-            DictionaryKey?: undefined;
-        } | {
-            Type: string;
-            PropertyUserInfo: string | number;
-            PropertyName: string;
-            CoercionItemClass?: undefined;
-            DictionaryKey?: undefined;
-        } | {
-            DictionaryKey: string;
-            Type: string;
-            CoercionItemClass?: undefined;
-        })[];
-    };
+    constructor(type: VariableType);
+    build(): WFAttachmentParameter;
 }
 export declare class NamedVariable extends Variable {
     varname: string;
     constructor(varname: string);
-    build(): {
-        Type: string;
-        Aggrandizements: ({
-            CoercionItemClass: CoercionTypeClass;
-            Type: string;
-            DictionaryKey?: undefined;
-        } | {
-            Type: string;
-            PropertyUserInfo: string | number;
-            PropertyName: string;
-            CoercionItemClass?: undefined;
-            DictionaryKey?: undefined;
-        } | {
-            DictionaryKey: string;
-            Type: string;
-            CoercionItemClass?: undefined;
-        })[];
-    } & {
-        VariableName: string;
-    };
+    static inverse(data: WFVariableAttachmentParameter): NamedVariable;
+    build(): WFAttachmentParameter;
 }
 export declare class MagicVariable extends Variable {
     varname: string;
     uuid: string;
-    constructor(action: Action);
-    build(): {
-        Type: string;
-        Aggrandizements: ({
-            CoercionItemClass: CoercionTypeClass;
-            Type: string;
-            DictionaryKey?: undefined;
-        } | {
-            Type: string;
-            PropertyUserInfo: string | number;
-            PropertyName: string;
-            CoercionItemClass?: undefined;
-            DictionaryKey?: undefined;
-        } | {
-            DictionaryKey: string;
-            Type: string;
-            CoercionItemClass?: undefined;
-        })[];
-    } & {
-        OutputName: string;
-        OutputUUID: string;
-    };
+    constructor(...args: [Action] | [string, string]);
+    static inverse(data: WFMagicVariableAttachmentParameter): MagicVariable;
+    build(): WFAttachmentParameter;
 }
+declare type WFListParameter = Array<string | {
+    WFItemType: number;
+    WFValue: WFTextWithAttachments;
+}>;
 export declare class List extends Parameter {
-    _list: Array<Parameter>;
-    constructor(list: Array<Parameter>);
-    build(): {
-        WFItemType: number;
-        WFValue: void;
-    }[];
+    _list: Array<Text | string | ErrorParameter>;
+    constructor(list: Array<Text>);
+    add(item: string | Text | ErrorParameter): void;
+    static inverse(data: WFListParameter): List;
+    getItems(): (Text | string | ErrorParameter)[];
+    build(): WFListParameter;
 }
+declare type WFTextValue = {
+    attachmentsByRange: {
+        [key: string]: WFAttachmentData;
+    };
+    string: string;
+};
+declare type WFTextWithAttachments = {
+    Value: WFTextValue;
+    WFSerializationType: "WFTextTokenString";
+};
+declare type WFTextParameter = string | WFTextWithAttachments;
 export declare class Text extends Parameter {
-    _components: Array<Attachment | Text | string>;
+    _components: Array<Attachment | string>;
     constructor();
-    readonly _last: string | Attachment | Text;
+    static inverse(data: WFTextParameter): Text;
+    components(): Array<Attachment | string>;
+    readonly _last: string | Attachment;
     add(...objs: Array<Attachment | Text | string>): this;
-    build(): any;
+    build(): WFTextParameter;
 }
+export declare class ErrorParameter extends Parameter {
+}
+declare type WFErrorParameter = {
+    WFSerializationType: "WFErrorParameter";
+};
+export declare function toParam(value: WFParameter): ParameterType;
 export declare type ParameterType = Parameter | string | number | Array<string> | boolean;
+declare type WFParameters = {
+    [key: string]: WFParameter;
+};
+export declare type WFParameter = WFDictionaryParameter | WFAttachmentParameter | WFListParameter | WFTextParameter | WFErrorParameter | string | boolean | number;
 export declare class Parameters {
     values: {
-        [internalName: string]: any;
+        [internalName: string]: ParameterType;
+    };
+    builtValues: {
+        [internalName: string]: WFParameter;
     };
     constructor();
-    set(internalName: string, value: ParameterType): this;
+    static inverse(data: WFParameters): Parameters;
+    set(internalName: string, value: ParameterType): void;
     has(internalName: string): boolean;
-    get(internalName: string): any;
-    build(): {
-        [internalName: string]: any;
-    };
+    get(internalName: string): WFParameter;
+    buildValue(key: string): WFParameter;
+    build(): WFParameters;
 }
+declare type WFAction = {
+    WFWorkflowActionIdentifier: string;
+    WFWorkflowActionParameters?: WFParameters;
+    SCPLData?: {
+        Position: {
+            start: [number, number];
+            end: [number, number];
+        };
+    };
+};
 export declare class Action {
-    name: string;
+    name?: string;
     id: string;
-    _uuid: string | undefined;
     parameters: Parameters;
     magicvarname?: string;
-    start: [number, number];
-    end: [number, number];
-    constructor(start: [number, number], end: [number, number], name: string, id: string);
+    start?: [number, number];
+    end?: [number, number];
+    constructor(start: [number, number] | undefined, end: [number, number] | undefined, name: string | undefined, id: string);
+    static inverse(data: WFAction): Action;
     readonly uuid: string;
-    build(): {
-        WFWorkflowActionIdentifier: string;
-        WFWorkflowActionParameters: {
-            [internalName: string]: any;
-        };
-        SCPLData: {
-            Position: {
-                start: [number, number];
-                end: [number, number];
-            };
-        };
-    };
+    build(): WFAction;
 }
+declare type ExtensionInputContentItemClass = "WFAppStoreAppContentItem" | "WFArticleContentItem" | "WFContactContentItem" | "WFDateContentItem" | "WFEmailAddressContentItem" | "WFGenericFileContentItem" | "WFImageContentItem" | "WFiTunesProductContentItem" | "WFLocationContentItem" | "WFDCMapsLinkContentItem" | "WFAVAssetContentItem" | "WFPDFContentItem" | "WFPhoneNumberContentItem" | "WFRichTextContentItem" | "WFSafariWebPageContentItem" | "WFStringContentItem" | "WFURLContentItem";
+declare type WorkflowTypes = "NCWidget" | "WatchKit";
+export declare type WFShortcut = [{
+    WFWorkflowClientVersion: string;
+    WFWorkflowClientRelese: string;
+    WFWorkflowMinimumClientVersion: number;
+    WFWorkflowIcon: {
+        WFWorkflowIconStartColor: number;
+        WFWorkflowIconImageData: Buffer | {
+            "type": "Buffer";
+            "data": [];
+        };
+        WFWorkflowIconGlyphNumber: number;
+    };
+    WFWorkflowTypes: WorkflowTypes[];
+    WFWorkflowInputContentItemClasses: ExtensionInputContentItemClass[];
+    WFWorkflowActions: WFAction[];
+}];
 export declare class Shortcut {
     name: string;
     actions: Array<Action>;
     constructor(name: string);
     add(action: Action): void;
-    build(): {
-        WFWorkflowClientVersion: string;
-        WFWorkflowClientRelese: string;
-        WFWorkflowMinimumClientVersion: number;
-        WFWorkflowIcon: {
-            WFWorkflowIconStartColor: number;
-            WFWorkflowIconImageData: Buffer;
-            WFWorkflowIconGlyphNumber: number;
-        };
-        WFWorkflowTypes: string[];
-        WFWorkflowInputContentItemClasses: string[];
-        WFWorkflowActions: {
-            WFWorkflowActionIdentifier: string;
-            WFWorkflowActionParameters: {
-                [internalName: string]: any;
-            };
-            SCPLData: {
-                Position: {
-                    start: [number, number];
-                    end: [number, number];
-                };
-            };
-        }[];
-    }[];
+    static inverse(data: WFShortcut): Shortcut;
+    build(): WFShortcut;
 }
+export {};
