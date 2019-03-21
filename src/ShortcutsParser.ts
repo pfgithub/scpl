@@ -1,4 +1,4 @@
-import {ActionParse, DictionaryParse, CharsParse, IdentifierParse, ListParse, BarlistParse, VariableParse, ActionsParse, VariableFlagParse, ArglistParse, NumberParse, ConvertVariableParse} from "./ParserData.js";
+import {ActionParse, DictionaryParse, CharsParse, IdentifierParse, ListParse, BarlistParse, VariableParse, ActionsParse, VariableFlagParse, ArglistParse, NumberParse, ConvertVariableParse, ErrorParse} from "./ParserData.js";
 
 import {p, regex, star, plus, optional, or, c, o} from "./ParserHelper.js";
 
@@ -103,6 +103,7 @@ o.namedargument = p(
 	_,
 	o.value
 ).scb(([key, , , , value], start, end) => new ArglistParse(start, end, [{key: key, value: value}]));
+o.errorparse = regex(/^\?\?(.+?)\?\?/).scb(([], start, end) => new ErrorParse(start, end));
 o.argument = or(
 	o.arglist, // arglist has to go first because otherwise it will parse as `a` `{}`, this will be fixed with the new argflag syntax.
 	o.namedargument,
@@ -110,7 +111,8 @@ o.argument = or(
 	o.inputarg,
 	o.barlist,
 	o.controlFlowMode,
-	o.argflag
+	o.argflag,
+	o.errorparse
 );
 o.macroBlock = p(c`@{`, o.actions, c`}`).scb(([, actions, ]) => actions);
 o.action = or(
@@ -182,7 +184,7 @@ o.keyvaluepair = p(
 // ...
 
 o.variable = p(
-	o.identifier, c`:`, or(o.identifier, o.string),
+	o.identifier, c`:`, or(o.identifier, o.string, o.errorparse),
 	optional(
 		p(or(c`:`, c`.`), or(o.identifier, o.string)).scb(([, val])=>val)).scb(([val])=>val),
 	optional(o.dictionary).scb(([dict]) => dict)

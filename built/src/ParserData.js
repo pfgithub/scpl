@@ -87,6 +87,9 @@ exports.ConvertVariableParse = ConvertVariableParse;
         return me[`as${val}`](newCC);
     };
 });
+class ErrorParse extends Parse {
+}
+exports.ErrorParse = ErrorParse;
 class DictionaryParse extends Parse {
     constructor(start, end, keyvaluepairs) {
         super(start, end);

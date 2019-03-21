@@ -84,6 +84,8 @@ export declare class ConvertVariableParse extends Parse {
     getValue(cc: ConvertingContext): AsAble;
     error(cc: ConvertingContext, message: string): PositionedError;
 }
+export declare class ErrorParse extends Parse {
+}
 export declare class DictionaryParse extends Parse implements AsRawDictionary, AsRawKeyedDictionary, AsDictionary {
     keyvaluepairs: Array<{
         key: AsAble;

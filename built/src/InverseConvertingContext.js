@@ -205,7 +205,7 @@ class InverseConvertingContext {
         }
         const data = { Clipboard: "clipboard", Ask: "askWhenRun", CurrentDate: "currentDate", ExtensionInput: "shortcutinput", Input: "actioninput", Variable: undefined, ActionOutput: undefined };
         if (!data[value.type]) {
-            throw new Error("Attachment type is either Variable or ActionOutput. This should've been caught earlier.");
+            return "s:??internal error: attachmenttype is " + value.type.replace(/[^A-Za-z0-9]/g, "") + " which is not known about yet??";
         }
         return `s:${data[value.type]}${this.createAggrandizementsAble(value.aggrandizements)}`;
     }

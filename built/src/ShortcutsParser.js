@@ -50,8 +50,9 @@ ParserHelper_js_1.o.argflagarrow = ParserHelper_js_1.or(ParserHelper_js_1.c `->`
 ParserHelper_js_1.o.argflag = ParserHelper_js_1.p(ParserHelper_js_1.o.argflagarrow, _, ParserHelper_js_1.o.variable)
     .scb(([, , variable], start, end) => (new ParserData_js_1.VariableFlagParse(start, end, variable)));
 ParserHelper_js_1.o.namedargument = ParserHelper_js_1.p(ParserHelper_js_1.o.identifier, _, ParserHelper_js_1.c `=`, _, ParserHelper_js_1.o.value).scb(([key, , , , value], start, end) => new ParserData_js_1.ArglistParse(start, end, [{ key: key, value: value }]));
+ParserHelper_js_1.o.errorparse = ParserHelper_js_1.regex(/^\?\?(.+?)\?\?/).scb(([], start, end) => new ParserData_js_1.ErrorParse(start, end));
 ParserHelper_js_1.o.argument = ParserHelper_js_1.or(ParserHelper_js_1.o.arglist, // arglist has to go first because otherwise it will parse as `a` `{}`, this will be fixed with the new argflag syntax.
-ParserHelper_js_1.o.namedargument, ParserHelper_js_1.o.value, ParserHelper_js_1.o.inputarg, ParserHelper_js_1.o.barlist, ParserHelper_js_1.o.controlFlowMode, ParserHelper_js_1.o.argflag);
+ParserHelper_js_1.o.namedargument, ParserHelper_js_1.o.value, ParserHelper_js_1.o.inputarg, ParserHelper_js_1.o.barlist, ParserHelper_js_1.o.controlFlowMode, ParserHelper_js_1.o.argflag, ParserHelper_js_1.o.errorparse);
 ParserHelper_js_1.o.macroBlock = ParserHelper_js_1.p(ParserHelper_js_1.c `@{`, ParserHelper_js_1.o.actions, ParserHelper_js_1.c `}`).scb(([, actions,]) => actions);
 ParserHelper_js_1.o.action = ParserHelper_js_1.or(ParserHelper_js_1.o.flaggedaction, ParserHelper_js_1.o.variable, ParserHelper_js_1.o.onlyaction);
 ParserHelper_js_1.o.arglist = ParserHelper_js_1.p(ParserHelper_js_1.c `a{`, ParserHelper_js_1.star(ParserHelper_js_1.p(_, ParserHelper_js_1.o.keyvaluepair, _).scb(([, v]) => v)), ParserHelper_js_1.c `}`).scb(([, kvps,], start, end) => new ParserData_js_1.ArglistParse(start, end, kvps));
@@ -92,7 +93,7 @@ _n).scb(([, key, , , , value]) => ({ key: key, value: value }));
 // o.canBeString
 // o.canBeText
 // ...
-ParserHelper_js_1.o.variable = ParserHelper_js_1.p(ParserHelper_js_1.o.identifier, ParserHelper_js_1.c `:`, ParserHelper_js_1.or(ParserHelper_js_1.o.identifier, ParserHelper_js_1.o.string), ParserHelper_js_1.optional(ParserHelper_js_1.p(ParserHelper_js_1.or(ParserHelper_js_1.c `:`, ParserHelper_js_1.c `.`), ParserHelper_js_1.or(ParserHelper_js_1.o.identifier, ParserHelper_js_1.o.string)).scb(([, val]) => val)).scb(([val]) => val), ParserHelper_js_1.optional(ParserHelper_js_1.o.dictionary).scb(([dict]) => dict)).scb(([type, , name, forkey, options], start, end) => {
+ParserHelper_js_1.o.variable = ParserHelper_js_1.p(ParserHelper_js_1.o.identifier, ParserHelper_js_1.c `:`, ParserHelper_js_1.or(ParserHelper_js_1.o.identifier, ParserHelper_js_1.o.string, ParserHelper_js_1.o.errorparse), ParserHelper_js_1.optional(ParserHelper_js_1.p(ParserHelper_js_1.or(ParserHelper_js_1.c `:`, ParserHelper_js_1.c `.`), ParserHelper_js_1.or(ParserHelper_js_1.o.identifier, ParserHelper_js_1.o.string)).scb(([, val]) => val)).scb(([val]) => val), ParserHelper_js_1.optional(ParserHelper_js_1.o.dictionary).scb(([dict]) => dict)).scb(([type, , name, forkey, options], start, end) => {
     if (type.value === "@") {
         return new ParserData_js_1.ConvertVariableParse(start, end, name, options);
     }

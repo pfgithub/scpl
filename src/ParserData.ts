@@ -145,6 +145,9 @@ export class ConvertVariableParse extends Parse {
 	};
 });
 
+export class ErrorParse extends Parse {
+}
+
 export class DictionaryParse extends Parse implements AsRawDictionary, AsRawKeyedDictionary, AsDictionary {
 	keyvaluepairs: Array<{key: AsAble, value: AsAble}>
 	constructor(start: Position, end: Position, keyvaluepairs: Array<{key: AsAble, value: AsAble}>) {
