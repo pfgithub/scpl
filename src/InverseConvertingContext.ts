@@ -46,7 +46,7 @@ export class InverseConvertingContext {
 		// let parameters = actionData.getParameters();
 		const order = actionData.getParameterOrder(); // TODO future
 		order.forEach(param => {
-			if(typeof param === "string") {return;}
+			if(typeof param === "string") {return result.push(`??${param.replace(/[^A-Za-z0-9 ]/g, "")}??`);}
 
 			const paramValue = value.parameters.get(param.internalName);
 			if(paramValue === undefined) {return;}

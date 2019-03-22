@@ -109,6 +109,15 @@ ava_1.default("invert an invalid action", t => {
         }
     })), `??unknown action with id dev.scpl.actions.invalid??`);
 });
+ava_1.default("invert an incomplete action", t => {
+    const icc = new InverseConvertingContext_1.InverseConvertingContext;
+    t.deepEqual(icc.createActionAble(OutputData_1.Action.inverse({
+        WFWorkflowActionIdentifier: "is.workflow.actions.filter.files",
+        WFWorkflowActionParameters: {
+            WFTextActionText: "Icon List V2"
+        }
+    })), `filterfiles ??This paramtype is not implemented WFFilterParameter??`);
+});
 ava_1.default("inversions for stringable", t => {
     const icc = new InverseConvertingContext_1.InverseConvertingContext;
     t.is(icc.createStringAble("myStringCanBeAn@Identifier_Neat23"), "myStringCanBeAn@Identifier_Neat23");

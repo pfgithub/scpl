@@ -40,7 +40,7 @@ class InverseConvertingContext {
         const order = actionData.getParameterOrder(); // TODO future
         order.forEach(param => {
             if (typeof param === "string") {
-                return;
+                return result.push(`??${param.replace(/[^A-Za-z0-9 ]/g, "")}??`);
             }
             const paramValue = value.parameters.get(param.internalName);
             if (paramValue === undefined) {

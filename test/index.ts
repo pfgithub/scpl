@@ -117,6 +117,16 @@ test("invert an invalid action", t => {
 	})), `??unknown action with id dev.scpl.actions.invalid??`);
 });
 
+test("invert an incomplete action", t => {
+	const icc = new InverseConvertingContext;
+	t.deepEqual(icc.createActionAble(Action.inverse({
+		WFWorkflowActionIdentifier: "is.workflow.actions.filter.files",
+		WFWorkflowActionParameters: {
+			WFTextActionText: "Icon List V2"
+		}
+	})), `filterfiles ??This paramtype is not implemented WFFilterParameter??`);
+});
+
 
 test("inversions for stringable", t => {
 	const icc = new InverseConvertingContext;
