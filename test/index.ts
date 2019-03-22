@@ -491,4 +491,39 @@ test("get details of * actions", t => {
 	]);
 });
 
+test("argument labels and arglists", t => {
+	const output = parse(`
+	getfile errorifnotfound=false showdocumentpicker=false filepath="label"
+	getfile (errorifnotfound=false showdocumentpicker:false filepath="parenthesis arglist")
+	getfile a{errorifnotfound=false showdocumentpicker:false filepath="a{ arglist"}`, {makePlist: false});
+	const [scdata] = output.build();
+	const actions = scdata.WFWorkflowActions;
+	t.deepEqual(noUUID(actions, {noSCPLData: true}), [
+		{
+			WFWorkflowActionIdentifier: "is.workflow.actions.documentpicker.open",
+			WFWorkflowActionParameters: {
+				WFFileErrorIfNotFound: false,
+				WFGetFilePath: "label",
+				WFShowFilePicker: false,
+			}
+		},
+		{
+		WFWorkflowActionIdentifier: "is.workflow.actions.documentpicker.open",
+		WFWorkflowActionParameters: {
+			WFFileErrorIfNotFound: false,
+			WFGetFilePath: "parenthesis arglist",
+			WFShowFilePicker: false,
+		}
+		},
+		{
+			WFWorkflowActionIdentifier: "is.workflow.actions.documentpicker.open",
+			WFWorkflowActionParameters: {
+				WFFileErrorIfNotFound: false,
+				WFGetFilePath: "a{ arglist",
+				WFShowFilePicker: false,
+			}
+		}
+	]);
+});
+
 // console.log(JSON.stringify(noUUID(actions), null, "\t"));

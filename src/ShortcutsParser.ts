@@ -112,14 +112,21 @@ o.argument = or(
 	o.barlist,
 	o.controlFlowMode,
 	o.argflag,
+	o.arglistparenthesis,
 	o.errorparse
 );
 o.macroBlock = p(c`@{`, o.actions, c`}`).scb(([, actions, ]) => actions);
 o.action = or(
 	o.flaggedaction,
 	o.variable,
-	o.onlyaction
+	o.onlyaction,
+	o.errorparse
 );
+o.arglistparenthesis = p(
+	c`(`,
+	star(p(_n, o.keyvaluepair, _n).scb(([, v])=>v)),
+	c`)`
+).scb(([, kvps, ], start, end) => new ArglistParse(start, end, kvps)); // (a:b, a=b)
 o.arglist = p(
 	c`a{`,
 	star(p(_, o.keyvaluepair, _).scb(([, v])=>v)),
