@@ -93,6 +93,7 @@ o.barlistitem = p(newline, _, c`|`, _, o.chars)
 	.scb(([,,,, dat]) => dat);
 o.barlist = plus(o.barlistitem)
 	.scb((items, start, end) => new BarlistParse(start, end, items));
+o.extendedarg = p(newline, _, c`>`, _, o.argument).scb(([,,,,arg]) => arg);
 o.argflagarrow = or(c`->`, c`=>`).scb(_=>null);
 o.argflag = p(o.argflagarrow, _, o.variable)
 	.scb(([,, variable], start, end) => (new VariableFlagParse(start, end, variable)));
@@ -113,7 +114,9 @@ o.argument = or(
 	o.controlFlowMode,
 	o.argflag,
 	o.arglistparenthesis,
+	o.extendedarg,
 	o.errorparse
+	// if something reaches the end of this without matching anything we can probably error right here rather than going all the way back up to an actionsparse
 );
 o.macroBlock = p(c`@{`, o.actions, c`}`).scb(([, actions, ]) => actions);
 o.action = or(

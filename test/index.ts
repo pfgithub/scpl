@@ -491,11 +491,15 @@ test("get details of * actions", t => {
 	]);
 });
 
-test("argument labels and arglists", t => {
+test("argument labels and arglists and extendedargs", t => {
 	const output = parse(`
 	getfile errorifnotfound=false showdocumentpicker=false filepath="label"
 	getfile (errorifnotfound=false showdocumentpicker:false filepath="parenthesis arglist")
-	getfile a{errorifnotfound=false showdocumentpicker:false filepath="a{ arglist"}`, {makePlist: false});
+	getfile a{errorifnotfound=false showdocumentpicker:false filepath="a{ arglist"}
+	getfile
+	> errorifnotfound=false
+	> showdocumentpicker=false
+	> filepath="extendedarg"`, {makePlist: false});
 	const [scdata] = output.build();
 	const actions = scdata.WFWorkflowActions;
 	t.deepEqual(noUUID(actions, {noSCPLData: true}), [
@@ -520,6 +524,14 @@ test("argument labels and arglists", t => {
 			WFWorkflowActionParameters: {
 				WFFileErrorIfNotFound: false,
 				WFGetFilePath: "a{ arglist",
+				WFShowFilePicker: false,
+			}
+		},
+		{
+			WFWorkflowActionIdentifier: "is.workflow.actions.documentpicker.open",
+			WFWorkflowActionParameters: {
+				WFFileErrorIfNotFound: false,
+				WFGetFilePath: "extendedarg",
 				WFShowFilePicker: false,
 			}
 		}
