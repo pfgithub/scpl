@@ -33,6 +33,9 @@ class InverseConvertingContext {
         const result = [];
         // get action data
         const actionData = ActionData_1.getActionFromID(value.id);
+        if (!actionData) {
+            return `??unknown action with id ${value.id.replace(/[^A-Za-z0-9.]/g, "")}??`;
+        }
         // let parameters = actionData.getParameters();
         const order = actionData.getParameterOrder(); // TODO future
         order.forEach(param => {
@@ -40,7 +43,7 @@ class InverseConvertingContext {
                 return;
             }
             const paramValue = value.parameters.get(param.internalName);
-            if (paramValue == undefined) {
+            if (paramValue === undefined) {
                 return;
             }
             if (order.length === 1) {
@@ -61,7 +64,7 @@ class InverseConvertingContext {
             this.magicVariablesByUUID[uuid] = name;
             // add -> argument
             if (name.match(IDENTIFIER)) {
-                result.push("-> mv:" + name);
+                result.push(`-> mv:${name}`);
             }
             else {
                 result.push(`-> mv:${this.quoteAndEscape(name)}`);
@@ -92,7 +95,7 @@ class InverseConvertingContext {
         else if (actionData._data.BlockInfo) {
             this._indentLevel++;
         }
-        return this.indent.repeat(indentLevel) + (actionName + " " + paramResult).trim();
+        return this.indent.repeat(indentLevel) + (`${actionName} ${paramResult}`).trim();
     }
     handleArgument(thing) {
         if (typeof thing === "string") {
@@ -205,7 +208,7 @@ class InverseConvertingContext {
         }
         const data = { Clipboard: "clipboard", Ask: "askWhenRun", CurrentDate: "currentDate", ExtensionInput: "shortcutinput", Input: "actioninput", Variable: undefined, ActionOutput: undefined };
         if (!data[value.type]) {
-            return "s:??internal error: attachmenttype is " + value.type.replace(/[^A-Za-z0-9]/g, "") + " which is not known about yet??";
+            return `s:??internal error: attachmenttype is ${value.type.replace(/[^A-Za-z0-9]/g, "")} which is not known about yet??`;
         }
         return `s:${data[value.type]}${this.createAggrandizementsAble(value.aggrandizements)}`;
     }

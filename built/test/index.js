@@ -94,11 +94,20 @@ ava_1.default("invert complete valid shortcut and ensure output is exact when co
     const output = index_1.parse(fs.readFileSync(`./test/sampleshortcut.scpl`, "utf8"), { makePlist: false });
     const scdata = output.build();
     // invert
-    let inverted = index_1.inverse(scdata);
+    const inverted = index_1.inverse(scdata);
     fs.writeFileSync("./test/sampleshortcut-converted.scpl", inverted, "utf8");
-    let parsed = index_1.parse(inverted, { make: ["shortcutjson"] }).shortcutjson;
+    const parsed = index_1.parse(inverted, { make: ["shortcutjson"] }).shortcutjson;
     // compare
     t.deepEqual(noUUID(sampleshortcutdata[0].WFWorkflowActions, { noSCPLData: true, ignoreOutputName: true }), noUUID(parsed[0].WFWorkflowActions, { noSCPLData: true, ignoreOutputName: true }));
+});
+ava_1.default("invert an invalid action", t => {
+    const icc = new InverseConvertingContext_1.InverseConvertingContext;
+    t.deepEqual(icc.createActionAble(OutputData_1.Action.inverse({
+        WFWorkflowActionIdentifier: "dev.scpl.actions.invalid",
+        WFWorkflowActionParameters: {
+            WFTextActionText: "Icon List V2"
+        }
+    })), `??unknown action with id dev.scpl.actions.invalid??`);
 });
 ava_1.default("inversions for stringable", t => {
     const icc = new InverseConvertingContext_1.InverseConvertingContext;

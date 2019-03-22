@@ -816,8 +816,8 @@ console.log("List:", Object.keys(_debugMissingTypes)
 	.map(([a, b])=>`${a}: ${b}`)
 );
 */
-export function getActionFromID(id: string): WFAction {
-	if(!actionsByID[id]) {throw new Error(`There is no action with the id \`${id}\``);}
+export function getActionFromID(id: string): WFAction | undefined {
+	if(!actionsByID[id]) {return undefined;}
 	return actionsByID[id];
 }
 export function getActionFromName(name: string): WFAction | undefined {

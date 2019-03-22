@@ -40,6 +40,8 @@ export class InverseConvertingContext {
 
 		// get action data
 		const actionData = getActionFromID(value.id);
+		
+		if(!actionData) {return `??unknown action with id ${value.id.replace(/[^A-Za-z0-9.]/g, "")}??`;}
 
 		// let parameters = actionData.getParameters();
 		const order = actionData.getParameterOrder(); // TODO future
@@ -47,7 +49,7 @@ export class InverseConvertingContext {
 			if(typeof param === "string") {return;}
 
 			const paramValue = value.parameters.get(param.internalName);
-			if(paramValue == undefined) {return;}
+			if(paramValue === undefined) {return;}
 			if(order.length === 1) {return result.push(this.handleArgument(toParam(paramValue)));}
 			result.push(`${param.shortName  }=${  this.handleArgument(toParam(paramValue))}`);
 		});
@@ -64,7 +66,7 @@ export class InverseConvertingContext {
 			this.magicVariablesByName[name] = uuid;
 			this.magicVariablesByUUID[uuid] = name;
 			// add -> argument
-			if(name.match(IDENTIFIER)) {result.push("-> mv:"+name);}
+			if(name.match(IDENTIFIER)) {result.push(`-> mv:${name}`);}
 			else{result.push(`-> mv:${this.quoteAndEscape(name)}`);}
 		}
 
@@ -88,7 +90,7 @@ export class InverseConvertingContext {
 			this._indentLevel++;
 		}
 
-		return this.indent.repeat(indentLevel) + (actionName + " " + paramResult).trim();
+		return this.indent.repeat(indentLevel) + (`${actionName  } ${  paramResult}`).trim();
 	}
 
 	handleArgument(thing: ParameterType): string {
@@ -132,7 +134,7 @@ export class InverseConvertingContext {
 		const items = value.getItems();
 		const result = items.map(item => {
 			if(typeof item === "string") {return this.createStringAble(item);}
-			if(item instanceof Text){return this.createTextAble(item)}
+			if(item instanceof Text) {return this.createTextAble(item);}
 			return "??this argument type is not supported yet??";
 		});
 		return `[${result.join(", ")}]`;
@@ -176,7 +178,7 @@ export class InverseConvertingContext {
 			return `mv:${this.quoteAndEscape(varname)}${this.createAggrandizementsAble(value.aggrandizements)}`;
 		}
 		const data: {[key in AttachmentType]: string | undefined} = {Clipboard: "clipboard", Ask: "askWhenRun", CurrentDate: "currentDate", ExtensionInput: "shortcutinput", Input: "actioninput", Variable: undefined, ActionOutput: undefined};
-		if(!data[value.type]) {return "s:??internal error: attachmenttype is "+value.type.replace(/[^A-Za-z0-9]/g, "")+" which is not known about yet??";}
+		if(!data[value.type]) {return `s:??internal error: attachmenttype is ${value.type.replace(/[^A-Za-z0-9]/g, "")} which is not known about yet??`;}
 		return `s:${data[value.type]}${this.createAggrandizementsAble(value.aggrandizements)}`;
 	}
 	createTextAble(value: Text, options: {dontAllowOnlyVariable?: boolean} = {}): string {

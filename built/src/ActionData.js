@@ -819,7 +819,7 @@ console.log("List:", Object.keys(_debugMissingTypes)
 */
 function getActionFromID(id) {
     if (!actionsByID[id]) {
-        throw new Error(`There is no action with the id \`${id}\``);
+        return undefined;
     }
     return actionsByID[id];
 }

@@ -56,7 +56,7 @@ export declare class WFAction {
     }, ...params: Array<AsAble>): Action;
 }
 export declare function genReadme(): string;
-export declare function getActionFromID(id: string): WFAction;
+export declare function getActionFromID(id: string): WFAction | undefined;
 export declare function getActionFromName(name: string): WFAction | undefined;
 export declare const allActions: WFAction[];
 export declare const WFTypes: {
