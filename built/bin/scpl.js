@@ -20,7 +20,7 @@ if (!argv._ || !argv._[0]) {
     process.exit(0);
 }
 const outputPath = path.join(process.cwd(), (argv.o || argv.output));
-const inputPath = path.join(process.cwd(), (argv._[0]));
+const inputPath = path.join(process.cwd(), argv._[0]);
 if (argv.inverse) {
     console.log("Inverting");
     // read buffer
@@ -43,7 +43,8 @@ function throwError(filename, fileContent, error) {
             // line numbers are the same
             const line = split[startPos[0]];
             process.stdout.write(`${num}${line.substr(0, startPos[1])}${line.substr(startPos[1], endPos[1] - startPos[1])}${line.substr(endPos[1])}\n`);
-            process.stdout.write(`${blankNum}${" ".repeat(startPos[1]) + chalk_1.default.red("~".repeat(endPos[1] - startPos[1]))}\n`);
+            process.stdout.write(`${blankNum}${" ".repeat(startPos[1]) +
+                chalk_1.default.red("~".repeat(endPos[1] - startPos[1]))}\n`);
         }
         else {
             const line = split[startPos[0]];
@@ -58,8 +59,10 @@ function throwError(filename, fileContent, error) {
     throw new Error("Process did not exit");
 }
 console.log(`Converting ${outputPath}`); //eslint-disable-line no-console
-const started = (new Date()).getTime();
-const extraParseActions = { "@import": (cc, filename) => {
+const started = new Date().getTime();
+const extraParseActions = {
+    "@import": (cc, filename) => {
+        // extraParseActions is not yet supported
         if (!filename.canBeString(cc)) {
             throw filename.error(cc, "Filename must be a string");
         }
@@ -79,7 +82,8 @@ const extraParseActions = { "@import": (cc, filename) => {
         }
         actions.actions.forEach((action) => cc.add(action));
         console.log(`Done importing \`${importPath}\``); //eslint-disable-line no-console
-    } };
+    }
+};
 const fileCont = fs.readFileSync(inputPath, "utf8");
 let plist;
 try {
@@ -88,5 +92,5 @@ try {
 catch (e) {
     throwError(inputPath, fileCont, e);
 }
-console.log(`Done in ${(new Date()).getTime() - started}ms`); //eslint-disable-line no-console
+console.log(`Done in ${new Date().getTime() - started}ms`); //eslint-disable-line no-console
 fs.writeFileSync(outputPath, plist);

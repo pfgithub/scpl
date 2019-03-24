@@ -1,53 +1,80 @@
 import parser from "./src/ShortcutsParser";
 import * as bplistc from "bplist-creator";
-import {PositionedError, AsAble} from "./src/ParserData";
-import {ConvertingContext} from "./src/Converter";
-import {Shortcut, WFShortcut} from "./src/OutputData";
-import {InverseConvertingContext} from "./src/InverseConvertingContext";
+import { PositionedError, AsAble } from "./src/ParserData";
+import { ConvertingContext } from "./src/Converter";
+import { Shortcut, WFShortcut } from "./src/OutputData";
+import { InverseConvertingContext } from "./src/InverseConvertingContext";
 import * as bplistp from "bplist-parser";
 // export {default as parser} from "./src/ShortcutsParser";
-export {PositionedError, ConvertingContext, AsAble, WFShortcut};
+export { PositionedError, ConvertingContext, AsAble, WFShortcut };
 
-
-
-export function parse(string: string, options: {make?: ["shortcutjson"?, "shortcutplist"?, "outputdata"?], makePlist?: boolean, makeShortcut?: boolean, extraParseActions?: {[key: string]: (cc: ConvertingContext, ...args: AsAble[]) => void}}) {
+export function parse(
+	string: string,
+	options: {
+		make?: ["shortcutjson"?, "shortcutplist"?, "outputdata"?];
+		makePlist?: boolean;
+		makeShortcut?: boolean;
+		extraParseActions?: {
+			[key: string]: (cc: ConvertingContext, ...args: AsAble[]) => void;
+		};
+	}
+) {
 	const parsed = parser.parse(string, [1, 1]);
-	if(!parsed.success) {
+	if (!parsed.success) {
 		throw new PositionedError("Failed to parse anything", [1, 1], [100, 1]);
 	}
-	if(parsed.remainingStr) {
-		if(!parsed.pos) {throw new Error("!parsed.pos");}
-		throw new PositionedError("Parsing error around here", parsed.pos, [parsed.pos[0] + 100, 1]);
+	if (parsed.remainingStr) {
+		if (!parsed.pos) {
+			throw new Error("!parsed.pos");
+		}
+		throw new PositionedError("Parsing error around here", parsed.pos, [
+			parsed.pos[0] + 100,
+			1
+		]);
 	}
 
 	let shortcut;
-	try{
+	try {
 		shortcut = parsed.data.asShortcut(options.extraParseActions);
-	}catch(er) {
-		if(er instanceof PositionedError) {
+	} catch (er) {
+		if (er instanceof PositionedError) {
 			throw er;
 		}
-		throw new PositionedError(`Unknown location in error: ${er.message}`, [1, 1], [100, 1]);
+		throw new PositionedError(
+			`Unknown location in error: ${er.message}`,
+			[1, 1],
+			[100, 1]
+		);
 	}
-	if(options.make) {
+	if (options.make) {
 		const data = shortcut.build();
-		const output: {shortcutjson?: any, shortcutplist?: Buffer, outputdata?: Shortcut} = {};
-		if(options.make.indexOf("outputdata") > -1) {output.outputdata = shortcut;}
-		if(options.make.indexOf("shortcutjson") > -1) {output.shortcutjson = data;}
-		if(options.make.indexOf("shortcutplist") > -1) {output.shortcutplist = (<any>bplistc)(data);}
+		const output: {
+			shortcutjson?: any;
+			shortcutplist?: Buffer;
+			outputdata?: Shortcut;
+		} = {};
+		if (options.make.indexOf("outputdata") > -1) {
+			output.outputdata = shortcut;
+		}
+		if (options.make.indexOf("shortcutjson") > -1) {
+			output.shortcutjson = data;
+		}
+		if (options.make.indexOf("shortcutplist") > -1) {
+			output.shortcutplist = (<any>bplistc)(data);
+		}
 		return output;
 	}
-	if(options.makePlist) {
+	if (options.makePlist) {
 		return (<any>bplistc)(shortcut.build());
 	}
 	return shortcut;
 }
 
-export function inverse(data: WFShortcut | Buffer): string{
-	const icc = new InverseConvertingContext;
-	if(data instanceof Buffer){
+export function inverse(data: WFShortcut | Buffer): string {
+	const icc = new InverseConvertingContext();
+	if (data instanceof Buffer) {
 		data = <WFShortcut>bplistp.parseBuffer(data);
 	}
-	let result = icc.createActionsAble(Shortcut.inverse(data))
+	let result = icc.createActionsAble(Shortcut.inverse(data));
 	return result;
 }

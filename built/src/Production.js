@@ -10,7 +10,8 @@ class Performance {
     }
     static stopMonitoring() {
         const ended = new Date();
-        console.log(`Parsed in ${totalSteps} steps over ${ended.getTime() - began.getTime()}ms.`); //eslint-disable-line no-console
+        console.log(`Parsed in ${totalSteps} steps over ${ended.getTime() -
+            began.getTime()}ms.`); //eslint-disable-line no-console
     }
 }
 exports.Performance = Performance;
@@ -56,7 +57,9 @@ class OrderedProduction extends Production {
         const resdata = [];
         const startpos = position.slice();
         const success = this.requirements.every(requirement => {
-            const result = requirement.getProd().parse(string, position.slice());
+            const result = requirement
+                .getProd()
+                .parse(string, position.slice());
             if (!result.success) {
                 return false;
             }
@@ -68,10 +71,17 @@ class OrderedProduction extends Production {
         if (!success) {
             return { success: false };
         }
-        return { data: this.cb(resdata, startpos, position), remainingStr: string, success: true, pos: position };
+        return {
+            data: this.cb(resdata, startpos, position),
+            remainingStr: string,
+            success: true,
+            pos: position
+        };
     }
     toString() {
-        return `${this.requirements.map(option => option.getProd().nameOrTostring()).join(" ")}`;
+        return `${this.requirements
+            .map(option => option.getProd().nameOrTostring())
+            .join(" ")}`;
     }
 }
 exports.OrderedProduction = OrderedProduction;
@@ -85,7 +95,10 @@ class OrProduction extends Production {
         let resdata;
         const startpos = position.slice();
         const success = this.options.some(option => {
-            const result = option.getProd().parse(string, position.slice());
+            // find the first option that parses... might cause problems if things try to parse too deep only to realise the code is wrong... may want to have some number of depth or something idk
+            const result = option
+                .getProd()
+                .parse(string, position.slice());
             if (!result.success) {
                 return false;
             }
@@ -97,10 +110,17 @@ class OrProduction extends Production {
         if (!success) {
             return { success: false };
         }
-        return { data: this.cb(resdata, startpos, position), remainingStr: string, success: true, pos: position };
+        return {
+            data: this.cb(resdata, startpos, position),
+            remainingStr: string,
+            success: true,
+            pos: position
+        };
     }
     toString() {
-        return `( ${this.options.map(option => option.getProd().nameOrTostring()).join(" | ")} )`;
+        return `( ${this.options
+            .map(option => option.getProd().nameOrTostring())
+            .join(" | ")} )`;
     }
 }
 exports.OrProduction = OrProduction;
@@ -117,7 +137,12 @@ class RegexProduction extends Production {
         if (match && string.startsWith(match[0])) {
             string = string.replace(match[0], ""); // replace does the first instance on a string. PERFORMANCE: substr could probably be used instead.
             calculateChange(match[0], position);
-            return { data: this.cb(match, startpos, position), remainingStr: string, success: true, pos: position };
+            return {
+                data: this.cb(match, startpos, position),
+                remainingStr: string,
+                success: true,
+                pos: position
+            };
         }
         if (match) {
             console.warn("WARN: regex ", this.regex, " does not start matching at beginning of line"); //eslint-disable-line no-console
@@ -140,7 +165,12 @@ class StringProduction extends Production {
         if (string.startsWith(this.string)) {
             string = string.replace(this.string, ""); // replace does the first instance on a string
             calculateChange(this.string, position);
-            return { data: this.cb(this.string, startpos, position), remainingStr: string, success: true, pos: position };
+            return {
+                data: this.cb(this.string, startpos, position),
+                remainingStr: string,
+                success: true,
+                pos: position
+            };
         }
         return { success: false };
     }
@@ -151,6 +181,7 @@ class StringProduction extends Production {
 exports.StringProduction = StringProduction;
 class ManyProduction extends Production {
     constructor(thing, start = -Infinity, end = Infinity) {
+        // range = 0.. 1.. 0..1 ..1 or something
         super();
         this.prod = thing;
         this.start = start;
@@ -166,7 +197,9 @@ class ManyProduction extends Production {
                 succeeding = false;
                 continue;
             }
-            const result = this.prod.getProd().parse(string, position.slice());
+            const result = this.prod
+                .getProd()
+                .parse(string, position.slice());
             if (!result.success) {
                 succeeding = false;
                 continue;
@@ -183,7 +216,12 @@ class ManyProduction extends Production {
         if (results.length < this.start) {
             return { success: false };
         }
-        return { data: this.cb(results, startpos, position), remainingStr: string, success: true, pos: position };
+        return {
+            data: this.cb(results, startpos, position),
+            remainingStr: string,
+            success: true,
+            pos: position
+        };
     }
     toString() {
         return `{ ${this.start}..${this.end} }( ${this.prod.getProd().nameOrTostring()} )`;

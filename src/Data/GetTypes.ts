@@ -1,8 +1,16 @@
-import {CoercionTypeClass, AggrandizementPropertyName} from "../WFTypes/Types";
+import {
+	CoercionTypeClass,
+	AggrandizementPropertyName
+} from "../WFTypes/Types";
 
-
-
-type GetTypesData =  {[Type in CoercionTypeClass]: {[Name in AggrandizementPropertyName]: {name: string, data?: string|number}}};
+type GetTypesData = {
+	[Type in CoercionTypeClass]: {
+		[Name in AggrandizementPropertyName]: {
+			name: string;
+			data?: string | number;
+		}
+	}
+};
 
 const data: GetTypesData = {
 	WFAppStoreAppContentItem: {
@@ -787,5 +795,5 @@ const data: GetTypesData = {
 			data: "WFItemName"
 		}
 	}
-} as  GetTypesData;
+} as GetTypesData;
 export default data;
