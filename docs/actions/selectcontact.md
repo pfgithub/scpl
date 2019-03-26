@@ -11,11 +11,6 @@
 Prompts to pick a person from your contacts and passes the selection to the next action.
 
 
-### note
-
-The "Select Multiple" option is supported on iOS 9 and later, and is not currently supported from Apple Watch.
-
-
 ### usage
 ```
 selectcontact selectmultiple=(true | f alse | variable)
@@ -50,7 +45,6 @@ or a variable.
 	"AppIdentifier": "com.apple.MobileAddressBook",
 	"Category": "Contacts",
 	"Description": {
-		"DescriptionNote": "The \"Select Multiple\" option is supported on iOS 9 and later, and is not currently supported from Apple Watch.",
 		"DescriptionSummary": "Prompts to pick a person from your contacts and passes the selection to the next action."
 	},
 	"InputPassthrough": false,

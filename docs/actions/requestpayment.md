@@ -15,7 +15,7 @@ Requests a payment from the specified people using a payment app on your device.
 
 ### usage
 ```
-requestpayment app=("string" | variable)] undefined=NotImplemented amount=number openinapp=(true | f alse | variable) note="string"
+requestpayment app=("string" | variable)] undefined=NotImplemented amount=number openinapp=(true | f alse | variable) showwhenrun=(true | f alse | variable) note="string"
 ```
 
 ### arguments
@@ -26,8 +26,6 @@ requestpayment app=("string" | variable)] undefined=NotImplemented amount=number
 **Default Value**: ```
 		com.apple.PassKit.PassKitIntentsExtension
 		```
-**Allows Variables**: true
-
 
 
 		Accepts a string or variable containing the option. Check the shortcuts app for a list of available options. 
@@ -54,6 +52,19 @@ requestpayment app=("string" | variable)] undefined=NotImplemented amount=number
 **Allows Variables**: true
 
 
+
+Accepts a boolean
+or a variable.
+
+---
+
+### showwhenrun: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+**Default Value**: ```
+		true
+		```
+**Allows Variables**: true
+
+**Only enabled if**: argument WFVenmoActionAppSwitch == `false`
 
 Accepts a boolean
 or a variable.
@@ -98,6 +109,10 @@ with the text.
 		{
 			"Class": "WFIntentAppPickerParameter",
 			"DefaultValue": "com.apple.PassKit.PassKitIntentsExtension",
+			"DisallowedVariableTypes": [
+				"Ask",
+				"Variable"
+			],
 			"IntentName": "INRequestPaymentIntent",
 			"Key": "IntentAppIdentifier",
 			"Label": "App"
@@ -123,6 +138,19 @@ with the text.
 			"DefaultValue": false,
 			"Key": "WFVenmoActionAppSwitch",
 			"Label": "Open in App"
+		},
+		{
+			"Class": "WFSwitchParameter",
+			"DefaultValue": true,
+			"Key": "ShowWhenRun",
+			"Label": "Show When Run",
+			"RequiredResources": [
+				{
+					"WFParameterKey": "WFVenmoActionAppSwitch",
+					"WFParameterValue": false,
+					"WFResourceClass": "WFParameterRelationResource"
+				}
+			]
 		},
 		{
 			"Class": "WFTextInputParameter",

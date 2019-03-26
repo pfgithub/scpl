@@ -1,23 +1,19 @@
 
-## Append to Note / appendtonote (internally `is.workflow.actions.appendnote`)
+## Create Note / createnote (internally `com.apple.mobilenotes.SharingExtension`)
 
-> This action requires that Shortcuts has permission to use WFNotesAccessResource.
+> This action requires that Shortcuts has permission to use [object Object],WFNotesAccessResource.
 
 
 ## description
 
 ### summary
 
-Appends the text passed as input to the specified note.
+Creates a note using the content passed as input.
 
-
-### output
-
-The updated note
 
 ### usage
 ```
-appendtonote app=("string" | variable)] note=(v:myvar | mv:myvar | s:myvar)
+createnote app=("string" | variable)] showcomposesheet=(true | f alse | variable)
 ```
 
 ### arguments
@@ -36,12 +32,16 @@ appendtonote app=("string" | variable)] note=(v:myvar | mv:myvar | s:myvar)
 
 ---
 
-### note: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+### showcomposesheet: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+**Default Value**: ```
+		true
+		```
 **Allows Variables**: true
 
 
 
-Accepts a variable.
+Accepts a boolean
+or a variable.
 
 ---
 
@@ -49,15 +49,14 @@ Accepts a variable.
 
 ```json
 {
-	"ActionClass": "WFAppendToNoteAction",
+	"ActionClass": "WFCreateNoteAction",
 	"ActionKeywords": [
 		"apple"
 	],
 	"AppIdentifier": "com.apple.mobilenotes",
 	"Category": "Text",
 	"Description": {
-		"DescriptionResult": "The updated note",
-		"DescriptionSummary": "Appends the text passed as input to the specified note."
+		"DescriptionSummary": "Creates a note using the content passed as input."
 	},
 	"Input": {
 		"Multiple": true,
@@ -66,8 +65,8 @@ Accepts a variable.
 			"WFStringContentItem"
 		]
 	},
-	"IntentIdentifier": "sirikit.intent.notes.AppendToNoteIntent",
-	"Name": "Append to Note",
+	"IntentIdentifier": "sirikit.intent.notes.CreateNoteIntent",
+	"Name": "Create Note",
 	"Output": {
 		"Multiple": false,
 		"Types": [
@@ -84,14 +83,28 @@ Accepts a variable.
 			"Label": "App"
 		},
 		{
-			"Class": "WFVariablePickerParameter",
-			"Description": "The note to append to",
-			"Key": "WFNote",
-			"Label": "Note"
+			"Class": "WFSwitchParameter",
+			"DefaultValue": true,
+			"Key": "ShowWhenRun",
+			"Label": "Show Compose Sheet"
 		}
 	],
 	"RequiredResources": [
+		{
+			"RequiredResources": [
+				{
+					"WFParameterKey": "ShowWhenRun",
+					"WFParameterValue": true,
+					"WFResourceClass": "WFParameterRelationResource"
+				}
+			],
+			"WFResourceClass": "WFUserInteractionResource"
+		},
 		"WFNotesAccessResource"
+	],
+	"UserInterfaces": [
+		"UIKit",
+		"Siri"
 	]
 }
 ```

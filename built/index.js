@@ -23,6 +23,7 @@ function parse(string, options) {
             1
         ]);
     }
+    const generateSCPLData = options.generateSCPLData === undefined ? true : false;
     let shortcut;
     try {
         shortcut = parsed.data.asShortcut(options.extraParseActions);
@@ -58,7 +59,7 @@ function inverse(data) {
     if (data instanceof Buffer) {
         data = bplistp.parseBuffer(data);
     }
-    let result = icc.createActionsAble(OutputData_1.Shortcut.inverse(data));
+    const result = icc.createActionsAble(OutputData_1.Shortcut.inverse(data));
     return result;
 }
 exports.inverse = inverse;

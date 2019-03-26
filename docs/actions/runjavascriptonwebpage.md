@@ -1,5 +1,5 @@
 
-## Run JavaScript on Web Page / runjavascriptonwebpage (internally `is.workflow.actions.runjavascriptonwebpage`)
+## Run JavaScript on Webpage / runjavascriptonwebpage (internally `is.workflow.actions.runjavascriptonwebpage`)
 
 > This action requires that Shortcuts has permission to use [object Object].
 
@@ -8,17 +8,17 @@
 
 ### summary
 
-Runs JavaScript on a Safari web page passed in as input
+Runs JavaScript on a Safari webpage passed in as input
 
 
 ### note
 
-Safari Web Page items are only available when running your shortcut as an Action Extension in Safari.
+Safari Webpage items are only available when running your shortcut as an Action Extension in Safari.
 
 
 ### input
 
-Safari web pages
+Safari webpages
 
 
 ### output
@@ -76,10 +76,10 @@ with the text.
 	"AppIdentifier": "com.apple.mobilesafari",
 	"Category": "Web",
 	"Description": {
-		"DescriptionInput": "Safari web pages",
-		"DescriptionNote": "Safari Web Page items are only available when running your shortcut as an Action Extension in Safari.",
+		"DescriptionInput": "Safari webpages",
+		"DescriptionNote": "Safari Webpage items are only available when running your shortcut as an Action Extension in Safari.",
 		"DescriptionResult": "The output from the JavaScript (JSON)",
-		"DescriptionSummary": "Runs JavaScript on a Safari web page passed in as input"
+		"DescriptionSummary": "Runs JavaScript on a Safari webpage passed in as input"
 	},
 	"Input": {
 		"Multiple": false,
@@ -90,7 +90,7 @@ with the text.
 	},
 	"InputPassthrough": false,
 	"LastModifiedDate": "2015-01-11T06:00:00.000Z",
-	"Name": "Run JavaScript on Web Page",
+	"Name": "Run JavaScript on Webpage",
 	"Output": {
 		"Multiple": false,
 		"OutputName": "JavaScript Result",

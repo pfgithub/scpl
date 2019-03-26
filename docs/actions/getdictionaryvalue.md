@@ -9,6 +9,11 @@
 Gets the value for the specified key in the dictionary passed into the action. 
 
 
+### note
+
+You can reference values deep inside of a dictionary by providing multiple keys separated by dots. For example, to get the value "soup" from the dictionary {"beverages": [{"favorite": "soup"}]}, you can specify the key path "beverages.1.favorite".
+
+
 ### usage
 ```
 getdictionaryvalue get=("Value" | "All Keys" | "All Values" | variable) key="string"
@@ -60,6 +65,7 @@ with the text.
 	],
 	"Category": "Scripting",
 	"Description": {
+		"DescriptionNote": "You can reference values deep inside of a dictionary by providing multiple keys separated by dots. For example, to get the value \"soup\" from the dictionary {\"beverages\": [{\"favorite\": \"soup\"}]}, you can specify the key path \"beverages.1.favorite\".",
 		"DescriptionSummary": "Gets the value for the specified key in the dictionary passed into the action. "
 	},
 	"IconName": "Scripting.png",

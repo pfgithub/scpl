@@ -8,7 +8,7 @@
 
 Returns text from the previous action's output.
 
-For example, this action can get the name of a photo or song, or the text of a web page.
+For example, this action can get the name of a photo or song, or the text of a webpage.
 
 
 ### usage
@@ -40,7 +40,7 @@ gettextfrominput
 	"Category": "Text",
 	"CoercionItemClass": "WFStringContentItem",
 	"Description": {
-		"DescriptionSummary": "Returns text from the previous action's output.\n\nFor example, this action can get the name of a photo or song, or the text of a web page."
+		"DescriptionSummary": "Returns text from the previous action's output.\n\nFor example, this action can get the name of a photo or song, or the text of a webpage."
 	},
 	"IconName": "Text.png",
 	"Input": {

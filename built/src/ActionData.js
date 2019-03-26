@@ -613,6 +613,9 @@ class WFAction {
         this._parameters = [];
         this.internalName = this.id;
         this.name = this._data.Name;
+        if (data.AppInfo) {
+            this.name += ` (${data.AppInfo})`;
+        }
         this.shortName = genShortName(this.name, this.internalName);
         this.name = this.name || this.shortName;
         const parameterNames = {};

@@ -87,7 +87,11 @@ or a variable.
 		"speak",
 		"dictate",
 		"text",
-		"say"
+		"say",
+		"speech",
+		"talk",
+		"out",
+		"loud"
 	],
 	"Category": "Text",
 	"CreationDate": "2014-01-20T06:00:00.000Z",

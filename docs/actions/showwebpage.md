@@ -1,5 +1,5 @@
 
-## Show Web Page / showwebpage (internally `is.workflow.actions.showwebpage`)
+## Show Webpage / showwebpage (internally `is.workflow.actions.showwebpage`)
 
 > This action requires that Shortcuts has permission to use WFUserInteractionResource.
 
@@ -8,7 +8,7 @@
 
 ### summary
 
-Shows the web URL passed into the action in a Safari View Controller, allowing you to view the web page without switching apps.
+Shows the web URL passed into the action in a Safari View Controller, allowing you to view the webpage without switching apps.
 
 
 ### usage
@@ -49,7 +49,7 @@ or a variable.
 	"Category": "Web",
 	"CreationDate": "2016-05-17T22:30:00.000Z",
 	"Description": {
-		"DescriptionSummary": "Shows the web URL passed into the action in a Safari View Controller, allowing you to view the web page without switching apps."
+		"DescriptionSummary": "Shows the web URL passed into the action in a Safari View Controller, allowing you to view the webpage without switching apps."
 	},
 	"Input": {
 		"Multiple": false,
@@ -60,12 +60,12 @@ or a variable.
 		]
 	},
 	"InputPassthrough": true,
-	"Name": "Show Web Page",
+	"Name": "Show Webpage",
 	"Parameters": [
 		{
 			"Class": "WFSwitchParameter",
 			"DefaultValue": false,
-			"Description": "Enter Safari Reader mode if it’s available for the given web page.",
+			"Description": "Enter Safari Reader mode if it’s available for the given webpage.",
 			"Key": "WFEnterSafariReader",
 			"Label": "Enter Safari Reader"
 		}

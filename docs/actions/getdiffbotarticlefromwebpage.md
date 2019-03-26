@@ -1,5 +1,5 @@
 
-## Get Diffbot Article from Web Page / getdiffbotarticlefromwebpage (internally `is.workflow.actions.getarticle`)
+## Get Diffbot Article from Webpage / getdiffbotarticlefromwebpage (internally `is.workflow.actions.getarticle`)
 
 
 ## description
@@ -61,7 +61,7 @@ getdiffbotarticlefromwebpage
 		]
 	},
 	"InputPassthrough": false,
-	"Name": "Get Diffbot Article from Web Page",
+	"Name": "Get Diffbot Article from Webpage",
 	"Output": {
 		"OutputName": "Article",
 		"Types": [

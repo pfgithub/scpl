@@ -110,7 +110,7 @@ containing one of the options:
 		"Multiple": false,
 		"OutputName": "Travel Time",
 		"Types": [
-			"WFTimeInterval"
+			"WFTripInfo"
 		]
 	},
 	"Parameters": [

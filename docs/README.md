@@ -10,7 +10,7 @@ Banner by ROP#2788 on the [routinehub.co](https://routinehub.co) discord server.
 
 [Try Shortcutslang in a web browser](https://editor.scpl.dev)
 
-227/266 builtin actions supported
+231/271 builtin actions supported
 
 ## All Actions:
 
@@ -31,6 +31,7 @@ Banner by ROP#2788 on the [routinehub.co](https://routinehub.co) discord server.
 - [AirDrop (`airdrop`)](actions/airdrop)
 - [Append to File (`appendtofile`)](actions/appendtofile)
 - [Append to Note (`appendtonote`)](actions/appendtonote)
+- [Append to Note (Evernote) (`appendtonoteevernote`)](actions/appendtonoteevernote)
 - [Ask for Input (`askforinput`)](actions/askforinput)
 - [Base64 Encode (`base64encode`)](actions/base64encode)
 - [Calculate (`calculate`)](actions/calculate)
@@ -53,6 +54,7 @@ Banner by ROP#2788 on the [routinehub.co](https://routinehub.co) discord server.
 - [Create Alarm (`createalarm`)](actions/createalarm) (Incomplete)
 - [Create Folder (`createfolder`)](actions/createfolder)
 - [Create New Note (`createnewnote`)](actions/createnewnote) (Incomplete)
+- [Create Note (`createnote`)](actions/createnote)
 - [Create Playlist (`createplaylist`)](actions/createplaylist)
 - [Create Trello Board (`createtrelloboard`)](actions/createtrelloboard)
 - [Create Trello List (`createtrellolist`)](actions/createtrellolist)
@@ -79,6 +81,7 @@ Banner by ROP#2788 on the [routinehub.co](https://routinehub.co) discord server.
 - [Find Contacts (`findcontacts`)](actions/findcontacts) (Incomplete)
 - [Find Health Samples (`findhealthsamples`)](actions/findhealthsamples)
 - [Find Music (`findmusic`)](actions/findmusic) (Incomplete)
+- [Find Notes (`findnotes`)](actions/findnotes) (Incomplete)
 - [Find Photos (`findphotos`)](actions/findphotos) (Incomplete)
 - [Find Reminders (`findreminders`)](actions/findreminders) (Incomplete)
 - [Flip Image (`flipimage`)](actions/flipimage)
@@ -93,7 +96,7 @@ Banner by ROP#2788 on the [routinehub.co](https://routinehub.co) discord server.
 - [Get Component of URL (`getcomponentofurl`)](actions/getcomponentofurl)
 - [Get Contacts from Input (`getcontactsfrominput`)](actions/getcontactsfrominput)
 - [Get Contents of URL (`getcontentsofurl`)](actions/getcontentsofurl)
-- [Get Contents of Web Page (`getcontentsofwebpage`)](actions/getcontentsofwebpage)
+- [Get Contents of Webpage (`getcontentsofwebpage`)](actions/getcontentsofwebpage)
 - [Get Current IP Address (`getcurrentipaddress`)](actions/getcurrentipaddress)
 - [Get Current Location (`getcurrentlocation`)](actions/getcurrentlocation)
 - [Get Current Song (`getcurrentsong`)](actions/getcurrentsong)
@@ -110,7 +113,7 @@ Banner by ROP#2788 on the [routinehub.co](https://routinehub.co) discord server.
 - [Get Details of Locations (`getdetailsoflocations`)](actions/getdetailsoflocations)
 - [Get Details of Music (`getdetailsofmusic`)](actions/getdetailsofmusic)
 - [Get Details of Reminders (`getdetailsofreminders`)](actions/getdetailsofreminders) (Incomplete)
-- [Get Details of Safari Web Page (`getdetailsofsafariwebpage`)](actions/getdetailsofsafariwebpage)
+- [Get Details of Safari Webpage (`getdetailsofsafariwebpage`)](actions/getdetailsofsafariwebpage)
 - [Get Details of Trello Item (`getdetailsoftrelloitem`)](actions/getdetailsoftrelloitem) (Incomplete)
 - [Get Details of Ulysses Sheet (`getdetailsofulyssessheet`)](actions/getdetailsofulyssessheet) (Incomplete)
 - [Get Details of Weather Conditions (`getdetailsofweatherconditions`)](actions/getdetailsofweatherconditions) (Incomplete)
@@ -119,7 +122,7 @@ Banner by ROP#2788 on the [routinehub.co](https://routinehub.co) discord server.
 - [Get Device Details (`getdevicedetails`)](actions/getdevicedetails)
 - [Get Dictionary Value (`getdictionaryvalue`)](actions/getdictionaryvalue)
 - [Get Dictionary from Input (`getdictionaryfrominput`)](actions/getdictionaryfrominput)
-- [Get Diffbot Article from Web Page (`getdiffbotarticlefromwebpage`)](actions/getdiffbotarticlefromwebpage)
+- [Get Diffbot Article from Webpage (`getdiffbotarticlefromwebpage`)](actions/getdiffbotarticlefromwebpage)
 - [Get Distance (`getdistance`)](actions/getdistance) (Incomplete)
 - [Get Email Addresses from Input (`getemailaddressesfrominput`)](actions/getemailaddressesfrominput)
 - [Get File (`getfile`)](actions/getfile)
@@ -147,6 +150,7 @@ Banner by ROP#2788 on the [routinehub.co](https://routinehub.co) discord server.
 - [Get Network Details (`getnetworkdetails`)](actions/getnetworkdetails)
 - [Get Note Link (`getnotelink`)](actions/getnotelink)
 - [Get Notes (`getnotes`)](actions/getnotes) (Incomplete)
+- [Get Numbers from Input (`getnumbersfrominput`)](actions/getnumbersfrominput)
 - [Get Object of Class (`getobjectofclass`)](actions/getobjectofclass)
 - [Get Phone Numbers from Input (`getphonenumbersfrominput`)](actions/getphonenumbersfrominput)
 - [Get Pinboard Bookmarks (`getpinboardbookmarks`)](actions/getpinboardbookmarks)
@@ -210,7 +214,7 @@ Banner by ROP#2788 on the [routinehub.co](https://routinehub.co) discord server.
 - [Rotate Image (`rotateimage`)](actions/rotateimage)
 - [Round Number (`roundnumber`)](actions/roundnumber)
 - [Run Home Scene (`runhomescene`)](actions/runhomescene) (Incomplete)
-- [Run JavaScript on Web Page (`runjavascriptonwebpage`)](actions/runjavascriptonwebpage)
+- [Run JavaScript on Webpage (`runjavascriptonwebpage`)](actions/runjavascriptonwebpage)
 - [Run Script Over SSH (`runscriptoverssh`)](actions/runscriptoverssh)
 - [Run Shortcut (`runshortcut`)](actions/runshortcut)
 - [Save File (`savefile`)](actions/savefile)
@@ -248,9 +252,10 @@ Banner by ROP#2788 on the [routinehub.co](https://routinehub.co) discord server.
 - [Show Alert (`showalert`)](actions/showalert)
 - [Show Definition (`showdefinition`)](actions/showdefinition)
 - [Show Directions (`showdirections`)](actions/showdirections)
+- [Show Note (`shownote`)](actions/shownote)
 - [Show Notification (`shownotification`)](actions/shownotification)
 - [Show Result (`showresult`)](actions/showresult)
-- [Show Web Page (`showwebpage`)](actions/showwebpage)
+- [Show Webpage (`showwebpage`)](actions/showwebpage)
 - [Show in BlindSquare (`showinblindsquare`)](actions/showinblindsquare)
 - [Show in Calendar (`showincalendar`)](actions/showincalendar)
 - [Show in Maps (`showinmaps`)](actions/showinmaps)
@@ -347,19 +352,19 @@ Banner by ROP#2788 on the [routinehub.co](https://routinehub.co) discord server.
 - [x] Complete - 4: WFCalendarPickerParameter
 - [x] Complete - 4: WFStorageServicePickerParameter
 - [x] Complete - 4: WFEmailAddressFieldParameter
-- [x] Complete - 5: WFIntentAppPickerParameter
 - [x] Complete - 5: WFDictionaryParameter
 - [x] Complete - 5: WFSliderParameter
+- [x] Complete - 7: WFIntentAppPickerParameter
 - [ ] 7: WFFilterParameter
 - [x] Complete - 8: WFLocationFieldParameter
 - [x] Complete - 8: WFExpandingParameter
-- [x] Complete - 9: WFVariablePickerParameter
-- [ ] 11: _UndefinedCoercionClass
+- [x] Complete - 10: WFVariablePickerParameter
+- [ ] 12: _UndefinedCoercionClass
 - [x] Complete - 14: WFDynamicEnumerationParameter
 - [x] Complete - 17: WFDateFieldParameter
 - [x] Complete - 30: WFStepperParameter
 - [x] Complete - 39: WFNumberFieldParameter
-- [x] Complete - 74: WFSwitchParameter
+- [x] Complete - 76: WFSwitchParameter
 - [x] Complete - 110: WFEnumerationParameter
 - [x] Complete - 112: WFTextInputParameter
 

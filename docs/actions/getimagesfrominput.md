@@ -8,7 +8,7 @@
 
 Gets images from the result of the previous action.
 
-For example, this action can get the album art of a song, or all the images on a web page.
+For example, this action can get the album art of a song, or all the images on a webpage.
 
 
 ### usage
@@ -40,7 +40,7 @@ getimagesfrominput
 	"Category": "Photos & Video",
 	"CoercionItemClass": "WFImageContentItem",
 	"Description": {
-		"DescriptionSummary": "Gets images from the result of the previous action.\n\nFor example, this action can get the album art of a song, or all the images on a web page."
+		"DescriptionSummary": "Gets images from the result of the previous action.\n\nFor example, this action can get the album art of a song, or all the images on a webpage."
 	},
 	"IconName": "Image.png",
 	"Input": {

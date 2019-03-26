@@ -18,14 +18,14 @@ The destination address
 
 ### usage
 ```
-showdirections mapsapp=("Maps" | "Google Maps" | "Waze") mode=("string" | variable)]
+showdirections app=("Maps" | "Google Maps" | "Waze") mode=("string" | variable)]
 ```
 
 ### arguments
 
 ---
 
-### mapsapp: Maps App [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### app: Maps App [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Maps"`
 **Allows Variables**: true
 
@@ -47,7 +47,7 @@ containing one of the options:
 		```
 **Allows Variables**: true
 
-**Only enabled if**: argument WFGetDirectionsActionApp == `Maps` or `Google Maps` or `Transit` or `Waze`
+**Only enabled if**: argument WFGetDirectionsActionApp == `Maps` or `Google Maps` or `Baidu Maps`
 
 		Accepts a string or variable containing the option. Check the shortcuts app for a list of available options. 
 
@@ -71,7 +71,6 @@ containing one of the options:
 		"transit",
 		"citymapper"
 	],
-	"AppIdentifier": "com.apple.Maps",
 	"Category": "Location",
 	"Description": {
 		"DescriptionInput": "The destination address",
@@ -93,13 +92,14 @@ containing one of the options:
 			"Class": "WFMapsAppPickerParameter",
 			"DefaultValue": "Maps",
 			"Key": "WFGetDirectionsActionApp",
-			"Label": "Maps App",
+			"Label": "App",
 			"SupportedApps": [
 				"Maps",
 				"Citymapper",
 				"Google Maps",
 				"Transit",
-				"Waze"
+				"Waze",
+				"Baidu Maps"
 			]
 		},
 		{
@@ -113,8 +113,7 @@ containing one of the options:
 					"WFParameterValues": [
 						"Maps",
 						"Google Maps",
-						"Transit",
-						"Waze"
+						"Baidu Maps"
 					],
 					"WFResourceClass": "WFParameterRelationResource"
 				}

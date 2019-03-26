@@ -3,10 +3,10 @@ const fs = require("fs");
 
 const bplistp = require("bplist-parser");
 
-let args = process.argv.slice(2);
+const args = process.argv.slice(2);
 
 // let action = args.shift().toLowerCase();
-let [input, output] = args;
+const [input, output] = args;
 let action;
 
 if (input.endsWith(".json") && output.endsWith(".shortcut")) {
@@ -43,7 +43,7 @@ if (action === "shortcuttojson") {
 		fs.writeFileSync(output, JSON.stringify(obj, null, "\t"), "utf8");
 	});
 } else if (action === "jsontoshortcut") {
-	let buffer = bplistc(cfbtr(JSON.parse(fs.readFileSync(input, "utf8"))));
+	const buffer = bplistc(cfbtr(JSON.parse(fs.readFileSync(input, "utf8"))));
 	fs.writeFileSync(output, buffer);
 }
 

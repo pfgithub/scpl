@@ -1,4 +1,4 @@
-import * as builtin from "./Shortcuts 2.1.2.json";
+import * as builtin from "./Shortcuts 2.2.json";
 import getTypes from "./GetTypes";
 import { isCoercionTypeClass } from "../WFTypes/Types";
 import * as fs from "fs";
@@ -22,6 +22,9 @@ actions["is.workflow.actions.repeat.each"].BlockInfo = {
 	Example: "\n  ...\nend",
 	Completion: "\n\t$0\nend"
 };
+
+// append to note -> append to evernote note
+actions["is.workflow.actions.evernote.append"].AppInfo = "Evernote";
 
 Object.values(actions).forEach((action: any) => {
 	if (action.ActionClass === "WFContentItemPropertiesAction") {

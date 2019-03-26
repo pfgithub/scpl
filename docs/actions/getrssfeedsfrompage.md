@@ -6,7 +6,7 @@
 
 ### summary
 
-Extracts any RSS feed URLs from the given web URLs or web page.
+Extracts any RSS feed URLs from the given web URLs or webpage.
 
 
 ### usage
@@ -36,7 +36,7 @@ getrssfeedsfrompage
 	"Category": "Web",
 	"CreationDate": "2015-02-19T08:00:00.000Z",
 	"Description": {
-		"DescriptionSummary": "Extracts any RSS feed URLs from the given web URLs or web page."
+		"DescriptionSummary": "Extracts any RSS feed URLs from the given web URLs or webpage."
 	},
 	"IconName": "RSS.png",
 	"Input": {

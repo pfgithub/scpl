@@ -11,7 +11,7 @@ Searches the iTunes Store, returning the items that match the specified search t
 
 ### usage
 ```
-searchitunesstore search="string" category=("string" | variable)] searchby=("string" | variable)] results=("string" | variable)] country=("string" | variable)] wfitemlimit=number
+searchitunesstore search="string" category=("string" | variable)] searchby=("string" | variable)] results=("string" | variable)] region=("string" | variable)] wfitemlimit=number
 ```
 
 ### arguments
@@ -57,7 +57,7 @@ with the text.
 
 ---
 
-### country: iTunes Store Country Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### region: iTunes Store Country Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Allows Variables**: true
 
 
@@ -135,7 +135,7 @@ with the text.
 		{
 			"Class": "WFiTunesStoreCountryPickerParameter",
 			"Key": "WFCountry",
-			"Label": "Country"
+			"Label": "Region"
 		},
 		{
 			"Class": "WFStepperParameter",

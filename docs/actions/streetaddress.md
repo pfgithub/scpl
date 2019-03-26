@@ -11,7 +11,7 @@ Passes the specified address to the next action.
 
 ### usage
 ```
-streetaddress line1="string" line2="string" city="string" state="string" postalcode="string" country="string"
+streetaddress line1="string" line2="string" city="string" state="string" postalcode="string" region="string"
 ```
 
 ### arguments
@@ -77,7 +77,7 @@ with the text.
 
 ---
 
-### country: Country [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### region: Country [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"United States"`
 **Allows Variables**: true
 
@@ -160,7 +160,7 @@ with the text.
 			"AutocapitalizationType": "Words",
 			"Class": "WFCountryFieldParameter",
 			"Key": "WFCountry",
-			"Label": "Country",
+			"Label": "Region",
 			"Placeholder": "United States"
 		}
 	]

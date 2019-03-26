@@ -7,6 +7,7 @@ export declare function parse(string: string, options: {
     make?: ["shortcutjson"?, "shortcutplist"?, "outputdata"?];
     makePlist?: boolean;
     makeShortcut?: boolean;
+    generateSCPLData?: boolean;
     extraParseActions?: {
         [key: string]: (cc: ConvertingContext, ...args: AsAble[]) => void;
     };
