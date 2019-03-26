@@ -1,4 +1,4 @@
 language: nodejs
 
 script:
-    - yarn test
+    - npm run test
