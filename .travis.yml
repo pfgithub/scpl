@@ -1,4 +1,1 @@
-language: nodejs
-
-script:
-    - npm run test
+language: node_js
