@@ -33,8 +33,9 @@ export function parse(
 			1
 		]);
 	}
-	
-	const generateSCPLData = options.generateSCPLData === undefined ? true : false;
+
+	const generateSCPLData =
+		options.generateSCPLData === undefined ? true : false;
 
 	let shortcut;
 	try {
