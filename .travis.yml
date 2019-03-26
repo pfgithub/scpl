@@ -1,0 +1,4 @@
+language: nodejs
+
+script:
+    - yarn test

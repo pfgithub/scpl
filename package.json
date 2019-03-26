@@ -12,7 +12,7 @@
 		"docs": "tsc && node ./built/src/GenDocs",
 		"test": "tsc && ava ./built/test/index.js",
 		"actions": "tsc && node ./built/src/Data/GenActions",
-		"format": "yarn run prettier --write src/*** test/*.ts test/*.json bin/*** index.ts .prettierrc .eslintrc.js modules.d.ts plistconv.js"
+		"format": "yarn run prettier --write src/*** test/*.ts test/*.json bin/*** index.ts .prettierrc .eslintrc.js modules.d.ts plistconv.js .travis.yml"
 	},
 	"author": {
 		"name": "pfg",
