@@ -14,6 +14,7 @@ export function parse(
 		make?: ["shortcutjson"?, "shortcutplist"?, "outputdata"?];
 		makePlist?: boolean;
 		makeShortcut?: boolean;
+		generateSCPLData?: boolean;
 		extraParseActions?: {
 			[key: string]: (cc: ConvertingContext, ...args: AsAble[]) => void;
 		};
@@ -32,6 +33,8 @@ export function parse(
 			1
 		]);
 	}
+	
+	const generateSCPLData = options.generateSCPLData === undefined ? true : false;
 
 	let shortcut;
 	try {
@@ -75,6 +78,6 @@ export function inverse(data: WFShortcut | Buffer): string {
 	if (data instanceof Buffer) {
 		data = <WFShortcut>bplistp.parseBuffer(data);
 	}
-	let result = icc.createActionsAble(Shortcut.inverse(data));
+	const result = icc.createActionsAble(Shortcut.inverse(data));
 	return result;
 }

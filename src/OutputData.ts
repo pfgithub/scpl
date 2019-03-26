@@ -413,7 +413,6 @@ export class Variable extends Attachment {
 		const sb = super.build();
 		return sb;
 	}
-	// the function that used to be in this place was used nowhere, ignore its lies
 }
 
 export class NamedVariable extends Variable {
