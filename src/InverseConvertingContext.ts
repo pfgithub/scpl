@@ -230,9 +230,6 @@ export class InverseConvertingContext {
 			);
 		}
 		if (value.getProperty) {
-			if (!value.coercionType) {
-				return `??get: ${value.getProperty.name} without as: value??`;
-			}
 			aggrandizements.push(
 				`get: ${value.getProperty.name
 					.toLowerCase()

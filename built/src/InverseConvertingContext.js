@@ -186,9 +186,6 @@ class InverseConvertingContext {
             aggrandizements.push(`as: ${OutputData_1.inverseCoercionTypes[value.coercionType]}`);
         }
         if (value.getProperty) {
-            if (!value.coercionType) {
-                return `??get: ${value.getProperty.name} without as: value??`;
-            }
             aggrandizements.push(`get: ${value.getProperty.name
                 .toLowerCase()
                 .replace(/[^a-z]/g, "")}`);
