@@ -12,32 +12,25 @@
 		"docs": "tsc && node ./built/src/GenDocs",
 		"test": "tsc && ava ./built/test/index.js",
 		"actions": "tsc && node ./built/src/Data/GenActions",
-		"format": "yarn run prettier --write src/*** test/*.ts test/*.json bin/*** index.ts .prettierrc .eslintrc.js modules.d.ts plistconv.js .travis.yml"
+		"format": "yarn run prettier --write src/*** test/*.ts test/*.json index.ts .prettierrc .eslintrc.js modules.d.ts plistconv.js .travis.yml"
 	},
 	"author": {
 		"name": "pfg",
 		"email": "omegariisthebest@gmail.com",
 		"url": "https://pfgithub.github.io/"
 	},
-	"bin": {
-		"scpl": "./built/bin/scpl.js"
-	},
 	"repository": "github:pfgithub/shortcutslang",
-	"man": "./man/scpl.1",
 	"files": [
 		"/man",
 		"/built/index.js",
 		"/built/index.d.ts",
-		"/built/src",
-		"/built/bin"
+		"/built/src"
 	],
 	"dependencies": {
 		"bplist-creator": "^0.0.7",
 		"bplist-parser": "^0.1.1",
-		"chalk": "^2.4.2",
 		"plist": "^3.0.1",
-		"uuid": "^3.3.2",
-		"yargs": "^13.2.1"
+		"uuid": "^3.3.2"
 	},
 	"devDependencies": {
 		"@types/node": "^11.9.5",
