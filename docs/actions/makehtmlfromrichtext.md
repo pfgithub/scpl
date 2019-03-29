@@ -15,7 +15,7 @@ HTML
 
 ### usage
 ```
-makehtmlfromrichtext makefulldocument=(true | f alse | variable)
+makehtmlfromrichtext makefulldocument=(true | false | variable)
 ```
 
 ### arguments

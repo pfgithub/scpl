@@ -15,7 +15,7 @@ A list of text items that matched the regular expression
 
 ### usage
 ```
-matchtext pattern="string" casesensitive=(true | f alse | variable)
+matchtext pattern="string" casesensitive=(true | false | variable)
 ```
 
 ### arguments

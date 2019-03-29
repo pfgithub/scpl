@@ -13,7 +13,7 @@ Gets a link to the Evernote note passed into the action, which can be shared.
 
 ### usage
 ```
-getnotelink inapplink=(true | f alse | variable)
+getnotelink inapplink=(true | false | variable)
 ```
 
 ### arguments

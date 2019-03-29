@@ -714,7 +714,7 @@ class WFSwitchParameter extends WFParameter {
 	}
 	genDocsArgName() {
 		return this.allowsVariables
-			? `(true | f alse | variable)`
+			? `(true | false | variable)`
 			: `(true | false)`;
 	}
 	genDocs() {

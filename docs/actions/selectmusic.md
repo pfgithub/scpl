@@ -13,7 +13,7 @@ Prompts to select music from your local music library.
 
 ### usage
 ```
-selectmusic selectmultiplesongs=(true | f alse | variable)
+selectmusic selectmultiplesongs=(true | false | variable)
 ```
 
 ### arguments

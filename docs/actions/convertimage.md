@@ -11,7 +11,7 @@ Converts the images passed into the action to the specified image format.
 
 ### usage
 ```
-convertimage format=("JPEG" | "PNG" | "TIFF" | "GIF" | "JPEG-2000" | "BMP" | "PDF" | "Match Input") quality=number preservemetadata=(true | f alse | variable)
+convertimage format=("JPEG" | "PNG" | "TIFF" | "GIF" | "JPEG-2000" | "BMP" | "PDF" | "Match Input") quality=number preservemetadata=(true | false | variable)
 ```
 
 ### arguments

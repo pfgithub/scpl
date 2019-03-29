@@ -13,7 +13,7 @@ Sets the device’s Airplane Mode to on or off.
 
 ### usage
 ```
-setairplanemode airplanemode=(true | f alse | variable)
+setairplanemode airplanemode=(true | false | variable)
 ```
 
 ### arguments

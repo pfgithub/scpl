@@ -13,7 +13,7 @@ Copies the result of the last action to the clipboard.
 
 ### usage
 ```
-copytoclipboard localonly=(true | f alse | variable) expireat="string"
+copytoclipboard localonly=(true | false | variable) expireat="string"
 ```
 
 ### arguments

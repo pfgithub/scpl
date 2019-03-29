@@ -7,7 +7,7 @@
 
 ### usage
 ```
-filterfiles undefined=NotImplemented sortby=("Creation Date" | "File Size" | "File Extension" | "Last Modified Date" | "Name" | "Random") order=("Oldest First" | "Newest First" | "A to Z" | "Z to A") limit=(true | f alse | variable) getitems=number
+filterfiles undefined=NotImplemented sortby=("Creation Date" | "File Size" | "File Extension" | "Last Modified Date" | "Name" | "Random") order=("Oldest First" | "Newest First" | "A to Z" | "Z to A") limit=(true | false | variable) getitems=number
 ```
 
 ### arguments

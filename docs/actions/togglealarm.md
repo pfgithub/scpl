@@ -13,7 +13,7 @@ Enables or disables an alarm in the Clock app.
 
 ### usage
 ```
-togglealarm alarm=("string" | variable)] enabled=(true | f alse | variable)
+togglealarm alarm=("string" | variable)] enabled=(true | false | variable)
 ```
 
 ### arguments

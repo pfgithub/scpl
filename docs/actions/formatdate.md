@@ -16,7 +16,7 @@ Custom format strings use the format patterns from Unicode Technical Standard #3
 
 ### usage
 ```
-formatdate dateformat=("None" | "Short" | "Medium" | "Long" | "Relative" | "RFC 2822" | "ISO 8601" | "Custom") alternateformat=("Short" | "Medium" | "Long") timeformat=("None" | "Short" | "Medium" | "Long" | "Relative") includeiso8601time=(true | f alse | variable) formatstring="string"
+formatdate dateformat=("None" | "Short" | "Medium" | "Long" | "Relative" | "RFC 2822" | "ISO 8601" | "Custom") alternateformat=("Short" | "Medium" | "Long") timeformat=("None" | "Short" | "Medium" | "Long" | "Relative") includeiso8601time=(true | false | variable) formatstring="string"
 ```
 
 ### arguments

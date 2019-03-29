@@ -11,7 +11,7 @@ Speaks the inputted text aloud.
 
 ### usage
 ```
-speaktext waituntilfinished=(true | f alse | variable) rate=number pitch=number language=("string" | variable)] voice=("string" | variable)]
+speaktext waituntilfinished=(true | false | variable) rate=number pitch=number language=("string" | variable)] voice=("string" | variable)]
 ```
 
 ### arguments

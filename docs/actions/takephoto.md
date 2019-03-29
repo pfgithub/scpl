@@ -17,7 +17,7 @@ Photo from the camera.
 
 ### usage
 ```
-takephoto showcamerapreview=(true | f alse | variable) wfphotocount=number camera=("Front" | "Back")
+takephoto showcamerapreview=(true | false | variable) wfphotocount=number camera=("Front" | "Back")
 ```
 
 ### arguments

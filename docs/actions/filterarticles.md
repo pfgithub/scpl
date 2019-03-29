@@ -7,7 +7,7 @@
 
 ### usage
 ```
-filterarticles undefined=NotImplemented sortby=("Name" | "Title" | "Published Date" | "Author" | "Number of Words" | "Main Image URL" | "URL" | "Excerpt" | "Random") order=("Oldest First" | "Newest First" | "A to Z" | "Z to A") limit=(true | f alse | variable) getitems=number
+filterarticles undefined=NotImplemented sortby=("Name" | "Title" | "Published Date" | "Author" | "Number of Words" | "Main Image URL" | "URL" | "Excerpt" | "Random") order=("Oldest First" | "Newest First" | "A to Z" | "Z to A") limit=(true | false | variable) getitems=number
 ```
 
 ### arguments

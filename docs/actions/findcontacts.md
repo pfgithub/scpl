@@ -9,7 +9,7 @@
 
 ### usage
 ```
-findcontacts undefined=NotImplemented sortby=("Email Address" | "Phonetic First Name" | "Prefix" | "URL" | "Nickname" | "Last Name" | "Phone Number" | "Has Photo" | "File Size" | "Creation Date" | "Last Modified Date" | "Middle Name" | "Company" | "Department" | "Name" | "Contact Photo" | "First Name" | "Phonetic Last Name" | "File Extension" | "Street Address" | "Suffix" | "Job Title" | "Notes" | "Birthday" | "Group" | "Phonetic Middle Name" | "Random") order=("Oldest First" | "Newest First" | "A to Z" | "Z to A") limit=(true | f alse | variable) getitems=number
+findcontacts undefined=NotImplemented sortby=("Email Address" | "Phonetic First Name" | "Prefix" | "URL" | "Nickname" | "Last Name" | "Phone Number" | "Has Photo" | "File Size" | "Creation Date" | "Last Modified Date" | "Middle Name" | "Company" | "Department" | "Name" | "Contact Photo" | "First Name" | "Phonetic Last Name" | "File Extension" | "Street Address" | "Suffix" | "Job Title" | "Notes" | "Birthday" | "Group" | "Phonetic Middle Name" | "Random") order=("Oldest First" | "Newest First" | "A to Z" | "Z to A") limit=(true | false | variable) getitems=number
 ```
 
 ### arguments

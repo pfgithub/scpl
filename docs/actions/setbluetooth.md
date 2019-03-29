@@ -13,7 +13,7 @@ Sets the device’s Bluetooth to on or off.
 
 ### usage
 ```
-setbluetooth bluetooth=(true | f alse | variable)
+setbluetooth bluetooth=(true | false | variable)
 ```
 
 ### arguments

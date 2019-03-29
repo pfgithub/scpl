@@ -5,7 +5,7 @@
 
 ### usage
 ```
-unknownintent showwhenrun=(true | f alse | variable)
+unknownintent showwhenrun=(true | false | variable)
 ```
 
 ### arguments

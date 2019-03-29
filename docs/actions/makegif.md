@@ -15,7 +15,7 @@ An animated GIF
 
 ### usage
 ```
-makegif secondsperphoto=number loopforever=(true | f alse | variable) wfmakegifactionloopcount=number autosize=(true | f alse | variable) width=number height=number
+makegif secondsperphoto=number loopforever=(true | false | variable) wfmakegifactionloopcount=number autosize=(true | false | variable) width=number height=number
 ```
 
 ### arguments

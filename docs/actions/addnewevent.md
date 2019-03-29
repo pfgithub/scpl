@@ -17,7 +17,7 @@ The new event
 
 ### usage
 ```
-addnewevent title="string" location="string" calendar=("string" | variable)] date=(true | false) startdate="string" enddate="string" allday=(true | f alse | variable) alert=("At time of event" | "5 minutes before" | "15 minutes before" | "30 minutes before" | "1 hour before" | "2 hours before" | "1 day before" | "2 days before" | "1 week before" | "Custom") alerttime="string" notes="string"
+addnewevent title="string" location="string" calendar=("string" | variable)] date=(true | false) startdate="string" enddate="string" allday=(true | false | variable) alert=("At time of event" | "5 minutes before" | "15 minutes before" | "30 minutes before" | "1 hour before" | "2 hours before" | "1 day before" | "2 days before" | "1 week before" | "Custom") alerttime="string" notes="string"
 ```
 
 ### arguments

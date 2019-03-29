@@ -13,7 +13,7 @@ Displays an alert with a title, a message, and two buttons. If the user selects 
 
 ### usage
 ```
-showalert title="string" message="string" showcancelbutton=(true | f alse | variable)
+showalert title="string" message="string" showcancelbutton=(true | false | variable)
 ```
 
 ### arguments

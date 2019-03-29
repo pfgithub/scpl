@@ -13,7 +13,7 @@ Gets the most recent photos from the camera roll.
 
 ### usage
 ```
-getlatestphotos wfgetlatestphotocount=number includescreenshots=(true | f alse | variable)
+getlatestphotos wfgetlatestphotocount=number includescreenshots=(true | false | variable)
 ```
 
 ### arguments

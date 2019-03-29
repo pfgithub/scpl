@@ -13,7 +13,7 @@ Presents a menu of the items passed as input to the action and outputs the user'
 
 ### usage
 ```
-choosefromlist prompt="string" selectmultiple=(true | f alse | variable) selectallinitially=(true | f alse | variable)
+choosefromlist prompt="string" selectmultiple=(true | false | variable) selectallinitially=(true | false | variable)
 ```
 
 ### arguments

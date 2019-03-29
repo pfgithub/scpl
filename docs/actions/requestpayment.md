@@ -15,7 +15,7 @@ Requests a payment from the specified people using a payment app on your device.
 
 ### usage
 ```
-requestpayment app=("string" | variable)] undefined=NotImplemented amount=number openinapp=(true | f alse | variable) showwhenrun=(true | f alse | variable) note="string"
+requestpayment app=("string" | variable)] undefined=NotImplemented amount=number openinapp=(true | false | variable) showwhenrun=(true | false | variable) note="string"
 ```
 
 ### arguments

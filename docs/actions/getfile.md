@@ -18,7 +18,7 @@ In the iCloud picker, tap “Locations” to see document pickers from other app
 
 ### usage
 ```
-getfile service=("iCloud Drive" | "Dropbox") showdocumentpicker=(true | f alse | variable) selectmultiple=(true | f alse | variable) filepath="string" initialpath="string" errorifnotfound=(true | f alse | variable)
+getfile service=("iCloud Drive" | "Dropbox") showdocumentpicker=(true | false | variable) selectmultiple=(true | false | variable) filepath="string" initialpath="string" errorifnotfound=(true | false | variable)
 ```
 
 ### arguments

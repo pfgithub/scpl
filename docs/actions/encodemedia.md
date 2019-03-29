@@ -11,7 +11,7 @@ Re-encodes the media passed as input at the specified size, optionally convertin
 
 ### usage
 ```
-encodemedia audioonly=(true | f alse | variable) format=("M4A" | "AIFF") size=("640x480" | "960x540" | "1280x720" | "1920x1080" | "HEVC 1920x1080" | "HEVC 3840x2160" | "Passthrough") speed=("0.5X" | "Normal" | "2X" | "Custom") customspeed=number metadata=(true | false) title="string" artist="string" album="string" genre="string" year="string" artwork=(v:myvar | mv:myvar | s:myvar)
+encodemedia audioonly=(true | false | variable) format=("M4A" | "AIFF") size=("640x480" | "960x540" | "1280x720" | "1920x1080" | "HEVC 1920x1080" | "HEVC 3840x2160" | "Passthrough") speed=("0.5X" | "Normal" | "2X" | "Custom") customspeed=number metadata=(true | false) title="string" artist="string" album="string" genre="string" year="string" artwork=(v:myvar | mv:myvar | s:myvar)
 ```
 
 ### arguments

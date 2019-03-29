@@ -13,7 +13,7 @@ Shows the web URL passed into the action in a Safari View Controller, allowing y
 
 ### usage
 ```
-showwebpage entersafarireader=(true | f alse | variable)
+showwebpage entersafarireader=(true | false | variable)
 ```
 
 ### arguments

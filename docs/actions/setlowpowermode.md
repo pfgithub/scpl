@@ -13,7 +13,7 @@ Sets the device’s Low Power Mode to on or off.
 
 ### usage
 ```
-setlowpowermode lowpowermode=(true | f alse | variable)
+setlowpowermode lowpowermode=(true | false | variable)
 ```
 
 ### arguments

@@ -22,7 +22,7 @@ The combined images
 
 ### usage
 ```
-overlayimage image=(v:myvar | mv:myvar | s:myvar) showimageeditor=(true | f alse | variable) position=("Center" | "Top Left" | "Top Right" | "Bottom Left" | "Bottom Right" | "Custom") width=number height=number xcoordinate=number ycoordinate=number rotationdegrees=number opacity=number
+overlayimage image=(v:myvar | mv:myvar | s:myvar) showimageeditor=(true | false | variable) position=("Center" | "Top Left" | "Top Right" | "Bottom Left" | "Bottom Right" | "Custom") width=number height=number xcoordinate=number ycoordinate=number rotationdegrees=number opacity=number
 ```
 
 ### arguments

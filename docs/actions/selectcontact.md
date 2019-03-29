@@ -13,7 +13,7 @@ Prompts to pick a person from your contacts and passes the selection to the next
 
 ### usage
 ```
-selectcontact selectmultiple=(true | f alse | variable)
+selectcontact selectmultiple=(true | false | variable)
 ```
 
 ### arguments

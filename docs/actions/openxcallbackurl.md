@@ -17,7 +17,7 @@ When the app that's opened calls back to Shortcuts using x-success, it may inclu
 
 ### usage
 ```
-openxcallbackurl customcallback=(true | f alse | variable) successkey="string" cancelkey="string" errorkey="string" customxsuccessurl=(true | f alse | variable) xsuccessurl="string"
+openxcallbackurl customcallback=(true | false | variable) successkey="string" cancelkey="string" errorkey="string" customxsuccessurl=(true | false | variable) xsuccessurl="string"
 ```
 
 ### arguments

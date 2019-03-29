@@ -15,7 +15,7 @@ Sends an iMessage or SMS. Pass images, videos, or other files as input to includ
 
 ### usage
 ```
-sendmessage app=("string" | variable)] showwhenrun=(true | f alse | variable) undefined=NotImplemented wfsendmessagecontent="string" prefix="string"
+sendmessage app=("string" | variable)] showwhenrun=(true | false | variable) undefined=NotImplemented wfsendmessagecontent="string" prefix="string"
 ```
 
 ### arguments

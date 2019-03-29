@@ -13,7 +13,7 @@ Creates a note using the content passed as input.
 
 ### usage
 ```
-createnote app=("string" | variable)] showcomposesheet=(true | f alse | variable)
+createnote app=("string" | variable)] showcomposesheet=(true | false | variable)
 ```
 
 ### arguments

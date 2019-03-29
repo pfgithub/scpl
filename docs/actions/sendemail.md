@@ -13,7 +13,7 @@ Presents an email composer. Pass text into the action to set the email body. Oth
 
 ### usage
 ```
-sendemail showcomposesheet=(true | f alse | variable) from=("string" | variable)] from2="string" to=("string" | [list, of, strings] | variable) cc=("string" | [list, of, strings] | variable) bcc=("string" | [list, of, strings] | variable) subject="string"
+sendemail showcomposesheet=(true | false | variable) from=("string" | variable)] from2="string" to=("string" | [list, of, strings] | variable) cc=("string" | [list, of, strings] | variable) bcc=("string" | [list, of, strings] | variable) subject="string"
 ```
 
 ### arguments

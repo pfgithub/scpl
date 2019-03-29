@@ -22,7 +22,7 @@ The saved files
 
 ### usage
 ```
-savefile service=("iCloud Drive" | "Dropbox") askwheretosave=(true | f alse | variable) destinationpath="string" overwriteiffileexists=(true | f alse | variable)
+savefile service=("iCloud Drive" | "Dropbox") askwheretosave=(true | false | variable) destinationpath="string" overwriteiffileexists=(true | false | variable)
 ```
 
 ### arguments

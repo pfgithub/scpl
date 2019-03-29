@@ -18,7 +18,7 @@ An image or video to include in the notification
 
 ### usage
 ```
-shownotification title="string" body="string" playsound=(true | f alse | variable)
+shownotification title="string" body="string" playsound=(true | false | variable)
 ```
 
 ### arguments
