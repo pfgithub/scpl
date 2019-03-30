@@ -214,6 +214,7 @@ module.exports = {
 		"space-unary-ops": 0, // Require or disallow spaces before/after unary operators (words on by default, nonwords off by default)
 		"prefer-const": 1,
 		complexity: 1,
+		"no-dupe-class-members": 0,
 
 		////////// ECMAScript 6 //////////
 
