@@ -482,4 +482,8 @@ ava_1.default("get details of * actions", t => {
         }
     ]);
 });
+ava_1.default("an action cannot have multiple = flags", t => {
+    t.throws(() => index_1.parse(`v:a = v:b = text "myaction"`, { makePlist: false }));
+    t.throws(() => index_1.parse(`v:a = v:b"`, { makePlist: false }));
+});
 // console.log(JSON.stringify(noUUID(actions), null, "\t"));

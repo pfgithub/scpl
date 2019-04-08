@@ -129,7 +129,7 @@ o.inputarg = p(c`^`, _, or(o.parenthesis, o.variable), _).scb(([, , paren]) => {
 	paren.special = "InputArg";
 	return paren;
 });
-o.flaggedaction = p(o.variable, _, c`=`, _, o.action).scb(
+o.flaggedaction = p(o.variable, _, c`=`, _, o.onlyaction).scb(
 	([variable, , , , action]) => {
 		if (action.variable) {
 			throw new Error("Actions cannot output to multiple variables");

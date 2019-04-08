@@ -597,4 +597,9 @@ test("get details of * actions", t => {
 	]);
 });
 
+test("an action cannot have multiple = flags", t => {
+	t.throws(() => parse(`v:a = v:b = text "myaction"`, { makePlist: false }));
+	t.throws(() => parse(`v:a = v:b"`, { makePlist: false }));
+});
+
 // console.log(JSON.stringify(noUUID(actions), null, "\t"));

@@ -59,7 +59,7 @@ ParserHelper_js_1.o.inputarg = ParserHelper_js_1.p(ParserHelper_js_1.c `^`, _, P
     paren.special = "InputArg";
     return paren;
 });
-ParserHelper_js_1.o.flaggedaction = ParserHelper_js_1.p(ParserHelper_js_1.o.variable, _, ParserHelper_js_1.c `=`, _, ParserHelper_js_1.o.action).scb(([variable, , , , action]) => {
+ParserHelper_js_1.o.flaggedaction = ParserHelper_js_1.p(ParserHelper_js_1.o.variable, _, ParserHelper_js_1.c `=`, _, ParserHelper_js_1.o.onlyaction).scb(([variable, , , , action]) => {
     if (action.variable) {
         throw new Error("Actions cannot output to multiple variables");
     }
