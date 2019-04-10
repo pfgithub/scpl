@@ -7,6 +7,13 @@ const fs = require("fs");
 const InverseConvertingContext_1 = require("../src/InverseConvertingContext");
 // import * as path from "path";
 const sampleshortcutdata = require("./sampleshortcut.json");
+function scplToShortcut(scpl) {
+    const output = index_1.parse(scpl, {
+        make: ["shortcutjson"]
+    });
+    const actions = output.shortcutjson[0].WFWorkflowActions;
+    return noUUID(actions, { noSCPLData: true });
+}
 function noUUID(obj, options = {}) {
     const uuids = [];
     return JSON.parse(JSON.stringify(obj, (key, value) => {
@@ -174,12 +181,7 @@ ava_1.default("lists cannot be used as strings", t => {
     t.throws(() => index_1.parse(`text [list]`, { makePlist: false }));
 });
 ava_1.default("variables", t => {
-    const output = index_1.parse(`setvariable v:myvar; text v:myvar`, {
-        makePlist: false
-    });
-    const [scdata] = output.build();
-    const actions = scdata.WFWorkflowActions;
-    t.deepEqual(noUUID(actions, { noSCPLData: true }), [
+    t.deepEqual(scplToShortcut(`setvariable v:myvar; text v:myvar`), [
         {
             WFWorkflowActionIdentifier: "is.workflow.actions.setvariable",
             WFWorkflowActionParameters: {
@@ -207,12 +209,7 @@ ava_1.default("variables", t => {
     ]);
 });
 ava_1.default("magic variables", t => {
-    const output = index_1.parse(`text "hello" -> mv:myvar; text mv:myvar`, {
-        makePlist: false
-    });
-    const [scdata] = output.build();
-    const actions = scdata.WFWorkflowActions;
-    t.deepEqual(noUUID(actions, { noSCPLData: true }), [
+    t.deepEqual(scplToShortcut(`text "hello" -> mv:myvar; text mv:myvar`), [
         {
             WFWorkflowActionIdentifier: "is.workflow.actions.gettext",
             WFWorkflowActionParameters: {
@@ -248,12 +245,7 @@ ava_1.default("undefined variables throw errors", t => {
     t.throws(() => index_1.parse(`text s:invalidspecialvariable`, { makePlist: false }));
 });
 ava_1.default("inputarg with actions and other action args", t => {
-    const output = index_1.parse(`calculate ^(number 1) "+" (number 5)`, {
-        makePlist: false
-    });
-    const [scdata] = output.build();
-    const actions = scdata.WFWorkflowActions;
-    t.deepEqual(noUUID(actions, { noSCPLData: true }), [
+    t.deepEqual(scplToShortcut(`calculate ^(number 1) "+" (number 5)`), [
         {
             WFWorkflowActionIdentifier: "is.workflow.actions.number",
             WFWorkflowActionParameters: {
@@ -305,7 +297,7 @@ ava_1.default("inputarg with no get variable needed", t => {
     });
     const [scdata] = output.build();
     const actions = scdata.WFWorkflowActions;
-    t.deepEqual(noUUID(actions, { noSCPLData: true }), [
+    t.deepEqual(scplToShortcut(`calculate "+" (number 5) ^(number 1)`), [
         {
             WFWorkflowActionIdentifier: "is.workflow.actions.number",
             WFWorkflowActionParameters: {
@@ -337,10 +329,7 @@ ava_1.default("inputarg with no get variable needed", t => {
     ]);
 });
 ava_1.default("inputarg with variables without parenthesis", t => {
-    const output = index_1.parse(`number 1 -> mv:mynum; calculate ^mv:mynum "+" (number 5)`, { makePlist: false });
-    const [scdata] = output.build();
-    const actions = scdata.WFWorkflowActions;
-    t.deepEqual(noUUID(actions, { noSCPLData: true }), [
+    t.deepEqual(scplToShortcut(`number 1 -> mv:mynum; calculate ^mv:mynum "+" (number 5)`), [
         {
             WFWorkflowActionIdentifier: "is.workflow.actions.number",
             WFWorkflowActionParameters: {
@@ -409,10 +398,7 @@ ava_1.default("long shortcut", t => {
     t.deepEqual(noUUID([scdata]), sampleshortcutdata);
 });
 ava_1.default("foreach macro", t => {
-    const output = index_1.parse(`@foreach [item1, item2, item3] @{text @:repeatitem}; text "item 4"`, { makePlist: false });
-    const [scdata] = output.build();
-    const actions = scdata.WFWorkflowActions;
-    t.deepEqual(noUUID(actions, { noSCPLData: true }), [
+    t.deepEqual(scplToShortcut(`@foreach [item1, item2, item3] @{text @:repeatitem}; text "item 4"`), [
         {
             WFWorkflowActionIdentifier: "is.workflow.actions.gettext",
             WFWorkflowActionParameters: {
@@ -440,10 +426,7 @@ ava_1.default("foreach macro", t => {
     ]);
 });
 ava_1.default("open app action", t => {
-    const output = index_1.parse(`openapp Safari; openapp Shortcuts; openapp "is.workflow.my.app"`, { makePlist: false });
-    const [scdata] = output.build();
-    const actions = scdata.WFWorkflowActions;
-    t.deepEqual(noUUID(actions, { noSCPLData: true }), [
+    t.deepEqual(scplToShortcut(`openapp Safari; openapp Shortcuts; openapp "is.workflow.my.app"`), [
         {
             WFWorkflowActionIdentifier: "is.workflow.actions.openapp",
             WFWorkflowActionParameters: {
@@ -468,12 +451,7 @@ ava_1.default("open app fails with invalid app name", t => {
     t.throws(() => index_1.parse(`openapp myfavoriteapp`, { makePlist: false }));
 });
 ava_1.default("get details of * actions", t => {
-    const output = index_1.parse(`getdetailsofcontacts "Email Address"`, {
-        makePlist: false
-    });
-    const [scdata] = output.build();
-    const actions = scdata.WFWorkflowActions;
-    t.deepEqual(noUUID(actions, { noSCPLData: true }), [
+    t.deepEqual(scplToShortcut(`getdetailsofcontacts "Email Address"`), [
         {
             WFWorkflowActionIdentifier: "is.workflow.actions.properties.contacts",
             WFWorkflowActionParameters: {
@@ -487,12 +465,7 @@ ava_1.default("an action cannot have multiple = flags", t => {
     t.throws(() => index_1.parse(`v:a = v:b"`, { makePlist: false }));
 });
 ava_1.default("actions that ignore parameters should still support ->", t => {
-    const output = index_1.parse(`If;End If -> mv:If;GetVariable mv:If`, {
-        makePlist: false
-    });
-    const [scdata] = output.build();
-    const actions = scdata.WFWorkflowActions;
-    t.deepEqual(noUUID(actions, { noSCPLData: true }), [
+    t.deepEqual(scplToShortcut(`If;End If -> mv:If;GetVariable mv:If`), [
         {
             WFWorkflowActionIdentifier: "is.workflow.actions.conditional",
             WFWorkflowActionParameters: {
