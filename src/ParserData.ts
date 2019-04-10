@@ -194,6 +194,7 @@ export class ConvertVariableParse extends Parse {
 ].forEach(val => {
 	//eslint-disable-next-line func-names
 	(<any>ConvertVariableParse).prototype[`canBe${val}`] = function(
+		this: ConvertVariableParse,
 		cc: ConvertingContext
 	) {
 		const me = this.getValue(cc);
@@ -201,6 +202,7 @@ export class ConvertVariableParse extends Parse {
 	};
 	//eslint-disable-next-line func-names
 	(<any>ConvertVariableParse).prototype[`as${val}`] = function(
+		this: ConvertVariableParse,
 		cc: ConvertingContext
 	) {
 		const me = this.getValue(cc);
@@ -209,9 +211,9 @@ export class ConvertVariableParse extends Parse {
 		if (!options) {
 			rawKeyedOptions = {};
 		} else if (options.canBeRawKeyedDictionary(cc)) {
-			rawKeyedOptions = options.asRawKeyedDictionary();
+			rawKeyedOptions = options.asRawKeyedDictionary(cc);
 		} else {
-			throw options.error("Options must be a dictionary.");
+			throw options.error(cc, "Options must be a dictionary.");
 		}
 		// here we want to make a new cc on top of the old one
 		const newCC = cc.in();
