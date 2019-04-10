@@ -602,4 +602,44 @@ test("an action cannot have multiple = flags", t => {
 	t.throws(() => parse(`v:a = v:b"`, { makePlist: false }));
 });
 
+test("actions that ignore parameters should still support ->", t => {
+	const output = parse(`If;End If -> mv:If;GetVariable mv:If`, {
+		makePlist: false
+	});
+	const [scdata] = output.build();
+	const actions = scdata.WFWorkflowActions;
+	t.deepEqual(noUUID(actions, { noSCPLData: true }), [
+		{
+			WFWorkflowActionIdentifier: "is.workflow.actions.conditional",
+			WFWorkflowActionParameters: {
+				GroupingIdentifier: "<uuid1>",
+				WFControlFlowMode: 0
+			}
+		},
+		{
+			WFWorkflowActionIdentifier: "is.workflow.actions.conditional",
+			WFWorkflowActionParameters: {
+				CustomOutputName: "If",
+				GroupingIdentifier: "<uuid1>",
+				UUID: "<uuid2>",
+				WFControlFlowMode: 2
+			}
+		},
+		{
+			WFWorkflowActionIdentifier: "is.workflow.actions.getvariable",
+			WFWorkflowActionParameters: {
+				WFVariable: {
+					Value: {
+						Aggrandizements: [],
+						OutputName: "If",
+						OutputUUID: "<uuid2>",
+						Type: "ActionOutput"
+					},
+					WFSerializationType: "WFTextTokenAttachment"
+				}
+			}
+		}
+	]);
+});
+
 // console.log(JSON.stringify(noUUID(actions), null, "\t"));
