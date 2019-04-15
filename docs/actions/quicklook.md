@@ -13,7 +13,7 @@ Displays a preview of the input.
 
 ### usage
 ```
-quicklook fullscreen=(true | f alse | variable)
+quicklook fullscreen=(true | false | variable)
 ```
 
 ### arguments

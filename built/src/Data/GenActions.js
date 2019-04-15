@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const builtin = require("./Shortcuts 2.1.2.json");
+const builtin = require("./Shortcuts 2.2.json");
 const GetTypes_1 = require("./GetTypes");
 const Types_1 = require("../WFTypes/Types");
 const fs = require("fs");
@@ -22,6 +22,8 @@ actions["is.workflow.actions.repeat.each"].BlockInfo = {
     Example: "\n  ...\nend",
     Completion: "\n\t$0\nend"
 };
+// append to note -> append to evernote note
+actions["is.workflow.actions.evernote.append"].AppInfo = "Evernote";
 Object.values(actions).forEach((action) => {
     if (action.ActionClass === "WFContentItemPropertiesAction") {
         if (!action.Parameters) {
@@ -36,7 +38,7 @@ Object.values(actions).forEach((action) => {
                 Class: "WFEnumerationParameter",
                 Key: "WFContentItemPropertyName",
                 Label: "Get",
-                Items: Object.values(GetTypes_1.default[getTypeItemClass]).map(t => t.name),
+                Items: Object.values(GetTypes_1.default[getTypeItemClass]).map(t => t.name)
             });
         }
     }
@@ -59,7 +61,10 @@ Object.values(actions).forEach((action) => {
                 Class: "WFEnumerationParameter",
                 Key: "WFContentItemSortProperty",
                 Label: "Sort by",
-                Items: [...Object.values(GetTypes_1.default[getTypeItemClass]).map(t => t.name), "Random"],
+                Items: [
+                    ...Object.values(GetTypes_1.default[getTypeItemClass]).map(t => t.name),
+                    "Random"
+                ]
             });
             action.Parameters.push({
                 Class: "WFEnumerationParameter",

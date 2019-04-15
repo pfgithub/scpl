@@ -56,7 +56,8 @@ with the text.
 		"pass date",
 		"time",
 		"current",
-		"now"
+		"now",
+		"get"
 	],
 	"Category": "Calendar",
 	"Description": {

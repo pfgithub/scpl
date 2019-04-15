@@ -11,7 +11,7 @@ Replaces some text passed into the action with other text.
 
 ### usage
 ```
-replacetext findtext="string" replacewith="string" casesensitive=(true | f alse | variable) regularexpression=(true | f alse | variable)
+replacetext findtext="string" replacewith="string" casesensitive=(true | false | variable) regularexpression=(true | false | variable)
 ```
 
 ### arguments

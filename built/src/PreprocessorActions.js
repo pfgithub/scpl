@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const preprocessorActions = {
     "@set": (cc, name, value) => {
+        // sets a variable with name name to value value
         if (!name.canBeString(cc)) {
             throw name.error(cc, "Name to set must be a string with no variables.");
         }
@@ -12,7 +13,7 @@ const preprocessorActions = {
             throw list.error(cc, "List must be a list.");
         }
         if (!method.canBeAction(cc)) {
-            throw method.error(cc, "Method must be action, for example `@{Text \"\\(@:repeatitem)\"}`");
+            throw method.error(cc, 'Method must be action, for example `@{Text "\\(@:repeatitem)"}`');
         }
         list.asAbleArray(cc).forEach(item => {
             let newCC = cc.in();

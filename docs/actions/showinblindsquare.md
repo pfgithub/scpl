@@ -13,7 +13,7 @@ Opens BlindSquare showing information about the place passed as input, so you ca
 
 ### usage
 ```
-showinblindsquare startsimulation=(true | f alse | variable)
+showinblindsquare startsimulation=(true | false | variable)
 ```
 
 ### arguments

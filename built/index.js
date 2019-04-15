@@ -18,8 +18,12 @@ function parse(string, options) {
         if (!parsed.pos) {
             throw new Error("!parsed.pos");
         }
-        throw new ParserData_1.PositionedError("Parsing error around here", parsed.pos, [parsed.pos[0] + 100, 1]);
+        throw new ParserData_1.PositionedError("Parsing error around here", parsed.pos, [
+            parsed.pos[0] + 100,
+            1
+        ]);
     }
+    const generateSCPLData = options.generateSCPLData === undefined ? true : false;
     let shortcut;
     try {
         shortcut = parsed.data.asShortcut(options.extraParseActions);
@@ -51,11 +55,11 @@ function parse(string, options) {
 }
 exports.parse = parse;
 function inverse(data) {
-    const icc = new InverseConvertingContext_1.InverseConvertingContext;
+    const icc = new InverseConvertingContext_1.InverseConvertingContext();
     if (data instanceof Buffer) {
         data = bplistp.parseBuffer(data);
     }
-    let result = icc.createActionsAble(OutputData_1.Shortcut.inverse(data));
+    const result = icc.createActionsAble(OutputData_1.Shortcut.inverse(data));
     return result;
 }
 exports.inverse = inverse;

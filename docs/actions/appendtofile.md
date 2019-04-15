@@ -20,7 +20,7 @@ The file that was appended to
 
 ### usage
 ```
-appendtofile service=("iCloud Drive" | "Dropbox") filepath="string" mode=("Append" | "Prepend") makenewline=(true | f alse | variable)
+appendtofile service=("iCloud Drive" | "Dropbox") filepath="string" mode=("Append" | "Prepend") makenewline=(true | false | variable)
 ```
 
 ### arguments

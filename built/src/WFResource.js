@@ -48,13 +48,22 @@ class WFParameterRelationResource extends WFResource {
         this.argInternalName = this._data.WFParameterKey;
         this.argValue = this._data.WFParameterValue;
         this.argValues = this._data.WFParameterValues || [this.argValue];
-        const relations = { "==": 1, "!=": 1, ">=": 1, "<=": 1, ">": 1, "<": 1, "??": 1 };
-        if (!(relations)[this.relation]) {
+        const relations = {
+            "==": 1,
+            "!=": 1,
+            ">=": 1,
+            "<=": 1,
+            ">": 1,
+            "<": 1,
+            "??": 1
+        };
+        if (!relations[this.relation]) {
             throw new Error(`RelationResource relation type ${this.relation} is not implemented.`);
         }
     }
     genDocs() {
-        return `argument ${this.argInternalName} ${this.relation} \`${this.argValues.join `\` or \``}\``;
+        return `argument ${this.argInternalName} ${this.relation} \`${this
+            .argValues.join `\` or \``}\``;
     }
     shouldEnable(action) {
         const currentValue = action.parameters.get(this.argInternalName);

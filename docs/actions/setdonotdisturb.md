@@ -11,7 +11,7 @@ Sets the device’s Do Not Disturb to on or off
 
 ### usage
 ```
-setdonotdisturb donotdisturb=(true | f alse | variable) until=("Turned Off" | "Time" | "I Leave" | "Event Ends") event=(v:myvar | mv:myvar | s:myvar) time="string"
+setdonotdisturb donotdisturb=(true | false | variable) until=("Turned Off" | "Time" | "I Leave" | "Event Ends") event=(v:myvar | mv:myvar | s:myvar) time="string"
 ```
 
 ### arguments

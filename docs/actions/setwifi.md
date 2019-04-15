@@ -13,7 +13,7 @@ Sets the device’s Wi-Fi to on or off.
 
 ### usage
 ```
-setwifi wifi=(true | f alse | variable)
+setwifi wifi=(true | false | variable)
 ```
 
 ### arguments

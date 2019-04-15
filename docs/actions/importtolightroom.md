@@ -11,7 +11,7 @@ Imports the photos passed as input into Lightroom
 
 ### usage
 ```
-importtolightroom applypreset=(true | f alse | variable) presetgroup=("B&W" | "Color" | "Creative" | "Curve" | "Grain" | "Sharpening" | "Vignetting") preset=("string" | variable)]
+importtolightroom applypreset=(true | false | variable) presetgroup=("B&W" | "Color" | "Creative" | "Curve" | "Grain" | "Sharpening" | "Vignetting") preset=("string" | variable)]
 ```
 
 ### arguments

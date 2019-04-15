@@ -22,7 +22,7 @@ The shortcut's result
 
 ### usage
 ```
-runshortcut shortcut=("string" | variable)] showwhilerunning=(true | f alse | variable)
+runshortcut shortcut=("string" | variable)] showwhilerunning=(true | false | variable)
 ```
 
 ### arguments

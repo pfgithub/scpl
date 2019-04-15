@@ -18,7 +18,7 @@ This is a destructive and permanent action. You will be asked to confirm before 
 
 ### usage
 ```
-removeevents includefutureevents=(true | f alse | variable)
+removeevents includefutureevents=(true | false | variable)
 ```
 
 ### arguments

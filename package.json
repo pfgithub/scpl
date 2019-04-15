@@ -1,6 +1,6 @@
 {
 	"name": "scpl",
-	"version": "1.6.2",
+	"version": "1.8.2",
 	"main": "built/index.js",
 	"types": "built/index.d.ts",
 	"license": "MIT",
@@ -11,32 +11,26 @@
 	"scripts": {
 		"docs": "tsc && node ./built/src/GenDocs",
 		"test": "tsc && ava ./built/test/index.js",
-		"actions": "tsc && node ./built/src/Data/GenActions"
+		"actions": "tsc && node ./built/src/Data/GenActions",
+		"format": "yarn run prettier --write src/*** test/*.ts test/*.json index.ts .prettierrc .eslintrc.js modules.d.ts plistconv.js .travis.yml"
 	},
 	"author": {
 		"name": "pfg",
 		"email": "omegariisthebest@gmail.com",
 		"url": "https://pfgithub.github.io/"
 	},
-	"bin": {
-		"scpl": "./built/bin/scpl.js"
-	},
 	"repository": "github:pfgithub/shortcutslang",
-	"man": "./man/scpl.1",
 	"files": [
 		"/man",
 		"/built/index.js",
 		"/built/index.d.ts",
-		"/built/src",
-		"/built/bin"
+		"/built/src"
 	],
 	"dependencies": {
 		"bplist-creator": "^0.0.7",
 		"bplist-parser": "^0.1.1",
-		"chalk": "^2.4.2",
 		"plist": "^3.0.1",
-		"uuid": "^3.3.2",
-		"yargs": "^13.2.1"
+		"uuid": "^3.3.2"
 	},
 	"devDependencies": {
 		"@types/node": "^11.9.5",
@@ -47,6 +41,7 @@
 		"ava": "^1.3.1",
 		"ava-ts": "^0.25.2",
 		"eslint": "^5.14.1",
+		"prettier": "^1.16.4",
 		"ts-node": "^8.0.3",
 		"typescript": "^3.3.3333",
 		"webpack-cli": "^3.2.3"

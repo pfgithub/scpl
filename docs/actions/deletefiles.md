@@ -11,7 +11,7 @@ Delete the files passed in as input.
 
 ### usage
 ```
-deletefiles confirmbeforedeleting=(true | f alse | variable)
+deletefiles confirmbeforedeleting=(true | false | variable)
 ```
 
 ### arguments

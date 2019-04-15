@@ -17,7 +17,7 @@ The selected photos/videos
 
 ### usage
 ```
-selectphotos selectmultiple=(true | f alse | variable)
+selectphotos selectmultiple=(true | false | variable)
 ```
 
 ### arguments

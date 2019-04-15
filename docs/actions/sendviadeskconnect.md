@@ -8,7 +8,7 @@
 
 ### summary
 
-Sends the input to another device via DeskConnect. DeskConnect makes it easy to send web pages, documents, pictures, and anything else between your devices.
+Sends the input to another device via DeskConnect. DeskConnect makes it easy to send webpages, documents, pictures, and anything else between your devices.
 
 
 ### usage
@@ -42,7 +42,7 @@ sendviadeskconnect
 	"Category": "Sharing",
 	"CreationDate": "2016-03-04T06:00:00.000Z",
 	"Description": {
-		"DescriptionSummary": "Sends the input to another device via DeskConnect. DeskConnect makes it easy to send web pages, documents, pictures, and anything else between your devices."
+		"DescriptionSummary": "Sends the input to another device via DeskConnect. DeskConnect makes it easy to send webpages, documents, pictures, and anything else between your devices."
 	},
 	"Discontinued": true,
 	"Input": {

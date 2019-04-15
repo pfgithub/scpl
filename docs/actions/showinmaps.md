@@ -11,14 +11,14 @@ Opens your choice of Maps, Google Maps, or Waze and searches for the location, p
 
 ### usage
 ```
-showinmaps mapsapp=("Maps" | "Google Maps" | "Waze")
+showinmaps app=("Maps" | "Google Maps" | "Waze")
 ```
 
 ### arguments
 
 ---
 
-### mapsapp: Maps App [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### app: Maps App [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Maps"`
 **Allows Variables**: true
 
@@ -47,7 +47,6 @@ containing one of the options:
 		"waze",
 		"google"
 	],
-	"AppIdentifier": "com.apple.Maps",
 	"Category": "Location",
 	"Description": {
 		"DescriptionSummary": "Opens your choice of Maps, Google Maps, or Waze and searches for the location, place, or text that was passed into the action."
@@ -69,7 +68,7 @@ containing one of the options:
 			"DefaultValue": "Maps",
 			"Hidden": true,
 			"Key": "WFSearchMapsActionApp",
-			"Label": "Maps App",
+			"Label": "App",
 			"SupportedApps": [
 				"Maps",
 				"Google Maps",

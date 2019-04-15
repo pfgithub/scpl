@@ -22,7 +22,7 @@ The URL of the newly created task
 
 ### usage
 ```
-addwunderlisttask title="string" list=("string" | variable)] duedate="string" reminder="string" starred=(true | f alse | variable) notes="string"
+addwunderlisttask title="string" list=("string" | variable)] duedate="string" reminder="string" starred=(true | false | variable) notes="string"
 ```
 
 ### arguments

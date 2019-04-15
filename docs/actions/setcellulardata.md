@@ -13,7 +13,7 @@ Sets the device’s Cellular Data to on or off.
 
 ### usage
 ```
-setcellulardata cellulardata=(true | f alse | variable)
+setcellulardata cellulardata=(true | false | variable)
 ```
 
 ### arguments

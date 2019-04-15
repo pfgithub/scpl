@@ -1,9 +1,19 @@
 import * as fs from "fs";
 import * as path from "path";
 
-import {allActions, genReadme, WFAction} from "./ActionData.js";
+import { allActions, genReadme, WFAction } from "./ActionData.js";
 
-const actionCompletionInfo: {[key: string]: {docs: string, args: Array<{ argType: string; argName?: string; argAutocompletePlaceholder?: string; }>, autocomplete: string}} = {};
+const actionCompletionInfo: {
+	[key: string]: {
+		docs: string;
+		args: Array<{
+			argType: string;
+			argName?: string;
+			argAutocompletePlaceholder?: string;
+		}>;
+		autocomplete: string;
+	};
+} = {};
 
 allActions.forEach((action: WFAction) => {
 	const name = action.shortName;
@@ -17,4 +27,8 @@ allActions.forEach((action: WFAction) => {
 });
 
 fs.writeFileSync("./docs/README.md", genReadme(), "utf8");
-fs.writeFileSync("./docs/ActionCompletionInfo.json", JSON.stringify(actionCompletionInfo, null, "\t"), "utf8");
+fs.writeFileSync(
+	"./docs/ActionCompletionInfo.json",
+	JSON.stringify(actionCompletionInfo, null, "\t"),
+	"utf8"
+);

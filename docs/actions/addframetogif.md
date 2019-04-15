@@ -20,7 +20,7 @@ An animated GIF
 
 ### usage
 ```
-addframetogif image=(v:myvar | mv:myvar | s:myvar) delaytime=number autosize=(true | f alse | variable) width=number height=number
+addframetogif image=(v:myvar | mv:myvar | s:myvar) delaytime=number autosize=(true | false | variable) width=number height=number
 ```
 
 ### arguments

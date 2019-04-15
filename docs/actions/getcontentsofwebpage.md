@@ -1,12 +1,12 @@
 
-## Get Contents of Web Page / getcontentsofwebpage (internally `is.workflow.actions.getwebpagecontents`)
+## Get Contents of Webpage / getcontentsofwebpage (internally `is.workflow.actions.getwebpagecontents`)
 
 
 ## description
 
 ### summary
 
-Extracts the contents of the web pages passed into the action.
+Extracts the contents of the webpages passed into the action.
 
 
 ### usage
@@ -30,7 +30,7 @@ getcontentsofwebpage
 	"AppIdentifier": "com.apple.mobilesafari",
 	"Category": "Web",
 	"Description": {
-		"DescriptionSummary": "Extracts the contents of the web pages passed into the action."
+		"DescriptionSummary": "Extracts the contents of the webpages passed into the action."
 	},
 	"Input": {
 		"Multiple": true,
@@ -39,15 +39,15 @@ getcontentsofwebpage
 			"WFURLContentItem"
 		]
 	},
-	"Name": "Get Contents of Web Page",
+	"Name": "Get Contents of Webpage",
 	"Output": {
 		"Multiple": true,
-		"OutputName": "Contents of Web Page",
+		"OutputName": "Contents of Webpage",
 		"Types": [
 			"NSAttributedString"
 		]
 	},
-	"ShortName": "Get Web Page",
+	"ShortName": "Get Webpage",
 	"Subcategory": "Web",
 	"UnsupportedEnvironments": [
 		"MemoryConstrained"

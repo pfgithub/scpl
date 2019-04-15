@@ -49,6 +49,65 @@
 		"Subcategory": "Phone",
 		"WFStartCallActionType": "FaceTime"
 	},
+	"com.apple.mobilenotes.SharingExtension": {
+		"ActionClass": "WFCreateNoteAction",
+		"ActionKeywords": [
+			"apple"
+		],
+		"AppIdentifier": "com.apple.mobilenotes",
+		"Category": "Text",
+		"Description": {
+			"DescriptionSummary": "Creates a note using the content passed as input."
+		},
+		"Input": {
+			"Multiple": true,
+			"Required": true,
+			"Types": [
+				"WFStringContentItem"
+			]
+		},
+		"IntentIdentifier": "sirikit.intent.notes.CreateNoteIntent",
+		"Name": "Create Note",
+		"Output": {
+			"Multiple": false,
+			"Types": [
+				"INNote"
+			]
+		},
+		"Parameters": [
+			{
+				"Class": "WFIntentAppPickerParameter",
+				"DefaultValue": "com.apple.mobilenotes",
+				"Hidden": true,
+				"IntentName": "INCreateNoteIntent",
+				"Key": "IntentAppIdentifier",
+				"Label": "App"
+			},
+			{
+				"Class": "WFSwitchParameter",
+				"DefaultValue": true,
+				"Key": "ShowWhenRun",
+				"Label": "Show Compose Sheet"
+			}
+		],
+		"RequiredResources": [
+			{
+				"RequiredResources": [
+					{
+						"WFParameterKey": "ShowWhenRun",
+						"WFParameterValue": true,
+						"WFResourceClass": "WFParameterRelationResource"
+					}
+				],
+				"WFResourceClass": "WFUserInteractionResource"
+			},
+			"WFNotesAccessResource"
+		],
+		"UserInterfaces": [
+			"UIKit",
+			"Siri"
+		]
+	},
 	"com.apple.mobilephone.call": {
 		"ActionClass": "WFStartCallAction",
 		"ActionKeywords": [
@@ -707,7 +766,7 @@
 				"AutocapitalizationType": "Words",
 				"Class": "WFCountryFieldParameter",
 				"Key": "WFCountry",
-				"Label": "Country",
+				"Label": "Region",
 				"Placeholder": "United States"
 			}
 		]
@@ -1026,6 +1085,52 @@
 			"WFUserInteractionResource"
 		],
 		"Subcategory": "Notification"
+	},
+	"is.workflow.actions.appendnote": {
+		"ActionClass": "WFAppendToNoteAction",
+		"ActionKeywords": [
+			"apple"
+		],
+		"AppIdentifier": "com.apple.mobilenotes",
+		"Category": "Text",
+		"Description": {
+			"DescriptionResult": "The updated note",
+			"DescriptionSummary": "Appends the text passed as input to the specified note."
+		},
+		"Input": {
+			"Multiple": true,
+			"Required": true,
+			"Types": [
+				"WFStringContentItem"
+			]
+		},
+		"IntentIdentifier": "sirikit.intent.notes.AppendToNoteIntent",
+		"Name": "Append to Note",
+		"Output": {
+			"Multiple": false,
+			"Types": [
+				"INNote"
+			]
+		},
+		"Parameters": [
+			{
+				"Class": "WFIntentAppPickerParameter",
+				"DefaultValue": "com.apple.mobilenotes",
+				"Hidden": true,
+				"IntentName": "INCreateNoteIntent",
+				"Key": "IntentAppIdentifier",
+				"Label": "App"
+			},
+			{
+				"Class": "WFVariablePickerParameter",
+				"Description": "The note to append to",
+				"Key": "WFNote",
+				"Label": "Note"
+			}
+		],
+		"RequiredResources": [
+			"WFNotesAccessResource"
+		]
 	},
 	"is.workflow.actions.appendvariable": {
 		"ActionClass": "WFAppendVariableAction",
@@ -1901,7 +2006,8 @@
 			"pass date",
 			"time",
 			"current",
-			"now"
+			"now",
+			"get"
 		],
 		"Category": "Calendar",
 		"Description": {
@@ -2018,7 +2124,7 @@
 		"Category": "Sharing",
 		"CreationDate": "2016-03-04T06:00:00.000Z",
 		"Description": {
-			"DescriptionSummary": "Sends the input to another device via DeskConnect. DeskConnect makes it easy to send web pages, documents, pictures, and anything else between your devices."
+			"DescriptionSummary": "Sends the input to another device via DeskConnect. DeskConnect makes it easy to send webpages, documents, pictures, and anything else between your devices."
 		},
 		"Discontinued": true,
 		"Input": {
@@ -2227,7 +2333,7 @@
 		"Category": "Photos & Video",
 		"CoercionItemClass": "WFImageContentItem",
 		"Description": {
-			"DescriptionSummary": "Gets images from the result of the previous action.\n\nFor example, this action can get the album art of a song, or all the images on a web page."
+			"DescriptionSummary": "Gets images from the result of the previous action.\n\nFor example, this action can get the album art of a song, or all the images on a webpage."
 		},
 		"IconName": "Image.png",
 		"Input": {
@@ -2281,6 +2387,39 @@
 		"ShortName": "Get URLs",
 		"Subcategory": "URLs"
 	},
+	"is.workflow.actions.detect.number": {
+		"ActionClass": "WFCoercionAction",
+		"ActionKeywords": [
+			"numeric",
+			"digits",
+			"detect",
+			"extract",
+			"scan"
+		],
+		"Category": "Scripting",
+		"CoercionItemClass": "WFNumberContentItem",
+		"Description": {
+			"DescriptionSummary": "Returns numbers from the previous action's output."
+		},
+		"IconName": "Calculator.png",
+		"Input": {
+			"Multiple": true,
+			"Required": true,
+			"Types": [
+				"NSNumber"
+			]
+		},
+		"Name": "Get Numbers from Input",
+		"Output": {
+			"Multiple": true,
+			"OutputName": "Numbers",
+			"Types": [
+				"WFNumberContentItem"
+			]
+		},
+		"ShortName": "Get Numbers",
+		"Subcategory": "Math"
+	},
 	"is.workflow.actions.detect.phonenumber": {
 		"ActionClass": "WFCoercionAction",
 		"ActionKeywords": [
@@ -2325,7 +2464,7 @@
 		"Category": "Text",
 		"CoercionItemClass": "WFStringContentItem",
 		"Description": {
-			"DescriptionSummary": "Returns text from the previous action's output.\n\nFor example, this action can get the name of a photo or song, or the text of a web page."
+			"DescriptionSummary": "Returns text from the previous action's output.\n\nFor example, this action can get the name of a photo or song, or the text of a webpage."
 		},
 		"IconName": "Text.png",
 		"Input": {
@@ -3308,7 +3447,8 @@
 		],
 		"RequiredResources": [
 			"WFEvernoteAccessResource"
-		]
+		],
+		"AppInfo": "Evernote"
 	},
 	"is.workflow.actions.evernote.delete": {
 		"ActionClass": "WFEvernoteDeleteAction",
@@ -4342,6 +4482,31 @@
 			}
 		]
 	},
+	"is.workflow.actions.filter.notes": {
+		"ActionClass": "WFContentItemFilterAction",
+		"AppIdentifier": "com.apple.mobilenotes",
+		"Category": "Text",
+		"CreationDate": "2018-12-26T08:00:00.000Z",
+		"Input": {
+			"Required": false,
+			"Types": [
+				"WFNoteContentItem"
+			]
+		},
+		"Name": "Find Notes",
+		"RequiredResources": [
+			"WFNotesAccessResource"
+		],
+		"Subcategory": "Notes",
+		"SuggestedAsInitialAction": false,
+		"WFContentItemClass": "WFNoteContentItem",
+		"WFContentItemDefaultProperty": "Body",
+		"Parameters": [
+			{
+				"Class": "_UndefinedCoercionClass"
+			}
+		]
+	},
 	"is.workflow.actions.filter.photos": {
 		"ActionClass": "WFContentItemFilterAction",
 		"AppIdentifier": "com.apple.mobileslideshow",
@@ -4846,7 +5011,7 @@
 			]
 		},
 		"InputPassthrough": false,
-		"Name": "Get Diffbot Article from Web Page",
+		"Name": "Get Diffbot Article from Webpage",
 		"Output": {
 			"OutputName": "Article",
 			"Types": [
@@ -5079,7 +5244,6 @@
 			"transit",
 			"citymapper"
 		],
-		"AppIdentifier": "com.apple.Maps",
 		"Category": "Location",
 		"Description": {
 			"DescriptionInput": "The destination address",
@@ -5101,13 +5265,14 @@
 				"Class": "WFMapsAppPickerParameter",
 				"DefaultValue": "Maps",
 				"Key": "WFGetDirectionsActionApp",
-				"Label": "Maps App",
+				"Label": "App",
 				"SupportedApps": [
 					"Maps",
 					"Citymapper",
 					"Google Maps",
 					"Transit",
-					"Waze"
+					"Waze",
+					"Baidu Maps"
 				]
 			},
 			{
@@ -5121,8 +5286,7 @@
 						"WFParameterValues": [
 							"Maps",
 							"Google Maps",
-							"Transit",
-							"Waze"
+							"Baidu Maps"
 						],
 						"WFResourceClass": "WFParameterRelationResource"
 					}
@@ -6108,7 +6272,7 @@
 			"Multiple": false,
 			"OutputName": "Travel Time",
 			"Types": [
-				"WFTimeInterval"
+				"WFTripInfo"
 			]
 		},
 		"Parameters": [
@@ -6390,6 +6554,7 @@
 		],
 		"Category": "Scripting",
 		"Description": {
+			"DescriptionNote": "You can reference values deep inside of a dictionary by providing multiple keys separated by dots. For example, to get the value \"soup\" from the dictionary {\"beverages\": [{\"favorite\": \"soup\"}]}, you can specify the key path \"beverages.1.favorite\".",
 			"DescriptionSummary": "Gets the value for the specified key in the dictionary passed into the action. "
 		},
 		"IconName": "Scripting.png",
@@ -6486,7 +6651,7 @@
 		"AppIdentifier": "com.apple.mobilesafari",
 		"Category": "Web",
 		"Description": {
-			"DescriptionSummary": "Extracts the contents of the web pages passed into the action."
+			"DescriptionSummary": "Extracts the contents of the webpages passed into the action."
 		},
 		"Input": {
 			"Multiple": true,
@@ -6495,15 +6660,15 @@
 				"WFURLContentItem"
 			]
 		},
-		"Name": "Get Contents of Web Page",
+		"Name": "Get Contents of Webpage",
 		"Output": {
 			"Multiple": true,
-			"OutputName": "Contents of Web Page",
+			"OutputName": "Contents of Webpage",
 			"Types": [
 				"NSAttributedString"
 			]
 		},
-		"ShortName": "Get Web Page",
+		"ShortName": "Get Webpage",
 		"Subcategory": "Web",
 		"UnsupportedEnvironments": [
 			"MemoryConstrained"
@@ -9930,9 +10095,9 @@
 		"Category": "Web",
 		"CreationDate": "2016-03-07T08:00:00.000Z",
 		"Description": {
-			"DescriptionNote": "Safari Web Page items are only available when running your shortcut as an Action Extension in Safari."
+			"DescriptionNote": "Safari Webpage items are only available when running your shortcut as an Action Extension in Safari."
 		},
-		"Name": "Get Details of Safari Web Page",
+		"Name": "Get Details of Safari Webpage",
 		"Subcategory": "Safari",
 		"WFContentItemClass": "WFSafariWebPageContentItem",
 		"Parameters": [
@@ -10388,7 +10553,7 @@
 		"Category": "Web",
 		"CreationDate": "2015-02-19T08:00:00.000Z",
 		"Description": {
-			"DescriptionSummary": "Extracts any RSS feed URLs from the given web URLs or web page."
+			"DescriptionSummary": "Extracts any RSS feed URLs from the given web URLs or webpage."
 		},
 		"IconName": "RSS.png",
 		"Input": {
@@ -10458,10 +10623,10 @@
 		"AppIdentifier": "com.apple.mobilesafari",
 		"Category": "Web",
 		"Description": {
-			"DescriptionInput": "Safari web pages",
-			"DescriptionNote": "Safari Web Page items are only available when running your shortcut as an Action Extension in Safari.",
+			"DescriptionInput": "Safari webpages",
+			"DescriptionNote": "Safari Webpage items are only available when running your shortcut as an Action Extension in Safari.",
 			"DescriptionResult": "The output from the JavaScript (JSON)",
-			"DescriptionSummary": "Runs JavaScript on a Safari web page passed in as input"
+			"DescriptionSummary": "Runs JavaScript on a Safari webpage passed in as input"
 		},
 		"Input": {
 			"Multiple": false,
@@ -10472,7 +10637,7 @@
 		},
 		"InputPassthrough": false,
 		"LastModifiedDate": "2015-01-11T06:00:00.000Z",
-		"Name": "Run JavaScript on Web Page",
+		"Name": "Run JavaScript on Webpage",
 		"Output": {
 			"Multiple": false,
 			"OutputName": "JavaScript Result",
@@ -10827,7 +10992,7 @@
 			{
 				"Class": "WFiTunesStoreCountryPickerParameter",
 				"Key": "WFCountry",
-				"Label": "Country"
+				"Label": "Region"
 			},
 			{
 				"Class": "WFStepperParameter",
@@ -10897,7 +11062,7 @@
 			{
 				"Class": "WFiTunesStoreCountryPickerParameter",
 				"Key": "WFCountry",
-				"Label": "Country"
+				"Label": "Region"
 			},
 			{
 				"Class": "WFStepperParameter",
@@ -10987,7 +11152,6 @@
 			"waze",
 			"google"
 		],
-		"AppIdentifier": "com.apple.Maps",
 		"Category": "Location",
 		"Description": {
 			"DescriptionSummary": "Opens your choice of Maps, Google Maps, or Waze and searches for the location, place, or text that was passed into the action."
@@ -11009,7 +11173,7 @@
 				"DefaultValue": "Maps",
 				"Hidden": true,
 				"Key": "WFSearchMapsActionApp",
-				"Label": "Maps App",
+				"Label": "App",
 				"SupportedApps": [
 					"Maps",
 					"Google Maps",
@@ -11090,7 +11254,6 @@
 		"AppIdentifier": "com.apple.MobileAddressBook",
 		"Category": "Contacts",
 		"Description": {
-			"DescriptionNote": "The \"Select Multiple\" option is supported on iOS 9 and later, and is not currently supported from Apple Watch.",
 			"DescriptionSummary": "Prompts to pick a person from your contacts and passes the selection to the next action."
 		},
 		"InputPassthrough": false,
@@ -11893,6 +12056,30 @@
 			"UIKit"
 		]
 	},
+	"is.workflow.actions.shownote": {
+		"ActionClass": "WFShowNoteAction",
+		"ActionKeywords": [
+			"apple"
+		],
+		"AppIdentifier": "com.apple.mobilenotes",
+		"Category": "Text",
+		"Description": {
+			"DescriptionSummary": "Opens the note passed in as input."
+		},
+		"Input": {
+			"Multiple": false,
+			"Required": true,
+			"Types": [
+				"WFNoteContentItem"
+			]
+		},
+		"InputPassthrough": true,
+		"Name": "Show Note",
+		"Parameters": [],
+		"RequiredResources": [
+			"WFNotesAccessResource"
+		]
+	},
 	"is.workflow.actions.showresult": {
 		"ActionClass": "WFShowResultAction",
 		"ActionKeywords": [
@@ -11939,7 +12126,7 @@
 		"Category": "Web",
 		"CreationDate": "2016-05-17T22:30:00.000Z",
 		"Description": {
-			"DescriptionSummary": "Shows the web URL passed into the action in a Safari View Controller, allowing you to view the web page without switching apps."
+			"DescriptionSummary": "Shows the web URL passed into the action in a Safari View Controller, allowing you to view the webpage without switching apps."
 		},
 		"Input": {
 			"Multiple": false,
@@ -11950,12 +12137,12 @@
 			]
 		},
 		"InputPassthrough": true,
-		"Name": "Show Web Page",
+		"Name": "Show Webpage",
 		"Parameters": [
 			{
 				"Class": "WFSwitchParameter",
 				"DefaultValue": false,
-				"Description": "Enter Safari Reader mode if it’s available for the given web page.",
+				"Description": "Enter Safari Reader mode if it’s available for the given webpage.",
 				"Key": "WFEnterSafariReader",
 				"Label": "Enter Safari Reader"
 			}
@@ -12099,7 +12286,11 @@
 			"speak",
 			"dictate",
 			"text",
-			"say"
+			"say",
+			"speech",
+			"talk",
+			"out",
+			"loud"
 		],
 		"Category": "Text",
 		"CreationDate": "2014-01-20T06:00:00.000Z",
@@ -13643,6 +13834,10 @@
 			{
 				"Class": "WFIntentAppPickerParameter",
 				"DefaultValue": "com.apple.PassKit.PassKitIntentsExtension",
+				"DisallowedVariableTypes": [
+					"Ask",
+					"Variable"
+				],
 				"IntentName": "INRequestPaymentIntent",
 				"Key": "IntentAppIdentifier",
 				"Label": "App"
@@ -13668,6 +13863,19 @@
 				"DefaultValue": false,
 				"Key": "WFVenmoActionAppSwitch",
 				"Label": "Open in App"
+			},
+			{
+				"Class": "WFSwitchParameter",
+				"DefaultValue": true,
+				"Key": "ShowWhenRun",
+				"Label": "Show When Run",
+				"RequiredResources": [
+					{
+						"WFParameterKey": "WFVenmoActionAppSwitch",
+						"WFParameterValue": false,
+						"WFResourceClass": "WFParameterRelationResource"
+					}
+				]
 			},
 			{
 				"Class": "WFTextInputParameter",

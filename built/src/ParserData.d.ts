@@ -7,7 +7,7 @@ export declare class PositionedError extends Error {
     constructor(message: string, start: Position, end: Position);
 }
 export declare class Parse {
-    special: ("InputArg" | "ControlFlowMode" | "Arglist" | undefined);
+    special: "InputArg" | "ControlFlowMode" | "Arglist" | undefined;
     start: Position;
     end: Position;
     constructor(start: Position, end: Position);
@@ -85,6 +85,7 @@ export declare class ConvertVariableParse extends Parse {
     error(cc: ConvertingContext, message: string): PositionedError;
 }
 export declare class ErrorParse extends Parse {
+    constructor(start: Position, end: Position, _message: string);
 }
 export declare class DictionaryParse extends Parse implements AsRawDictionary, AsRawKeyedDictionary, AsDictionary {
     keyvaluepairs: Array<{
@@ -159,8 +160,8 @@ export declare class VariableFlagParse extends Parse {
 export declare class ActionParse extends Parse implements AsText, AsVariable, AsAction {
     name: AsAble;
     args: Array<AsAble>;
-    variable: AsAble;
-    constructor(start: Position, end: Position, name: AsAble, args: Array<AsAble>, variable: AsAble);
+    variable?: AsAble;
+    constructor(start: Position, end: Position, name: AsAble, args: Array<AsAble>, variable?: AsAble);
     canBeText(_cc: ConvertingContext): boolean;
     asText(cc: ConvertingContext): Text;
     canBeVariable(_cc: ConvertingContext): boolean;

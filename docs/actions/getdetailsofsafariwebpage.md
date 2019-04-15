@@ -1,12 +1,12 @@
 
-## Get Details of Safari Web Page / getdetailsofsafariwebpage (internally `is.workflow.actions.properties.safariwebpage`)
+## Get Details of Safari Webpage / getdetailsofsafariwebpage (internally `is.workflow.actions.properties.safariwebpage`)
 
 
 ## description
 
 ### note
 
-Safari Web Page items are only available when running your shortcut as an Action Extension in Safari.
+Safari Webpage items are only available when running your shortcut as an Action Extension in Safari.
 
 
 ### usage
@@ -43,9 +43,9 @@ containing one of the options:
 	"Category": "Web",
 	"CreationDate": "2016-03-07T08:00:00.000Z",
 	"Description": {
-		"DescriptionNote": "Safari Web Page items are only available when running your shortcut as an Action Extension in Safari."
+		"DescriptionNote": "Safari Webpage items are only available when running your shortcut as an Action Extension in Safari."
 	},
-	"Name": "Get Details of Safari Web Page",
+	"Name": "Get Details of Safari Webpage",
 	"Subcategory": "Safari",
 	"WFContentItemClass": "WFSafariWebPageContentItem",
 	"Parameters": [

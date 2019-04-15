@@ -19,7 +19,7 @@ The URL of the new blog post
 
 ### usage
 ```
-posttowordpress account=("string" | variable)] blog=("string" | variable)] title="string" type=("string" | variable)] format=("string" | variable)] status=("string" | variable)] undefined=NotImplemented undefined=NotImplemented advanced=(true | false) allowcomments=(true | f alse | variable) slug="string" excerpt="string" publishdate="string" template=("string" | variable)] featuredimage=(v:myvar | mv:myvar | s:myvar) customfields=(true | false) customfields2={dictionary}
+posttowordpress account=("string" | variable)] blog=("string" | variable)] title="string" type=("string" | variable)] format=("string" | variable)] status=("string" | variable)] undefined=NotImplemented undefined=NotImplemented advanced=(true | false) allowcomments=(true | false | variable) slug="string" excerpt="string" publishdate="string" template=("string" | variable)] featuredimage=(v:myvar | mv:myvar | s:myvar) customfields=(true | false) customfields2={dictionary}
 ```
 
 ### arguments

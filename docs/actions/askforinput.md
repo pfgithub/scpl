@@ -13,7 +13,7 @@ Displays a dialog prompting the user to enter a piece of information.
 
 ### usage
 ```
-askforinput question="string" defaultanswer="string" defaultanswer2="string" inputtype=("Text" | "Number" | "URL" | "Date") granularity=("Date" | "Time" | "Date and Time") skiptowatchdictation=(true | f alse | variable)
+askforinput question="string" defaultanswer="string" defaultanswer2="string" inputtype=("Text" | "Number" | "URL" | "Date") granularity=("Date" | "Time" | "Date and Time") skiptowatchdictation=(true | false | variable)
 ```
 
 ### arguments

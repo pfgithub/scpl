@@ -24,7 +24,7 @@ The shareable link to your Uber ride
 
 ### usage
 ```
-requestuber showestimate=(true | f alse | variable) undefined=NotImplemented undefined=NotImplemented pickupat=("Current Location" | "Custom Location") location="string"
+requestuber showestimate=(true | false | variable) undefined=NotImplemented undefined=NotImplemented pickupat=("Current Location" | "Custom Location") location="string"
 ```
 
 ### arguments

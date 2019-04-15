@@ -7,6 +7,13 @@ const fs = require("fs");
 const InverseConvertingContext_1 = require("../src/InverseConvertingContext");
 // import * as path from "path";
 const sampleshortcutdata = require("./sampleshortcut.json");
+function scplToShortcut(scpl) {
+    const output = index_1.parse(scpl, {
+        make: ["shortcutjson"]
+    });
+    const actions = output.shortcutjson[0].WFWorkflowActions;
+    return noUUID(actions, { noSCPLData: true });
+}
 function noUUID(obj, options = {}) {
     const uuids = [];
     return JSON.parse(JSON.stringify(obj, (key, value) => {
@@ -21,7 +28,8 @@ function noUUID(obj, options = {}) {
                 }
                 return `<uuid${index + 1}>`;
             }
-            if (options.ignoreOutputName && (key === "CustomOutputName" || key === "OutputName")) {
+            if (options.ignoreOutputName &&
+                (key === "CustomOutputName" || key === "OutputName")) {
                 return undefined;
             }
             return value.split("\uFFFC").join("[attachment]");
@@ -45,16 +53,16 @@ ava_1.default("invert and build a basic action", t => {
     });
 });
 ava_1.default("invert and create text", t => {
-    const icc = new InverseConvertingContext_1.InverseConvertingContext;
+    const icc = new InverseConvertingContext_1.InverseConvertingContext();
     t.deepEqual(icc.createActionAble(OutputData_1.Action.inverse({
         WFWorkflowActionIdentifier: "is.workflow.actions.gettext",
         WFWorkflowActionParameters: {
             WFTextActionText: "My Text"
         }
-    })), "text \"My Text\"");
+    })), 'text "My Text"');
 });
 ava_1.default("invert block actions", t => {
-    const icc = new InverseConvertingContext_1.InverseConvertingContext;
+    const icc = new InverseConvertingContext_1.InverseConvertingContext();
     t.deepEqual(icc.createActionsAble(OutputData_1.Shortcut.inverse(index_1.parse(`
 text "test"
 if Equals "hmmm"
@@ -70,7 +78,7 @@ otherwise
 end`);
 });
 ava_1.default("invert variable aggrandizements", t => {
-    const icc = new InverseConvertingContext_1.InverseConvertingContext;
+    const icc = new InverseConvertingContext_1.InverseConvertingContext();
     t.deepEqual(icc.createActionsAble(OutputData_1.Shortcut.inverse(index_1.parse(`
 setvariable v:thisismyvariable
 text v:thisismyvariable{as:dictionary,get:Name}
@@ -82,7 +90,7 @@ text v:thisismyvariable.mykey
 text v:thisismyvariable.mykey{get: name}`);
 });
 ava_1.default("invert dictionaries", t => {
-    const icc = new InverseConvertingContext_1.InverseConvertingContext;
+    const icc = new InverseConvertingContext_1.InverseConvertingContext();
     t.deepEqual(icc.createActionsAble(OutputData_1.Shortcut.inverse(index_1.parse(`
 dictionary{a:b}
 dictionary{key:"my string","\\(s:actioninput)": "var key",normalkey: "\\(s:actioninput)"}
@@ -98,10 +106,16 @@ ava_1.default("invert complete valid shortcut and ensure output is exact when co
     fs.writeFileSync("./test/sampleshortcut-converted.scpl", inverted, "utf8");
     const parsed = index_1.parse(inverted, { make: ["shortcutjson"] }).shortcutjson;
     // compare
-    t.deepEqual(noUUID(sampleshortcutdata[0].WFWorkflowActions, { noSCPLData: true, ignoreOutputName: true }), noUUID(parsed[0].WFWorkflowActions, { noSCPLData: true, ignoreOutputName: true }));
+    t.deepEqual(noUUID(sampleshortcutdata[0].WFWorkflowActions, {
+        noSCPLData: true,
+        ignoreOutputName: true
+    }), noUUID(parsed[0].WFWorkflowActions, {
+        noSCPLData: true,
+        ignoreOutputName: true
+    }));
 });
 ava_1.default("invert an invalid action", t => {
-    const icc = new InverseConvertingContext_1.InverseConvertingContext;
+    const icc = new InverseConvertingContext_1.InverseConvertingContext();
     t.deepEqual(icc.createActionAble(OutputData_1.Action.inverse({
         WFWorkflowActionIdentifier: "dev.scpl.actions.invalid",
         WFWorkflowActionParameters: {
@@ -110,7 +124,7 @@ ava_1.default("invert an invalid action", t => {
     })), `??unknown action with id dev.scpl.actions.invalid??`);
 });
 ava_1.default("invert an incomplete action", t => {
-    const icc = new InverseConvertingContext_1.InverseConvertingContext;
+    const icc = new InverseConvertingContext_1.InverseConvertingContext();
     t.deepEqual(icc.createActionAble(OutputData_1.Action.inverse({
         WFWorkflowActionIdentifier: "is.workflow.actions.filter.files",
         WFWorkflowActionParameters: {
@@ -119,15 +133,15 @@ ava_1.default("invert an incomplete action", t => {
     })), `filterfiles ??This paramtype is not implemented WFFilterParameter??`);
 });
 ava_1.default("inversions for stringable", t => {
-    const icc = new InverseConvertingContext_1.InverseConvertingContext;
+    const icc = new InverseConvertingContext_1.InverseConvertingContext();
     t.is(icc.createStringAble("myStringCanBeAn@Identifier_Neat23"), "myStringCanBeAn@Identifier_Neat23");
-    t.is(icc.createStringAble("2myStringCannotBeAn@Identifier"), "\"2myStringCannotBeAn@Identifier\"");
+    t.is(icc.createStringAble("2myStringCannotBeAn@Identifier"), '"2myStringCannotBeAn@Identifier"');
     t.is(icc.createStringAble("251.62"), "251.62");
     t.is(icc.createStringAble("this is my string"), '"this is my string"');
-    t.is(icc.createStringAble("my\\string\nneeds \"escapes\""), '"my\\\\string\\nneeds \\"escapes\\""');
+    t.is(icc.createStringAble('my\\string\nneeds "escapes"'), '"my\\\\string\\nneeds \\"escapes\\""');
 });
 ava_1.default("inversions for numberable", t => {
-    const icc = new InverseConvertingContext_1.InverseConvertingContext;
+    const icc = new InverseConvertingContext_1.InverseConvertingContext();
     t.is(icc.createNumberAble(25.6), "25.6");
     t.is(icc.createNumberAble(-98.3), "-98.3");
     t.is(icc.createNumberAble(8), "8");
@@ -167,10 +181,7 @@ ava_1.default("lists cannot be used as strings", t => {
     t.throws(() => index_1.parse(`text [list]`, { makePlist: false }));
 });
 ava_1.default("variables", t => {
-    const output = index_1.parse(`setvariable v:myvar; text v:myvar`, { makePlist: false });
-    const [scdata] = output.build();
-    const actions = scdata.WFWorkflowActions;
-    t.deepEqual(noUUID(actions, { noSCPLData: true }), [
+    t.deepEqual(scplToShortcut(`setvariable v:myvar; text v:myvar`), [
         {
             WFWorkflowActionIdentifier: "is.workflow.actions.setvariable",
             WFWorkflowActionParameters: {
@@ -198,10 +209,7 @@ ava_1.default("variables", t => {
     ]);
 });
 ava_1.default("magic variables", t => {
-    const output = index_1.parse(`text "hello" -> mv:myvar; text mv:myvar`, { makePlist: false });
-    const [scdata] = output.build();
-    const actions = scdata.WFWorkflowActions;
-    t.deepEqual(noUUID(actions, { noSCPLData: true }), [
+    t.deepEqual(scplToShortcut(`text "hello" -> mv:myvar; text mv:myvar`), [
         {
             WFWorkflowActionIdentifier: "is.workflow.actions.gettext",
             WFWorkflowActionParameters: {
@@ -237,10 +245,7 @@ ava_1.default("undefined variables throw errors", t => {
     t.throws(() => index_1.parse(`text s:invalidspecialvariable`, { makePlist: false }));
 });
 ava_1.default("inputarg with actions and other action args", t => {
-    const output = index_1.parse(`calculate ^(number 1) "+" (number 5)`, { makePlist: false });
-    const [scdata] = output.build();
-    const actions = scdata.WFWorkflowActions;
-    t.deepEqual(noUUID(actions, { noSCPLData: true }), [
+    t.deepEqual(scplToShortcut(`calculate ^(number 1) "+" (number 5)`), [
         {
             WFWorkflowActionIdentifier: "is.workflow.actions.number",
             WFWorkflowActionParameters: {
@@ -287,10 +292,12 @@ ava_1.default("inputarg with actions and other action args", t => {
     ]);
 });
 ava_1.default("inputarg with no get variable needed", t => {
-    const output = index_1.parse(`calculate "+" (number 5) ^(number 1)`, { makePlist: false });
+    const output = index_1.parse(`calculate "+" (number 5) ^(number 1)`, {
+        makePlist: false
+    });
     const [scdata] = output.build();
     const actions = scdata.WFWorkflowActions;
-    t.deepEqual(noUUID(actions, { noSCPLData: true }), [
+    t.deepEqual(scplToShortcut(`calculate "+" (number 5) ^(number 1)`), [
         {
             WFWorkflowActionIdentifier: "is.workflow.actions.number",
             WFWorkflowActionParameters: {
@@ -322,10 +329,7 @@ ava_1.default("inputarg with no get variable needed", t => {
     ]);
 });
 ava_1.default("inputarg with variables without parenthesis", t => {
-    const output = index_1.parse(`number 1 -> mv:mynum; calculate ^mv:mynum "+" (number 5)`, { makePlist: false });
-    const [scdata] = output.build();
-    const actions = scdata.WFWorkflowActions;
-    t.deepEqual(noUUID(actions, { noSCPLData: true }), [
+    t.deepEqual(scplToShortcut(`number 1 -> mv:mynum; calculate ^mv:mynum "+" (number 5)`), [
         {
             WFWorkflowActionIdentifier: "is.workflow.actions.number",
             WFWorkflowActionParameters: {
@@ -394,10 +398,7 @@ ava_1.default("long shortcut", t => {
     t.deepEqual(noUUID([scdata]), sampleshortcutdata);
 });
 ava_1.default("foreach macro", t => {
-    const output = index_1.parse(`@foreach [item1, item2, item3] @{text @:repeatitem}; text "item 4"`, { makePlist: false });
-    const [scdata] = output.build();
-    const actions = scdata.WFWorkflowActions;
-    t.deepEqual(noUUID(actions, { noSCPLData: true }), [
+    t.deepEqual(scplToShortcut(`@foreach [item1, item2, item3] @{text @:repeatitem}; text "item 4"`), [
         {
             WFWorkflowActionIdentifier: "is.workflow.actions.gettext",
             WFWorkflowActionParameters: {
@@ -425,10 +426,7 @@ ava_1.default("foreach macro", t => {
     ]);
 });
 ava_1.default("open app action", t => {
-    const output = index_1.parse(`openapp Safari; openapp Shortcuts; openapp "is.workflow.my.app"`, { makePlist: false });
-    const [scdata] = output.build();
-    const actions = scdata.WFWorkflowActions;
-    t.deepEqual(noUUID(actions, { noSCPLData: true }), [
+    t.deepEqual(scplToShortcut(`openapp Safari; openapp Shortcuts; openapp "is.workflow.my.app"`), [
         {
             WFWorkflowActionIdentifier: "is.workflow.actions.openapp",
             WFWorkflowActionParameters: {
@@ -453,10 +451,7 @@ ava_1.default("open app fails with invalid app name", t => {
     t.throws(() => index_1.parse(`openapp myfavoriteapp`, { makePlist: false }));
 });
 ava_1.default("get details of * actions", t => {
-    const output = index_1.parse(`getdetailsofcontacts "Email Address"`, { makePlist: false });
-    const [scdata] = output.build();
-    const actions = scdata.WFWorkflowActions;
-    t.deepEqual(noUUID(actions, { noSCPLData: true }), [
+    t.deepEqual(scplToShortcut(`getdetailsofcontacts "Email Address"`), [
         {
             WFWorkflowActionIdentifier: "is.workflow.actions.properties.contacts",
             WFWorkflowActionParameters: {
@@ -465,24 +460,59 @@ ava_1.default("get details of * actions", t => {
         }
     ]);
 });
+ava_1.default("an action cannot have multiple = flags", t => {
+    t.throws(() => index_1.parse(`v:a = v:b = text "myaction"`, { makePlist: false }));
+    t.throws(() => index_1.parse(`v:a = v:b"`, { makePlist: false }));
+});
+ava_1.default("actions that ignore parameters should still support ->", t => {
+    t.deepEqual(scplToShortcut(`If;End If -> mv:If;GetVariable mv:If`), [
+        {
+            WFWorkflowActionIdentifier: "is.workflow.actions.conditional",
+            WFWorkflowActionParameters: {
+                GroupingIdentifier: "<uuid1>",
+                WFControlFlowMode: 0
+            }
+        },
+        {
+            WFWorkflowActionIdentifier: "is.workflow.actions.conditional",
+            WFWorkflowActionParameters: {
+                CustomOutputName: "If",
+                GroupingIdentifier: "<uuid1>",
+                UUID: "<uuid2>",
+                WFControlFlowMode: 2
+            }
+        },
+        {
+            WFWorkflowActionIdentifier: "is.workflow.actions.getvariable",
+            WFWorkflowActionParameters: {
+                WFVariable: {
+                    Value: {
+                        Aggrandizements: [],
+                        OutputName: "If",
+                        OutputUUID: "<uuid2>",
+                        Type: "ActionOutput"
+                    },
+                    WFSerializationType: "WFTextTokenAttachment"
+                }
+            }
+        }
+    ]);
+});
 ava_1.default("argument labels and arglists and extendedargs", t => {
-    const output = index_1.parse(`
+    t.deepEqual(scplToShortcut(`
 	getfile errorifnotfound=false showdocumentpicker=false filepath="label"
 	getfile (errorifnotfound=false showdocumentpicker:false filepath="parenthesis arglist")
 	getfile a{errorifnotfound=false showdocumentpicker:false filepath="a{ arglist"}
 	getfile
 	> errorifnotfound=false
 	> showdocumentpicker=false
-	> filepath="extendedarg"`, { makePlist: false });
-    const [scdata] = output.build();
-    const actions = scdata.WFWorkflowActions;
-    t.deepEqual(noUUID(actions, { noSCPLData: true }), [
+	> filepath="extendedarg"`), [
         {
             WFWorkflowActionIdentifier: "is.workflow.actions.documentpicker.open",
             WFWorkflowActionParameters: {
                 WFFileErrorIfNotFound: false,
                 WFGetFilePath: "label",
-                WFShowFilePicker: false,
+                WFShowFilePicker: false
             }
         },
         {
@@ -490,7 +520,7 @@ ava_1.default("argument labels and arglists and extendedargs", t => {
             WFWorkflowActionParameters: {
                 WFFileErrorIfNotFound: false,
                 WFGetFilePath: "parenthesis arglist",
-                WFShowFilePicker: false,
+                WFShowFilePicker: false
             }
         },
         {
@@ -498,7 +528,7 @@ ava_1.default("argument labels and arglists and extendedargs", t => {
             WFWorkflowActionParameters: {
                 WFFileErrorIfNotFound: false,
                 WFGetFilePath: "a{ arglist",
-                WFShowFilePicker: false,
+                WFShowFilePicker: false
             }
         },
         {
@@ -506,7 +536,7 @@ ava_1.default("argument labels and arglists and extendedargs", t => {
             WFWorkflowActionParameters: {
                 WFFileErrorIfNotFound: false,
                 WFGetFilePath: "extendedarg",
-                WFShowFilePicker: false,
+                WFShowFilePicker: false
             }
         }
     ]);

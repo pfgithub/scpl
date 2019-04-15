@@ -13,7 +13,7 @@ Deletes the notes passed as input from Evernote.
 
 ### usage
 ```
-deletenotes confirmbeforedeleting=(true | f alse | variable)
+deletenotes confirmbeforedeleting=(true | false | variable)
 ```
 
 ### arguments

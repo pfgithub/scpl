@@ -18,7 +18,7 @@ Powered by Giphy (giphy.com)
 
 ### usage
 ```
-searchgiphy search="string" showgifpicker=(true | f alse | variable) wfgiphylimit=number selectmultiple=(true | f alse | variable)
+searchgiphy search="string" showgifpicker=(true | false | variable) wfgiphylimit=number selectmultiple=(true | false | variable)
 ```
 
 ### arguments

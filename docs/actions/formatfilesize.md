@@ -21,7 +21,7 @@ A file size from another action, or a number of bytes
 
 ### usage
 ```
-formatfilesize format=("Automatic" | "Bytes" | "KB" | "MB" | "GB" | "TB" | "PB" | "EB" | "ZB" | "YB or Higher") includeunits=(true | f alse | variable)
+formatfilesize format=("Automatic" | "Bytes" | "KB" | "MB" | "GB" | "TB" | "PB" | "EB" | "ZB" | "YB or Higher") includeunits=(true | false | variable)
 ```
 
 ### arguments

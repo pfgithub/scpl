@@ -13,7 +13,7 @@ Opens the input as a file in the specified app.
 
 ### usage
 ```
-openin showopeninmenu=(true | f alse | variable) app=("app name" | "com.identifier.for.app")] wfappname="string"
+openin showopeninmenu=(true | false | variable) app=("app name" | "com.identifier.for.app")] wfappname="string"
 ```
 
 ### arguments

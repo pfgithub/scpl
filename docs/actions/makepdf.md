@@ -11,7 +11,7 @@ Makes a PDF out of the input. The resulting PDF can optionally include a quarter
 
 ### usage
 ```
-makepdf includemargin=(true | f alse | variable) include=("All Pages" | "Single Page" | "Page Range") page=number startpage=number endpage=number
+makepdf includemargin=(true | false | variable) include=("All Pages" | "Single Page" | "Page Range") page=number startpage=number endpage=number
 ```
 
 ### arguments

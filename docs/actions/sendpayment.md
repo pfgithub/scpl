@@ -15,7 +15,7 @@ Sends a payment to the specified people using a payment app on your device.
 
 ### usage
 ```
-sendpayment app=("string" | variable)] undefined=NotImplemented amount=number openinapp=(true | f alse | variable) note="string"
+sendpayment app=("string" | variable)] undefined=NotImplemented amount=number openinapp=(true | false | variable) note="string"
 ```
 
 ### arguments

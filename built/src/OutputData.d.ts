@@ -212,8 +212,8 @@ export declare type WFShortcut = [{
     WFWorkflowIcon: {
         WFWorkflowIconStartColor: number;
         WFWorkflowIconImageData: Buffer | {
-            "type": "Buffer";
-            "data": [];
+            type: "Buffer";
+            data: [];
         };
         WFWorkflowIconGlyphNumber: number;
     };

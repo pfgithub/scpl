@@ -17,7 +17,8 @@ class WFParameter {
         this._data = data;
         this.defaultValue = this._data.DefaultValue;
         this.requiredResources = this._data.RequiredResources || [];
-        this.allowsVariables = (this._data.DisallowedVariableTypes || []).join `` !== "AskVariable";
+        this.allowsVariables =
+            (this._data.DisallowedVariableTypes || []).join `` !== "AskVariable";
         this.name = this._data.Label;
         this.internalName = this._data.Key;
         this.shortName = genShortName(this.name, this.internalName);
@@ -49,7 +50,9 @@ class WFParameter {
 		\`\`\``;
     }
     genDocsAutocompletePlaceholder() {
-        return `:${this._data.DefaultValue ? `${this.genDocsArgName()}:"${this._data.DefaultValue}"` : `${this.genDocsArgName()}`}`;
+        return `:${this._data.DefaultValue
+            ? `${this.genDocsArgName()}:"${this._data.DefaultValue}"`
+            : `${this.genDocsArgName()}`}`;
     }
     genDocs() {
         let docs = `### ${this.shortName}: ${this.typeName} [(Docs)](${this.docs})\n`;
@@ -64,7 +67,9 @@ class WFParameter {
         if (this.allowsVariables) {
             docs += `**Allows Variables**: ${this.allowsVariables}\n\n`;
         }
-        docs += `${this.requiredResources.map(resource => `**Only enabled if**: ${resource.genDocs()}`).join("\n\n")}`;
+        docs += `${this.requiredResources
+            .map(resource => `**Only enabled if**: ${resource.genDocs()}`)
+            .join("\n\n")}`;
         return docs;
     }
     build(cc, parse) {
@@ -82,8 +87,10 @@ class WFEnumerationParameter extends WFParameter {
         return `|${this.options.map(o => `"${o}"`).join(",")}${this.allowsVariables ? `,variable` : ``}|`;
     }
     genDocsArgName() {
-        const strInfo = this.options.join("\" | \"");
-        return this.allowsVariables ? `("${strInfo}")` : `("${strInfo}" | variable)`;
+        const strInfo = this.options.join('" | "');
+        return this.allowsVariables
+            ? `("${strInfo}")`
+            : `("${strInfo}" | variable)`;
     }
     genDocsDefaultValue(value) {
         return `\`"${value}"\``;
@@ -91,8 +98,10 @@ class WFEnumerationParameter extends WFParameter {
     genDocs() {
         return `${super.genDocs()}
 
-Accepts a string ${this.allowsVariables ? `
-or variable` : ""}
+Accepts a string ${this.allowsVariables
+            ? `
+or variable`
+            : ""}
 containing one of the options:
 
 - \`${this.options.join(`\`\n- \``)}\``;
@@ -185,14 +194,62 @@ addDynamicEnum("WFAlarmPickerParameter", "Alarm Picker");
 addDynamicEnum("WFTranslateTextLanguagePickerParameter", "Translate Language Picker");
 addDynamicEnum("WFIFTTTTriggerNameParameter", "IFTTT Trigger Name Picker"); // RIP ifttt support, you will be missed.
 // addDynamicEnum("aaaa", "aaaa Picker");
-addStaticEnum("WFStorageServicePickerParameter", "Storage Service Picker", ["iCloud Drive", "Dropbox"]);
-addStaticEnum("WFImageConvertFormatPickerParameter", "Image Format Picker", ["JPEG", "PNG", "TIFF", "GIF", "JPEG-2000", "BMP", "PDF", "Match Input"]);
-addStaticEnum("WFUnitTypePickerParameter", "Unit Picker", ["Acceleration", "Angle", "Area", "Concentration Mass", "Dispersion", "Duration", "Eletric Charge", "Electric Potential Difference",
-    "Electric Resistance", "Energy", "Frequency", "Fuel Efficiency", "Illuminance", "Length", "Mass", "Power", "Pressure", "Speed", "Temperature", "Volume"]);
+addStaticEnum("WFStorageServicePickerParameter", "Storage Service Picker", [
+    "iCloud Drive",
+    "Dropbox"
+]);
+addStaticEnum("WFImageConvertFormatPickerParameter", "Image Format Picker", [
+    "JPEG",
+    "PNG",
+    "TIFF",
+    "GIF",
+    "JPEG-2000",
+    "BMP",
+    "PDF",
+    "Match Input"
+]);
+addStaticEnum("WFUnitTypePickerParameter", "Unit Picker", [
+    "Acceleration",
+    "Angle",
+    "Area",
+    "Concentration Mass",
+    "Dispersion",
+    "Duration",
+    "Eletric Charge",
+    "Electric Potential Difference",
+    "Electric Resistance",
+    "Energy",
+    "Frequency",
+    "Fuel Efficiency",
+    "Illuminance",
+    "Length",
+    "Mass",
+    "Power",
+    "Pressure",
+    "Speed",
+    "Temperature",
+    "Volume"
+]);
 addDynamicEnum("WFUnitTypePickerParameter", "Unit Type Picker"); // it's different for every unit type...
-addStaticEnum("WFNetworkPickerParameter", "Network Type Picker", ["Wi-Fi", "Cellular"]);
-addStaticEnum("WFArchiveFormatParameter", "Archive Format", [".zip", ".tar.gz", ".tar.bz2", ".tar.xz", ".tar", ".gz", ".cpio", ".iso"]);
-addStaticEnum("WFMapsAppPickerParameter", "Maps App", ["Maps", "Google Maps", "Waze"]);
+addStaticEnum("WFNetworkPickerParameter", "Network Type Picker", [
+    "Wi-Fi",
+    "Cellular"
+]);
+addStaticEnum("WFArchiveFormatParameter", "Archive Format", [
+    ".zip",
+    ".tar.gz",
+    ".tar.bz2",
+    ".tar.xz",
+    ".tar",
+    ".gz",
+    ".cpio",
+    ".iso"
+]);
+addStaticEnum("WFMapsAppPickerParameter", "Maps App", [
+    "Maps",
+    "Google Maps",
+    "Waze"
+]);
 // TODO WFDynamicTagFieldParameter gives a list of options that you can check
 // AlarmFrequencyPicker is a static tag, accepts an array of values which must be one of [Sunday,Monday,...]. Check what the output looks like.
 // WFEvernoteTagsTagFieldParameter is a dynamic tag
@@ -211,7 +268,9 @@ class WFAppPickerParameter extends WFParameter {
 Accepts a string containing a supported app or an app identifier.
 You can use [this shortcut](https://www.icloud.com/shortcuts/7aff3fcdd0ca4bbc9c0d1b70e2825ed8) to get an app identifier for an unsupported app.
 Supported apps are:
-${Object.keys(AppNames_1.appNames).map(appName => `- \`${appName}\` (${AppNames_1.appNames[appName].name})`).join("\n")}
+${Object.keys(AppNames_1.appNames)
+            .map(appName => `- \`${appName}\` (${AppNames_1.appNames[appName].name})`)
+            .join("\n")}
 - Any other app by entering its id from [this shortcut](https://www.icloud.com/shortcuts/7aff3fcdd0ca4bbc9c0d1b70e2825ed8)
 		`;
     }
@@ -241,8 +300,10 @@ class WFNumberFieldParameter extends WFParameter {
     genDocs() {
         return `${super.genDocs()}
 
-		Accepts a number ${this.allowsVariables ? `
-		or variable` : ""}
+		Accepts a number ${this.allowsVariables
+            ? `
+		or variable`
+            : ""}
 		with a number.`;
     }
     genDocsDefaultValue(value) {
@@ -363,8 +424,10 @@ class WFTextInputParameter extends WFParameter {
     genDocs() {
         return `${super.genDocs()}
 
-Accepts a string ${this.allowsVariables ? `
-or text` : ""}
+Accepts a string ${this.allowsVariables
+            ? `
+or text`
+            : ""}
 with the text.`;
     }
     genDocsDefaultValue(value) {
@@ -459,13 +522,17 @@ class WFSwitchParameter extends WFParameter {
         super(data, name, docs);
     }
     genDocsArgName() {
-        return this.allowsVariables ? `(true | f alse | variable)` : `(true | false)`;
+        return this.allowsVariables
+            ? `(true | false | variable)`
+            : `(true | false)`;
     }
     genDocs() {
         return `${super.genDocs()}
 
-Accepts a boolean${this.allowsVariables ? `
-or a variable.` : ""}`;
+Accepts a boolean${this.allowsVariables
+            ? `
+or a variable.`
+            : ""}`;
     }
     build(cc, parse) {
         if (parse.canBeVariable(cc)) {
@@ -523,7 +590,13 @@ or a named variable (v:) that you want to set.
         return docs;
     }
     build(cc, parse) {
-        const varname = parse.canBeString(cc) ? parse.asString(cc) : parse.canBeStringVariable(cc) ? parse.asStringVariable(cc) : (() => { throw parse.error(cc, "Variable fields only accept strings and named variables with no aggrandizements."); })();
+        const varname = parse.canBeString(cc)
+            ? parse.asString(cc)
+            : parse.canBeStringVariable(cc)
+                ? parse.asStringVariable(cc)
+                : (() => {
+                    throw parse.error(cc, "Variable fields only accept strings and named variables with no aggrandizements.");
+                })();
         cc.setNamedVariable(varname);
         return varname;
     }
@@ -533,12 +606,16 @@ const _debugMissingTypes = {};
 const _debugTypes = {};
 class WFAction {
     constructor(data, id) {
+        //
         this._data = data;
         this.id = id;
         this.isComplete = true;
         this._parameters = [];
         this.internalName = this.id;
         this.name = this._data.Name;
+        if (data.AppInfo) {
+            this.name += ` (${data.AppInfo})`;
+        }
         this.shortName = genShortName(this.name, this.internalName);
         this.name = this.name || this.shortName;
         const parameterNames = {};
@@ -577,6 +654,7 @@ class WFAction {
         return this._data.InputPassthrough;
     }
     get hasVariable() {
+        // If this action has a magic variable
         return !this.inputPassthrough;
     }
     get requiresInput() {
@@ -596,46 +674,66 @@ class WFAction {
     }
     genDocsAutocompleteUsage() {
         return `${this.shortName} a{
-${this.genDocsParams().map((arg, i) => `  ${arg.argName}=\${${i + 1}${arg.argAutocompletePlaceholder}}`).join(",\n")}
+${this.genDocsParams()
+            .map((arg, i) => `  ${arg.argName}=\${${i + 1}${arg.argAutocompletePlaceholder}}`)
+            .join(",\n")}
 }${this._data.BlockInfo ? this._data.BlockInfo.Completion : ""}
 `;
     }
     genDocsUsage() {
         return `\`\`\`
-${this.shortName} ${this.genDocsParams().map(({ argName, argType }) => `${argName}=${argType}`).join(" ")}${this._data.BlockInfo ? this._data.BlockInfo.Example : ""}
+${this.shortName} ${this.genDocsParams()
+            .map(({ argName, argType }) => `${argName}=${argType}`)
+            .join(" ")}${this._data.BlockInfo ? this._data.BlockInfo.Example : ""}
 \`\`\``;
     }
     genDocs() {
         const docs = `
 ## ${this.name} / ${this.shortName} (internally \`${this.internalName}\`)
-${this.isComplete ? "" : `
+${this.isComplete
+            ? ""
+            : `
 > This action is not yet complete. Some arguments may be missing.
-`}${this._data.RequiredResources ? `
+`}${this._data.RequiredResources
+            ? `
 > This action requires that Shortcuts has permission to use ${this._data.RequiredResources}.
-` : ""}${this._data.BlockInfo ? `
+`
+            : ""}${this._data.BlockInfo
+            ? `
 > This action has a block. Make sure to end it with an end. (More info in usage below)
-` : ""}
-${this._data.Description ? `
-## description${this._data.Description.DescriptionSummary ? `
+`
+            : ""}
+${this._data.Description
+            ? `
+## description${this._data.Description.DescriptionSummary
+                ? `
 
 ### summary
 
 ${this._data.Description.DescriptionSummary}
-` : ""}${this._data.Description.DescriptionNote ? `
+`
+                : ""}${this._data.Description.DescriptionNote
+                ? `
 
 ### note
 
 ${this._data.Description.DescriptionNote}
-` : ""}${this._data.Description.DescriptionInput ? `
+`
+                : ""}${this._data.Description.DescriptionInput
+                ? `
 
 ### input
 
 ${this._data.Description.DescriptionInput}
-` : ""}${this._data.Description.DescriptionResult ? `
+`
+                : ""}${this._data.Description.DescriptionResult
+                ? `
 
 ### output
 
-${this._data.Description.DescriptionResult}` : ""}` : ""}
+${this._data.Description.DescriptionResult}`
+                : ""}`
+            : ""}
 
 ### usage
 ${this.genDocsUsage()}
@@ -644,7 +742,7 @@ ${this.genDocsUsage()}
 
 ---
 
-${this._parameters.map(param => (typeof param === "string") ? `#### ${param}` : param.genDocs()).join(`
+${this._parameters.map(param => typeof param === "string" ? `#### ${param}` : param.genDocs()).join(`
 
 ---
 
@@ -710,7 +808,8 @@ ${JSON.stringify(this._data, null, "\t")}
                 Object.keys(dictionary).forEach(key => {
                     const value = dictionary[key];
                     const shortKey = genShortName(key);
-                    const paramtype = this._parameters.find(param => typeof param !== "string" && param.shortName === shortKey);
+                    const paramtype = this._parameters.find(param => typeof param !== "string" &&
+                        param.shortName === shortKey);
                     if (typeof paramtype === "string") {
                         throw value.error(cc, "This should never happen. Find should exclude string paramtypes.");
                     }
@@ -747,8 +846,13 @@ ${JSON.stringify(this._data, null, "\t")}
             }
             action.parameters.set(paramtype.internalName, paramtype.build(cc, param));
         });
-        if (actionAbove && this.requiresInput && actionAbove !== cc.lastVariableAction) {
-            cc.add(HelpfulActions_1.getVariable({ start: actionAbove.start, end: actionAbove.end }, new OutputData_1.MagicVariable(actionAbove)));
+        if (actionAbove &&
+            this.requiresInput &&
+            actionAbove !== cc.lastVariableAction) {
+            cc.add(HelpfulActions_1.getVariable({
+                start: actionAbove.start,
+                end: actionAbove.end
+            }, new OutputData_1.MagicVariable(actionAbove)));
         }
         // TODO if(actionAbove) cc.add(getVariableAction(actionAbove))
         cc.add(action);
@@ -796,7 +900,10 @@ ${completedActions}/${totalActions} builtin actions supported
 
 ## All Actions:
 
-${Object.values(actionsByID).sort((a, b) => a.name > b.name ? 1 : (a.name < b.name ? -1 : 0)).map(action => `- [${action.name} (\`${action.shortName}\`)](actions/${action.shortName})${action.isComplete ? "" : " (Incomplete)"}`).join(`\n`)}
+${Object.values(actionsByID)
+        .sort((a, b) => (a.name > b.name ? 1 : a.name < b.name ? -1 : 0))
+        .map(action => `- [${action.name} (\`${action.shortName}\`)](actions/${action.shortName})${action.isComplete ? "" : " (Incomplete)"}`)
+        .join(`\n`)}
 
 ## Parameter Types:
 

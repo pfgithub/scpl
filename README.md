@@ -8,11 +8,13 @@ ScPL is a text based language for creating shortcuts in the iOS shortcuts app.
 
 [Try Shortcutslang Online](https://editor.scpl.dev)
 
-```bash
-scpl [filename] -o [outputfile]
-```
+```javascript
+const {parse, inverse} = require("scpl");
 
-```
-bash
-yarn test
+const {shortcutjson, shortcutplist} = parse("text 'hello scpl'", {make: ["shortcutjson", "shortcutplist"]});
+// shortcutjson is a json object containing the shortcut file
+// shortcutplist is a buffer plist containing the shortcut file
+
+const inverted = inverse(shortcutplist);
+// text "hello scpl"
 ```

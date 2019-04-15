@@ -4,9 +4,9 @@ const OutputData_1 = require("./OutputData");
 const ActionData_1 = require("./ActionData");
 const NUMBER = /^-?(?:[0-9]*\.[0-9]+|[0-9]+)$/;
 const IDENTIFIER = /^[A-Za-z@_][A-Za-z0-9@_]*$/;
-const ESCAPEDQUOTEDSTRING = (value) => value.replace(/(["\\\n])/g, d => d === "\n" ? "\\n" : `\\${d}`);
+const ESCAPEDQUOTEDSTRING = (value) => value.replace(/(["\\\n])/g, d => (d === "\n" ? "\\n" : `\\${d}`));
 const DQUOTEDSTRING = (value) => `"${ESCAPEDQUOTEDSTRING(value)}"`;
-const ESCAPESQUOTEDSTRING = (value) => value.replace(/(['\\\n])/g, d => d === "\n" ? "\\n" : `\\${d}`);
+const ESCAPESQUOTEDSTRING = (value) => value.replace(/(['\\\n])/g, d => (d === "\n" ? "\\n" : `\\${d}`));
 const SQUOTEDSTRING = (value) => `"${ESCAPESQUOTEDSTRING(value)}"`;
 // FOR NOW:
 // put argument labels on all arguments
@@ -24,10 +24,12 @@ class InverseConvertingContext {
         this._indentLevel = 0;
     }
     createActionsAble(value) {
-        return value.actions.map(action => {
+        return value.actions
+            .map(action => {
             const createdAction = this.createActionAble(action);
             return `${createdAction}`;
-        }).join("\n");
+        })
+            .join("\n");
     }
     createActionAble(value) {
         const result = [];
@@ -53,9 +55,15 @@ class InverseConvertingContext {
         });
         const uuid = value.parameters.get("UUID");
         if (uuid) {
-            const baseName = value.magicvarname || value.name || actionData.name || actionData.shortName || actionData.internalName || "??unnamed??";
+            const baseName = value.magicvarname ||
+                value.name ||
+                actionData.name ||
+                actionData.shortName ||
+                actionData.internalName ||
+                "??unnamed??";
             let name = baseName;
-            if (this.magicVariablesByName[name]) { // magic variables needs to be both by name and by uuid
+            if (this.magicVariablesByName[name]) {
+                // magic variables needs to be both by name and by uuid
                 for (let i = 1; this.magicVariablesByName[name]; i++) {
                     name = baseName + i;
                 }
@@ -74,7 +82,7 @@ class InverseConvertingContext {
         let actionName = actionData.shortName;
         let indentLevel = this._indentLevel;
         const paramResult = result.join(" ");
-        const controlFlowMode = value.parameters.get("WFControlFlowMode");
+        const controlFlowMode = (value.parameters.get("WFControlFlowMode"));
         if (controlFlowMode === 1) {
             indentLevel = this._indentLevel - 1;
             if (value.id === "is.workflow.actions.conditional") {
@@ -95,7 +103,8 @@ class InverseConvertingContext {
         else if (actionData._data.BlockInfo) {
             this._indentLevel++;
         }
-        return this.indent.repeat(indentLevel) + (`${actionName} ${paramResult}`).trim();
+        return (this.indent.repeat(indentLevel) +
+            `${actionName} ${paramResult}`.trim());
     }
     handleArgument(thing) {
         if (typeof thing === "string") {
@@ -156,7 +165,9 @@ class InverseConvertingContext {
     }
     createDictionaryAble(value) {
         const result = value.items.map(item => {
-            const key = this.createTextAble(item.key, { dontAllowOnlyVariable: true });
+            const key = this.createTextAble(item.key, {
+                dontAllowOnlyVariable: true
+            });
             const value = this.handleArgument(item.value);
             return `${key}: ${value}`;
         });
@@ -175,10 +186,9 @@ class InverseConvertingContext {
             aggrandizements.push(`as: ${OutputData_1.inverseCoercionTypes[value.coercionType]}`);
         }
         if (value.getProperty) {
-            if (!value.coercionType) {
-                return `??get: ${value.getProperty.name} without as: value??`;
-            }
-            aggrandizements.push(`get: ${value.getProperty.name.toLowerCase().replace(/[^a-z]/g, "")}`);
+            aggrandizements.push(`get: ${value.getProperty.name
+                .toLowerCase()
+                .replace(/[^a-z]/g, "")}`);
         }
         let res = "";
         if (forKey) {
@@ -190,6 +200,7 @@ class InverseConvertingContext {
         return res;
     }
     createVariableAble(value) {
+        // createVariAble
         if (value instanceof OutputData_1.NamedVariable) {
             if (value.varname.match(IDENTIFIER)) {
                 return `v:${value.varname}${this.createAggrandizementsAble(value.aggrandizements)}`;
@@ -206,7 +217,15 @@ class InverseConvertingContext {
             }
             return `mv:${this.quoteAndEscape(varname)}${this.createAggrandizementsAble(value.aggrandizements)}`;
         }
-        const data = { Clipboard: "clipboard", Ask: "askWhenRun", CurrentDate: "currentDate", ExtensionInput: "shortcutinput", Input: "actioninput", Variable: undefined, ActionOutput: undefined };
+        const data = {
+            Clipboard: "clipboard",
+            Ask: "askWhenRun",
+            CurrentDate: "currentDate",
+            ExtensionInput: "shortcutinput",
+            Input: "actioninput",
+            Variable: undefined,
+            ActionOutput: undefined
+        };
         if (!data[value.type]) {
             return `s:??internal error: attachmenttype is ${value.type.replace(/[^A-Za-z0-9]/g, "")} which is not known about yet??`;
         }
@@ -215,13 +234,15 @@ class InverseConvertingContext {
     createTextAble(value, options = {}) {
         const components = value.components();
         const firstComponent = components[0];
-        if (components.length === 1 && firstComponent instanceof OutputData_1.Attachment && !options.dontAllowOnlyVariable) {
+        if (components.length === 1 &&
+            firstComponent instanceof OutputData_1.Attachment &&
+            !options.dontAllowOnlyVariable) {
             return this.createVariableAble(firstComponent);
         }
         let resstr = "";
         components.forEach((component) => {
             if (typeof component === "string") {
-                return resstr += ESCAPEDQUOTEDSTRING(component);
+                return (resstr += ESCAPEDQUOTEDSTRING(component));
             }
             resstr += `\\(${this.createVariableAble(component)})`;
         });

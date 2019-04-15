@@ -11,7 +11,7 @@ Sets the name of the item passed as input.
 
 ### usage
 ```
-setname name="string" advanced=(true | false) dontincludefileextension=(true | f alse | variable)
+setname name="string" advanced=(true | false) dontincludefileextension=(true | false | variable)
 ```
 
 ### arguments

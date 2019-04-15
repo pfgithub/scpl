@@ -13,7 +13,7 @@ Adds the URL passed into the action to your Pinboard.
 
 ### usage
 ```
-addtopinboard title="string" tags="string" public=(true | f alse | variable) unread=(true | f alse | variable) description="string"
+addtopinboard title="string" tags="string" public=(true | false | variable) unread=(true | false | variable) description="string"
 ```
 
 ### arguments
