@@ -12,7 +12,8 @@ import {
 	NumberParse,
 	ConvertVariableParse,
 	ErrorParse,
-	Parse
+	Parse,
+	FilterItemParse
 } from "./ParserData.js";
 
 import { p, regex, star, plus, optional, or, c, o } from "./ParserHelper.js";
@@ -184,7 +185,8 @@ o.value = or(
 	o.identifier,
 	o.parenthesis,
 	o.dictionary,
-	o.list
+	o.list,
+	o.filter
 );
 
 o.dictionary = p(c`{`, star(o.keyvaluepair).scb(items => items), c`}`).scb(
@@ -193,6 +195,32 @@ o.dictionary = p(c`{`, star(o.keyvaluepair).scb(items => items), c`}`).scb(
 o.list = p(c`[`, _n, star(p(o.value, _n).scb(([value]) => value)), c`]`).scb(
 	([, , values], start, end) => new ListParse(start, end, values)
 );
+
+o.filer = p(
+	c`:filter{`,
+	_n,
+	o.filteritem,
+	star(p(_n, or(c`||`, c`&&`), _n, o.filteritem, _n)),
+	c`}`
+);
+// :filter{name is "hello there" or name "starts with" "test"}
+
+o.filteritem = or(
+	p(o.value, _n, o.value, _n, o.value, _n, o.value).scb(
+		([property, , comparator, , value, , units], start, end) =>
+			new FilterItemParse(start, end, property, comparator, value, units)
+	),
+	p(o.value, _n, o.value, _n, o.value).scb(
+		([property, , comparator, , value], start, end) =>
+			new FilterItemParse(start, end, property, comparator, value)
+	)
+);
+// "All of the following are true"
+// "Any of the following are true"
+// name is mytext
+// || filesize "is greater than" 25 bytes
+// || "creation date" "is exactly" 12/2/2222
+// || "is not a screenshot"
 
 o.keyvaluepair = p(
 	_n,

@@ -206,10 +206,14 @@ export class Aggrandizements {
 // // // // // //
 //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //
 
-export class Parameter {
+class Parameter {
+	// cannot be abstract because inverse is static
 	constructor() {}
 	build(): WFParameter {
-		throw new Error("Blank parameter cannot be built");
+		throw new Error("Blank parameter has no build method");
+	}
+	static inverse(_data: WFParameter): Parameter {
+		throw new Error("Blank parameter has no inverse method");
 	}
 }
 
@@ -242,6 +246,53 @@ type WFDictionaryParameter = {
 	};
 	WFSerializationType: "WFDictionaryFieldValue";
 };
+
+const _demo = {
+	WFContentItemFilter: {
+		Value: {
+			WFActionParameterFilterPrefix: 1,
+			WFActionParameterFilterTemplates: [
+				{
+					Operator: 4,
+					Property: "Name",
+					Removable: true,
+					String: "filter text here",
+					VariableOverrides: {}
+				}
+			],
+			WFSerializationType: "WFContentPredicateTableTemplate"
+		}
+	}
+};
+
+type WFContentItemFilterProperty = "Name";
+type WFContentItemFilterOperator = "Is";
+
+export class ContentItemFilter extends Parameter {
+	data: Array<ContentItemFilterItem>;
+	constructor(data: Array<ContentItemFilterItem>) {
+		super();
+		this.data = data;
+	}
+}
+export class ContentItemFilterItem extends Parameter {
+	property: WFContentItemFilterProperty;
+	operator: WFContentItemFilterOperator;
+	value: string;
+	units: undefined;
+	constructor(
+		property: WFContentItemFilterProperty,
+		operator: WFContentItemFilterOperator,
+		value: string,
+		units?: undefined
+	) {
+		super();
+		this.property = property;
+		this.operator = operator;
+		this.value = value;
+		this.units = units;
+	}
+}
 
 export class Dictionary extends Parameter {
 	items: Array<{

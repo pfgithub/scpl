@@ -622,4 +622,32 @@ test("actions that ignore parameters should still support ->", t => {
 	]);
 });
 
+test("filter action by name", t => {
+	t.deepEqual(scplToShortcut(`FilterFiles :filter{Name is "My File Name"}`), [
+		{
+			WFWorkflowActionIdentifier: "is.workflow.actions.getvariable",
+			WFWorkflowActionParameters: {
+				WFContentItemFilter: {
+					WFContentItemFilter: {
+						Value: {
+							WFActionParameterFilterPrefix: 1,
+							WFActionParameterFilterTemplates: [
+								{
+									Operator: 4,
+									Property: "Name",
+									Removable: true,
+									String: "filter text here",
+									VariableOverrides: {}
+								}
+							],
+							WFSerializationType:
+								"WFContentPredicateTableTemplate"
+						}
+					}
+				}
+			}
+		}
+	]);
+});
+
 // console.log(JSON.stringify(noUUID(actions), null, "\t"));

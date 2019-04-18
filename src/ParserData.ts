@@ -7,7 +7,9 @@ import {
 	Variable,
 	Attachment,
 	List,
-	AttachmentType
+	AttachmentType,
+	ContentItemFilter,
+	ContentItemFilterItem
 } from "./OutputData";
 import { getActionFromName } from "./ActionData";
 import { ConvertingContext } from "./Converter.js";
@@ -83,6 +85,9 @@ export class Parse {
 	canBeNumber(_cc: ConvertingContext): this is AsNumber {
 		return false;
 	}
+	canBeFilter(_cc: ConvertingContext): this is AsFilter {
+		return false;
+	}
 }
 
 interface AsString extends Parse {
@@ -141,6 +146,14 @@ interface AsNumber extends Parse {
 	asNumber(cc: ConvertingContext): number;
 }
 
+interface AsFilter extends Parse {
+	asFilter(cc: ConvertingContext): ContentItemFilter;
+}
+
+interface AsFilterItem extends Parse {
+	asFilter(cc: ConvertingContext): ContentItemFilterItem;
+}
+
 export type AsAble = Parse;
 
 export class ConvertVariableParse extends Parse {
@@ -190,7 +203,8 @@ export class ConvertVariableParse extends Parse {
 	"RawKeyedDictionary",
 	"NameType",
 	"StringVariable",
-	"Number"
+	"Number",
+	"Filter"
 ].forEach(val => {
 	//eslint-disable-next-line func-names
 	(<any>ConvertVariableParse).prototype[`canBe${val}`] = function(
@@ -230,7 +244,33 @@ export class ErrorParse extends Parse {
 		super(start, end);
 	}
 }
-
+export class FilterItemParse extends Parse {
+	property: AsAble;
+	comparator: AsAble;
+	value: AsAble;
+	units?: AsAble;
+	constructor(
+		start: Position,
+		end: Position,
+		property: AsAble,
+		comparator: AsAble,
+		value: AsAble,
+		units?: AsAble
+	) {
+		super(start, end);
+		
+		this.property = property;
+		this.comparator = comparator;
+		this.value = value;
+		this.units = units;
+	}
+	canBeFilter(_cc: ConvertingContext): boolean {
+		return true;
+	}
+	asFilter(cc: ConvertingContext):  {
+		
+	}
+}
 export class DictionaryParse extends Parse
 	implements AsRawDictionary, AsRawKeyedDictionary, AsDictionary {
 	keyvaluepairs: Array<{ key: AsAble; value: AsAble }>;
