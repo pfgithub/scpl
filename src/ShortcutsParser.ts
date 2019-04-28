@@ -197,13 +197,9 @@ o.list = p(c`[`, _n, star(p(o.value, _n).scb(([value]) => value)), c`]`).scb(
 	([, , values], start, end) => new ListParse(start, end, values)
 );
 
-o.filter = p(
-	c`:filter{`,
-	_n,
-	o.filteritem,
-	_n,
-	c`}`
-).scb(([,, filterItem1, ], start, end) => new FilterParse(start, end, filterItem1));
+o.filter = p(c`:filter{`, _n, o.filteritem, _n, c`}`).scb(
+	([, , filterItem1], start, end) => new FilterParse(start, end, filterItem1)
+);
 // :filter{name is "hello there" or name "starts with" "test"}
 
 o.filteritem = or(

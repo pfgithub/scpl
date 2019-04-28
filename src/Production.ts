@@ -19,7 +19,7 @@ export class Performance {
 		console.log(
 			`Parsed in ${totalSteps} steps over ${ended.getTime() -
 				began.getTime()}ms.`
-		); 
+		);
 	}
 }
 
@@ -165,7 +165,7 @@ export class RegexProduction extends Production {
 				"WARN: regex ",
 				this.regex,
 				" does not start matching at beginning of line"
-			); 
+			);
 		}
 		return { success: false };
 	}

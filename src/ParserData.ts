@@ -275,7 +275,7 @@ export class FilterItemParse extends Parse implements AsFilterItem {
 	}
 }
 export class FilterParse extends Parse implements AsFilter {
-filterItems: FilterItemParse[]
+	filterItems: FilterItemParse[];
 	constructor(
 		start: Position,
 		end: Position,
