@@ -235,7 +235,12 @@ type DictionaryFieldValueItem =
 			WFKey: WFTextParameter;
 			WFValue: WFTextParameter;
 	  }
-	| { WFItemType: -1; WFKey: WFTextParameter };
+	| { WFItemType: -1; WFKey: WFTextParameter }
+	| {
+		WFItemType: 3,
+		WFKey: WFTextParameter,
+		WFValue: number
+	};
 type WFDictionaryParameter = {
 	Value: {
 		WFDictionaryFieldValueItems: DictionaryFieldValueItem[];
@@ -246,13 +251,13 @@ type WFDictionaryParameter = {
 export class Dictionary extends Parameter {
 	items: Array<{
 		key: Text;
-		value: Dictionary | Text | List | ErrorParameter;
+		value: Dictionary | Text | List | ErrorParameter | number;
 	}>;
 	constructor() {
 		super();
 		this.items = [];
 	}
-	add(key: Text, value: Dictionary | Text | List | ErrorParameter) {
+	add(key: Text, value: Dictionary | Text | List | ErrorParameter | number) {
 		this.items.push({ key, value });
 	}
 	static inverse(data: WFDictionaryParameter): Dictionary {
@@ -274,6 +279,12 @@ export class Dictionary extends Parameter {
 				return res.add(
 					Text.inverse(item.WFKey),
 					Text.inverse(item.WFValue)
+				);
+			}
+			if (item.WFItemType === 3) {
+				return res.add(
+					Text.inverse(item.WFKey),
+					item.WFValue
 				);
 			}
 			return res.add(Text.inverse(item.WFKey), new ErrorParameter());
@@ -316,7 +327,18 @@ export class Dictionary extends Parameter {
 								WFValue: value.build()
 							};
 						}
-						throw new Error("Invalid value type");
+						if(typeof value === "number") {
+							return {
+								WFItemType: 3,
+								WFKey: key.build(),
+								WFValue: value
+							};
+						}
+						return {
+							WFItemType: 0,
+							WFKey: key.build(),
+							WFValue: "__scplerror"
+						};
 					}
 				)
 			},

@@ -53,6 +53,10 @@ declare type DictionaryFieldValueItem = {
 } | {
     WFItemType: -1;
     WFKey: WFTextParameter;
+} | {
+    WFItemType: 3;
+    WFKey: WFTextParameter;
+    WFValue: number;
 };
 declare type WFDictionaryParameter = {
     Value: {
@@ -63,10 +67,10 @@ declare type WFDictionaryParameter = {
 export declare class Dictionary extends Parameter {
     items: Array<{
         key: Text;
-        value: Dictionary | Text | List | ErrorParameter;
+        value: Dictionary | Text | List | ErrorParameter | number;
     }>;
     constructor();
-    add(key: Text, value: Dictionary | Text | List | ErrorParameter): void;
+    add(key: Text, value: Dictionary | Text | List | ErrorParameter | number): void;
     static inverse(data: WFDictionaryParameter): Dictionary;
     build(): WFDictionaryParameter;
 }

@@ -194,6 +194,9 @@ class Dictionary extends Parameter {
             if (item.WFItemType === 0) {
                 return res.add(Text.inverse(item.WFKey), Text.inverse(item.WFValue));
             }
+            if (item.WFItemType === 3) {
+                return res.add(Text.inverse(item.WFKey), item.WFValue);
+            }
             return res.add(Text.inverse(item.WFKey), new ErrorParameter());
         });
         return res;
@@ -232,7 +235,18 @@ class Dictionary extends Parameter {
                             WFValue: value.build()
                         };
                     }
-                    throw new Error("Invalid value type");
+                    if (typeof value === "number") {
+                        return {
+                            WFItemType: 3,
+                            WFKey: key.build(),
+                            WFValue: value
+                        };
+                    }
+                    return {
+                        WFItemType: 0,
+                        WFKey: key.build(),
+                        WFValue: "__scplerror"
+                    };
                 })
             },
             WFSerializationType: "WFDictionaryFieldValue"
