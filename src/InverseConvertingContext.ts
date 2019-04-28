@@ -211,8 +211,10 @@ export class InverseConvertingContext {
 			const key = this.createTextAble(item.key, {
 				dontAllowOnlyVariable: true
 			});
-			if(typeof item.value === "number") {
-				return `${key}: ??ScPL will add this number as a string value in the dictionary. If this is acceptable, put the number: ${item.value}??`;
+			if (typeof item.value === "number") {
+				return `${key}: ??ScPL will add this number as a string value in the dictionary. If this is acceptable, put the number: ${
+					item.value
+				}??`;
 			}
 			const value = this.handleArgument(item.value);
 			return `${key}: ${value}`;

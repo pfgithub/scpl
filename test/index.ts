@@ -204,25 +204,29 @@ test("invert an incomplete action", t => {
 	);
 });
 test("dictionary number values", t => {
-	const icc = new InverseConvertingContext;
-	t.deepEqual(icc.createActionAble(Action.inverse(
-		{
-			WFWorkflowActionIdentifier: "is.workflow.actions.dictionary",
-			WFWorkflowActionParameters: {
-				WFItems: {
-					Value: {
-						WFDictionaryFieldValueItems: [
-							{
-								WFItemType: 3,
-								WFKey: "name",
-								WFValue: 23
-							}
-						]
-					},
-					WFSerializationType: "WFDictionaryFieldValue"
+	const icc = new InverseConvertingContext();
+	t.deepEqual(
+		icc.createActionAble(
+			Action.inverse({
+				WFWorkflowActionIdentifier: "is.workflow.actions.dictionary",
+				WFWorkflowActionParameters: {
+					WFItems: {
+						Value: {
+							WFDictionaryFieldValueItems: [
+								{
+									WFItemType: 3,
+									WFKey: "name",
+									WFValue: 23
+								}
+							]
+						},
+						WFSerializationType: "WFDictionaryFieldValue"
+					}
 				}
-			}
-		})), `dictionary {name: ??ScPL will add this number as a string value in the dictionary. If this is acceptable, put the number: 23??}`);
+			})
+		),
+		`dictionary {name: ??ScPL will add this number as a string value in the dictionary. If this is acceptable, put the number: 23??}`
+	);
 });
 
 test("inversions for stringable", t => {

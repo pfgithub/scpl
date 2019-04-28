@@ -237,10 +237,10 @@ type DictionaryFieldValueItem =
 	  }
 	| { WFItemType: -1; WFKey: WFTextParameter }
 	| {
-		WFItemType: 3,
-		WFKey: WFTextParameter,
-		WFValue: number
-	};
+			WFItemType: 3;
+			WFKey: WFTextParameter;
+			WFValue: number;
+	  };
 type WFDictionaryParameter = {
 	Value: {
 		WFDictionaryFieldValueItems: DictionaryFieldValueItem[];
@@ -282,10 +282,7 @@ export class Dictionary extends Parameter {
 				);
 			}
 			if (item.WFItemType === 3) {
-				return res.add(
-					Text.inverse(item.WFKey),
-					item.WFValue
-				);
+				return res.add(Text.inverse(item.WFKey), item.WFValue);
 			}
 			return res.add(Text.inverse(item.WFKey), new ErrorParameter());
 		});
@@ -327,7 +324,7 @@ export class Dictionary extends Parameter {
 								WFValue: value.build()
 							};
 						}
-						if(typeof value === "number") {
+						if (typeof value === "number") {
 							return {
 								WFItemType: 3,
 								WFKey: key.build(),
