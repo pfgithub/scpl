@@ -10,18 +10,14 @@ type GetTypeInfoProperty = {
 	filter?: boolean;
 	filterFakeType?: string;
 	filterEnumValues?: string[];
-}
+};
 
 type GetTypeInfo = {
-	comparisonMethods?: {[name: string]: number},
-	properties: {
-		[Name in AggrandizementPropertyName]: GetTypeInfoProperty
-	};
+	comparisonMethods?: { [name: string]: number };
+	properties: { [Name in AggrandizementPropertyName]: GetTypeInfoProperty };
 };
 
-type GetTypesData = {
-	[Type in CoercionTypeClass]: GetTypeInfo
-};
+type GetTypesData = { [Type in CoercionTypeClass]: GetTypeInfo };
 
 const data: GetTypesData = {
 	WFAppStoreAppContentItem: {
@@ -91,7 +87,9 @@ const data: GetTypesData = {
 			},
 			name: {
 				name: "Name",
-				data: "WFItemName"
+				data: "WFItemName",
+				type: "WFStringContentItem",
+				filter: true
 			},
 			ratingthisversion: {
 				name: "Rating (This Version)"
@@ -117,7 +115,9 @@ const data: GetTypesData = {
 		properties: {
 			name: {
 				name: "Name",
-				data: "WFItemName"
+				data: "WFItemName",
+				type: "WFStringContentItem",
+				filter: true
 			},
 			title: {
 				name: "Title"
@@ -146,7 +146,9 @@ const data: GetTypesData = {
 		properties: {
 			name: {
 				name: "Name",
-				data: "WFItemName"
+				data: "WFItemName",
+				type: "WFStringContentItem",
+				filter: true
 			}
 		}
 	},
@@ -210,7 +212,9 @@ const data: GetTypesData = {
 			},
 			name: {
 				name: "Name",
-				data: "WFItemName"
+				data: "WFItemName",
+				type: "WFStringContentItem",
+				filter: true
 			},
 			contactphoto: {
 				name: "Contact Photo",
@@ -262,7 +266,9 @@ const data: GetTypesData = {
 		properties: {
 			name: {
 				name: "Name",
-				data: "WFItemName"
+				data: "WFItemName",
+				type: "WFStringContentItem",
+				filter: true
 			}
 		}
 	},
@@ -285,7 +291,9 @@ const data: GetTypesData = {
 			},
 			name: {
 				name: "Name",
-				data: "WFItemName"
+				data: "WFItemName",
+				type: "WFStringContentItem",
+				filter: true
 			},
 			fileextension: {
 				name: "File Extension",
@@ -300,7 +308,9 @@ const data: GetTypesData = {
 		properties: {
 			name: {
 				name: "Name",
-				data: "WFItemName"
+				data: "WFItemName",
+				type: "WFStringContentItem",
+				filter: true
 			}
 		}
 	},
@@ -324,7 +334,9 @@ const data: GetTypesData = {
 			},
 			name: {
 				name: "Name",
-				data: "WFItemName"
+				data: "WFItemName",
+				type: "WFStringContentItem",
+				filter: true
 			}
 		}
 	},
@@ -399,7 +411,9 @@ const data: GetTypesData = {
 			},
 			name: {
 				name: "Name",
-				data: "WFItemName"
+				data: "WFItemName",
+				type: "WFStringContentItem",
+				filter: true
 			}
 		}
 	},
@@ -427,7 +441,9 @@ const data: GetTypesData = {
 			},
 			name: {
 				name: "Name",
-				data: "WFItemName"
+				data: "WFItemName",
+				type: "WFStringContentItem",
+				filter: true
 			},
 			artist: {
 				name: "Artist",
@@ -526,7 +542,9 @@ const data: GetTypesData = {
 			},
 			name: {
 				name: "Name",
-				data: "WFItemName"
+				data: "WFItemName",
+				type: "WFStringContentItem",
+				filter: true
 			},
 			releasedate: {
 				name: "Release Date"
@@ -574,7 +592,9 @@ const data: GetTypesData = {
 			},
 			name: {
 				name: "Name",
-				data: "WFItemName"
+				data: "WFItemName",
+				type: "WFStringContentItem",
+				filter: true
 			},
 			longitude: {
 				name: "Longitude"
@@ -607,7 +627,9 @@ const data: GetTypesData = {
 		properties: {
 			name: {
 				name: "Name",
-				data: "WFItemName"
+				data: "WFItemName",
+				type: "WFStringContentItem",
+				filter: true
 			}
 		}
 	},
@@ -652,7 +674,9 @@ const data: GetTypesData = {
 			},
 			name: {
 				name: "Name",
-				data: "WFItemName"
+				data: "WFItemName",
+				type: "WFStringContentItem",
+				filter: true
 			}
 		}
 	},
@@ -660,12 +684,21 @@ const data: GetTypesData = {
 		properties: {
 			name: {
 				name: "Name",
-				data: "WFItemName"
+				data: "WFItemName",
+				type: "WFStringContentItem",
+				filter: true
 			}
 		}
 	},
 	WFStringContentItem: {
-		comparisonMethods: {is: 4, "is not": 5, contains: 99, "does not contain": 999, "begins with": 8, "ends with": 9} as {[name: string]: number},
+		comparisonMethods: {
+			is: 4,
+			"is not": 5,
+			contains: 99,
+			"does not contain": 999,
+			"begins with": 8,
+			"ends with": 9
+		} as { [name: string]: number },
 		properties: {
 			fileextension: {
 				name: "File Extension",
@@ -685,7 +718,9 @@ const data: GetTypesData = {
 			},
 			name: {
 				name: "Name",
-				data: "WFItemName"
+				data: "WFItemName",
+				type: "WFStringContentItem",
+				filter: true
 			}
 		}
 	},
@@ -709,7 +744,9 @@ const data: GetTypesData = {
 			},
 			name: {
 				name: "Name",
-				data: "WFItemName"
+				data: "WFItemName",
+				type: "WFStringContentItem",
+				filter: true
 			}
 		}
 	},
@@ -717,7 +754,9 @@ const data: GetTypesData = {
 		properties: {
 			name: {
 				name: "Name",
-				data: "WFItemName"
+				data: "WFItemName",
+				type: "WFStringContentItem",
+				filter: true
 			}
 		}
 	},
@@ -856,7 +895,9 @@ const data: GetTypesData = {
 		properties: {
 			name: {
 				name: "Name",
-				data: "WFItemName"
+				data: "WFItemName",
+				type: "WFStringContentItem",
+				filter: true
 			}
 		}
 	},
@@ -880,7 +921,9 @@ const data: GetTypesData = {
 			},
 			name: {
 				name: "Name",
-				data: "WFItemName"
+				data: "WFItemName",
+				type: "WFStringContentItem",
+				filter: true
 			}
 		}
 	},
@@ -888,7 +931,9 @@ const data: GetTypesData = {
 		properties: {
 			name: {
 				name: "Name",
-				data: "WFItemName"
+				data: "WFItemName",
+				type: "WFStringContentItem",
+				filter: true
 			},
 			pagecontents: {
 				name: "Page Contents"
@@ -905,7 +950,9 @@ const data: GetTypesData = {
 		properties: {
 			name: {
 				name: "Name",
-				data: "WFItemName"
+				data: "WFItemName",
+				type: "WFStringContentItem",
+				filter: true
 			}
 		}
 	},
@@ -929,7 +976,9 @@ const data: GetTypesData = {
 			},
 			name: {
 				name: "Name",
-				data: "WFItemName"
+				data: "WFItemName",
+				type: "WFStringContentItem",
+				filter: true
 			}
 		}
 	}
