@@ -3,19 +3,24 @@ import {
 	AggrandizementPropertyName
 } from "../WFTypes/Types";
 
+type GetTypeInfoProperty = {
+	name: string;
+	data?: string | number;
+	type?: CoercionTypeClass;
+	filter?: boolean;
+	filterFakeType?: string;
+	filterEnumValues?: string[];
+}
+
+type GetTypeInfo = {
+	comparisonMethods?: {[name: string]: number},
+	properties: {
+		[Name in AggrandizementPropertyName]: GetTypeInfoProperty
+	};
+};
+
 type GetTypesData = {
-	[Type in CoercionTypeClass]: {
-		properties: {
-			[Name in AggrandizementPropertyName]: {
-				name: string;
-				data?: string | number;
-				type?: CoercionTypeClass;
-				filter?: boolean;
-				filterFakeType?: string;
-				filterEnumValues?: string[];
-			}
-		};
-	}
+	[Type in CoercionTypeClass]: GetTypeInfo
 };
 
 const data: GetTypesData = {
@@ -660,6 +665,7 @@ const data: GetTypesData = {
 		}
 	},
 	WFStringContentItem: {
+		comparisonMethods: {is: 4, "is not": 5, contains: 99, "does not contain": 999, "begins with": 8, "ends with": 9} as {[name: string]: number},
 		properties: {
 			fileextension: {
 				name: "File Extension",
