@@ -8,6 +8,10 @@ type GetTypesData = {
 		[Name in AggrandizementPropertyName]: {
 			name: string;
 			data?: string | number;
+			type?: CoercionTypeClass
+			filter?: boolean
+			filterFakeType?: string
+			filterEnumValues?: string[]
 		}
 	}
 };
@@ -654,74 +658,121 @@ const data: GetTypesData = {
 	WFPhotoMediaContentItem: {
 		filesize: {
 			name: "File Size",
-			data: "WFFileSizeProperty"
+			data: "WFFileSizeProperty",
+			filter: false
 		},
 		cameramake: {
-			name: "Camera Make"
+			name: "Camera Make",
+			filter: false
 		},
 		lastmodifieddate: {
 			name: "Last Modified Date",
-			data: "WFFileModificationDate"
+			data: "WFFileModificationDate",
+			type: "WFDateContentItem",
+			filter: true
 		},
 		fileextension: {
 			name: "File Extension",
-			data: "WFFileExtensionProperty"
+			data: "WFFileExtensionProperty",
+			type: "WFStringContentItem",
+			filter: true
 		},
 		mediatype: {
-			name: "Media Type"
+			name: "Media Type",
+			type: "WFStringContentItem",
+			filter: true,
+			filterFakeType: "WFEnumerationContentItem",
+			filterEnumValues: ["Image", "Video", "Audio"]
 		},
 		creationdate: {
 			name: "Creation Date",
-			data: "WFFileCreationDate"
+			data: "WFFileCreationDate",
+			type: "WFDateContentItem",
+			filter: true
 		},
 		location: {
-			name: "Location"
+			name: "Location",
+			filter: false
 		},
 		album: {
-			name: "Album"
+			name: "Album",
+			type: "WFStringContentItem",
+			filter: true
 		},
 		phototype: {
-			name: "Photo Type"
+			name: "Photo Type",
+			type: "WFStringContentItem",
+			filter: true,
+			filterFakeType: "WFEnumerationContentItem",
+			filterEnumValues: ["HDR", "Panorama", "Burst", "Live Photo"]
 		},
 		datetaken: {
-			name: "Date Taken"
+			name: "Date Taken",
+			type: "WFDateContentItem",
+			filter: true
 		},
 		duration: {
-			name: "Duration"
+			name: "Duration",
+			type: "WFNumberContentItem",
+			filter: true,
+			filterFakeType: "WFTimeLengthContentItem"
 		},
 		width: {
-			name: "Width"
+			name: "Width",
+			type: "WFNumberContentItem",
+			filter: true
 		},
 		timetaken: {
-			name: "Time Taken"
+			name: "Time Taken",
+			type: "WFDateContentItem",
+			filter: true,
+			filterFakeType: "WFTimeContentItem"
 		},
 		isascreenshot: {
-			name: "Is a Screenshot"
+			name: "Is a Screenshot",
+			type: "WFBooleanContentItem",
+			filter: true
 		},
 		ishidden: {
-			name: "Is Hidden"
+			name: "Is Hidden",
+			type: "WFBooleanContentItem",
+			filter: true
 		},
 		framerate: {
-			name: "Frame Rate"
+			name: "Frame Rate",
+			type: "WFNumberContentItem",
+			filter: true
 		},
 		height: {
-			name: "Height"
+			name: "Height",
+			type: "WFNumberContentItem",
+			filter: true
 		},
 		cameramodel: {
-			name: "Camera Model"
+			name: "Camera Model",
+			filter: false
 		},
 		isfavorite: {
-			name: "Is Favorite"
+			name: "Is Favorite",
+			type: "WFBooleanContentItem",
+			filter: true
 		},
 		orientation: {
-			name: "Orientation"
+			name: "Orientation",
+			type: "WFStringContentItem",
+			filter: true,
+			filterFakeType: "WFEnumerationContentItem",
+			filterEnumValues: ["Up", "Down", "Left", "Right", "Up Mirrored", "Down Mirrored", "Left Mirrored", "Right Mirrored"]
 		},
 		metadatadictionary: {
-			name: "Metadata Dictionary"
+			name: "Metadata Dictionary",
+			filter: false
 		},
 		name: {
 			name: "Name",
-			data: "WFItemName"
+			data: "WFItemName",
+			type: "WFStringContentItem",
+			filter: true
 		}
 	},
 	WFMKMapItemContentItem: {
