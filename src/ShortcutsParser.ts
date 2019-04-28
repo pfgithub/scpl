@@ -13,7 +13,8 @@ import {
 	ConvertVariableParse,
 	ErrorParse,
 	Parse,
-	FilterItemParse
+	FilterItemParse,
+	FilterParse
 } from "./ParserData.js";
 
 import { p, regex, star, plus, optional, or, c, o } from "./ParserHelper.js";
@@ -196,13 +197,13 @@ o.list = p(c`[`, _n, star(p(o.value, _n).scb(([value]) => value)), c`]`).scb(
 	([, , values], start, end) => new ListParse(start, end, values)
 );
 
-o.filer = p(
+o.filter = p(
 	c`:filter{`,
 	_n,
 	o.filteritem,
-	star(p(_n, or(c`||`, c`&&`), _n, o.filteritem, _n)),
+	_n,
 	c`}`
-);
+).scb(([,, filterItem1, ], start, end) => new FilterParse(start, end, filterItem1));
 // :filter{name is "hello there" or name "starts with" "test"}
 
 o.filteritem = or(

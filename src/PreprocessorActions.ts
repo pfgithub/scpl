@@ -25,7 +25,7 @@ const preprocessorActions: {
 			);
 		}
 		list.asAbleArray(cc).forEach(item => {
-			let newCC = cc.in();
+			const newCC = cc.in();
 			newCC.setParserVariable("repeatitem", item);
 			method.asAction(newCC);
 		});

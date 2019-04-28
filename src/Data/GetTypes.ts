@@ -5,6 +5,7 @@ import {
 
 type GetTypesData = {
 	[Type in CoercionTypeClass]: {
+		properties: {
 		[Name in AggrandizementPropertyName]: {
 			name: string;
 			data?: string | number;
@@ -14,10 +15,11 @@ type GetTypesData = {
 			filterEnumValues?: string[]
 		}
 	}
+	}
 };
 
 const data: GetTypesData = {
-	WFAppStoreAppContentItem: {
+	WFAppStoreAppContentItem: {properties: {
 		contentrating: {
 			name: "Content Rating"
 		},
@@ -102,9 +104,9 @@ const data: GetTypesData = {
 		},
 		ofratings: {
 			name: "# of Ratings"
-		}
+		}}
 	},
-	WFArticleContentItem: {
+	WFArticleContentItem: {properties: {
 		name: {
 			name: "Name",
 			data: "WFItemName"
@@ -129,15 +131,15 @@ const data: GetTypesData = {
 		},
 		excerpt: {
 			name: "Excerpt"
-		}
+		}}
 	},
-	WFBooleanContentItem: {
+	WFBooleanContentItem: {properties: {
 		name: {
 			name: "Name",
 			data: "WFItemName"
-		}
+		}}
 	},
-	WFContactContentItem: {
+	WFContactContentItem: {properties: {
 		emailaddress: {
 			name: "Email Address",
 			data: 4
@@ -241,15 +243,15 @@ const data: GetTypesData = {
 		phoneticmiddlename: {
 			name: "Phonetic Middle Name",
 			data: 8
-		}
+		}}
 	},
-	WFDateContentItem: {
+	WFDateContentItem: {properties: {
 		name: {
 			name: "Name",
 			data: "WFItemName"
-		}
+		}}
 	},
-	WFDictionaryContentItem: {
+	WFDictionaryContentItem: {properties: {
 		creationdate: {
 			name: "Creation Date",
 			data: "WFFileCreationDate"
@@ -275,15 +277,15 @@ const data: GetTypesData = {
 		},
 		keys: {
 			name: "Keys"
-		}
+		}}
 	},
-	WFEmailAddressContentItem: {
+	WFEmailAddressContentItem: {properties: {
 		name: {
 			name: "Name",
 			data: "WFItemName"
-		}
+		}}
 	},
-	WFGenericFileContentItem: {
+	WFGenericFileContentItem: {properties: {
 		creationdate: {
 			name: "Creation Date",
 			data: "WFFileCreationDate"
@@ -303,9 +305,9 @@ const data: GetTypesData = {
 		name: {
 			name: "Name",
 			data: "WFItemName"
-		}
+		}}
 	},
-	WFImageContentItem: {
+	WFImageContentItem: {properties: {
 		width: {
 			name: "Width"
 		},
@@ -376,9 +378,9 @@ const data: GetTypesData = {
 		name: {
 			name: "Name",
 			data: "WFItemName"
-		}
+		}}
 	},
-	WFMPMediaContentItem: {
+	WFMPMediaContentItem: {properties: {
 		lastplayeddate: {
 			name: "Last Played Date",
 			data: "lastPlayedDate"
@@ -481,9 +483,9 @@ const data: GetTypesData = {
 		album: {
 			name: "Album",
 			data: "albumTitle"
-		}
+		}}
 	},
-	WFiTunesProductContentItem: {
+	WFiTunesProductContentItem: {properties: {
 		currencycode: {
 			name: "Currency Code"
 		},
@@ -529,9 +531,9 @@ const data: GetTypesData = {
 		},
 		duration: {
 			name: "Duration"
-		}
+		}}
 	},
-	WFLocationContentItem: {
+	WFLocationContentItem: {properties: {
 		phonenumber: {
 			name: "Phone Number"
 		},
@@ -570,15 +572,15 @@ const data: GetTypesData = {
 		zipcode: {
 			name: "ZIP Code",
 			data: "postalCode"
-		}
+		}}
 	},
-	WFDCMapsLinkContentItem: {
+	WFDCMapsLinkContentItem: {properties: {
 		name: {
 			name: "Name",
 			data: "WFItemName"
-		}
+		}}
 	},
-	WFAVAssetContentItem: {
+	WFAVAssetContentItem: {properties: {
 		duration: {
 			name: "Duration"
 		},
@@ -619,15 +621,15 @@ const data: GetTypesData = {
 		name: {
 			name: "Name",
 			data: "WFItemName"
-		}
+		}}
 	},
-	WFNumberContentItem: {
+	WFNumberContentItem: {properties: {
 		name: {
 			name: "Name",
 			data: "WFItemName"
-		}
+		}}
 	},
-	WFPDFContentItem: {
+	WFPDFContentItem: {properties: {
 		fileextension: {
 			name: "File Extension",
 			data: "WFFileExtensionProperty"
@@ -647,15 +649,15 @@ const data: GetTypesData = {
 		name: {
 			name: "Name",
 			data: "WFItemName"
-		}
+		}}
 	},
-	WFPhoneNumberContentItem: {
+	WFPhoneNumberContentItem: {properties: {
 		name: {
 			name: "Name",
 			data: "WFItemName"
-		}
+		}}
 	},
-	WFPhotoMediaContentItem: {
+	WFPhotoMediaContentItem: {properties: {
 		filesize: {
 			name: "File Size",
 			data: "WFFileSizeProperty",
@@ -773,15 +775,15 @@ const data: GetTypesData = {
 			data: "WFItemName",
 			type: "WFStringContentItem",
 			filter: true
-		}
+		}}
 	},
-	WFMKMapItemContentItem: {
+	WFMKMapItemContentItem: {properties: {
 		name: {
 			name: "Name",
 			data: "WFItemName"
-		}
+		}}
 	},
-	WFRichTextContentItem: {
+	WFRichTextContentItem: {properties: {
 		filesize: {
 			name: "File Size",
 			data: "WFFileSizeProperty"
@@ -801,9 +803,9 @@ const data: GetTypesData = {
 		name: {
 			name: "Name",
 			data: "WFItemName"
-		}
+		}}
 	},
-	WFSafariWebPageContentItem: {
+	WFSafariWebPageContentItem: {properties: {
 		name: {
 			name: "Name",
 			data: "WFItemName"
@@ -816,15 +818,15 @@ const data: GetTypesData = {
 		},
 		pageselection: {
 			name: "Page Selection"
-		}
+		}}
 	},
-	WFURLContentItem: {
+	WFURLContentItem: {properties: {
 		name: {
 			name: "Name",
 			data: "WFItemName"
-		}
+		}}
 	},
-	WFVCardContentItem: {
+	WFVCardContentItem: {properties: {
 		filesize: {
 			name: "File Size",
 			data: "WFFileSizeProperty"
@@ -844,7 +846,7 @@ const data: GetTypesData = {
 		name: {
 			name: "Name",
 			data: "WFItemName"
-		}
+		}}
 	}
 } as GetTypesData;
 export default data;

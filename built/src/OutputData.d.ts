@@ -28,9 +28,10 @@ export declare class Aggrandizements {
     setCoercionType(type: string): string | void;
     setForKey(key: string): string | void;
 }
-export declare class Parameter {
+declare class Parameter {
     constructor();
     build(): WFParameter;
+    static inverse(_data: WFParameter): Parameter;
 }
 declare type DictionaryFieldValueItem = {
     WFItemType: 1;
@@ -60,6 +61,19 @@ declare type WFDictionaryParameter = {
     };
     WFSerializationType: "WFDictionaryFieldValue";
 };
+declare type WFContentItemFilterProperty = "Name";
+declare type WFContentItemFilterOperator = "Is";
+export declare class ContentItemFilter extends Parameter {
+    data: Array<ContentItemFilterItem>;
+    constructor(data: Array<ContentItemFilterItem>);
+}
+export declare class ContentItemFilterItem extends Parameter {
+    property: WFContentItemFilterProperty;
+    operator: WFContentItemFilterOperator;
+    value: string;
+    units: undefined;
+    constructor(property: WFContentItemFilterProperty, operator: WFContentItemFilterOperator, value: string, units?: undefined);
+}
 export declare class Dictionary extends Parameter {
     items: Array<{
         key: Text;

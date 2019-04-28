@@ -168,7 +168,7 @@ export class Aggrandizements {
 				getTypes[this.coercionType]
 			)}.`;
 		}
-		const typeValue = getTypes[this.coercionType][getType];
+		const typeValue = getTypes[this.coercionType].properties[getType];
 		if (!typeValue) {
 			return `${getType} is not a valid aggrandizement get type for this as. Valid are: ${Object.keys(
 				getTypes[this.coercionType]
@@ -665,6 +665,7 @@ export class Text extends Parameter {
 			);
 		});
 		if (result.string === "\uFFFC" && !hasAttachments) {
+			//eslint-disable-next-line no-console
 			console.log(
 				"!!!!!result.string is ",
 				result,

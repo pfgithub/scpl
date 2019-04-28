@@ -87,9 +87,18 @@ ParserHelper_js_1.o.onlyaction = ParserHelper_js_1.p(ParserHelper_js_1.o.identif
     return actionParse;
 });
 ParserHelper_js_1.o.args = ParserHelper_js_1.star(ParserHelper_js_1.p(ParserHelper_js_1.o.argument, _).scb(data => data[0]));
-ParserHelper_js_1.o.value = ParserHelper_js_1.or(ParserHelper_js_1.o.variable, ParserHelper_js_1.o.string, ParserHelper_js_1.o.number, ParserHelper_js_1.o.macroBlock, ParserHelper_js_1.o.identifier, ParserHelper_js_1.o.parenthesis, ParserHelper_js_1.o.dictionary, ParserHelper_js_1.o.list);
+ParserHelper_js_1.o.value = ParserHelper_js_1.or(ParserHelper_js_1.o.variable, ParserHelper_js_1.o.string, ParserHelper_js_1.o.number, ParserHelper_js_1.o.macroBlock, ParserHelper_js_1.o.identifier, ParserHelper_js_1.o.parenthesis, ParserHelper_js_1.o.dictionary, ParserHelper_js_1.o.list, ParserHelper_js_1.o.filter);
 ParserHelper_js_1.o.dictionary = ParserHelper_js_1.p(ParserHelper_js_1.c `{`, ParserHelper_js_1.star(ParserHelper_js_1.o.keyvaluepair).scb(items => items), ParserHelper_js_1.c `}`).scb(([, kvps], start, end) => new ParserData_js_1.DictionaryParse(start, end, kvps));
 ParserHelper_js_1.o.list = ParserHelper_js_1.p(ParserHelper_js_1.c `[`, _n, ParserHelper_js_1.star(ParserHelper_js_1.p(ParserHelper_js_1.o.value, _n).scb(([value]) => value)), ParserHelper_js_1.c `]`).scb(([, , values], start, end) => new ParserData_js_1.ListParse(start, end, values));
+ParserHelper_js_1.o.filter = ParserHelper_js_1.p(ParserHelper_js_1.c `:filter{`, _n, ParserHelper_js_1.o.filteritem, _n, ParserHelper_js_1.c `}`).scb(([, , filterItem1,], start, end) => new ParserData_js_1.FilterParse(start, end, filterItem1));
+// :filter{name is "hello there" or name "starts with" "test"}
+ParserHelper_js_1.o.filteritem = ParserHelper_js_1.or(ParserHelper_js_1.p(ParserHelper_js_1.o.value, _n, ParserHelper_js_1.o.value, _n, ParserHelper_js_1.o.value, _n, ParserHelper_js_1.o.value).scb(([property, , comparator, , value, , units], start, end) => new ParserData_js_1.FilterItemParse(start, end, property, comparator, value, units)), ParserHelper_js_1.p(ParserHelper_js_1.o.value, _n, ParserHelper_js_1.o.value, _n, ParserHelper_js_1.o.value).scb(([property, , comparator, , value], start, end) => new ParserData_js_1.FilterItemParse(start, end, property, comparator, value)));
+// "All of the following are true"
+// "Any of the following are true"
+// name is mytext
+// || filesize "is greater than" 25 bytes
+// || "creation date" "is exactly" 12/2/2222
+// || "is not a screenshot"
 ParserHelper_js_1.o.keyvaluepair = ParserHelper_js_1.p(_n, ParserHelper_js_1.or(ParserHelper_js_1.o.string, ParserHelper_js_1.o.identifier), _n, ParserHelper_js_1.or(ParserHelper_js_1.c `=`, ParserHelper_js_1.c `:`), _n, ParserHelper_js_1.o.value, // ...
 _n).scb(([, key, , , , value]) => ({ key: key, value: value }));
 // o.canBeString

@@ -134,7 +134,7 @@ class Aggrandizements {
         if (!Types_1.isAggrandizementPropertyName(getType)) {
             return `${getType} is not a valid aggrandizement get type. Valid are: ${Object.keys(GetTypes_1.default[this.coercionType])}.`;
         }
-        const typeValue = GetTypes_1.default[this.coercionType][getType];
+        const typeValue = GetTypes_1.default[this.coercionType].properties[getType];
         if (!typeValue) {
             return `${getType} is not a valid aggrandizement get type for this as. Valid are: ${Object.keys(GetTypes_1.default[this.coercionType])}.`;
         }
@@ -168,12 +168,49 @@ exports.Aggrandizements = Aggrandizements;
 // // // // // //
 //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //
 class Parameter {
+    // cannot be abstract because inverse is static
     constructor() { }
     build() {
-        throw new Error("Blank parameter cannot be built");
+        throw new Error("Blank parameter has no build method");
+    }
+    static inverse(_data) {
+        throw new Error("Blank parameter has no inverse method");
     }
 }
-exports.Parameter = Parameter;
+const _demo = {
+    WFContentItemFilter: {
+        Value: {
+            WFActionParameterFilterPrefix: 1,
+            WFActionParameterFilterTemplates: [
+                {
+                    Operator: 4,
+                    Property: "Name",
+                    Removable: true,
+                    String: "filter text here",
+                    VariableOverrides: {}
+                }
+            ],
+            WFSerializationType: "WFContentPredicateTableTemplate"
+        }
+    }
+};
+class ContentItemFilter extends Parameter {
+    constructor(data) {
+        super();
+        this.data = data;
+    }
+}
+exports.ContentItemFilter = ContentItemFilter;
+class ContentItemFilterItem extends Parameter {
+    constructor(property, operator, value, units) {
+        super();
+        this.property = property;
+        this.operator = operator;
+        this.value = value;
+        this.units = units;
+    }
+}
+exports.ContentItemFilterItem = ContentItemFilterItem;
 class Dictionary extends Parameter {
     constructor() {
         super();
@@ -457,6 +494,7 @@ class Text extends Parameter {
             throw new Error("Invalid component type. This should never happen.");
         });
         if (result.string === "\uFFFC" && !hasAttachments) {
+            //eslint-disable-next-line no-console
             console.log("!!!!!result.string is ", result, " but somehow hasattachments is false");
         }
         if (!hasAttachments) {

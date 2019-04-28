@@ -62,6 +62,12 @@ class Parse {
     canBeNumber(_cc) {
         return false;
     }
+    canBeFilter(_cc) {
+        return false;
+    }
+    canBeFilterItem(_cc) {
+        return false;
+    }
 }
 exports.Parse = Parse;
 class ConvertVariableParse extends Parse {
@@ -102,7 +108,8 @@ exports.ConvertVariableParse = ConvertVariableParse;
     "RawKeyedDictionary",
     "NameType",
     "StringVariable",
-    "Number"
+    "Number",
+    "Filter"
 ].forEach(val => {
     //eslint-disable-next-line func-names
     ConvertVariableParse.prototype[`canBe${val}`] = function (cc) {
@@ -118,10 +125,10 @@ exports.ConvertVariableParse = ConvertVariableParse;
             rawKeyedOptions = {};
         }
         else if (options.canBeRawKeyedDictionary(cc)) {
-            rawKeyedOptions = options.asRawKeyedDictionary();
+            rawKeyedOptions = options.asRawKeyedDictionary(cc);
         }
         else {
-            throw options.error("Options must be a dictionary.");
+            throw options.error(cc, "Options must be a dictionary.");
         }
         // here we want to make a new cc on top of the old one
         const newCC = cc.in();
@@ -138,6 +145,35 @@ class ErrorParse extends Parse {
     }
 }
 exports.ErrorParse = ErrorParse;
+class FilterItemParse extends Parse {
+    constructor(start, end, property, comparator, value, units) {
+        super(start, end);
+        this.property = property;
+        this.comparator = comparator;
+        this.value = value;
+        this.units = units;
+    }
+    canBeFilterItem(_cc) {
+        return true;
+    }
+    asFilterItem(cc) {
+        throw this.error(cc, "no");
+    }
+}
+exports.FilterItemParse = FilterItemParse;
+class FilterParse extends Parse {
+    constructor(start, end, filterItems) {
+        super(start, end);
+        this.filterItems = filterItems;
+    }
+    canBeFilter(_cc) {
+        return true;
+    }
+    asFilter(cc) {
+        throw this.error(cc, "no");
+    }
+}
+exports.FilterParse = FilterParse;
 class DictionaryParse extends Parse {
     constructor(start, end, keyvaluepairs) {
         super(start, end);

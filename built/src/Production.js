@@ -10,8 +10,9 @@ class Performance {
     }
     static stopMonitoring() {
         const ended = new Date();
+        //eslint-disable-next-line no-console
         console.log(`Parsed in ${totalSteps} steps over ${ended.getTime() -
-            began.getTime()}ms.`); //eslint-disable-line no-console
+            began.getTime()}ms.`);
     }
 }
 exports.Performance = Performance;
@@ -145,7 +146,8 @@ class RegexProduction extends Production {
             };
         }
         if (match) {
-            console.warn("WARN: regex ", this.regex, " does not start matching at beginning of line"); //eslint-disable-line no-console
+            //eslint-disable-next-line no-console
+            console.warn("WARN: regex ", this.regex, " does not start matching at beginning of line");
         }
         return { success: false };
     }

@@ -15,10 +15,11 @@ export class Performance {
 	}
 	static stopMonitoring() {
 		const ended = new Date();
+		//eslint-disable-next-line no-console
 		console.log(
 			`Parsed in ${totalSteps} steps over ${ended.getTime() -
 				began.getTime()}ms.`
-		); //eslint-disable-line no-console
+		); 
 	}
 }
 
@@ -159,11 +160,12 @@ export class RegexProduction extends Production {
 			};
 		}
 		if (match) {
+			//eslint-disable-next-line no-console
 			console.warn(
 				"WARN: regex ",
 				this.regex,
 				" does not start matching at beginning of line"
-			); //eslint-disable-line no-console
+			); 
 		}
 		return { success: false };
 	}
