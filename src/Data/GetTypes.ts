@@ -3,6 +3,29 @@ import {
 	AggrandizementPropertyName
 } from "../WFTypes/Types";
 
+export type ComparisonWFValue = 4 | 5 | 8 | 9 | 99 | 999;
+
+export type ComparisonName =
+	| "is"
+	| "isnot"
+	| "contains"
+	| "doesnotcontain"
+	| "beginswith"
+	| "endswith";
+
+export const comparisonMethodsMap = new Map<ComparisonName, ComparisonWFValue>([
+	["is", 4],
+	["isnot", 5],
+	["contains", 99],
+	["doesnotcontain", 999],
+	["beginswith", 8],
+	["endswith", 9]
+]);
+
+export function isComparisonMethod(method: string): method is ComparisonName {
+	return comparisonMethodsMap.has(<ComparisonName>method);
+}
+
 type GetTypeInfoProperty = {
 	name: string;
 	data?: string | number;
@@ -13,13 +36,19 @@ type GetTypeInfoProperty = {
 };
 
 type GetTypeInfo = {
-	comparisonMethods?: { [name: string]: number };
-	properties: { [Name in AggrandizementPropertyName]: GetTypeInfoProperty };
+	comparisonMethods?: { [name in ComparisonName]?: ComparisonWFValue };
+	units?: { [name: string]: number };
+	properties: { [Name in AggrandizementPropertyName]?: GetTypeInfoProperty };
 };
+
+// const test: GetTypeInfo = {properties: {}, comparisonMethods: {akjndcsjklnac: 5}};
 
 type GetTypesData = { [Type in CoercionTypeClass]: GetTypeInfo };
 
+// const test: GetTypesData = {fadskjhaf: a};
+
 const data: GetTypesData = {
+	WFContentItem: { properties: {} },
 	WFAppStoreAppContentItem: {
 		properties: {
 			contentrating: {
@@ -693,12 +722,12 @@ const data: GetTypesData = {
 	WFStringContentItem: {
 		comparisonMethods: {
 			is: 4,
-			"is not": 5,
+			isnot: 5,
 			contains: 99,
-			"does not contain": 999,
-			"begins with": 8,
-			"ends with": 9
-		} as { [name: string]: number },
+			doesnotcontain: 999,
+			beginswith: 8,
+			endswith: 9
+		},
 		properties: {
 			fileextension: {
 				name: "File Extension",
@@ -982,5 +1011,5 @@ const data: GetTypesData = {
 			}
 		}
 	}
-} as GetTypesData;
+};
 export default data;

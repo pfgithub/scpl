@@ -81,7 +81,12 @@ export const inverseCoercionTypes: { [name in CoercionTypeClass]: string } = {
 	WFVCardContentItem: "vcard"
 };
 
-import getTypes from "./Data/GetTypes"; // resdata = {};console.dir( actionData.filter(action => action.WFWorkflowActionIdentifier === "is.workflow.actions.gettext").map(action => Object.values(action.WFWorkflowActionParameters.WFTextActionText.Value.attachmentsByRange).filter(d=>d.Type !== "Clipboard" && d.Aggrandizements && d.Aggrandizements[1]).map(d=>({coerce:d.Aggrandizements[0].CoercionItemClass,property:d.Aggrandizements[1]}))).forEach(a=>a.forEach(({coerce, property})=>{if(!resdata[coerce]){resdata[coerce]={};};resdata[coerce][property.PropertyName.toLowerCase().replace(/[^A-Za-z]/g,"")]=({name:property.PropertyName,data:property.PropertyUserInfo});})) ,{depth:null});console.log(JSON.stringify(resdata,null,"\t"));
+import getTypes, {
+	ComparisonName,
+	ComparisonWFValue,
+	comparisonMethodsMap,
+	isComparisonMethod
+} from "./Data/GetTypes";
 
 type WFAggrandizements = (
 	| {
@@ -247,6 +252,14 @@ type WFDictionaryParameter = {
 	WFSerializationType: "WFDictionaryFieldValue";
 };
 
+type WFContentItemFilter = {
+	Value: {
+		WFActionParameterFilterPrefix: 1;
+		WFActionParameterFilterTemplates: WFContentItemFilterItem[];
+		WFSerializationType: "WFContentPredicateTableTemplate";
+	};
+};
+
 const _demo = {
 	WFContentItemFilter: {
 		Value: {
@@ -275,14 +288,22 @@ export class ContentItemFilter extends Parameter {
 		this.data = data;
 	}
 }
+
+type WFContentItemFilterItem = {
+	Operator: ComparisonWFValue;
+	Property: ComparisonName;
+	Removable: true;
+	Unit?: number;
+};
+
 export class ContentItemFilterItem extends Parameter {
-	property: WFContentItemFilterProperty;
-	operator: WFContentItemFilterOperator;
+	property: ComparisonName;
+	operator: ComparisonName;
 	value: string;
-	units: undefined;
+	units?: number;
 	constructor(
-		property: WFContentItemFilterProperty,
-		operator: WFContentItemFilterOperator,
+		property: propertyNameMap,
+		operator: ComparisonName,
 		value: string,
 		units?: undefined
 	) {
@@ -292,6 +313,7 @@ export class ContentItemFilterItem extends Parameter {
 		this.value = value;
 		this.units = units;
 	}
+	build(): WFContentItemFilterItem {}
 }
 
 export class Dictionary extends Parameter {
@@ -729,6 +751,8 @@ export type WFParameter =
 	| WFListParameter
 	| WFTextParameter
 	| WFErrorParameter
+	| WFContentItemFilterItem
+	| WFContentItemFilter
 	| string
 	| boolean
 	| number;
