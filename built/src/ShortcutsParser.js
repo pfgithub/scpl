@@ -21,22 +21,28 @@ const _ = ParserHelper_js_1.o.space;
 const newline = ParserHelper_js_1.o.newline;
 const _n = ParserHelper_js_1.o.optionalNewline;
 ParserHelper_js_1.o.number = ParserHelper_js_1.regex(/^-?(?:[0-9]*\.[0-9]+|[0-9]+)/).scb(([fullmatch], start, end) => new ParserData_js_1.NumberParse(start, end, fullmatch));
-ParserHelper_js_1.o.escape = ParserHelper_js_1.p(ParserHelper_js_1.c `\\`, ParserHelper_js_1.or(ParserHelper_js_1.o.parenthesis, ParserHelper_js_1.c `"`, ParserHelper_js_1.c `'`, ParserHelper_js_1.c `\`\`\``, ParserHelper_js_1.c `\\`, ParserHelper_js_1.c `n`.scb(_ => "\n"))).scb(([, val]) => val); // \"
-ParserHelper_js_1.o.char = ParserHelper_js_1.or(ParserHelper_js_1.o.escape, ParserHelper_js_1.regex(/^[^\\\n]+/).scb(data => data[0])); // TODO star(not(c`"`,c`\\`, c`\n`))
+ParserHelper_js_1.o.escape = ParserHelper_js_1.p(ParserHelper_js_1.c `\\`, ParserHelper_js_1.or(ParserHelper_js_1.o.parenthesis, ParserHelper_js_1.c `"`, ParserHelper_js_1.c `'`, ParserHelper_js_1.c `\`\`\``, ParserHelper_js_1.c `\\`, ParserHelper_js_1.c `”`, ParserHelper_js_1.c `n`.scb(_ => "\n"))).scb(([, val]) => val);
+// o.tripleQuotedStringEscape = p(
+// 	c`\\`,
+// 	or(o.parenthesis, c`"`, c`'`, c`\`\`\``, c`\\`, c`”`, c`n`.scb(_ => "\n"))
+// ).scb(([, val]) => val);
+// \"
+ParserHelper_js_1.o.char = ParserHelper_js_1.or(ParserHelper_js_1.o.escape, ParserHelper_js_1.regex(/^[^\\\n]+/).scb(data => data[0]));
 ParserHelper_js_1.o.chars = ParserHelper_js_1.star(ParserHelper_js_1.o.char).scb((data, start, end) => new ParserData_js_1.CharsParse(start, end, data));
 ParserHelper_js_1.o.dquotedStringChar = ParserHelper_js_1.or(ParserHelper_js_1.o.escape, ParserHelper_js_1.regex(/^[^"\\\n]+/).scb(data => data[0]));
 ParserHelper_js_1.o.squotedStringChar = ParserHelper_js_1.or(ParserHelper_js_1.o.escape, ParserHelper_js_1.regex(/^[^'\\\n]+/).scb(data => data[0]));
+ParserHelper_js_1.o.smartQuotedStringChar = ParserHelper_js_1.or(ParserHelper_js_1.o.escape, ParserHelper_js_1.regex(/^[^”\\\n]+/).scb(data => data[0]));
 // o.triplequotedStringChar = or(
-// 	o.escape,
-// 	regex(/^[^'\\\n]+/).scb(data => data[0])
-// ); // TODO or(not(c`\`\`\``))
-// TODOn't implement this, how would you do escapes
-// ${}? or a special thing for \() without other escape types? idk
-ParserHelper_js_1.o.dquotedString = ParserHelper_js_1.p(ParserHelper_js_1.c `"`, ParserHelper_js_1.star(ParserHelper_js_1.o.dquotedStringChar), ParserHelper_js_1.c `"`).scb(([, chars], start, end) => new ParserData_js_1.CharsParse(start, end, chars)); // a STRING is a CHARSPARSE
-ParserHelper_js_1.o.squotedString = ParserHelper_js_1.p(ParserHelper_js_1.c `'`, ParserHelper_js_1.star(ParserHelper_js_1.o.squotedStringChar), ParserHelper_js_1.c `'`).scb(([, chars], start, end) => new ParserData_js_1.CharsParse(start, end, chars)); // a STRING is a CHARSPARSE
-// o.triplequotedString = p(c`\`\`\``, star(o.triplequotedStringChar), c`\`\`\``)
-// 	.scb(([, chars, ]) => (new CharsParse(chars))); // a STRING is a CHARSPARSE
-ParserHelper_js_1.o.string = ParserHelper_js_1.or(ParserHelper_js_1.o.dquotedString, ParserHelper_js_1.o.squotedString);
+// 	o.tripleQuotedStringEscape, // \``` | ${varname}
+// 	regex(/^[^`\\\n]+/).scb(data => data[0]),
+// );
+ParserHelper_js_1.o.dquotedString = ParserHelper_js_1.p(ParserHelper_js_1.c `"`, ParserHelper_js_1.star(ParserHelper_js_1.o.dquotedStringChar), ParserHelper_js_1.c `"`).scb(([, chars], start, end) => new ParserData_js_1.CharsParse(start, end, chars));
+ParserHelper_js_1.o.squotedString = ParserHelper_js_1.p(ParserHelper_js_1.c `'`, ParserHelper_js_1.star(ParserHelper_js_1.o.squotedStringChar), ParserHelper_js_1.c `'`).scb(([, chars], start, end) => new ParserData_js_1.CharsParse(start, end, chars));
+ParserHelper_js_1.o.smartQuotedString = ParserHelper_js_1.p(ParserHelper_js_1.c `“`, ParserHelper_js_1.star(ParserHelper_js_1.o.smartQuotedStringChar), ParserHelper_js_1.c `”`).scb(([, chars], start, end) => new ParserData_js_1.CharsParse(start, end, chars));
+// o.triplequotedString = p(c`\`\`\``, star(o.triplequotedStringChar), c`\`\`\``).scb(
+// 	([, chars], start, end) => new CharsParse(start, end, chars)
+// );
+ParserHelper_js_1.o.string = ParserHelper_js_1.or(ParserHelper_js_1.o.dquotedString, ParserHelper_js_1.o.squotedString, ParserHelper_js_1.o.smartQuotedString);
 ParserHelper_js_1.o.barlistitem = ParserHelper_js_1.p(newline, _, ParserHelper_js_1.c `|`, _, ParserHelper_js_1.o.chars).scb(([, , , , dat]) => dat);
 ParserHelper_js_1.o.barlist = ParserHelper_js_1.plus(ParserHelper_js_1.o.barlistitem).scb((items, start, end) => new ParserData_js_1.BarlistParse(start, end, items));
 ParserHelper_js_1.o.extendedarg = ParserHelper_js_1.p(newline, _, ParserHelper_js_1.c `>`, _, ParserHelper_js_1.o.argument).scb(([, , , , arg]) => arg);

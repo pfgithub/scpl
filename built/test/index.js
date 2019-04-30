@@ -133,7 +133,7 @@ ava_1.default("invert an incomplete action", t => {
     })), `filterfiles ??This paramtype is not implemented WFFilterParameter??`);
 });
 ava_1.default("dictionary number values", t => {
-    const icc = new InverseConvertingContext_1.InverseConvertingContext;
+    const icc = new InverseConvertingContext_1.InverseConvertingContext();
     t.deepEqual(icc.createActionAble(OutputData_1.Action.inverse({
         WFWorkflowActionIdentifier: "is.workflow.actions.dictionary",
         WFWorkflowActionParameters: {
@@ -563,3 +563,28 @@ ava_1.default("argument labels and arglists and extendedargs", t => {
     ]);
 });
 // console.log(JSON.stringify(noUUID(actions), null, "\t"));
+ava_1.default("different quotes things", t => {
+    const output = index_1.parse(`text "double' \\"quotes"; text 'single ""\\'quotes'; text “smart “"'quotes '"\\””`, { makePlist: false });
+    const [scdata] = output.build();
+    const actions = scdata.WFWorkflowActions;
+    t.deepEqual(noUUID(actions, { noSCPLData: true }), [
+        {
+            WFWorkflowActionIdentifier: "is.workflow.actions.gettext",
+            WFWorkflowActionParameters: {
+                WFTextActionText: "double' \"quotes"
+            }
+        },
+        {
+            WFWorkflowActionIdentifier: "is.workflow.actions.gettext",
+            WFWorkflowActionParameters: {
+                WFTextActionText: "single \"\"'quotes"
+            }
+        },
+        {
+            WFWorkflowActionIdentifier: "is.workflow.actions.gettext",
+            WFWorkflowActionParameters: {
+                WFTextActionText: "smart “\"'quotes '\"”"
+            }
+        }
+    ]);
+});

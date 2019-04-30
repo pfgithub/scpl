@@ -700,3 +700,31 @@ test("argument labels and arglists and extendedargs", t => {
 });
 
 // console.log(JSON.stringify(noUUID(actions), null, "\t"));
+
+
+
+test("different quotes things", t => {
+	const output = parse(`text "double' \\"quotes"; text 'single ""\\'quotes'; text “smart “"'quotes '"\\””`, { makePlist: false });
+	const [scdata] = output.build();
+	const actions = scdata.WFWorkflowActions;
+	t.deepEqual(noUUID(actions, { noSCPLData: true }), [
+		{
+			WFWorkflowActionIdentifier: "is.workflow.actions.gettext",
+			WFWorkflowActionParameters: {
+				WFTextActionText: "double' \"quotes"
+			}
+		},
+			{
+				WFWorkflowActionIdentifier: "is.workflow.actions.gettext",
+				WFWorkflowActionParameters: {
+					WFTextActionText: "single \"\"'quotes"
+				}
+			},
+				{
+					WFWorkflowActionIdentifier: "is.workflow.actions.gettext",
+					WFWorkflowActionParameters: {
+						WFTextActionText: "smart “\"'quotes '\"”"
+					}
+				}
+	]);
+});

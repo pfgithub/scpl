@@ -57,9 +57,14 @@ o.number = regex(/^-?(?:[0-9]*\.[0-9]+|[0-9]+)/).scb(
 
 o.escape = p(
 	c`\\`,
-	or(o.parenthesis, c`"`, c`'`, c`\`\`\``, c`\\`, c`n`.scb(_ => "\n"))
-).scb(([, val]) => val); // \"
-o.char = or(o.escape, regex(/^[^\\\n]+/).scb(data => data[0])); // TODO star(not(c`"`,c`\\`, c`\n`))
+	or(o.parenthesis, c`"`, c`'`, c`\`\`\``, c`\\`, c`”`, c`n`.scb(_ => "\n"))
+).scb(([, val]) => val);
+// o.tripleQuotedStringEscape = p(
+// 	c`\\`,
+// 	or(o.parenthesis, c`"`, c`'`, c`\`\`\``, c`\\`, c`”`, c`n`.scb(_ => "\n"))
+// ).scb(([, val]) => val);
+// \"
+o.char = or(o.escape, regex(/^[^\\\n]+/).scb(data => data[0]));
 o.chars = star(o.char).scb(
 	(data, start, end) => new CharsParse(start, end, data)
 );
@@ -68,23 +73,30 @@ o.dquotedStringChar = or(o.escape, regex(/^[^"\\\n]+/).scb(data => data[0]));
 
 o.squotedStringChar = or(o.escape, regex(/^[^'\\\n]+/).scb(data => data[0]));
 
+o.smartQuotedStringChar = or(
+	o.escape,
+	regex(/^[^”\\\n]+/).scb(data => data[0])
+);
+
 // o.triplequotedStringChar = or(
-// 	o.escape,
-// 	regex(/^[^'\\\n]+/).scb(data => data[0])
-// ); // TODO or(not(c`\`\`\``))
-// TODOn't implement this, how would you do escapes
-// ${}? or a special thing for \() without other escape types? idk
+// 	o.tripleQuotedStringEscape, // \``` | ${varname}
+// 	regex(/^[^`\\\n]+/).scb(data => data[0]),
+// );
 
 o.dquotedString = p(c`"`, star(o.dquotedStringChar), c`"`).scb(
 	([, chars], start, end) => new CharsParse(start, end, chars)
-); // a STRING is a CHARSPARSE
+);
 o.squotedString = p(c`'`, star(o.squotedStringChar), c`'`).scb(
 	([, chars], start, end) => new CharsParse(start, end, chars)
-); // a STRING is a CHARSPARSE
-// o.triplequotedString = p(c`\`\`\``, star(o.triplequotedStringChar), c`\`\`\``)
-// 	.scb(([, chars, ]) => (new CharsParse(chars))); // a STRING is a CHARSPARSE
+);
+o.smartQuotedString = p(c`“`, star(o.smartQuotedStringChar), c`”`).scb(
+	([, chars], start, end) => new CharsParse(start, end, chars)
+);
+// o.triplequotedString = p(c`\`\`\``, star(o.triplequotedStringChar), c`\`\`\``).scb(
+// 	([, chars], start, end) => new CharsParse(start, end, chars)
+// );
 
-o.string = or(o.dquotedString, o.squotedString);
+o.string = or(o.dquotedString, o.squotedString, o.smartQuotedString);
 
 o.barlistitem = p(newline, _, c`|`, _, o.chars).scb(([, , , , dat]) => dat);
 o.barlist = plus(o.barlistitem).scb(
