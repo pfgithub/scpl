@@ -22,7 +22,8 @@ From Shortcuts-js
 
 import {
 	CoercionTypeClass,
-	isAggrandizementPropertyName
+	isAggrandizementPropertyName,
+	AggrandizementPropertyRawName
 } from "./WFTypes/Types";
 
 const coercionTypes: { [name: string]: CoercionTypeClass } = {
@@ -253,11 +254,12 @@ type WFDictionaryParameter = {
 };
 
 type WFContentItemFilter = {
+	// might need {Value: {}} ?
 	Value: {
 		WFActionParameterFilterPrefix: 1;
 		WFActionParameterFilterTemplates: WFContentItemFilterItem[];
-		WFSerializationType: "WFContentPredicateTableTemplate";
 	};
+	WFSerializationType: "WFContentPredicateTableTemplate";
 };
 
 const _demo = {
@@ -272,49 +274,74 @@ const _demo = {
 					String: "filter text here",
 					VariableOverrides: {}
 				}
-			],
-			WFSerializationType: "WFContentPredicateTableTemplate"
-		}
+			]
+		},
+		WFSerializationType: "WFContentPredicateTableTemplate"
 	}
 };
 
 type WFContentItemFilterProperty = "Name";
 type WFContentItemFilterOperator = "Is";
 
-export class ContentItemFilter extends Parameter {
-	data: Array<ContentItemFilterItem>;
-	constructor(data: Array<ContentItemFilterItem>) {
-		super();
-		this.data = data;
-	}
-}
-
 type WFContentItemFilterItem = {
 	Operator: ComparisonWFValue;
-	Property: ComparisonName;
+	Property: AggrandizementPropertyRawName;
 	Removable: true;
 	Unit?: number;
 };
 
-export class ContentItemFilterItem extends Parameter {
-	property: ComparisonName;
-	operator: ComparisonName;
-	value: string;
-	units?: number;
-	constructor(
-		property: propertyNameMap,
-		operator: ComparisonName,
-		value: string,
-		units?: undefined
-	) {
+export class ContentItemFilter extends Parameter {
+	data: Array<WFContentItemFilterItem>;
+	coercionType: CoercionTypeClass;
+	constructor(coercionType: CoercionTypeClass) {
 		super();
-		this.property = property;
-		this.operator = operator;
-		this.value = value;
-		this.units = units;
+		this.data = [];
+		this.coercionType = coercionType;
 	}
-	build(): WFContentItemFilterItem {}
+	add(
+		property: string,
+		operator: ComparisonName,
+		value: string | number | boolean,
+		units?: undefined
+	): string | undefined {
+		// property -> GetTypeInfo -> AggrandizementPropertyRawName
+		if (!isAggrandizementPropertyName(property)) {
+			return `Not a valid name \`${property}\`. Check the docs page for this action for a full list.`;
+		}
+		const typeInfo = getTypes[this.coercionType];
+		const propertyData = typeInfo.properties[property];
+		if (!propertyData) {
+			return `Not a valid property name \`${property}\`. Check the docs page for this action for a full list.`;
+		}
+		if (propertyData.filter === undefined) {
+			return `The property \`${property}\` does not yet support filters on this action. If you need this property, report an issue on github or submit a pull request.`;
+		}
+		if (!propertyData.filter) {
+			return `The property \`${property}\` does not support filters in shortcuts. Check the docs page for this action for a full list.`;
+		}
+		return;
+	}
 }
+
+// export class ContentItemFilterItem extends Parameter {
+// 	property: string;
+// 	operator: ComparisonName;
+// 	value: string;
+// 	units?: number;
+// 	constructor(
+// 		property: propertyNameMap,
+// 		operator: ComparisonName,
+// 		value: string,
+// 		units?: undefined
+// 	) {
+// 		super();
+// 		this.property = property;
+// 		this.operator = operator;
+// 		this.value = value;
+// 		this.units = units;
+// 	}
+// 	build(): WFContentItemFilterItem {} // build(for: ContentItemFilter)
+// }
 
 export class Dictionary extends Parameter {
 	items: Array<{
@@ -751,7 +778,6 @@ export type WFParameter =
 	| WFListParameter
 	| WFTextParameter
 	| WFErrorParameter
-	| WFContentItemFilterItem
 	| WFContentItemFilter
 	| string
 	| boolean

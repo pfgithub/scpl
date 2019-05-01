@@ -1,6 +1,7 @@
 import {
 	CoercionTypeClass,
-	AggrandizementPropertyName
+	AggrandizementPropertyName,
+	AggrandizementPropertyRawName
 } from "../WFTypes/Types";
 
 export type ComparisonWFValue = 4 | 5 | 8 | 9 | 99 | 999;
@@ -27,7 +28,7 @@ export function isComparisonMethod(method: string): method is ComparisonName {
 }
 
 type GetTypeInfoProperty = {
-	name: string;
+	name: AggrandizementPropertyRawName;
 	data?: string | number;
 	type?: CoercionTypeClass;
 	filter?: boolean;

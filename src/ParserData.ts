@@ -8,8 +8,7 @@ import {
 	Attachment,
 	List,
 	AttachmentType,
-	ContentItemFilter,
-	ContentItemFilterItem
+	ContentItemFilter
 } from "./OutputData";
 import { getActionFromName } from "./ActionData";
 import { ConvertingContext } from "./Converter.js";
@@ -88,9 +87,6 @@ export class Parse {
 	canBeFilter(_cc: ConvertingContext): this is AsFilter {
 		return false;
 	}
-	canBeFilterItem(_cc: ConvertingContext): this is AsFilterItem {
-		return false;
-	}
 }
 
 interface AsString extends Parse {
@@ -151,10 +147,6 @@ interface AsNumber extends Parse {
 
 interface AsFilter extends Parse {
 	asFilter(cc: ConvertingContext): ContentItemFilter;
-}
-
-interface AsFilterItem extends Parse {
-	asFilterItem(cc: ConvertingContext): ContentItemFilterItem;
 }
 
 export type AsAble = Parse;
@@ -247,40 +239,9 @@ export class ErrorParse extends Parse {
 		super(start, end);
 	}
 }
-export class FilterItemParse extends Parse implements AsFilterItem {
-	property: AsAble;
-	comparator: AsAble;
-	value: AsAble;
-	units?: AsAble;
-	constructor(
-		start: Position,
-		end: Position,
-		property: AsAble,
-		comparator: AsAble,
-		value: AsAble,
-		units?: AsAble
-	) {
-		super(start, end);
-
-		this.property = property;
-		this.comparator = comparator;
-		this.value = value;
-		this.units = units;
-	}
-	canBeFilterItem(_cc: ConvertingContext): boolean {
-		return true;
-	}
-	asFilterItem(cc: ConvertingContext): ContentItemFilterItem {
-		throw this.error(cc, "no");
-	}
-}
 export class FilterParse extends Parse implements AsFilter {
-	filterItems: FilterItemParse[];
-	constructor(
-		start: Position,
-		end: Position,
-		filterItems: FilterItemParse[]
-	) {
+	filterItems: undefined[];
+	constructor(start: Position, end: Position, filterItems: undefined[]) {
 		super(start, end);
 
 		this.filterItems = filterItems;
