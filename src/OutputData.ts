@@ -280,14 +280,12 @@ const _demo = {
 	}
 };
 
-type WFContentItemFilterProperty = "Name";
-type WFContentItemFilterOperator = "Is";
-
 type WFContentItemFilterItem = {
 	Operator: ComparisonWFValue;
 	Property: AggrandizementPropertyRawName;
 	Removable: true;
-	Unit?: number;
+	Unit?: number | undefined;
+	VariableOverrides: {};
 };
 
 export class ContentItemFilter extends Parameter {
@@ -304,11 +302,11 @@ export class ContentItemFilter extends Parameter {
 		value: string | number | boolean,
 		units?: undefined
 	): string | undefined {
+		const typeInfo = getTypes[this.coercionType];
 		// property -> GetTypeInfo -> AggrandizementPropertyRawName
 		if (!isAggrandizementPropertyName(property)) {
 			return `Not a valid name \`${property}\`. Check the docs page for this action for a full list.`;
 		}
-		const typeInfo = getTypes[this.coercionType];
 		const propertyData = typeInfo.properties[property];
 		if (!propertyData) {
 			return `Not a valid property name \`${property}\`. Check the docs page for this action for a full list.`;
@@ -319,7 +317,31 @@ export class ContentItemFilter extends Parameter {
 		if (!propertyData.filter) {
 			return `The property \`${property}\` does not support filters in shortcuts. Check the docs page for this action for a full list.`;
 		}
+		// ComparisonName -> ComparisonValue
+		const operatorValue = comparisonMethodsMap.get(operator);
+		if (operatorValue === undefined) {
+			return `The operator \`${operator}\` does not exist or has not been implemented. Check the docs page for this action for a full list.`;
+		}
+		// UnitName -> UnitValue
+		const unit = undefined;
+		// Add to data
+		this.data.push({
+			Property: propertyData.name,
+			Operator: operatorValue,
+			Removable: true,
+			Unit: unit,
+			VariableOverrides: {}
+		});
 		return;
+	}
+	build(): WFContentItemFilter {
+		return {
+			Value: {
+				WFActionParameterFilterPrefix: 1,
+				WFActionParameterFilterTemplates: this.data
+			},
+			WFSerializationType: "WFContentPredicateTableTemplate"
+		};
 	}
 }
 
