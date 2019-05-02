@@ -23,7 +23,8 @@ From Shortcuts-js
 import {
 	CoercionTypeClass,
 	isAggrandizementPropertyName,
-	AggrandizementPropertyRawName
+	AggrandizementPropertyRawName,
+	AggrandizementPropertyName
 } from "./WFTypes/Types";
 
 const coercionTypes: { [name: string]: CoercionTypeClass } = {
@@ -85,8 +86,7 @@ export const inverseCoercionTypes: { [name in CoercionTypeClass]: string } = {
 import getTypes, {
 	ComparisonName,
 	ComparisonWFValue,
-	comparisonMethodsMap,
-	isComparisonMethod
+	comparisonMethodsMap
 } from "./Data/GetTypes";
 
 type WFAggrandizements = (
@@ -262,31 +262,41 @@ type WFContentItemFilter = {
 	WFSerializationType: "WFContentPredicateTableTemplate";
 };
 
-const _demo = {
-	WFContentItemFilter: {
-		Value: {
-			WFActionParameterFilterPrefix: 1,
-			WFActionParameterFilterTemplates: [
-				{
-					Operator: 4,
-					Property: "Name",
-					Removable: true,
-					String: "filter text here",
-					VariableOverrides: {}
-				}
-			]
-		},
-		WFSerializationType: "WFContentPredicateTableTemplate"
-	}
-};
-
-type WFContentItemFilterItem = {
+type WFContentItemFilterItemBase = {
 	Operator: ComparisonWFValue;
 	Property: AggrandizementPropertyRawName;
 	Removable: true;
-	Unit?: number | undefined;
+	Unit: number;
 	VariableOverrides: {};
 };
+
+interface WFContentItemFilterItemBaseString
+	extends WFContentItemFilterItemBase {
+	String: string;
+}
+
+interface WFContentItemFilterItemBaseText extends WFContentItemFilterItemBase {
+	stringValue: WFTextValue;
+}
+
+interface WFContentItemFilterItemNumber extends WFContentItemFilterItemBase {
+	Number: number;
+}
+
+interface WFContentItemFilterItemBool extends WFContentItemFilterItemBase {
+	Bool: boolean;
+}
+
+interface WFContentItemFilterItemEnum extends WFContentItemFilterItemBase {
+	Enumeration: string;
+}
+
+type WFContentItemFilterItem =
+	| WFContentItemFilterItemBaseString
+	| WFContentItemFilterItemBaseText
+	| WFContentItemFilterItemNumber
+	| WFContentItemFilterItemBool
+	| WFContentItemFilterItemEnum;
 
 export class ContentItemFilter extends Parameter {
 	data: Array<WFContentItemFilterItem>;
@@ -297,9 +307,9 @@ export class ContentItemFilter extends Parameter {
 		this.coercionType = coercionType;
 	}
 	add(
-		property: string,
+		property: AggrandizementPropertyName,
 		operator: ComparisonName,
-		value: string | number | boolean,
+		value: string | number | boolean | Text,
 		units?: undefined
 	): string | undefined {
 		const typeInfo = getTypes[this.coercionType];
@@ -323,13 +333,13 @@ export class ContentItemFilter extends Parameter {
 			return `The operator \`${operator}\` does not exist or has not been implemented. Check the docs page for this action for a full list.`;
 		}
 		// UnitName -> UnitValue
-		const unit = undefined;
+		const unit = units;
 		// Add to data
 		this.data.push({
 			Property: propertyData.name,
 			Operator: operatorValue,
 			Removable: true,
-			Unit: unit,
+			Unit: 4,
 			VariableOverrides: {}
 		});
 		return;

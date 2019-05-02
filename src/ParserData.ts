@@ -87,6 +87,9 @@ export class Parse {
 	canBeFilter(_cc: ConvertingContext): this is AsFilter {
 		return false;
 	}
+	canBeFilterItem(_cc: ConvertingContext): this is AsFilterItem {
+		return false;
+	}
 }
 
 interface AsString extends Parse {
@@ -149,6 +152,10 @@ interface AsFilter extends Parse {
 	asFilter(cc: ConvertingContext): ContentItemFilter;
 }
 
+interface AsFilterItem extends Parse {
+	asFilterItem(cc: ConvertingContext): ContentItemFilter;
+}
+
 export type AsAble = Parse;
 
 export class ConvertVariableParse extends Parse {
@@ -199,7 +206,8 @@ export class ConvertVariableParse extends Parse {
 	"NameType",
 	"StringVariable",
 	"Number",
-	"Filter"
+	"Filter",
+	"FilterItem"
 ].forEach(val => {
 	//eslint-disable-next-line func-names
 	(<any>ConvertVariableParse).prototype[`canBe${val}`] = function(
@@ -250,6 +258,18 @@ export class FilterParse extends Parse implements AsFilter {
 		return true;
 	}
 	asFilter(cc: ConvertingContext): ContentItemFilter {
+		throw this.error(cc, "no");
+	}
+}
+export class FilterItemParse extends Parse implements AsFilterItem {
+	constructor(start: Position, end: Position) {
+		// property: string, oiperatornl/ ;''
+		super(start, end);
+	}
+	canBeFilterItem(_cc: ConvertingContext): boolean {
+		return true;
+	}
+	asFilterItem(cc: ConvertingContext): ContentItemFilter {
 		throw this.error(cc, "no");
 	}
 }
