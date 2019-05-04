@@ -8,6 +8,8 @@ import * as bplistp from "bplist-parser";
 // export {default as parser} from "./src/ShortcutsParser";
 export { PositionedError, ConvertingContext, AsAble, WFShortcut };
 
+export {allActions, getActionFromID, getActionFromName} from "./src/ActionData";
+
 export function parse(
 	string: string,
 	options: {
