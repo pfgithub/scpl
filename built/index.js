@@ -9,6 +9,10 @@ exports.ConvertingContext = Converter_1.ConvertingContext;
 const OutputData_1 = require("./src/OutputData");
 const InverseConvertingContext_1 = require("./src/InverseConvertingContext");
 const bplistp = require("bplist-parser");
+var ActionData_1 = require("./src/ActionData");
+exports.allActions = ActionData_1.allActions;
+exports.getActionFromID = ActionData_1.getActionFromID;
+exports.getActionFromName = ActionData_1.getActionFromName;
 function parse(string, options) {
     const parsed = ShortcutsParser_1.default.parse(string, [1, 1]);
     if (!parsed.success) {

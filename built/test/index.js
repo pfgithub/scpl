@@ -577,7 +577,7 @@ ava_1.default("different quotes things", t => {
         {
             WFWorkflowActionIdentifier: "is.workflow.actions.gettext",
             WFWorkflowActionParameters: {
-                WFTextActionText: "single \"\"'quotes"
+                WFTextActionText: 'single ""\'quotes'
             }
         },
         {
