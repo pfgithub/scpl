@@ -262,9 +262,17 @@ export class FilterParse extends Parse implements AsFilter {
 	}
 }
 export class FilterItemParse extends Parse implements AsFilterItem {
-	constructor(start: Position, end: Position) {
+	property: AsAble
+	operator: AsAble
+	value: AsAble
+	units: AsAble
+	constructor(start: Position, end: Position, property: AsAble, operator: AsAble, value: AsAble, units?: AsAble) {
 		// property: string, oiperatornl/ ;''
 		super(start, end);
+		this.property = property;
+		this.operator = operator;
+		this.value = value;
+		this.units = units;
 	}
 	canBeFilterItem(_cc: ConvertingContext): boolean {
 		return true;

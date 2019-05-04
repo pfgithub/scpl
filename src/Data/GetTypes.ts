@@ -41,7 +41,6 @@ type GetTypeInfo = {
 	units?: { [name: string]: number };
 	properties: { [Name in AggrandizementPropertyName]?: GetTypeInfoProperty };
 };
-
 // const test: GetTypeInfo = {properties: {}, comparisonMethods: {akjndcsjklnac: 5}};
 
 type GetTypesData = { [Type in CoercionTypeClass]: GetTypeInfo };
@@ -721,6 +720,7 @@ const data: GetTypesData = {
 		}
 	},
 	WFStringContentItem: {
+		filtertype: "string",
 		comparisonMethods: {
 			is: 4,
 			isnot: 5,

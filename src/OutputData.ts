@@ -276,7 +276,7 @@ interface WFContentItemFilterItemBaseString
 }
 
 interface WFContentItemFilterItemBaseText extends WFContentItemFilterItemBase {
-	stringValue: WFTextValue;
+	stringValue: WFTextParameter;
 }
 
 interface WFContentItemFilterItemNumber extends WFContentItemFilterItemBase {
@@ -298,6 +298,13 @@ type WFContentItemFilterItem =
 	| WFContentItemFilterItemBool
 	| WFContentItemFilterItemEnum;
 
+export type ContentItemFilterItem = {
+	property: AggrandizementPropertyName
+	operator: ComparisonName,
+	value: string | number | boolean | Text,
+	units?: undefined
+}
+
 export class ContentItemFilter extends Parameter {
 	data: Array<WFContentItemFilterItem>;
 	coercionType: CoercionTypeClass;
@@ -307,11 +314,13 @@ export class ContentItemFilter extends Parameter {
 		this.coercionType = coercionType;
 	}
 	add(
-		property: AggrandizementPropertyName,
-		operator: ComparisonName,
-		value: string | number | boolean | Text,
-		units?: undefined
+		item: ContentItemFilterItem
 	): string | undefined {
+		const property = item.property;
+		const operator = item.operator;
+		const value = item.value;
+		const units = item.units;
+		
 		const typeInfo = getTypes[this.coercionType];
 		// property -> GetTypeInfo -> AggrandizementPropertyRawName
 		if (!isAggrandizementPropertyName(property)) {
@@ -332,17 +341,44 @@ export class ContentItemFilter extends Parameter {
 		if (operatorValue === undefined) {
 			return `The operator \`${operator}\` does not exist or has not been implemented. Check the docs page for this action for a full list.`;
 		}
-		// UnitName -> UnitValue
+		// UnitName -> UnitValue || 4
 		const unit = units;
-		// Add to data
-		this.data.push({
+		const baseData: WFContentItemFilterItemBase = {
 			Property: propertyData.name,
 			Operator: operatorValue,
 			Removable: true,
 			Unit: 4,
 			VariableOverrides: {}
-		});
-		return;
+		};
+		if(propertyData.filterFakeType === "WFEnumerationContentItem") {
+			return `Enumerations are not implemented yet`;
+		}else if(typeof value === "string") {
+			this.data.push({
+				String: value,
+				...baseData
+			});
+			return;
+		}else if(typeof value === "number") {
+			this.data.push({
+				Number: value,
+				...baseData
+			});
+			return;
+		}else if(typeof value === "boolean") {
+			this.data.push({
+				Bool: value,
+				...baseData
+			});
+			return;
+		}else if(value instanceof Text) {
+			this.data.push({
+				stringValue: value.build(),
+				...baseData
+			});
+			return;
+		}
+		// Add to data
+		return `Something's not right. This is none of string|number|boolean|Text.`;
 	}
 	build(): WFContentItemFilter {
 		return {
