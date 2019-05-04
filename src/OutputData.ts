@@ -27,6 +27,12 @@ import {
 	AggrandizementPropertyName
 } from "./WFTypes/Types";
 
+import getTypes, {
+	ComparisonName,
+	ComparisonWFValue,
+	comparisonMethodsMap
+} from "./Data/GetTypes";
+
 const coercionTypes: { [name: string]: CoercionTypeClass } = {
 	// remove name:string and make it typed too
 	anything: "WFContentItem",
@@ -82,12 +88,6 @@ export const inverseCoercionTypes: { [name in CoercionTypeClass]: string } = {
 	WFURLContentItem: "url",
 	WFVCardContentItem: "vcard"
 };
-
-import getTypes, {
-	ComparisonName,
-	ComparisonWFValue,
-	comparisonMethodsMap
-} from "./Data/GetTypes";
 
 type WFAggrandizements = (
 	| {
@@ -299,11 +299,11 @@ type WFContentItemFilterItem =
 	| WFContentItemFilterItemEnum;
 
 export type ContentItemFilterItem = {
-	property: AggrandizementPropertyName
-	operator: ComparisonName,
-	value: string | number | boolean | Text,
-	units?: undefined
-}
+	property: AggrandizementPropertyName;
+	operator: ComparisonName;
+	value: string | number | boolean | Text;
+	units?: undefined;
+};
 
 export class ContentItemFilter extends Parameter {
 	data: Array<WFContentItemFilterItem>;
@@ -313,14 +313,12 @@ export class ContentItemFilter extends Parameter {
 		this.data = [];
 		this.coercionType = coercionType;
 	}
-	add(
-		item: ContentItemFilterItem
-	): string | undefined {
+	add(item: ContentItemFilterItem): string | undefined {
 		const property = item.property;
 		const operator = item.operator;
 		const value = item.value;
-		const units = item.units;
-		
+		// const units = item.units;
+
 		const typeInfo = getTypes[this.coercionType];
 		// property -> GetTypeInfo -> AggrandizementPropertyRawName
 		if (!isAggrandizementPropertyName(property)) {
@@ -342,7 +340,7 @@ export class ContentItemFilter extends Parameter {
 			return `The operator \`${operator}\` does not exist or has not been implemented. Check the docs page for this action for a full list.`;
 		}
 		// UnitName -> UnitValue || 4
-		const unit = units;
+		// const unit = units;
 		const baseData: WFContentItemFilterItemBase = {
 			Property: propertyData.name,
 			Operator: operatorValue,
@@ -350,27 +348,27 @@ export class ContentItemFilter extends Parameter {
 			Unit: 4,
 			VariableOverrides: {}
 		};
-		if(propertyData.filterFakeType === "WFEnumerationContentItem") {
+		if (propertyData.filterFakeType === "WFEnumerationContentItem") {
 			return `Enumerations are not implemented yet`;
-		}else if(typeof value === "string") {
+		} else if (typeof value === "string") {
 			this.data.push({
 				String: value,
 				...baseData
 			});
 			return;
-		}else if(typeof value === "number") {
+		} else if (typeof value === "number") {
 			this.data.push({
 				Number: value,
 				...baseData
 			});
 			return;
-		}else if(typeof value === "boolean") {
+		} else if (typeof value === "boolean") {
 			this.data.push({
 				Bool: value,
 				...baseData
 			});
 			return;
-		}else if(value instanceof Text) {
+		} else if (value instanceof Text) {
 			this.data.push({
 				stringValue: value.build(),
 				...baseData

@@ -8,12 +8,27 @@ import {
 	Attachment,
 	List,
 	AttachmentType,
-	ContentItemFilter
+	ContentItemFilter,
+	ContentItemFilterItem
 } from "./OutputData";
 import { getActionFromName } from "./ActionData";
 import { ConvertingContext } from "./Converter.js";
 import { setVariable, getVariable } from "./HelpfulActions";
 import { Position } from "./Production";
+
+import {
+   CoercionTypeClass,
+   isAggrandizementPropertyName,
+   AggrandizementPropertyRawName,
+   AggrandizementPropertyName
+} from "./WFTypes/Types";
+
+import getTypes, {
+	ComparisonName,
+    isComparisonMethod,
+	ComparisonWFValue,
+	comparisonMethodsMap
+} from "./Data/GetTypes";
 
 export class PositionedError extends Error {
 	// an error at a position
@@ -153,7 +168,7 @@ interface AsFilter extends Parse {
 }
 
 interface AsFilterItem extends Parse {
-	asFilterItem(cc: ConvertingContext): ContentItemFilter;
+	asFilterItem(cc: ConvertingContext): ContentItemFilterItem;
 }
 
 export type AsAble = Parse;
@@ -262,11 +277,18 @@ export class FilterParse extends Parse implements AsFilter {
 	}
 }
 export class FilterItemParse extends Parse implements AsFilterItem {
-	property: AsAble
-	operator: AsAble
-	value: AsAble
-	units: AsAble
-	constructor(start: Position, end: Position, property: AsAble, operator: AsAble, value: AsAble, units?: AsAble) {
+	property: AsAble;
+	operator: AsAble;
+	value: AsAble;
+	units?: AsAble;
+	constructor(
+		start: Position,
+		end: Position,
+		property: AsAble,
+		operator: AsAble,
+		value: AsAble,
+		units?: AsAble
+	) {
 		// property: string, oiperatornl/ ;''
 		super(start, end);
 		this.property = property;
@@ -277,8 +299,41 @@ export class FilterItemParse extends Parse implements AsFilterItem {
 	canBeFilterItem(_cc: ConvertingContext): boolean {
 		return true;
 	}
-	asFilterItem(cc: ConvertingContext): ContentItemFilter {
-		throw this.error(cc, "no");
+	asFilterItem(cc: ConvertingContext): ContentItemFilterItem {
+		if (!this.property.canBeString(cc)) {
+			throw this.property.error(cc, "Property must be a string");
+		}
+		const property = this.property.asString(cc);
+		if(!isAggrandizementPropertyName(property)) {
+			throw this.property.error(cc, "Property must be a property name.");
+		}
+		const propertyName: AggrandizementPropertyName = property;
+		
+		if (!this.operator.canBeString(cc)) {
+			throw this.property.error(cc, "Operator must be a string");
+		}
+		const operator = this.operator.asString(cc);
+		if(!isComparisonMethod(operator)) {
+			throw this.property.error(cc, "Property must be a comparison method.");
+		}
+		const operatorName: ComparisonName = operator;
+		
+		// findbest[string, number, boolean, text]
+		// ...
+		if (!this.value.canBeText(cc)) {
+			throw this.property.error(cc, "Value must be a string");
+		}
+		const value = this.value.asText(cc);
+		
+		if(this.units) {
+			throw this.units.error(cc, "Units are not implemented yet");
+		}
+		
+		return {
+			property: propertyName,
+			operator: operatorName,
+			value: value
+		};
 	}
 }
 export class DictionaryParse extends Parse
