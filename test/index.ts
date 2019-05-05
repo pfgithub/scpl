@@ -213,7 +213,6 @@ test("invert an incomplete action", t => {
 						},
 						WFSerializationType: "WFContentPredicateTableTemplate"
 					}
-				
 				}
 			})
 		),
@@ -665,42 +664,46 @@ test("actions that ignore parameters should still support ->", t => {
 });
 
 test("filter action by name", t => {
-	t.deepEqual(scplToShortcut(`FilterFiles :filter{Name Is "\\(s:AskWhenRun)hmm"}`), [
-		{
-			WFWorkflowActionIdentifier: "is.workflow.actions.filter.files",
-			WFWorkflowActionParameters: {
-				WFContentItemFilter: {
-					Value: {
-						WFActionParameterFilterPrefix: 1,
-						WFContentPredicateBoundedDate: false,
-						WFActionParameterFilterTemplates: [
-							{
-								Operator: 4,
-								VariableOverrides: {
-									stringValue: {
-										Value: {
-											string: "[attachment]hmm",
-											attachmentsByRange: {
-												"{0, 1}": {
-													Aggrandizements: [],
-													Type: "Ask"
+	t.deepEqual(
+		scplToShortcut(`FilterFiles :filter{Name Is "\\(s:AskWhenRun)hmm"}`),
+		[
+			{
+				WFWorkflowActionIdentifier: "is.workflow.actions.filter.files",
+				WFWorkflowActionParameters: {
+					WFContentItemFilter: {
+						Value: {
+							WFActionParameterFilterPrefix: 1,
+							WFContentPredicateBoundedDate: false,
+							WFActionParameterFilterTemplates: [
+								{
+									Operator: 4,
+									VariableOverrides: {
+										stringValue: {
+											Value: {
+												string: "[attachment]hmm",
+												attachmentsByRange: {
+													"{0, 1}": {
+														Aggrandizements: [],
+														Type: "Ask"
+													}
 												}
-											}
-										},
-										WFSerializationType: "WFTextTokenString"
-									}
-								},
-								Unit: 4,
-								Removable: true,
-								Property: "Name"
-							}
-						]
-					},
-					WFSerializationType: "WFContentPredicateTableTemplate"
+											},
+											WFSerializationType:
+												"WFTextTokenString"
+										}
+									},
+									Unit: 4,
+									Removable: true,
+									Property: "Name"
+								}
+							]
+						},
+						WFSerializationType: "WFContentPredicateTableTemplate"
+					}
 				}
 			}
-		}
-	]);
+		]
+	);
 });
 
 test("argument labels and arglists and extendedargs", t => {
