@@ -720,7 +720,6 @@ const data: GetTypesData = {
 		}
 	},
 	WFStringContentItem: {
-		filtertype: "string",
 		comparisonMethods: {
 			is: 4,
 			isnot: 5,
