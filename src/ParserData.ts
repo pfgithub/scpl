@@ -7,12 +7,22 @@ import {
 	Variable,
 	Attachment,
 	List,
-	AttachmentType
+	AttachmentType,
+	ContentItemFilter,
+	ContentItemFilterItem
 } from "./OutputData";
-import { getActionFromName } from "./ActionData";
+import { getActionFromName, genShortName } from "./ActionData";
 import { ConvertingContext } from "./Converter.js";
 import { setVariable, getVariable } from "./HelpfulActions";
 import { Position } from "./Production";
+
+import {
+	CoercionTypeClass,
+	isAggrandizementPropertyName,
+	AggrandizementPropertyName
+} from "./WFTypes/Types";
+
+import { ComparisonName, isComparisonMethod } from "./Data/GetTypes";
 
 export class PositionedError extends Error {
 	// an error at a position
@@ -83,6 +93,12 @@ export class Parse {
 	canBeNumber(_cc: ConvertingContext): this is AsNumber {
 		return false;
 	}
+	canBeFilter(_cc: ConvertingContext): this is AsFilter {
+		return false;
+	}
+	canBeFilterItem(_cc: ConvertingContext): this is AsFilterItem {
+		return false;
+	}
 }
 
 interface AsString extends Parse {
@@ -141,6 +157,14 @@ interface AsNumber extends Parse {
 	asNumber(cc: ConvertingContext): number;
 }
 
+interface AsFilter extends Parse {
+	asFilter(cc: ConvertingContext, type: CoercionTypeClass): ContentItemFilter;
+}
+
+interface AsFilterItem extends Parse {
+	asFilterItem(cc: ConvertingContext): ContentItemFilterItem;
+}
+
 export type AsAble = Parse;
 
 export class ConvertVariableParse extends Parse {
@@ -190,7 +214,9 @@ export class ConvertVariableParse extends Parse {
 	"RawKeyedDictionary",
 	"NameType",
 	"StringVariable",
-	"Number"
+	"Number",
+	"Filter",
+	"FilterItem"
 ].forEach(val => {
 	//eslint-disable-next-line func-names
 	(<any>ConvertVariableParse).prototype[`canBe${val}`] = function(
@@ -203,7 +229,8 @@ export class ConvertVariableParse extends Parse {
 	//eslint-disable-next-line func-names
 	(<any>ConvertVariableParse).prototype[`as${val}`] = function(
 		this: ConvertVariableParse,
-		cc: ConvertingContext
+		cc: ConvertingContext,
+		...extraData: any[]
 	) {
 		const me = this.getValue(cc);
 		const options = this.options;
@@ -221,7 +248,7 @@ export class ConvertVariableParse extends Parse {
 			const value = rawKeyedOptions[key];
 			newCC.setParserVariable(key, value);
 		});
-		return (<any>me)[`as${val}`](newCC);
+		return (<any>me)[`as${val}`](newCC, ...extraData);
 	};
 });
 
@@ -230,7 +257,96 @@ export class ErrorParse extends Parse {
 		super(start, end);
 	}
 }
+export class FilterParse extends Parse implements AsFilter {
+	filterItems: AsAble[];
+	constructor(start: Position, end: Position, filterItems: AsAble[]) {
+		super(start, end);
 
+		this.filterItems = filterItems;
+	}
+	canBeFilter(_cc: ConvertingContext): boolean {
+		return true;
+	}
+	asFilter(
+		cc: ConvertingContext,
+		type: CoercionTypeClass
+	): ContentItemFilter {
+		const filter = new ContentItemFilter(type);
+		this.filterItems.forEach(filterItem => {
+			if (!filterItem.canBeFilterItem(cc)) {
+				throw filterItem.error(cc, "This item is not a filter item.");
+			}
+			const addResult = filter.add(filterItem.asFilterItem(cc));
+			if (addResult) {
+				throw filterItem.error(cc, addResult);
+			}
+		});
+		return filter;
+	}
+}
+export class FilterItemParse extends Parse implements AsFilterItem {
+	property: AsAble;
+	operator: AsAble;
+	value: AsAble;
+	units?: AsAble;
+	constructor(
+		start: Position,
+		end: Position,
+		property: AsAble,
+		operator: AsAble,
+		value: AsAble,
+		units?: AsAble
+	) {
+		// property: string, oiperatornl/ ;''
+		super(start, end);
+		this.property = property;
+		this.operator = operator;
+		this.value = value;
+		this.units = units;
+	}
+	canBeFilterItem(_cc: ConvertingContext): boolean {
+		return true;
+	}
+	asFilterItem(cc: ConvertingContext): ContentItemFilterItem {
+		if (!this.property.canBeString(cc)) {
+			throw this.property.error(cc, "Property must be a string");
+		}
+		const property = genShortName(this.property.asString(cc));
+		if (!isAggrandizementPropertyName(property)) {
+			throw this.property.error(cc, "Property must be a property name.");
+		}
+		const propertyName: AggrandizementPropertyName = property;
+
+		if (!this.operator.canBeString(cc)) {
+			throw this.property.error(cc, "Operator must be a string");
+		}
+		const operator = genShortName(this.operator.asString(cc));
+		if (!isComparisonMethod(operator)) {
+			throw this.property.error(
+				cc,
+				"Property must be a comparison method."
+			);
+		}
+		const operatorName: ComparisonName = operator;
+
+		// findbest[string, number, boolean, text]
+		// ...
+		if (!this.value.canBeText(cc)) {
+			throw this.property.error(cc, "Value must be a string");
+		}
+		const value = this.value.asText(cc);
+
+		if (this.units) {
+			throw this.units.error(cc, "Units are not implemented yet");
+		}
+
+		return {
+			property: propertyName,
+			operator: operatorName,
+			value: value
+		};
+	}
+}
 export class DictionaryParse extends Parse
 	implements AsRawDictionary, AsRawKeyedDictionary, AsDictionary {
 	keyvaluepairs: Array<{ key: AsAble; value: AsAble }>;

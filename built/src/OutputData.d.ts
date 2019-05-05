@@ -1,5 +1,6 @@
 /// <reference types="node" />
-import { CoercionTypeClass } from "./WFTypes/Types";
+import { CoercionTypeClass, AggrandizementPropertyRawName, AggrandizementPropertyName } from "./WFTypes/Types";
+import { ComparisonName, ComparisonWFValue } from "./Data/GetTypes";
 export declare const inverseCoercionTypes: {
     [name in CoercionTypeClass]: string;
 };
@@ -28,9 +29,10 @@ export declare class Aggrandizements {
     setCoercionType(type: string): string | void;
     setForKey(key: string): string | void;
 }
-export declare class Parameter {
+declare class Parameter {
     constructor();
     build(): WFParameter;
+    static inverse(_data: WFParameter): Parameter;
 }
 declare type DictionaryFieldValueItem = {
     WFItemType: 1;
@@ -64,6 +66,49 @@ declare type WFDictionaryParameter = {
     };
     WFSerializationType: "WFDictionaryFieldValue";
 };
+declare type WFContentItemFilter = {
+    Value: {
+        WFActionParameterFilterPrefix: 1;
+        WFActionParameterFilterTemplates: WFContentItemFilterItem[];
+    };
+    WFSerializationType: "WFContentPredicateTableTemplate";
+};
+declare type WFContentItemFilterItemBase = {
+    Operator: ComparisonWFValue;
+    Property: AggrandizementPropertyRawName;
+    Removable: true;
+    Unit: number;
+    VariableOverrides: {};
+};
+interface WFContentItemFilterItemBaseString extends WFContentItemFilterItemBase {
+    String: string;
+}
+interface WFContentItemFilterItemBaseText extends WFContentItemFilterItemBase {
+    stringValue: WFTextParameter;
+}
+interface WFContentItemFilterItemNumber extends WFContentItemFilterItemBase {
+    Number: number;
+}
+interface WFContentItemFilterItemBool extends WFContentItemFilterItemBase {
+    Bool: boolean;
+}
+interface WFContentItemFilterItemEnum extends WFContentItemFilterItemBase {
+    Enumeration: string;
+}
+declare type WFContentItemFilterItem = WFContentItemFilterItemBaseString | WFContentItemFilterItemBaseText | WFContentItemFilterItemNumber | WFContentItemFilterItemBool | WFContentItemFilterItemEnum;
+export declare type ContentItemFilterItem = {
+    property: AggrandizementPropertyName;
+    operator: ComparisonName;
+    value: string | number | boolean | Text;
+    units?: undefined;
+};
+export declare class ContentItemFilter extends Parameter {
+    data: Array<WFContentItemFilterItem>;
+    coercionType: CoercionTypeClass;
+    constructor(coercionType: CoercionTypeClass);
+    add(item: ContentItemFilterItem): string | undefined;
+    build(): WFContentItemFilter;
+}
 export declare class Dictionary extends Parameter {
     items: Array<{
         key: Text;
@@ -160,16 +205,22 @@ export declare class Text extends Parameter {
     build(): WFTextParameter;
 }
 export declare class ErrorParameter extends Parameter {
+    text: string;
+    constructor(text?: string);
+    build(): WFErrorParameter;
 }
 declare type WFErrorParameter = {
     WFSerializationType: "WFErrorParameter";
+    Value: {
+        Text: string;
+    };
 };
 export declare function toParam(value: WFParameter): ParameterType;
 export declare type ParameterType = Parameter | string | number | Array<string> | boolean;
 declare type WFParameters = {
     [key: string]: WFParameter;
 };
-export declare type WFParameter = WFDictionaryParameter | WFAttachmentParameter | WFListParameter | WFTextParameter | WFErrorParameter | string | boolean | number;
+export declare type WFParameter = WFDictionaryParameter | WFAttachmentParameter | WFListParameter | WFTextParameter | WFErrorParameter | WFContentItemFilter | string | boolean | number;
 export declare class Parameters {
     values: {
         [internalName: string]: ParameterType;

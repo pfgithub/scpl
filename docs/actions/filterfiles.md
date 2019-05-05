@@ -1,20 +1,21 @@
 
 ## Filter Files / filterfiles (internally `is.workflow.actions.filter.files`)
 
-> This action is not yet complete. Some arguments may be missing.
-
 
 
 ### usage
 ```
-filterfiles undefined=NotImplemented sortby=("Creation Date" | "File Size" | "File Extension" | "Last Modified Date" | "Name" | "Random") order=("Oldest First" | "Newest First" | "A to Z" | "Z to A") limit=(true | false | variable) getitems=number
+filterfiles filter=:filter{...} sortby=("Creation Date" | "File Size" | "File Extension" | "Last Modified Date" | "Name" | "Random") order=("Oldest First" | "Newest First" | "A to Z" | "Z to A") limit=(true | false | variable) getitems=number
 ```
 
 ### arguments
 
 ---
 
-#### This paramtype is not implemented. WFFilterParameter
+### filter: Filter [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#filter-field)
+
+
+Accepts a :filter{} of filters.
 
 ---
 

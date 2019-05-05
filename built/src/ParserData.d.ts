@@ -1,6 +1,7 @@
-import { Action, Dictionary, Text, MagicVariable, Variable, Attachment, List } from "./OutputData";
+import { Action, Dictionary, Text, MagicVariable, Variable, Attachment, List, ContentItemFilter, ContentItemFilterItem } from "./OutputData";
 import { ConvertingContext } from "./Converter.js";
 import { Position } from "./Production";
+import { CoercionTypeClass } from "./WFTypes/Types";
 export declare class PositionedError extends Error {
     start: Position;
     end: Position;
@@ -26,6 +27,8 @@ export declare class Parse {
     canBeNameType(_cc: ConvertingContext): this is AsNameType;
     canBeStringVariable(_cc: ConvertingContext): this is AsStringVariable;
     canBeNumber(_cc: ConvertingContext): this is AsNumber;
+    canBeFilter(_cc: ConvertingContext): this is AsFilter;
+    canBeFilterItem(_cc: ConvertingContext): this is AsFilterItem;
 }
 interface AsString extends Parse {
     asString(cc: ConvertingContext): string;
@@ -76,6 +79,12 @@ interface AsStringVariable extends Parse {
 interface AsNumber extends Parse {
     asNumber(cc: ConvertingContext): number;
 }
+interface AsFilter extends Parse {
+    asFilter(cc: ConvertingContext, type: CoercionTypeClass): ContentItemFilter;
+}
+interface AsFilterItem extends Parse {
+    asFilterItem(cc: ConvertingContext): ContentItemFilterItem;
+}
 export declare type AsAble = Parse;
 export declare class ConvertVariableParse extends Parse {
     name: AsAble;
@@ -86,6 +95,21 @@ export declare class ConvertVariableParse extends Parse {
 }
 export declare class ErrorParse extends Parse {
     constructor(start: Position, end: Position, _message: string);
+}
+export declare class FilterParse extends Parse implements AsFilter {
+    filterItems: AsAble[];
+    constructor(start: Position, end: Position, filterItems: AsAble[]);
+    canBeFilter(_cc: ConvertingContext): boolean;
+    asFilter(cc: ConvertingContext, type: CoercionTypeClass): ContentItemFilter;
+}
+export declare class FilterItemParse extends Parse implements AsFilterItem {
+    property: AsAble;
+    operator: AsAble;
+    value: AsAble;
+    units?: AsAble;
+    constructor(start: Position, end: Position, property: AsAble, operator: AsAble, value: AsAble, units?: AsAble);
+    canBeFilterItem(_cc: ConvertingContext): boolean;
+    asFilterItem(cc: ConvertingContext): ContentItemFilterItem;
 }
 export declare class DictionaryParse extends Parse implements AsRawDictionary, AsRawKeyedDictionary, AsDictionary {
     keyvaluepairs: Array<{

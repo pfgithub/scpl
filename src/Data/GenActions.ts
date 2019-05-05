@@ -1,6 +1,9 @@
 import * as builtin from "./Shortcuts 2.2.json";
 import getTypes from "./GetTypes";
-import { isCoercionTypeClass } from "../WFTypes/Types";
+import {
+	isCoercionTypeClass,
+	AggrandizementPropertyRawName
+} from "../WFTypes/Types";
 import * as fs from "fs";
 
 const actions: { [key: string]: any } = builtin[0];
@@ -40,7 +43,7 @@ Object.values(actions).forEach((action: any) => {
 				Key: "WFContentItemPropertyName",
 				Label: "Get",
 				Items: Object.values(getTypes[getTypeItemClass]).map(
-					t => t.name
+					t => (<{ name: AggrandizementPropertyRawName }>t).name
 				)
 			});
 		}
@@ -64,7 +67,7 @@ Object.values(actions).forEach((action: any) => {
 				Label: "Sort by",
 				Items: [
 					...Object.values(getTypes[getTypeItemClass]).map(
-						t => t.name
+						t => (<{ name: AggrandizementPropertyRawName }>t).name
 					),
 					"Random"
 				]

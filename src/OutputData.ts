@@ -22,8 +22,16 @@ From Shortcuts-js
 
 import {
 	CoercionTypeClass,
-	isAggrandizementPropertyName
+	isAggrandizementPropertyName,
+	AggrandizementPropertyRawName,
+	AggrandizementPropertyName
 } from "./WFTypes/Types";
+
+import getTypes, {
+	ComparisonName,
+	ComparisonWFValue,
+	comparisonMethodsMap
+} from "./Data/GetTypes";
 
 const coercionTypes: { [name: string]: CoercionTypeClass } = {
 	// remove name:string and make it typed too
@@ -80,8 +88,6 @@ export const inverseCoercionTypes: { [name in CoercionTypeClass]: string } = {
 	WFURLContentItem: "url",
 	WFVCardContentItem: "vcard"
 };
-
-import getTypes from "./Data/GetTypes"; // resdata = {};console.dir( actionData.filter(action => action.WFWorkflowActionIdentifier === "is.workflow.actions.gettext").map(action => Object.values(action.WFWorkflowActionParameters.WFTextActionText.Value.attachmentsByRange).filter(d=>d.Type !== "Clipboard" && d.Aggrandizements && d.Aggrandizements[1]).map(d=>({coerce:d.Aggrandizements[0].CoercionItemClass,property:d.Aggrandizements[1]}))).forEach(a=>a.forEach(({coerce, property})=>{if(!resdata[coerce]){resdata[coerce]={};};resdata[coerce][property.PropertyName.toLowerCase().replace(/[^A-Za-z]/g,"")]=({name:property.PropertyName,data:property.PropertyUserInfo});})) ,{depth:null});console.log(JSON.stringify(resdata,null,"\t"));
 
 type WFAggrandizements = (
 	| {
@@ -168,7 +174,7 @@ export class Aggrandizements {
 				getTypes[this.coercionType]
 			)}.`;
 		}
-		const typeValue = getTypes[this.coercionType][getType];
+		const typeValue = getTypes[this.coercionType].properties[getType];
 		if (!typeValue) {
 			return `${getType} is not a valid aggrandizement get type for this as. Valid are: ${Object.keys(
 				getTypes[this.coercionType]
@@ -206,10 +212,14 @@ export class Aggrandizements {
 // // // // // //
 //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //
 
-export class Parameter {
+class Parameter {
+	// cannot be abstract because inverse is static
 	constructor() {}
 	build(): WFParameter {
-		throw new Error("Blank parameter cannot be built");
+		throw new Error("Blank parameter has no build method");
+	}
+	static inverse(_data: WFParameter): Parameter {
+		throw new Error("Blank parameter has no inverse method");
 	}
 }
 
@@ -247,6 +257,162 @@ type WFDictionaryParameter = {
 	};
 	WFSerializationType: "WFDictionaryFieldValue";
 };
+
+type WFContentItemFilter = {
+	// might need {Value: {}} ?
+	Value: {
+		WFActionParameterFilterPrefix: 1;
+		WFActionParameterFilterTemplates: WFContentItemFilterItem[];
+	};
+	WFSerializationType: "WFContentPredicateTableTemplate";
+};
+
+type WFContentItemFilterItemBase = {
+	Operator: ComparisonWFValue;
+	Property: AggrandizementPropertyRawName;
+	Removable: true;
+	Unit: number;
+	VariableOverrides: {};
+};
+
+interface WFContentItemFilterItemBaseString
+	extends WFContentItemFilterItemBase {
+	String: string;
+}
+
+interface WFContentItemFilterItemBaseText extends WFContentItemFilterItemBase {
+	stringValue: WFTextParameter;
+}
+
+interface WFContentItemFilterItemNumber extends WFContentItemFilterItemBase {
+	Number: number;
+}
+
+interface WFContentItemFilterItemBool extends WFContentItemFilterItemBase {
+	Bool: boolean;
+}
+
+interface WFContentItemFilterItemEnum extends WFContentItemFilterItemBase {
+	Enumeration: string;
+}
+
+type WFContentItemFilterItem =
+	| WFContentItemFilterItemBaseString
+	| WFContentItemFilterItemBaseText
+	| WFContentItemFilterItemNumber
+	| WFContentItemFilterItemBool
+	| WFContentItemFilterItemEnum;
+
+export type ContentItemFilterItem = {
+	property: AggrandizementPropertyName;
+	operator: ComparisonName;
+	value: string | number | boolean | Text;
+	units?: undefined;
+};
+
+export class ContentItemFilter extends Parameter {
+	data: Array<WFContentItemFilterItem>;
+	coercionType: CoercionTypeClass;
+	constructor(coercionType: CoercionTypeClass) {
+		super();
+		this.data = [];
+		this.coercionType = coercionType;
+	}
+	add(item: ContentItemFilterItem): string | undefined {
+		const property = item.property;
+		const operator = item.operator;
+		const value = item.value;
+		// const units = item.units;
+
+		const typeInfo = getTypes[this.coercionType];
+		// property -> GetTypeInfo -> AggrandizementPropertyRawName
+		if (!isAggrandizementPropertyName(property)) {
+			return `Not a valid name \`${property}\`. Check the docs page for this action for a full list.`;
+		}
+		const propertyData = typeInfo.properties[property];
+		if (!propertyData) {
+			return `Not a valid property name \`${property}\`. Check the docs page for this action for a full list.`;
+		}
+		if (propertyData.filter === undefined) {
+			return `The property \`${property}\` does not yet support filters on this action. If you need this property, report an issue on github or submit a pull request.`;
+		}
+		if (!propertyData.filter) {
+			return `The property \`${property}\` does not support filters in shortcuts. Check the docs page for this action for a full list.`;
+		}
+		// ComparisonName -> ComparisonValue
+		const operatorValue = comparisonMethodsMap.get(operator);
+		if (operatorValue === undefined) {
+			return `The operator \`${operator}\` does not exist or has not been implemented. Check the docs page for this action for a full list.`;
+		}
+		// UnitName -> UnitValue || 4
+		// const unit = units;
+		const baseData: WFContentItemFilterItemBase = {
+			Property: propertyData.name,
+			Operator: operatorValue,
+			Removable: true,
+			Unit: 4,
+			VariableOverrides: {}
+		};
+		if (propertyData.filterFakeType === "WFEnumerationContentItem") {
+			return `Enumerations are not implemented yet`;
+		} else if (typeof value === "string") {
+			this.data.push({
+				String: value,
+				...baseData
+			});
+			return;
+		} else if (typeof value === "number") {
+			this.data.push({
+				Number: value,
+				...baseData
+			});
+			return;
+		} else if (typeof value === "boolean") {
+			this.data.push({
+				Bool: value,
+				...baseData
+			});
+			return;
+		} else if (value instanceof Text) {
+			this.data.push({
+				stringValue: value.build(),
+				...baseData
+			});
+			return;
+		}
+		// Add to data
+		return `Something's not right. This is none of string|number|boolean|Text.`;
+	}
+	build(): WFContentItemFilter {
+		return {
+			Value: {
+				WFActionParameterFilterPrefix: 1,
+				WFActionParameterFilterTemplates: this.data
+			},
+			WFSerializationType: "WFContentPredicateTableTemplate"
+		};
+	}
+}
+
+// export class ContentItemFilterItem extends Parameter {
+// 	property: string;
+// 	operator: ComparisonName;
+// 	value: string;
+// 	units?: number;
+// 	constructor(
+// 		property: propertyNameMap,
+// 		operator: ComparisonName,
+// 		value: string,
+// 		units?: undefined
+// 	) {
+// 		super();
+// 		this.property = property;
+// 		this.operator = operator;
+// 		this.value = value;
+// 		this.units = units;
+// 	}
+// 	build(): WFContentItemFilterItem {} // build(for: ContentItemFilter)
+// }
 
 export class Dictionary extends Parameter {
 	items: Array<{
@@ -633,6 +799,7 @@ export class Text extends Parameter {
 			);
 		});
 		if (result.string === "\uFFFC" && !hasAttachments) {
+			//eslint-disable-next-line no-console
 			console.log(
 				"!!!!!result.string is ",
 				result,
@@ -649,9 +816,24 @@ export class Text extends Parameter {
 	}
 }
 
-export class ErrorParameter extends Parameter {}
+export class ErrorParameter extends Parameter {
+	text: string;
+	constructor(text?: string) {
+		super();
+		this.text = text || "Error. No error message provided";
+	}
+	build(): WFErrorParameter {
+		return {
+			WFSerializationType: "WFErrorParameter",
+			Value: { Text: this.text }
+		};
+	}
+}
 
-type WFErrorParameter = { WFSerializationType: "WFErrorParameter" };
+type WFErrorParameter = {
+	WFSerializationType: "WFErrorParameter";
+	Value: { Text: string };
+};
 
 export function toParam(value: WFParameter): ParameterType {
 	if (typeof value === "string") {
@@ -675,10 +857,19 @@ export function toParam(value: WFParameter): ParameterType {
 	if (value.WFSerializationType === "WFDictionaryFieldValue") {
 		return Dictionary.inverse(value);
 	}
-	if (value.WFSerializationType === "WFErrorParameter") {
-		return new ErrorParameter();
+	if (value.WFSerializationType === "WFContentPredicateTableTemplate") {
+		return new ErrorParameter(
+			"Inversion for filters is not implemented yet."
+		);
 	}
-	return new ErrorParameter();
+	if (value.WFSerializationType === "WFErrorParameter") {
+		return new ErrorParameter(
+			`This parameter is an error: ${value.Value.Text}`
+		);
+	}
+	return new ErrorParameter(
+		"Inversion for this parameter type is not implemented yet."
+	);
 }
 
 export type ParameterType =
@@ -696,6 +887,7 @@ export type WFParameter =
 	| WFListParameter
 	| WFTextParameter
 	| WFErrorParameter
+	| WFContentItemFilter
 	| string
 	| boolean
 	| number;

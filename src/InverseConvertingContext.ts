@@ -11,7 +11,8 @@ import {
 	Dictionary,
 	toParam,
 	Aggrandizements,
-	inverseCoercionTypes
+	inverseCoercionTypes,
+	ErrorParameter
 } from "./OutputData";
 import { getActionFromID } from "./ActionData";
 
@@ -169,6 +170,9 @@ export class InverseConvertingContext {
 		}
 		if (thing instanceof List) {
 			return this.createListAble(thing);
+		}
+		if (thing instanceof ErrorParameter) {
+			return `??error: ${thing.text.replace(/[^A-Za-z0-9 :]/g, "")}??`;
 		}
 		return "??this argument type is not supported yet??";
 	}

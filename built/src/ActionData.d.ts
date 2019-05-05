@@ -2,6 +2,7 @@ import { Action, ParameterType } from "./OutputData";
 import { ConvertingContext } from "./Converter";
 import { AsAble } from "./ParserData";
 import { WFResource } from "./WFResource";
+export declare function genShortName(longName: string, internalName?: string): string;
 declare class WFParameter {
     _data: any;
     defaultValue: string;
