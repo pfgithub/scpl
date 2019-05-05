@@ -4,6 +4,8 @@ const OutputData_1 = require("./OutputData");
 const ActionData_1 = require("./ActionData");
 const Converter_js_1 = require("./Converter.js");
 const HelpfulActions_1 = require("./HelpfulActions");
+const Types_1 = require("./WFTypes/Types");
+const GetTypes_1 = require("./Data/GetTypes");
 class PositionedError extends Error {
     constructor(message, start, end) {
         super(`Error from ${start.toString()} to ${end.toString()}: ${message}`);
@@ -109,7 +111,8 @@ exports.ConvertVariableParse = ConvertVariableParse;
     "NameType",
     "StringVariable",
     "Number",
-    "Filter"
+    "Filter",
+    "FilterItem"
 ].forEach(val => {
     //eslint-disable-next-line func-names
     ConvertVariableParse.prototype[`canBe${val}`] = function (cc) {
@@ -117,7 +120,7 @@ exports.ConvertVariableParse = ConvertVariableParse;
         return me[`canBe${val}`](cc);
     };
     //eslint-disable-next-line func-names
-    ConvertVariableParse.prototype[`as${val}`] = function (cc) {
+    ConvertVariableParse.prototype[`as${val}`] = function (cc, ...extraData) {
         const me = this.getValue(cc);
         const options = this.options;
         let rawKeyedOptions;
@@ -136,7 +139,7 @@ exports.ConvertVariableParse = ConvertVariableParse;
             const value = rawKeyedOptions[key];
             newCC.setParserVariable(key, value);
         });
-        return me[`as${val}`](newCC);
+        return me[`as${val}`](newCC, ...extraData);
     };
 });
 class ErrorParse extends Parse {
@@ -145,22 +148,6 @@ class ErrorParse extends Parse {
     }
 }
 exports.ErrorParse = ErrorParse;
-class FilterItemParse extends Parse {
-    constructor(start, end, property, comparator, value, units) {
-        super(start, end);
-        this.property = property;
-        this.comparator = comparator;
-        this.value = value;
-        this.units = units;
-    }
-    canBeFilterItem(_cc) {
-        return true;
-    }
-    asFilterItem(cc) {
-        throw this.error(cc, "no");
-    }
-}
-exports.FilterItemParse = FilterItemParse;
 class FilterParse extends Parse {
     constructor(start, end, filterItems) {
         super(start, end);
@@ -169,11 +156,64 @@ class FilterParse extends Parse {
     canBeFilter(_cc) {
         return true;
     }
-    asFilter(cc) {
-        throw this.error(cc, "no");
+    asFilter(cc, type) {
+        const filter = new OutputData_1.ContentItemFilter(type);
+        this.filterItems.forEach(filterItem => {
+            if (!filterItem.canBeFilterItem(cc)) {
+                throw filterItem.error(cc, "This item is not a filter item.");
+            }
+            filter.add(filterItem.asFilterItem(cc));
+        });
+        return filter;
     }
 }
 exports.FilterParse = FilterParse;
+class FilterItemParse extends Parse {
+    constructor(start, end, property, operator, value, units) {
+        // property: string, oiperatornl/ ;''
+        super(start, end);
+        this.property = property;
+        this.operator = operator;
+        this.value = value;
+        this.units = units;
+    }
+    canBeFilterItem(_cc) {
+        return true;
+    }
+    asFilterItem(cc) {
+        if (!this.property.canBeString(cc)) {
+            throw this.property.error(cc, "Property must be a string");
+        }
+        const property = this.property.asString(cc);
+        if (!Types_1.isAggrandizementPropertyName(property)) {
+            throw this.property.error(cc, "Property must be a property name.");
+        }
+        const propertyName = property;
+        if (!this.operator.canBeString(cc)) {
+            throw this.property.error(cc, "Operator must be a string");
+        }
+        const operator = this.operator.asString(cc);
+        if (!GetTypes_1.isComparisonMethod(operator)) {
+            throw this.property.error(cc, "Property must be a comparison method.");
+        }
+        const operatorName = operator;
+        // findbest[string, number, boolean, text]
+        // ...
+        if (!this.value.canBeText(cc)) {
+            throw this.property.error(cc, "Value must be a string");
+        }
+        const value = this.value.asText(cc);
+        if (this.units) {
+            throw this.units.error(cc, "Units are not implemented yet");
+        }
+        return {
+            property: propertyName,
+            operator: operatorName,
+            value: value
+        };
+    }
+}
+exports.FilterItemParse = FilterItemParse;
 class DictionaryParse extends Parse {
     constructor(start, end, keyvaluepairs) {
         super(start, end);

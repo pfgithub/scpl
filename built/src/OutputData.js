@@ -20,6 +20,7 @@ WFRelativeDateFormatStyle?: WFRelativeDateFormatStyle;
 From Shortcuts-js
  */
 const Types_1 = require("./WFTypes/Types");
+const GetTypes_1 = require("./Data/GetTypes");
 const coercionTypes = {
     // remove name:string and make it typed too
     anything: "WFContentItem",
@@ -75,7 +76,6 @@ exports.inverseCoercionTypes = {
     WFURLContentItem: "url",
     WFVCardContentItem: "vcard"
 };
-const GetTypes_1 = require("./Data/GetTypes"); // resdata = {};console.dir( actionData.filter(action => action.WFWorkflowActionIdentifier === "is.workflow.actions.gettext").map(action => Object.values(action.WFWorkflowActionParameters.WFTextActionText.Value.attachmentsByRange).filter(d=>d.Type !== "Clipboard" && d.Aggrandizements && d.Aggrandizements[1]).map(d=>({coerce:d.Aggrandizements[0].CoercionItemClass,property:d.Aggrandizements[1]}))).forEach(a=>a.forEach(({coerce, property})=>{if(!resdata[coerce]){resdata[coerce]={};};resdata[coerce][property.PropertyName.toLowerCase().replace(/[^A-Za-z]/g,"")]=({name:property.PropertyName,data:property.PropertyUserInfo});})) ,{depth:null});console.log(JSON.stringify(resdata,null,"\t"));
 class Aggrandizements {
     constructor() {
         this.coercionType = undefined;
@@ -177,40 +177,98 @@ class Parameter {
         throw new Error("Blank parameter has no inverse method");
     }
 }
-const _demo = {
-    WFContentItemFilter: {
-        Value: {
-            WFActionParameterFilterPrefix: 1,
-            WFActionParameterFilterTemplates: [
-                {
-                    Operator: 4,
-                    Property: "Name",
-                    Removable: true,
-                    String: "filter text here",
-                    VariableOverrides: {}
-                }
-            ],
-            WFSerializationType: "WFContentPredicateTableTemplate"
-        }
-    }
-};
 class ContentItemFilter extends Parameter {
-    constructor(data) {
+    constructor(coercionType) {
         super();
-        this.data = data;
+        this.data = [];
+        this.coercionType = coercionType;
+    }
+    add(item) {
+        const property = item.property;
+        const operator = item.operator;
+        const value = item.value;
+        // const units = item.units;
+        const typeInfo = GetTypes_1.default[this.coercionType];
+        // property -> GetTypeInfo -> AggrandizementPropertyRawName
+        if (!Types_1.isAggrandizementPropertyName(property)) {
+            return `Not a valid name \`${property}\`. Check the docs page for this action for a full list.`;
+        }
+        const propertyData = typeInfo.properties[property];
+        if (!propertyData) {
+            return `Not a valid property name \`${property}\`. Check the docs page for this action for a full list.`;
+        }
+        if (propertyData.filter === undefined) {
+            return `The property \`${property}\` does not yet support filters on this action. If you need this property, report an issue on github or submit a pull request.`;
+        }
+        if (!propertyData.filter) {
+            return `The property \`${property}\` does not support filters in shortcuts. Check the docs page for this action for a full list.`;
+        }
+        // ComparisonName -> ComparisonValue
+        const operatorValue = GetTypes_1.comparisonMethodsMap.get(operator);
+        if (operatorValue === undefined) {
+            return `The operator \`${operator}\` does not exist or has not been implemented. Check the docs page for this action for a full list.`;
+        }
+        // UnitName -> UnitValue || 4
+        // const unit = units;
+        const baseData = {
+            Property: propertyData.name,
+            Operator: operatorValue,
+            Removable: true,
+            Unit: 4,
+            VariableOverrides: {}
+        };
+        if (propertyData.filterFakeType === "WFEnumerationContentItem") {
+            return `Enumerations are not implemented yet`;
+        }
+        else if (typeof value === "string") {
+            this.data.push(Object.assign({ String: value }, baseData));
+            return;
+        }
+        else if (typeof value === "number") {
+            this.data.push(Object.assign({ Number: value }, baseData));
+            return;
+        }
+        else if (typeof value === "boolean") {
+            this.data.push(Object.assign({ Bool: value }, baseData));
+            return;
+        }
+        else if (value instanceof Text) {
+            this.data.push(Object.assign({ stringValue: value.build() }, baseData));
+            return;
+        }
+        // Add to data
+        return `Something's not right. This is none of string|number|boolean|Text.`;
+    }
+    build() {
+        return {
+            Value: {
+                WFActionParameterFilterPrefix: 1,
+                WFActionParameterFilterTemplates: this.data
+            },
+            WFSerializationType: "WFContentPredicateTableTemplate"
+        };
     }
 }
 exports.ContentItemFilter = ContentItemFilter;
-class ContentItemFilterItem extends Parameter {
-    constructor(property, operator, value, units) {
-        super();
-        this.property = property;
-        this.operator = operator;
-        this.value = value;
-        this.units = units;
-    }
-}
-exports.ContentItemFilterItem = ContentItemFilterItem;
+// export class ContentItemFilterItem extends Parameter {
+// 	property: string;
+// 	operator: ComparisonName;
+// 	value: string;
+// 	units?: number;
+// 	constructor(
+// 		property: propertyNameMap,
+// 		operator: ComparisonName,
+// 		value: string,
+// 		units?: undefined
+// 	) {
+// 		super();
+// 		this.property = property;
+// 		this.operator = operator;
+// 		this.value = value;
+// 		this.units = units;
+// 	}
+// 	build(): WFContentItemFilterItem {} // build(for: ContentItemFilter)
+// }
 class Dictionary extends Parameter {
     constructor() {
         super();

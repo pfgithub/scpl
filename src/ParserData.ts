@@ -19,16 +19,10 @@ import { Position } from "./Production";
 import {
 	CoercionTypeClass,
 	isAggrandizementPropertyName,
-	AggrandizementPropertyRawName,
 	AggrandizementPropertyName
 } from "./WFTypes/Types";
 
-import getTypes, {
-	ComparisonName,
-	isComparisonMethod,
-	ComparisonWFValue,
-	comparisonMethodsMap
-} from "./Data/GetTypes";
+import { ComparisonName, isComparisonMethod } from "./Data/GetTypes";
 
 export class PositionedError extends Error {
 	// an error at a position

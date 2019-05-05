@@ -1,7 +1,22 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.comparisonMethodsMap = new Map([
+    ["is", 4],
+    ["isnot", 5],
+    ["contains", 99],
+    ["doesnotcontain", 999],
+    ["beginswith", 8],
+    ["endswith", 9]
+]);
+function isComparisonMethod(method) {
+    return exports.comparisonMethodsMap.has(method);
+}
+exports.isComparisonMethod = isComparisonMethod;
+// const test: GetTypesData = {fadskjhaf: a};
 const data = {
-    WFAppStoreAppContentItem: { properties: {
+    WFContentItem: { properties: {} },
+    WFAppStoreAppContentItem: {
+        properties: {
             contentrating: {
                 name: "Content Rating"
             },
@@ -67,7 +82,9 @@ const data = {
             },
             name: {
                 name: "Name",
-                data: "WFItemName"
+                data: "WFItemName",
+                type: "WFStringContentItem",
+                filter: true
             },
             ratingthisversion: {
                 name: "Rating (This Version)"
@@ -89,10 +106,13 @@ const data = {
             }
         }
     },
-    WFArticleContentItem: { properties: {
+    WFArticleContentItem: {
+        properties: {
             name: {
                 name: "Name",
-                data: "WFItemName"
+                data: "WFItemName",
+                type: "WFStringContentItem",
+                filter: true
             },
             title: {
                 name: "Title"
@@ -117,14 +137,18 @@ const data = {
             }
         }
     },
-    WFBooleanContentItem: { properties: {
+    WFBooleanContentItem: {
+        properties: {
             name: {
                 name: "Name",
-                data: "WFItemName"
+                data: "WFItemName",
+                type: "WFStringContentItem",
+                filter: true
             }
         }
     },
-    WFContactContentItem: { properties: {
+    WFContactContentItem: {
+        properties: {
             emailaddress: {
                 name: "Email Address",
                 data: 4
@@ -183,7 +207,9 @@ const data = {
             },
             name: {
                 name: "Name",
-                data: "WFItemName"
+                data: "WFItemName",
+                type: "WFStringContentItem",
+                filter: true
             },
             contactphoto: {
                 name: "Contact Photo",
@@ -231,14 +257,18 @@ const data = {
             }
         }
     },
-    WFDateContentItem: { properties: {
+    WFDateContentItem: {
+        properties: {
             name: {
                 name: "Name",
-                data: "WFItemName"
+                data: "WFItemName",
+                type: "WFStringContentItem",
+                filter: true
             }
         }
     },
-    WFDictionaryContentItem: { properties: {
+    WFDictionaryContentItem: {
+        properties: {
             creationdate: {
                 name: "Creation Date",
                 data: "WFFileCreationDate"
@@ -256,7 +286,9 @@ const data = {
             },
             name: {
                 name: "Name",
-                data: "WFItemName"
+                data: "WFItemName",
+                type: "WFStringContentItem",
+                filter: true
             },
             fileextension: {
                 name: "File Extension",
@@ -267,14 +299,18 @@ const data = {
             }
         }
     },
-    WFEmailAddressContentItem: { properties: {
+    WFEmailAddressContentItem: {
+        properties: {
             name: {
                 name: "Name",
-                data: "WFItemName"
+                data: "WFItemName",
+                type: "WFStringContentItem",
+                filter: true
             }
         }
     },
-    WFGenericFileContentItem: { properties: {
+    WFGenericFileContentItem: {
+        properties: {
             creationdate: {
                 name: "Creation Date",
                 data: "WFFileCreationDate"
@@ -293,11 +329,14 @@ const data = {
             },
             name: {
                 name: "Name",
-                data: "WFItemName"
+                data: "WFItemName",
+                type: "WFStringContentItem",
+                filter: true
             }
         }
     },
-    WFImageContentItem: { properties: {
+    WFImageContentItem: {
+        properties: {
             width: {
                 name: "Width"
             },
@@ -367,11 +406,14 @@ const data = {
             },
             name: {
                 name: "Name",
-                data: "WFItemName"
+                data: "WFItemName",
+                type: "WFStringContentItem",
+                filter: true
             }
         }
     },
-    WFMPMediaContentItem: { properties: {
+    WFMPMediaContentItem: {
+        properties: {
             lastplayeddate: {
                 name: "Last Played Date",
                 data: "lastPlayedDate"
@@ -394,7 +436,9 @@ const data = {
             },
             name: {
                 name: "Name",
-                data: "WFItemName"
+                data: "WFItemName",
+                type: "WFStringContentItem",
+                filter: true
             },
             artist: {
                 name: "Artist",
@@ -477,7 +521,8 @@ const data = {
             }
         }
     },
-    WFiTunesProductContentItem: { properties: {
+    WFiTunesProductContentItem: {
+        properties: {
             currencycode: {
                 name: "Currency Code"
             },
@@ -492,7 +537,9 @@ const data = {
             },
             name: {
                 name: "Name",
-                data: "WFItemName"
+                data: "WFItemName",
+                type: "WFStringContentItem",
+                filter: true
             },
             releasedate: {
                 name: "Release Date"
@@ -526,7 +573,8 @@ const data = {
             }
         }
     },
-    WFLocationContentItem: { properties: {
+    WFLocationContentItem: {
+        properties: {
             phonenumber: {
                 name: "Phone Number"
             },
@@ -539,7 +587,9 @@ const data = {
             },
             name: {
                 name: "Name",
-                data: "WFItemName"
+                data: "WFItemName",
+                type: "WFStringContentItem",
+                filter: true
             },
             longitude: {
                 name: "Longitude"
@@ -568,14 +618,18 @@ const data = {
             }
         }
     },
-    WFDCMapsLinkContentItem: { properties: {
+    WFDCMapsLinkContentItem: {
+        properties: {
             name: {
                 name: "Name",
-                data: "WFItemName"
+                data: "WFItemName",
+                type: "WFStringContentItem",
+                filter: true
             }
         }
     },
-    WFAVAssetContentItem: { properties: {
+    WFAVAssetContentItem: {
+        properties: {
             duration: {
                 name: "Duration"
             },
@@ -615,18 +669,32 @@ const data = {
             },
             name: {
                 name: "Name",
-                data: "WFItemName"
+                data: "WFItemName",
+                type: "WFStringContentItem",
+                filter: true
             }
         }
     },
-    WFNumberContentItem: { properties: {
+    WFNumberContentItem: {
+        properties: {
             name: {
                 name: "Name",
-                data: "WFItemName"
+                data: "WFItemName",
+                type: "WFStringContentItem",
+                filter: true
             }
         }
     },
-    WFPDFContentItem: { properties: {
+    WFStringContentItem: {
+        comparisonMethods: {
+            is: 4,
+            isnot: 5,
+            contains: 99,
+            doesnotcontain: 999,
+            beginswith: 8,
+            endswith: 9
+        },
+        properties: {
             fileextension: {
                 name: "File Extension",
                 data: "WFFileExtensionProperty"
@@ -645,18 +713,50 @@ const data = {
             },
             name: {
                 name: "Name",
-                data: "WFItemName"
+                data: "WFItemName",
+                type: "WFStringContentItem",
+                filter: true
             }
         }
     },
-    WFPhoneNumberContentItem: { properties: {
+    WFPDFContentItem: {
+        properties: {
+            fileextension: {
+                name: "File Extension",
+                data: "WFFileExtensionProperty"
+            },
+            lastmodifieddate: {
+                name: "Last Modified Date",
+                data: "WFFileModificationDate"
+            },
+            creationdate: {
+                name: "Creation Date",
+                data: "WFFileCreationDate"
+            },
+            filesize: {
+                name: "File Size",
+                data: "WFFileSizeProperty"
+            },
             name: {
                 name: "Name",
-                data: "WFItemName"
+                data: "WFItemName",
+                type: "WFStringContentItem",
+                filter: true
             }
         }
     },
-    WFPhotoMediaContentItem: { properties: {
+    WFPhoneNumberContentItem: {
+        properties: {
+            name: {
+                name: "Name",
+                data: "WFItemName",
+                type: "WFStringContentItem",
+                filter: true
+            }
+        }
+    },
+    WFPhotoMediaContentItem: {
+        properties: {
             filesize: {
                 name: "File Size",
                 data: "WFFileSizeProperty",
@@ -763,7 +863,16 @@ const data = {
                 type: "WFStringContentItem",
                 filter: true,
                 filterFakeType: "WFEnumerationContentItem",
-                filterEnumValues: ["Up", "Down", "Left", "Right", "Up Mirrored", "Down Mirrored", "Left Mirrored", "Right Mirrored"]
+                filterEnumValues: [
+                    "Up",
+                    "Down",
+                    "Left",
+                    "Right",
+                    "Up Mirrored",
+                    "Down Mirrored",
+                    "Left Mirrored",
+                    "Right Mirrored"
+                ]
             },
             metadatadictionary: {
                 name: "Metadata Dictionary",
@@ -777,14 +886,18 @@ const data = {
             }
         }
     },
-    WFMKMapItemContentItem: { properties: {
+    WFMKMapItemContentItem: {
+        properties: {
             name: {
                 name: "Name",
-                data: "WFItemName"
+                data: "WFItemName",
+                type: "WFStringContentItem",
+                filter: true
             }
         }
     },
-    WFRichTextContentItem: { properties: {
+    WFRichTextContentItem: {
+        properties: {
             filesize: {
                 name: "File Size",
                 data: "WFFileSizeProperty"
@@ -803,14 +916,19 @@ const data = {
             },
             name: {
                 name: "Name",
-                data: "WFItemName"
+                data: "WFItemName",
+                type: "WFStringContentItem",
+                filter: true
             }
         }
     },
-    WFSafariWebPageContentItem: { properties: {
+    WFSafariWebPageContentItem: {
+        properties: {
             name: {
                 name: "Name",
-                data: "WFItemName"
+                data: "WFItemName",
+                type: "WFStringContentItem",
+                filter: true
             },
             pagecontents: {
                 name: "Page Contents"
@@ -823,14 +941,18 @@ const data = {
             }
         }
     },
-    WFURLContentItem: { properties: {
+    WFURLContentItem: {
+        properties: {
             name: {
                 name: "Name",
-                data: "WFItemName"
+                data: "WFItemName",
+                type: "WFStringContentItem",
+                filter: true
             }
         }
     },
-    WFVCardContentItem: { properties: {
+    WFVCardContentItem: {
+        properties: {
             filesize: {
                 name: "File Size",
                 data: "WFFileSizeProperty"
@@ -849,7 +971,9 @@ const data = {
             },
             name: {
                 name: "Name",
-                data: "WFItemName"
+                data: "WFItemName",
+                type: "WFStringContentItem",
+                filter: true
             }
         }
     }
