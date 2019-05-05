@@ -233,6 +233,11 @@ class ContentItemFilter extends Parameter {
             return;
         }
         else if (value instanceof Text) {
+            const built = value.build();
+            if (typeof built === "string") {
+                this.data.push(Object.assign({ String: built }, baseData));
+                return;
+            }
             this.data.push(Object.assign({ stringValue: value.build() }, baseData));
             return;
         }

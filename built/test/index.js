@@ -547,7 +547,7 @@ ava_1.default("filter action by name", t => {
                                 Operator: 4,
                                 VariableOverrides: {},
                                 Unit: 4,
-                                stringValue: "My File Name",
+                                String: "My File Name",
                                 Removable: true
                             }
                         ]

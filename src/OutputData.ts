@@ -374,6 +374,14 @@ export class ContentItemFilter extends Parameter {
 			});
 			return;
 		} else if (value instanceof Text) {
+			const built = value.build();
+			if (typeof built === "string") {
+				this.data.push({
+					String: built,
+					...baseData
+				});
+				return;
+			}
 			this.data.push({
 				stringValue: value.build(),
 				...baseData
