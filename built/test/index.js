@@ -131,13 +131,14 @@ ava_1.default("invert an incomplete action", t => {
             WFContentItemFilter: {
                 Value: {
                     WFActionParameterFilterPrefix: 1,
+                    WFContentPredicateBoundedDate: false,
                     WFActionParameterFilterTemplates: [
                         {
                             Property: "Name",
                             Operator: 4,
                             VariableOverrides: {},
                             Unit: 4,
-                            stringValue: "My File Name",
+                            String: "My File Name",
                             Removable: true
                         }
                     ]
@@ -534,21 +535,34 @@ ava_1.default("actions that ignore parameters should still support ->", t => {
     ]);
 });
 ava_1.default("filter action by name", t => {
-    t.deepEqual(scplToShortcut(`FilterFiles :filter{Name Is "My File Name"}`), [
+    t.deepEqual(scplToShortcut(`FilterFiles :filter{Name Is "\\(s:AskWhenRun)hmm"}`), [
         {
             WFWorkflowActionIdentifier: "is.workflow.actions.filter.files",
             WFWorkflowActionParameters: {
                 WFContentItemFilter: {
                     Value: {
                         WFActionParameterFilterPrefix: 1,
+                        WFContentPredicateBoundedDate: false,
                         WFActionParameterFilterTemplates: [
                             {
-                                Property: "Name",
                                 Operator: 4,
-                                VariableOverrides: {},
+                                VariableOverrides: {
+                                    stringValue: {
+                                        Value: {
+                                            string: "[attachment]hmm",
+                                            attachmentsByRange: {
+                                                "{0, 1}": {
+                                                    Aggrandizements: [],
+                                                    Type: "Ask"
+                                                }
+                                            }
+                                        },
+                                        WFSerializationType: "WFTextTokenString"
+                                    }
+                                },
                                 Unit: 4,
-                                String: "My File Name",
-                                Removable: true
+                                Removable: true,
+                                Property: "Name"
                             }
                         ]
                     },

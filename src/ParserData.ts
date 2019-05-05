@@ -259,10 +259,17 @@ export class ErrorParse extends Parse {
 }
 export class FilterParse extends Parse implements AsFilter {
 	filterItems: AsAble[];
-	constructor(start: Position, end: Position, filterItems: AsAble[]) {
+	mode: "and" | "or";
+	constructor(
+		start: Position,
+		end: Position,
+		mode: "and" | "or",
+		filterItems: AsAble[]
+	) {
 		super(start, end);
 
 		this.filterItems = filterItems;
+		this.mode = mode;
 	}
 	canBeFilter(_cc: ConvertingContext): boolean {
 		return true;
@@ -271,7 +278,7 @@ export class FilterParse extends Parse implements AsFilter {
 		cc: ConvertingContext,
 		type: CoercionTypeClass
 	): ContentItemFilter {
-		const filter = new ContentItemFilter(type);
+		const filter = new ContentItemFilter(type, this.mode);
 		this.filterItems.forEach(filterItem => {
 			if (!filterItem.canBeFilterItem(cc)) {
 				throw filterItem.error(cc, "This item is not a filter item.");

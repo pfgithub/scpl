@@ -178,10 +178,11 @@ class Parameter {
     }
 }
 class ContentItemFilter extends Parameter {
-    constructor(coercionType) {
+    constructor(coercionType, mode) {
         super();
         this.data = [];
         this.coercionType = coercionType;
+        this.mode = mode;
     }
     add(item) {
         const property = item.property;
@@ -238,7 +239,7 @@ class ContentItemFilter extends Parameter {
                 this.data.push(Object.assign({ String: built }, baseData));
                 return;
             }
-            this.data.push(Object.assign({ stringValue: value.build() }, baseData));
+            this.data.push(Object.assign({}, baseData, { VariableOverrides: { stringValue: value.build() } }));
             return;
         }
         // Add to data
@@ -247,7 +248,8 @@ class ContentItemFilter extends Parameter {
     build() {
         return {
             Value: {
-                WFActionParameterFilterPrefix: 1,
+                WFActionParameterFilterPrefix: this.mode === "and" ? 1 : 0,
+                WFContentPredicateBoundedDate: false,
                 WFActionParameterFilterTemplates: this.data
             },
             WFSerializationType: "WFContentPredicateTableTemplate"

@@ -261,7 +261,8 @@ type WFDictionaryParameter = {
 type WFContentItemFilter = {
 	// might need {Value: {}} ?
 	Value: {
-		WFActionParameterFilterPrefix: 1;
+		WFActionParameterFilterPrefix: 0 | 1;
+		WFContentPredicateBoundedDate: false;
 		WFActionParameterFilterTemplates: WFContentItemFilterItem[];
 	};
 	WFSerializationType: "WFContentPredicateTableTemplate";
@@ -281,7 +282,7 @@ interface WFContentItemFilterItemBaseString
 }
 
 interface WFContentItemFilterItemBaseText extends WFContentItemFilterItemBase {
-	stringValue: WFTextParameter;
+	VariableOverrides: { stringValue: WFTextParameter };
 }
 
 interface WFContentItemFilterItemNumber extends WFContentItemFilterItemBase {
@@ -313,10 +314,12 @@ export type ContentItemFilterItem = {
 export class ContentItemFilter extends Parameter {
 	data: Array<WFContentItemFilterItem>;
 	coercionType: CoercionTypeClass;
-	constructor(coercionType: CoercionTypeClass) {
+	mode: "and" | "or";
+	constructor(coercionType: CoercionTypeClass, mode: "and" | "or") {
 		super();
 		this.data = [];
 		this.coercionType = coercionType;
+		this.mode = mode;
 	}
 	add(item: ContentItemFilterItem): string | undefined {
 		const property = item.property;
@@ -383,8 +386,8 @@ export class ContentItemFilter extends Parameter {
 				return;
 			}
 			this.data.push({
-				stringValue: value.build(),
-				...baseData
+				...baseData,
+				VariableOverrides: { stringValue: value.build() }
 			});
 			return;
 		}
@@ -394,7 +397,8 @@ export class ContentItemFilter extends Parameter {
 	build(): WFContentItemFilter {
 		return {
 			Value: {
-				WFActionParameterFilterPrefix: 1,
+				WFActionParameterFilterPrefix: this.mode === "and" ? 1 : 0,
+				WFContentPredicateBoundedDate: false,
 				WFActionParameterFilterTemplates: this.data
 			},
 			WFSerializationType: "WFContentPredicateTableTemplate"

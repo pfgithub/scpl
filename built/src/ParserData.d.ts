@@ -98,7 +98,8 @@ export declare class ErrorParse extends Parse {
 }
 export declare class FilterParse extends Parse implements AsFilter {
     filterItems: AsAble[];
-    constructor(start: Position, end: Position, filterItems: AsAble[]);
+    mode: "and" | "or";
+    constructor(start: Position, end: Position, mode: "and" | "or", filterItems: AsAble[]);
     canBeFilter(_cc: ConvertingContext): boolean;
     asFilter(cc: ConvertingContext, type: CoercionTypeClass): ContentItemFilter;
 }

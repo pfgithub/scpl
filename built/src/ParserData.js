@@ -149,15 +149,16 @@ class ErrorParse extends Parse {
 }
 exports.ErrorParse = ErrorParse;
 class FilterParse extends Parse {
-    constructor(start, end, filterItems) {
+    constructor(start, end, mode, filterItems) {
         super(start, end);
         this.filterItems = filterItems;
+        this.mode = mode;
     }
     canBeFilter(_cc) {
         return true;
     }
     asFilter(cc, type) {
-        const filter = new OutputData_1.ContentItemFilter(type);
+        const filter = new OutputData_1.ContentItemFilter(type, this.mode);
         this.filterItems.forEach(filterItem => {
             if (!filterItem.canBeFilterItem(cc)) {
                 throw filterItem.error(cc, "This item is not a filter item.");
