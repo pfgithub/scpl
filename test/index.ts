@@ -232,7 +232,7 @@ test("dictionary number values", t => {
 								{
 									WFItemType: 3,
 									WFKey: "name",
-									WFValue: 23
+									WFValue: "23"
 								}
 							]
 						},
@@ -241,7 +241,7 @@ test("dictionary number values", t => {
 				}
 			})
 		),
-		`dictionary {name: ??ScPL will add this number as a string value in the dictionary. If this is acceptable, put the number: 23??}`
+		`dictionary {name: "23"}`
 	);
 });
 
