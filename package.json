@@ -13,7 +13,7 @@
 		"test": "tsc && ava ./built/test/index.js",
 		"actions": "tsc && node ./built/src/Data/GenActions",
 		"format": "yarn run prettier --write src/*** test/*.ts test/*.json index.ts .prettierrc .eslintrc.js modules.d.ts plistconv.js .travis.yml",
-		"prepublishOnly": "yarn actions && yarn format && tsc"
+		"prepublishOnly": "yarn actions && yarn format && yarn docs && yarn test"
 	},
 	"author": {
 		"name": "pfg",
