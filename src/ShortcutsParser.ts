@@ -215,7 +215,7 @@ o.filter = p(
 	c`:filter{`,
 	_n,
 	star(p(_n, o.filteritem, _n, c`&`, _n).scb(([, item]) => item)),
-	o.filterItem,
+	o.filteritem,
 	_n,
 	c`}`
 ).scb(
