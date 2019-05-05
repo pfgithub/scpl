@@ -196,11 +196,27 @@ test("invert an incomplete action", t => {
 			Action.inverse({
 				WFWorkflowActionIdentifier: "is.workflow.actions.filter.files",
 				WFWorkflowActionParameters: {
-					WFTextActionText: "Icon List V2"
+					WFContentItemFilter: {
+						Value: {
+							WFActionParameterFilterPrefix: 1,
+							WFActionParameterFilterTemplates: [
+								{
+									Property: "Name",
+									Operator: 4,
+									VariableOverrides: {},
+									Unit: 4,
+									stringValue: "My File Name",
+									Removable: true
+								}
+							]
+						},
+						WFSerializationType: "WFContentPredicateTableTemplate"
+					}
+				
 				}
 			})
 		),
-		`filterfiles ??This paramtype is not implemented WFFilterParameter??`
+		`filterfiles filter=??error: This parameter is an error: Inversion for filters is not implemented yet??`
 	);
 });
 

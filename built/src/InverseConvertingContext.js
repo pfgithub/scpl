@@ -128,6 +128,9 @@ class InverseConvertingContext {
         if (thing instanceof OutputData_1.List) {
             return this.createListAble(thing);
         }
+        if (thing instanceof OutputData_1.ErrorParameter) {
+            return `??error: ${thing.text.replace(/[^A-Za-z0-9 :]/g, "")}??`;
+        }
         return "??this argument type is not supported yet??";
     }
     createStringAble(value) {

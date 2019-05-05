@@ -566,6 +566,16 @@ class Text extends Parameter {
 }
 exports.Text = Text;
 class ErrorParameter extends Parameter {
+    constructor(text) {
+        super();
+        this.text = text || "Error. No error message provided";
+    }
+    build() {
+        return {
+            WFSerializationType: "WFErrorParameter",
+            Value: { Text: this.text }
+        };
+    }
 }
 exports.ErrorParameter = ErrorParameter;
 function toParam(value) {
@@ -590,10 +600,13 @@ function toParam(value) {
     if (value.WFSerializationType === "WFDictionaryFieldValue") {
         return Dictionary.inverse(value);
     }
-    if (value.WFSerializationType === "WFErrorParameter") {
-        return new ErrorParameter();
+    if (value.WFSerializationType === "WFContentPredicateTableTemplate") {
+        return new ErrorParameter("Inversion for filters is not implemented yet.");
     }
-    return new ErrorParameter();
+    if (value.WFSerializationType === "WFErrorParameter") {
+        return new ErrorParameter(`This parameter is an error: ${value.Value.Text}`);
+    }
+    return new ErrorParameter("Inversion for this parameter type is not implemented yet.");
 }
 exports.toParam = toParam;
 class Parameters {

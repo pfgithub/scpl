@@ -128,9 +128,24 @@ ava_1.default("invert an incomplete action", t => {
     t.deepEqual(icc.createActionAble(OutputData_1.Action.inverse({
         WFWorkflowActionIdentifier: "is.workflow.actions.filter.files",
         WFWorkflowActionParameters: {
-            WFTextActionText: "Icon List V2"
+            WFContentItemFilter: {
+                Value: {
+                    WFActionParameterFilterPrefix: 1,
+                    WFActionParameterFilterTemplates: [
+                        {
+                            Property: "Name",
+                            Operator: 4,
+                            VariableOverrides: {},
+                            Unit: 4,
+                            stringValue: "My File Name",
+                            Removable: true
+                        }
+                    ]
+                },
+                WFSerializationType: "WFContentPredicateTableTemplate"
+            }
         }
-    })), `filterfiles ??This paramtype is not implemented WFFilterParameter??`);
+    })), `filterfiles filter=??error: This parameter is an error: Inversion for filters is not implemented yet??`);
 });
 ava_1.default("inversions for stringable", t => {
     const icc = new InverseConvertingContext_1.InverseConvertingContext();

@@ -201,9 +201,15 @@ export declare class Text extends Parameter {
     build(): WFTextParameter;
 }
 export declare class ErrorParameter extends Parameter {
+    text: string;
+    constructor(text?: string);
+    build(): WFErrorParameter;
 }
 declare type WFErrorParameter = {
     WFSerializationType: "WFErrorParameter";
+    Value: {
+        Text: string;
+    };
 };
 export declare function toParam(value: WFParameter): ParameterType;
 export declare type ParameterType = Parameter | string | number | Array<string> | boolean;
