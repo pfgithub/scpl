@@ -1,6 +1,6 @@
 {
 	"name": "scpl",
-	"version": "1.9.3",
+	"version": "1.10.0",
 	"main": "built/index.js",
 	"types": "built/index.d.ts",
 	"license": "MIT",
