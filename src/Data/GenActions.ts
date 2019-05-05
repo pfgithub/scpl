@@ -42,8 +42,8 @@ Object.values(actions).forEach((action: any) => {
 				Class: "WFEnumerationParameter",
 				Key: "WFContentItemPropertyName",
 				Label: "Get",
-				Items: Object.values(getTypes[getTypeItemClass]).map(
-					t => (<{ name: AggrandizementPropertyRawName }>t).name
+				Items: Object.values(getTypes[getTypeItemClass].properties).map(
+					t => (<{name: string}>t).name
 				)
 			});
 		}
@@ -66,8 +66,8 @@ Object.values(actions).forEach((action: any) => {
 				Key: "WFContentItemSortProperty",
 				Label: "Sort by",
 				Items: [
-					...Object.values(getTypes[getTypeItemClass]).map(
-						t => (<{ name: AggrandizementPropertyRawName }>t).name
+					...Object.values(getTypes[getTypeItemClass].properties).map(
+						t => (<{name: string}>t).name
 					),
 					"Random"
 				]

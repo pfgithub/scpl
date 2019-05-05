@@ -203,10 +203,20 @@ export class InverseConvertingContext {
 			if (typeof item === "string") {
 				return this.createStringAble(item);
 			}
+			if (typeof item === "boolean") {
+				return `??booleans are not supported yet in lists in scpl. this boolean was ${item}??`;
+			}
 			if (item instanceof Text) {
 				return this.createTextAble(item);
 			}
-			return "??this argument type is not supported yet??";
+			if (item instanceof Dictionary) {
+				return `??dictionaries in lists are not supported yet??`;
+				// return this.createDictionaryAble(item);
+			}
+			if (item instanceof List) {
+				return `??lists in lists are not supported yet??`;
+				// return this.createListAble(item);
+			}
 		});
 		return `[${result.join(", ")}]`;
 	}
@@ -215,8 +225,8 @@ export class InverseConvertingContext {
 			const key = this.createTextAble(item.key, {
 				dontAllowOnlyVariable: true
 			});
-			if (typeof item.value === "number") {
-				return `${key}: ??ScPL will add this number as a string value in the dictionary. If this is acceptable, put the number: ${
+			if (typeof item.value === "boolean") {
+				return `${key}: ??booleans are not supported yet in dictionaries in scpl. this boolean was ${
 					item.value
 				}??`;
 			}

@@ -249,7 +249,15 @@ type DictionaryFieldValueItem =
 	| {
 			WFItemType: 3;
 			WFKey: WFTextParameter;
-			WFValue: number;
+			WFValue: WFTextParameter;
+	  }
+	| {
+			WFItemType: 4;
+			WFKey: WFTextParameter;
+			WFValue: {
+				Value: 1 | false;
+				WFSerializationType: "WFNumberSubstitutableState";
+			};
 	  };
 type WFDictionaryParameter = {
 	Value: {
@@ -429,13 +437,13 @@ export class ContentItemFilter extends Parameter {
 export class Dictionary extends Parameter {
 	items: Array<{
 		key: Text;
-		value: Dictionary | Text | List | ErrorParameter | number;
+		value: Dictionary | Text | List | ErrorParameter | boolean;
 	}>;
 	constructor() {
 		super();
 		this.items = [];
 	}
-	add(key: Text, value: Dictionary | Text | List | ErrorParameter | number) {
+	add(key: Text, value: Dictionary | Text | List | ErrorParameter | boolean) {
 		this.items.push({ key, value });
 	}
 	static inverse(data: WFDictionaryParameter): Dictionary {
@@ -460,7 +468,13 @@ export class Dictionary extends Parameter {
 				);
 			}
 			if (item.WFItemType === 3) {
-				return res.add(Text.inverse(item.WFKey), item.WFValue);
+				return res.add(
+					Text.inverse(item.WFKey),
+					Text.inverse(item.WFValue)
+				);
+			}
+			if (item.WFItemType === 4) {
+				return res.add(Text.inverse(item.WFKey), !!item.WFValue);
 			}
 			return res.add(Text.inverse(item.WFKey), new ErrorParameter());
 		});
@@ -502,17 +516,21 @@ export class Dictionary extends Parameter {
 								WFValue: value.build()
 							};
 						}
-						if (typeof value === "number") {
+						if (typeof value === "boolean") {
 							return {
-								WFItemType: 3,
+								WFItemType: 4,
 								WFKey: key.build(),
-								WFValue: value
+								WFValue: {
+									Value: value ? 1 : false,
+									WFSerializationType:
+										"WFNumberSubstitutableState"
+								}
 							};
 						}
 						return {
 							WFItemType: 0,
 							WFKey: key.build(),
-							WFValue: "__scplerror"
+							WFValue: "??an error occured??"
 						};
 					}
 				)
@@ -665,17 +683,28 @@ export class MagicVariable extends Variable {
 	}
 }
 
-type WFListParameter = Array<
-	string | { WFItemType: number; WFValue: WFTextWithAttachments }
->;
+type WFListParameterItem =
+	| string
+	| { WFItemType: 0; WFValue: WFTextParameter }
+	| { WFItemType: 1; WFValue: WFDictionaryParameter }
+	| { WFItemType: 2; WFValue: WFListParameter }
+	| { WFItemType: 3; WFValue: WFTextParameter }
+	| {
+			WFItemType: 4;
+			WFValue: {
+				Value: 1 | false;
+				WFSerializationType: "WFNumberSubstitutableState";
+			};
+	  };
+type WFListParameter = Array<WFListParameterItem>;
 
 export class List extends Parameter {
-	_list: Array<Text | string | ErrorParameter>;
+	_list: Array<string | Text | Dictionary | List | boolean>;
 	constructor(list: Array<Text>) {
 		super();
 		this._list = list;
 	}
-	add(item: string | Text | ErrorParameter) {
+	add(item: string | Text | Dictionary | List | boolean) {
 		this._list.push(item);
 	}
 	static inverse(data: WFListParameter): List {
@@ -687,27 +716,57 @@ export class List extends Parameter {
 			if (item.WFItemType === 0) {
 				return reslist.add(Text.inverse(item.WFValue));
 			}
-			return reslist.add(new ErrorParameter());
+			if (item.WFItemType === 1) {
+				return reslist.add(Dictionary.inverse(item.WFValue));
+			}
+			if (item.WFItemType === 2) {
+				return reslist.add(List.inverse(item.WFValue));
+			}
+			if (item.WFItemType === 3) {
+				return reslist.add(Text.inverse(item.WFValue));
+			}
+			if (item.WFItemType === 4) {
+				return reslist.add(!!item.WFValue.Value);
+			}
 		});
 		return reslist;
 	}
-	getItems(): (Text | string | ErrorParameter)[] {
+	getItems(): (string | Text | Dictionary | List | boolean)[] {
 		return this._list;
 	}
 	build(): WFListParameter {
-		return this._list.map(i => {
-			if (i instanceof ErrorParameter) {
-				throw new Error("Cannot build errorparameter");
+		return this._list.map(
+			(i): WFListParameterItem => {
+				if (typeof i === "string") {
+					return i;
+				}
+				if (i instanceof Text) {
+					const text = i.build();
+					if (typeof text === "string") {
+						return text;
+					}
+					return { WFItemType: 0, WFValue: text };
+				}
+				if (i instanceof Dictionary) {
+					const dictionary = i.build();
+					return { WFItemType: 1, WFValue: dictionary };
+				}
+				if (i instanceof List) {
+					const list = i.build();
+					return { WFItemType: 2, WFValue: list };
+				}
+				if (typeof i === "boolean") {
+					return {
+						WFItemType: 4,
+						WFValue: {
+							Value: i ? 1 : false,
+							WFSerializationType: "WFNumberSubstitutableState"
+						}
+					};
+				}
+				return "??error item??";
 			}
-			if (typeof i === "string") {
-				return i;
-			}
-			const text = i.build();
-			if (typeof text === "string") {
-				return text;
-			}
-			return { WFItemType: 0, WFValue: text };
-		});
+		);
 	}
 }
 

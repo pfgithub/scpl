@@ -19,200 +19,104 @@ export function genShortName(longName: string, internalName?: string) {
 	return shortName;
 }
 
-class WFParameter {
-	_data: any;
-	defaultValue: string;
-	requiredResources: Array<WFResource>;
-	allowsVariables: boolean;
-	name: string;
-	internalName: string;
-	shortName: string;
-	typeName: string;
-	docs: string;
-	constructor(data: any, typeName: string, docs: string) {
-		this._data = data;
-		this.defaultValue = this._data.DefaultValue;
-		this.requiredResources = this._data.RequiredResources || [];
-		this.allowsVariables =
-			(this._data.DisallowedVariableTypes || []).join`` !== "AskVariable";
-		this.name = this._data.Label;
-		this.internalName = this._data.Key;
-		this.shortName = genShortName(this.name, this.internalName);
-		this.name = this.name || this.shortName;
-		this.typeName = typeName;
-		this.docs = docs;
-
-		this.requiredResources = this.requiredResources.map((resource: any) => {
-			const type = resource.WFResourceClass;
-			const resourceClass = resourceTypes[type];
-			if (!resourceClass) {
-				throw new Error(`${type} is not a defined resource class.`);
-			}
-			// @ts-ignore
-			return new resourceClass(resource);
-		});
-		if (this._data.Hidden) {
-			this.requiredResources.push(
-				new WFWorkflowHiddenResource({ Hidden: true })
-			);
-		}
-	}
-	shouldEnable(action: Action) {
-		return this.requiredResources.every((resource: WFResource) =>
-			resource.shouldEnable(action)
-		);
-	}
-	genDocsArgName() {
-		return "[???]";
-	}
-	genDocsDefaultValue(value: string) {
-		return `\`\`\`
-		${value}
-		\`\`\``;
-	}
-	genDocsAutocompletePlaceholder() {
-		return `:${
-			this._data.DefaultValue
-				? `${this.genDocsArgName()}:"${this._data.DefaultValue}"`
-				: `${this.genDocsArgName()}`
-		}`;
-	}
-	genDocs() {
-		let docs = `### ${this.shortName}: ${this.typeName} [(Docs)](${
-			this.docs
-		})\n`;
-		if (this._data.Placeholder) {
-			docs += `**Placeholder**: ${this.genDocsDefaultValue(
-				this._data.Placeholder
-			)}
-`;
-		}
-		if (this._data.DefaultValue) {
-			docs += `**Default Value**: ${this.genDocsDefaultValue(
-				this._data.DefaultValue
-			)}
-`;
-		}
-		if (this.allowsVariables) {
-			docs += `**Allows Variables**: ${this.allowsVariables}\n\n`;
-		}
-		docs += `${this.requiredResources
-			.map(resource => `**Only enabled if**: ${resource.genDocs()}`)
-			.join("\n\n")}`;
-		return docs;
-	}
-	build(cc: ConvertingContext, parse: AsAble): ParameterType {
-		throw parse.error(
-			cc,
-			"This parameter was implemented wrong in ScPL. build() should be overridden by subclasses of WFParameter."
-		);
-	}
-}
+import { WFParameter } from "./Parameters/WFParameter";
 
 const types: { [key: string]: any } = {};
 types.WFParameter = WFParameter;
 
-class WFEnumerationParameter extends WFParameter {
-	options: Array<string>;
-	constructor(
-		data: any,
-		name: string = "Enumeration",
-		docs: string = "https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field"
-	) {
-		super(data, name, docs);
-		this.options = this._data.Items;
-	}
-	genDocsAutocompletePlaceholder() {
-		return `|${this.options.map(o => `"${o}"`).join(",")}${
-			this.allowsVariables ? `,variable` : ``
-		}|`;
-	}
-	genDocsArgName() {
-		const strInfo = this.options.join('" | "');
-		return this.allowsVariables
-			? `("${strInfo}")`
-			: `("${strInfo}" | variable)`;
-	}
-	genDocsDefaultValue(value: string) {
-		return `\`"${value}"\``;
-	}
-	genDocs() {
-		return `${super.genDocs()}
-
-Accepts a string ${
-			this.allowsVariables
-				? `
-or variable`
-				: ""
-		}
-containing one of the options:
-
-- \`${this.options.join(`\`\n- \``)}\``;
-	}
-	build(cc: ConvertingContext, parse: AsAble) {
-		// asVariable may require additional actions to be inserted above this one.
-		// for example, if ^("hello") (v:comparison) "hi"
-		if (parse.canBeVariable(cc)) {
-			const res = parse.asVariable(cc);
-			if (!this.allowsVariables) {
-				throw parse.error(
-					cc,
-					"This enum field does not accept variables."
-				);
-			}
-			return res;
-		} else if (parse.canBeString(cc)) {
-			const res = parse.asString(cc); // asString returns a string like ""
-			if (this.options.indexOf(res) > -1) {
-				return res;
-			}
-			throw parse.error(
-				cc,
-				`This enumeration field must be one of the following: \`${this.options.join(
-					"`, `"
-				)}\``
-			);
-		} else {
-			throw parse.error(
-				cc,
-				"Enumeration fields only accept strings and variables."
-			);
-		}
-	}
-}
+import { WFEnumerationParameter } from "./Parameters/WFEnumerationParameter";
 types.WFEnumerationParameter = WFEnumerationParameter;
 
-class WFDynamicEnumerationParameter extends WFParameter {
+import { WFDynamicEnumerationParameter } from "./Parameters/WFDynamicEnumerationParameter";
+types.WFDynamicEnumerationParameter = WFDynamicEnumerationParameter;
+
+import { WFAppPickerParameter } from "./Parameters/WFAppPickerParameter";
+types.WFAppPickerParameter = WFAppPickerParameter;
+
+import { WFNumberFieldParameter } from "./Parameters/WFNumberFieldParameter";
+types.WFNumberFieldParameter = WFNumberFieldParameter;
+
+import { WFStepperParameter } from "./Parameters/WFStepperParameter";
+types.WFStepperParameter = WFStepperParameter;
+
+import { WFSliderParameter } from "./Parameters/WFSliderParameter";
+types.WFSliderParameter = WFSliderParameter;
+
+import { WFSpeakTextRateParameter } from "./Parameters/WFSpeakTextRateParameter";
+types.WFSpeakTextRateParameter = WFSpeakTextRateParameter;
+
+import { WFContentArrayParameter } from "./Parameters/WFContentArrayParameter";
+types.WFContentArrayParameter = WFContentArrayParameter;
+
+types.WFArrayParameter = class extends WFContentArrayParameter {}; // not sure what the difference is
+
+import { WFVariablePickerParameter } from "./Parameters/WFVariablePickerParameter";
+types.WFVariablePickerParameter = WFVariablePickerParameter;
+
+import { WFTextInputParameter } from "./Parameters/WFTextInputParameter";
+types.WFTextInputParameter = WFTextInputParameter;
+
+class WFCustomDateFormatParameter extends WFTextInputParameter {
 	constructor(
 		data: any,
-		name = "Picker",
-		docs: string = "https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields"
+		name: string = "Date Format String",
+		docs: string = "https://pfgithub.github.io/shortcutslang/gettingstarted#text-field"
 	) {
 		super(data, name, docs);
 	}
-	genDocsArgName() {
-		return `("string" | variable)]`;
-	}
-	genDocs() {
-		return `${super.genDocs()}
+}
+types.WFCustomDateFormatParameter = WFCustomDateFormatParameter;
 
-		Accepts a string or variable containing the option. Check the shortcuts app for a list of available options. `;
-	}
-	build(cc: ConvertingContext, parse: AsAble) {
-		if (parse.canBeVariable(cc)) {
-			const res = parse.asVariable(cc);
-			return res;
-		} else if (parse.canBeString(cc)) {
-			const res = parse.asString(cc);
-			return res;
-		}
-		throw parse.error(
-			cc,
-			`${this.name} fields can only contain strings and variables.`
-		);
+class WFCountryFieldParameter extends WFTextInputParameter {
+	constructor(
+		data: any,
+		name: string = "Country",
+		docs: string = "https://pfgithub.github.io/shortcutslang/gettingstarted#text-field"
+	) {
+		super(data, name, docs);
 	}
 }
-types.WFDynamicEnumerationParameter = WFDynamicEnumerationParameter;
+types.WFCountryFieldParameter = WFCountryFieldParameter;
+
+class WFDateFieldParameter extends WFTextInputParameter {
+	constructor(
+		data: any,
+		name = "Date",
+		docs = "https://pfgithub.github.io/shortcutslang/gettingstarted#text-field"
+	) {
+		super(data, name, docs);
+	}
+}
+types.WFDateFieldParameter = WFDateFieldParameter;
+
+class WFLocationFieldParameter extends WFTextInputParameter {
+	constructor(
+		data: any,
+		name = "Location",
+		docs = "https://pfgithub.github.io/shortcutslang/gettingstarted#text-field"
+	) {
+		super(data, name, docs);
+	}
+}
+types.WFLocationFieldParameter = WFLocationFieldParameter;
+
+import { WFEmailAddressFieldParameter } from "./Parameters/WFEmailAddressFieldParameter";
+types.WFEmailAddressFieldParameter = WFEmailAddressFieldParameter;
+
+import { WFDictionaryParameter } from "./Parameters/WFDictionaryParameter";
+types.WFDictionaryParameter = WFDictionaryParameter;
+
+import { WFSwitchParameter } from "./Parameters/WFSwitchParameter";
+types.WFSwitchParameter = WFSwitchParameter;
+
+import { WFExpandingParameter } from "./Parameters/WFExpandingParameter";
+types.WFExpandingParameter = WFExpandingParameter;
+
+import { WFFilterParameter } from "./Parameters/WFFilterParameter";
+types.WFFilterParameter = WFFilterParameter;
+
+import { WFVariableFieldParameter } from "./Parameters/WFVariableFieldParameter";
+types.WFVariableFieldParameter = WFVariableFieldParameter;
 
 function addStaticEnum(
 	internalName: string,
@@ -311,7 +215,9 @@ addStaticEnum("WFUnitTypePickerParameter", "Unit Picker", [
 	"Temperature",
 	"Volume"
 ]);
-addDynamicEnum("WFUnitTypePickerParameter", "Unit Type Picker"); // it's different for every unit type...
+addDynamicEnum("WFUnitTypePickerParameter", "Unit Type Picker");
+// it's different for every unit type...
+// don't worry, :filter is coming to save you
 addStaticEnum("WFNetworkPickerParameter", "Network Type Picker", [
 	"Wi-Fi",
 	"Cellular"
@@ -336,512 +242,6 @@ addStaticEnum("WFMapsAppPickerParameter", "Maps App", [
 // WFEvernoteTagsTagFieldParameter is a dynamic tag
 // phone number is like email but accepts phone numbers
 // WFContactHandleField: Must be Ask When Run or Variable
-
-class WFAppPickerParameter extends WFParameter {
-	constructor(
-		data: any,
-		name = "App",
-		docs: string = "https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields"
-	) {
-		super(data, name, docs);
-	}
-	genDocsArgName() {
-		return `("app name" | "com.identifier.for.app")]`;
-	}
-	genDocs() {
-		return `${super.genDocs()}
-
-Accepts a string containing a supported app or an app identifier.
-You can use [this shortcut](https://www.icloud.com/shortcuts/7aff3fcdd0ca4bbc9c0d1b70e2825ed8) to get an app identifier for an unsupported app.
-Supported apps are:
-${Object.keys(appNames)
-	.map(appName => `- \`${appName}\` (${appNames[appName].name})`)
-	.join("\n")}
-- Any other app by entering its id from [this shortcut](https://www.icloud.com/shortcuts/7aff3fcdd0ca4bbc9c0d1b70e2825ed8)
-		`;
-	}
-	build(cc: ConvertingContext, parse: AsAble) {
-		if (parse.canBeString(cc)) {
-			const res = parse.asString(cc);
-			const appName = res.toLowerCase().replace(/[^a-z0-9]/g, "");
-			if (appNames[appName]) {
-				return appNames[appName].id;
-			}
-			if (res.indexOf(".") === -1) {
-				throw parse.error(
-					cc,
-					`The app ${res} is not supported by default. Enter its app id which you can get from this shortcut: https://www.icloud.com/shortcuts/7aff3fcdd0ca4bbc9c0d1b70e2825ed8 (More info on the documentation page for this action)`
-				);
-			}
-			return res;
-		}
-		throw parse.error(
-			cc,
-			`${
-				this.name
-			} fields can only contain strings with an app name or identifier.`
-		);
-	}
-}
-types.WFAppPickerParameter = WFAppPickerParameter;
-
-class WFNumberFieldParameter extends WFParameter {
-	constructor(
-		data: any,
-		name: string = "Number",
-		docs: string = "https://pfgithub.github.io/shortcutslang/gettingstarted#number-field"
-	) {
-		super(data, name, docs);
-	}
-	genDocsArgName(): string {
-		return this.allowsVariables ? `number` : `(number | variable)`;
-	}
-	genDocs() {
-		return `${super.genDocs()}
-
-		Accepts a number ${
-			this.allowsVariables
-				? `
-		or variable`
-				: ""
-		}
-		with a number.`;
-	}
-	genDocsDefaultValue(value: string) {
-		return `\`${value}\``;
-	}
-	build(cc: ConvertingContext, parse: AsAble) {
-		if (parse.canBeVariable(cc)) {
-			const res = parse.asVariable(cc);
-			if (!this.allowsVariables) {
-				throw parse.error(
-					cc,
-					"This number field does not acccept variables."
-				);
-			}
-			return res;
-		} else if (parse.canBeNumber(cc)) {
-			const num = parse.asNumber(cc); // asString returns a string like "" <-- that's a string
-			return num;
-		}
-		throw parse.error(
-			cc,
-			"Number fields only accept numbers and variables."
-		);
-	}
-}
-types.WFNumberFieldParameter = WFNumberFieldParameter;
-
-class WFStepperParameter extends WFNumberFieldParameter {
-	constructor(
-		data: any,
-		name: string = "Stepper Number",
-		docs: string = "https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields"
-	) {
-		super(data, name, docs);
-	}
-	build(cc: ConvertingContext, parse: AsAble) {
-		const val = super.build(cc, parse);
-		if (typeof val === "number") {
-			if (!Number.isInteger(val) || val < 0) {
-				throw parse.error(
-					cc,
-					"Stepper fields only accept positive integer numbers."
-				);
-			}
-		}
-		return val;
-	}
-}
-types.WFStepperParameter = WFStepperParameter;
-
-class WFSliderParameter extends WFNumberFieldParameter {
-	constructor(
-		data: any,
-		name: string = "Slider Number",
-		docs: string = "https://pfgithub.github.io/shortcutslang/gettingstarted#slider-number-fields"
-	) {
-		super(data, name, docs);
-	}
-	build(cc: ConvertingContext, parse: AsAble) {
-		const val = super.build(cc, parse);
-		if (typeof val === "number") {
-			if (val < 0 || val > 1) {
-				throw parse.error(
-					cc,
-					"Slider fields only accept numbers from 0 to 1"
-				);
-			}
-		}
-		return val;
-	}
-}
-types.WFSliderParameter = WFSliderParameter;
-
-class WFSpeakTextRateParameter extends WFNumberFieldParameter {
-	constructor(
-		data: any,
-		name: string = "Speak Text Rate",
-		docs: string = "https://pfgithub.github.io/shortcutslang/gettingstarted#slider-number-fields"
-	) {
-		super(data, name, docs);
-	}
-	build(cc: ConvertingContext, parse: AsAble) {
-		const val = super.build(cc, parse);
-		if (typeof val === "number") {
-			if (val < 0 || val > 2) {
-				throw parse.error(
-					cc,
-					"Speak text rate fields only accept numbers from 0 to 2"
-				);
-			}
-		}
-		return val;
-	}
-}
-types.WFSpeakTextRateParameter = WFSpeakTextRateParameter;
-
-class WFContentArrayParameter extends WFParameter {
-	constructor(
-		data: any,
-		name: "List",
-		docs: string = "https://pfgithub.github.io/shortcutslang/gettingstarted#list-field"
-	) {
-		super(data, name, docs);
-	}
-	genDocsArgName() {
-		return `[list, items]`;
-	}
-	genDocs() {
-		return `${super.genDocs()}
-
-Accepts a list.`;
-	}
-	build(cc: ConvertingContext, parse: AsAble) {
-		if (!parse.canBeList(cc)) {
-			throw parse.error(cc, "List fields only accept lists.");
-		}
-		const list = parse.asList(cc);
-		return list;
-	}
-}
-types.WFContentArrayParameter = WFContentArrayParameter;
-
-types.WFArrayParameter = class extends WFContentArrayParameter {}; // not sure what the difference is
-
-class WFVariablePickerParameter extends WFParameter {
-	constructor(
-		data: any,
-		name = "Variable Picker",
-		docs = "https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields"
-	) {
-		super(data, name, docs);
-	}
-	genDocsArgName() {
-		return `(v:myvar | mv:myvar | s:myvar)`;
-	}
-	genDocs() {
-		return `${super.genDocs()}
-
-Accepts a variable.`;
-	}
-	build(cc: ConvertingContext, parse: AsAble) {
-		if (!parse.canBeVariable(cc)) {
-			throw parse.error(
-				cc,
-				"Variable picker fields only accept variables."
-			);
-		}
-		const variable = parse.asVariable(cc);
-		return variable;
-	}
-}
-types.WFVariablePickerParameter = WFVariablePickerParameter;
-
-class WFTextInputParameter extends WFParameter {
-	constructor(
-		data: any,
-		name = "Text",
-		docs = "https://pfgithub.github.io/shortcutslang/gettingstarted#text-field"
-	) {
-		super(data, name, docs);
-	}
-	genDocsArgName() {
-		return `"string"`;
-	}
-	genDocs() {
-		return `${super.genDocs()}
-
-Accepts a string ${
-			this.allowsVariables
-				? `
-or text`
-				: ""
-		}
-with the text.`;
-	}
-	genDocsDefaultValue(value: string) {
-		return `\`"${value}"\``;
-	}
-	build(cc: ConvertingContext, parse: AsAble) {
-		if (!this.allowsVariables) {
-			if (!parse.canBeString(cc)) {
-				throw parse.error(
-					cc,
-					"This text field only accepts text with no variables."
-				);
-			}
-			return parse.asString(cc);
-		}
-		if (!parse.canBeText(cc)) {
-			throw parse.error(cc, "Text fields only accept text.");
-		}
-		return parse.asText(cc);
-	}
-}
-types.WFTextInputParameter = WFTextInputParameter;
-
-class WFCustomDateFormatParameter extends WFTextInputParameter {
-	constructor(
-		data: any,
-		name: string = "Date Format String",
-		docs: string = "https://pfgithub.github.io/shortcutslang/gettingstarted#text-field"
-	) {
-		super(data, name, docs);
-	}
-}
-types.WFCustomDateFormatParameter = WFCustomDateFormatParameter;
-
-class WFCountryFieldParameter extends WFTextInputParameter {
-	constructor(
-		data: any,
-		name: string = "Country",
-		docs: string = "https://pfgithub.github.io/shortcutslang/gettingstarted#text-field"
-	) {
-		super(data, name, docs);
-	}
-}
-types.WFCountryFieldParameter = WFCountryFieldParameter;
-
-class WFDateFieldParameter extends WFTextInputParameter {
-	constructor(
-		data: any,
-		name = "Date",
-		docs = "https://pfgithub.github.io/shortcutslang/gettingstarted#text-field"
-	) {
-		super(data, name, docs);
-	}
-}
-types.WFDateFieldParameter = WFDateFieldParameter;
-
-class WFLocationFieldParameter extends WFTextInputParameter {
-	constructor(
-		data: any,
-		name = "Location",
-		docs = "https://pfgithub.github.io/shortcutslang/gettingstarted#text-field"
-	) {
-		super(data, name, docs);
-	}
-}
-types.WFLocationFieldParameter = WFLocationFieldParameter;
-
-class WFEmailAddressFieldParameter extends WFParameter {
-	constructor(
-		data: any,
-		name = "Email",
-		docs = "https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields"
-	) {
-		super(data, name, docs);
-	}
-	genDocsArgName() {
-		return `("string" | [list, of, strings] | variable)`;
-	}
-	genDocs() {
-		return `${super.genDocs()}
-
-Accepts a string or string array or variable of email addresses.`;
-	}
-	build(cc: ConvertingContext, parse: AsAble) {
-		if (parse.canBeVariable(cc)) {
-			return parse.asVariable(cc);
-		}
-		if (parse.canBeArray(cc)) {
-			return parse.asArray(cc);
-		}
-		if (parse.canBeString(cc)) {
-			return [parse.asString(cc)];
-		}
-		throw parse.error(
-			cc,
-			"Email adress fields only accept variables, lists without variables, and strings without variables."
-		);
-	}
-}
-types.WFEmailAddressFieldParameter = WFEmailAddressFieldParameter;
-
-class WFDictionaryParameter extends WFParameter {
-	constructor(
-		data: any,
-		name = "Dictionary",
-		docs = "https://pfgithub.github.io/shortcutslang/gettingstarted#dictionary-field"
-	) {
-		super(data, name, docs);
-	}
-	genDocsArgName() {
-		return `{dictionary}`;
-	}
-	genDocs() {
-		return `${super.genDocs()}
-
-Accepts a dictionary.`;
-	}
-	build(cc: ConvertingContext, parse: AsAble) {
-		if (!parse.canBeDictionary(cc)) {
-			throw parse.error(cc, "Dictionary fields only accept fields.");
-		}
-		return parse.asDictionary(cc);
-	}
-}
-types.WFDictionaryParameter = WFDictionaryParameter;
-
-class WFSwitchParameter extends WFParameter {
-	constructor(
-		data: any,
-		name = "Switch",
-		docs = "https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields"
-	) {
-		super(data, name, docs);
-	}
-	genDocsArgName() {
-		return this.allowsVariables
-			? `(true | false | variable)`
-			: `(true | false)`;
-	}
-	genDocs() {
-		return `${super.genDocs()}
-
-Accepts a boolean${
-			this.allowsVariables
-				? `
-or a variable.`
-				: ""
-		}`;
-	}
-	build(cc: ConvertingContext, parse: AsAble) {
-		if (parse.canBeVariable(cc)) {
-			if (!this.allowsVariables) {
-				throw parse.error(
-					cc,
-					"This toggle switch field does not accept variables."
-				);
-			}
-			return parse.asVariable(cc);
-		} else if (parse.canBeBoolean(cc)) {
-			return parse.asBoolean(cc);
-		}
-		throw parse.error(
-			cc,
-			"Toggle switch fields only accept booleans (true/false) and variables."
-		);
-	}
-}
-types.WFSwitchParameter = WFSwitchParameter;
-
-class WFExpandingParameter extends WFParameter {
-	constructor(
-		data: any,
-		name = "Expand Arrow",
-		docs = "https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields"
-	) {
-		super(data, name, docs);
-		this.allowsVariables = false;
-	}
-	genDocsArgName() {
-		return `(true | false)`;
-	}
-	genDocs() {
-		return `${super.genDocs()}
-
-Accepts a boolean for if this
-parameter is expanded or not.
-Often expanding fields will
-enable or disable other
-arguments. If you are using
-labels, these can be ignored.`;
-	}
-	build(cc: ConvertingContext, parse: AsAble) {
-		if (parse.canBeBoolean(cc)) {
-			return parse.asBoolean(cc);
-		}
-		throw parse.error(
-			cc,
-			"Expanding fields only accept booleans (true/false)."
-		);
-	}
-}
-types.WFExpandingParameter = WFExpandingParameter;
-
-class WFFilterParameter extends WFParameter {
-	constructor(
-		data: any,
-		name = "Filter",
-		docs = "https://pfgithub.github.io/shortcutslang/gettingstarted#filter-field"
-	) {
-		super(data, name, docs);
-		this.allowsVariables = false;
-	}
-	genDocsArgName() {
-		return `:filter{...}`;
-	}
-	genDocs() {
-		return `${super.genDocs()}
-
-Accepts a :filter{} of filters.`;
-	}
-	build(cc: ConvertingContext, parse: AsAble) {
-		if (parse.canBeFilter(cc)) {
-			return parse.asFilter(cc, this._data.ContentItemClass);
-		}
-		throw parse.error(cc, "Filter fields only accept filters (:filter {})");
-	}
-}
-types.WFFilterParameter = WFFilterParameter;
-
-class WFVariableFieldParameter extends WFParameter {
-	constructor(
-		data: any,
-		name = "Variable Input",
-		docs = "https://pfgithub.github.io/shortcutslang/gettingstarted#variable-field"
-	) {
-		super(data, name, docs);
-	}
-	genDocsArgName() {
-		return `(v:variableName | variableName)`;
-	}
-	genDocs() {
-		const docs = `${super.genDocs()}
-
-Accepts a string with the name of the named variable (v:) you want to set,
-or a named variable (v:) that you want to set.
-`;
-		return docs;
-	}
-	build(cc: ConvertingContext, parse: AsAble) {
-		const varname = parse.canBeString(cc)
-			? parse.asString(cc)
-			: parse.canBeStringVariable(cc)
-			? parse.asStringVariable(cc)
-			: (() => {
-					throw parse.error(
-						cc,
-						"Variable fields only accept strings and named variables with no aggrandizements."
-					);
-			  })();
-		cc.setNamedVariable(varname);
-		return varname;
-	}
-}
-types.WFVariableFieldParameter = WFVariableFieldParameter;
 
 const _debugMissingTypes: { [key: string]: number } = {};
 const _debugTypes: {
