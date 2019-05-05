@@ -3922,12 +3922,14 @@
 				"Key": "WFContentItemSortProperty",
 				"Label": "Sort by",
 				"Items": [
-					{
-						"name": "Name",
-						"data": "WFItemName",
-						"type": "WFStringContentItem",
-						"filter": true
-					},
+					"Name",
+					"Title",
+					"Published Date",
+					"Author",
+					"Number of Words",
+					"Main Image URL",
+					"URL",
+					"Excerpt",
 					"Random"
 				]
 			},
@@ -4018,12 +4020,32 @@
 				"Key": "WFContentItemSortProperty",
 				"Label": "Sort by",
 				"Items": [
-					{
-						"name": "Name",
-						"data": "WFItemName",
-						"type": "WFStringContentItem",
-						"filter": true
-					},
+					"Email Address",
+					"Phonetic First Name",
+					"Prefix",
+					"URL",
+					"Nickname",
+					"Last Name",
+					"Phone Number",
+					"Has Photo",
+					"File Size",
+					"Creation Date",
+					"Last Modified Date",
+					"Middle Name",
+					"Company",
+					"Department",
+					"Name",
+					"Contact Photo",
+					"First Name",
+					"Phonetic Last Name",
+					"File Extension",
+					"Street Address",
+					"Suffix",
+					"Job Title",
+					"Notes",
+					"Birthday",
+					"Group",
+					"Phonetic Middle Name",
 					"Random"
 				]
 			},
@@ -4110,12 +4132,11 @@
 				"Key": "WFContentItemSortProperty",
 				"Label": "Sort by",
 				"Items": [
-					{
-						"name": "Name",
-						"data": "WFItemName",
-						"type": "WFStringContentItem",
-						"filter": true
-					},
+					"Creation Date",
+					"File Size",
+					"File Extension",
+					"Last Modified Date",
+					"Name",
 					"Random"
 				]
 			},
@@ -4217,12 +4238,28 @@
 				"Key": "WFContentItemSortProperty",
 				"Label": "Sort by",
 				"Items": [
-					{
-						"name": "Name",
-						"data": "WFItemName",
-						"type": "WFStringContentItem",
-						"filter": true
-					},
+					"Width",
+					"Time Taken",
+					"Is a Screenshot",
+					"Media Type",
+					"Height",
+					"Location",
+					"Orientation",
+					"Date Taken",
+					"Duration",
+					"Camera Make",
+					"Is Hidden",
+					"Frame Rate",
+					"File Extension",
+					"Camera Model",
+					"Is Favorite",
+					"Creation Date",
+					"Album",
+					"Metadata Dictionary",
+					"File Size",
+					"Photo Type",
+					"Last Modified Date",
+					"Name",
 					"Random"
 				]
 			},
@@ -4287,12 +4324,17 @@
 				"Key": "WFContentItemSortProperty",
 				"Label": "Sort by",
 				"Items": [
-					{
-						"name": "Name",
-						"data": "WFItemName",
-						"type": "WFStringContentItem",
-						"filter": true
-					},
+					"Phone Number",
+					"State",
+					"Altitude",
+					"Name",
+					"Longitude",
+					"Country",
+					"City",
+					"Street",
+					"URL",
+					"Latitude",
+					"ZIP Code",
 					"Random"
 				]
 			},
@@ -4369,12 +4411,32 @@
 				"Key": "WFContentItemSortProperty",
 				"Label": "Sort by",
 				"Items": [
-					{
-						"name": "Name",
-						"data": "WFItemName",
-						"type": "WFStringContentItem",
-						"filter": true
-					},
+					"Last Played Date",
+					"File Extension",
+					"Release Date",
+					"Genre",
+					"Media Kind",
+					"Name",
+					"Artist",
+					"Creation Date",
+					"Composer",
+					"Duration",
+					"Disc #",
+					"Last Modified Date",
+					"Date Added",
+					"Play Count",
+					"Album Artwork",
+					"Album Track #",
+					"Has Album Artwork",
+					"Rating",
+					"Is Explicit",
+					"Comments",
+					"Skip Count",
+					"File Size",
+					"Lyrics",
+					"Is Cloud Item",
+					"Album Artist",
+					"Album",
 					"Random"
 				]
 			},
@@ -4479,12 +4541,28 @@
 				"Key": "WFContentItemSortProperty",
 				"Label": "Sort by",
 				"Items": [
-					{
-						"name": "Name",
-						"data": "WFItemName",
-						"type": "WFStringContentItem",
-						"filter": true
-					},
+					"File Size",
+					"Camera Make",
+					"Last Modified Date",
+					"File Extension",
+					"Media Type",
+					"Creation Date",
+					"Location",
+					"Album",
+					"Photo Type",
+					"Date Taken",
+					"Duration",
+					"Width",
+					"Time Taken",
+					"Is a Screenshot",
+					"Is Hidden",
+					"Frame Rate",
+					"Height",
+					"Camera Model",
+					"Is Favorite",
+					"Orientation",
+					"Metadata Dictionary",
+					"Name",
 					"Random"
 				]
 			},
@@ -9636,12 +9714,34 @@
 				"Key": "WFContentItemPropertyName",
 				"Label": "Get",
 				"Items": [
-					{
-						"name": "Name",
-						"data": "WFItemName",
-						"type": "WFStringContentItem",
-						"filter": true
-					}
+					"Content Rating",
+					"Release Date",
+					"# of Ratings (This Version)",
+					"Price",
+					"Supported Languages",
+					"iPad Screenshot URLs",
+					"Store URL",
+					"Version",
+					"Artist",
+					"Description",
+					"Supports Game Center",
+					"Formatted Price",
+					"Minimum OS Version",
+					"Currency Code",
+					"Screenshot URLs",
+					"Rating",
+					"Store ID",
+					"Category",
+					"Release Notes",
+					"Artwork",
+					"Artwork URL",
+					"Name",
+					"Rating (This Version)",
+					"Is Universal",
+					"Download Size",
+					"Last Updated",
+					"Supported Devices",
+					"# of Ratings"
 				]
 			}
 		]
@@ -9663,12 +9763,14 @@
 				"Key": "WFContentItemPropertyName",
 				"Label": "Get",
 				"Items": [
-					{
-						"name": "Name",
-						"data": "WFItemName",
-						"type": "WFStringContentItem",
-						"filter": true
-					}
+					"Name",
+					"Title",
+					"Published Date",
+					"Author",
+					"Number of Words",
+					"Main Image URL",
+					"URL",
+					"Excerpt"
 				]
 			}
 		]
@@ -9701,12 +9803,32 @@
 				"Key": "WFContentItemPropertyName",
 				"Label": "Get",
 				"Items": [
-					{
-						"name": "Name",
-						"data": "WFItemName",
-						"type": "WFStringContentItem",
-						"filter": true
-					}
+					"Email Address",
+					"Phonetic First Name",
+					"Prefix",
+					"URL",
+					"Nickname",
+					"Last Name",
+					"Phone Number",
+					"Has Photo",
+					"File Size",
+					"Creation Date",
+					"Last Modified Date",
+					"Middle Name",
+					"Company",
+					"Department",
+					"Name",
+					"Contact Photo",
+					"First Name",
+					"Phonetic Last Name",
+					"File Extension",
+					"Street Address",
+					"Suffix",
+					"Job Title",
+					"Notes",
+					"Birthday",
+					"Group",
+					"Phonetic Middle Name"
 				]
 			}
 		]
@@ -9745,12 +9867,11 @@
 				"Key": "WFContentItemPropertyName",
 				"Label": "Get",
 				"Items": [
-					{
-						"name": "Name",
-						"data": "WFItemName",
-						"type": "WFStringContentItem",
-						"filter": true
-					}
+					"Creation Date",
+					"File Size",
+					"File Extension",
+					"Last Modified Date",
+					"Name"
 				]
 			}
 		]
@@ -9796,12 +9917,28 @@
 				"Key": "WFContentItemPropertyName",
 				"Label": "Get",
 				"Items": [
-					{
-						"name": "Name",
-						"data": "WFItemName",
-						"type": "WFStringContentItem",
-						"filter": true
-					}
+					"Width",
+					"Time Taken",
+					"Is a Screenshot",
+					"Media Type",
+					"Height",
+					"Location",
+					"Orientation",
+					"Date Taken",
+					"Duration",
+					"Camera Make",
+					"Is Hidden",
+					"Frame Rate",
+					"File Extension",
+					"Camera Model",
+					"Is Favorite",
+					"Creation Date",
+					"Album",
+					"Metadata Dictionary",
+					"File Size",
+					"Photo Type",
+					"Last Modified Date",
+					"Name"
 				]
 			}
 		]
@@ -9832,12 +9969,21 @@
 				"Key": "WFContentItemPropertyName",
 				"Label": "Get",
 				"Items": [
-					{
-						"name": "Name",
-						"data": "WFItemName",
-						"type": "WFStringContentItem",
-						"filter": true
-					}
+					"Currency Code",
+					"Is Explicit",
+					"Genre",
+					"Store URL",
+					"Name",
+					"Release Date",
+					"Price",
+					"Artwork URL",
+					"Streamable",
+					"Store ID",
+					"Artist",
+					"Formatted Price",
+					"Artwork",
+					"Description",
+					"Duration"
 				]
 			}
 		]
@@ -9860,12 +10006,17 @@
 				"Key": "WFContentItemPropertyName",
 				"Label": "Get",
 				"Items": [
-					{
-						"name": "Name",
-						"data": "WFItemName",
-						"type": "WFStringContentItem",
-						"filter": true
-					}
+					"Phone Number",
+					"State",
+					"Altitude",
+					"Name",
+					"Longitude",
+					"Country",
+					"City",
+					"Street",
+					"URL",
+					"Latitude",
+					"ZIP Code"
 				]
 			}
 		]
@@ -9892,12 +10043,32 @@
 				"Key": "WFContentItemPropertyName",
 				"Label": "Get",
 				"Items": [
-					{
-						"name": "Name",
-						"data": "WFItemName",
-						"type": "WFStringContentItem",
-						"filter": true
-					}
+					"Last Played Date",
+					"File Extension",
+					"Release Date",
+					"Genre",
+					"Media Kind",
+					"Name",
+					"Artist",
+					"Creation Date",
+					"Composer",
+					"Duration",
+					"Disc #",
+					"Last Modified Date",
+					"Date Added",
+					"Play Count",
+					"Album Artwork",
+					"Album Track #",
+					"Has Album Artwork",
+					"Rating",
+					"Is Explicit",
+					"Comments",
+					"Skip Count",
+					"File Size",
+					"Lyrics",
+					"Is Cloud Item",
+					"Album Artist",
+					"Album"
 				]
 			}
 		]
@@ -9935,12 +10106,10 @@
 				"Key": "WFContentItemPropertyName",
 				"Label": "Get",
 				"Items": [
-					{
-						"name": "Name",
-						"data": "WFItemName",
-						"type": "WFStringContentItem",
-						"filter": true
-					}
+					"Name",
+					"Page Contents",
+					"Page URL",
+					"Page Selection"
 				]
 			}
 		]
