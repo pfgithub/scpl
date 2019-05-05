@@ -17,15 +17,15 @@ import { setVariable, getVariable } from "./HelpfulActions";
 import { Position } from "./Production";
 
 import {
-   CoercionTypeClass,
-   isAggrandizementPropertyName,
-   AggrandizementPropertyRawName,
-   AggrandizementPropertyName
+	CoercionTypeClass,
+	isAggrandizementPropertyName,
+	AggrandizementPropertyRawName,
+	AggrandizementPropertyName
 } from "./WFTypes/Types";
 
 import getTypes, {
 	ComparisonName,
-    isComparisonMethod,
+	isComparisonMethod,
 	ComparisonWFValue,
 	comparisonMethodsMap
 } from "./Data/GetTypes";
@@ -164,7 +164,7 @@ interface AsNumber extends Parse {
 }
 
 interface AsFilter extends Parse {
-	asFilter(cc: ConvertingContext): ContentItemFilter;
+	asFilter(cc: ConvertingContext, type: CoercionTypeClass): ContentItemFilter;
 }
 
 interface AsFilterItem extends Parse {
@@ -235,7 +235,8 @@ export class ConvertVariableParse extends Parse {
 	//eslint-disable-next-line func-names
 	(<any>ConvertVariableParse).prototype[`as${val}`] = function(
 		this: ConvertVariableParse,
-		cc: ConvertingContext
+		cc: ConvertingContext,
+		...extraData: any[]
 	) {
 		const me = this.getValue(cc);
 		const options = this.options;
@@ -253,7 +254,7 @@ export class ConvertVariableParse extends Parse {
 			const value = rawKeyedOptions[key];
 			newCC.setParserVariable(key, value);
 		});
-		return (<any>me)[`as${val}`](newCC);
+		return (<any>me)[`as${val}`](newCC, ...extraData);
 	};
 });
 
@@ -263,8 +264,8 @@ export class ErrorParse extends Parse {
 	}
 }
 export class FilterParse extends Parse implements AsFilter {
-	filterItems: undefined[];
-	constructor(start: Position, end: Position, filterItems: undefined[]) {
+	filterItems: AsAble[];
+	constructor(start: Position, end: Position, filterItems: AsAble[]) {
 		super(start, end);
 
 		this.filterItems = filterItems;
@@ -272,8 +273,18 @@ export class FilterParse extends Parse implements AsFilter {
 	canBeFilter(_cc: ConvertingContext): boolean {
 		return true;
 	}
-	asFilter(cc: ConvertingContext): ContentItemFilter {
-		throw this.error(cc, "no");
+	asFilter(
+		cc: ConvertingContext,
+		type: CoercionTypeClass
+	): ContentItemFilter {
+		const filter = new ContentItemFilter(type);
+		this.filterItems.forEach(filterItem => {
+			if (!filterItem.canBeFilterItem(cc)) {
+				throw filterItem.error(cc, "This item is not a filter item.");
+			}
+			filter.add(filterItem.asFilterItem(cc));
+		});
+		return filter;
 	}
 }
 export class FilterItemParse extends Parse implements AsFilterItem {
@@ -304,31 +315,34 @@ export class FilterItemParse extends Parse implements AsFilterItem {
 			throw this.property.error(cc, "Property must be a string");
 		}
 		const property = this.property.asString(cc);
-		if(!isAggrandizementPropertyName(property)) {
+		if (!isAggrandizementPropertyName(property)) {
 			throw this.property.error(cc, "Property must be a property name.");
 		}
 		const propertyName: AggrandizementPropertyName = property;
-		
+
 		if (!this.operator.canBeString(cc)) {
 			throw this.property.error(cc, "Operator must be a string");
 		}
 		const operator = this.operator.asString(cc);
-		if(!isComparisonMethod(operator)) {
-			throw this.property.error(cc, "Property must be a comparison method.");
+		if (!isComparisonMethod(operator)) {
+			throw this.property.error(
+				cc,
+				"Property must be a comparison method."
+			);
 		}
 		const operatorName: ComparisonName = operator;
-		
+
 		// findbest[string, number, boolean, text]
 		// ...
 		if (!this.value.canBeText(cc)) {
 			throw this.property.error(cc, "Value must be a string");
 		}
 		const value = this.value.asText(cc);
-		
-		if(this.units) {
+
+		if (this.units) {
 			throw this.units.error(cc, "Units are not implemented yet");
 		}
-		
+
 		return {
 			property: propertyName,
 			operator: operatorName,
