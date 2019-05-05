@@ -219,6 +219,31 @@ test("invert an incomplete action", t => {
 		`filterfiles filter=??error: This parameter is an error: Inversion for filters is not implemented yet??`
 	);
 });
+test("dictionary number values", t => {
+	const icc = new InverseConvertingContext();
+	t.deepEqual(
+		icc.createActionAble(
+			Action.inverse({
+				WFWorkflowActionIdentifier: "is.workflow.actions.dictionary",
+				WFWorkflowActionParameters: {
+					WFItems: {
+						Value: {
+							WFDictionaryFieldValueItems: [
+								{
+									WFItemType: 3,
+									WFKey: "name",
+									WFValue: 23
+								}
+							]
+						},
+						WFSerializationType: "WFDictionaryFieldValue"
+					}
+				}
+			})
+		),
+		`dictionary {name: ??ScPL will add this number as a string value in the dictionary. If this is acceptable, put the number: 23??}`
+	);
+});
 
 test("inversions for stringable", t => {
 	const icc = new InverseConvertingContext();
@@ -665,4 +690,85 @@ test("filter action by name", t => {
 	]);
 });
 
+test("argument labels and arglists and extendedargs", t => {
+	t.deepEqual(
+		scplToShortcut(`
+			getfile errorifnotfound=false showdocumentpicker=false filepath="label"
+			getfile (errorifnotfound=false showdocumentpicker:false filepath="parenthesis arglist")
+			getfile a{errorifnotfound=false showdocumentpicker:false filepath="a{ arglist"}
+			getfile
+			> errorifnotfound=false
+			> showdocumentpicker=false
+			> filepath="extendedarg"
+		`),
+		[
+			{
+				WFWorkflowActionIdentifier:
+					"is.workflow.actions.documentpicker.open",
+				WFWorkflowActionParameters: {
+					WFFileErrorIfNotFound: false,
+					WFGetFilePath: "label",
+					WFShowFilePicker: false
+				}
+			},
+			{
+				WFWorkflowActionIdentifier:
+					"is.workflow.actions.documentpicker.open",
+				WFWorkflowActionParameters: {
+					WFFileErrorIfNotFound: false,
+					WFGetFilePath: "parenthesis arglist",
+					WFShowFilePicker: false
+				}
+			},
+			{
+				WFWorkflowActionIdentifier:
+					"is.workflow.actions.documentpicker.open",
+				WFWorkflowActionParameters: {
+					WFFileErrorIfNotFound: false,
+					WFGetFilePath: "a{ arglist",
+					WFShowFilePicker: false
+				}
+			},
+			{
+				WFWorkflowActionIdentifier:
+					"is.workflow.actions.documentpicker.open",
+				WFWorkflowActionParameters: {
+					WFFileErrorIfNotFound: false,
+					WFGetFilePath: "extendedarg",
+					WFShowFilePicker: false
+				}
+			}
+		]
+	);
+});
+
 // console.log(JSON.stringify(noUUID(actions), null, "\t"));
+
+test("different quotes things", t => {
+	const output = parse(
+		`text "double' \\"quotes"; text 'single ""\\'quotes'; text “smart “"'quotes '"\\””`,
+		{ makePlist: false }
+	);
+	const [scdata] = output.build();
+	const actions = scdata.WFWorkflowActions;
+	t.deepEqual(noUUID(actions, { noSCPLData: true }), [
+		{
+			WFWorkflowActionIdentifier: "is.workflow.actions.gettext",
+			WFWorkflowActionParameters: {
+				WFTextActionText: "double' \"quotes"
+			}
+		},
+		{
+			WFWorkflowActionIdentifier: "is.workflow.actions.gettext",
+			WFWorkflowActionParameters: {
+				WFTextActionText: 'single ""\'quotes'
+			}
+		},
+		{
+			WFWorkflowActionIdentifier: "is.workflow.actions.gettext",
+			WFWorkflowActionParameters: {
+				WFTextActionText: "smart “\"'quotes '\"”"
+			}
+		}
+	]);
+});

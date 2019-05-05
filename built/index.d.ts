@@ -3,6 +3,7 @@ import { PositionedError, AsAble } from "./src/ParserData";
 import { ConvertingContext } from "./src/Converter";
 import { WFShortcut } from "./src/OutputData";
 export { PositionedError, ConvertingContext, AsAble, WFShortcut };
+export { allActions, getActionFromID, getActionFromName } from "./src/ActionData";
 export declare function parse(string: string, options: {
     make?: ["shortcutjson"?, "shortcutplist"?, "outputdata"?];
     makePlist?: boolean;

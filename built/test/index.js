@@ -147,6 +147,26 @@ ava_1.default("invert an incomplete action", t => {
         }
     })), `filterfiles filter=??error: This parameter is an error: Inversion for filters is not implemented yet??`);
 });
+ava_1.default("dictionary number values", t => {
+    const icc = new InverseConvertingContext_1.InverseConvertingContext();
+    t.deepEqual(icc.createActionAble(OutputData_1.Action.inverse({
+        WFWorkflowActionIdentifier: "is.workflow.actions.dictionary",
+        WFWorkflowActionParameters: {
+            WFItems: {
+                Value: {
+                    WFDictionaryFieldValueItems: [
+                        {
+                            WFItemType: 3,
+                            WFKey: "name",
+                            WFValue: 23
+                        }
+                    ]
+                },
+                WFSerializationType: "WFDictionaryFieldValue"
+            }
+        }
+    })), `dictionary {name: ??ScPL will add this number as a string value in the dictionary. If this is acceptable, put the number: 23??}`);
+});
 ava_1.default("inversions for stringable", t => {
     const icc = new InverseConvertingContext_1.InverseConvertingContext();
     t.is(icc.createStringAble("myStringCanBeAn@Identifier_Neat23"), "myStringCanBeAn@Identifier_Neat23");
@@ -538,4 +558,73 @@ ava_1.default("filter action by name", t => {
         }
     ]);
 });
+ava_1.default("argument labels and arglists and extendedargs", t => {
+    t.deepEqual(scplToShortcut(`
+			getfile errorifnotfound=false showdocumentpicker=false filepath="label"
+			getfile (errorifnotfound=false showdocumentpicker:false filepath="parenthesis arglist")
+			getfile a{errorifnotfound=false showdocumentpicker:false filepath="a{ arglist"}
+			getfile
+			> errorifnotfound=false
+			> showdocumentpicker=false
+			> filepath="extendedarg"
+		`), [
+        {
+            WFWorkflowActionIdentifier: "is.workflow.actions.documentpicker.open",
+            WFWorkflowActionParameters: {
+                WFFileErrorIfNotFound: false,
+                WFGetFilePath: "label",
+                WFShowFilePicker: false
+            }
+        },
+        {
+            WFWorkflowActionIdentifier: "is.workflow.actions.documentpicker.open",
+            WFWorkflowActionParameters: {
+                WFFileErrorIfNotFound: false,
+                WFGetFilePath: "parenthesis arglist",
+                WFShowFilePicker: false
+            }
+        },
+        {
+            WFWorkflowActionIdentifier: "is.workflow.actions.documentpicker.open",
+            WFWorkflowActionParameters: {
+                WFFileErrorIfNotFound: false,
+                WFGetFilePath: "a{ arglist",
+                WFShowFilePicker: false
+            }
+        },
+        {
+            WFWorkflowActionIdentifier: "is.workflow.actions.documentpicker.open",
+            WFWorkflowActionParameters: {
+                WFFileErrorIfNotFound: false,
+                WFGetFilePath: "extendedarg",
+                WFShowFilePicker: false
+            }
+        }
+    ]);
+});
 // console.log(JSON.stringify(noUUID(actions), null, "\t"));
+ava_1.default("different quotes things", t => {
+    const output = index_1.parse(`text "double' \\"quotes"; text 'single ""\\'quotes'; text “smart “"'quotes '"\\””`, { makePlist: false });
+    const [scdata] = output.build();
+    const actions = scdata.WFWorkflowActions;
+    t.deepEqual(noUUID(actions, { noSCPLData: true }), [
+        {
+            WFWorkflowActionIdentifier: "is.workflow.actions.gettext",
+            WFWorkflowActionParameters: {
+                WFTextActionText: "double' \"quotes"
+            }
+        },
+        {
+            WFWorkflowActionIdentifier: "is.workflow.actions.gettext",
+            WFWorkflowActionParameters: {
+                WFTextActionText: 'single ""\'quotes'
+            }
+        },
+        {
+            WFWorkflowActionIdentifier: "is.workflow.actions.gettext",
+            WFWorkflowActionParameters: {
+                WFTextActionText: "smart “\"'quotes '\"”"
+            }
+        }
+    ]);
+});
