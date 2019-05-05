@@ -1,20 +1,21 @@
 
 ## Filter Locations / filterlocations (internally `is.workflow.actions.filter.locations`)
 
-> This action is not yet complete. Some arguments may be missing.
-
 
 
 ### usage
 ```
-filterlocations undefined=NotImplemented sortby=("Phone Number" | "State" | "Altitude" | "Name" | "Longitude" | "Country" | "City" | "Street" | "URL" | "Latitude" | "ZIP Code" | "Random") order=("Oldest First" | "Newest First" | "A to Z" | "Z to A") limit=(true | false | variable) getitems=number
+filterlocations filter=:filter{...} sortby=("Phone Number" | "State" | "Altitude" | "Name" | "Longitude" | "Country" | "City" | "Street" | "URL" | "Latitude" | "ZIP Code" | "Random") order=("Oldest First" | "Newest First" | "A to Z" | "Z to A") limit=(true | false | variable) getitems=number
 ```
 
 ### arguments
 
 ---
 
-#### This paramtype is not implemented. WFFilterParameter
+### filter: Filter [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#filter-field)
+
+
+Accepts a :filter{} of filters.
 
 ---
 

@@ -10,7 +10,7 @@ Banner by ROP#2788 on the [routinehub.co](https://routinehub.co) discord server.
 
 [Try Shortcutslang in a web browser](https://editor.scpl.dev)
 
-231/271 builtin actions supported
+238/271 builtin actions supported
 
 ## All Actions:
 
@@ -72,17 +72,17 @@ Banner by ROP#2788 on the [routinehub.co](https://routinehub.co) discord server.
 - [Expand URL (`expandurl`)](actions/expandurl)
 - [Extract Archive (`extractarchive`)](actions/extractarchive)
 - [FaceTime (`facetime`)](actions/facetime)
-- [Filter Articles (`filterarticles`)](actions/filterarticles) (Incomplete)
+- [Filter Articles (`filterarticles`)](actions/filterarticles)
 - [Filter Event Attendees (`filtereventattendees`)](actions/filtereventattendees) (Incomplete)
-- [Filter Files (`filterfiles`)](actions/filterfiles) (Incomplete)
-- [Filter Images (`filterimages`)](actions/filterimages) (Incomplete)
-- [Filter Locations (`filterlocations`)](actions/filterlocations) (Incomplete)
+- [Filter Files (`filterfiles`)](actions/filterfiles)
+- [Filter Images (`filterimages`)](actions/filterimages)
+- [Filter Locations (`filterlocations`)](actions/filterlocations)
 - [Find Calendar Events (`findcalendarevents`)](actions/findcalendarevents) (Incomplete)
-- [Find Contacts (`findcontacts`)](actions/findcontacts) (Incomplete)
+- [Find Contacts (`findcontacts`)](actions/findcontacts)
 - [Find Health Samples (`findhealthsamples`)](actions/findhealthsamples)
-- [Find Music (`findmusic`)](actions/findmusic) (Incomplete)
+- [Find Music (`findmusic`)](actions/findmusic)
 - [Find Notes (`findnotes`)](actions/findnotes) (Incomplete)
-- [Find Photos (`findphotos`)](actions/findphotos) (Incomplete)
+- [Find Photos (`findphotos`)](actions/findphotos)
 - [Find Reminders (`findreminders`)](actions/findreminders) (Incomplete)
 - [Flip Image (`flipimage`)](actions/flipimage)
 - [Format Date (`formatdate`)](actions/formatdate)
@@ -355,7 +355,7 @@ Banner by ROP#2788 on the [routinehub.co](https://routinehub.co) discord server.
 - [x] Complete - 5: WFDictionaryParameter
 - [x] Complete - 5: WFSliderParameter
 - [x] Complete - 7: WFIntentAppPickerParameter
-- [ ] 7: WFFilterParameter
+- [x] Complete - 7: WFFilterParameter
 - [x] Complete - 8: WFLocationFieldParameter
 - [x] Complete - 8: WFExpandingParameter
 - [x] Complete - 10: WFVariablePickerParameter

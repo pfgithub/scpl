@@ -1,20 +1,21 @@
 
 ## Filter Articles / filterarticles (internally `is.workflow.actions.filter.articles`)
 
-> This action is not yet complete. Some arguments may be missing.
-
 
 
 ### usage
 ```
-filterarticles undefined=NotImplemented sortby=("Name" | "Title" | "Published Date" | "Author" | "Number of Words" | "Main Image URL" | "URL" | "Excerpt" | "Random") order=("Oldest First" | "Newest First" | "A to Z" | "Z to A") limit=(true | false | variable) getitems=number
+filterarticles filter=:filter{...} sortby=("Name" | "Title" | "Published Date" | "Author" | "Number of Words" | "Main Image URL" | "URL" | "Excerpt" | "Random") order=("Oldest First" | "Newest First" | "A to Z" | "Z to A") limit=(true | false | variable) getitems=number
 ```
 
 ### arguments
 
 ---
 
-#### This paramtype is not implemented. WFFilterParameter
+### filter: Filter [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#filter-field)
+
+
+Accepts a :filter{} of filters.
 
 ---
 
