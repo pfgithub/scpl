@@ -11,7 +11,7 @@ import { appNames } from "./Data/AppNames";
 
 import actionList from "./Data/Actions";
 
-function genShortName(longName: string, internalName?: string) {
+export function genShortName(longName: string, internalName?: string) {
 	// lower case
 	let shortName = (longName || internalName || "nameless").toLowerCase();
 	// remove special characters
@@ -780,6 +780,32 @@ labels, these can be ignored.`;
 	}
 }
 types.WFExpandingParameter = WFExpandingParameter;
+
+class WFFilterParameter extends WFParameter {
+	constructor(
+		data: any,
+		name = "Filter",
+		docs = "https://pfgithub.github.io/shortcutslang/gettingstarted#filter-field"
+	) {
+		super(data, name, docs);
+		this.allowsVariables = false;
+	}
+	genDocsArgName() {
+		return `:filter{...}`;
+	}
+	genDocs() {
+		return `${super.genDocs()}
+
+Accepts a :filter{} of filters.`;
+	}
+	build(cc: ConvertingContext, parse: AsAble) {
+		if (parse.canBeFilter(cc)) {
+			return parse.asFilter(cc, this._data.ContentItemClass);
+		}
+		throw parse.error(cc, "Filter fields only accept filters (:filter {})");
+	}
+}
+types.WFFilterParameter = WFFilterParameter;
 
 class WFVariableFieldParameter extends WFParameter {
 	constructor(

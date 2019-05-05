@@ -162,7 +162,10 @@ class FilterParse extends Parse {
             if (!filterItem.canBeFilterItem(cc)) {
                 throw filterItem.error(cc, "This item is not a filter item.");
             }
-            filter.add(filterItem.asFilterItem(cc));
+            const addResult = filter.add(filterItem.asFilterItem(cc));
+            if (addResult) {
+                throw filterItem.error(cc, addResult);
+            }
         });
         return filter;
     }
@@ -184,7 +187,7 @@ class FilterItemParse extends Parse {
         if (!this.property.canBeString(cc)) {
             throw this.property.error(cc, "Property must be a string");
         }
-        const property = this.property.asString(cc);
+        const property = ActionData_1.genShortName(this.property.asString(cc));
         if (!Types_1.isAggrandizementPropertyName(property)) {
             throw this.property.error(cc, "Property must be a property name.");
         }
@@ -192,7 +195,7 @@ class FilterItemParse extends Parse {
         if (!this.operator.canBeString(cc)) {
             throw this.property.error(cc, "Operator must be a string");
         }
-        const operator = this.operator.asString(cc);
+        const operator = ActionData_1.genShortName(this.operator.asString(cc));
         if (!GetTypes_1.isComparisonMethod(operator)) {
             throw this.property.error(cc, "Property must be a comparison method.");
         }

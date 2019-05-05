@@ -488,6 +488,16 @@ SetVariable v:MyNamedVariable
 <img src="images/IMG_0083.jpg" />
 </details></div>
 
+### Filter Field
+
+Filter fields
+
+```coffeescript
+FilterFiles :filter{name is "filename"}
+```
+
+| Actions shown | [Filter Files](actions/filterfiles) |
+
 ### Other Fields
 
 There are other fields, most are very similar to similar fields like the Storage Service Picker is very similar to the Enum field.

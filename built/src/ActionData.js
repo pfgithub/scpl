@@ -12,6 +12,7 @@ function genShortName(longName, internalName) {
     shortName = shortName.replace(/[^A-Za-z0-9]/g, "");
     return shortName;
 }
+exports.genShortName = genShortName;
 class WFParameter {
     constructor(data, typeName, docs) {
         this._data = data;
@@ -574,6 +575,27 @@ labels, these can be ignored.`;
     }
 }
 types.WFExpandingParameter = WFExpandingParameter;
+class WFFilterParameter extends WFParameter {
+    constructor(data, name = "Filter", docs = "https://pfgithub.github.io/shortcutslang/gettingstarted#filter-field") {
+        super(data, name, docs);
+        this.allowsVariables = false;
+    }
+    genDocsArgName() {
+        return `:filter{...}`;
+    }
+    genDocs() {
+        return `${super.genDocs()}
+
+Accepts a :filter{} of filters.`;
+    }
+    build(cc, parse) {
+        if (parse.canBeFilter(cc)) {
+            return parse.asFilter(cc, this._data.ContentItemClass);
+        }
+        throw parse.error(cc, "Filter fields only accept filters (:filter {})");
+    }
+}
+types.WFFilterParameter = WFFilterParameter;
 class WFVariableFieldParameter extends WFParameter {
     constructor(data, name = "Variable Input", docs = "https://pfgithub.github.io/shortcutslang/gettingstarted#variable-field") {
         super(data, name, docs);

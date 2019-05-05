@@ -11,7 +11,7 @@ import {
 	ContentItemFilter,
 	ContentItemFilterItem
 } from "./OutputData";
-import { getActionFromName } from "./ActionData";
+import { getActionFromName, genShortName } from "./ActionData";
 import { ConvertingContext } from "./Converter.js";
 import { setVariable, getVariable } from "./HelpfulActions";
 import { Position } from "./Production";
@@ -276,7 +276,10 @@ export class FilterParse extends Parse implements AsFilter {
 			if (!filterItem.canBeFilterItem(cc)) {
 				throw filterItem.error(cc, "This item is not a filter item.");
 			}
-			filter.add(filterItem.asFilterItem(cc));
+			const addResult = filter.add(filterItem.asFilterItem(cc));
+			if (addResult) {
+				throw filterItem.error(cc, addResult);
+			}
 		});
 		return filter;
 	}
@@ -308,7 +311,7 @@ export class FilterItemParse extends Parse implements AsFilterItem {
 		if (!this.property.canBeString(cc)) {
 			throw this.property.error(cc, "Property must be a string");
 		}
-		const property = this.property.asString(cc);
+		const property = genShortName(this.property.asString(cc));
 		if (!isAggrandizementPropertyName(property)) {
 			throw this.property.error(cc, "Property must be a property name.");
 		}
@@ -317,7 +320,7 @@ export class FilterItemParse extends Parse implements AsFilterItem {
 		if (!this.operator.canBeString(cc)) {
 			throw this.property.error(cc, "Operator must be a string");
 		}
-		const operator = this.operator.asString(cc);
+		const operator = genShortName(this.operator.asString(cc));
 		if (!isComparisonMethod(operator)) {
 			throw this.property.error(
 				cc,
