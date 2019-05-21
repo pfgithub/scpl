@@ -9,13 +9,13 @@ title: Getting Started
 
 Shortcutslang tries to be familiar to read and write. To write an action, put the action name with no spaces and a list of arguments in order.
 
-```coffeescript
+```scpleditor
 ActionName "Action" "Arguments"
 ```
 
 For example, the text action is named [Text](actions/text) and has one field, the text inside it.
 
-```coffeescript
+```scpleditor
 Text "This is my text"
 ```
 
@@ -34,7 +34,7 @@ You can convert ScPL to .shortcut on the [tryit page](https://editor.scpl.dev). 
 
 More complex actions have multiple fields
 
-```coffeescript
+```scpleditor
 GetFile "iCloud Drive" true false
 ```
 
@@ -45,7 +45,7 @@ GetFile "iCloud Drive" true false
 
 For these actions, you can put labels to know which field is which.
 
-```coffeescript
+```scpleditor
 GetFile service="iCloud Drive" showdocumentpicker=true selectmultiple=false
 ```
 
@@ -60,7 +60,7 @@ GetFile service="iCloud Drive" showdocumentpicker=true selectmultiple=false
 
 Other actions have blocks, like the [if action](actions/if) and [choose from menu action](actions/choosefrommenu)
 
-```coffeescript
+```scpleditor
 Text "hello"
 If "Equals" "hello"
 	ShowAlert title="Alert!" message="It equals hello"
@@ -84,7 +84,7 @@ Variables are marked with type`:`varname. For example, a named variable called `
 
 Variables can be used directly as a field value to an action or they can be put within strings or barlists (more info below).
 
-```coffeescript
+```scpleditor
 Text mv:MyMagicVariable
 Text "Backslash parenthesis are used to put a variable inside text, like \(v:ThisVariable)."
 ```
@@ -94,7 +94,7 @@ Text "Backslash parenthesis are used to put a variable inside text, like \(v:Thi
 <img src="images/IMG_0064.jpg" />
 </details></div>
 
-```javascript
+```scpleditor
 Text
 | The same is used for \(v:Variables) in barlists.
 ```
@@ -110,7 +110,7 @@ Text
 
 Named variables are set just like how they are in shortcuts, using the [SetVariable](actions/setvariable) action. For example,
 
-```coffeescript
+```scpleditor
 Text "My text"
 SetVariable "MyVariable"
 
@@ -125,7 +125,7 @@ ShowResult "My text is \(v:MyVariable)"
 
 Magic variables are magical and don't require an action to set. Instead you use the `->` arrow set syntax to say that the action is magical.
 
-```coffeescript
+```scpleditor
 Text "My text" -> mv:Magic
 
 # now you can use it
@@ -166,7 +166,7 @@ Many actions have text fields of different sizes. The [Text](actions/text) actio
 
 Text fields can be used with strings and multiline text fields can also be made with barlists
 
-```javascript
+```scpleditor
 Text "This is a text field with a string"
 
 Text
@@ -183,7 +183,7 @@ Text
 
 Some text fields do not allow variables, such as the [Comment](actions/comment) action.
 
-```javascript
+```scpleditor
 Comment
 | This text field does not allow variables
 ```
@@ -193,7 +193,7 @@ Comment
 <img src="images/IMG_0069.jpg" />
 </details></div>
 
-```coffeescript
+```scpleditor
 Comment
 | \(v:Variable) # Not Allowed
 ```
@@ -209,7 +209,7 @@ This shortcut fails to convert
 
 An Enum Field has a list of options to choose from, such as the Condition field in [if](actions/if) or the operator field in [calculate](actions/calculate).
 
-```coffeescript
+```scpleditor
 Calculate "+" 1
 ```
 
@@ -222,7 +222,7 @@ If you enter a value that is not allowed, shortcutslang will throw an error. Unl
 
 Some enum fields allow variables, and some do not.
 
-```coffeescript
+```scpleditor
 Calculate v:Operand 3
 ```
 
@@ -241,7 +241,7 @@ Enum fields cannot have mixed text and variables, so `"\(v:Not) Equals"` is neve
 
 Number fields accept a number.
 
-```coffeescript
+```scpleditor
 Number 16
 Number 29.5
 Number -924
@@ -256,7 +256,7 @@ Number -.2
 
 Similar to Enum fields, Number fields cannot have mixed text and variables.
 
-```coffeescript
+```scpleditor
 Number v:MyVariable
 ```
 
@@ -265,7 +265,7 @@ Number v:MyVariable
 <img src="images/IMG_0073.jpg" />
 </details></div>
 
-```coffeescript
+```scpleditor
 Number "-\(v:MyVariable)" # Not Allowed
 ```
 
@@ -280,7 +280,7 @@ This shortcut fails to convert
 
 Stepper number fields are like number fields but can only have positive integer numbers (no decimals)
 
-```coffeescript
+```scpleditor
 Repeat 5
   ShowResult "Hi"
 End Repeat
@@ -291,7 +291,7 @@ End Repeat
 <img src="images/IMG_0074.jpg" />
 </details></div>
 
-```coffeescript
+```scpleditor
 Repeat 5.5 # Not allowed
   ShowResult "Hi"
 End Repeat
@@ -308,7 +308,7 @@ This shortcut fails to convert
 
 Slider number fields are like number fields but can only have numbers from 0 to 1
 
-```coffeescript
+```scpleditor
 SetBrightness 0.5
 ```
 
@@ -317,7 +317,7 @@ SetBrightness 0.5
 <img src="images/IMG_0075.jpg" />
 </details></div>
 
-```coffeescript
+```scpleditor
 SetBrightness 1.1 # Not Allowed
 ```
 
@@ -332,7 +332,7 @@ This shortcut fails to convert
 
 Variable picker fields can have a variable.
 
-```coffeescript
+```scpleditor
 GetVariable v:MyVariable
 ```
 
@@ -341,7 +341,7 @@ GetVariable v:MyVariable
 <img src="images/IMG_0076.jpg" />
 </details></div>
 
-```coffeescript
+```scpleditor
 GetVariable "MyVariable" # Not Allowed
 ```
 
@@ -356,7 +356,7 @@ This shortcut fails to convert
 
 Switch fields can have a true or false value. True is on and false is off.
 
-```coffeescript
+```scpleditor
 SetWifi true
 SetAirplaneMode false
 ```
@@ -366,7 +366,7 @@ SetAirplaneMode false
 <img src="images/IMG_0077.jpg" />
 </details></div>
 
-```coffeescript
+```scpleditor
 SetWifi yes # Not Allowed, must be true or false
 SetAirplaneMode no # Not Allowed, must be true or false
 ```
@@ -378,7 +378,7 @@ This shortcut fails to convert
 
 Some switch fields allow variables
 
-```coffeescript
+```scpleditor
 SetWifi v:Wifi
 ```
 
@@ -393,7 +393,7 @@ SetWifi v:Wifi
 
 Dictionary fields are written like JSON
 
-```coffeescript
+```scpleditor
 Dictionary{
 	"key": "value",
 	"variable": v:myVariable,
@@ -409,7 +409,7 @@ Dictionary{
 
 Quotes and commas are not required and `=` can be used instead of `:` if wanted
 
-```coffeescript
+```scpleditor
 Dictionary{
 	key = value
 	variable = v:myVariable
@@ -429,7 +429,7 @@ Dictionary{
 
 Lists can be made using json-like `[]` syntax.
 
-```coffeescript
+```scpleditor
 ChooseFromMenu "Pick an item" ["item 1", "item 2"]
 case 1
 case 2
@@ -445,7 +445,7 @@ Even though the cases are blank the shortcut functions properly.
 
 Similar to dictionaries, lists do not require commas and can span over multiple lines
 
-```coffeescript
+```scpleditor
 ChooseFromMenu "Pick an item" [
 	"item 1"
 	"item 2"
@@ -464,7 +464,7 @@ Even though the cases are blank the shortcut functions properly.
 
 Lists can also be made using barlists.
 
-```javascript
+```scpleditor
 List
 | My First Item
 | My Second Item
@@ -497,7 +497,7 @@ SetVariable v:MyNamedVariable
 
 Filter fields
 
-```coffeescript
+```scpleditor
 FilterFiles :filter{name is "filename"}
 ```
 
@@ -515,7 +515,7 @@ Shortcutslang has some more advanced features to make working on large shortcuts
 
 You can put an action inside of a text field or any other field that accepts variable
 
-```coffeescript
+```scpleditor
 Text "My number is \(Number -2.5)"
 ```
 
@@ -526,7 +526,7 @@ Text "My number is \(Number -2.5)"
 
 This code is equivalent to
 
-```coffeescript
+```scpleditor
 Number -2.5 -> mv:InsideParenthesis
 Text "My number is \(mv:InsideParenthesis)"
 ```
@@ -540,7 +540,7 @@ None of these magic variables actually get a name, they just directly reference 
 
 You can even use actions inside other actions this without disrupting the action input
 
-```coffeescript
+```scpleditor
 Text "Hello"
 If Equals (Text "Goodbye")
 	ShowResult "If the action input was disrupted, this would run"
@@ -556,7 +556,7 @@ End If
 
 is equivalent to writing out
 
-```coffeescript
+```scpleditor
 Text "Hello" -> mv:OriginalInput
 Text "Goodbye" -> mv:ArgumentValue
 GetVariable mv:OriginalInput
@@ -578,7 +578,7 @@ End If
 
 Sometimes you want to disrupt the input, you can use an InputArg
 
-```coffeescript
+```scpleditor
 Text "Some text"
 QuickLook ^(Text "Different text")
 ```
@@ -590,7 +590,7 @@ QuickLook ^(Text "Different text")
 
 is the same as
 
-```coffeescript
+```scpleditor
 Text "Some text"
 Text "Different text"
 QuickLook
@@ -607,7 +607,7 @@ QuickLook
 
 When you tap a variable in Shortcuts, a menu pops up containing different actions. Those are called Aggrandizements.
 
-```coffeescript
+```scpleditor
 GetVariable v:MyVariable{as:Dictionary,key:myKey}
 GetVariable v:MyContact{as:Contact,get:Notes}
 ```
@@ -625,7 +625,7 @@ Currently, 3 aggrandizements are supported:
 
 The key: aggrandizement is used very often in conjunction with the as: Dictionary aggrandizement. Instead of writing that out every time, there is a shortcut for it
 
-```coffeescript
+```scpleditor
 GetVariable v:MyDictionary:myKey
 ```
 
@@ -636,7 +636,7 @@ GetVariable v:MyDictionary:myKey
 
 is the same as
 
-```coffeescript
+```scpleditor
 GetVariable v:MyDictionary{as:Dictionary,key:myKey}
 ```
 
@@ -651,7 +651,7 @@ GetVariable v:MyDictionary{as:Dictionary,key:myKey}
 
 `->` can be used to set more than just magic variables, it can also automatically make SetVariable actions.
 
-```coffeescript
+```scpleditor
 Text "My Text" -> v:MyNamedVariable
 ```
 
@@ -662,7 +662,7 @@ Text "My Text" -> v:MyNamedVariable
 
 is equivalent to writing
 
-```coffeescript
+```scpleditor
 Text "My Text"
 SetVariable v:MyNamedVariable
 ```
@@ -674,7 +674,7 @@ SetVariable v:MyNamedVariable
 
 If you prefer, you can set variables before an action instead of after
 
-```coffeescript
+```scpleditor
 mv:WowMagic = Text "My Text"
 ```
 
@@ -685,7 +685,7 @@ mv:WowMagic = Text "My Text"
 
 is exactly the same as using an arrow, except it's in the format `mv:variable = action`
 
-```coffeescript
+```scpleditor
 Text "My Text" -> mv:WowMagic
 ```
 
@@ -700,7 +700,7 @@ Text "My Text" -> mv:WowMagic
 
 Actions can usually only take up one line of text, unless you use a barlist. If you have many different arguments, it can be helpful to have actions span multiple lines. You can use an arglist for this.
 
-```coffeescript
+```scpleditor
 getfile a{
   service="iCloud Drive"
   showdocumentpicker=false
