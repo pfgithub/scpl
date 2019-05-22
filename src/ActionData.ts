@@ -346,10 +346,18 @@ ${this.genDocsParams()
 `;
 	}
 	genDocsUsage() {
+		const docsParams = this.genDocsParams();
+		let paramUsage;
+
+		if (docsParams.length === 1) {
+			paramUsage = docsParams[0].argType;
+		} else {
+			paramUsage = docsParams
+				.map(({ argName, argType }) => `${argName}=${argType}`)
+				.join(" ");
+		}
 		return `\`\`\`
-${this.readableName} ${this.genDocsParams()
-			.map(({ argName, argType }) => `${argName}=${argType}`)
-			.join(" ")}${
+${this.readableName} ${paramUsage}${
 			this._data.BlockInfo ? this._data.BlockInfo.Example : ""
 		}
 \`\`\``;
