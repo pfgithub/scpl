@@ -11,9 +11,16 @@ import { appNames } from "./Data/AppNames";
 
 import actionList from "./Data/Actions";
 
-export function genShortName(longName: string, internalName?: string) {
+export function genShortName(
+	longName: string,
+	internalName?: string,
+	allowUppercase?: boolean
+) {
+	let shortName = longName || internalName || "nameless";
 	// lower case
-	let shortName = (longName || internalName || "nameless").toLowerCase();
+	if (!allowUppercase) {
+		shortName = (longName || internalName || "nameless").toLowerCase();
+	}
 	// remove special characters
 	shortName = shortName.replace(/[^A-Za-z0-9]/g, "");
 	return shortName;
@@ -256,6 +263,7 @@ export class WFAction {
 	internalName: string;
 	shortName: string;
 	name: string;
+	readableName: string;
 
 	constructor(data: any, id: string) {
 		//
@@ -270,6 +278,7 @@ export class WFAction {
 			this.name += ` (${data.AppInfo})`;
 		}
 		this.shortName = genShortName(this.name, this.internalName);
+		this.readableName = genShortName(this.name, this.internalName, true);
 		this.name = this.name || this.shortName;
 		const parameterNames: { [key: string]: true | undefined } = {};
 		if (this._data.Parameters) {
