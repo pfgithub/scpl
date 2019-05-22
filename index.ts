@@ -1,6 +1,7 @@
 import parser from "./src/ShortcutsParser";
+import { ParseResult } from "./src/Production";
 import * as bplistc from "bplist-creator";
-import { PositionedError, AsAble } from "./src/ParserData";
+import { PositionedError, AsAble, ActionsParse } from "./src/ParserData";
 import { ConvertingContext } from "./src/Converter";
 import { Shortcut, WFShortcut } from "./src/OutputData";
 import { InverseConvertingContext } from "./src/InverseConvertingContext";
@@ -26,7 +27,19 @@ export function parse(
 		};
 	}
 ) {
-	const parsed = parser.parse(string, [1, 1]);
+	let parsed: ParseResult;
+	try {
+		parsed = parser.parse(string, [1, 1]);
+	} catch (er) {
+		if (er instanceof PositionedError) {
+			throw er;
+		}
+		throw new PositionedError(
+			`Error somewhere: ${er.toString()}`,
+			[1, 1],
+			[100, 1]
+		);
+	}
 	if (!parsed.success) {
 		throw new PositionedError("Failed to parse anything", [1, 1], [100, 1]);
 	}
@@ -45,7 +58,9 @@ export function parse(
 
 	let shortcut;
 	try {
-		shortcut = parsed.data.asShortcut(options.extraParseActions);
+		shortcut = (<ActionsParse>parsed.data).asShortcut(
+			options.extraParseActions
+		);
 	} catch (er) {
 		if (er instanceof PositionedError) {
 			throw er;

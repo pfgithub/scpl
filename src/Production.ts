@@ -1,7 +1,9 @@
 let totalSteps = 0;
 let began: Date;
 
-export type ProductionResolveable = Production | { getProd: () => Production };
+export type ProductionResolveable =
+	| Production
+	| { getProd: () => Production; name: string };
 export type Position = [number, number];
 export type ParseResult =
 	| { success: false }

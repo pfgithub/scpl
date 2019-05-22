@@ -17,20 +17,6 @@ import {
 	FilterParse
 } from "./ParserData.js";
 
-import {
-	CoercionTypeClass,
-	isAggrandizementPropertyName,
-	AggrandizementPropertyRawName,
-	AggrandizementPropertyName
-} from "./WFTypes/Types";
-
-import getTypes, {
-	ComparisonName,
-	isComparisonMethod,
-	ComparisonWFValue,
-	comparisonMethodsMap
-} from "./Data/GetTypes";
-
 import { p, regex, star, plus, optional, or, c, o } from "./ParserHelper.js";
 
 // THINGS TO NOTE:

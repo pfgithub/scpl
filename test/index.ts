@@ -3,6 +3,7 @@ import { Action, Shortcut } from "../src/OutputData";
 import { parse, inverse } from "../index";
 import * as fs from "fs";
 import { InverseConvertingContext } from "../src/InverseConvertingContext";
+import { PositionedError } from "../src/ParserData";
 // import * as path from "path";
 
 import * as sampleshortcutdata from "./sampleshortcut.json";
@@ -609,6 +610,12 @@ test("open app action", t => {
 
 test("open app fails with invalid app name", t => {
 	t.throws(() => parse(`openapp myfavoriteapp`, { makePlist: false }));
+});
+
+test("multiple arrows throws a PositionedError", t => {
+t.throws(() => parse(`v:a = text "hello" -> v:a`, { makePlist: false }), PositionedError);
+	t.throws(() => parse(`text "hello" -> v:a -> v:b`, { makePlist: false }), PositionedError);
+		t.throws(() => parse(`v:a = v:b = text "hello"`, { makePlist: false }), PositionedError);
 });
 
 test("get details of * actions", t => {

@@ -23,19 +23,22 @@ export const or = (...args: Array<ProductionResolveable>): Production =>
 export const c = (str: string | TemplateStringsArray): Production =>
 	new StringProduction(`${str}`);
 
-const _realo: { [name: string]: ProductionResolveable } = {}; // todon't make this a proxy such that accessing o.a returns a {getProd:} might be interesting maybe
+const _realo: { [name: string]: Production } = {}; // todon't make this a proxy such that accessing o.a returns a {getProd:} might be interesting maybe
 
-const t = (str: string) => ({ getProd: () => _realo[`${str}`] }); // ...
+const t = (str: string): ProductionResolveable => ({
+	getProd: () => _realo[`${str}`],
+	name: str
+}); // ...
 
 export const o: { [name: string]: ProductionResolveable } = new Proxy(_realo, {
-	get: (_target, prop, _reciever) => {
-		// @ts-ignore
-		if (_realo[prop] === undefined) {
-			// @ts-ignore
-			return t(prop);
+	get: (_target, prop, _reciever): ProductionResolveable => {
+		if (typeof prop === "string") {
+			if (_realo[prop] === undefined) {
+				return t(prop);
+			}
+			return _realo[prop];
 		}
-		// @ts-ignore
-		return _realo[prop];
+		return Reflect.get(_target, prop, _reciever);
 	},
 	set: (obj, prop, value) => {
 		if (value instanceof Production && typeof prop === "string") {
