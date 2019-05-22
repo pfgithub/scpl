@@ -1,5 +1,5 @@
 
-## Append to Note (Evernote) / appendtonoteevernote (internally `is.workflow.actions.evernote.append`)
+## Append to Note (Evernote) / AppendtoNoteEvernote (internally `is.workflow.actions.evernote.append`)
 
 > This action requires that Shortcuts has permission to use WFEvernoteAccessResource.
 
@@ -18,14 +18,14 @@ The content to add to your note
 
 ### usage
 ```
-appendtonoteevernote notetitle="string" mode=("Append" | "Prepend") innotebook=("string" | variable)]
+AppendtoNoteEvernote NoteTitle="string" Mode=("Append" | "Prepend") InNotebook=("string" | variable)]
 ```
 
 ### arguments
 
 ---
 
-### notetitle: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### NoteTitle: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"example note"`
 **Allows Variables**: true
 
@@ -37,7 +37,7 @@ with the text.
 
 ---
 
-### mode: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### Mode: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Append"`
 **Allows Variables**: true
 
@@ -52,7 +52,7 @@ containing one of the options:
 
 ---
 
-### innotebook: Evernote Notebook Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### InNotebook: Evernote Notebook Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Allows Variables**: true
 
 

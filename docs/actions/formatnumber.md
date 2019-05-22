@@ -1,5 +1,5 @@
 
-## Format Number / formatnumber (internally `is.workflow.actions.format.number`)
+## Format Number / FormatNumber (internally `is.workflow.actions.format.number`)
 
 
 ## description
@@ -11,14 +11,14 @@ Formats a number into text.
 
 ### usage
 ```
-formatnumber wfnumberformatdecimalplaces=number
+FormatNumber number
 ```
 
 ### arguments
 
 ---
 
-### wfnumberformatdecimalplaces: Stepper Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
+### WFNumberFormatDecimalPlaces: Stepper Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
 **Default Value**: `2`
 **Allows Variables**: true
 

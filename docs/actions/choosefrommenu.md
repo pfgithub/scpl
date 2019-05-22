@@ -1,5 +1,5 @@
 
-## Choose from Menu / choosefrommenu (internally `is.workflow.actions.choosefrommenu`)
+## Choose from Menu / ChoosefromMenu (internally `is.workflow.actions.choosefrommenu`)
 
 > This action requires that Shortcuts has permission to use WFUserInteractionResource.
 
@@ -15,7 +15,7 @@ Presents a menu and runs different actions based on which menu item was chosen.
 
 ### usage
 ```
-choosefrommenu prompt="string" items=[list, items]
+ChoosefromMenu Prompt="string" Items=[list, items]
 case
   ...
 case
@@ -27,7 +27,7 @@ end
 
 ---
 
-### prompt: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### Prompt: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"optional"`
 **Allows Variables**: true
 
@@ -39,7 +39,7 @@ with the text.
 
 ---
 
-### items: undefined [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#list-field)
+### Items: undefined [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#list-field)
 **Default Value**: ```
 		One,Two
 		```

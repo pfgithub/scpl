@@ -1,5 +1,5 @@
 
-## Set Do Not Disturb / setdonotdisturb (internally `is.workflow.actions.dnd.set`)
+## Set Do Not Disturb / SetDoNotDisturb (internally `is.workflow.actions.dnd.set`)
 
 
 ## description
@@ -11,14 +11,14 @@ Sets the device’s Do Not Disturb to on or off
 
 ### usage
 ```
-setdonotdisturb donotdisturb=(true | false | variable) until=("Turned Off" | "Time" | "I Leave" | "Event Ends") event=(v:myvar | mv:myvar | s:myvar) time="string"
+SetDoNotDisturb DoNotDisturb=(true | false | variable) Until=("Turned Off" | "Time" | "I Leave" | "Event Ends") Event=(v:myvar | mv:myvar | s:myvar) Time="string"
 ```
 
 ### arguments
 
 ---
 
-### donotdisturb: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### DoNotDisturb: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 
@@ -28,7 +28,7 @@ or a variable.
 
 ---
 
-### until: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### Until: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Turned Off"`
 **Allows Variables**: true
 
@@ -47,7 +47,7 @@ containing one of the options:
 
 ---
 
-### event: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+### Event: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
 **Allows Variables**: true
 
 **Only enabled if**: argument Enabled == `true`
@@ -60,7 +60,7 @@ Accepts a variable.
 
 ---
 
-### time: Date [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### Time: Date [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"7 PM"`
 **Allows Variables**: true
 

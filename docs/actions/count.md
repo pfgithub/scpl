@@ -1,5 +1,5 @@
 
-## Count / count (internally `is.workflow.actions.count`)
+## Count / Count (internally `is.workflow.actions.count`)
 
 
 ## description
@@ -16,14 +16,14 @@ This is just like the Count in Sesame Street, but instead of a vampire, it's a S
 
 ### usage
 ```
-count count=("Items" | "Characters" | "Words" | "Sentences" | "Lines")
+Count ("Items" | "Characters" | "Words" | "Sentences" | "Lines")
 ```
 
 ### arguments
 
 ---
 
-### count: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### Count: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Allows Variables**: true
 
 

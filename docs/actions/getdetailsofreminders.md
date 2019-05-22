@@ -1,5 +1,5 @@
 
-## Get Details of Reminders / getdetailsofreminders (internally `is.workflow.actions.properties.reminders`)
+## Get Details of Reminders / GetDetailsofReminders (internally `is.workflow.actions.properties.reminders`)
 
 > This action is not yet complete. Some arguments may be missing.
 
@@ -7,7 +7,7 @@
 
 ### usage
 ```
-getdetailsofreminders undefined=NotImplemented
+GetDetailsofReminders NotImplemented
 ```
 
 ### arguments

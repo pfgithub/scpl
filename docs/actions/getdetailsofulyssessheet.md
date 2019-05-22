@@ -1,5 +1,5 @@
 
-## Get Details of Ulysses Sheet / getdetailsofulyssessheet (internally `is.workflow.actions.properties.ulysses.sheet`)
+## Get Details of Ulysses Sheet / GetDetailsofUlyssesSheet (internally `is.workflow.actions.properties.ulysses.sheet`)
 
 > This action is not yet complete. Some arguments may be missing.
 
@@ -7,7 +7,7 @@
 
 ### usage
 ```
-getdetailsofulyssessheet undefined=NotImplemented
+GetDetailsofUlyssesSheet NotImplemented
 ```
 
 ### arguments

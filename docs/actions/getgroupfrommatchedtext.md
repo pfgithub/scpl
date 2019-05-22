@@ -1,5 +1,5 @@
 
-## Get Group from Matched Text / getgroupfrommatchedtext (internally `is.workflow.actions.text.match.getgroup`)
+## Get Group from Matched Text / GetGroupfromMatchedText (internally `is.workflow.actions.text.match.getgroup`)
 
 
 ## description
@@ -11,14 +11,14 @@ Gets the text that matched a particular capture group or all of the capture grou
 
 ### usage
 ```
-getgroupfrommatchedtext get=("Group At Index" | "All Groups") groupindex=number
+GetGroupfromMatchedText Get=("Group At Index" | "All Groups") GroupIndex=number
 ```
 
 ### arguments
 
 ---
 
-### get: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### Get: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Group At Index"`
 **Allows Variables**: true
 
@@ -33,7 +33,7 @@ containing one of the options:
 
 ---
 
-### groupindex: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+### GroupIndex: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**: `1`
 **Default Value**: `1`
 **Allows Variables**: true

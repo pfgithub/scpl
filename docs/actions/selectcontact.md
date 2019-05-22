@@ -1,5 +1,5 @@
 
-## Select Contact / selectcontact (internally `is.workflow.actions.selectcontacts`)
+## Select Contact / SelectContact (internally `is.workflow.actions.selectcontacts`)
 
 > This action requires that Shortcuts has permission to use WFUserInteractionResource,WFContactAccessResource.
 
@@ -13,14 +13,14 @@ Prompts to pick a person from your contacts and passes the selection to the next
 
 ### usage
 ```
-selectcontact selectmultiple=(true | false | variable)
+SelectContact (true | false | variable)
 ```
 
 ### arguments
 
 ---
 
-### selectmultiple: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### SelectMultiple: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 

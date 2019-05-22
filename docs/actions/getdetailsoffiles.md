@@ -1,18 +1,18 @@
 
-## Get Details of Files / getdetailsoffiles (internally `is.workflow.actions.properties.files`)
+## Get Details of Files / GetDetailsofFiles (internally `is.workflow.actions.properties.files`)
 
 
 
 ### usage
 ```
-getdetailsoffiles get=("Creation Date" | "File Size" | "File Extension" | "Last Modified Date" | "Name")
+GetDetailsofFiles ("Creation Date" | "File Size" | "File Extension" | "Last Modified Date" | "Name")
 ```
 
 ### arguments
 
 ---
 
-### get: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### Get: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Allows Variables**: true
 
 

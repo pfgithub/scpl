@@ -1,5 +1,5 @@
 
-## Add to Pinboard / addtopinboard (internally `is.workflow.actions.pinboard.add`)
+## Add to Pinboard / AddtoPinboard (internally `is.workflow.actions.pinboard.add`)
 
 > This action requires that Shortcuts has permission to use WFPinboardAccessResource.
 
@@ -13,14 +13,14 @@ Adds the URL passed into the action to your Pinboard.
 
 ### usage
 ```
-addtopinboard title="string" tags="string" public=(true | false | variable) unread=(true | false | variable) description="string"
+AddtoPinboard Title="string" Tags="string" Public=(true | false | variable) Unread=(true | false | variable) Description="string"
 ```
 
 ### arguments
 
 ---
 
-### title: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### Title: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"optional"`
 **Allows Variables**: true
 
@@ -32,7 +32,7 @@ with the text.
 
 ---
 
-### tags: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### Tags: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"apple longread"`
 **Allows Variables**: true
 
@@ -44,7 +44,7 @@ with the text.
 
 ---
 
-### public: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### Public: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Default Value**: ```
 		true
 		```
@@ -57,7 +57,7 @@ or a variable.
 
 ---
 
-### unread: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### Unread: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Default Value**: ```
 		true
 		```
@@ -70,7 +70,7 @@ or a variable.
 
 ---
 
-### description: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### Description: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"Description"`
 **Allows Variables**: true
 

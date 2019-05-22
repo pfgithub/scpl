@@ -1,5 +1,5 @@
 
-## Set Cellular Data / setcellulardata (internally `is.workflow.actions.cellulardata.set`)
+## Set Cellular Data / SetCellularData (internally `is.workflow.actions.cellulardata.set`)
 
 > This action requires that Shortcuts has permission to use WFSiriAccessResource.
 
@@ -13,14 +13,14 @@ Sets the device’s Cellular Data to on or off.
 
 ### usage
 ```
-setcellulardata cellulardata=(true | false | variable)
+SetCellularData (true | false | variable)
 ```
 
 ### arguments
 
 ---
 
-### cellulardata: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### CellularData: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Default Value**: ```
 		true
 		```

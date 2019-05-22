@@ -1,5 +1,5 @@
 
-## Get Weather Forecast / getweatherforecast (internally `is.workflow.actions.weather.forecast`)
+## Get Weather Forecast / GetWeatherForecast (internally `is.workflow.actions.weather.forecast`)
 
 > This action requires that Shortcuts has permission to use WFWeatherAttributionAccessResource,WFLocationAccessResource.
 
@@ -13,14 +13,14 @@ Gets an hourly or daily weather forecast at the specified location.
 
 ### usage
 ```
-getweatherforecast at=("Current Location" | "Custom Location" | variable) location="string" type=("Hourly" | "Daily")
+GetWeatherForecast At=("Current Location" | "Custom Location" | variable) Location="string" Type=("Hourly" | "Daily")
 ```
 
 ### arguments
 
 ---
 
-### at: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### At: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Current Location"`
 
 
@@ -32,7 +32,7 @@ containing one of the options:
 
 ---
 
-### location: Location [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### Location: Location [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"Cupertino, CA"`
 **Allows Variables**: true
 
@@ -44,7 +44,7 @@ with the text.
 
 ---
 
-### type: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### Type: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Daily"`
 **Allows Variables**: true
 

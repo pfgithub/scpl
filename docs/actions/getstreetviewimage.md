@@ -1,5 +1,5 @@
 
-## Get Street View Image / getstreetviewimage (internally `is.workflow.actions.streetview.image`)
+## Get Street View Image / GetStreetViewImage (internally `is.workflow.actions.streetview.image`)
 
 > This action requires that Shortcuts has permission to use [object Object].
 
@@ -13,7 +13,7 @@ Gets photos of the locations passed as input, using Google Street View.
 
 ### usage
 ```
-getstreetviewimage 
+GetStreetViewImage 
 ```
 
 ### arguments

@@ -1,5 +1,5 @@
 
-## Change Case / changecase (internally `is.workflow.actions.text.changecase`)
+## Change Case / ChangeCase (internally `is.workflow.actions.text.changecase`)
 
 
 ## description
@@ -11,14 +11,14 @@ Changes the case of the text passed into the action to UPPERCASE, lowercase, or 
 
 ### usage
 ```
-changecase case=("UPPERCASE" | "lowercase" | "Capitalize Every Word" | "Capitalize with Title Case" | "Capitalize with sentence case." | "cApItAlIzE wItH aLtErNaTiNg CaSe.")
+ChangeCase ("UPPERCASE" | "lowercase" | "Capitalize Every Word" | "Capitalize with Title Case" | "Capitalize with sentence case." | "cApItAlIzE wItH aLtErNaTiNg CaSe.")
 ```
 
 ### arguments
 
 ---
 
-### case: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### Case: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"UPPERCASE"`
 **Allows Variables**: true
 

@@ -1,5 +1,5 @@
 
-## Copy to Clipboard / copytoclipboard (internally `is.workflow.actions.setclipboard`)
+## Copy to Clipboard / CopytoClipboard (internally `is.workflow.actions.setclipboard`)
 
 > This action requires that Shortcuts has permission to use WFMainThreadResource.
 
@@ -13,14 +13,14 @@ Copies the result of the last action to the clipboard.
 
 ### usage
 ```
-copytoclipboard localonly=(true | false | variable) expireat="string"
+CopytoClipboard LocalOnly=(true | false | variable) ExpireAt="string"
 ```
 
 ### arguments
 
 ---
 
-### localonly: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### LocalOnly: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 
@@ -30,7 +30,7 @@ or a variable.
 
 ---
 
-### expireat: Date [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### ExpireAt: Date [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"Today at 3 PM"`
 **Allows Variables**: true
 

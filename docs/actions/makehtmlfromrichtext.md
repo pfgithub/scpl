@@ -1,5 +1,5 @@
 
-## Make HTML from Rich Text / makehtmlfromrichtext (internally `is.workflow.actions.gethtmlfromrichtext`)
+## Make HTML from Rich Text / MakeHTMLfromRichText (internally `is.workflow.actions.gethtmlfromrichtext`)
 
 
 ## description
@@ -15,14 +15,14 @@ HTML
 
 ### usage
 ```
-makehtmlfromrichtext makefulldocument=(true | false | variable)
+MakeHTMLfromRichText (true | false | variable)
 ```
 
 ### arguments
 
 ---
 
-### makefulldocument: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### MakeFullDocument: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 

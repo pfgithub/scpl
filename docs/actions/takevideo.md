@@ -1,5 +1,5 @@
 
-## Take Video / takevideo (internally `is.workflow.actions.takevideo`)
+## Take Video / TakeVideo (internally `is.workflow.actions.takevideo`)
 
 > This action requires that Shortcuts has permission to use WFUserInteractionResource,WFCameraAccessResource.
 
@@ -17,14 +17,14 @@ Video from the camera.
 
 ### usage
 ```
-takevideo camera=("Front" | "Back") quality=("Low" | "Medium" | "High") startrecording=("On Tap" | "Immediately")
+TakeVideo Camera=("Front" | "Back") Quality=("Low" | "Medium" | "High") StartRecording=("On Tap" | "Immediately")
 ```
 
 ### arguments
 
 ---
 
-### camera: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### Camera: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Back"`
 **Allows Variables**: true
 
@@ -39,7 +39,7 @@ containing one of the options:
 
 ---
 
-### quality: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### Quality: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Medium"`
 **Allows Variables**: true
 
@@ -55,7 +55,7 @@ containing one of the options:
 
 ---
 
-### startrecording: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### StartRecording: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Immediately"`
 **Allows Variables**: true
 

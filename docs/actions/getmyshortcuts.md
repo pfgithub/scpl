@@ -1,5 +1,5 @@
 
-## Get My Shortcuts / getmyshortcuts (internally `is.workflow.actions.getmyworkflows`)
+## Get My Shortcuts / GetMyShortcuts (internally `is.workflow.actions.getmyworkflows`)
 
 
 ## description
@@ -11,7 +11,7 @@ Gets the shortcuts stored on this device. For example, you could use this action
 
 ### usage
 ```
-getmyshortcuts 
+GetMyShortcuts 
 ```
 
 ### arguments

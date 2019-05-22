@@ -1,5 +1,5 @@
 
-## Get Name / getname (internally `is.workflow.actions.getitemname`)
+## Get Name / GetName (internally `is.workflow.actions.getitemname`)
 
 
 ## description
@@ -11,7 +11,7 @@ Returns the name of every item passed as input. Depending on the input, this cou
 
 ### usage
 ```
-getname 
+GetName 
 ```
 
 ### arguments

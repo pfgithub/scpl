@@ -1,5 +1,5 @@
 
-## Run Home Scene / runhomescene (internally `is.workflow.actions.runscene`)
+## Run Home Scene / RunHomeScene (internally `is.workflow.actions.runscene`)
 
 > This action is not yet complete. Some arguments may be missing.
 
@@ -15,7 +15,7 @@ Sets a Home scene.
 
 ### usage
 ```
-runhomescene undefined=NotImplemented undefined=NotImplemented
+RunHomeScene undefined=NotImplemented undefined=NotImplemented
 ```
 
 ### arguments

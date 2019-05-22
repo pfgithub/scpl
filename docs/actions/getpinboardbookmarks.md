@@ -1,5 +1,5 @@
 
-## Get Pinboard Bookmarks / getpinboardbookmarks (internally `is.workflow.actions.pinboard.get`)
+## Get Pinboard Bookmarks / GetPinboardBookmarks (internally `is.workflow.actions.pinboard.get`)
 
 > This action requires that Shortcuts has permission to use WFPinboardAccessResource.
 
@@ -13,14 +13,14 @@ Gets bookmarks in your Pinboard account.
 
 ### usage
 ```
-getpinboardbookmarks tags="string" wfbookmarkcount=number
+GetPinboardBookmarks Tags="string" WFBookmarkCount=number
 ```
 
 ### arguments
 
 ---
 
-### tags: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### Tags: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"apple longread"`
 **Allows Variables**: true
 
@@ -32,7 +32,7 @@ with the text.
 
 ---
 
-### wfbookmarkcount: Stepper Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
+### WFBookmarkCount: Stepper Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
 **Default Value**: `5`
 **Allows Variables**: true
 

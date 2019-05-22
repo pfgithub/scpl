@@ -1,5 +1,5 @@
 
-## Scan QR/Bar Code / scanqrbarcode (internally `is.workflow.actions.scanbarcode`)
+## Scan QR/Bar Code / ScanQRBarCode (internally `is.workflow.actions.scanbarcode`)
 
 > This action requires that Shortcuts has permission to use WFUserInteractionResource,WFCameraAccessResource.
 
@@ -13,7 +13,7 @@ Scans a QR code or bar code using the camera, and returns the text/URL that is f
 
 ### usage
 ```
-scanqrbarcode 
+ScanQRBarCode 
 ```
 
 ### arguments

@@ -1,5 +1,5 @@
 
-## Get Dictionary Value / getdictionaryvalue (internally `is.workflow.actions.getvalueforkey`)
+## Get Dictionary Value / GetDictionaryValue (internally `is.workflow.actions.getvalueforkey`)
 
 
 ## description
@@ -16,14 +16,14 @@ You can reference values deep inside of a dictionary by providing multiple keys 
 
 ### usage
 ```
-getdictionaryvalue get=("Value" | "All Keys" | "All Values" | variable) key="string"
+GetDictionaryValue Get=("Value" | "All Keys" | "All Values" | variable) Key="string"
 ```
 
 ### arguments
 
 ---
 
-### get: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### Get: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Value"`
 
 
@@ -36,7 +36,7 @@ containing one of the options:
 
 ---
 
-### key: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### Key: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"example"`
 **Allows Variables**: true
 

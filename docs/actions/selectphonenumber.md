@@ -1,5 +1,5 @@
 
-## Select Phone Number / selectphonenumber (internally `is.workflow.actions.selectphone`)
+## Select Phone Number / SelectPhoneNumber (internally `is.workflow.actions.selectphone`)
 
 > This action requires that Shortcuts has permission to use WFUserInteractionResource,WFContactAccessResource.
 
@@ -13,7 +13,7 @@ Prompts to pick a phone number from your contacts and passes the selection to th
 
 ### usage
 ```
-selectphonenumber 
+SelectPhoneNumber 
 ```
 
 ### arguments

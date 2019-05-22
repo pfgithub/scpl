@@ -1,5 +1,5 @@
 
-## Get Travel Time / gettraveltime (internally `is.workflow.actions.gettraveltime`)
+## Get Travel Time / GetTravelTime (internally `is.workflow.actions.gettraveltime`)
 
 > This action requires that Shortcuts has permission to use WFMainThreadResource,WFLocationAccessResource.
 
@@ -27,14 +27,14 @@ The amount of time it will take to get to the destination. If passed into an act
 
 ### usage
 ```
-gettraveltime from=("Current Location" | "Custom Location" | variable) location="string" transportationmode=("Driving" | "Walking" | "Transit")
+GetTravelTime From=("Current Location" | "Custom Location" | variable) Location="string" TransportationMode=("Driving" | "Walking" | "Transit")
 ```
 
 ### arguments
 
 ---
 
-### from: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### From: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Current Location"`
 
 
@@ -46,7 +46,7 @@ containing one of the options:
 
 ---
 
-### location: Location [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### Location: Location [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"One Apple Park Way"`
 **Allows Variables**: true
 
@@ -58,7 +58,7 @@ with the text.
 
 ---
 
-### transportationmode: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### TransportationMode: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Driving"`
 **Allows Variables**: true
 

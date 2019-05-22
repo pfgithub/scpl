@@ -1,5 +1,5 @@
 
-## Get Name of Emoji / getnameofemoji (internally `is.workflow.actions.getnameofemoji`)
+## Get Name of Emoji / GetNameofEmoji (internally `is.workflow.actions.getnameofemoji`)
 
 
 ## description
@@ -11,7 +11,7 @@ Gets the names of emoji passed into the action.
 
 ### usage
 ```
-getnameofemoji 
+GetNameofEmoji 
 ```
 
 ### arguments

@@ -1,5 +1,5 @@
 
-## Dictionary / dictionary (internally `is.workflow.actions.dictionary`)
+## Dictionary / Dictionary (internally `is.workflow.actions.dictionary`)
 
 
 ## description
@@ -16,14 +16,14 @@ When coerced to text, the dictionary is represented as JSON.
 
 ### usage
 ```
-dictionary items={dictionary}
+Dictionary {dictionary}
 ```
 
 ### arguments
 
 ---
 
-### items: Dictionary [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#dictionary-field)
+### Items: Dictionary [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#dictionary-field)
 **Allows Variables**: true
 
 

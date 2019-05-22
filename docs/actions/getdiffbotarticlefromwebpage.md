@@ -1,5 +1,5 @@
 
-## Get Diffbot Article from Webpage / getdiffbotarticlefromwebpage (internally `is.workflow.actions.getarticle`)
+## Get Diffbot Article from Webpage / GetDiffbotArticlefromWebpage (internally `is.workflow.actions.getarticle`)
 
 
 ## description
@@ -18,7 +18,7 @@ Powered by Diffbot (diffbot.com)
 
 ### usage
 ```
-getdiffbotarticlefromwebpage 
+GetDiffbotArticlefromWebpage 
 ```
 
 ### arguments

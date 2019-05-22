@@ -1,5 +1,5 @@
 
-## Set Flashlight / setflashlight (internally `is.workflow.actions.flashlight`)
+## Set Flashlight / SetFlashlight (internally `is.workflow.actions.flashlight`)
 
 
 ## description
@@ -11,14 +11,14 @@ Turns on or off the flashlight near the device's camera.
 
 ### usage
 ```
-setflashlight flashlight=("Off" | "On" | "Toggle") brightness=number
+SetFlashlight Flashlight=("Off" | "On" | "Toggle") Brightness=number
 ```
 
 ### arguments
 
 ---
 
-### flashlight: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### Flashlight: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"On"`
 **Allows Variables**: true
 
@@ -34,7 +34,7 @@ containing one of the options:
 
 ---
 
-### brightness: Slider Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#slider-number-fields)
+### Brightness: Slider Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#slider-number-fields)
 **Default Value**: `1`
 **Allows Variables**: true
 

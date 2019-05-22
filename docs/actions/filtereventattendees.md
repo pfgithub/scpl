@@ -1,5 +1,5 @@
 
-## Filter Event Attendees / filtereventattendees (internally `is.workflow.actions.filter.eventattendees`)
+## Filter Event Attendees / FilterEventAttendees (internally `is.workflow.actions.filter.eventattendees`)
 
 > This action is not yet complete. Some arguments may be missing.
 
@@ -7,7 +7,7 @@
 
 ### usage
 ```
-filtereventattendees undefined=NotImplemented
+FilterEventAttendees NotImplemented
 ```
 
 ### arguments

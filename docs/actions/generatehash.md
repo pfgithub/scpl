@@ -1,5 +1,5 @@
 
-## Generate Hash / generatehash (internally `is.workflow.actions.hash`)
+## Generate Hash / GenerateHash (internally `is.workflow.actions.hash`)
 
 
 ## description
@@ -11,14 +11,14 @@ Generates a MD5/SHA1 hash from the input.
 
 ### usage
 ```
-generatehash type=("MD5" | "SHA1" | "SHA256" | "SHA512")
+GenerateHash ("MD5" | "SHA1" | "SHA256" | "SHA512")
 ```
 
 ### arguments
 
 ---
 
-### type: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### Type: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"MD5"`
 **Allows Variables**: true
 

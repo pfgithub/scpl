@@ -1,11 +1,11 @@
 
-## Unknown User Activity / unknownuseractivity (internally `is.workflow.actions.useractivity.open`)
+## Unknown User Activity / UnknownUserActivity (internally `is.workflow.actions.useractivity.open`)
 
 
 
 ### usage
 ```
-unknownuseractivity 
+UnknownUserActivity 
 ```
 
 ### arguments

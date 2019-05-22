@@ -1,5 +1,5 @@
 
-## Add to Instapaper / addtoinstapaper (internally `is.workflow.actions.instapaper.add`)
+## Add to Instapaper / AddtoInstapaper (internally `is.workflow.actions.instapaper.add`)
 
 > This action requires that Shortcuts has permission to use WFInstapaperAccessResource,WFMainThreadResource.
 
@@ -13,14 +13,14 @@ Adds the input to Instapaper.
 
 ### usage
 ```
-addtoinstapaper folder=("string" | variable)]
+AddtoInstapaper ("string" | variable)]
 ```
 
 ### arguments
 
 ---
 
-### folder: Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### Folder: Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Allows Variables**: true
 
 

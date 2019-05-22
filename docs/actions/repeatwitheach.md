@@ -1,5 +1,5 @@
 
-## Repeat with Each / repeatwitheach (internally `is.workflow.actions.repeat.each`)
+## Repeat with Each / RepeatwithEach (internally `is.workflow.actions.repeat.each`)
 
 > This action has a block. Make sure to end it with an end. (More info in usage below)
 
@@ -22,7 +22,7 @@ Every item passed to the “End Repeat” action
 
 ### usage
 ```
-repeatwitheach 
+RepeatwithEach 
   ...
 end
 ```

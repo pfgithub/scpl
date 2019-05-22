@@ -1,5 +1,5 @@
 
-## Get Maps URL / getmapsurl (internally `is.workflow.actions.getmapslink`)
+## Get Maps URL / GetMapsURL (internally `is.workflow.actions.getmapslink`)
 
 
 ## description
@@ -11,7 +11,7 @@ Creates a URL to search for the location, place, or text that was passed into th
 
 ### usage
 ```
-getmapsurl 
+GetMapsURL 
 ```
 
 ### arguments

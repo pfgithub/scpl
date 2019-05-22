@@ -1,5 +1,5 @@
 
-## Crop Image / cropimage (internally `is.workflow.actions.image.crop`)
+## Crop Image / CropImage (internally `is.workflow.actions.image.crop`)
 
 
 ## description
@@ -11,14 +11,14 @@ Crops images to a smaller rectangle.
 
 ### usage
 ```
-cropimage position=("Center" | "Top Left" | "Top Right" | "Bottom Left" | "Bottom Right" | "Custom") xcoordinate=number ycoordinate=number width=number height=number
+CropImage Position=("Center" | "Top Left" | "Top Right" | "Bottom Left" | "Bottom Right" | "Custom") XCoordinate=number YCoordinate=number Width=number Height=number
 ```
 
 ### arguments
 
 ---
 
-### position: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### Position: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Center"`
 **Allows Variables**: true
 
@@ -37,7 +37,7 @@ containing one of the options:
 
 ---
 
-### xcoordinate: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+### XCoordinate: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**: `0`
 **Allows Variables**: true
 
@@ -49,7 +49,7 @@ containing one of the options:
 
 ---
 
-### ycoordinate: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+### YCoordinate: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**: `0`
 **Allows Variables**: true
 
@@ -61,7 +61,7 @@ containing one of the options:
 
 ---
 
-### width: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+### Width: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**: `100`
 **Default Value**: `100`
 **Allows Variables**: true
@@ -74,7 +74,7 @@ containing one of the options:
 
 ---
 
-### height: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+### Height: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**: `100`
 **Default Value**: `100`
 **Allows Variables**: true

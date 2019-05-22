@@ -1,5 +1,5 @@
 
-## Date / date (internally `is.workflow.actions.date`)
+## Date / Date (internally `is.workflow.actions.date`)
 
 
 ## description
@@ -11,14 +11,14 @@ Passes the specified date and time to the next action.
 
 ### usage
 ```
-date use=("Current Date" | "Specified Date") date="string"
+Date Use=("Current Date" | "Specified Date") Date="string"
 ```
 
 ### arguments
 
 ---
 
-### use: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### Use: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Current Date"`
 **Allows Variables**: true
 
@@ -33,7 +33,7 @@ containing one of the options:
 
 ---
 
-### date: Date [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### Date: Date [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"June 29, 2007"`
 **Allows Variables**: true
 

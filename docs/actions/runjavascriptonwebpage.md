@@ -1,5 +1,5 @@
 
-## Run JavaScript on Webpage / runjavascriptonwebpage (internally `is.workflow.actions.runjavascriptonwebpage`)
+## Run JavaScript on Webpage / RunJavaScriptonWebpage (internally `is.workflow.actions.runjavascriptonwebpage`)
 
 > This action requires that Shortcuts has permission to use [object Object].
 
@@ -27,14 +27,14 @@ The output from the JavaScript (JSON)
 
 ### usage
 ```
-runjavascriptonwebpage javascript="string"
+RunJavaScriptonWebpage "string"
 ```
 
 ### arguments
 
 ---
 
-### javascript: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### JavaScript: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"JavaScript"`
 **Default Value**: `"var result = [];
 // Get all links from the page

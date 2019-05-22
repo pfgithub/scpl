@@ -1,5 +1,5 @@
 
-## Show Definition / showdefinition (internally `is.workflow.actions.showdefinition`)
+## Show Definition / ShowDefinition (internally `is.workflow.actions.showdefinition`)
 
 > This action requires that Shortcuts has permission to use WFUserInteractionResource.
 
@@ -13,7 +13,7 @@ Shows the definition of the word passed into the action.
 
 ### usage
 ```
-showdefinition 
+ShowDefinition 
 ```
 
 ### arguments

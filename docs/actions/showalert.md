@@ -1,5 +1,5 @@
 
-## Show Alert / showalert (internally `is.workflow.actions.alert`)
+## Show Alert / ShowAlert (internally `is.workflow.actions.alert`)
 
 > This action requires that Shortcuts has permission to use WFUserInteractionResource.
 
@@ -13,14 +13,14 @@ Displays an alert with a title, a message, and two buttons. If the user selects 
 
 ### usage
 ```
-showalert title="string" message="string" showcancelbutton=(true | false | variable)
+ShowAlert Title="string" Message="string" ShowCancelButton=(true | false | variable)
 ```
 
 ### arguments
 
 ---
 
-### title: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### Title: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"Attention-grabbing title"`
 **Default Value**: `"Alert"`
 **Allows Variables**: true
@@ -33,7 +33,7 @@ with the text.
 
 ---
 
-### message: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### Message: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"Informational message"`
 **Default Value**: `"Do you want to continue?"`
 **Allows Variables**: true
@@ -46,7 +46,7 @@ with the text.
 
 ---
 
-### showcancelbutton: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### ShowCancelButton: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Default Value**: ```
 		true
 		```

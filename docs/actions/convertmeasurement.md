@@ -1,5 +1,5 @@
 
-## Convert Measurement / convertmeasurement (internally `is.workflow.actions.measurement.convert`)
+## Convert Measurement / ConvertMeasurement (internally `is.workflow.actions.measurement.convert`)
 
 > This action is not yet complete. Some arguments may be missing.
 
@@ -13,14 +13,14 @@ Converts the measurements passed into the action to the specified unit.
 
 ### usage
 ```
-convertmeasurement type=("string" | variable)] undefined=NotImplemented
+ConvertMeasurement Type=("string" | variable)] undefined=NotImplemented
 ```
 
 ### arguments
 
 ---
 
-### type: Unit Type Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### Type: Unit Type Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Default Value**: ```
 		Length
 		```

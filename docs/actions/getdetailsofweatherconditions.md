@@ -1,5 +1,5 @@
 
-## Get Details of Weather Conditions / getdetailsofweatherconditions (internally `is.workflow.actions.properties.weather.conditions`)
+## Get Details of Weather Conditions / GetDetailsofWeatherConditions (internally `is.workflow.actions.properties.weather.conditions`)
 
 > This action is not yet complete. Some arguments may be missing.
 
@@ -7,7 +7,7 @@
 
 ### usage
 ```
-getdetailsofweatherconditions undefined=NotImplemented
+GetDetailsofWeatherConditions NotImplemented
 ```
 
 ### arguments

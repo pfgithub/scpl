@@ -1,5 +1,5 @@
 
-## Start Timer / starttimer (internally `is.workflow.actions.timer.start`)
+## Start Timer / StartTimer (internally `is.workflow.actions.timer.start`)
 
 > This action is not yet complete. Some arguments may be missing.
 
@@ -15,7 +15,7 @@ Starts a timer in the Clock app for the specified amount of time.
 
 ### usage
 ```
-starttimer undefined=NotImplemented
+StartTimer NotImplemented
 ```
 
 ### arguments

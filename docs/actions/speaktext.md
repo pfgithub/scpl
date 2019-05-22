@@ -1,5 +1,5 @@
 
-## Speak Text / speaktext (internally `is.workflow.actions.speaktext`)
+## Speak Text / SpeakText (internally `is.workflow.actions.speaktext`)
 
 
 ## description
@@ -11,14 +11,14 @@ Speaks the inputted text aloud.
 
 ### usage
 ```
-speaktext waituntilfinished=(true | false | variable) rate=number pitch=number language=("string" | variable)] voice=("string" | variable)]
+SpeakText WaitUntilFinished=(true | false | variable) Rate=number Pitch=number Language=("string" | variable)] Voice=("string" | variable)]
 ```
 
 ### arguments
 
 ---
 
-### waituntilfinished: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### WaitUntilFinished: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Default Value**: ```
 		true
 		```
@@ -31,7 +31,7 @@ or a variable.
 
 ---
 
-### rate: Speak Text Rate [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#slider-number-fields)
+### Rate: Speak Text Rate [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#slider-number-fields)
 **Allows Variables**: true
 
 
@@ -42,7 +42,7 @@ or a variable.
 
 ---
 
-### pitch: Slider Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#slider-number-fields)
+### Pitch: Slider Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#slider-number-fields)
 **Default Value**: `1`
 **Allows Variables**: true
 
@@ -54,7 +54,7 @@ or a variable.
 
 ---
 
-### language: Speak Text Language Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### Language: Speak Text Language Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Default Value**: ```
 		Default
 		```
@@ -66,7 +66,7 @@ or a variable.
 
 ---
 
-### voice: Speak Text Voice Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### Voice: Speak Text Voice Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Default Value**: ```
 		Default
 		```

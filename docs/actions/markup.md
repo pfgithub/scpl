@@ -1,5 +1,5 @@
 
-## Markup / markup (internally `is.workflow.actions.avairyeditphoto`)
+## Markup / Markup (internally `is.workflow.actions.avairyeditphoto`)
 
 > This action requires that Shortcuts has permission to use WFUserInteractionResource.
 
@@ -17,7 +17,7 @@ The edited content
 
 ### usage
 ```
-markup 
+Markup 
 ```
 
 ### arguments

@@ -1,18 +1,18 @@
 
-## Get Details of App Store App / getdetailsofappstoreapp (internally `is.workflow.actions.properties.appstore`)
+## Get Details of App Store App / GetDetailsofAppStoreApp (internally `is.workflow.actions.properties.appstore`)
 
 
 
 ### usage
 ```
-getdetailsofappstoreapp get=("Content Rating" | "Release Date" | "# of Ratings (This Version)" | "Price" | "Supported Languages" | "iPad Screenshot URLs" | "Store URL" | "Version" | "Artist" | "Description" | "Supports Game Center" | "Formatted Price" | "Minimum OS Version" | "Currency Code" | "Screenshot URLs" | "Rating" | "Store ID" | "Category" | "Release Notes" | "Artwork" | "Artwork URL" | "Name" | "Rating (This Version)" | "Is Universal" | "Download Size" | "Last Updated" | "Supported Devices" | "# of Ratings")
+GetDetailsofAppStoreApp ("Content Rating" | "Release Date" | "# of Ratings (This Version)" | "Price" | "Supported Languages" | "iPad Screenshot URLs" | "Store URL" | "Version" | "Artist" | "Description" | "Supports Game Center" | "Formatted Price" | "Minimum OS Version" | "Currency Code" | "Screenshot URLs" | "Rating" | "Store ID" | "Category" | "Release Notes" | "Artwork" | "Artwork URL" | "Name" | "Rating (This Version)" | "Is Universal" | "Download Size" | "Last Updated" | "Supported Devices" | "# of Ratings")
 ```
 
 ### arguments
 
 ---
 
-### get: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### Get: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Allows Variables**: true
 
 

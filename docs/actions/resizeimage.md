@@ -1,5 +1,5 @@
 
-## Resize Image / resizeimage (internally `is.workflow.actions.image.resize`)
+## Resize Image / ResizeImage (internally `is.workflow.actions.image.resize`)
 
 
 ## description
@@ -16,14 +16,14 @@ If the width or height is not set, that dimension is automatically calculated to
 
 ### usage
 ```
-resizeimage width=number height=number
+ResizeImage Width=number Height=number
 ```
 
 ### arguments
 
 ---
 
-### width: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+### Width: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**: `Auto`
 **Default Value**: `640`
 **Allows Variables**: true
@@ -36,7 +36,7 @@ resizeimage width=number height=number
 
 ---
 
-### height: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+### Height: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**: `Auto`
 **Allows Variables**: true
 

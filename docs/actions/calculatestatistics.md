@@ -1,5 +1,5 @@
 
-## Calculate Statistics / calculatestatistics (internally `is.workflow.actions.statistics`)
+## Calculate Statistics / CalculateStatistics (internally `is.workflow.actions.statistics`)
 
 
 ## description
@@ -11,14 +11,14 @@ Calculates statistics on the numbers that are provided as input.
 
 ### usage
 ```
-calculatestatistics operation=("Average" | "Minimum" | "Maximum" | "Sum" | "Median" | "Mode" | "Range" | "Standard Deviation")
+CalculateStatistics ("Average" | "Minimum" | "Maximum" | "Sum" | "Median" | "Mode" | "Range" | "Standard Deviation")
 ```
 
 ### arguments
 
 ---
 
-### operation: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### Operation: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Average"`
 **Allows Variables**: true
 

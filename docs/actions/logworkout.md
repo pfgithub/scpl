@@ -1,5 +1,5 @@
 
-## Log Workout / logworkout (internally `is.workflow.actions.health.workout.log`)
+## Log Workout / LogWorkout (internally `is.workflow.actions.health.workout.log`)
 
 > This action is not yet complete. Some arguments may be missing.
 
@@ -15,7 +15,7 @@ Adds a workout into the Health app. You can log all kinds of activities, from ru
 
 ### usage
 ```
-logworkout undefined=NotImplemented date="string" undefined=NotImplemented undefined=NotImplemented undefined=NotImplemented
+LogWorkout undefined=NotImplemented Date="string" undefined=NotImplemented undefined=NotImplemented undefined=NotImplemented
 ```
 
 ### arguments
@@ -26,7 +26,7 @@ logworkout undefined=NotImplemented date="string" undefined=NotImplemented undef
 
 ---
 
-### date: Date [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### Date: Date [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"optional"`
 **Allows Variables**: true
 

@@ -1,5 +1,5 @@
 
-## Get URLs from Input / geturlsfrominput (internally `is.workflow.actions.detect.link`)
+## Get URLs from Input / GetURLsfromInput (internally `is.workflow.actions.detect.link`)
 
 
 ## description
@@ -11,7 +11,7 @@ Returns any links found in the output from the previous action.
 
 ### usage
 ```
-geturlsfrominput 
+GetURLsfromInput 
 ```
 
 ### arguments

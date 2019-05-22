@@ -1,5 +1,5 @@
 
-## Number / number (internally `is.workflow.actions.number`)
+## Number / Number (internally `is.workflow.actions.number`)
 
 
 ## description
@@ -11,14 +11,14 @@ Passes a number to the next action.
 
 ### usage
 ```
-number number=number
+Number number
 ```
 
 ### arguments
 
 ---
 
-### number: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+### Number: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**: `42`
 **Allows Variables**: true
 

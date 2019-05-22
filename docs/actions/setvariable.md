@@ -1,5 +1,5 @@
 
-## Set Variable / setvariable (internally `is.workflow.actions.setvariable`)
+## Set Variable / SetVariable (internally `is.workflow.actions.setvariable`)
 
 
 ## description
@@ -11,14 +11,14 @@ Sets the value of the specified variable to the input of this action.
 
 ### usage
 ```
-setvariable variable=(v:variableName | variableName)
+SetVariable (v:variableName | variableName)
 ```
 
 ### arguments
 
 ---
 
-### variable: Variable Input [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-field)
+### Variable: Variable Input [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-field)
 **Placeholder**: ```
 		Variable Name
 		```

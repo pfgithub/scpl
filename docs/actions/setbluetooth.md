@@ -1,5 +1,5 @@
 
-## Set Bluetooth / setbluetooth (internally `is.workflow.actions.bluetooth.set`)
+## Set Bluetooth / SetBluetooth (internally `is.workflow.actions.bluetooth.set`)
 
 > This action requires that Shortcuts has permission to use WFSiriAccessResource.
 
@@ -13,14 +13,14 @@ Sets the device’s Bluetooth to on or off.
 
 ### usage
 ```
-setbluetooth bluetooth=(true | false | variable)
+SetBluetooth (true | false | variable)
 ```
 
 ### arguments
 
 ---
 
-### bluetooth: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### Bluetooth: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Default Value**: ```
 		true
 		```

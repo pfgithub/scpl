@@ -1,5 +1,5 @@
 
-## Detect Language with Microsoft / detectlanguagewithmicrosoft (internally `is.workflow.actions.detectlanguage`)
+## Detect Language with Microsoft / DetectLanguagewithMicrosoft (internally `is.workflow.actions.detectlanguage`)
 
 
 ## description
@@ -16,7 +16,7 @@ Powered by Microsoft Cognitive Services (microsoft.com/cognitive-services)
 
 ### usage
 ```
-detectlanguagewithmicrosoft 
+DetectLanguagewithMicrosoft 
 ```
 
 ### arguments

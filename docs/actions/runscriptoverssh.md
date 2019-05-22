@@ -1,5 +1,5 @@
 
-## Run Script Over SSH / runscriptoverssh (internally `is.workflow.actions.runsshscript`)
+## Run Script Over SSH / RunScriptOverSSH (internally `is.workflow.actions.runsshscript`)
 
 
 ## description
@@ -20,14 +20,14 @@ The output from the shell script (stdout)
 
 ### usage
 ```
-runscriptoverssh host="string" port="string" user="string" password="string" script="string"
+RunScriptOverSSH Host="string" Port="string" User="string" Password="string" Script="string"
 ```
 
 ### arguments
 
 ---
 
-### host: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### Host: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"192.168.1.100"`
 **Allows Variables**: true
 
@@ -39,7 +39,7 @@ with the text.
 
 ---
 
-### port: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### Port: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"22"`
 **Default Value**: `"22"`
 **Allows Variables**: true
@@ -52,7 +52,7 @@ with the text.
 
 ---
 
-### user: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### User: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"root"`
 **Allows Variables**: true
 
@@ -64,7 +64,7 @@ with the text.
 
 ---
 
-### password: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### Password: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"••••••••"`
 **Allows Variables**: true
 
@@ -76,7 +76,7 @@ with the text.
 
 ---
 
-### script: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### Script: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"Script"`
 **Allows Variables**: true
 

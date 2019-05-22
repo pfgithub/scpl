@@ -1,5 +1,5 @@
 
-## Get Contents of URL / getcontentsofurl (internally `is.workflow.actions.downloadurl`)
+## Get Contents of URL / GetContentsofURL (internally `is.workflow.actions.downloadurl`)
 
 
 ## description
@@ -20,14 +20,14 @@ The fetched data
 
 ### usage
 ```
-getcontentsofurl advanced=(true | false) method=("GET" | "POST" | "PUT" | "PATCH" | "DELETE") headers=(true | false) headers2={dictionary} requestbody=("JSON" | "Form" | "File" | variable) formvalues={dictionary} jsonvalues={dictionary} file=(v:myvar | mv:myvar | s:myvar)
+GetContentsofURL Advanced=(true | false) Method=("GET" | "POST" | "PUT" | "PATCH" | "DELETE") Headers=(true | false) Headers={dictionary} RequestBody=("JSON" | "Form" | "File" | variable) FormValues={dictionary} JSONValues={dictionary} File=(v:myvar | mv:myvar | s:myvar)
 ```
 
 ### arguments
 
 ---
 
-### advanced: Expand Arrow [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### Advanced: Expand Arrow [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 
 
 Accepts a boolean for if this
@@ -39,7 +39,7 @@ labels, these can be ignored.
 
 ---
 
-### method: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### Method: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"GET"`
 **Allows Variables**: true
 
@@ -57,7 +57,7 @@ containing one of the options:
 
 ---
 
-### headers: Expand Arrow [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### Headers: Expand Arrow [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Only enabled if**: argument Advanced == `true`
 
 Accepts a boolean for if this
@@ -69,7 +69,7 @@ labels, these can be ignored.
 
 ---
 
-### headers2: Dictionary [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#dictionary-field)
+### Headers: Dictionary [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#dictionary-field)
 **Allows Variables**: true
 
 **Only enabled if**: argument Advanced == `true`
@@ -80,7 +80,7 @@ Accepts a dictionary.
 
 ---
 
-### requestbody: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### RequestBody: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"JSON"`
 **Only enabled if**: argument Advanced == `true`
 
@@ -95,7 +95,7 @@ containing one of the options:
 
 ---
 
-### formvalues: Dictionary [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#dictionary-field)
+### FormValues: Dictionary [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#dictionary-field)
 **Allows Variables**: true
 
 **Only enabled if**: argument Advanced == `true`
@@ -108,7 +108,7 @@ Accepts a dictionary.
 
 ---
 
-### jsonvalues: Dictionary [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#dictionary-field)
+### JSONValues: Dictionary [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#dictionary-field)
 **Allows Variables**: true
 
 **Only enabled if**: argument Advanced == `true`
@@ -121,7 +121,7 @@ Accepts a dictionary.
 
 ---
 
-### file: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+### File: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
 **Allows Variables**: true
 
 **Only enabled if**: argument Advanced == `true`

@@ -1,5 +1,5 @@
 
-## Comment / comment (internally `is.workflow.actions.comment`)
+## Comment / Comment (internally `is.workflow.actions.comment`)
 
 
 ## description
@@ -11,14 +11,14 @@ This action lets you explain how part of a shortcut works. When run, this action
 
 ### usage
 ```
-comment wfcommentactiontext="string"
+Comment "string"
 ```
 
 ### arguments
 
 ---
 
-### wfcommentactiontext: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### WFCommentActionText: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"Enter comment..."`
 
 

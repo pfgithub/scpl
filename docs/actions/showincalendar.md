@@ -1,5 +1,5 @@
 
-## Show in Calendar / showincalendar (internally `is.workflow.actions.showincalendar`)
+## Show in Calendar / ShowinCalendar (internally `is.workflow.actions.showincalendar`)
 
 > This action requires that Shortcuts has permission to use WFURLOpenResource.
 
@@ -13,7 +13,7 @@ Shows the date or calendar event passed as input in the Calendar app.
 
 ### usage
 ```
-showincalendar 
+ShowinCalendar 
 ```
 
 ### arguments

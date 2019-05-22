@@ -1,5 +1,5 @@
 
-## URL Encode / urlencode (internally `is.workflow.actions.urlencode`)
+## URL Encode / URLEncode (internally `is.workflow.actions.urlencode`)
 
 
 ## description
@@ -11,14 +11,14 @@ Encodes or decodes text passed into the action to be suitable for inclusion in a
 
 ### usage
 ```
-urlencode mode=("Encode" | "Decode")
+URLEncode ("Encode" | "Decode")
 ```
 
 ### arguments
 
 ---
 
-### mode: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### Mode: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Encode"`
 **Allows Variables**: true
 

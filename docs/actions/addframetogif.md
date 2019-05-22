@@ -1,5 +1,5 @@
 
-## Add Frame to GIF / addframetogif (internally `is.workflow.actions.addframetogif`)
+## Add Frame to GIF / AddFrametoGIF (internally `is.workflow.actions.addframetogif`)
 
 
 ## description
@@ -20,14 +20,14 @@ An animated GIF
 
 ### usage
 ```
-addframetogif image=(v:myvar | mv:myvar | s:myvar) delaytime=number autosize=(true | false | variable) width=number height=number
+AddFrametoGIF Image=(v:myvar | mv:myvar | s:myvar) DelayTime=number AutoSize=(true | false | variable) Width=number Height=number
 ```
 
 ### arguments
 
 ---
 
-### image: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+### Image: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
 **Allows Variables**: true
 
 
@@ -36,7 +36,7 @@ Accepts a variable.
 
 ---
 
-### delaytime: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+### DelayTime: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**: `0.25`
 **Default Value**: `0.25`
 **Allows Variables**: true
@@ -49,7 +49,7 @@ Accepts a variable.
 
 ---
 
-### autosize: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### AutoSize: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Default Value**: ```
 		true
 		```
@@ -62,7 +62,7 @@ or a variable.
 
 ---
 
-### width: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+### Width: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**: `500`
 **Allows Variables**: true
 
@@ -74,7 +74,7 @@ or a variable.
 
 ---
 
-### height: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+### Height: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**: `500`
 **Allows Variables**: true
 

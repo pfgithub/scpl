@@ -1,5 +1,5 @@
 
-## Search Local Businesses / searchlocalbusinesses (internally `is.workflow.actions.searchlocalbusinesses`)
+## Search Local Businesses / SearchLocalBusinesses (internally `is.workflow.actions.searchlocalbusinesses`)
 
 > This action requires that Shortcuts has permission to use WFMainThreadResource,WFLocationAccessResource.
 
@@ -18,14 +18,14 @@ A location to search near.
 
 ### usage
 ```
-searchlocalbusinesses search="string" radiuskm=number
+SearchLocalBusinesses Search="string" Radiuskm=number
 ```
 
 ### arguments
 
 ---
 
-### search: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### Search: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"coffee shops"`
 **Allows Variables**: true
 
@@ -37,7 +37,7 @@ with the text.
 
 ---
 
-### radiuskm: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+### Radiuskm: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**: `1.5`
 **Default Value**: `1.5`
 **Allows Variables**: true

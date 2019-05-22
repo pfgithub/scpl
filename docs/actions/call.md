@@ -1,5 +1,5 @@
 
-## Call / call (internally `com.apple.mobilephone.call`)
+## Call / Call (internally `com.apple.mobilephone.call`)
 
 > This action requires that Shortcuts has permission to use WFContactAccessResource.
 
@@ -13,14 +13,14 @@ Calls the phone number passed in as input.
 
 ### usage
 ```
-call app=("string" | variable)]
+Call ("string" | variable)]
 ```
 
 ### arguments
 
 ---
 
-### app: Intent App Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### App: Intent App Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Default Value**: ```
 		com.apple.TelephonyUtilities.PhoneIntentHandler
 		```

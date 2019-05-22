@@ -1,5 +1,5 @@
 
-## Make GIF / makegif (internally `is.workflow.actions.makegif`)
+## Make GIF / MakeGIF (internally `is.workflow.actions.makegif`)
 
 
 ## description
@@ -15,14 +15,14 @@ An animated GIF
 
 ### usage
 ```
-makegif secondsperphoto=number loopforever=(true | false | variable) wfmakegifactionloopcount=number autosize=(true | false | variable) width=number height=number
+MakeGIF SecondsPerPhoto=number LoopForever=(true | false | variable) WFMakeGIFActionLoopCount=number AutoSize=(true | false | variable) Width=number Height=number
 ```
 
 ### arguments
 
 ---
 
-### secondsperphoto: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+### SecondsPerPhoto: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**: `0.2`
 **Default Value**: `0.2`
 **Allows Variables**: true
@@ -35,7 +35,7 @@ makegif secondsperphoto=number loopforever=(true | false | variable) wfmakegifac
 
 ---
 
-### loopforever: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### LoopForever: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Default Value**: ```
 		true
 		```
@@ -48,7 +48,7 @@ or a variable.
 
 ---
 
-### wfmakegifactionloopcount: Stepper Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
+### WFMakeGIFActionLoopCount: Stepper Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
 **Allows Variables**: true
 
 **Only enabled if**: argument WFMakeGIFActionLoopEnabled == `false`
@@ -59,7 +59,7 @@ or a variable.
 
 ---
 
-### autosize: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### AutoSize: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Default Value**: ```
 		true
 		```
@@ -72,7 +72,7 @@ or a variable.
 
 ---
 
-### width: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+### Width: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**: `500`
 **Allows Variables**: true
 
@@ -84,7 +84,7 @@ or a variable.
 
 ---
 
-### height: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+### Height: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**: `500`
 **Allows Variables**: true
 

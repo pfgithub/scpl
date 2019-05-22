@@ -1,5 +1,5 @@
 
-## Get File of Type / getfileoftype (internally `is.workflow.actions.gettypeaction`)
+## Get File of Type / GetFileofType (internally `is.workflow.actions.gettypeaction`)
 
 
 ## description
@@ -11,14 +11,14 @@ Returns a particular file type from the input.
 
 ### usage
 ```
-getfileoftype type="string"
+GetFileofType "string"
 ```
 
 ### arguments
 
 ---
 
-### type: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### Type: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"UTI"`
 **Default Value**: `"public.rtf"`
 **Allows Variables**: true

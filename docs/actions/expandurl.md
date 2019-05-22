@@ -1,5 +1,5 @@
 
-## Expand URL / expandurl (internally `is.workflow.actions.url.expand`)
+## Expand URL / ExpandURL (internally `is.workflow.actions.url.expand`)
 
 
 ## description
@@ -20,7 +20,7 @@ The full, expanded URL, or the original URL if the URL was not shortened
 
 ### usage
 ```
-expandurl 
+ExpandURL 
 ```
 
 ### arguments

@@ -1,5 +1,5 @@
 
-## Get Text from Input / gettextfrominput (internally `is.workflow.actions.detect.text`)
+## Get Text from Input / GetTextfromInput (internally `is.workflow.actions.detect.text`)
 
 
 ## description
@@ -13,7 +13,7 @@ For example, this action can get the name of a photo or song, or the text of a w
 
 ### usage
 ```
-gettextfrominput 
+GetTextfromInput 
 ```
 
 ### arguments

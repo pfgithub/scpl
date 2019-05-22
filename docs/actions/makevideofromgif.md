@@ -1,5 +1,5 @@
 
-## Make Video from GIF / makevideofromgif (internally `is.workflow.actions.makevideofromgif`)
+## Make Video from GIF / MakeVideofromGIF (internally `is.workflow.actions.makevideofromgif`)
 
 
 ## description
@@ -20,14 +20,14 @@ A video
 
 ### usage
 ```
-makevideofromgif wfmakevideofromgifactionloopcount=number
+MakeVideofromGIF number
 ```
 
 ### arguments
 
 ---
 
-### wfmakevideofromgifactionloopcount: Stepper Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
+### WFMakeVideoFromGIFActionLoopCount: Stepper Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
 **Default Value**: `1`
 **Allows Variables**: true
 

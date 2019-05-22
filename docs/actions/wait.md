@@ -1,5 +1,5 @@
 
-## Wait / wait (internally `is.workflow.actions.delay`)
+## Wait / Wait (internally `is.workflow.actions.delay`)
 
 > This action requires that Shortcuts has permission to use WFMainThreadResource.
 
@@ -13,14 +13,14 @@ Waits for the specified number of seconds before continuing with the next action
 
 ### usage
 ```
-wait wfdelaytime=number
+Wait number
 ```
 
 ### arguments
 
 ---
 
-### wfdelaytime: Stepper Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
+### WFDelayTime: Stepper Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
 **Default Value**: `1`
 **Allows Variables**: true
 

@@ -1,5 +1,5 @@
 
-## Add Wunderlist Task / addwunderlisttask (internally `is.workflow.actions.wunderlist.add`)
+## Add Wunderlist Task / AddWunderlistTask (internally `is.workflow.actions.wunderlist.add`)
 
 > This action requires that Shortcuts has permission to use [object Object].
 
@@ -22,14 +22,14 @@ The URL of the newly created task
 
 ### usage
 ```
-addwunderlisttask title="string" list=("string" | variable)] duedate="string" reminder="string" starred=(true | false | variable) notes="string"
+AddWunderlistTask Title="string" List=("string" | variable)] DueDate="string" Reminder="string" Starred=(true | false | variable) Notes="string"
 ```
 
 ### arguments
 
 ---
 
-### title: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### Title: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"Buy some milk"`
 **Allows Variables**: true
 
@@ -41,7 +41,7 @@ with the text.
 
 ---
 
-### list: Wunderlist List Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### List: Wunderlist List Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Allows Variables**: true
 
 
@@ -50,7 +50,7 @@ with the text.
 
 ---
 
-### duedate: Date [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### DueDate: Date [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"optional"`
 **Allows Variables**: true
 
@@ -62,7 +62,7 @@ with the text.
 
 ---
 
-### reminder: Date [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### Reminder: Date [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"optional"`
 **Allows Variables**: true
 
@@ -74,7 +74,7 @@ with the text.
 
 ---
 
-### starred: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### Starred: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 
@@ -84,7 +84,7 @@ or a variable.
 
 ---
 
-### notes: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### Notes: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"Notes"`
 **Allows Variables**: true
 

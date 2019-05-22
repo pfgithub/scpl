@@ -1,5 +1,5 @@
 
-## Show Note / shownote (internally `is.workflow.actions.shownote`)
+## Show Note / ShowNote (internally `is.workflow.actions.shownote`)
 
 > This action requires that Shortcuts has permission to use WFNotesAccessResource.
 
@@ -13,7 +13,7 @@ Opens the note passed in as input.
 
 ### usage
 ```
-shownote 
+ShowNote 
 ```
 
 ### arguments

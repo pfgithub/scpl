@@ -1,5 +1,5 @@
 
-## Make Archive / makearchive (internally `is.workflow.actions.makezip`)
+## Make Archive / MakeArchive (internally `is.workflow.actions.makezip`)
 
 
 ## description
@@ -15,14 +15,14 @@ Archive
 
 ### usage
 ```
-makearchive archivename="string" format=(".zip" | ".tar.gz" | ".tar.bz2" | ".tar.xz" | ".tar" | ".gz" | ".cpio" | ".iso")
+MakeArchive ArchiveName="string" Format=(".zip" | ".tar.gz" | ".tar.bz2" | ".tar.xz" | ".tar" | ".gz" | ".cpio" | ".iso")
 ```
 
 ### arguments
 
 ---
 
-### archivename: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### ArchiveName: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"optional"`
 **Allows Variables**: true
 
@@ -34,7 +34,7 @@ with the text.
 
 ---
 
-### format: Archive Format [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### Format: Archive Format [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Allows Variables**: true
 
 

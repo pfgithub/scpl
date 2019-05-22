@@ -1,5 +1,5 @@
 
-## Set Name / setname (internally `is.workflow.actions.setitemname`)
+## Set Name / SetName (internally `is.workflow.actions.setitemname`)
 
 
 ## description
@@ -11,14 +11,14 @@ Sets the name of the item passed as input.
 
 ### usage
 ```
-setname name="string" advanced=(true | false) dontincludefileextension=(true | false | variable)
+SetName Name="string" Advanced=(true | false) DontIncludeFileExtension=(true | false | variable)
 ```
 
 ### arguments
 
 ---
 
-### name: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### Name: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"example"`
 **Allows Variables**: true
 
@@ -30,7 +30,7 @@ with the text.
 
 ---
 
-### advanced: Expand Arrow [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### Advanced: Expand Arrow [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 
 
 Accepts a boolean for if this
@@ -42,7 +42,7 @@ labels, these can be ignored.
 
 ---
 
-### dontincludefileextension: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### DontIncludeFileExtension: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 **Only enabled if**: argument Advanced == `true`

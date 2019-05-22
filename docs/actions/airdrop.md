@@ -1,5 +1,5 @@
 
-## AirDrop / airdrop (internally `is.workflow.actions.airdropdocument`)
+## AirDrop / AirDrop (internally `is.workflow.actions.airdropdocument`)
 
 > This action requires that Shortcuts has permission to use WFUserInteractionResource.
 
@@ -13,7 +13,7 @@ Prompts to share the input via AirDrop.
 
 ### usage
 ```
-airdrop 
+AirDrop 
 ```
 
 ### arguments

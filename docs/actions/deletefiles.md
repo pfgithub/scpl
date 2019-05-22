@@ -1,5 +1,5 @@
 
-## Delete Files / deletefiles (internally `is.workflow.actions.file.delete`)
+## Delete Files / DeleteFiles (internally `is.workflow.actions.file.delete`)
 
 
 ## description
@@ -11,14 +11,14 @@ Delete the files passed in as input.
 
 ### usage
 ```
-deletefiles confirmbeforedeleting=(true | false | variable)
+DeleteFiles (true | false | variable)
 ```
 
 ### arguments
 
 ---
 
-### confirmbeforedeleting: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### ConfirmBeforeDeleting: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Default Value**: ```
 		true
 		```

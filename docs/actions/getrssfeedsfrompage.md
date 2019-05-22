@@ -1,5 +1,5 @@
 
-## Get RSS Feeds from Page / getrssfeedsfrompage (internally `is.workflow.actions.rss.extract`)
+## Get RSS Feeds from Page / GetRSSFeedsfromPage (internally `is.workflow.actions.rss.extract`)
 
 
 ## description
@@ -11,7 +11,7 @@ Extracts any RSS feed URLs from the given web URLs or webpage.
 
 ### usage
 ```
-getrssfeedsfrompage 
+GetRSSFeedsfromPage 
 ```
 
 ### arguments

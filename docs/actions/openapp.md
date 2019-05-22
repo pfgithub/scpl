@@ -1,5 +1,5 @@
 
-## Open App / openapp (internally `is.workflow.actions.openapp`)
+## Open App / OpenApp (internally `is.workflow.actions.openapp`)
 
 > This action requires that Shortcuts has permission to use WFURLOpenResource.
 
@@ -13,14 +13,14 @@ Opens the specified app.
 
 ### usage
 ```
-openapp app=("app name" | "com.identifier.for.app")] wfappname="string"
+OpenApp App=("app name" | "com.identifier.for.app")] WFAppName="string"
 ```
 
 ### arguments
 
 ---
 
-### app: App [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### App: App [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Allows Variables**: true
 
 
@@ -37,7 +37,7 @@ Supported apps are:
 
 ---
 
-### wfappname: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### WFAppName: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Allows Variables**: true
 
 **Only enabled if**: This action is always **disabled** inside Shortcutslang.

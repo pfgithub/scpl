@@ -1,5 +1,5 @@
 
-## Continue Shortcut in App / continueshortcutinapp (internally `is.workflow.actions.handoff`)
+## Continue Shortcut in App / ContinueShortcutinApp (internally `is.workflow.actions.handoff`)
 
 > This action requires that Shortcuts has permission to use WFUserInteractionResource.
 
@@ -13,7 +13,7 @@ Switches into the Shortcuts app and continues to the next action.
 
 ### usage
 ```
-continueshortcutinapp 
+ContinueShortcutinApp 
 ```
 
 ### arguments

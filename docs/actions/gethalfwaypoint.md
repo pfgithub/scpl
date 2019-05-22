@@ -1,5 +1,5 @@
 
-## Get Halfway Point / gethalfwaypoint (internally `is.workflow.actions.gethalfwaypoint`)
+## Get Halfway Point / GetHalfwayPoint (internally `is.workflow.actions.gethalfwaypoint`)
 
 
 ## description
@@ -11,14 +11,14 @@ Gets the halfway point between two locations.
 
 ### usage
 ```
-gethalfwaypoint firstlocation="string" secondlocation="string"
+GetHalfwayPoint FirstLocation="string" SecondLocation="string"
 ```
 
 ### arguments
 
 ---
 
-### firstlocation: Location [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### FirstLocation: Location [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"San Francisco, CA"`
 **Allows Variables**: true
 
@@ -30,7 +30,7 @@ with the text.
 
 ---
 
-### secondlocation: Location [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### SecondLocation: Location [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"Philadelphia, PA"`
 **Allows Variables**: true
 

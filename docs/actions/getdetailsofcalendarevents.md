@@ -1,5 +1,5 @@
 
-## Get Details of Calendar Events / getdetailsofcalendarevents (internally `is.workflow.actions.properties.calendarevents`)
+## Get Details of Calendar Events / GetDetailsofCalendarEvents (internally `is.workflow.actions.properties.calendarevents`)
 
 > This action is not yet complete. Some arguments may be missing.
 
@@ -7,7 +7,7 @@
 
 ### usage
 ```
-getdetailsofcalendarevents undefined=NotImplemented
+GetDetailsofCalendarEvents NotImplemented
 ```
 
 ### arguments

@@ -1,5 +1,5 @@
 
-## Show in Maps / showinmaps (internally `is.workflow.actions.searchmaps`)
+## Show in Maps / ShowinMaps (internally `is.workflow.actions.searchmaps`)
 
 
 ## description
@@ -11,14 +11,14 @@ Opens your choice of Maps, Google Maps, or Waze and searches for the location, p
 
 ### usage
 ```
-showinmaps app=("Maps" | "Google Maps" | "Waze")
+ShowinMaps ("Maps" | "Google Maps" | "Waze")
 ```
 
 ### arguments
 
 ---
 
-### app: Maps App [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### App: Maps App [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Maps"`
 **Allows Variables**: true
 

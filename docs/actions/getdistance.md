@@ -1,5 +1,5 @@
 
-## Get Distance / getdistance (internally `is.workflow.actions.getdistance`)
+## Get Distance / GetDistance (internally `is.workflow.actions.getdistance`)
 
 > This action is not yet complete. Some arguments may be missing.
 
@@ -24,14 +24,14 @@ The distance to the location in miles or kilometers.
 
 ### usage
 ```
-getdistance from=("Current Location" | "Custom Location" | variable) location="string" routetype=("Direct" | "Driving" | "Walking") undefined=NotImplemented
+GetDistance From=("Current Location" | "Custom Location" | variable) Location="string" RouteType=("Direct" | "Driving" | "Walking") undefined=NotImplemented
 ```
 
 ### arguments
 
 ---
 
-### from: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### From: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Current Location"`
 
 
@@ -43,7 +43,7 @@ containing one of the options:
 
 ---
 
-### location: Location [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### Location: Location [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"One Apple Park Way"`
 **Allows Variables**: true
 
@@ -55,7 +55,7 @@ with the text.
 
 ---
 
-### routetype: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### RouteType: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Direct"`
 **Allows Variables**: true
 

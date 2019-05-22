@@ -1,5 +1,5 @@
 
-## Save to Photo Album / savetophotoalbum (internally `is.workflow.actions.savetocameraroll`)
+## Save to Photo Album / SavetoPhotoAlbum (internally `is.workflow.actions.savetocameraroll`)
 
 > This action requires that Shortcuts has permission to use WFPhotoAccessResource.
 
@@ -27,14 +27,14 @@ The saved items
 
 ### usage
 ```
-savetophotoalbum album=("string" | variable)]
+SavetoPhotoAlbum ("string" | variable)]
 ```
 
 ### arguments
 
 ---
 
-### album: Photo Album Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### Album: Photo Album Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Allows Variables**: true
 
 

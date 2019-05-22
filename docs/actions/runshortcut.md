@@ -1,5 +1,5 @@
 
-## Run Shortcut / runshortcut (internally `is.workflow.actions.runworkflow`)
+## Run Shortcut / RunShortcut (internally `is.workflow.actions.runworkflow`)
 
 > This action requires that Shortcuts has permission to use WFMainThreadResource,[object Object].
 
@@ -22,14 +22,14 @@ The shortcut's result
 
 ### usage
 ```
-runshortcut shortcut=("string" | variable)] showwhilerunning=(true | false | variable)
+RunShortcut Shortcut=("string" | variable)] ShowWhileRunning=(true | false | variable)
 ```
 
 ### arguments
 
 ---
 
-### shortcut: Shortcut Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### Shortcut: Shortcut Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Allows Variables**: true
 
 
@@ -38,7 +38,7 @@ runshortcut shortcut=("string" | variable)] showwhilerunning=(true | false | var
 
 ---
 
-### showwhilerunning: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### ShowWhileRunning: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Default Value**: ```
 		true
 		```

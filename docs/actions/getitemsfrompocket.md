@@ -1,5 +1,5 @@
 
-## Get Items from Pocket / getitemsfrompocket (internally `is.workflow.actions.pocket.get`)
+## Get Items from Pocket / GetItemsfromPocket (internally `is.workflow.actions.pocket.get`)
 
 > This action requires that Shortcuts has permission to use WFPocketAccessResource.
 
@@ -13,14 +13,14 @@ Returns items in your Pocket account.
 
 ### usage
 ```
-getitemsfrompocket wfpocketitemcount=number type=("Unread" | "Archived" | "All") search="string" tag="string"
+GetItemsfromPocket WFPocketItemCount=number Type=("Unread" | "Archived" | "All") Search="string" Tag="string"
 ```
 
 ### arguments
 
 ---
 
-### wfpocketitemcount: Stepper Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
+### WFPocketItemCount: Stepper Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
 **Allows Variables**: true
 
 
@@ -31,7 +31,7 @@ getitemsfrompocket wfpocketitemcount=number type=("Unread" | "Archived" | "All")
 
 ---
 
-### type: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### Type: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"All"`
 **Allows Variables**: true
 
@@ -47,7 +47,7 @@ containing one of the options:
 
 ---
 
-### search: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### Search: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"optional"`
 **Allows Variables**: true
 
@@ -59,7 +59,7 @@ with the text.
 
 ---
 
-### tag: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### Tag: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"optional"`
 **Allows Variables**: true
 

@@ -1,5 +1,5 @@
 
-## Get Email Addresses from Input / getemailaddressesfrominput (internally `is.workflow.actions.detect.emailaddress`)
+## Get Email Addresses from Input / GetEmailAddressesfromInput (internally `is.workflow.actions.detect.emailaddress`)
 
 
 ## description
@@ -11,7 +11,7 @@ Returns any email addresses found in the output from the previous action.
 
 ### usage
 ```
-getemailaddressesfrominput 
+GetEmailAddressesfromInput 
 ```
 
 ### arguments

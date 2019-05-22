@@ -1,5 +1,5 @@
 
-## Append to Note / appendtonote (internally `is.workflow.actions.appendnote`)
+## Append to Note / AppendtoNote (internally `is.workflow.actions.appendnote`)
 
 > This action requires that Shortcuts has permission to use WFNotesAccessResource.
 
@@ -17,14 +17,14 @@ The updated note
 
 ### usage
 ```
-appendtonote app=("string" | variable)] note=(v:myvar | mv:myvar | s:myvar)
+AppendtoNote App=("string" | variable)] Note=(v:myvar | mv:myvar | s:myvar)
 ```
 
 ### arguments
 
 ---
 
-### app: Intent App Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### App: Intent App Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Default Value**: ```
 		com.apple.mobilenotes
 		```
@@ -36,7 +36,7 @@ appendtonote app=("string" | variable)] note=(v:myvar | mv:myvar | s:myvar)
 
 ---
 
-### note: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+### Note: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
 **Allows Variables**: true
 
 

@@ -1,5 +1,5 @@
 
-## Ask for Input / askforinput (internally `is.workflow.actions.ask`)
+## Ask for Input / AskforInput (internally `is.workflow.actions.ask`)
 
 > This action requires that Shortcuts has permission to use WFUserInteractionResource.
 
@@ -13,14 +13,14 @@ Displays a dialog prompting the user to enter a piece of information.
 
 ### usage
 ```
-askforinput question="string" defaultanswer="string" defaultanswer2="string" inputtype=("Text" | "Number" | "URL" | "Date") granularity=("Date" | "Time" | "Date and Time") skiptowatchdictation=(true | false | variable)
+AskforInput Question="string" DefaultAnswer="string" DefaultAnswer="string" InputType=("Text" | "Number" | "URL" | "Date") Granularity=("Date" | "Time" | "Date and Time") SkiptoWatchDictation=(true | false | variable)
 ```
 
 ### arguments
 
 ---
 
-### question: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### Question: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"Enter text"`
 **Allows Variables**: true
 
@@ -32,7 +32,7 @@ with the text.
 
 ---
 
-### defaultanswer: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### DefaultAnswer: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"optional"`
 **Allows Variables**: true
 
@@ -44,7 +44,7 @@ with the text.
 
 ---
 
-### defaultanswer2: Date [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### DefaultAnswer: Date [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"June 29, 2007"`
 **Allows Variables**: true
 
@@ -56,7 +56,7 @@ with the text.
 
 ---
 
-### inputtype: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### InputType: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Text"`
 **Allows Variables**: true
 
@@ -73,7 +73,7 @@ containing one of the options:
 
 ---
 
-### granularity: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### Granularity: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Date"`
 **Allows Variables**: true
 
@@ -89,7 +89,7 @@ containing one of the options:
 
 ---
 
-### skiptowatchdictation: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### SkiptoWatchDictation: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 **Only enabled if**: argument WFInputType != `Date`

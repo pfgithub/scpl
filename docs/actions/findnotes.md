@@ -1,5 +1,5 @@
 
-## Find Notes / findnotes (internally `is.workflow.actions.filter.notes`)
+## Find Notes / FindNotes (internally `is.workflow.actions.filter.notes`)
 
 > This action is not yet complete. Some arguments may be missing.
 
@@ -9,7 +9,7 @@
 
 ### usage
 ```
-findnotes undefined=NotImplemented
+FindNotes NotImplemented
 ```
 
 ### arguments

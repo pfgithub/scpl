@@ -1,5 +1,5 @@
 
-## Get Details of Health Sample / getdetailsofhealthsample (internally `is.workflow.actions.properties.health.quantity`)
+## Get Details of Health Sample / GetDetailsofHealthSample (internally `is.workflow.actions.properties.health.quantity`)
 
 > This action is not yet complete. Some arguments may be missing.
 
@@ -7,7 +7,7 @@
 
 ### usage
 ```
-getdetailsofhealthsample undefined=NotImplemented
+GetDetailsofHealthSample NotImplemented
 ```
 
 ### arguments

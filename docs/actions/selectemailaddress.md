@@ -1,5 +1,5 @@
 
-## Select Email Address / selectemailaddress (internally `is.workflow.actions.selectemail`)
+## Select Email Address / SelectEmailAddress (internally `is.workflow.actions.selectemail`)
 
 > This action requires that Shortcuts has permission to use WFUserInteractionResource,WFContactAccessResource.
 
@@ -13,7 +13,7 @@ Prompts to pick an email address from your contacts and passes the selection to 
 
 ### usage
 ```
-selectemailaddress 
+SelectEmailAddress 
 ```
 
 ### arguments

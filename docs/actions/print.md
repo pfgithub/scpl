@@ -1,5 +1,5 @@
 
-## Print / print (internally `is.workflow.actions.print`)
+## Print / Print (internally `is.workflow.actions.print`)
 
 > This action requires that Shortcuts has permission to use WFUserInteractionResource.
 
@@ -13,7 +13,7 @@ Prints the input using AirPrint.
 
 ### usage
 ```
-print 
+Print 
 ```
 
 ### arguments

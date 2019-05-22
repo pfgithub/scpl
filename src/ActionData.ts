@@ -663,7 +663,7 @@ ${Object.values(actionsByID)
 	.map(
 		action =>
 			`- [${action.name} (\`${action.readableName}\`)](actions/${
-				action.readableName
+				action.shortName
 			})${action.isComplete ? "" : " (Incomplete)"}`
 	)
 	.join(`\n`)}

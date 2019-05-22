@@ -1,5 +1,5 @@
 
-## Show Webpage / showwebpage (internally `is.workflow.actions.showwebpage`)
+## Show Webpage / ShowWebpage (internally `is.workflow.actions.showwebpage`)
 
 > This action requires that Shortcuts has permission to use WFUserInteractionResource.
 
@@ -13,14 +13,14 @@ Shows the web URL passed into the action in a Safari View Controller, allowing y
 
 ### usage
 ```
-showwebpage entersafarireader=(true | false | variable)
+ShowWebpage (true | false | variable)
 ```
 
 ### arguments
 
 ---
 
-### entersafarireader: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### EnterSafariReader: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 

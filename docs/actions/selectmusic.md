@@ -1,5 +1,5 @@
 
-## Select Music / selectmusic (internally `is.workflow.actions.exportsong`)
+## Select Music / SelectMusic (internally `is.workflow.actions.exportsong`)
 
 > This action requires that Shortcuts has permission to use WFAppleMusicAccessResource,WFUserInteractionResource.
 
@@ -13,14 +13,14 @@ Prompts to select music from your local music library.
 
 ### usage
 ```
-selectmusic selectmultiplesongs=(true | false | variable)
+SelectMusic (true | false | variable)
 ```
 
 ### arguments
 
 ---
 
-### selectmultiplesongs: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### SelectMultipleSongs: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 

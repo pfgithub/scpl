@@ -1,5 +1,5 @@
 
-## Create Playlist / createplaylist (internally `is.workflow.actions.createplaylist`)
+## Create Playlist / CreatePlaylist (internally `is.workflow.actions.createplaylist`)
 
 > This action requires that Shortcuts has permission to use WFAppleMusicAccessResource,[object Object].
 
@@ -18,14 +18,14 @@ Items in your music library or items from the Search iTunes action.
 
 ### usage
 ```
-createplaylist name="string" author="string" description="string"
+CreatePlaylist Name="string" Author="string" Description="string"
 ```
 
 ### arguments
 
 ---
 
-### name: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### Name: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"Greatest Hits"`
 **Allows Variables**: true
 
@@ -37,7 +37,7 @@ with the text.
 
 ---
 
-### author: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### Author: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"Shortcuts"`
 **Allows Variables**: true
 
@@ -49,7 +49,7 @@ with the text.
 
 ---
 
-### description: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### Description: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"All of my favorites"`
 **Allows Variables**: true
 

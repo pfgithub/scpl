@@ -1,5 +1,5 @@
 
-## Email Address / emailaddress (internally `is.workflow.actions.email`)
+## Email Address / EmailAddress (internally `is.workflow.actions.email`)
 
 > This action requires that Shortcuts has permission to use WFContactAccessResource.
 
@@ -13,14 +13,14 @@ Passes the specified email addresses to the next action.
 
 ### usage
 ```
-emailaddress wfemailaddress=("string" | [list, of, strings] | variable)
+EmailAddress ("string" | [list, of, strings] | variable)
 ```
 
 ### arguments
 
 ---
 
-### wfemailaddress: Email [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### WFEmailAddress: Email [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Placeholder**: ```
 		Type in an email address
 		```

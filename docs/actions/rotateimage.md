@@ -1,5 +1,5 @@
 
-## Rotate Image / rotateimage (internally `is.workflow.actions.image.rotate`)
+## Rotate Image / RotateImage (internally `is.workflow.actions.image.rotate`)
 
 
 ## description
@@ -11,14 +11,14 @@ Turns an image clockwise by a particular number of degrees.
 
 ### usage
 ```
-rotateimage degrees=number
+RotateImage number
 ```
 
 ### arguments
 
 ---
 
-### degrees: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+### Degrees: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**: `90`
 **Default Value**: `90`
 **Allows Variables**: true

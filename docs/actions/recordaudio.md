@@ -1,5 +1,5 @@
 
-## Record Audio / recordaudio (internally `is.workflow.actions.recordaudio`)
+## Record Audio / RecordAudio (internally `is.workflow.actions.recordaudio`)
 
 > This action is not yet complete. Some arguments may be missing.
 
@@ -15,14 +15,14 @@ Uses the microphone to record audio.
 
 ### usage
 ```
-recordaudio audioquality=("Normal" | "Very High") startrecording=("On Tap" | "Immediately") finishrecording=("On Tap" | "After Time") undefined=NotImplemented
+RecordAudio AudioQuality=("Normal" | "Very High") StartRecording=("On Tap" | "Immediately") FinishRecording=("On Tap" | "After Time") undefined=NotImplemented
 ```
 
 ### arguments
 
 ---
 
-### audioquality: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### AudioQuality: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Normal"`
 **Allows Variables**: true
 
@@ -37,7 +37,7 @@ containing one of the options:
 
 ---
 
-### startrecording: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### StartRecording: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"On Tap"`
 **Allows Variables**: true
 
@@ -52,7 +52,7 @@ containing one of the options:
 
 ---
 
-### finishrecording: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### FinishRecording: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"On Tap"`
 **Allows Variables**: true
 

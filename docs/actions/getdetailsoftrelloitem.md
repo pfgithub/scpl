@@ -1,5 +1,5 @@
 
-## Get Details of Trello Item / getdetailsoftrelloitem (internally `is.workflow.actions.properties.trello`)
+## Get Details of Trello Item / GetDetailsofTrelloItem (internally `is.workflow.actions.properties.trello`)
 
 > This action is not yet complete. Some arguments may be missing.
 
@@ -9,7 +9,7 @@
 
 ### usage
 ```
-getdetailsoftrelloitem undefined=NotImplemented
+GetDetailsofTrelloItem NotImplemented
 ```
 
 ### arguments

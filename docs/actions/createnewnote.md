@@ -1,5 +1,5 @@
 
-## Create New Note / createnewnote (internally `is.workflow.actions.evernote.new`)
+## Create New Note / CreateNewNote (internally `is.workflow.actions.evernote.new`)
 
 > This action is not yet complete. Some arguments may be missing.
 
@@ -20,14 +20,14 @@ The content to include in your new note
 
 ### usage
 ```
-createnewnote notetitle="string" notebook=("string" | variable)] undefined=NotImplemented
+CreateNewNote NoteTitle="string" Notebook=("string" | variable)] undefined=NotImplemented
 ```
 
 ### arguments
 
 ---
 
-### notetitle: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### NoteTitle: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"optional"`
 **Allows Variables**: true
 
@@ -39,7 +39,7 @@ with the text.
 
 ---
 
-### notebook: Evernote Notebook Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### Notebook: Evernote Notebook Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Allows Variables**: true
 
 

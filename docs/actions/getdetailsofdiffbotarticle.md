@@ -1,5 +1,5 @@
 
-## Get Details of Diffbot Article / getdetailsofdiffbotarticle (internally `is.workflow.actions.properties.articles`)
+## Get Details of Diffbot Article / GetDetailsofDiffbotArticle (internally `is.workflow.actions.properties.articles`)
 
 
 ## description
@@ -11,14 +11,14 @@ Powered by Diffbot (diffbot.com)
 
 ### usage
 ```
-getdetailsofdiffbotarticle get=("Name" | "Title" | "Published Date" | "Author" | "Number of Words" | "Main Image URL" | "URL" | "Excerpt")
+GetDetailsofDiffbotArticle ("Name" | "Title" | "Published Date" | "Author" | "Number of Words" | "Main Image URL" | "URL" | "Excerpt")
 ```
 
 ### arguments
 
 ---
 
-### get: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### Get: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Allows Variables**: true
 
 

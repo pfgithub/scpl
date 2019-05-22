@@ -1,5 +1,5 @@
 
-## Combine Images / combineimages (internally `is.workflow.actions.image.combine`)
+## Combine Images / CombineImages (internally `is.workflow.actions.image.combine`)
 
 
 ## description
@@ -11,14 +11,14 @@ Combines the images passed into the action horizontally, vertically, or in a gri
 
 ### usage
 ```
-combineimages mode=("Side-by-Side" | "Grid") direction=("Horizontal" | "Vertical") spacing=number
+CombineImages Mode=("Side-by-Side" | "Grid") Direction=("Horizontal" | "Vertical") Spacing=number
 ```
 
 ### arguments
 
 ---
 
-### mode: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### Mode: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Side-by-Side"`
 **Allows Variables**: true
 
@@ -33,7 +33,7 @@ containing one of the options:
 
 ---
 
-### direction: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### Direction: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Horizontal"`
 **Allows Variables**: true
 
@@ -48,7 +48,7 @@ containing one of the options:
 
 ---
 
-### spacing: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+### Spacing: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**: `0`
 **Allows Variables**: true
 

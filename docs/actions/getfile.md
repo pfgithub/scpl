@@ -1,5 +1,5 @@
 
-## Get File / getfile (internally `is.workflow.actions.documentpicker.open`)
+## Get File / GetFile (internally `is.workflow.actions.documentpicker.open`)
 
 > This action requires that Shortcuts has permission to use [object Object].
 
@@ -18,14 +18,14 @@ In the iCloud picker, tap “Locations” to see document pickers from other app
 
 ### usage
 ```
-getfile service=("iCloud Drive" | "Dropbox") showdocumentpicker=(true | false | variable) selectmultiple=(true | false | variable) filepath="string" initialpath="string" errorifnotfound=(true | false | variable)
+GetFile Service=("iCloud Drive" | "Dropbox") ShowDocumentPicker=(true | false | variable) SelectMultiple=(true | false | variable) FilePath="string" InitialPath="string" ErrorIfNotFound=(true | false | variable)
 ```
 
 ### arguments
 
 ---
 
-### service: Storage Service Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### Service: Storage Service Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Allows Variables**: true
 
 
@@ -39,7 +39,7 @@ containing one of the options:
 
 ---
 
-### showdocumentpicker: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### ShowDocumentPicker: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Default Value**: ```
 		true
 		```
@@ -52,7 +52,7 @@ or a variable.
 
 ---
 
-### selectmultiple: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### SelectMultiple: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 **Only enabled if**: argument WFShowFilePicker == `true`
@@ -62,7 +62,7 @@ or a variable.
 
 ---
 
-### filepath: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### FilePath: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"example.txt"`
 **Allows Variables**: true
 
@@ -74,7 +74,7 @@ with the text.
 
 ---
 
-### initialpath: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### InitialPath: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"optional"`
 **Allows Variables**: true
 
@@ -86,7 +86,7 @@ with the text.
 
 ---
 
-### errorifnotfound: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### ErrorIfNotFound: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Default Value**: ```
 		true
 		```

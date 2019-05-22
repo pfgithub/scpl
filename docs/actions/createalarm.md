@@ -1,5 +1,5 @@
 
-## Create Alarm / createalarm (internally `is.workflow.actions.alarm.create`)
+## Create Alarm / CreateAlarm (internally `is.workflow.actions.alarm.create`)
 
 > This action is not yet complete. Some arguments may be missing.
 
@@ -15,14 +15,14 @@ Creates an alarm in the Clock app.
 
 ### usage
 ```
-createalarm label="string" time="string" undefined=NotImplemented
+CreateAlarm Label="string" Time="string" undefined=NotImplemented
 ```
 
 ### arguments
 
 ---
 
-### label: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### Label: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"Alarm"`
 **Allows Variables**: true
 
@@ -34,7 +34,7 @@ with the text.
 
 ---
 
-### time: Date [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### Time: Date [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"8 AM"`
 **Allows Variables**: true
 

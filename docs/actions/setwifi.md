@@ -1,5 +1,5 @@
 
-## Set Wi-Fi / setwifi (internally `is.workflow.actions.wifi.set`)
+## Set Wi-Fi / SetWiFi (internally `is.workflow.actions.wifi.set`)
 
 > This action requires that Shortcuts has permission to use WFSiriAccessResource.
 
@@ -13,14 +13,14 @@ Sets the device’s Wi-Fi to on or off.
 
 ### usage
 ```
-setwifi wifi=(true | false | variable)
+SetWiFi (true | false | variable)
 ```
 
 ### arguments
 
 ---
 
-### wifi: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### WiFi: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Default Value**: ```
 		true
 		```

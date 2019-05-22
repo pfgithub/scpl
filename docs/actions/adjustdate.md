@@ -1,5 +1,5 @@
 
-## Adjust Date / adjustdate (internally `is.workflow.actions.adjustdate`)
+## Adjust Date / AdjustDate (internally `is.workflow.actions.adjustdate`)
 
 > This action is not yet complete. Some arguments may be missing.
 
@@ -20,7 +20,7 @@ This action supports decimal numbers when adding or subtracting seconds, minutes
 
 ### usage
 ```
-adjustdate undefined=NotImplemented
+AdjustDate NotImplemented
 ```
 
 ### arguments

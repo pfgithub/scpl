@@ -1,5 +1,5 @@
 
-## Make Markdown from Rich Text / makemarkdownfromrichtext (internally `is.workflow.actions.getmarkdownfromrichtext`)
+## Make Markdown from Rich Text / MakeMarkdownfromRichText (internally `is.workflow.actions.getmarkdownfromrichtext`)
 
 
 ## description
@@ -15,7 +15,7 @@ Markdown
 
 ### usage
 ```
-makemarkdownfromrichtext 
+MakeMarkdownfromRichText 
 ```
 
 ### arguments

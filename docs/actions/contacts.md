@@ -1,5 +1,5 @@
 
-## Contacts / contacts (internally `is.workflow.actions.contacts`)
+## Contacts / Contacts (internally `is.workflow.actions.contacts`)
 
 > This action is not yet complete. Some arguments may be missing.
 
@@ -15,7 +15,7 @@ Passes the specified contacts to the next action.
 
 ### usage
 ```
-contacts undefined=NotImplemented
+Contacts NotImplemented
 ```
 
 ### arguments

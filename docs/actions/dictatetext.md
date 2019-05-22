@@ -1,5 +1,5 @@
 
-## Dictate Text / dictatetext (internally `is.workflow.actions.dictatetext`)
+## Dictate Text / DictateText (internally `is.workflow.actions.dictatetext`)
 
 > This action requires that Shortcuts has permission to use [object Object],WFUserInteractionResource,WFSpeechRecognitionAccessResource,WFMicrophoneAccessResource.
 
@@ -13,14 +13,14 @@ Transcribes what you say aloud into text and passes the result to the next actio
 
 ### usage
 ```
-dictatetext language=("string" | variable)] stoplistening=("After Pause" | "After Short Pause" | "On Tap")
+DictateText Language=("string" | variable)] StopListening=("After Pause" | "After Short Pause" | "On Tap")
 ```
 
 ### arguments
 
 ---
 
-### language: Language Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### Language: Language Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Allows Variables**: true
 
 
@@ -29,7 +29,7 @@ dictatetext language=("string" | variable)] stoplistening=("After Pause" | "Afte
 
 ---
 
-### stoplistening: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### StopListening: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"After Pause"`
 **Allows Variables**: true
 

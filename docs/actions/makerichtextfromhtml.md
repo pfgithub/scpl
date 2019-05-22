@@ -1,5 +1,5 @@
 
-## Make Rich Text from HTML / makerichtextfromhtml (internally `is.workflow.actions.getrichtextfromhtml`)
+## Make Rich Text from HTML / MakeRichTextfromHTML (internally `is.workflow.actions.getrichtextfromhtml`)
 
 
 ## description
@@ -16,7 +16,7 @@ HTML
 
 ### usage
 ```
-makerichtextfromhtml 
+MakeRichTextfromHTML 
 ```
 
 ### arguments

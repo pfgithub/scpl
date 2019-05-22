@@ -1,5 +1,5 @@
 
-## Convert Image / convertimage (internally `is.workflow.actions.image.convert`)
+## Convert Image / ConvertImage (internally `is.workflow.actions.image.convert`)
 
 
 ## description
@@ -11,14 +11,14 @@ Converts the images passed into the action to the specified image format.
 
 ### usage
 ```
-convertimage format=("JPEG" | "PNG" | "TIFF" | "GIF" | "JPEG-2000" | "BMP" | "PDF" | "Match Input") quality=number preservemetadata=(true | false | variable)
+ConvertImage Format=("JPEG" | "PNG" | "TIFF" | "GIF" | "JPEG-2000" | "BMP" | "PDF" | "Match Input") Quality=number PreserveMetadata=(true | false | variable)
 ```
 
 ### arguments
 
 ---
 
-### format: Image Format Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### Format: Image Format Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"JPEG"`
 **Allows Variables**: true
 
@@ -39,7 +39,7 @@ containing one of the options:
 
 ---
 
-### quality: Slider Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#slider-number-fields)
+### Quality: Slider Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#slider-number-fields)
 **Default Value**: `0.75`
 **Allows Variables**: true
 
@@ -51,7 +51,7 @@ containing one of the options:
 
 ---
 
-### preservemetadata: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### PreserveMetadata: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Default Value**: ```
 		true
 		```

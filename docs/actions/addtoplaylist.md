@@ -1,5 +1,5 @@
 
-## Add to Playlist / addtoplaylist (internally `is.workflow.actions.addtoplaylist`)
+## Add to Playlist / AddtoPlaylist (internally `is.workflow.actions.addtoplaylist`)
 
 > This action requires that Shortcuts has permission to use WFAppleMusicAccessResource,[object Object].
 
@@ -22,14 +22,14 @@ The contents of the updated playlist
 
 ### usage
 ```
-addtoplaylist playlist=("string" | variable)]
+AddtoPlaylist ("string" | variable)]
 ```
 
 ### arguments
 
 ---
 
-### playlist: Music Playlist Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### Playlist: Music Playlist Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Allows Variables**: true
 
 

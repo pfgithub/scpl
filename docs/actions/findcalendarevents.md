@@ -1,5 +1,5 @@
 
-## Find Calendar Events / findcalendarevents (internally `is.workflow.actions.filter.calendarevents`)
+## Find Calendar Events / FindCalendarEvents (internally `is.workflow.actions.filter.calendarevents`)
 
 > This action is not yet complete. Some arguments may be missing.
 
@@ -9,7 +9,7 @@
 
 ### usage
 ```
-findcalendarevents undefined=NotImplemented
+FindCalendarEvents NotImplemented
 ```
 
 ### arguments

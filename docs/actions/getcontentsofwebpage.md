@@ -1,5 +1,5 @@
 
-## Get Contents of Webpage / getcontentsofwebpage (internally `is.workflow.actions.getwebpagecontents`)
+## Get Contents of Webpage / GetContentsofWebpage (internally `is.workflow.actions.getwebpagecontents`)
 
 
 ## description
@@ -11,7 +11,7 @@ Extracts the contents of the webpages passed into the action.
 
 ### usage
 ```
-getcontentsofwebpage 
+GetContentsofWebpage 
 ```
 
 ### arguments

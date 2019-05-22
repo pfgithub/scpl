@@ -1,5 +1,5 @@
 
-## Get Notes / getnotes (internally `is.workflow.actions.evernote.get`)
+## Get Notes / GetNotes (internally `is.workflow.actions.evernote.get`)
 
 > This action is not yet complete. Some arguments may be missing.
 
@@ -15,14 +15,14 @@ Get recent notes from Evernote, optionally filtering based on criteria.
 
 ### usage
 ```
-getnotes titlesearch="string" undefined=NotImplemented innotebook=("string" | variable)] wfevernotenotescount=number
+GetNotes TitleSearch="string" undefined=NotImplemented InNotebook=("string" | variable)] WFEvernoteNotesCount=number
 ```
 
 ### arguments
 
 ---
 
-### titlesearch: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### TitleSearch: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"optional"`
 **Allows Variables**: true
 
@@ -38,7 +38,7 @@ with the text.
 
 ---
 
-### innotebook: Evernote Notebook Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### InNotebook: Evernote Notebook Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Allows Variables**: true
 
 
@@ -47,7 +47,7 @@ with the text.
 
 ---
 
-### wfevernotenotescount: Stepper Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
+### WFEvernoteNotesCount: Stepper Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
 **Default Value**: `1`
 **Allows Variables**: true
 

@@ -1,5 +1,5 @@
 
-## Remove Reminders / removereminders (internally `is.workflow.actions.removereminders`)
+## Remove Reminders / RemoveReminders (internally `is.workflow.actions.removereminders`)
 
 > This action requires that Shortcuts has permission to use WFReminderAccessResource,WFUserInteractionResource.
 
@@ -18,7 +18,7 @@ This is a destructive and permanent action. You will be asked to confirm before 
 
 ### usage
 ```
-removereminders 
+RemoveReminders 
 ```
 
 ### arguments

@@ -1,5 +1,5 @@
 
-## Take Photo / takephoto (internally `is.workflow.actions.takephoto`)
+## Take Photo / TakePhoto (internally `is.workflow.actions.takephoto`)
 
 > This action requires that Shortcuts has permission to use WFUserInteractionResource,WFCameraAccessResource.
 
@@ -17,14 +17,14 @@ Photo from the camera.
 
 ### usage
 ```
-takephoto showcamerapreview=(true | false | variable) wfphotocount=number camera=("Front" | "Back")
+TakePhoto ShowCameraPreview=(true | false | variable) WFPhotoCount=number Camera=("Front" | "Back")
 ```
 
 ### arguments
 
 ---
 
-### showcamerapreview: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### ShowCameraPreview: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Default Value**: ```
 		true
 		```
@@ -37,7 +37,7 @@ or a variable.
 
 ---
 
-### wfphotocount: Stepper Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
+### WFPhotoCount: Stepper Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
 **Default Value**: `1`
 **Allows Variables**: true
 
@@ -49,7 +49,7 @@ or a variable.
 
 ---
 
-### camera: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### Camera: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Back"`
 **Allows Variables**: true
 

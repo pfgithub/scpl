@@ -1,5 +1,5 @@
 
-## Show Result / showresult (internally `is.workflow.actions.showresult`)
+## Show Result / ShowResult (internally `is.workflow.actions.showresult`)
 
 > This action requires that Shortcuts has permission to use WFMainThreadResource.
 
@@ -13,14 +13,14 @@ Shows the specified text in Siri or in an alert.
 
 ### usage
 ```
-showresult text="string"
+ShowResult "string"
 ```
 
 ### arguments
 
 ---
 
-### text: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### Text: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"Enter text..."`
 **Allows Variables**: true
 

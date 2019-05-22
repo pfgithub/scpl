@@ -1,5 +1,5 @@
 
-## Text / text (internally `is.workflow.actions.gettext`)
+## Text / Text (internally `is.workflow.actions.gettext`)
 
 
 ## description
@@ -11,14 +11,14 @@ Passes the specified text to the next action.
 
 ### usage
 ```
-text wftextactiontext="string"
+Text "string"
 ```
 
 ### arguments
 
 ---
 
-### wftextactiontext: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### WFTextActionText: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"Enter text..."`
 **Allows Variables**: true
 

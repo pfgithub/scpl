@@ -1,5 +1,5 @@
 
-## Combine Text / combinetext (internally `is.workflow.actions.text.combine`)
+## Combine Text / CombineText (internally `is.workflow.actions.text.combine`)
 
 
 ## description
@@ -11,14 +11,14 @@ Joins text together, inserting the separator between each join.
 
 ### usage
 ```
-combinetext separator=("New Lines" | "Spaces" | "Custom") custom="string"
+CombineText Separator=("New Lines" | "Spaces" | "Custom") Custom="string"
 ```
 
 ### arguments
 
 ---
 
-### separator: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### Separator: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Spaces"`
 **Allows Variables**: true
 
@@ -34,7 +34,7 @@ containing one of the options:
 
 ---
 
-### custom: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### Custom: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"Text"`
 **Allows Variables**: true
 

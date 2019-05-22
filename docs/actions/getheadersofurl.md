@@ -1,5 +1,5 @@
 
-## Get Headers of URL / getheadersofurl (internally `is.workflow.actions.url.getheaders`)
+## Get Headers of URL / GetHeadersofURL (internally `is.workflow.actions.url.getheaders`)
 
 
 ## description
@@ -11,7 +11,7 @@ Retrieves the HTTP headers of the URL passed as input using a HEAD request.
 
 ### usage
 ```
-getheadersofurl 
+GetHeadersofURL 
 ```
 
 ### arguments

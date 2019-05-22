@@ -1,5 +1,5 @@
 
-## Search Giphy / searchgiphy (internally `is.workflow.actions.giphy`)
+## Search Giphy / SearchGiphy (internally `is.workflow.actions.giphy`)
 
 > This action requires that Shortcuts has permission to use [object Object].
 
@@ -18,14 +18,14 @@ Powered by Giphy (giphy.com)
 
 ### usage
 ```
-searchgiphy search="string" showgifpicker=(true | false | variable) wfgiphylimit=number selectmultiple=(true | false | variable)
+SearchGiphy Search="string" ShowGIFPicker=(true | false | variable) WFGiphyLimit=number SelectMultiple=(true | false | variable)
 ```
 
 ### arguments
 
 ---
 
-### search: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### Search: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"leave blank for trending"`
 **Allows Variables**: true
 
@@ -37,7 +37,7 @@ with the text.
 
 ---
 
-### showgifpicker: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### ShowGIFPicker: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Default Value**: ```
 		true
 		```
@@ -50,7 +50,7 @@ or a variable.
 
 ---
 
-### wfgiphylimit: Stepper Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
+### WFGiphyLimit: Stepper Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
 **Default Value**: `1`
 **Allows Variables**: true
 
@@ -62,7 +62,7 @@ or a variable.
 
 ---
 
-### selectmultiple: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### SelectMultiple: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 **Only enabled if**: argument WFGiphyShowPicker == `true`

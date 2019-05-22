@@ -1,5 +1,5 @@
 
-## Post to Slack / posttoslack (internally `is.workflow.actions.slack.send`)
+## Post to Slack / PosttoSlack (internally `is.workflow.actions.slack.send`)
 
 > This action requires that Shortcuts has permission to use WFUnavailableResource,[object Object].
 
@@ -13,21 +13,21 @@ Posts the input to the specified Slack channel.
 
 ### usage
 ```
-posttoslack account=("string" | variable)] channel=("string" | variable)]
+PosttoSlack Account=("string" | variable)] Channel=("string" | variable)]
 ```
 
 ### arguments
 
 ---
 
-### account: Account Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### Account: Account Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 
 
 		Accepts a string or variable containing the option. Check the shortcuts app for a list of available options. 
 
 ---
 
-### channel: Slack Channel Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### Channel: Slack Channel Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Allows Variables**: true
 
 

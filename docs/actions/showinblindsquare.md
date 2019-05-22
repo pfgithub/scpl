@@ -1,5 +1,5 @@
 
-## Show in BlindSquare / showinblindsquare (internally `is.workflow.actions.showinblindsquare`)
+## Show in BlindSquare / ShowinBlindSquare (internally `is.workflow.actions.showinblindsquare`)
 
 > This action requires that Shortcuts has permission to use WFURLOpenResource,[object Object].
 
@@ -13,14 +13,14 @@ Opens BlindSquare showing information about the place passed as input, so you ca
 
 ### usage
 ```
-showinblindsquare startsimulation=(true | false | variable)
+ShowinBlindSquare (true | false | variable)
 ```
 
 ### arguments
 
 ---
 
-### startsimulation: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### StartSimulation: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 

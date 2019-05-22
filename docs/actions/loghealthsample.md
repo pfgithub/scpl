@@ -1,5 +1,5 @@
 
-## Log Health Sample / loghealthsample (internally `is.workflow.actions.health.quantity.log`)
+## Log Health Sample / LogHealthSample (internally `is.workflow.actions.health.quantity.log`)
 
 > This action is not yet complete. Some arguments may be missing.
 
@@ -15,7 +15,7 @@ Adds a data point into the Health app. You can log anything that the Health app 
 
 ### usage
 ```
-loghealthsample undefined=NotImplemented undefined=NotImplemented undefined=NotImplemented undefined=NotImplemented undefined=NotImplemented undefined=NotImplemented undefined=NotImplemented undefined=NotImplemented
+LogHealthSample undefined=NotImplemented undefined=NotImplemented undefined=NotImplemented undefined=NotImplemented undefined=NotImplemented undefined=NotImplemented undefined=NotImplemented undefined=NotImplemented
 ```
 
 ### arguments

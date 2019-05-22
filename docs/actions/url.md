@@ -1,5 +1,5 @@
 
-## URL / url (internally `is.workflow.actions.url`)
+## URL / URL (internally `is.workflow.actions.url`)
 
 
 ## description
@@ -11,14 +11,14 @@ Passes the specified URL to the next action.
 
 ### usage
 ```
-url url="string"
+URL "string"
 ```
 
 ### arguments
 
 ---
 
-### url: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### URL: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"example.com"`
 **Allows Variables**: true
 

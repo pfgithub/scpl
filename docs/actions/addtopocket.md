@@ -1,5 +1,5 @@
 
-## Add to Pocket / addtopocket (internally `is.workflow.actions.pocket.add`)
+## Add to Pocket / AddtoPocket (internally `is.workflow.actions.pocket.add`)
 
 > This action requires that Shortcuts has permission to use WFPocketAccessResource.
 
@@ -13,14 +13,14 @@ Adds the input to Pocket.
 
 ### usage
 ```
-addtopocket tags="string"
+AddtoPocket "string"
 ```
 
 ### arguments
 
 ---
 
-### tags: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### Tags: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"example, tags"`
 **Allows Variables**: true
 

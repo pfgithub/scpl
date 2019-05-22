@@ -1,5 +1,5 @@
 
-## Create Trello List / createtrellolist (internally `is.workflow.actions.trello.add.list`)
+## Create Trello List / CreateTrelloList (internally `is.workflow.actions.trello.add.list`)
 
 > This action requires that Shortcuts has permission to use WFTrelloAccessResource.
 
@@ -13,14 +13,14 @@ Creates a new list on the specified board in your Trello account.
 
 ### usage
 ```
-createtrellolist name="string" board=("string" | variable)] position=("Top" | "Bottom")
+CreateTrelloList Name="string" Board=("string" | variable)] Position=("Top" | "Bottom")
 ```
 
 ### arguments
 
 ---
 
-### name: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### Name: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"Shortcut Ideas"`
 **Allows Variables**: true
 
@@ -32,7 +32,7 @@ with the text.
 
 ---
 
-### board: Trello Board Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### Board: Trello Board Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Allows Variables**: true
 
 
@@ -41,7 +41,7 @@ with the text.
 
 ---
 
-### position: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### Position: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Top"`
 **Allows Variables**: true
 

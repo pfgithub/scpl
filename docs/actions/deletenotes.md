@@ -1,5 +1,5 @@
 
-## Delete Notes / deletenotes (internally `is.workflow.actions.evernote.delete`)
+## Delete Notes / DeleteNotes (internally `is.workflow.actions.evernote.delete`)
 
 > This action requires that Shortcuts has permission to use WFEvernoteAccessResource.
 
@@ -13,14 +13,14 @@ Deletes the notes passed as input from Evernote.
 
 ### usage
 ```
-deletenotes confirmbeforedeleting=(true | false | variable)
+DeleteNotes (true | false | variable)
 ```
 
 ### arguments
 
 ---
 
-### confirmbeforedeleting: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### ConfirmBeforeDeleting: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Default Value**: ```
 		true
 		```

@@ -1,5 +1,5 @@
 
-## Get Item from List / getitemfromlist (internally `is.workflow.actions.getitemfromlist`)
+## Get Item from List / GetItemfromList (internally `is.workflow.actions.getitemfromlist`)
 
 
 ## description
@@ -16,14 +16,14 @@ Lists are one-indexed, so the first item is at index 1, the second is at index 2
 
 ### usage
 ```
-getitemfromlist get=("First Item" | "Last Item" | "Random Item" | "Item At Index" | "Items in Range") index=number getitemsfromindex=number toindex=number
+GetItemfromList Get=("First Item" | "Last Item" | "Random Item" | "Item At Index" | "Items in Range") Index=number GetItemsFromIndex=number ToIndex=number
 ```
 
 ### arguments
 
 ---
 
-### get: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### Get: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"First Item"`
 **Allows Variables**: true
 
@@ -41,7 +41,7 @@ containing one of the options:
 
 ---
 
-### index: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+### Index: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**: `1`
 **Allows Variables**: true
 
@@ -53,7 +53,7 @@ containing one of the options:
 
 ---
 
-### getitemsfromindex: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+### GetItemsFromIndex: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**: `optional`
 **Default Value**: `1`
 **Allows Variables**: true
@@ -66,7 +66,7 @@ containing one of the options:
 
 ---
 
-### toindex: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+### ToIndex: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**: `optional`
 **Allows Variables**: true
 

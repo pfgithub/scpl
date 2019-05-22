@@ -1,5 +1,5 @@
 
-## Get Network Details / getnetworkdetails (internally `is.workflow.actions.getwifi`)
+## Get Network Details / GetNetworkDetails (internally `is.workflow.actions.getwifi`)
 
 
 ## description
@@ -11,14 +11,14 @@ Gets information about the currently connected networks.
 
 ### usage
 ```
-getnetworkdetails network=("Wi-Fi" | "Cellular") get=("Network Name" | "BSSID") get2=("Carrier Name" | "Radio Technology" | "Country Code")
+GetNetworkDetails Network=("Wi-Fi" | "Cellular") Get=("Network Name" | "BSSID") Get=("Carrier Name" | "Radio Technology" | "Country Code")
 ```
 
 ### arguments
 
 ---
 
-### network: Network Type Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### Network: Network Type Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Allows Variables**: true
 
 
@@ -32,7 +32,7 @@ containing one of the options:
 
 ---
 
-### get: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### Get: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Network Name"`
 **Allows Variables**: true
 
@@ -47,7 +47,7 @@ containing one of the options:
 
 ---
 
-### get2: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### Get: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Carrier Name"`
 **Allows Variables**: true
 

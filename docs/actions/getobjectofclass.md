@@ -1,5 +1,5 @@
 
-## Get Object of Class / getobjectofclass (internally `is.workflow.actions.getclassaction`)
+## Get Object of Class / GetObjectofClass (internally `is.workflow.actions.getclassaction`)
 
 
 ## description
@@ -11,14 +11,14 @@ Returns a particular object class from the input.
 
 ### usage
 ```
-getobjectofclass class="string"
+GetObjectofClass "string"
 ```
 
 ### arguments
 
 ---
 
-### class: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### Class: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"NSString"`
 **Default Value**: `"NSURL"`
 **Allows Variables**: true

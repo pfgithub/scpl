@@ -1,5 +1,5 @@
 
-## Generate QR Code / generateqrcode (internally `is.workflow.actions.generatebarcode`)
+## Generate QR Code / GenerateQRCode (internally `is.workflow.actions.generatebarcode`)
 
 
 ## description
@@ -11,14 +11,14 @@ Generates a QR code from the input text.
 
 ### usage
 ```
-generateqrcode errorcorrection=("Low" | "Medium" | "Quartile" | "High")
+GenerateQRCode ("Low" | "Medium" | "Quartile" | "High")
 ```
 
 ### arguments
 
 ---
 
-### errorcorrection: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### ErrorCorrection: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Medium"`
 **Allows Variables**: true
 

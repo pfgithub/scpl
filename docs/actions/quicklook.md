@@ -1,5 +1,5 @@
 
-## Quick Look / quicklook (internally `is.workflow.actions.previewdocument`)
+## Quick Look / QuickLook (internally `is.workflow.actions.previewdocument`)
 
 > This action requires that Shortcuts has permission to use WFUserInteractionResource.
 
@@ -13,14 +13,14 @@ Displays a preview of the input.
 
 ### usage
 ```
-quicklook fullscreen=(true | false | variable)
+QuickLook (true | false | variable)
 ```
 
 ### arguments
 
 ---
 
-### fullscreen: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### FullScreen: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 **Only enabled if**: Device attributes match `{"WFDeviceAttributeIdiom":"Pad"}` This action is always enabled inside Shortcutslang.

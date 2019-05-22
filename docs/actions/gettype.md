@@ -1,5 +1,5 @@
 
-## Get Type / gettype (internally `is.workflow.actions.getitemtype`)
+## Get Type / GetType (internally `is.workflow.actions.getitemtype`)
 
 
 ## description
@@ -11,7 +11,7 @@ Returns the type of every item passed as input. For example, if a URL is passed,
 
 ### usage
 ```
-gettype 
+GetType 
 ```
 
 ### arguments

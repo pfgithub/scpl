@@ -1,5 +1,5 @@
 
-## Replace Text / replacetext (internally `is.workflow.actions.text.replace`)
+## Replace Text / ReplaceText (internally `is.workflow.actions.text.replace`)
 
 
 ## description
@@ -11,14 +11,14 @@ Replaces some text passed into the action with other text.
 
 ### usage
 ```
-replacetext findtext="string" replacewith="string" casesensitive=(true | false | variable) regularexpression=(true | false | variable)
+ReplaceText FindText="string" ReplaceWith="string" CaseSensitive=(true | false | variable) RegularExpression=(true | false | variable)
 ```
 
 ### arguments
 
 ---
 
-### findtext: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### FindText: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"hello"`
 **Allows Variables**: true
 
@@ -30,7 +30,7 @@ with the text.
 
 ---
 
-### replacewith: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### ReplaceWith: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"world"`
 **Allows Variables**: true
 
@@ -42,7 +42,7 @@ with the text.
 
 ---
 
-### casesensitive: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### CaseSensitive: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Default Value**: ```
 		true
 		```
@@ -55,7 +55,7 @@ or a variable.
 
 ---
 
-### regularexpression: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### RegularExpression: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 

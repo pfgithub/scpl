@@ -1,5 +1,5 @@
 
-## Get Variable / getvariable (internally `is.workflow.actions.getvariable`)
+## Get Variable / GetVariable (internally `is.workflow.actions.getvariable`)
 
 
 ## description
@@ -11,14 +11,14 @@ Gets the value of the specified variable and passes it to the next action.
 
 ### usage
 ```
-getvariable variable=(v:myvar | mv:myvar | s:myvar)
+GetVariable (v:myvar | mv:myvar | s:myvar)
 ```
 
 ### arguments
 
 ---
 
-### variable: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+### Variable: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
 **Allows Variables**: true
 
 

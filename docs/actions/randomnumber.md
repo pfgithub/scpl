@@ -1,5 +1,5 @@
 
-## Random Number / randomnumber (internally `is.workflow.actions.number.random`)
+## Random Number / RandomNumber (internally `is.workflow.actions.number.random`)
 
 
 ## description
@@ -11,14 +11,14 @@ Passes a random number between the given minimum and maximum to the next action.
 
 ### usage
 ```
-randomnumber minimum=number maximum=number
+RandomNumber Minimum=number Maximum=number
 ```
 
 ### arguments
 
 ---
 
-### minimum: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+### Minimum: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**: `0`
 **Allows Variables**: true
 
@@ -30,7 +30,7 @@ randomnumber minimum=number maximum=number
 
 ---
 
-### maximum: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+### Maximum: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**: `100`
 **Allows Variables**: true
 

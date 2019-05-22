@@ -1,5 +1,5 @@
 
-## Find Reminders / findreminders (internally `is.workflow.actions.filter.reminders`)
+## Find Reminders / FindReminders (internally `is.workflow.actions.filter.reminders`)
 
 > This action is not yet complete. Some arguments may be missing.
 
@@ -9,7 +9,7 @@
 
 ### usage
 ```
-findreminders undefined=NotImplemented
+FindReminders NotImplemented
 ```
 
 ### arguments

@@ -1,5 +1,5 @@
 
-## Set Brightness / setbrightness (internally `is.workflow.actions.setbrightness`)
+## Set Brightness / SetBrightness (internally `is.workflow.actions.setbrightness`)
 
 > This action requires that Shortcuts has permission to use WFSiriAccessResource.
 
@@ -13,14 +13,14 @@ Sets the device brightness.
 
 ### usage
 ```
-setbrightness brightness=number
+SetBrightness number
 ```
 
 ### arguments
 
 ---
 
-### brightness: Slider Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#slider-number-fields)
+### Brightness: Slider Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#slider-number-fields)
 **Default Value**: `0.5`
 **Allows Variables**: true
 

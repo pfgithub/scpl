@@ -1,5 +1,5 @@
 
-## Set Volume / setvolume (internally `is.workflow.actions.setvolume`)
+## Set Volume / SetVolume (internally `is.workflow.actions.setvolume`)
 
 
 ## description
@@ -11,14 +11,14 @@ Sets the system volume.
 
 ### usage
 ```
-setvolume volume=number
+SetVolume number
 ```
 
 ### arguments
 
 ---
 
-### volume: Slider Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#slider-number-fields)
+### Volume: Slider Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#slider-number-fields)
 **Default Value**: `0.5`
 **Allows Variables**: true
 

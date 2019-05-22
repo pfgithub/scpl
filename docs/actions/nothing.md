@@ -1,5 +1,5 @@
 
-## Nothing / nothing (internally `is.workflow.actions.nothing`)
+## Nothing / Nothing (internally `is.workflow.actions.nothing`)
 
 
 ## description
@@ -11,7 +11,7 @@ This action does nothing and produces no output. It is useful to separate blocks
 
 ### usage
 ```
-nothing 
+Nothing 
 ```
 
 ### arguments

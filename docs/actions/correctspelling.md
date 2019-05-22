@@ -1,5 +1,5 @@
 
-## Correct Spelling / correctspelling (internally `is.workflow.actions.correctspelling`)
+## Correct Spelling / CorrectSpelling (internally `is.workflow.actions.correctspelling`)
 
 
 ## description
@@ -11,7 +11,7 @@ Autocorrects the spelling of text passed into the action.
 
 ### usage
 ```
-correctspelling 
+CorrectSpelling 
 ```
 
 ### arguments

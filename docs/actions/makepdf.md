@@ -1,5 +1,5 @@
 
-## Make PDF / makepdf (internally `is.workflow.actions.makepdf`)
+## Make PDF / MakePDF (internally `is.workflow.actions.makepdf`)
 
 
 ## description
@@ -11,14 +11,14 @@ Makes a PDF out of the input. The resulting PDF can optionally include a quarter
 
 ### usage
 ```
-makepdf includemargin=(true | false | variable) include=("All Pages" | "Single Page" | "Page Range") page=number startpage=number endpage=number
+MakePDF IncludeMargin=(true | false | variable) Include=("All Pages" | "Single Page" | "Page Range") Page=number StartPage=number EndPage=number
 ```
 
 ### arguments
 
 ---
 
-### includemargin: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### IncludeMargin: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 
@@ -28,7 +28,7 @@ or a variable.
 
 ---
 
-### include: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### Include: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"All Pages"`
 **Allows Variables**: true
 
@@ -44,7 +44,7 @@ containing one of the options:
 
 ---
 
-### page: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+### Page: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**: `1`
 **Allows Variables**: true
 
@@ -56,7 +56,7 @@ containing one of the options:
 
 ---
 
-### startpage: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+### StartPage: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**: `1`
 **Allows Variables**: true
 
@@ -68,7 +68,7 @@ containing one of the options:
 
 ---
 
-### endpage: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+### EndPage: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**: `3`
 **Allows Variables**: true
 

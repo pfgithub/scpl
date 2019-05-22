@@ -1,5 +1,5 @@
 
-## Send Payment / sendpayment (internally `is.workflow.actions.venmo.pay`)
+## Send Payment / SendPayment (internally `is.workflow.actions.venmo.pay`)
 
 > This action is not yet complete. Some arguments may be missing.
 
@@ -15,14 +15,14 @@ Sends a payment to the specified people using a payment app on your device.
 
 ### usage
 ```
-sendpayment app=("string" | variable)] undefined=NotImplemented amount=number openinapp=(true | false | variable) note="string"
+SendPayment App=("string" | variable)] undefined=NotImplemented Amount=number OpeninApp=(true | false | variable) Note="string"
 ```
 
 ### arguments
 
 ---
 
-### app: Intent App Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### App: Intent App Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Default Value**: ```
 		com.apple.PassKit.PassKitIntentsExtension
 		```
@@ -36,7 +36,7 @@ sendpayment app=("string" | variable)] undefined=NotImplemented amount=number op
 
 ---
 
-### amount: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+### Amount: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**: `7.00`
 **Allows Variables**: true
 
@@ -48,7 +48,7 @@ sendpayment app=("string" | variable)] undefined=NotImplemented amount=number op
 
 ---
 
-### openinapp: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### OpeninApp: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 
@@ -58,7 +58,7 @@ or a variable.
 
 ---
 
-### note: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### Note: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"Note"`
 **Allows Variables**: true
 

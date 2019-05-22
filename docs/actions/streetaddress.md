@@ -1,5 +1,5 @@
 
-## Street Address / streetaddress (internally `is.workflow.actions.address`)
+## Street Address / StreetAddress (internally `is.workflow.actions.address`)
 
 
 ## description
@@ -11,14 +11,14 @@ Passes the specified address to the next action.
 
 ### usage
 ```
-streetaddress line1="string" line2="string" city="string" state="string" postalcode="string" region="string"
+StreetAddress Line1="string" Line2="string" City="string" State="string" PostalCode="string" Region="string"
 ```
 
 ### arguments
 
 ---
 
-### line1: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### Line1: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"One Apple Park Way"`
 **Allows Variables**: true
 
@@ -30,7 +30,7 @@ with the text.
 
 ---
 
-### line2: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### Line2: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Allows Variables**: true
 
 
@@ -41,7 +41,7 @@ with the text.
 
 ---
 
-### city: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### City: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"Cupertino"`
 **Allows Variables**: true
 
@@ -53,7 +53,7 @@ with the text.
 
 ---
 
-### state: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### State: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"California"`
 **Allows Variables**: true
 
@@ -65,7 +65,7 @@ with the text.
 
 ---
 
-### postalcode: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### PostalCode: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"95014"`
 **Allows Variables**: true
 
@@ -77,7 +77,7 @@ with the text.
 
 ---
 
-### region: Country [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### Region: Country [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"United States"`
 **Allows Variables**: true
 

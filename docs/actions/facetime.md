@@ -1,5 +1,5 @@
 
-## FaceTime / facetime (internally `com.apple.facetime.facetime`)
+## FaceTime / FaceTime (internally `com.apple.facetime.facetime`)
 
 > This action requires that Shortcuts has permission to use WFContactAccessResource.
 
@@ -13,14 +13,14 @@ Calls the contact passed in as input using FaceTime.
 
 ### usage
 ```
-facetime app=("string" | variable)] calltype=("Video" | "Audio")
+FaceTime App=("string" | variable)] CallType=("Video" | "Audio")
 ```
 
 ### arguments
 
 ---
 
-### app: Intent App Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### App: Intent App Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Default Value**: ```
 		com.apple.TelephonyUtilities.PhoneIntentHandler
 		```
@@ -32,7 +32,7 @@ facetime app=("string" | variable)] calltype=("Video" | "Audio")
 
 ---
 
-### calltype: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### CallType: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Video"`
 **Allows Variables**: true
 

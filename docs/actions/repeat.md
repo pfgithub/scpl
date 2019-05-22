@@ -1,5 +1,5 @@
 
-## Repeat / repeat (internally `is.workflow.actions.repeat.count`)
+## Repeat / Repeat (internally `is.workflow.actions.repeat.count`)
 
 > This action has a block. Make sure to end it with an end. (More info in usage below)
 
@@ -13,7 +13,7 @@ Repeats the contained actions, running them the specified number of times.
 
 ### usage
 ```
-repeat wfrepeatcount=number
+Repeat number
   ...
 end
 ```
@@ -22,7 +22,7 @@ end
 
 ---
 
-### wfrepeatcount: Stepper Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
+### WFRepeatCount: Stepper Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
 **Allows Variables**: true
 
 

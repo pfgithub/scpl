@@ -1,5 +1,5 @@
 
-## Send via DeskConnect / sendviadeskconnect (internally `is.workflow.actions.deskconnect.send`)
+## Send via DeskConnect / SendviaDeskConnect (internally `is.workflow.actions.deskconnect.send`)
 
 > This action requires that Shortcuts has permission to use WFUserInteractionResource,[object Object].
 
@@ -13,7 +13,7 @@ Sends the input to another device via DeskConnect. DeskConnect makes it easy to 
 
 ### usage
 ```
-sendviadeskconnect 
+SendviaDeskConnect 
 ```
 
 ### arguments

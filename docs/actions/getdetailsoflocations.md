@@ -1,18 +1,18 @@
 
-## Get Details of Locations / getdetailsoflocations (internally `is.workflow.actions.properties.locations`)
+## Get Details of Locations / GetDetailsofLocations (internally `is.workflow.actions.properties.locations`)
 
 
 
 ### usage
 ```
-getdetailsoflocations get=("Phone Number" | "State" | "Altitude" | "Name" | "Longitude" | "Country" | "City" | "Street" | "URL" | "Latitude" | "ZIP Code")
+GetDetailsofLocations ("Phone Number" | "State" | "Altitude" | "Name" | "Longitude" | "Country" | "City" | "Street" | "URL" | "Latitude" | "ZIP Code")
 ```
 
 ### arguments
 
 ---
 
-### get: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### Get: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Allows Variables**: true
 
 

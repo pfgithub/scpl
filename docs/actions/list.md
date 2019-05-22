@@ -1,5 +1,5 @@
 
-## List / list (internally `is.workflow.actions.list`)
+## List / List (internally `is.workflow.actions.list`)
 
 
 ## description
@@ -16,14 +16,14 @@ If you specify a variable, the contents of that variable will be included in the
 
 ### usage
 ```
-list items=[list, items]
+List [list, items]
 ```
 
 ### arguments
 
 ---
 
-### items: undefined [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#list-field)
+### Items: undefined [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#list-field)
 **Default Value**: ```
 		One,Two
 		```

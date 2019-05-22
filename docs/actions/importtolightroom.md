@@ -1,5 +1,5 @@
 
-## Import to Lightroom / importtolightroom (internally `is.workflow.actions.lightroom.import`)
+## Import to Lightroom / ImporttoLightroom (internally `is.workflow.actions.lightroom.import`)
 
 
 ## description
@@ -11,14 +11,14 @@ Imports the photos passed as input into Lightroom
 
 ### usage
 ```
-importtolightroom applypreset=(true | false | variable) presetgroup=("B&W" | "Color" | "Creative" | "Curve" | "Grain" | "Sharpening" | "Vignetting") preset=("string" | variable)]
+ImporttoLightroom ApplyPreset=(true | false | variable) PresetGroup=("B&W" | "Color" | "Creative" | "Curve" | "Grain" | "Sharpening" | "Vignetting") Preset=("string" | variable)]
 ```
 
 ### arguments
 
 ---
 
-### applypreset: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### ApplyPreset: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 
@@ -28,7 +28,7 @@ or a variable.
 
 ---
 
-### presetgroup: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### PresetGroup: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Color"`
 **Allows Variables**: true
 
@@ -48,7 +48,7 @@ containing one of the options:
 
 ---
 
-### preset: Lightroom Preset Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### Preset: Lightroom Preset Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Allows Variables**: true
 
 **Only enabled if**: argument applyPreset == `true`

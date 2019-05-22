@@ -1,5 +1,5 @@
 
-## Phone Number / phonenumber (internally `is.workflow.actions.phonenumber`)
+## Phone Number / PhoneNumber (internally `is.workflow.actions.phonenumber`)
 
 > This action is not yet complete. Some arguments may be missing.
 
@@ -15,7 +15,7 @@ Passes the specified phone numbers to the next action.
 
 ### usage
 ```
-phonenumber undefined=NotImplemented
+PhoneNumber NotImplemented
 ```
 
 ### arguments

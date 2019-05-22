@@ -1,5 +1,5 @@
 
-## Match Text / matchtext (internally `is.workflow.actions.text.match`)
+## Match Text / MatchText (internally `is.workflow.actions.text.match`)
 
 
 ## description
@@ -15,14 +15,14 @@ A list of text items that matched the regular expression
 
 ### usage
 ```
-matchtext pattern="string" casesensitive=(true | false | variable)
+MatchText Pattern="string" CaseSensitive=(true | false | variable)
 ```
 
 ### arguments
 
 ---
 
-### pattern: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### Pattern: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Default Value**: `"[0-9a-zA-Z]"`
 **Allows Variables**: true
 
@@ -34,7 +34,7 @@ with the text.
 
 ---
 
-### casesensitive: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### CaseSensitive: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Default Value**: ```
 		true
 		```

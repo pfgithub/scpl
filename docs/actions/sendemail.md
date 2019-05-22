@@ -1,5 +1,5 @@
 
-## Send Email / sendemail (internally `is.workflow.actions.sendemail`)
+## Send Email / SendEmail (internally `is.workflow.actions.sendemail`)
 
 > This action requires that Shortcuts has permission to use [object Object],[object Object],[object Object].
 
@@ -13,14 +13,14 @@ Presents an email composer. Pass text into the action to set the email body. Oth
 
 ### usage
 ```
-sendemail showcomposesheet=(true | false | variable) from=("string" | variable)] from2="string" to=("string" | [list, of, strings] | variable) cc=("string" | [list, of, strings] | variable) bcc=("string" | [list, of, strings] | variable) subject="string"
+SendEmail ShowComposeSheet=(true | false | variable) From=("string" | variable)] From="string" To=("string" | [list, of, strings] | variable) Cc=("string" | [list, of, strings] | variable) Bcc=("string" | [list, of, strings] | variable) Subject="string"
 ```
 
 ### arguments
 
 ---
 
-### showcomposesheet: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### ShowComposeSheet: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Default Value**: ```
 		true
 		```
@@ -33,7 +33,7 @@ or a variable.
 
 ---
 
-### from: Email Account Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### From: Email Account Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Allows Variables**: true
 
 **Only enabled if**: argument WFSendEmailActionShowComposeSheet == `false`
@@ -42,7 +42,7 @@ or a variable.
 
 ---
 
-### from2: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### From: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"optional"`
 **Allows Variables**: true
 
@@ -56,7 +56,7 @@ with the text.
 
 ---
 
-### to: Email [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### To: Email [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Placeholder**: ```
 		Email addresses
 		```
@@ -68,7 +68,7 @@ Accepts a string or string array or variable of email addresses.
 
 ---
 
-### cc: Email [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### Cc: Email [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Placeholder**: ```
 		Email addresses
 		```
@@ -80,7 +80,7 @@ Accepts a string or string array or variable of email addresses.
 
 ---
 
-### bcc: Email [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### Bcc: Email [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Placeholder**: ```
 		Email addresses
 		```
@@ -92,7 +92,7 @@ Accepts a string or string array or variable of email addresses.
 
 ---
 
-### subject: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### Subject: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"optional"`
 **Allows Variables**: true
 

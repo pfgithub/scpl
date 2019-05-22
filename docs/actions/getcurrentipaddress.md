@@ -1,5 +1,5 @@
 
-## Get Current IP Address / getcurrentipaddress (internally `is.workflow.actions.getipaddress`)
+## Get Current IP Address / GetCurrentIPAddress (internally `is.workflow.actions.getipaddress`)
 
 
 ## description
@@ -11,14 +11,14 @@ Returns the local or external IP address of the device.
 
 ### usage
 ```
-getcurrentipaddress address=("External" | "Local") type=("IPv4" | "IPv6")
+GetCurrentIPAddress Address=("External" | "Local") Type=("IPv4" | "IPv6")
 ```
 
 ### arguments
 
 ---
 
-### address: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### Address: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"External"`
 **Allows Variables**: true
 
@@ -33,7 +33,7 @@ containing one of the options:
 
 ---
 
-### type: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### Type: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"IPv4"`
 **Allows Variables**: true
 

@@ -1,5 +1,5 @@
 
-## Get Current Location / getcurrentlocation (internally `is.workflow.actions.getcurrentlocation`)
+## Get Current Location / GetCurrentLocation (internally `is.workflow.actions.getcurrentlocation`)
 
 > This action requires that Shortcuts has permission to use WFMainThreadResource,WFLocationAccessResource.
 
@@ -13,7 +13,7 @@ Gets the current location of the device.
 
 ### usage
 ```
-getcurrentlocation 
+GetCurrentLocation 
 ```
 
 ### arguments

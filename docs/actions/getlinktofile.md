@@ -1,5 +1,5 @@
 
-## Get Link to File / getlinktofile (internally `is.workflow.actions.file.getlink`)
+## Get Link to File / GetLinktoFile (internally `is.workflow.actions.file.getlink`)
 
 
 ## description
@@ -11,7 +11,7 @@ Gets a public link to the file passed into the action.
 
 ### usage
 ```
-getlinktofile 
+GetLinktoFile 
 ```
 
 ### arguments

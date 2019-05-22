@@ -1,5 +1,5 @@
 
-## Search App Store / searchappstore (internally `is.workflow.actions.searchappstore`)
+## Search App Store / SearchAppStore (internally `is.workflow.actions.searchappstore`)
 
 
 ## description
@@ -11,14 +11,14 @@ Searches the App Store, returning the apps that match the specified search terms
 
 ### usage
 ```
-searchappstore search="string" searchby=("string" | variable)] results=("string" | variable)] region=("string" | variable)] wfitemlimit=number
+SearchAppStore Search="string" SearchBy=("string" | variable)] Results=("string" | variable)] Region=("string" | variable)] WFItemLimit=number
 ```
 
 ### arguments
 
 ---
 
-### search: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### Search: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"Shortcuts"`
 **Allows Variables**: true
 
@@ -30,7 +30,7 @@ with the text.
 
 ---
 
-### searchby: Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### SearchBy: Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Allows Variables**: true
 
 
@@ -39,7 +39,7 @@ with the text.
 
 ---
 
-### results: Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### Results: Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Allows Variables**: true
 
 
@@ -48,7 +48,7 @@ with the text.
 
 ---
 
-### region: iTunes Store Country Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### Region: iTunes Store Country Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Allows Variables**: true
 
 
@@ -57,7 +57,7 @@ with the text.
 
 ---
 
-### wfitemlimit: Stepper Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
+### WFItemLimit: Stepper Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
 **Default Value**: `25`
 **Allows Variables**: true
 

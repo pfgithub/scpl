@@ -1,5 +1,5 @@
 
-## Extract Archive / extractarchive (internally `is.workflow.actions.unzip`)
+## Extract Archive / ExtractArchive (internally `is.workflow.actions.unzip`)
 
 
 ## description
@@ -16,7 +16,7 @@ Archive
 
 ### usage
 ```
-extractarchive 
+ExtractArchive 
 ```
 
 ### arguments

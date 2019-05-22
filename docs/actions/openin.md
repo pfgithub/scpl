@@ -1,5 +1,5 @@
 
-## Open In... / openin (internally `is.workflow.actions.openin`)
+## Open In... / OpenIn (internally `is.workflow.actions.openin`)
 
 > This action requires that Shortcuts has permission to use WFUserInteractionResource.
 
@@ -13,14 +13,14 @@ Opens the input as a file in the specified app.
 
 ### usage
 ```
-openin showopeninmenu=(true | false | variable) app=("app name" | "com.identifier.for.app")] wfappname="string"
+OpenIn ShowOpenInMenu=(true | false | variable) App=("app name" | "com.identifier.for.app")] WFAppName="string"
 ```
 
 ### arguments
 
 ---
 
-### showopeninmenu: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### ShowOpenInMenu: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Default Value**: ```
 		true
 		```
@@ -33,7 +33,7 @@ or a variable.
 
 ---
 
-### app: App [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### App: App [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Allows Variables**: true
 
 **Only enabled if**: argument WFOpenInAskWhenRun == `false`
@@ -50,7 +50,7 @@ Supported apps are:
 
 ---
 
-### wfappname: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### WFAppName: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Allows Variables**: true
 
 **Only enabled if**: This action is always **disabled** inside Shortcutslang.

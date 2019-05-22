@@ -1,5 +1,5 @@
 
-## Trim Media / trimmedia (internally `is.workflow.actions.trimvideo`)
+## Trim Media / TrimMedia (internally `is.workflow.actions.trimvideo`)
 
 > This action requires that Shortcuts has permission to use WFUserInteractionResource.
 
@@ -22,7 +22,7 @@ The trimmed media.
 
 ### usage
 ```
-trimmedia 
+TrimMedia 
 ```
 
 ### arguments

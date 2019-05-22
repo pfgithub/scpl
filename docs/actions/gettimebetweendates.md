@@ -1,5 +1,5 @@
 
-## Get Time Between Dates / gettimebetweendates (internally `is.workflow.actions.gettimebetweendates`)
+## Get Time Between Dates / GetTimeBetweenDates (internally `is.workflow.actions.gettimebetweendates`)
 
 
 ## description
@@ -16,14 +16,14 @@ This action outputs a negative number if the input date takes place before the s
 
 ### usage
 ```
-gettimebetweendates gettimefrom=("Right Now" | "Other" | variable) otherdate="string" in=("Total Time" | "Seconds" | "Minutes" | "Hours" | "Days" | "Weeks" | "Months" | "Years")
+GetTimeBetweenDates GetTimeFrom=("Right Now" | "Other" | variable) OtherDate="string" In=("Total Time" | "Seconds" | "Minutes" | "Hours" | "Days" | "Weeks" | "Months" | "Years")
 ```
 
 ### arguments
 
 ---
 
-### gettimefrom: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### GetTimeFrom: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Right Now"`
 
 
@@ -35,7 +35,7 @@ containing one of the options:
 
 ---
 
-### otherdate: Date [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### OtherDate: Date [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"September 9, 2014"`
 **Allows Variables**: true
 
@@ -47,7 +47,7 @@ with the text.
 
 ---
 
-### in: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### In: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Minutes"`
 **Allows Variables**: true
 

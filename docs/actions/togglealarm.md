@@ -1,5 +1,5 @@
 
-## Toggle Alarm / togglealarm (internally `is.workflow.actions.alarm.toggle`)
+## Toggle Alarm / ToggleAlarm (internally `is.workflow.actions.alarm.toggle`)
 
 > This action requires that Shortcuts has permission to use WFSiriAccessResource.
 
@@ -13,14 +13,14 @@ Enables or disables an alarm in the Clock app.
 
 ### usage
 ```
-togglealarm alarm=("string" | variable)] enabled=(true | false | variable)
+ToggleAlarm Alarm=("string" | variable)] Enabled=(true | false | variable)
 ```
 
 ### arguments
 
 ---
 
-### alarm: Alarm Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### Alarm: Alarm Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Allows Variables**: true
 
 
@@ -29,7 +29,7 @@ togglealarm alarm=("string" | variable)] enabled=(true | false | variable)
 
 ---
 
-### enabled: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### Enabled: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 

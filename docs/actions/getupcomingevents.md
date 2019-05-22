@@ -1,5 +1,5 @@
 
-## Get Upcoming Events / getupcomingevents (internally `is.workflow.actions.getupcomingevents`)
+## Get Upcoming Events / GetUpcomingEvents (internally `is.workflow.actions.getupcomingevents`)
 
 > This action requires that Shortcuts has permission to use WFCalendarAccessResource.
 
@@ -13,14 +13,14 @@ Gets upcoming calendar events, ordered from nearest to farthest away in time.
 
 ### usage
 ```
-getupcomingevents calendar=("string" | variable)] wfgetupcomingitemcount=number day=("Any Day" | "Today" | "Tomorrow" | "Specified Day") specifiedday="string"
+GetUpcomingEvents Calendar=("string" | variable)] WFGetUpcomingItemCount=number Day=("Any Day" | "Today" | "Tomorrow" | "Specified Day") SpecifiedDay="string"
 ```
 
 ### arguments
 
 ---
 
-### calendar: Calendar Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### Calendar: Calendar Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Allows Variables**: true
 
 
@@ -29,7 +29,7 @@ getupcomingevents calendar=("string" | variable)] wfgetupcomingitemcount=number 
 
 ---
 
-### wfgetupcomingitemcount: Stepper Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
+### WFGetUpcomingItemCount: Stepper Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
 **Default Value**: `1`
 **Allows Variables**: true
 
@@ -41,7 +41,7 @@ getupcomingevents calendar=("string" | variable)] wfgetupcomingitemcount=number 
 
 ---
 
-### day: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### Day: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Any Day"`
 **Allows Variables**: true
 
@@ -58,7 +58,7 @@ containing one of the options:
 
 ---
 
-### specifiedday: Date [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### SpecifiedDay: Date [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"June 29, 2007"`
 **Allows Variables**: true
 

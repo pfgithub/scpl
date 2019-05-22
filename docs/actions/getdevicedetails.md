@@ -1,5 +1,5 @@
 
-## Get Device Details / getdevicedetails (internally `is.workflow.actions.getdevicedetails`)
+## Get Device Details / GetDeviceDetails (internally `is.workflow.actions.getdevicedetails`)
 
 
 ## description
@@ -11,14 +11,14 @@ Gets information about the current device.
 
 ### usage
 ```
-getdevicedetails get=("Device Name" | "Device Model" | "System Version" | "Screen Width" | "Screen Height" | "Current Volume" | "Current Brightness")
+GetDeviceDetails ("Device Name" | "Device Model" | "System Version" | "Screen Width" | "Screen Height" | "Current Volume" | "Current Brightness")
 ```
 
 ### arguments
 
 ---
 
-### get: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### Get: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Device Name"`
 **Allows Variables**: true
 

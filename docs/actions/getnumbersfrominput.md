@@ -1,5 +1,5 @@
 
-## Get Numbers from Input / getnumbersfrominput (internally `is.workflow.actions.detect.number`)
+## Get Numbers from Input / GetNumbersfromInput (internally `is.workflow.actions.detect.number`)
 
 
 ## description
@@ -11,7 +11,7 @@ Returns numbers from the previous action's output.
 
 ### usage
 ```
-getnumbersfrominput 
+GetNumbersfromInput 
 ```
 
 ### arguments

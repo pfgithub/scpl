@@ -1,18 +1,18 @@
 
-## Get Details of iTunes Product / getdetailsofitunesproduct (internally `is.workflow.actions.properties.itunesstore`)
+## Get Details of iTunes Product / GetDetailsofiTunesProduct (internally `is.workflow.actions.properties.itunesstore`)
 
 
 
 ### usage
 ```
-getdetailsofitunesproduct get=("Currency Code" | "Is Explicit" | "Genre" | "Store URL" | "Name" | "Release Date" | "Price" | "Artwork URL" | "Streamable" | "Store ID" | "Artist" | "Formatted Price" | "Artwork" | "Description" | "Duration")
+GetDetailsofiTunesProduct ("Currency Code" | "Is Explicit" | "Genre" | "Store URL" | "Name" | "Release Date" | "Price" | "Artwork URL" | "Streamable" | "Store ID" | "Artist" | "Formatted Price" | "Artwork" | "Description" | "Duration")
 ```
 
 ### arguments
 
 ---
 
-### get: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### Get: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Allows Variables**: true
 
 

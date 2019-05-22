@@ -1,5 +1,5 @@
 
-## Post to Tumblr / posttotumblr (internally `is.workflow.actions.tumblr.post`)
+## Post to Tumblr / PosttoTumblr (internally `is.workflow.actions.tumblr.post`)
 
 > This action is not yet complete. Some arguments may be missing.
 
@@ -19,7 +19,7 @@ The URL of the new post
 
 ### usage
 ```
-posttotumblr undefined=NotImplemented blog=("string" | variable)] type=("string" | variable)] poststatus=("Post Now" | "Add to Queue" | "Save as Draft" | "Post Privately") title="string" source="string" caption="string" tags="string" description="string"
+PosttoTumblr undefined=NotImplemented Blog=("string" | variable)] Type=("string" | variable)] PostStatus=("Post Now" | "Add to Queue" | "Save as Draft" | "Post Privately") Title="string" Source="string" Caption="string" Tags="string" Description="string"
 ```
 
 ### arguments
@@ -30,7 +30,7 @@ posttotumblr undefined=NotImplemented blog=("string" | variable)] type=("string"
 
 ---
 
-### blog: Tumblr Blog Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### Blog: Tumblr Blog Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Allows Variables**: true
 
 **Only enabled if**: argument WFComposeInApp == `false`
@@ -39,7 +39,7 @@ posttotumblr undefined=NotImplemented blog=("string" | variable)] type=("string"
 
 ---
 
-### type: Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### Type: Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Default Value**: ```
 		Text
 		```
@@ -51,7 +51,7 @@ posttotumblr undefined=NotImplemented blog=("string" | variable)] type=("string"
 
 ---
 
-### poststatus: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### PostStatus: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Post Now"`
 **Allows Variables**: true
 
@@ -68,7 +68,7 @@ containing one of the options:
 
 ---
 
-### title: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### Title: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"optional"`
 **Allows Variables**: true
 
@@ -80,7 +80,7 @@ with the text.
 
 ---
 
-### source: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### Source: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"optional"`
 **Allows Variables**: true
 
@@ -92,7 +92,7 @@ with the text.
 
 ---
 
-### caption: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### Caption: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"optional"`
 **Allows Variables**: true
 
@@ -106,7 +106,7 @@ with the text.
 
 ---
 
-### tags: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### Tags: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"shortcuts, apple"`
 **Allows Variables**: true
 
@@ -118,7 +118,7 @@ with the text.
 
 ---
 
-### description: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### Description: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"Description"`
 **Allows Variables**: true
 

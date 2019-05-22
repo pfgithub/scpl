@@ -1,5 +1,5 @@
 
-## Open URLs / openurls (internally `is.workflow.actions.openurl`)
+## Open URLs / OpenURLs (internally `is.workflow.actions.openurl`)
 
 > This action requires that Shortcuts has permission to use WFURLOpenResource.
 
@@ -13,7 +13,7 @@ Opens URLs passed into the action in Safari.
 
 ### usage
 ```
-openurls 
+OpenURLs 
 ```
 
 ### arguments

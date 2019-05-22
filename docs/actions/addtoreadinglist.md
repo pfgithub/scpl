@@ -1,5 +1,5 @@
 
-## Add to Reading List / addtoreadinglist (internally `is.workflow.actions.readinglist`)
+## Add to Reading List / AddtoReadingList (internally `is.workflow.actions.readinglist`)
 
 
 ## description
@@ -11,7 +11,7 @@ Adds URLs passed into the action to your reading list.
 
 ### usage
 ```
-addtoreadinglist 
+AddtoReadingList 
 ```
 
 ### arguments

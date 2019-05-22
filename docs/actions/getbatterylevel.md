@@ -1,5 +1,5 @@
 
-## Get Battery Level / getbatterylevel (internally `is.workflow.actions.getbatterylevel`)
+## Get Battery Level / GetBatteryLevel (internally `is.workflow.actions.getbatterylevel`)
 
 
 ## description
@@ -11,7 +11,7 @@ Outputs the percentage of battery remaining as a number from 0 to 100.
 
 ### usage
 ```
-getbatterylevel 
+GetBatteryLevel 
 ```
 
 ### arguments

@@ -1,5 +1,5 @@
 
-## Set Airplane Mode / setairplanemode (internally `is.workflow.actions.airplanemode.set`)
+## Set Airplane Mode / SetAirplaneMode (internally `is.workflow.actions.airplanemode.set`)
 
 > This action requires that Shortcuts has permission to use WFSiriAccessResource.
 
@@ -13,14 +13,14 @@ Sets the device’s Airplane Mode to on or off.
 
 ### usage
 ```
-setairplanemode airplanemode=(true | false | variable)
+SetAirplaneMode (true | false | variable)
 ```
 
 ### arguments
 
 ---
 
-### airplanemode: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### AirplaneMode: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Default Value**: ```
 		true
 		```

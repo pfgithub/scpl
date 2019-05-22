@@ -1,5 +1,5 @@
 
-## Get Dictionary from Input / getdictionaryfrominput (internally `is.workflow.actions.detect.dictionary`)
+## Get Dictionary from Input / GetDictionaryfromInput (internally `is.workflow.actions.detect.dictionary`)
 
 
 ## description
@@ -11,7 +11,7 @@ Makes a dictionary from the text passed as input. JSON (like {"foo": "bar"}), ke
 
 ### usage
 ```
-getdictionaryfrominput 
+GetDictionaryfromInput 
 ```
 
 ### arguments

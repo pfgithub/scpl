@@ -1,5 +1,5 @@
 
-## Skip Forward / skipforward (internally `is.workflow.actions.skipforward`)
+## Skip Forward / SkipForward (internally `is.workflow.actions.skipforward`)
 
 > This action requires that Shortcuts has permission to use WFMainThreadResource.
 
@@ -13,7 +13,7 @@ Skips to the next song in the current music queue.
 
 ### usage
 ```
-skipforward 
+SkipForward 
 ```
 
 ### arguments

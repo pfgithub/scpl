@@ -1,5 +1,5 @@
 
-## Add to Up Next / addtoupnext (internally `is.workflow.actions.addmusictoupnext`)
+## Add to Up Next / AddtoUpNext (internally `is.workflow.actions.addmusictoupnext`)
 
 > This action requires that Shortcuts has permission to use WFAppleMusicAccessResource,[object Object].
 
@@ -18,14 +18,14 @@ Items in your music library or items from the Search iTunes action.
 
 ### usage
 ```
-addtoupnext play=("Next" | "Later")
+AddtoUpNext ("Next" | "Later")
 ```
 
 ### arguments
 
 ---
 
-### play: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### Play: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Next"`
 **Allows Variables**: true
 

@@ -1,5 +1,5 @@
 
-## Get Details of Safari Webpage / getdetailsofsafariwebpage (internally `is.workflow.actions.properties.safariwebpage`)
+## Get Details of Safari Webpage / GetDetailsofSafariWebpage (internally `is.workflow.actions.properties.safariwebpage`)
 
 
 ## description
@@ -11,14 +11,14 @@ Safari Webpage items are only available when running your shortcut as an Action 
 
 ### usage
 ```
-getdetailsofsafariwebpage get=("Name" | "Page Contents" | "Page URL" | "Page Selection")
+GetDetailsofSafariWebpage ("Name" | "Page Contents" | "Page URL" | "Page Selection")
 ```
 
 ### arguments
 
 ---
 
-### get: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### Get: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Allows Variables**: true
 
 

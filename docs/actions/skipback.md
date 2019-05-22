@@ -1,5 +1,5 @@
 
-## Skip Back / skipback (internally `is.workflow.actions.skipback`)
+## Skip Back / SkipBack (internally `is.workflow.actions.skipback`)
 
 > This action requires that Shortcuts has permission to use WFMainThreadResource.
 
@@ -13,14 +13,14 @@ Skips to the previous song in the current music queue.
 
 ### usage
 ```
-skipback skipto=("Beginning" | "Previous Song")
+SkipBack ("Beginning" | "Previous Song")
 ```
 
 ### arguments
 
 ---
 
-### skipto: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### SkipTo: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Beginning"`
 **Allows Variables**: true
 

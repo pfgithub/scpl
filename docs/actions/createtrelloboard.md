@@ -1,5 +1,5 @@
 
-## Create Trello Board / createtrelloboard (internally `is.workflow.actions.trello.add.board`)
+## Create Trello Board / CreateTrelloBoard (internally `is.workflow.actions.trello.add.board`)
 
 > This action requires that Shortcuts has permission to use WFTrelloAccessResource.
 
@@ -13,14 +13,14 @@ Creates a new board in your Trello account.
 
 ### usage
 ```
-createtrelloboard name="string" wftrellodescription="string"
+CreateTrelloBoard Name="string" WFTrelloDescription="string"
 ```
 
 ### arguments
 
 ---
 
-### name: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### Name: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"Shortcuts"`
 **Allows Variables**: true
 
@@ -32,7 +32,7 @@ with the text.
 
 ---
 
-### wftrellodescription: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### WFTrelloDescription: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"Description"`
 **Allows Variables**: true
 

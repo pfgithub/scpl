@@ -1,5 +1,5 @@
 
-## Get Details of iTunes Artist / getdetailsofitunesartist (internally `is.workflow.actions.properties.itunesartist`)
+## Get Details of iTunes Artist / GetDetailsofiTunesArtist (internally `is.workflow.actions.properties.itunesartist`)
 
 > This action is not yet complete. Some arguments may be missing.
 
@@ -7,7 +7,7 @@
 
 ### usage
 ```
-getdetailsofitunesartist undefined=NotImplemented
+GetDetailsofiTunesArtist NotImplemented
 ```
 
 ### arguments

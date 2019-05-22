@@ -1,5 +1,5 @@
 
-## Upload to Imgur / uploadtoimgur (internally `is.workflow.actions.imgur.upload`)
+## Upload to Imgur / UploadtoImgur (internally `is.workflow.actions.imgur.upload`)
 
 > This action requires that Shortcuts has permission to use [object Object].
 
@@ -18,14 +18,14 @@ Powered by Imgur (imgur.com)
 
 ### usage
 ```
-uploadtoimgur uploadanonymously=(true | false | variable) directlink=(true | false | variable) createalbum=(true | false | variable) albumlayout=("Blog" | "Grid" | "Horizontal" | "Vertical") albumprivacy=("Public" | "Hidden" | "Secret") title="string" description="string"
+UploadtoImgur UploadAnonymously=(true | false | variable) DirectLink=(true | false | variable) CreateAlbum=(true | false | variable) AlbumLayout=("Blog" | "Grid" | "Horizontal" | "Vertical") AlbumPrivacy=("Public" | "Hidden" | "Secret") Title="string" Description="string"
 ```
 
 ### arguments
 
 ---
 
-### uploadanonymously: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### UploadAnonymously: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Default Value**: ```
 		true
 		```
@@ -38,7 +38,7 @@ or a variable.
 
 ---
 
-### directlink: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### DirectLink: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 **Only enabled if**: argument WFImgurAlbum == `false`
@@ -48,7 +48,7 @@ or a variable.
 
 ---
 
-### createalbum: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### CreateAlbum: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 
@@ -58,7 +58,7 @@ or a variable.
 
 ---
 
-### albumlayout: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### AlbumLayout: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Blog"`
 **Allows Variables**: true
 
@@ -75,7 +75,7 @@ containing one of the options:
 
 ---
 
-### albumprivacy: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### AlbumPrivacy: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Hidden"`
 **Allows Variables**: true
 
@@ -91,7 +91,7 @@ containing one of the options:
 
 ---
 
-### title: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### Title: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"optional"`
 **Allows Variables**: true
 
@@ -103,7 +103,7 @@ with the text.
 
 ---
 
-### description: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### Description: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"Description"`
 **Allows Variables**: true
 

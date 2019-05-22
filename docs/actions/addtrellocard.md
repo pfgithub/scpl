@@ -1,5 +1,5 @@
 
-## Add Trello Card / addtrellocard (internally `is.workflow.actions.trello.add.card`)
+## Add Trello Card / AddTrelloCard (internally `is.workflow.actions.trello.add.card`)
 
 > This action requires that Shortcuts has permission to use WFTrelloAccessResource.
 
@@ -13,14 +13,14 @@ Creates a new card on the specified list and board in your Trello account.
 
 ### usage
 ```
-addtrellocard name="string" board=("string" | variable)] list=("string" | variable)] due="string" position=("Top" | "Bottom") attachments=(v:myvar | mv:myvar | s:myvar) wftrellodescription="string"
+AddTrelloCard Name="string" Board=("string" | variable)] List=("string" | variable)] Due="string" Position=("Top" | "Bottom") Attachments=(v:myvar | mv:myvar | s:myvar) WFTrelloDescription="string"
 ```
 
 ### arguments
 
 ---
 
-### name: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### Name: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"Be productive"`
 **Allows Variables**: true
 
@@ -32,7 +32,7 @@ with the text.
 
 ---
 
-### board: Trello Board Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### Board: Trello Board Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Allows Variables**: true
 
 
@@ -41,7 +41,7 @@ with the text.
 
 ---
 
-### list: Trello List Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### List: Trello List Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Allows Variables**: true
 
 
@@ -50,7 +50,7 @@ with the text.
 
 ---
 
-### due: Date [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### Due: Date [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"Tomorrow at 1pm"`
 **Allows Variables**: true
 
@@ -62,7 +62,7 @@ with the text.
 
 ---
 
-### position: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### Position: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Top"`
 **Allows Variables**: true
 
@@ -77,7 +77,7 @@ containing one of the options:
 
 ---
 
-### attachments: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+### Attachments: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
 **Allows Variables**: true
 
 
@@ -86,7 +86,7 @@ Accepts a variable.
 
 ---
 
-### wftrellodescription: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### WFTrelloDescription: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"Description"`
 **Allows Variables**: true
 

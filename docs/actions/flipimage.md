@@ -1,5 +1,5 @@
 
-## Flip Image / flipimage (internally `is.workflow.actions.image.flip`)
+## Flip Image / FlipImage (internally `is.workflow.actions.image.flip`)
 
 
 ## description
@@ -11,14 +11,14 @@ Reverses the direction of images either horizontally or vertically.
 
 ### usage
 ```
-flipimage direction=("Horizontal" | "Vertical")
+FlipImage ("Horizontal" | "Vertical")
 ```
 
 ### arguments
 
 ---
 
-### direction: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### Direction: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Horizontal"`
 **Allows Variables**: true
 

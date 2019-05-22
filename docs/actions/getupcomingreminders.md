@@ -1,5 +1,5 @@
 
-## Get Upcoming Reminders / getupcomingreminders (internally `is.workflow.actions.getupcomingreminders`)
+## Get Upcoming Reminders / GetUpcomingReminders (internally `is.workflow.actions.getupcomingreminders`)
 
 > This action requires that Shortcuts has permission to use WFReminderAccessResource.
 
@@ -13,14 +13,14 @@ Gets upcoming reminders, ordered from nearest to farthest away due date.
 
 ### usage
 ```
-getupcomingreminders list=("string" | variable)] wfgetupcomingitemcount=number
+GetUpcomingReminders List=("string" | variable)] WFGetUpcomingItemCount=number
 ```
 
 ### arguments
 
 ---
 
-### list: Calendar Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### List: Calendar Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Allows Variables**: true
 
 
@@ -29,7 +29,7 @@ getupcomingreminders list=("string" | variable)] wfgetupcomingitemcount=number
 
 ---
 
-### wfgetupcomingitemcount: Stepper Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
+### WFGetUpcomingItemCount: Stepper Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
 **Default Value**: `1`
 **Allows Variables**: true
 

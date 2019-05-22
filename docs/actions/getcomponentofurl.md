@@ -1,5 +1,5 @@
 
-## Get Component of URL / getcomponentofurl (internally `is.workflow.actions.geturlcomponent`)
+## Get Component of URL / GetComponentofURL (internally `is.workflow.actions.geturlcomponent`)
 
 
 ## description
@@ -16,14 +16,14 @@ URLs are structured as follows: scheme://user:password@host:port/path?query#frag
 
 ### usage
 ```
-getcomponentofurl component=("Scheme" | "User" | "Password" | "Host" | "Port" | "Path" | "Query" | "Fragment")
+GetComponentofURL ("Scheme" | "User" | "Password" | "Host" | "Port" | "Path" | "Query" | "Fragment")
 ```
 
 ### arguments
 
 ---
 
-### component: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### Component: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Scheme"`
 **Allows Variables**: true
 

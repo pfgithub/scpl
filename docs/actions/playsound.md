@@ -1,5 +1,5 @@
 
-## Play Sound / playsound (internally `is.workflow.actions.playsound`)
+## Play Sound / PlaySound (internally `is.workflow.actions.playsound`)
 
 
 ## description
@@ -11,7 +11,7 @@ Plays the audio file passed as input, or a default notification sound if no audi
 
 ### usage
 ```
-playsound 
+PlaySound 
 ```
 
 ### arguments

@@ -1,5 +1,5 @@
 
-## Search Web / searchweb (internally `is.workflow.actions.searchweb`)
+## Search Web / SearchWeb (internally `is.workflow.actions.searchweb`)
 
 > This action requires that Shortcuts has permission to use WFURLOpenResource.
 
@@ -13,14 +13,14 @@ Searches the web for the text provided as input.
 
 ### usage
 ```
-searchweb search=("Amazon" | "Bing" | "DuckDuckGo" | "eBay" | "Google" | "Reddit" | "Twitter" | "Yahoo!" | "YouTube")
+SearchWeb ("Amazon" | "Bing" | "DuckDuckGo" | "eBay" | "Google" | "Reddit" | "Twitter" | "Yahoo!" | "YouTube")
 ```
 
 ### arguments
 
 ---
 
-### search: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### Search: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Google"`
 **Allows Variables**: true
 

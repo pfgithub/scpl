@@ -1,5 +1,5 @@
 
-## Show Notification / shownotification (internally `is.workflow.actions.notification`)
+## Show Notification / ShowNotification (internally `is.workflow.actions.notification`)
 
 > This action requires that Shortcuts has permission to use WFUserInteractionResource,WFMainThreadResource,WFLocalNotificationAccessResource.
 
@@ -18,14 +18,14 @@ An image or video to include in the notification
 
 ### usage
 ```
-shownotification title="string" body="string" playsound=(true | false | variable)
+ShowNotification Title="string" Body="string" PlaySound=(true | false | variable)
 ```
 
 ### arguments
 
 ---
 
-### title: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### Title: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"optional"`
 **Allows Variables**: true
 
@@ -37,7 +37,7 @@ with the text.
 
 ---
 
-### body: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### Body: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"Charming notification message"`
 **Default Value**: `"Hello World"`
 **Allows Variables**: true
@@ -50,7 +50,7 @@ with the text.
 
 ---
 
-### playsound: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### PlaySound: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Default Value**: ```
 		true
 		```

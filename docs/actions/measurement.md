@@ -1,5 +1,5 @@
 
-## Measurement / measurement (internally `is.workflow.actions.measurement.create`)
+## Measurement / Measurement (internally `is.workflow.actions.measurement.create`)
 
 > This action is not yet complete. Some arguments may be missing.
 
@@ -13,14 +13,14 @@ Passes the specified measurement (including number and unit) to the next action.
 
 ### usage
 ```
-measurement type=("string" | variable)] undefined=NotImplemented
+Measurement Type=("string" | variable)] undefined=NotImplemented
 ```
 
 ### arguments
 
 ---
 
-### type: Unit Type Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### Type: Unit Type Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Default Value**: ```
 		Length
 		```

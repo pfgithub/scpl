@@ -1,5 +1,5 @@
 
-## Create Note / createnote (internally `com.apple.mobilenotes.SharingExtension`)
+## Create Note / CreateNote (internally `com.apple.mobilenotes.SharingExtension`)
 
 > This action requires that Shortcuts has permission to use [object Object],WFNotesAccessResource.
 
@@ -13,14 +13,14 @@ Creates a note using the content passed as input.
 
 ### usage
 ```
-createnote app=("string" | variable)] showcomposesheet=(true | false | variable)
+CreateNote App=("string" | variable)] ShowComposeSheet=(true | false | variable)
 ```
 
 ### arguments
 
 ---
 
-### app: Intent App Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### App: Intent App Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Default Value**: ```
 		com.apple.mobilenotes
 		```
@@ -32,7 +32,7 @@ createnote app=("string" | variable)] showcomposesheet=(true | false | variable)
 
 ---
 
-### showcomposesheet: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### ShowComposeSheet: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Default Value**: ```
 		true
 		```

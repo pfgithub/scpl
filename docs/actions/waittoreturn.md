@@ -1,5 +1,5 @@
 
-## Wait to Return / waittoreturn (internally `is.workflow.actions.waittoreturn`)
+## Wait to Return / WaittoReturn (internally `is.workflow.actions.waittoreturn`)
 
 > This action requires that Shortcuts has permission to use WFMainThreadResource.
 
@@ -15,7 +15,7 @@ This action might be useful after an action that switches apps, to pause executi
 
 ### usage
 ```
-waittoreturn 
+WaittoReturn 
 ```
 
 ### arguments

@@ -1,5 +1,5 @@
 
-## If / if (internally `is.workflow.actions.conditional`)
+## If / If (internally `is.workflow.actions.conditional`)
 
 > This action has a block. Make sure to end it with an end. (More info in usage below)
 
@@ -13,7 +13,7 @@ Tests if any item passed as input matches the specified condition, and if so, ru
 
 ### usage
 ```
-if input=("Equals" | "Contains" | "Is Greater Than" | "Is Less Than" | variable) number=number value="string"
+If Input=("Equals" | "Contains" | "Is Greater Than" | "Is Less Than" | variable) Number=number Value="string"
   ...
 otherwise
   ...
@@ -24,7 +24,7 @@ end
 
 ---
 
-### input: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### Input: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Contains"`
 
 
@@ -38,7 +38,7 @@ containing one of the options:
 
 ---
 
-### number: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+### Number: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**: `7`
 **Allows Variables**: true
 
@@ -50,7 +50,7 @@ containing one of the options:
 
 ---
 
-### value: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### Value: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"example"`
 **Allows Variables**: true
 

@@ -1,5 +1,5 @@
 
-## Translate Text with Microsoft / translatetextwithmicrosoft (internally `is.workflow.actions.text.translate`)
+## Translate Text with Microsoft / TranslateTextwithMicrosoft (internally `is.workflow.actions.text.translate`)
 
 
 ## description
@@ -16,14 +16,14 @@ Powered by Microsoft Cognitive Services (microsoft.com/cognitive-services). Your
 
 ### usage
 ```
-translatetextwithmicrosoft from=("string" | variable)] to=("string" | variable)]
+TranslateTextwithMicrosoft From=("string" | variable)] To=("string" | variable)]
 ```
 
 ### arguments
 
 ---
 
-### from: Translate Language Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### From: Translate Language Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Allows Variables**: true
 
 
@@ -32,7 +32,7 @@ translatetextwithmicrosoft from=("string" | variable)] to=("string" | variable)]
 
 ---
 
-### to: Translate Language Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### To: Translate Language Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Allows Variables**: true
 
 

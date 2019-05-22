@@ -1,5 +1,5 @@
 
-## Add New Reminder / addnewreminder (internally `is.workflow.actions.addnewreminder`)
+## Add New Reminder / AddNewReminder (internally `is.workflow.actions.addnewreminder`)
 
 > This action requires that Shortcuts has permission to use WFReminderAccessResource.
 
@@ -17,14 +17,14 @@ The new reminder
 
 ### usage
 ```
-addnewreminder title="string" list=("string" | variable)] remindme=(true | false) remind=("At Time" | "At Location") wheni=("Enter" | "Leave") radius=number oflocation="string" alerttime="string" notes="string"
+AddNewReminder Title="string" List=("string" | variable)] RemindMe=(true | false) Remind=("At Time" | "At Location") WhenI=("Enter" | "Leave") Radius=number OfLocation="string" AlertTime="string" Notes="string"
 ```
 
 ### arguments
 
 ---
 
-### title: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### Title: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"Buy some milk"`
 **Allows Variables**: true
 
@@ -36,7 +36,7 @@ with the text.
 
 ---
 
-### list: Calendar Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### List: Calendar Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Allows Variables**: true
 
 
@@ -45,7 +45,7 @@ with the text.
 
 ---
 
-### remindme: Expand Arrow [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### RemindMe: Expand Arrow [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 
 
 Accepts a boolean for if this
@@ -57,7 +57,7 @@ labels, these can be ignored.
 
 ---
 
-### remind: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### Remind: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Allows Variables**: true
 
 **Only enabled if**: argument WFCalendarItemAlert == `true`
@@ -71,7 +71,7 @@ containing one of the options:
 
 ---
 
-### wheni: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### WhenI: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Allows Variables**: true
 
 **Only enabled if**: argument WFCalendarItemAlert == `true`
@@ -87,7 +87,7 @@ containing one of the options:
 
 ---
 
-### radius: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+### Radius: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**: `in meters`
 **Default Value**: `300`
 **Allows Variables**: true
@@ -102,7 +102,7 @@ containing one of the options:
 
 ---
 
-### oflocation: Location [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### OfLocation: Location [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"One Apple Park Way, Cupertino, CA"`
 **Allows Variables**: true
 
@@ -116,7 +116,7 @@ with the text.
 
 ---
 
-### alerttime: Date [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### AlertTime: Date [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"Tomorrow at 4pm"`
 **Allows Variables**: true
 
@@ -130,7 +130,7 @@ with the text.
 
 ---
 
-### notes: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### Notes: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"Notes"`
 **Allows Variables**: true
 

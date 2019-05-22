@@ -1,5 +1,5 @@
 
-## Base64 Encode / base64encode (internally `is.workflow.actions.base64encode`)
+## Base64 Encode / Base64Encode (internally `is.workflow.actions.base64encode`)
 
 
 ## description
@@ -11,14 +11,14 @@ Encodes or decodes text or files using Base64 encoding.
 
 ### usage
 ```
-base64encode mode=("Encode" | "Decode") linebreaks=("None" | "Every 64 Characters" | "Every 76 Characters")
+Base64Encode Mode=("Encode" | "Decode") LineBreaks=("None" | "Every 64 Characters" | "Every 76 Characters")
 ```
 
 ### arguments
 
 ---
 
-### mode: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### Mode: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Encode"`
 **Allows Variables**: true
 
@@ -33,7 +33,7 @@ containing one of the options:
 
 ---
 
-### linebreaks: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### LineBreaks: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Every 76 Characters"`
 **Allows Variables**: true
 

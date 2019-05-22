@@ -1,5 +1,5 @@
 
-## Format File Size / formatfilesize (internally `is.workflow.actions.format.filesize`)
+## Format File Size / FormatFileSize (internally `is.workflow.actions.format.filesize`)
 
 
 ## description
@@ -21,14 +21,14 @@ A file size from another action, or a number of bytes
 
 ### usage
 ```
-formatfilesize format=("Automatic" | "Bytes" | "KB" | "MB" | "GB" | "TB" | "PB" | "EB" | "ZB" | "YB or Higher") includeunits=(true | false | variable)
+FormatFileSize Format=("Automatic" | "Bytes" | "KB" | "MB" | "GB" | "TB" | "PB" | "EB" | "ZB" | "YB or Higher") IncludeUnits=(true | false | variable)
 ```
 
 ### arguments
 
 ---
 
-### format: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### Format: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Automatic"`
 **Allows Variables**: true
 
@@ -51,7 +51,7 @@ containing one of the options:
 
 ---
 
-### includeunits: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### IncludeUnits: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Default Value**: ```
 		true
 		```

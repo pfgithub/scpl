@@ -1,5 +1,5 @@
 
-## Share with Extensions / sharewithextensions (internally `is.workflow.actions.runextension`)
+## Share with Extensions / SharewithExtensions (internally `is.workflow.actions.runextension`)
 
 > This action requires that Shortcuts has permission to use WFUserInteractionResource.
 
@@ -13,7 +13,7 @@ Prompts to share the input using action extensions and sharing extensions provid
 
 ### usage
 ```
-sharewithextensions 
+SharewithExtensions 
 ```
 
 ### arguments

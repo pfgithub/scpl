@@ -1,5 +1,5 @@
 
-## Get Trello Items / gettrelloitems (internally `is.workflow.actions.trello.get`)
+## Get Trello Items / GetTrelloItems (internally `is.workflow.actions.trello.get`)
 
 > This action requires that Shortcuts has permission to use WFTrelloAccessResource.
 
@@ -13,14 +13,14 @@ Gets cards, lists, or boards in your Trello account.
 
 ### usage
 ```
-gettrelloitems get=("Boards" | "Lists" | "Cards") board=("string" | variable)] list=("string" | variable)]
+GetTrelloItems Get=("Boards" | "Lists" | "Cards") Board=("string" | variable)] List=("string" | variable)]
 ```
 
 ### arguments
 
 ---
 
-### get: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### Get: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Boards"`
 **Allows Variables**: true
 
@@ -36,7 +36,7 @@ containing one of the options:
 
 ---
 
-### board: Trello Board Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### Board: Trello Board Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Allows Variables**: true
 
 **Only enabled if**: argument WFTrelloItemType == `Lists` or `Cards`
@@ -45,7 +45,7 @@ containing one of the options:
 
 ---
 
-### list: Trello List Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### List: Trello List Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Allows Variables**: true
 
 **Only enabled if**: argument WFTrelloItemType == `Cards`

@@ -1,5 +1,5 @@
 
-## Get Instapaper Bookmarks / getinstapaperbookmarks (internally `is.workflow.actions.instapaper.get`)
+## Get Instapaper Bookmarks / GetInstapaperBookmarks (internally `is.workflow.actions.instapaper.get`)
 
 > This action requires that Shortcuts has permission to use WFInstapaperAccessResource.
 
@@ -13,14 +13,14 @@ Gets the contents of a folder in Instapaper. Requires Instapaper Premium.
 
 ### usage
 ```
-getinstapaperbookmarks folder=("string" | variable)] wfbookmarkcount=number
+GetInstapaperBookmarks Folder=("string" | variable)] WFBookmarkCount=number
 ```
 
 ### arguments
 
 ---
 
-### folder: Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### Folder: Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Allows Variables**: true
 
 
@@ -29,7 +29,7 @@ getinstapaperbookmarks folder=("string" | variable)] wfbookmarkcount=number
 
 ---
 
-### wfbookmarkcount: Stepper Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
+### WFBookmarkCount: Stepper Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
 **Default Value**: `5`
 **Allows Variables**: true
 

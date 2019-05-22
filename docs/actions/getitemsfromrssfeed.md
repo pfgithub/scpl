@@ -1,5 +1,5 @@
 
-## Get Items from RSS Feed / getitemsfromrssfeed (internally `is.workflow.actions.rss`)
+## Get Items from RSS Feed / GetItemsfromRSSFeed (internally `is.workflow.actions.rss`)
 
 
 ## description
@@ -11,14 +11,14 @@ Downloads the latest items from an RSS feed.
 
 ### usage
 ```
-getitemsfromrssfeed url="string" wfrssitemquantity=number
+GetItemsfromRSSFeed URL="string" WFRSSItemQuantity=number
 ```
 
 ### arguments
 
 ---
 
-### url: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### URL: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Default Value**: `"https://www.apple.com/newsroom/rss-feed.rss"`
 **Allows Variables**: true
 
@@ -30,7 +30,7 @@ with the text.
 
 ---
 
-### wfrssitemquantity: Stepper Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
+### WFRSSItemQuantity: Stepper Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
 **Default Value**: `10`
 **Allows Variables**: true
 

@@ -1,5 +1,5 @@
 
-## Open X-Callback URL / openxcallbackurl (internally `is.workflow.actions.openxcallbackurl`)
+## Open X-Callback URL / OpenXCallbackURL (internally `is.workflow.actions.openxcallbackurl`)
 
 > This action requires that Shortcuts has permission to use WFURLOpenResource.
 
@@ -17,14 +17,14 @@ When the app that's opened calls back to Shortcuts using x-success, it may inclu
 
 ### usage
 ```
-openxcallbackurl customcallback=(true | false | variable) successkey="string" cancelkey="string" errorkey="string" customxsuccessurl=(true | false | variable) xsuccessurl="string"
+OpenXCallbackURL CustomCallback=(true | false | variable) SuccessKey="string" CancelKey="string" ErrorKey="string" CustomXSuccessURL=(true | false | variable) XSuccessURL="string"
 ```
 
 ### arguments
 
 ---
 
-### customcallback: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### CustomCallback: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 
@@ -34,7 +34,7 @@ or a variable.
 
 ---
 
-### successkey: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### SuccessKey: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Default Value**: `"x-success"`
 **Allows Variables**: true
 
@@ -46,7 +46,7 @@ with the text.
 
 ---
 
-### cancelkey: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### CancelKey: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"optional"`
 **Allows Variables**: true
 
@@ -58,7 +58,7 @@ with the text.
 
 ---
 
-### errorkey: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### ErrorKey: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"optional"`
 **Allows Variables**: true
 
@@ -70,7 +70,7 @@ with the text.
 
 ---
 
-### customxsuccessurl: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### CustomXSuccessURL: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 
@@ -80,7 +80,7 @@ or a variable.
 
 ---
 
-### xsuccessurl: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### XSuccessURL: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Default Value**: `"shortcuts://callback"`
 **Allows Variables**: true
 

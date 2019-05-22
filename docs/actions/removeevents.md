@@ -1,5 +1,5 @@
 
-## Remove Events / removeevents (internally `is.workflow.actions.removeevents`)
+## Remove Events / RemoveEvents (internally `is.workflow.actions.removeevents`)
 
 > This action requires that Shortcuts has permission to use WFCalendarAccessResource,WFUserInteractionResource.
 
@@ -18,14 +18,14 @@ This is a destructive and permanent action. You will be asked to confirm before 
 
 ### usage
 ```
-removeevents includefutureevents=(true | false | variable)
+RemoveEvents (true | false | variable)
 ```
 
 ### arguments
 
 ---
 
-### includefutureevents: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### IncludeFutureEvents: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 

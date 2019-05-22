@@ -1,5 +1,5 @@
 
-## Play Music / playmusic (internally `is.workflow.actions.playmusic`)
+## Play Music / PlayMusic (internally `is.workflow.actions.playmusic`)
 
 > This action requires that Shortcuts has permission to use WFAppleMusicAccessResource,WFMainThreadResource.
 
@@ -18,14 +18,14 @@ The music to be played
 
 ### usage
 ```
-playmusic shuffle=("Off" | "Songs") repeat=("None" | "One" | "All")
+PlayMusic Shuffle=("Off" | "Songs") Repeat=("None" | "One" | "All")
 ```
 
 ### arguments
 
 ---
 
-### shuffle: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### Shuffle: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Allows Variables**: true
 
 
@@ -39,7 +39,7 @@ containing one of the options:
 
 ---
 
-### repeat: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### Repeat: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Allows Variables**: true
 
 

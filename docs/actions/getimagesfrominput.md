@@ -1,5 +1,5 @@
 
-## Get Images from Input / getimagesfrominput (internally `is.workflow.actions.detect.images`)
+## Get Images from Input / GetImagesfromInput (internally `is.workflow.actions.detect.images`)
 
 
 ## description
@@ -13,7 +13,7 @@ For example, this action can get the album art of a song, or all the images on a
 
 ### usage
 ```
-getimagesfrominput 
+GetImagesfromInput 
 ```
 
 ### arguments

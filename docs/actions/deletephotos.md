@@ -1,5 +1,5 @@
 
-## Delete Photos / deletephotos (internally `is.workflow.actions.deletephotos`)
+## Delete Photos / DeletePhotos (internally `is.workflow.actions.deletephotos`)
 
 > This action requires that Shortcuts has permission to use WFPhotoAccessResource.
 
@@ -13,7 +13,7 @@ Deletes the photos passed as input from the device's photo library. This action 
 
 ### usage
 ```
-deletephotos 
+DeletePhotos 
 ```
 
 ### arguments

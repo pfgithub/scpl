@@ -1,5 +1,5 @@
 
-## Create Folder / createfolder (internally `is.workflow.actions.file.createfolder`)
+## Create Folder / CreateFolder (internally `is.workflow.actions.file.createfolder`)
 
 
 ## description
@@ -11,14 +11,14 @@ Makes a new folder in the specified file storage service.
 
 ### usage
 ```
-createfolder service=("iCloud Drive" | "Dropbox") path="string"
+CreateFolder Service=("iCloud Drive" | "Dropbox") Path="string"
 ```
 
 ### arguments
 
 ---
 
-### service: Storage Service Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### Service: Storage Service Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Allows Variables**: true
 
 
@@ -32,7 +32,7 @@ containing one of the options:
 
 ---
 
-### path: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### Path: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Allows Variables**: true
 
 

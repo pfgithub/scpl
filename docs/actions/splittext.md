@@ -1,5 +1,5 @@
 
-## Split Text / splittext (internally `is.workflow.actions.text.split`)
+## Split Text / SplitText (internally `is.workflow.actions.text.split`)
 
 
 ## description
@@ -11,14 +11,14 @@ Separates text passed into the action into a list.
 
 ### usage
 ```
-splittext separator=("New Lines" | "Spaces" | "Every Character" | "Custom") custom="string"
+SplitText Separator=("New Lines" | "Spaces" | "Every Character" | "Custom") Custom="string"
 ```
 
 ### arguments
 
 ---
 
-### separator: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### Separator: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"New Lines"`
 **Allows Variables**: true
 
@@ -35,7 +35,7 @@ containing one of the options:
 
 ---
 
-### custom: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### Custom: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"Text"`
 **Allows Variables**: true
 

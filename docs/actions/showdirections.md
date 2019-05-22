@@ -1,5 +1,5 @@
 
-## Show Directions / showdirections (internally `is.workflow.actions.getdirections`)
+## Show Directions / ShowDirections (internally `is.workflow.actions.getdirections`)
 
 > This action requires that Shortcuts has permission to use WFURLOpenResource.
 
@@ -18,14 +18,14 @@ The destination address
 
 ### usage
 ```
-showdirections app=("Maps" | "Google Maps" | "Waze") mode=("string" | variable)]
+ShowDirections App=("Maps" | "Google Maps" | "Waze") Mode=("string" | variable)]
 ```
 
 ### arguments
 
 ---
 
-### app: Maps App [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### App: Maps App [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Maps"`
 **Allows Variables**: true
 
@@ -41,7 +41,7 @@ containing one of the options:
 
 ---
 
-### mode: Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### Mode: Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Default Value**: ```
 		Driving
 		```

@@ -1,5 +1,5 @@
 
-## Add to Variable / addtovariable (internally `is.workflow.actions.appendvariable`)
+## Add to Variable / AddtoVariable (internally `is.workflow.actions.appendvariable`)
 
 
 ## description
@@ -17,14 +17,14 @@ The updated contents of the variable.
 
 ### usage
 ```
-addtovariable variable=(v:variableName | variableName)
+AddtoVariable (v:variableName | variableName)
 ```
 
 ### arguments
 
 ---
 
-### variable: Variable Input [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-field)
+### Variable: Variable Input [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-field)
 **Placeholder**: ```
 		Variable Name
 		```

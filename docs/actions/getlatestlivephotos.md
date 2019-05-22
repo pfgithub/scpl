@@ -1,5 +1,5 @@
 
-## Get Latest Live Photos / getlatestlivephotos (internally `is.workflow.actions.getlatestlivephotos`)
+## Get Latest Live Photos / GetLatestLivePhotos (internally `is.workflow.actions.getlatestlivephotos`)
 
 > This action requires that Shortcuts has permission to use WFPhotoAccessResource.
 
@@ -13,14 +13,14 @@ Gets the most recent Live Photos from the camera roll.
 
 ### usage
 ```
-getlatestlivephotos wfgetlatestphotocount=number
+GetLatestLivePhotos number
 ```
 
 ### arguments
 
 ---
 
-### wfgetlatestphotocount: Stepper Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
+### WFGetLatestPhotoCount: Stepper Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
 **Default Value**: `1`
 **Allows Variables**: true
 

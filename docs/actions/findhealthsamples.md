@@ -1,5 +1,5 @@
 
-## Find Health Samples / findhealthsamples (internally `is.workflow.actions.filter.health.quantity`)
+## Find Health Samples / FindHealthSamples (internally `is.workflow.actions.filter.health.quantity`)
 
 > This action requires that Shortcuts has permission to use WFHealthKitResource,[object Object],[object Object].
 
@@ -13,7 +13,7 @@ If you only see some but not all of your data in the results, make sure that “
 
 ### usage
 ```
-findhealthsamples 
+FindHealthSamples 
 ```
 
 ### arguments

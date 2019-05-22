@@ -1,5 +1,5 @@
 
-## Upload to CloudApp / uploadtocloudapp (internally `is.workflow.actions.cloudapp.upload`)
+## Upload to CloudApp / UploadtoCloudApp (internally `is.workflow.actions.cloudapp.upload`)
 
 > This action requires that Shortcuts has permission to use WFCloudAppAccessResource.
 
@@ -17,14 +17,14 @@ CloudApp URL
 
 ### usage
 ```
-uploadtocloudapp linkprivacy=("Private" | "Public")
+UploadtoCloudApp ("Private" | "Public")
 ```
 
 ### arguments
 
 ---
 
-### linkprivacy: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### LinkPrivacy: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Private"`
 **Allows Variables**: true
 

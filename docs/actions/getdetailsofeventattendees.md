@@ -1,5 +1,5 @@
 
-## Get Details of Event Attendees / getdetailsofeventattendees (internally `is.workflow.actions.properties.eventattendees`)
+## Get Details of Event Attendees / GetDetailsofEventAttendees (internally `is.workflow.actions.properties.eventattendees`)
 
 > This action is not yet complete. Some arguments may be missing.
 
@@ -7,7 +7,7 @@
 
 ### usage
 ```
-getdetailsofeventattendees undefined=NotImplemented
+GetDetailsofEventAttendees NotImplemented
 ```
 
 ### arguments

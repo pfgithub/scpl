@@ -1,5 +1,5 @@
 
-## Send Message / sendmessage (internally `is.workflow.actions.sendmessage`)
+## Send Message / SendMessage (internally `is.workflow.actions.sendmessage`)
 
 > This action is not yet complete. Some arguments may be missing.
 
@@ -15,14 +15,14 @@ Sends an iMessage or SMS. Pass images, videos, or other files as input to includ
 
 ### usage
 ```
-sendmessage app=("string" | variable)] showwhenrun=(true | false | variable) undefined=NotImplemented wfsendmessagecontent="string" prefix="string"
+SendMessage App=("string" | variable)] ShowWhenRun=(true | false | variable) undefined=NotImplemented WFSendMessageContent="string" Prefix="string"
 ```
 
 ### arguments
 
 ---
 
-### app: Intent App Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### App: Intent App Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Default Value**: ```
 		com.apple.MobileSMS
 		```
@@ -36,7 +36,7 @@ sendmessage app=("string" | variable)] showwhenrun=(true | false | variable) und
 
 ---
 
-### showwhenrun: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### ShowWhenRun: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Default Value**: ```
 		true
 		```
@@ -53,7 +53,7 @@ or a variable.
 
 ---
 
-### wfsendmessagecontent: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### WFSendMessageContent: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"Message"`
 **Allows Variables**: true
 
@@ -65,7 +65,7 @@ with the text.
 
 ---
 
-### prefix: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### Prefix: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Allows Variables**: true
 
 **Only enabled if**: This action is always **disabled** inside Shortcutslang.

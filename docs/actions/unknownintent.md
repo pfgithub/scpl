@@ -1,18 +1,18 @@
 
-## Unknown Intent / unknownintent (internally `is.workflow.actions.sirikit.donation.handle`)
+## Unknown Intent / UnknownIntent (internally `is.workflow.actions.sirikit.donation.handle`)
 
 
 
 ### usage
 ```
-unknownintent showwhenrun=(true | false | variable)
+UnknownIntent (true | false | variable)
 ```
 
 ### arguments
 
 ---
 
-### showwhenrun: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### ShowWhenRun: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Default Value**: ```
 		true
 		```

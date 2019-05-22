@@ -1,5 +1,5 @@
 
-## Request Uber / requestuber (internally `com.ubercab.UberClient.requestuber`)
+## Request Uber / RequestUber (internally `com.ubercab.UberClient.requestuber`)
 
 > This action is not yet complete. Some arguments may be missing.
 
@@ -24,14 +24,14 @@ The shareable link to your Uber ride
 
 ### usage
 ```
-requestuber showestimate=(true | false | variable) undefined=NotImplemented undefined=NotImplemented pickupat=("Current Location" | "Custom Location") location="string"
+RequestUber ShowEstimate=(true | false | variable) undefined=NotImplemented undefined=NotImplemented PickUpAt=("Current Location" | "Custom Location") Location="string"
 ```
 
 ### arguments
 
 ---
 
-### showestimate: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### ShowEstimate: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 
@@ -49,7 +49,7 @@ or a variable.
 
 ---
 
-### pickupat: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### PickUpAt: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Current Location"`
 **Allows Variables**: true
 
@@ -64,7 +64,7 @@ containing one of the options:
 
 ---
 
-### location: Location [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### Location: Location [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"One Apple Park Way"`
 **Allows Variables**: true
 

@@ -1,5 +1,5 @@
 
-## Set Dictionary Value / setdictionaryvalue (internally `is.workflow.actions.setvalueforkey`)
+## Set Dictionary Value / SetDictionaryValue (internally `is.workflow.actions.setvalueforkey`)
 
 
 ## description
@@ -11,14 +11,14 @@ Sets a value in the dictionary passed into the action.
 
 ### usage
 ```
-setdictionaryvalue key="string" value="string"
+SetDictionaryValue Key="string" Value="string"
 ```
 
 ### arguments
 
 ---
 
-### key: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### Key: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"name"`
 **Allows Variables**: true
 
@@ -30,7 +30,7 @@ with the text.
 
 ---
 
-### value: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### Value: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"example"`
 **Allows Variables**: true
 

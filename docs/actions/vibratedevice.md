@@ -1,5 +1,5 @@
 
-## Vibrate Device / vibratedevice (internally `is.workflow.actions.vibrate`)
+## Vibrate Device / VibrateDevice (internally `is.workflow.actions.vibrate`)
 
 > This action requires that Shortcuts has permission to use [object Object].
 
@@ -13,14 +13,14 @@ Vibrates the device for a short amount of time.
 
 ### usage
 ```
-vibratedevice hapticpattern=("Default" | "Up Direction" | "Down Direction" | "Success" | "Failure" | "Retry" | "Start" | "Stop" | "Click")
+VibrateDevice ("Default" | "Up Direction" | "Down Direction" | "Success" | "Failure" | "Retry" | "Start" | "Stop" | "Click")
 ```
 
 ### arguments
 
 ---
 
-### hapticpattern: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### HapticPattern: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Default"`
 **Allows Variables**: true
 

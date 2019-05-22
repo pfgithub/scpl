@@ -1,5 +1,5 @@
 
-## Select Photos / selectphotos (internally `is.workflow.actions.selectphoto`)
+## Select Photos / SelectPhotos (internally `is.workflow.actions.selectphoto`)
 
 > This action requires that Shortcuts has permission to use WFPhotoAccessResource,WFUserInteractionResource.
 
@@ -17,14 +17,14 @@ The selected photos/videos
 
 ### usage
 ```
-selectphotos selectmultiple=(true | false | variable)
+SelectPhotos (true | false | variable)
 ```
 
 ### arguments
 
 ---
 
-### selectmultiple: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### SelectMultiple: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 

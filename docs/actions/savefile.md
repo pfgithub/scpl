@@ -1,5 +1,5 @@
 
-## Save File / savefile (internally `is.workflow.actions.documentpicker.save`)
+## Save File / SaveFile (internally `is.workflow.actions.documentpicker.save`)
 
 > This action requires that Shortcuts has permission to use [object Object].
 
@@ -22,14 +22,14 @@ The saved files
 
 ### usage
 ```
-savefile service=("iCloud Drive" | "Dropbox") askwheretosave=(true | false | variable) destinationpath="string" overwriteiffileexists=(true | false | variable)
+SaveFile Service=("iCloud Drive" | "Dropbox") AskWheretoSave=(true | false | variable) DestinationPath="string" OverwriteIfFileExists=(true | false | variable)
 ```
 
 ### arguments
 
 ---
 
-### service: Storage Service Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### Service: Storage Service Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Allows Variables**: true
 
 
@@ -43,7 +43,7 @@ containing one of the options:
 
 ---
 
-### askwheretosave: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### AskWheretoSave: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Default Value**: ```
 		true
 		```
@@ -56,7 +56,7 @@ or a variable.
 
 ---
 
-### destinationpath: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### DestinationPath: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Allows Variables**: true
 
 **Only enabled if**: argument WFAskWhereToSave == `false`
@@ -67,7 +67,7 @@ with the text.
 
 ---
 
-### overwriteiffileexists: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### OverwriteIfFileExists: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 **Only enabled if**: argument WFAskWhereToSave == `false`
