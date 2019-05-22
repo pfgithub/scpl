@@ -347,7 +347,7 @@ ${this.genDocsParams()
 	}
 	genDocsUsage() {
 		return `\`\`\`
-${this.shortName} ${this.genDocsParams()
+${this.readableName} ${this.genDocsParams()
 			.map(({ argName, argType }) => `${argName}=${argType}`)
 			.join(" ")}${
 			this._data.BlockInfo ? this._data.BlockInfo.Example : ""
@@ -356,7 +356,7 @@ ${this.shortName} ${this.genDocsParams()
 	}
 	genDocs() {
 		const docs = `
-## ${this.name} / ${this.shortName} (internally \`${this.internalName}\`)
+## ${this.name} / ${this.readableName} (internally \`${this.internalName}\`)
 ${
 	this.isComplete
 		? ""
@@ -660,8 +660,8 @@ ${Object.values(actionsByID)
 	.sort((a, b) => (a.name > b.name ? 1 : a.name < b.name ? -1 : 0))
 	.map(
 		action =>
-			`- [${action.name} (\`${action.shortName}\`)](actions/${
-				action.shortName
+			`- [${action.name} (\`${action.readableName}\`)](actions/${
+				action.readableName
 			})${action.isComplete ? "" : " (Incomplete)"}`
 	)
 	.join(`\n`)}

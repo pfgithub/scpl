@@ -17,6 +17,7 @@ export class WFParameter {
 	name: string;
 	internalName: string;
 	shortName: string;
+	readableName: string;
 	typeName: string;
 	docs: string;
 	constructor(data: any, typeName: string, docs: string) {
@@ -28,6 +29,7 @@ export class WFParameter {
 		this.name = this._data.Label;
 		this.internalName = this._data.Key;
 		this.shortName = genShortName(this.name, this.internalName);
+		this.readableName = genShortName(this.name, this.internalName, true);
 		this.name = this.name || this.shortName;
 		this.typeName = typeName;
 		this.docs = docs;
@@ -68,7 +70,7 @@ export class WFParameter {
 		}`;
 	}
 	genDocs() {
-		let docs = `### ${this.shortName}: ${this.typeName} [(Docs)](${
+		let docs = `### ${this.readableName}: ${this.typeName} [(Docs)](${
 			this.docs
 		})\n`;
 		if (this._data.Placeholder) {
