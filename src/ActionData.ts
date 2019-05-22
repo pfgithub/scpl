@@ -328,7 +328,7 @@ export class WFAction {
 				return { argType: `NotImplemented` };
 			}
 			return {
-				argName: param.shortName,
+				argName: param.readableName,
 				argType: param.genDocsArgName(),
 				argAutocompletePlaceholder: param.genDocsAutocompletePlaceholder()
 			};
@@ -640,13 +640,7 @@ export function genReadme() {
 					missing ? "" : "Complete - "
 				}${count}: ${paramClass}`
 		);
-	return `[![Banner image](image0.jpg)](https://pfgithub.github.io/shortcutslang/)
-
-Banner by ROP#2788 on the [routinehub.co](https://routinehub.co) discord server.
-
-
-
-# Shortcutslang
+	return `# ScPL
 
 [Getting Started Guide](https://pfgithub.github.io/shortcutslang/gettingstarted.html)
 
