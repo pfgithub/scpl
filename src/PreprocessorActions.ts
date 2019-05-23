@@ -19,7 +19,7 @@ function glyphAction(this: AsAble, cc: ConvertingContext, iconName?: AsAble) {
 				.toLowerCase()
 				.replace(/[^a-z]/g, "")
 		];
-	if (!glyphs) {
+	if (!glyph) {
 		throw this.error(
 			cc,
 			`Invalid glyph name. Must be one of: ${Object.keys(glyphs)}`

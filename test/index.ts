@@ -841,6 +841,14 @@ test("glyph and color", t => {
 	});
 });
 
+test("invalid glyph throws error", t => {
+	t.throws(() => scplToShortcut(`@glyph hospitalbank`));
+});
+
+test("invalid color throws error", t => {
+	t.throws(() => scplToShortcut(`@color lightcyangreen`));
+});
+
 test("else if macro", t => {
 	t.deepEqual(
 		scplToShortcut(`if Equals "test"
