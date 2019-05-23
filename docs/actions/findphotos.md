@@ -17,7 +17,32 @@ FindPhotos Filter=:filter{...} Sortby=("File Size" | "Camera Make" | "Last Modif
 ### Filter: Filter [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#filter-field)
 
 
-Accepts a :filter{} of filters.
+Accepts a :filter{} of filters. This filter supports:
+
+- 
+- 
+- ~~lastmodifieddate~~ (Not yet supported, no comparison methods defined. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20%3Afilter%20support%20for%20WFDateContentItem))
+- fileextension (Supported for is, isnot, contains, doesnotcontain, beginswith, endswith)
+- mediatype (Supported for is, isnot, contains, doesnotcontain, beginswith, endswith)
+- ~~creationdate~~ (Not yet supported, no comparison methods defined. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20%3Afilter%20support%20for%20WFDateContentItem))
+- 
+- album (Supported for is, isnot, contains, doesnotcontain, beginswith, endswith)
+- phototype (Supported for is, isnot, contains, doesnotcontain, beginswith, endswith)
+- ~~datetaken~~ (Not yet supported, no comparison methods defined. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20%3Afilter%20support%20for%20WFDateContentItem))
+- ~~duration~~ (Not yet supported, no comparison methods defined. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20%3Afilter%20support%20for%20WFNumberContentItem))
+- ~~width~~ (Not yet supported, no comparison methods defined. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20%3Afilter%20support%20for%20WFNumberContentItem))
+- ~~timetaken~~ (Not yet supported, no comparison methods defined. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20%3Afilter%20support%20for%20WFDateContentItem))
+- ~~isascreenshot~~ (Not yet supported, no comparison methods defined. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20%3Afilter%20support%20for%20WFBooleanContentItem))
+- ~~ishidden~~ (Not yet supported, no comparison methods defined. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20%3Afilter%20support%20for%20WFBooleanContentItem))
+- ~~framerate~~ (Not yet supported, no comparison methods defined. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20%3Afilter%20support%20for%20WFNumberContentItem))
+- ~~height~~ (Not yet supported, no comparison methods defined. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20%3Afilter%20support%20for%20WFNumberContentItem))
+- 
+- ~~isfavorite~~ (Not yet supported, no comparison methods defined. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20%3Afilter%20support%20for%20WFBooleanContentItem))
+- orientation (Supported for is, isnot, contains, doesnotcontain, beginswith, endswith)
+- 
+- name (Supported for is, isnot, contains, doesnotcontain, beginswith, endswith).
+			
+Example: `:filter{name is testname}`
 
 ---
 

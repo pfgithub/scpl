@@ -17,7 +17,36 @@ FindMusic Filter=:filter{...} Sortby=("Last Played Date" | "File Extension" | "R
 ### Filter: Filter [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#filter-field)
 
 
-Accepts a :filter{} of filters.
+Accepts a :filter{} of filters. This filter supports:
+
+- ~~lastplayeddate~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Blastplayeddate%7D%20(in%20WFMPMediaContentItem%29))
+- ~~fileextension~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Bfileextension%7D%20(in%20WFMPMediaContentItem%29))
+- ~~releasedate~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Breleasedate%7D%20(in%20WFMPMediaContentItem%29))
+- ~~genre~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Bgenre%7D%20(in%20WFMPMediaContentItem%29))
+- ~~mediakind~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Bmediakind%7D%20(in%20WFMPMediaContentItem%29))
+- name (Supported for is, isnot, contains, doesnotcontain, beginswith, endswith)
+- ~~artist~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Bartist%7D%20(in%20WFMPMediaContentItem%29))
+- ~~creationdate~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Bcreationdate%7D%20(in%20WFMPMediaContentItem%29))
+- ~~composer~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Bcomposer%7D%20(in%20WFMPMediaContentItem%29))
+- ~~duration~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Bduration%7D%20(in%20WFMPMediaContentItem%29))
+- ~~disc~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Bdisc%7D%20(in%20WFMPMediaContentItem%29))
+- ~~lastmodifieddate~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Blastmodifieddate%7D%20(in%20WFMPMediaContentItem%29))
+- ~~dateadded~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Bdateadded%7D%20(in%20WFMPMediaContentItem%29))
+- ~~playcount~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Bplaycount%7D%20(in%20WFMPMediaContentItem%29))
+- ~~albumartwork~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Balbumartwork%7D%20(in%20WFMPMediaContentItem%29))
+- ~~albumtrack~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Balbumtrack%7D%20(in%20WFMPMediaContentItem%29))
+- ~~hasalbumartwork~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Bhasalbumartwork%7D%20(in%20WFMPMediaContentItem%29))
+- ~~rating~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Brating%7D%20(in%20WFMPMediaContentItem%29))
+- ~~isexplicit~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Bisexplicit%7D%20(in%20WFMPMediaContentItem%29))
+- ~~comments~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Bcomments%7D%20(in%20WFMPMediaContentItem%29))
+- ~~skipcount~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Bskipcount%7D%20(in%20WFMPMediaContentItem%29))
+- ~~filesize~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Bfilesize%7D%20(in%20WFMPMediaContentItem%29))
+- ~~lyrics~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Blyrics%7D%20(in%20WFMPMediaContentItem%29))
+- ~~isclouditem~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Bisclouditem%7D%20(in%20WFMPMediaContentItem%29))
+- ~~albumartist~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Balbumartist%7D%20(in%20WFMPMediaContentItem%29))
+- ~~album~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Balbum%7D%20(in%20WFMPMediaContentItem%29)).
+			
+Example: `:filter{name is testname}`
 
 ---
 

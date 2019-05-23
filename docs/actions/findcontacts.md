@@ -17,7 +17,36 @@ FindContacts Filter=:filter{...} Sortby=("Email Address" | "Phonetic First Name"
 ### Filter: Filter [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#filter-field)
 
 
-Accepts a :filter{} of filters.
+Accepts a :filter{} of filters. This filter supports:
+
+- ~~emailaddress~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Bemailaddress%7D%20(in%20WFContactContentItem%29))
+- ~~phoneticfirstname~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Bphoneticfirstname%7D%20(in%20WFContactContentItem%29))
+- ~~prefix~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Bprefix%7D%20(in%20WFContactContentItem%29))
+- ~~url~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Burl%7D%20(in%20WFContactContentItem%29))
+- ~~nickname~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Bnickname%7D%20(in%20WFContactContentItem%29))
+- ~~lastname~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Blastname%7D%20(in%20WFContactContentItem%29))
+- ~~phonenumber~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Bphonenumber%7D%20(in%20WFContactContentItem%29))
+- ~~hasphoto~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Bhasphoto%7D%20(in%20WFContactContentItem%29))
+- ~~filesize~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Bfilesize%7D%20(in%20WFContactContentItem%29))
+- ~~creationdate~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Bcreationdate%7D%20(in%20WFContactContentItem%29))
+- ~~lastmodifieddate~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Blastmodifieddate%7D%20(in%20WFContactContentItem%29))
+- ~~middlename~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Bmiddlename%7D%20(in%20WFContactContentItem%29))
+- ~~company~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Bcompany%7D%20(in%20WFContactContentItem%29))
+- ~~department~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Bdepartment%7D%20(in%20WFContactContentItem%29))
+- name (Supported for is, isnot, contains, doesnotcontain, beginswith, endswith)
+- ~~contactphoto~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Bcontactphoto%7D%20(in%20WFContactContentItem%29))
+- ~~firstname~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Bfirstname%7D%20(in%20WFContactContentItem%29))
+- ~~phoneticlastname~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Bphoneticlastname%7D%20(in%20WFContactContentItem%29))
+- ~~fileextension~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Bfileextension%7D%20(in%20WFContactContentItem%29))
+- ~~streetaddress~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Bstreetaddress%7D%20(in%20WFContactContentItem%29))
+- ~~suffix~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Bsuffix%7D%20(in%20WFContactContentItem%29))
+- ~~jobtitle~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Bjobtitle%7D%20(in%20WFContactContentItem%29))
+- ~~notes~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Bnotes%7D%20(in%20WFContactContentItem%29))
+- ~~birthday~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Bbirthday%7D%20(in%20WFContactContentItem%29))
+- ~~group~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Bgroup%7D%20(in%20WFContactContentItem%29))
+- ~~phoneticmiddlename~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Bphoneticmiddlename%7D%20(in%20WFContactContentItem%29)).
+			
+Example: `:filter{name is testname}`
 
 ---
 

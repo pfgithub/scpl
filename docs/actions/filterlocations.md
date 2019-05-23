@@ -15,7 +15,21 @@ FilterLocations Filter=:filter{...} Sortby=("Phone Number" | "State" | "Altitude
 ### Filter: Filter [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#filter-field)
 
 
-Accepts a :filter{} of filters.
+Accepts a :filter{} of filters. This filter supports:
+
+- ~~phonenumber~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Bphonenumber%7D%20(in%20WFLocationContentItem%29))
+- ~~state~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Bstate%7D%20(in%20WFLocationContentItem%29))
+- ~~altitude~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Baltitude%7D%20(in%20WFLocationContentItem%29))
+- name (Supported for is, isnot, contains, doesnotcontain, beginswith, endswith)
+- ~~longitude~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Blongitude%7D%20(in%20WFLocationContentItem%29))
+- ~~country~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Bcountry%7D%20(in%20WFLocationContentItem%29))
+- ~~city~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Bcity%7D%20(in%20WFLocationContentItem%29))
+- ~~street~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Bstreet%7D%20(in%20WFLocationContentItem%29))
+- ~~url~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Burl%7D%20(in%20WFLocationContentItem%29))
+- ~~latitude~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Blatitude%7D%20(in%20WFLocationContentItem%29))
+- ~~zipcode~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Bzipcode%7D%20(in%20WFLocationContentItem%29)).
+			
+Example: `:filter{name is testname}`
 
 ---
 

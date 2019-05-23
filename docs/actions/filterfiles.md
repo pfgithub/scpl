@@ -15,7 +15,15 @@ FilterFiles Filter=:filter{...} Sortby=("Creation Date" | "File Size" | "File Ex
 ### Filter: Filter [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#filter-field)
 
 
-Accepts a :filter{} of filters.
+Accepts a :filter{} of filters. This filter supports:
+
+- ~~creationdate~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Bcreationdate%7D%20(in%20WFGenericFileContentItem%29))
+- ~~filesize~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Bfilesize%7D%20(in%20WFGenericFileContentItem%29))
+- ~~fileextension~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Bfileextension%7D%20(in%20WFGenericFileContentItem%29))
+- ~~lastmodifieddate~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Blastmodifieddate%7D%20(in%20WFGenericFileContentItem%29))
+- name (Supported for is, isnot, contains, doesnotcontain, beginswith, endswith).
+			
+Example: `:filter{name is testname}`
 
 ---
 
