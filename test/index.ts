@@ -841,6 +841,42 @@ test("glyph and color", t => {
 	});
 });
 
+test("showInWidget", t => {
+	const output = parse(`@showInWidget false`, { makePlist: false });
+	const [scdata] = output.build();
+	t.deepEqual(scdata, {
+		WFWorkflowClientVersion: "754",
+		WFWorkflowClientRelese: "2.1.2",
+		WFWorkflowMinimumClientVersion: 411,
+		WFWorkflowIcon: {
+			WFWorkflowIconStartColor: 2071128575,
+			WFWorkflowIconImageData: Buffer.from([]),
+			WFWorkflowIconGlyphNumber: 59511
+		},
+		WFWorkflowTypes: ["WatchKit"],
+		WFWorkflowInputContentItemClasses: [
+			"WFAppStoreAppContentItem",
+			"WFArticleContentItem",
+			"WFContactContentItem",
+			"WFDateContentItem",
+			"WFEmailAddressContentItem",
+			"WFGenericFileContentItem",
+			"WFImageContentItem",
+			"WFiTunesProductContentItem",
+			"WFLocationContentItem",
+			"WFDCMapsLinkContentItem",
+			"WFAVAssetContentItem",
+			"WFPDFContentItem",
+			"WFPhoneNumberContentItem",
+			"WFRichTextContentItem",
+			"WFSafariWebPageContentItem",
+			"WFStringContentItem",
+			"WFURLContentItem"
+		],
+		WFWorkflowActions: []
+	});
+});
+
 test("invalid glyph throws error", t => {
 	t.throws(() => scplToShortcut(`@glyph hospitalbank`));
 });

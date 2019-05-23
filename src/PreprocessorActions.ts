@@ -91,6 +91,15 @@ const preprocessorActions: {
 		}
 		cc.shortcut.color = color;
 	},
+	"@showinwidget": function(this, cc, setTo?: AsAble) {
+		if (!setTo) {
+			throw this.error(cc, "Please provide a true or false.");
+		}
+		if (!setTo.canBeBoolean(cc)) {
+			throw this.error(cc, "Value must be able to be a boolean");
+		}
+		cc.shortcut.showInWidget = setTo.asBoolean(cc);
+	},
 	"@elseif": function(this, cc, ...args) {
 		const ifAction = cc.peekControlFlow();
 		if (!ifAction) {

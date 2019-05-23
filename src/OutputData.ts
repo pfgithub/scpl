@@ -1117,9 +1117,11 @@ export class Shortcut {
 	actions: Array<Action>;
 	glyph?: GlyphCodepoint;
 	color?: ColorCode;
+	showInWidget: boolean;
 	constructor(name: string) {
 		this.name = name;
 		this.actions = [];
+		this.showInWidget = true;
 	}
 	add(action: Action) {
 		this.actions.push(action);
@@ -1142,7 +1144,12 @@ export class Shortcut {
 					WFWorkflowIconImageData: Buffer.from(""),
 					WFWorkflowIconGlyphNumber: this.glyph || 59511
 				},
-				WFWorkflowTypes: ["NCWidget", "WatchKit"],
+				WFWorkflowTypes: [
+					...(this.showInWidget
+						? (["NCWidget"] as ["NCWidget"])
+						: []),
+					"WatchKit"
+				],
 				WFWorkflowInputContentItemClasses: [
 					"WFAppStoreAppContentItem",
 					"WFArticleContentItem",
