@@ -15,7 +15,7 @@ import { getActionFromName, genShortName } from "./ActionData";
 import { ConvertingContext } from "./Converter.js";
 import { setVariable, getVariable } from "./HelpfulActions";
 import { Position } from "./Production";
-
+import { endIf } from "./HelpfulActions";
 import {
 	CoercionTypeClass,
 	isAggrandizementPropertyName,
@@ -733,7 +733,7 @@ export class ActionParse extends Parse implements AsText, AsVariable, AsAction {
 					"There are no open block actions. Make you have a block action such as `if` or `chooseFromMenu` and that you don't have any extra ends."
 				);
 			}
-			wfAction = controlFlowData.wfaction;
+			wfAction = controlFlowData[controlFlowData.length - 1].wfaction;
 		} else if (actionName === "end") {
 			controlFlowData = cc.endControlFlow();
 			if (!controlFlowData) {
@@ -742,13 +742,18 @@ export class ActionParse extends Parse implements AsText, AsVariable, AsAction {
 					"There are no open block actions. Make you have a block action such as `if` or `chooseFromMenu` and that you don't have any extra ends."
 				);
 			}
-			wfAction = controlFlowData.wfaction;
+			for (let i = controlFlowData.length - 1; i > 0; i--) {
+				const d = controlFlowData[i];
+				cc.add(endIf({ start: this.start, end: this.end }, d.uuid));
+			}
+			controlFlowData = [controlFlowData[0]];
+			wfAction = controlFlowData[0].wfaction;
 		} else if (actionName.startsWith("@")) {
 			const preprocessorAction = cc.getParserAction(
 				actionName.toLowerCase()
 			);
 			if (preprocessorAction) {
-				preprocessorAction(cc, ...this.args);
+				preprocessorAction.call(this, cc, ...this.args);
 			} else {
 				throw this.name.error(
 					cc,
@@ -771,7 +776,14 @@ export class ActionParse extends Parse implements AsText, AsVariable, AsAction {
 				`The action named ${actionName.toLowerCase()} could not be found.`
 			);
 		}
-		const action = wfAction.build(cc, this, controlFlowData, ...this.args);
+		const action = wfAction.build(
+			cc,
+			this,
+			controlFlowData
+				? controlFlowData[controlFlowData.length - 1]
+				: undefined,
+			...this.args
+		);
 		// WFAction adds it to cc for us, no need to do it ourselves.
 		// now add any required set variable actions
 		if (this.variable) {
@@ -1042,6 +1054,12 @@ export class ActionsParse extends Parse
 	}
 	asVariable(cc: ConvertingContext) {
 		const action = this.asAction(cc);
+		if (!action) {
+			throw this.error(
+				cc,
+				"There are no actions to make a variable from."
+			);
+		}
 		return new MagicVariable(action);
 	}
 	canBeAction(_cc: ConvertingContext): boolean {
@@ -1055,9 +1073,6 @@ export class ActionsParse extends Parse
 			}
 			lastAction = action.asAction(cc);
 		});
-		if (!lastAction) {
-			throw this.error(cc, "There must be at least one action");
-		}
 		return lastAction;
 	}
 	asShortcut(converterActions?: {

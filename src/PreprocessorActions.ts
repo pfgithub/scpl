@@ -1,10 +1,20 @@
 import { AsAble } from "./ParserData";
 import { ConvertingContext } from "./Converter";
+import { otherwise } from "./HelpfulActions";
+import { getActionFromID } from "./ActionData";
 
 const preprocessorActions: {
 	[key: string]: (cc: ConvertingContext, ...args: AsAble[]) => void;
 } = {
-	"@set": (cc: ConvertingContext, name: AsAble, value: AsAble) => {
+	"@set": function(
+		this: AsAble,
+		cc: ConvertingContext,
+		name?: AsAble,
+		value?: AsAble
+	) {
+		if (!name || !value) {
+			throw this.error(cc, "@set must have 2 arguments.");
+		}
 		// sets a variable with name name to value value
 		if (!name.canBeString(cc)) {
 			throw name.error(
@@ -14,7 +24,15 @@ const preprocessorActions: {
 		}
 		cc.setParserVariable(name.asString(cc), value);
 	},
-	"@foreach": (cc: ConvertingContext, list: AsAble, method: AsAble) => {
+	"@foreach": function(
+		this: AsAble,
+		cc: ConvertingContext,
+		list: AsAble,
+		method: AsAble
+	) {
+		if (!list || !method) {
+			throw this.error(cc, "@foreach must have 2 arguments.");
+		}
 		if (!list.canBeAbleArray(cc)) {
 			throw list.error(cc, "List must be a list.");
 		}
@@ -28,6 +46,56 @@ const preprocessorActions: {
 			const newCC = cc.in();
 			newCC.setParserVariable("repeatitem", item);
 			method.asAction(newCC);
+		});
+	},
+	"@elseif": function(
+		this: AsAble,
+		cc: ConvertingContext,
+		...args: AsAble[]
+	) {
+		const ifAction = cc.peekControlFlow();
+		if (!ifAction) {
+			throw this.error(cc, "The @elseif macro requires an if.");
+		}
+		if (!ifAction[ifAction.length - 1]) {
+			throw this.error(
+				cc,
+				"The top item of the control flow stack has no items. This should never happen."
+			);
+		}
+		if (
+			ifAction[ifAction.length - 1].wfaction.id !==
+			"is.workflow.actions.conditional"
+		) {
+			throw this.error(cc, "ElseIf can only be used on an If action.");
+			// todo also error on the if action.
+		}
+		// create otherwise action
+		const otherwiseAction = otherwise(
+			{ start: this.start, end: this.end },
+			ifAction[ifAction.length - 1].uuid
+		);
+		cc.add(otherwiseAction);
+		// create if action
+		const newIfAction = getActionFromID("is.workflow.actions.conditional");
+		if (!newIfAction) {
+			throw this.error(
+				cc,
+				"The conditional action does not exist. This should never happen."
+			);
+		}
+		const res = newIfAction.build(cc, this, undefined, ...args);
+		const added = cc.endControlFlow();
+		if (!added) {
+			throw this.error(
+				cc,
+				"Adding an if action did not add any control flow. This should never happen."
+			);
+		}
+		ifAction.push({
+			uuid: added[0].uuid,
+			number: 0,
+			wfaction: added[0].wfaction
 		});
 	}
 };

@@ -613,9 +613,18 @@ test("open app fails with invalid app name", t => {
 });
 
 test("multiple arrows throws a PositionedError", t => {
-t.throws(() => parse(`v:a = text "hello" -> v:a`, { makePlist: false }), PositionedError);
-	t.throws(() => parse(`text "hello" -> v:a -> v:b`, { makePlist: false }), PositionedError);
-		t.throws(() => parse(`v:a = v:b = text "hello"`, { makePlist: false }), PositionedError);
+	t.throws(
+		() => parse(`v:a = text "hello" -> v:a`, { makePlist: false }),
+		PositionedError
+	);
+	t.throws(
+		() => parse(`text "hello" -> v:a -> v:b`, { makePlist: false }),
+		PositionedError
+	);
+	t.throws(
+		() => parse(`v:a = v:b = text "hello"`, { makePlist: false }),
+		PositionedError
+	);
 });
 
 test("get details of * actions", t => {
@@ -794,4 +803,113 @@ test("different quotes things", t => {
 			}
 		}
 	]);
+});
+
+test("else if macro", t => {
+	t.deepEqual(
+		scplToShortcut(`if Equals "test"
+				text "Equal!"
+			@elseif Equals "Something Else"
+				text "Something Else!"
+			@elseif Equals "Third"
+				text "Third"
+			else
+				text "Else"
+			end`),
+		[
+			{
+				WFWorkflowActionIdentifier: "is.workflow.actions.conditional",
+				WFWorkflowActionParameters: {
+					GroupingIdentifier: "<uuid1>",
+					WFControlFlowMode: 0,
+					WFCondition: "Equals",
+					WFConditionalActionString: "test"
+				}
+			},
+			{
+				WFWorkflowActionIdentifier: "is.workflow.actions.gettext",
+				WFWorkflowActionParameters: {
+					WFTextActionText: "Equal!"
+				}
+			},
+			{
+				WFWorkflowActionIdentifier: "is.workflow.actions.conditional",
+				WFWorkflowActionParameters: {
+					GroupingIdentifier: "<uuid1>",
+					WFControlFlowMode: 1
+				}
+			},
+			{
+				WFWorkflowActionIdentifier: "is.workflow.actions.conditional",
+				WFWorkflowActionParameters: {
+					GroupingIdentifier: "<uuid2>",
+					WFControlFlowMode: 0,
+					WFCondition: "Equals",
+					WFConditionalActionString: "Something Else"
+				}
+			},
+			{
+				WFWorkflowActionIdentifier: "is.workflow.actions.gettext",
+				WFWorkflowActionParameters: {
+					WFTextActionText: "Something Else!"
+				}
+			},
+			{
+				WFWorkflowActionIdentifier: "is.workflow.actions.conditional",
+				WFWorkflowActionParameters: {
+					GroupingIdentifier: "<uuid2>",
+					WFControlFlowMode: 1
+				}
+			},
+			{
+				WFWorkflowActionIdentifier: "is.workflow.actions.conditional",
+				WFWorkflowActionParameters: {
+					GroupingIdentifier: "<uuid3>",
+					WFControlFlowMode: 0,
+					WFCondition: "Equals",
+					WFConditionalActionString: "Third"
+				}
+			},
+			{
+				WFWorkflowActionIdentifier: "is.workflow.actions.gettext",
+				WFWorkflowActionParameters: {
+					WFTextActionText: "Third"
+				}
+			},
+			{
+				WFWorkflowActionIdentifier: "is.workflow.actions.conditional",
+				WFWorkflowActionParameters: {
+					GroupingIdentifier: "<uuid3>",
+					WFControlFlowMode: 1
+				}
+			},
+			{
+				WFWorkflowActionIdentifier: "is.workflow.actions.gettext",
+				WFWorkflowActionParameters: {
+					WFTextActionText: "Else"
+				}
+			},
+			{
+				WFWorkflowActionIdentifier: "is.workflow.actions.conditional",
+				WFWorkflowActionParameters: {
+					GroupingIdentifier: "<uuid3>",
+					WFControlFlowMode: 2
+				}
+			},
+			{
+				WFWorkflowActionIdentifier: "is.workflow.actions.conditional",
+				WFWorkflowActionParameters: {
+					GroupingIdentifier: "<uuid2>",
+					WFControlFlowMode: 2
+				}
+			},
+			{
+				WFWorkflowActionIdentifier: "is.workflow.actions.conditional",
+				WFWorkflowActionParameters: {
+					GroupingIdentifier: "<uuid1>",
+					WFControlFlowMode: 2
+				}
+			}
+		]
+	);
 });

@@ -489,7 +489,7 @@ ${JSON.stringify(this._data, null, "\t")}
 			params = []; // Params should be ignored if we are a second or third... in control flow
 		} else if (this._data.BlockInfo) {
 			// this action has a block.
-			const { uuid, number } = cc.pushControlFlow(this); // Add the controlflow
+			const [{ uuid, number }] = cc.pushControlFlow(this); // Add the controlflow
 			action.parameters.set("WFControlFlowMode", number);
 			action.parameters.set("GroupingIdentifier", uuid);
 		}
@@ -622,11 +622,12 @@ Object.keys(actionList).forEach(key => {
 	const action = new WFAction(value, key);
 
 	if (actionsByName[action.shortName]) {
+		//eslint-disable-next-line no-console
 		console.warn(
 			`WARNING, ${action.shortName} (${
 				action.internalName
 			}) is already defined`
-		); //eslint-disable-line no-console
+		);
 		return;
 	}
 

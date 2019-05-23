@@ -1,5 +1,6 @@
 import * as uuidv4 from "uuid/v4";
 import { Shortcut, Action } from "./OutputData";
+import { WFAction } from "./ActionData";
 import { AsAble } from "./ParserData";
 import defaultPreprocessorActions from "./PreprocessorActions";
 
@@ -8,7 +9,7 @@ export class ConvertingContext {
 	magicVariables: { [key: string]: { action: Action } };
 	shortcut: Shortcut;
 	lastVariableAction?: Action;
-	controlFlowStack: Array<{ uuid: string; number: number; wfaction: any }>;
+	controlFlowStack: { uuid: string; number: number; wfaction: WFAction }[][];
 	parserVariables: { [key: string]: AsAble };
 	parserActions: {
 		[key: string]: (cc: ConvertingContext, ...args: AsAble[]) => void;
@@ -99,20 +100,26 @@ export class ConvertingContext {
 	in(): ConvertingContext {
 		return new ConvertingContext(this);
 	}
-
-	pushControlFlow(wfaction: any) {
-		const res = { uuid: uuidv4(), number: 0, wfaction };
+	peekControlFlow() {
+		return this.controlFlowStack[this.controlFlowStack.length - 1];
+	}
+	pushControlFlow(...actions: WFAction[]) {
+		const res = actions.map(wfaction => ({
+			uuid: uuidv4(),
+			number: 0,
+			wfaction
+		}));
 		this.controlFlowStack.push(res);
 		return res;
 	}
 	nextControlFlow() {
 		// if this doesn't have it, too bad.
 		// controlflow does not go up.
-		const last = this.controlFlowStack[this.controlFlowStack.length - 1];
+		const last = this.peekControlFlow();
 		if (!last) {
 			return undefined;
 		}
-		last.number = 1;
+		last[last.length - 1].number = 1;
 		return last;
 	}
 	endControlFlow() {
@@ -120,7 +127,7 @@ export class ConvertingContext {
 		if (!last) {
 			return undefined;
 		}
-		last.number = 2;
+		last.forEach(item => (item.number = 2));
 		return last;
 	}
 	add(action: Action): void {
