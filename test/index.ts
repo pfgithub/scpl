@@ -805,6 +805,42 @@ test("different quotes things", t => {
 	]);
 });
 
+test("glyph and color", t => {
+	const output = parse(`@glyph car; @color red`, { makePlist: false });
+	const [scdata] = output.build();
+	t.deepEqual(scdata, {
+		WFWorkflowClientVersion: "754",
+		WFWorkflowClientRelese: "2.1.2",
+		WFWorkflowMinimumClientVersion: 411,
+		WFWorkflowIcon: {
+			WFWorkflowIconStartColor: 0xff4351ff,
+			WFWorkflowIconImageData: Buffer.from([]),
+			WFWorkflowIconGlyphNumber: 0xe83c
+		},
+		WFWorkflowTypes: ["NCWidget", "WatchKit"],
+		WFWorkflowInputContentItemClasses: [
+			"WFAppStoreAppContentItem",
+			"WFArticleContentItem",
+			"WFContactContentItem",
+			"WFDateContentItem",
+			"WFEmailAddressContentItem",
+			"WFGenericFileContentItem",
+			"WFImageContentItem",
+			"WFiTunesProductContentItem",
+			"WFLocationContentItem",
+			"WFDCMapsLinkContentItem",
+			"WFAVAssetContentItem",
+			"WFPDFContentItem",
+			"WFPhoneNumberContentItem",
+			"WFRichTextContentItem",
+			"WFSafariWebPageContentItem",
+			"WFStringContentItem",
+			"WFURLContentItem"
+		],
+		WFWorkflowActions: []
+	});
+});
+
 test("else if macro", t => {
 	t.deepEqual(
 		scplToShortcut(`if Equals "test"

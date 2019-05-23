@@ -33,6 +33,8 @@ import getTypes, {
 	comparisonMethodsMap
 } from "./Data/GetTypes";
 
+import { GlyphCodepoint, ColorCode } from "./Data/ShortcutMeta";
+
 const coercionTypes: { [name: string]: CoercionTypeClass } = {
 	// remove name:string and make it typed too
 	anything: "WFContentItem",
@@ -1113,6 +1115,8 @@ export type WFShortcut = [
 export class Shortcut {
 	name: string;
 	actions: Array<Action>;
+	glyph?: GlyphCodepoint;
+	color?: ColorCode;
 	constructor(name: string) {
 		this.name = name;
 		this.actions = [];
@@ -1134,9 +1138,9 @@ export class Shortcut {
 				WFWorkflowClientRelese: "2.1.2",
 				WFWorkflowMinimumClientVersion: 411,
 				WFWorkflowIcon: {
-					WFWorkflowIconStartColor: 2071128575,
+					WFWorkflowIconStartColor: this.color || 2071128575,
 					WFWorkflowIconImageData: Buffer.from(""),
-					WFWorkflowIconGlyphNumber: 59511
+					WFWorkflowIconGlyphNumber: this.glyph || 59511
 				},
 				WFWorkflowTypes: ["NCWidget", "WatchKit"],
 				WFWorkflowInputContentItemClasses: [

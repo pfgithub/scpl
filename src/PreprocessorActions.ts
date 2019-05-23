@@ -3,15 +3,39 @@ import { ConvertingContext } from "./Converter";
 import { otherwise } from "./HelpfulActions";
 import { getActionFromID } from "./ActionData";
 
+import { glyphs, colors } from "./Data/ShortcutMeta";
+
+function glyphAction(this: AsAble, cc: ConvertingContext, iconName?: AsAble) {
+	if (!iconName) {
+		throw this.error(cc, "Please provide a glyph name.");
+	}
+	if (!iconName.canBeString(cc)) {
+		throw this.error(cc, "Glyph name must be able to be a string");
+	}
+	const glyph =
+		glyphs[
+			iconName
+				.asString(cc)
+				.toLowerCase()
+				.replace(/[^a-z]/g, "")
+		];
+	if (!glyphs) {
+		throw this.error(
+			cc,
+			`Invalid glyph name. Must be one of: ${Object.keys(glyphs)}`
+		);
+	}
+	cc.shortcut.glyph = glyph;
+}
+
 const preprocessorActions: {
-	[key: string]: (cc: ConvertingContext, ...args: AsAble[]) => void;
-} = {
-	"@set": function(
+	[key: string]: (
 		this: AsAble,
 		cc: ConvertingContext,
-		name?: AsAble,
-		value?: AsAble
-	) {
+		...args: AsAble[]
+	) => void;
+} = {
+	"@set": function(this, cc, name?: AsAble, value?: AsAble) {
 		if (!name || !value) {
 			throw this.error(cc, "@set must have 2 arguments.");
 		}
@@ -24,12 +48,7 @@ const preprocessorActions: {
 		}
 		cc.setParserVariable(name.asString(cc), value);
 	},
-	"@foreach": function(
-		this: AsAble,
-		cc: ConvertingContext,
-		list: AsAble,
-		method: AsAble
-	) {
+	"@foreach": function(this, cc, list?: AsAble, method?: AsAble) {
 		if (!list || !method) {
 			throw this.error(cc, "@foreach must have 2 arguments.");
 		}
@@ -48,11 +67,31 @@ const preprocessorActions: {
 			method.asAction(newCC);
 		});
 	},
-	"@elseif": function(
-		this: AsAble,
-		cc: ConvertingContext,
-		...args: AsAble[]
-	) {
+	"@icon": glyphAction,
+	"@glyph": glyphAction,
+	"@color": function(this, cc, colorName?: AsAble) {
+		if (!colorName) {
+			throw this.error(cc, "Please provide a color name.");
+		}
+		if (!colorName.canBeString(cc)) {
+			throw this.error(cc, "Color name must be able to be a string");
+		}
+		const color =
+			colors[
+				colorName
+					.asString(cc)
+					.toLowerCase()
+					.replace(/[^a-z]/g, "")
+			];
+		if (!color) {
+			throw this.error(
+				cc,
+				`Invalid color name. Must be one of: ${Object.keys(colors)}`
+			);
+		}
+		cc.shortcut.color = color;
+	},
+	"@elseif": function(this, cc, ...args) {
 		const ifAction = cc.peekControlFlow();
 		if (!ifAction) {
 			throw this.error(cc, "The @elseif macro requires an if.");
@@ -84,7 +123,7 @@ const preprocessorActions: {
 				"The conditional action does not exist. This should never happen."
 			);
 		}
-		const res = newIfAction.build(cc, this, undefined, ...args);
+		newIfAction.build(cc, this, undefined, ...args);
 		const added = cc.endControlFlow();
 		if (!added) {
 			throw this.error(
