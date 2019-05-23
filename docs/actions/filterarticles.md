@@ -18,13 +18,13 @@ FilterArticles Filter=:filter{...} Sortby=("Name" | "Title" | "Published Date" |
 Accepts a :filter{} of filters. This filter supports:
 
 - name (Supported for is, isnot, contains, doesnotcontain, beginswith, endswith)
-- ~~title~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Btitle%7D%20(in%20WFArticleContentItem%29))
-- ~~publisheddate~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Bpublisheddate%7D%20(in%20WFArticleContentItem%29))
-- ~~author~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Bauthor%7D%20(in%20WFArticleContentItem%29))
-- ~~numberofwords~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Bnumberofwords%7D%20(in%20WFArticleContentItem%29))
-- ~~mainimageurl~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Bmainimageurl%7D%20(in%20WFArticleContentItem%29))
-- ~~url~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Burl%7D%20(in%20WFArticleContentItem%29))
-- ~~excerpt~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Bexcerpt%7D%20(in%20WFArticleContentItem%29)).
+- ~~title~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Btitle%7D%20%28in%20WFArticleContentItem%29))
+- ~~publisheddate~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Bpublisheddate%7D%20%28in%20WFArticleContentItem%29))
+- ~~author~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Bauthor%7D%20%28in%20WFArticleContentItem%29))
+- ~~numberofwords~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Bnumberofwords%7D%20%28in%20WFArticleContentItem%29))
+- ~~mainimageurl~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Bmainimageurl%7D%20%28in%20WFArticleContentItem%29))
+- ~~url~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Burl%7D%20%28in%20WFArticleContentItem%29))
+- ~~excerpt~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Bexcerpt%7D%20%28in%20WFArticleContentItem%29)).
 			
 Example: `:filter{name is testname}`
 

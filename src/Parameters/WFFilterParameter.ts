@@ -58,6 +58,8 @@ Accepts a :filter{} of filters. This filter supports:
 							this.coercionType
 						})`
 					)
+						.split("(")
+						.join("%28")
 						.split(")")
 						.join("%29")}))`;
 				}
@@ -67,6 +69,8 @@ Accepts a :filter{} of filters. This filter supports:
 							this.coercionType
 						})`
 					)
+						.split("(")
+						.join("%28")
 						.split(")")
 						.join("%29")}))`;
 				}
@@ -75,6 +79,8 @@ Accepts a :filter{} of filters. This filter supports:
 					return `~~${key}~~ (Not yet supported, no comparison methods defined. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=${encodeURIComponent(
 						`Add :filter support for ${val.type}`
 					)
+						.split("(")
+						.join("%28")
 						.split(")")
 						.join("%29")}))`;
 				}
