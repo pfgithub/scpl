@@ -81,7 +81,7 @@ test("invert and create text", t => {
 				}
 			})
 		),
-		'text "My Text"'
+		'Text "My Text"'
 	);
 });
 test("invert block actions", t => {
@@ -91,23 +91,23 @@ test("invert block actions", t => {
 			Shortcut.inverse(
 				parse(
 					`
-text "test"
-if Equals "hmmm"
+Text "test"
+If Equals "hmmm"
 	text "huh interesting"
-otherwise
+Otherwise
 	text "huh uninteresting"
-end
+End
 `,
 					{ make: ["shortcutjson"] }
 				).shortcutjson
 			)
 		),
-		`text test
-if input=Equals value=hmmm
-	text "huh interesting"
-otherwise
-	text "huh uninteresting"
-end`
+		`Text test
+If Input=Equals Value=hmmm
+	Text "huh interesting"
+Otherwise
+	Text "huh uninteresting"
+End`
 	);
 });
 test("invert variable aggrandizements", t => {
@@ -126,10 +126,10 @@ text v:thisismyvariable{as:dictionary,key:mykey,get:name}
 				).shortcutjson
 			)
 		),
-		`setvariable thisismyvariable
-text v:thisismyvariable{as: dictionary, get: name}
-text v:thisismyvariable.mykey
-text v:thisismyvariable.mykey{get: name}`
+		`SetVariable thisismyvariable
+Text v:thisismyvariable{as: dictionary, get: name}
+Text v:thisismyvariable.mykey
+Text v:thisismyvariable.mykey{get: name}`
 	);
 });
 test("invert dictionaries", t => {
@@ -139,15 +139,15 @@ test("invert dictionaries", t => {
 			Shortcut.inverse(
 				parse(
 					`
-dictionary{a:b}
-dictionary{key:"my string","\\(s:actioninput)": "var key",normalkey: "\\(s:actioninput)"}
+Dictionary{a:b}
+Dictionary{key:"my string","\\(s:actioninput)": "var key",normalkey: "\\(s:actioninput)"}
 `,
 					{ make: ["shortcutjson"] }
 				).shortcutjson
 			)
 		),
-		`dictionary {a: b}
-dictionary {key: "my string", "\\(s:actioninput)": "var key", normalkey: s:actioninput}`
+		`Dictionary {a: b}
+Dictionary {key: "my string", "\\(s:actioninput)": "var key", normalkey: s:actioninput}`
 	);
 });
 test("inverse with icons and colors", t => {
@@ -166,10 +166,10 @@ test("inverse with icons and colors", t => {
 				).shortcutjson
 			)
 		),
-		`@icon car
-@color red
-dictionary {a: b}
-dictionary {key: "my string", "\\(s:actioninput)": "var key", normalkey: s:actioninput}`
+		`@Icon car
+@Color red
+Dictionary {a: b}
+Dictionary {key: "my string", "\\(s:actioninput)": "var key", normalkey: s:actioninput}`
 	);
 });
 
@@ -238,7 +238,7 @@ test("invert an incomplete action", t => {
 				}
 			})
 		),
-		`filterfiles filter=??error: This parameter is an error: Inversion for filters is not implemented yet??`
+		`FilterFiles Filter=??error: This parameter is an error: Inversion for filters is not implemented yet??`
 	);
 });
 test("dictionary number values", t => {
@@ -263,7 +263,7 @@ test("dictionary number values", t => {
 				}
 			})
 		),
-		`dictionary {name: "23"}`
+		`Dictionary {name: "23"}`
 	);
 });
 

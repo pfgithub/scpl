@@ -57,10 +57,10 @@ export class InverseConvertingContext {
 			return `${createdAction}`;
 		});
 		if (value.color) {
-			res.unshift(`@color ${inverseColors[value.color]}`);
+			res.unshift(`@Color ${inverseColors[value.color]}`);
 		}
 		if (value.glyph) {
-			res.unshift(`@icon ${inverseGlyphs[value.glyph]}`);
+			res.unshift(`@Icon ${inverseGlyphs[value.glyph]}`);
 		}
 		return res.join("\n");
 	}
@@ -94,7 +94,9 @@ export class InverseConvertingContext {
 				return result.push(this.handleArgument(toParam(paramValue)));
 			}
 			result.push(
-				`${param.shortName}=${this.handleArgument(toParam(paramValue))}`
+				`${param.readableName}=${this.handleArgument(
+					toParam(paramValue)
+				)}`
 			);
 		});
 
@@ -104,7 +106,7 @@ export class InverseConvertingContext {
 				value.magicvarname ||
 				value.name ||
 				actionData.name ||
-				actionData.shortName ||
+				actionData.readableName ||
 				actionData.internalName ||
 				"??unnamed??";
 			let name = baseName;
@@ -126,7 +128,7 @@ export class InverseConvertingContext {
 
 		// const magicVariable = <number|undefined>value.parameters.get("WFControlFlowMode");
 
-		let actionName = actionData.shortName;
+		let actionName = actionData.readableName;
 		let indentLevel = this._indentLevel;
 		const paramResult = result.join(" ");
 
@@ -136,16 +138,16 @@ export class InverseConvertingContext {
 		if (controlFlowMode === 1) {
 			indentLevel = this._indentLevel - 1;
 			if (value.id === "is.workflow.actions.conditional") {
-				actionName = "otherwise";
+				actionName = "Otherwise";
 			} else if (value.id === "is.workflow.actions.choosefrommenu") {
-				actionName = "case";
+				actionName = "Case";
 			} else {
-				actionName = "flow";
+				actionName = "Flow";
 			}
 		} else if (controlFlowMode === 2) {
 			this._indentLevel--;
 			indentLevel = this._indentLevel;
-			actionName = "end";
+			actionName = "End";
 		} else if (actionData._data.BlockInfo) {
 			this._indentLevel++;
 		}
