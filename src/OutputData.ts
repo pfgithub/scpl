@@ -33,7 +33,7 @@ import getTypes, {
 	comparisonMethodsMap
 } from "./Data/GetTypes";
 
-import { GlyphCodepoint, ColorCode } from "./Data/ShortcutMeta";
+import { GlyphCodepoint, ColorCode, glyphs, colors } from "./Data/ShortcutMeta";
 
 const coercionTypes: { [name: string]: CoercionTypeClass } = {
 	// remove name:string and make it typed too
@@ -1102,9 +1102,9 @@ export type WFShortcut = [
 		WFWorkflowClientRelese: string;
 		WFWorkflowMinimumClientVersion: number;
 		WFWorkflowIcon: {
-			WFWorkflowIconStartColor: number;
+			WFWorkflowIconStartColor: ColorCode;
 			WFWorkflowIconImageData: Buffer | { type: "Buffer"; data: [] };
-			WFWorkflowIconGlyphNumber: number;
+			WFWorkflowIconGlyphNumber: GlyphCodepoint;
 		};
 		WFWorkflowTypes: WorkflowTypes[];
 		WFWorkflowInputContentItemClasses: ExtensionInputContentItemClass[];
@@ -1131,6 +1131,17 @@ export class Shortcut {
 		data[0].WFWorkflowActions.forEach(action => {
 			shortcut.add(Action.inverse(action));
 		});
+		const icon = data[0].WFWorkflowIcon;
+		if (icon) {
+			shortcut.glyph = icon.WFWorkflowIconGlyphNumber;
+			if (shortcut.glyph === glyphs.wand) {
+				shortcut.glyph = undefined;
+			}
+			shortcut.color = icon.WFWorkflowIconStartColor;
+			if (shortcut.color === colors.darkpurple) {
+				shortcut.color = undefined;
+			}
+		}
 		return shortcut;
 	}
 	build(): WFShortcut {
@@ -1140,9 +1151,9 @@ export class Shortcut {
 				WFWorkflowClientRelese: "2.1.2",
 				WFWorkflowMinimumClientVersion: 411,
 				WFWorkflowIcon: {
-					WFWorkflowIconStartColor: this.color || 2071128575,
+					WFWorkflowIconGlyphNumber: this.glyph || glyphs.wand,
 					WFWorkflowIconImageData: Buffer.from(""),
-					WFWorkflowIconGlyphNumber: this.glyph || 59511
+					WFWorkflowIconStartColor: this.color || colors.darkpurple
 				},
 				WFWorkflowTypes: [
 					...(this.showInWidget

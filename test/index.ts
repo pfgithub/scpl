@@ -150,6 +150,28 @@ dictionary{key:"my string","\\(s:actioninput)": "var key",normalkey: "\\(s:actio
 dictionary {key: "my string", "\\(s:actioninput)": "var key", normalkey: s:actioninput}`
 	);
 });
+test("inverse with icons and colors", t => {
+	const icc = new InverseConvertingContext();
+	t.deepEqual(
+		icc.createActionsAble(
+			Shortcut.inverse(
+				parse(
+					`
+					@icon car
+					@color red
+					dictionary{a:b}
+					dictionary{key:"my string","\\(s:actioninput)": "var key",normalkey: "\\(s:actioninput)"}
+					`,
+					{ make: ["shortcutjson"] }
+				).shortcutjson
+			)
+		),
+		`@icon car
+@color red
+dictionary {a: b}
+dictionary {key: "my string", "\\(s:actioninput)": "var key", normalkey: s:actioninput}`
+	);
+});
 
 test("invert complete valid shortcut and ensure output is exact when compiled", t => {
 	// generate sample data
@@ -189,7 +211,6 @@ test("invert an invalid action", t => {
 		`??unknown action with id dev.scpl.actions.invalid??`
 	);
 });
-
 test("invert an incomplete action", t => {
 	const icc = new InverseConvertingContext();
 	t.deepEqual(

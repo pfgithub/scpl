@@ -16,6 +16,8 @@ import {
 } from "./OutputData";
 import { getActionFromID } from "./ActionData";
 
+import { inverseGlyphs, inverseColors } from "./Data/ShortcutMeta";
+
 const NUMBER = /^-?(?:[0-9]*\.[0-9]+|[0-9]+)$/;
 const IDENTIFIER = /^[A-Za-z@_][A-Za-z0-9@_]*$/;
 const ESCAPEDQUOTEDSTRING = (value: string) =>
@@ -50,12 +52,17 @@ export class InverseConvertingContext {
 	}
 
 	createActionsAble(value: Shortcut) {
-		return value.actions
-			.map(action => {
-				const createdAction = this.createActionAble(action);
-				return `${createdAction}`;
-			})
-			.join("\n");
+		const res = value.actions.map(action => {
+			const createdAction = this.createActionAble(action);
+			return `${createdAction}`;
+		});
+		if (value.color) {
+			res.unshift(`@color ${inverseColors[value.color]}`);
+		}
+		if (value.glyph) {
+			res.unshift(`@icon ${inverseGlyphs[value.glyph]}`);
+		}
+		return res.join("\n");
 	}
 	createActionAble(value: Action) {
 		const result: string[] = [];
