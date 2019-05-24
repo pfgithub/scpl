@@ -67,6 +67,39 @@ const preprocessorActions: {
 			method.asAction(newCC);
 		});
 	},
+	"@if": function(
+		this,
+		cc,
+		test: AsAble | undefined,
+		method: AsAble | undefined,
+		elseMethod: AsAble | undefined
+	) {
+		if (!test || !method) {
+			throw this.error(cc, "@if must have 2-3 arguments.");
+		}
+		if (!test.canBeBoolean(cc)) {
+			throw test.error(cc, "Test must be a boolean.");
+		}
+		if (!method.canBeAction(cc)) {
+			throw method.error(
+				cc,
+				'Method must be action, for example `@{Text ""}`'
+			);
+		}
+		if (elseMethod && !elseMethod.canBeAction(cc)) {
+			throw method.error(
+				cc,
+				'Else method must be action, for example `@{Text ""}`'
+			);
+		}
+		if (test.asBoolean(cc)) {
+			const newCC = cc.in();
+			method.asAction(newCC);
+		} else if (elseMethod) {
+			const newCC = cc.in();
+			elseMethod.asAction(newCC);
+		}
+	},
 	"@icon": glyphAction,
 	"@glyph": glyphAction,
 	"@color": function(this, cc, colorName?: AsAble) {

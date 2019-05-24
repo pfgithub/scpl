@@ -993,3 +993,39 @@ test("else if macro", t => {
 		]
 	);
 });
+
+test("if macro", t => {
+	t.deepEqual(
+		scplToShortcut(`
+			@set mytest true
+			@if @:mytest @{
+				text "is true"
+			} @{
+				text "is false"
+			}
+			@set mytest false
+			@if @:mytest @{
+				text "is now true"
+			} @{
+				text "is now false"
+			}
+			@if @:mytest @{
+				text "still is true"
+			} // no else
+			`),
+		[
+			{
+				WFWorkflowActionIdentifier: "is.workflow.actions.gettext",
+				WFWorkflowActionParameters: {
+					WFTextActionText: "is true"
+				}
+			},
+			{
+				WFWorkflowActionIdentifier: "is.workflow.actions.gettext",
+				WFWorkflowActionParameters: {
+					WFTextActionText: "is now false"
+				}
+			}
+		]
+	);
+});
