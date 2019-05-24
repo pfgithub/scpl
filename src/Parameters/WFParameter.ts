@@ -30,6 +30,9 @@ export class WFParameter {
 		this.internalName = this._data.Key;
 		this.shortName = genShortName(this.name, this.internalName);
 		this.readableName = genShortName(this.name, this.internalName, true);
+		this.readableName =
+			this.readableName.charAt(0).toLowerCase() +
+			this.readableName.slice(1);
 		this.name = this.name || this.shortName;
 		this.typeName = typeName;
 		this.docs = docs;

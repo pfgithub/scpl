@@ -103,7 +103,7 @@ End
 			)
 		),
 		`Text test
-If Input=Equals Value=hmmm
+If input=Equals value=hmmm
 	Text "huh interesting"
 Otherwise
 	Text "huh uninteresting"
@@ -238,7 +238,7 @@ test("invert an incomplete action", t => {
 				}
 			})
 		),
-		`FilterFiles Filter=??error: This parameter is an error: Inversion for filters is not implemented yet??`
+		`FilterFiles filter=??error: This parameter is an error: Inversion for filters is not implemented yet??`
 	);
 });
 test("dictionary number values", t => {
