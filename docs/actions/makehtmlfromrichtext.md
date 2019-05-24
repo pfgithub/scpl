@@ -22,7 +22,7 @@ MakeHTMLfromRichText (true | false | variable)
 
 ---
 
-### MakeFullDocument: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### makeFullDocument: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 

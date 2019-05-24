@@ -18,7 +18,7 @@ GetVariable (v:myvar | mv:myvar | s:myvar)
 
 ---
 
-### Variable: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+### variable: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
 **Allows Variables**: true
 
 

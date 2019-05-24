@@ -13,14 +13,14 @@ Opens the specified app.
 
 ### usage
 ```
-OpenApp App=("app name" | "com.identifier.for.app")] WFAppName="string"
+OpenApp app=("app name" | "com.identifier.for.app")] WFAppName="string"
 ```
 
 ### arguments
 
 ---
 
-### App: App [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### app: App [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Allows Variables**: true
 
 

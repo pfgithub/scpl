@@ -18,14 +18,14 @@ The destination address
 
 ### usage
 ```
-ShowDirections App=("Maps" | "Google Maps" | "Waze") Mode=("string" | variable)]
+ShowDirections app=("Maps" | "Google Maps" | "Waze") mode=("string" | variable)]
 ```
 
 ### arguments
 
 ---
 
-### App: Maps App [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### app: Maps App [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Maps"`
 **Allows Variables**: true
 
@@ -41,7 +41,7 @@ containing one of the options:
 
 ---
 
-### Mode: Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### mode: Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Default Value**: ```
 		Driving
 		```

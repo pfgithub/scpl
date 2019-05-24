@@ -20,14 +20,14 @@ An animated GIF
 
 ### usage
 ```
-AddFrametoGIF Image=(v:myvar | mv:myvar | s:myvar) DelayTime=number AutoSize=(true | false | variable) Width=number Height=number
+AddFrametoGIF image=(v:myvar | mv:myvar | s:myvar) delayTime=number autoSize=(true | false | variable) width=number height=number
 ```
 
 ### arguments
 
 ---
 
-### Image: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+### image: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
 **Allows Variables**: true
 
 
@@ -36,7 +36,7 @@ Accepts a variable.
 
 ---
 
-### DelayTime: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+### delayTime: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**: `0.25`
 **Default Value**: `0.25`
 **Allows Variables**: true
@@ -49,7 +49,7 @@ Accepts a variable.
 
 ---
 
-### AutoSize: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### autoSize: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Default Value**: ```
 		true
 		```
@@ -62,7 +62,7 @@ or a variable.
 
 ---
 
-### Width: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+### width: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**: `500`
 **Allows Variables**: true
 
@@ -74,7 +74,7 @@ or a variable.
 
 ---
 
-### Height: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+### height: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**: `500`
 **Allows Variables**: true
 

@@ -13,7 +13,7 @@ Returns items in your Pocket account.
 
 ### usage
 ```
-GetItemsfromPocket WFPocketItemCount=number Type=("Unread" | "Archived" | "All") Search="string" Tag="string"
+GetItemsfromPocket WFPocketItemCount=number type=("Unread" | "Archived" | "All") search="string" tag="string"
 ```
 
 ### arguments
@@ -31,7 +31,7 @@ GetItemsfromPocket WFPocketItemCount=number Type=("Unread" | "Archived" | "All")
 
 ---
 
-### Type: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### type: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"All"`
 **Allows Variables**: true
 
@@ -47,7 +47,7 @@ containing one of the options:
 
 ---
 
-### Search: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### search: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"optional"`
 **Allows Variables**: true
 
@@ -59,7 +59,7 @@ with the text.
 
 ---
 
-### Tag: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### tag: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"optional"`
 **Allows Variables**: true
 

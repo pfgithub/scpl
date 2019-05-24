@@ -20,14 +20,14 @@ The content to include in your new note
 
 ### usage
 ```
-CreateNewNote NoteTitle="string" Notebook=("string" | variable)] undefined=NotImplemented
+CreateNewNote noteTitle="string" notebook=("string" | variable)] undefined=NotImplemented
 ```
 
 ### arguments
 
 ---
 
-### NoteTitle: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### noteTitle: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"optional"`
 **Allows Variables**: true
 
@@ -39,7 +39,7 @@ with the text.
 
 ---
 
-### Notebook: Evernote Notebook Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### notebook: Evernote Notebook Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Allows Variables**: true
 
 

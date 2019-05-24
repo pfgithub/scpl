@@ -18,7 +18,7 @@ ShowinMaps ("Maps" | "Google Maps" | "Waze")
 
 ---
 
-### App: Maps App [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### app: Maps App [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Maps"`
 **Allows Variables**: true
 

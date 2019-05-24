@@ -12,7 +12,7 @@ GetDetailsofContacts ("Email Address" | "Phonetic First Name" | "Prefix" | "URL"
 
 ---
 
-### Get: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### get: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Allows Variables**: true
 
 

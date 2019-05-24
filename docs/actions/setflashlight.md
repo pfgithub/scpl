@@ -11,14 +11,14 @@ Turns on or off the flashlight near the device's camera.
 
 ### usage
 ```
-SetFlashlight Flashlight=("Off" | "On" | "Toggle") Brightness=number
+SetFlashlight flashlight=("Off" | "On" | "Toggle") brightness=number
 ```
 
 ### arguments
 
 ---
 
-### Flashlight: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### flashlight: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"On"`
 **Allows Variables**: true
 
@@ -34,7 +34,7 @@ containing one of the options:
 
 ---
 
-### Brightness: Slider Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#slider-number-fields)
+### brightness: Slider Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#slider-number-fields)
 **Default Value**: `1`
 **Allows Variables**: true
 

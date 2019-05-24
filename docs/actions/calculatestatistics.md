@@ -18,7 +18,7 @@ CalculateStatistics ("Average" | "Minimum" | "Maximum" | "Sum" | "Median" | "Mod
 
 ---
 
-### Operation: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### operation: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Average"`
 **Allows Variables**: true
 

@@ -11,14 +11,14 @@ Sets a value in the dictionary passed into the action.
 
 ### usage
 ```
-SetDictionaryValue Key="string" Value="string"
+SetDictionaryValue key="string" value="string"
 ```
 
 ### arguments
 
 ---
 
-### Key: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### key: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"name"`
 **Allows Variables**: true
 
@@ -30,7 +30,7 @@ with the text.
 
 ---
 
-### Value: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### value: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"example"`
 **Allows Variables**: true
 

@@ -18,7 +18,7 @@ GetDetailsofSafariWebpage ("Name" | "Page Contents" | "Page URL" | "Page Selecti
 
 ---
 
-### Get: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### get: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Allows Variables**: true
 
 

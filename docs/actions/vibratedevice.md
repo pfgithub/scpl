@@ -20,7 +20,7 @@ VibrateDevice ("Default" | "Up Direction" | "Down Direction" | "Success" | "Fail
 
 ---
 
-### HapticPattern: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### hapticPattern: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Default"`
 **Allows Variables**: true
 

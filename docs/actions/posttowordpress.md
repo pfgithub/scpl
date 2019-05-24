@@ -19,28 +19,28 @@ The URL of the new blog post
 
 ### usage
 ```
-PosttoWordPress Account=("string" | variable)] Blog=("string" | variable)] Title="string" Type=("string" | variable)] Format=("string" | variable)] Status=("string" | variable)] undefined=NotImplemented undefined=NotImplemented Advanced=(true | false) AllowComments=(true | false | variable) Slug="string" Excerpt="string" PublishDate="string" Template=("string" | variable)] FeaturedImage=(v:myvar | mv:myvar | s:myvar) CustomFields=(true | false) CustomFields={dictionary}
+PosttoWordPress account=("string" | variable)] blog=("string" | variable)] title="string" type=("string" | variable)] format=("string" | variable)] status=("string" | variable)] undefined=NotImplemented undefined=NotImplemented advanced=(true | false) allowComments=(true | false | variable) slug="string" excerpt="string" publishDate="string" template=("string" | variable)] featuredImage=(v:myvar | mv:myvar | s:myvar) customFields=(true | false) customFields={dictionary}
 ```
 
 ### arguments
 
 ---
 
-### Account: Account Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### account: Account Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 
 
 		Accepts a string or variable containing the option. Check the shortcuts app for a list of available options. 
 
 ---
 
-### Blog: Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### blog: Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 
 
 		Accepts a string or variable containing the option. Check the shortcuts app for a list of available options. 
 
 ---
 
-### Title: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### title: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"Quarterly Results"`
 **Allows Variables**: true
 
@@ -52,7 +52,7 @@ with the text.
 
 ---
 
-### Type: Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### type: Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Allows Variables**: true
 
 
@@ -61,7 +61,7 @@ with the text.
 
 ---
 
-### Format: Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### format: Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Allows Variables**: true
 
 
@@ -70,7 +70,7 @@ with the text.
 
 ---
 
-### Status: Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### status: Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Allows Variables**: true
 
 
@@ -87,7 +87,7 @@ with the text.
 
 ---
 
-### Advanced: Expand Arrow [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### advanced: Expand Arrow [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 
 
 Accepts a boolean for if this
@@ -99,7 +99,7 @@ labels, these can be ignored.
 
 ---
 
-### AllowComments: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### allowComments: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 **Only enabled if**: argument Advanced == `true`
@@ -109,7 +109,7 @@ or a variable.
 
 ---
 
-### Slug: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### slug: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"quarterly-results"`
 **Allows Variables**: true
 
@@ -121,7 +121,7 @@ with the text.
 
 ---
 
-### Excerpt: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### excerpt: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"An overall great quarter"`
 **Allows Variables**: true
 
@@ -133,7 +133,7 @@ with the text.
 
 ---
 
-### PublishDate: Date [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### publishDate: Date [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"optional"`
 **Allows Variables**: true
 
@@ -145,7 +145,7 @@ with the text.
 
 ---
 
-### Template: Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### template: Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Allows Variables**: true
 
 **Only enabled if**: argument Advanced == `true`
@@ -154,7 +154,7 @@ with the text.
 
 ---
 
-### FeaturedImage: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+### featuredImage: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
 **Allows Variables**: true
 
 **Only enabled if**: argument Advanced == `true`
@@ -163,7 +163,7 @@ Accepts a variable.
 
 ---
 
-### CustomFields: Expand Arrow [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### customFields: Expand Arrow [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Only enabled if**: argument Advanced == `true`
 
 Accepts a boolean for if this
@@ -175,7 +175,7 @@ labels, these can be ignored.
 
 ---
 
-### CustomFields: Dictionary [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#dictionary-field)
+### customFields: Dictionary [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#dictionary-field)
 **Allows Variables**: true
 
 **Only enabled if**: argument Advanced == `true`

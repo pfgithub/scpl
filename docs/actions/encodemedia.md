@@ -11,14 +11,14 @@ Re-encodes the media passed as input at the specified size, optionally convertin
 
 ### usage
 ```
-EncodeMedia AudioOnly=(true | false | variable) Format=("M4A" | "AIFF") Size=("640x480" | "960x540" | "1280x720" | "1920x1080" | "HEVC 1920x1080" | "HEVC 3840x2160" | "Passthrough") Speed=("0.5X" | "Normal" | "2X" | "Custom") CustomSpeed=number Metadata=(true | false) Title="string" Artist="string" Album="string" Genre="string" Year="string" Artwork=(v:myvar | mv:myvar | s:myvar)
+EncodeMedia audioOnly=(true | false | variable) format=("M4A" | "AIFF") size=("640x480" | "960x540" | "1280x720" | "1920x1080" | "HEVC 1920x1080" | "HEVC 3840x2160" | "Passthrough") speed=("0.5X" | "Normal" | "2X" | "Custom") customSpeed=number metadata=(true | false) title="string" artist="string" album="string" genre="string" year="string" artwork=(v:myvar | mv:myvar | s:myvar)
 ```
 
 ### arguments
 
 ---
 
-### AudioOnly: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### audioOnly: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 
@@ -28,7 +28,7 @@ or a variable.
 
 ---
 
-### Format: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### format: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"M4A"`
 **Allows Variables**: true
 
@@ -43,7 +43,7 @@ containing one of the options:
 
 ---
 
-### Size: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### size: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Passthrough"`
 **Allows Variables**: true
 
@@ -63,7 +63,7 @@ containing one of the options:
 
 ---
 
-### Speed: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### speed: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Normal"`
 **Allows Variables**: true
 
@@ -80,7 +80,7 @@ containing one of the options:
 
 ---
 
-### CustomSpeed: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+### customSpeed: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**: `1.0`
 **Allows Variables**: true
 
@@ -92,7 +92,7 @@ containing one of the options:
 
 ---
 
-### Metadata: Expand Arrow [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### metadata: Expand Arrow [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 
 
 Accepts a boolean for if this
@@ -104,7 +104,7 @@ labels, these can be ignored.
 
 ---
 
-### Title: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### title: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"My Great Track"`
 **Allows Variables**: true
 
@@ -116,7 +116,7 @@ with the text.
 
 ---
 
-### Artist: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### artist: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"Nicholas Fryingpan"`
 **Allows Variables**: true
 
@@ -128,7 +128,7 @@ with the text.
 
 ---
 
-### Album: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### album: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"Abbey Road"`
 **Allows Variables**: true
 
@@ -140,7 +140,7 @@ with the text.
 
 ---
 
-### Genre: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### genre: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"Indie"`
 **Allows Variables**: true
 
@@ -152,7 +152,7 @@ with the text.
 
 ---
 
-### Year: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### year: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"2001"`
 **Allows Variables**: true
 
@@ -164,7 +164,7 @@ with the text.
 
 ---
 
-### Artwork: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+### artwork: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
 **Allows Variables**: true
 
 **Only enabled if**: argument Metadata == `true`

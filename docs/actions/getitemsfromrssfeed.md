@@ -11,14 +11,14 @@ Downloads the latest items from an RSS feed.
 
 ### usage
 ```
-GetItemsfromRSSFeed URL="string" WFRSSItemQuantity=number
+GetItemsfromRSSFeed uRL="string" WFRSSItemQuantity=number
 ```
 
 ### arguments
 
 ---
 
-### URL: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### uRL: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Default Value**: `"https://www.apple.com/newsroom/rss-feed.rss"`
 **Allows Variables**: true
 

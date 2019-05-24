@@ -15,14 +15,14 @@ Archive
 
 ### usage
 ```
-MakeArchive ArchiveName="string" Format=(".zip" | ".tar.gz" | ".tar.bz2" | ".tar.xz" | ".tar" | ".gz" | ".cpio" | ".iso")
+MakeArchive archiveName="string" format=(".zip" | ".tar.gz" | ".tar.bz2" | ".tar.xz" | ".tar" | ".gz" | ".cpio" | ".iso")
 ```
 
 ### arguments
 
 ---
 
-### ArchiveName: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### archiveName: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"optional"`
 **Allows Variables**: true
 
@@ -34,7 +34,7 @@ with the text.
 
 ---
 
-### Format: Archive Format [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### format: Archive Format [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Allows Variables**: true
 
 

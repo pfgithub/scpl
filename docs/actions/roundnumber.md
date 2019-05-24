@@ -11,14 +11,14 @@ Rounds the number(s) passed into the action.
 
 ### usage
 ```
-RoundNumber Round=("Left of Decimal" | "Right of Decimal") Mode=("Normal" | "Always Round Up" | "Always Round Down") WFRoundDecimalPlaces=number
+RoundNumber round=("Left of Decimal" | "Right of Decimal") mode=("Normal" | "Always Round Up" | "Always Round Down") WFRoundDecimalPlaces=number
 ```
 
 ### arguments
 
 ---
 
-### Round: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### round: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Left of Decimal"`
 **Allows Variables**: true
 
@@ -33,7 +33,7 @@ containing one of the options:
 
 ---
 
-### Mode: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### mode: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Normal"`
 **Allows Variables**: true
 

@@ -18,7 +18,7 @@ URLEncode ("Encode" | "Decode")
 
 ---
 
-### Mode: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### mode: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Encode"`
 **Allows Variables**: true
 

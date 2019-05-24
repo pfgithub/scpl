@@ -11,14 +11,14 @@ Gets information about the currently connected networks.
 
 ### usage
 ```
-GetNetworkDetails Network=("Wi-Fi" | "Cellular") Get=("Network Name" | "BSSID") Get=("Carrier Name" | "Radio Technology" | "Country Code")
+GetNetworkDetails network=("Wi-Fi" | "Cellular") get=("Network Name" | "BSSID") get=("Carrier Name" | "Radio Technology" | "Country Code")
 ```
 
 ### arguments
 
 ---
 
-### Network: Network Type Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### network: Network Type Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Allows Variables**: true
 
 
@@ -32,7 +32,7 @@ containing one of the options:
 
 ---
 
-### Get: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### get: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Network Name"`
 **Allows Variables**: true
 
@@ -47,7 +47,7 @@ containing one of the options:
 
 ---
 
-### Get: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### get: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Carrier Name"`
 **Allows Variables**: true
 

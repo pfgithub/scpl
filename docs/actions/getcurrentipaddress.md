@@ -11,14 +11,14 @@ Returns the local or external IP address of the device.
 
 ### usage
 ```
-GetCurrentIPAddress Address=("External" | "Local") Type=("IPv4" | "IPv6")
+GetCurrentIPAddress address=("External" | "Local") type=("IPv4" | "IPv6")
 ```
 
 ### arguments
 
 ---
 
-### Address: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### address: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"External"`
 **Allows Variables**: true
 
@@ -33,7 +33,7 @@ containing one of the options:
 
 ---
 
-### Type: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### type: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"IPv4"`
 **Allows Variables**: true
 

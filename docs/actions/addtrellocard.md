@@ -13,14 +13,14 @@ Creates a new card on the specified list and board in your Trello account.
 
 ### usage
 ```
-AddTrelloCard Name="string" Board=("string" | variable)] List=("string" | variable)] Due="string" Position=("Top" | "Bottom") Attachments=(v:myvar | mv:myvar | s:myvar) WFTrelloDescription="string"
+AddTrelloCard name="string" board=("string" | variable)] list=("string" | variable)] due="string" position=("Top" | "Bottom") attachments=(v:myvar | mv:myvar | s:myvar) WFTrelloDescription="string"
 ```
 
 ### arguments
 
 ---
 
-### Name: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### name: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"Be productive"`
 **Allows Variables**: true
 
@@ -32,7 +32,7 @@ with the text.
 
 ---
 
-### Board: Trello Board Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### board: Trello Board Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Allows Variables**: true
 
 
@@ -41,7 +41,7 @@ with the text.
 
 ---
 
-### List: Trello List Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### list: Trello List Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Allows Variables**: true
 
 
@@ -50,7 +50,7 @@ with the text.
 
 ---
 
-### Due: Date [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### due: Date [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"Tomorrow at 1pm"`
 **Allows Variables**: true
 
@@ -62,7 +62,7 @@ with the text.
 
 ---
 
-### Position: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### position: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Top"`
 **Allows Variables**: true
 
@@ -77,7 +77,7 @@ containing one of the options:
 
 ---
 
-### Attachments: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+### attachments: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
 **Allows Variables**: true
 
 

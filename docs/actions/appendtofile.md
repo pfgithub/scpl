@@ -20,14 +20,14 @@ The file that was appended to
 
 ### usage
 ```
-AppendtoFile Service=("iCloud Drive" | "Dropbox") FilePath="string" Mode=("Append" | "Prepend") MakeNewLine=(true | false | variable)
+AppendtoFile service=("iCloud Drive" | "Dropbox") filePath="string" mode=("Append" | "Prepend") makeNewLine=(true | false | variable)
 ```
 
 ### arguments
 
 ---
 
-### Service: Storage Service Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### service: Storage Service Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Allows Variables**: true
 
 
@@ -41,7 +41,7 @@ containing one of the options:
 
 ---
 
-### FilePath: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### filePath: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"example.txt"`
 **Allows Variables**: true
 
@@ -53,7 +53,7 @@ with the text.
 
 ---
 
-### Mode: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### mode: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Append"`
 **Allows Variables**: true
 
@@ -68,7 +68,7 @@ containing one of the options:
 
 ---
 
-### MakeNewLine: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### makeNewLine: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Default Value**: ```
 		true
 		```

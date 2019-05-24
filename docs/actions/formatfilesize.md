@@ -21,14 +21,14 @@ A file size from another action, or a number of bytes
 
 ### usage
 ```
-FormatFileSize Format=("Automatic" | "Bytes" | "KB" | "MB" | "GB" | "TB" | "PB" | "EB" | "ZB" | "YB or Higher") IncludeUnits=(true | false | variable)
+FormatFileSize format=("Automatic" | "Bytes" | "KB" | "MB" | "GB" | "TB" | "PB" | "EB" | "ZB" | "YB or Higher") includeUnits=(true | false | variable)
 ```
 
 ### arguments
 
 ---
 
-### Format: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### format: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Automatic"`
 **Allows Variables**: true
 
@@ -51,7 +51,7 @@ containing one of the options:
 
 ---
 
-### IncludeUnits: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### includeUnits: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Default Value**: ```
 		true
 		```

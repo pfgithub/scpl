@@ -13,21 +13,21 @@ Posts the input to the specified Slack channel.
 
 ### usage
 ```
-PosttoSlack Account=("string" | variable)] Channel=("string" | variable)]
+PosttoSlack account=("string" | variable)] channel=("string" | variable)]
 ```
 
 ### arguments
 
 ---
 
-### Account: Account Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### account: Account Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 
 
 		Accepts a string or variable containing the option. Check the shortcuts app for a list of available options. 
 
 ---
 
-### Channel: Slack Channel Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### channel: Slack Channel Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Allows Variables**: true
 
 

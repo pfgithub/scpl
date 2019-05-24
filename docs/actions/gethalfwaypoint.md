@@ -11,14 +11,14 @@ Gets the halfway point between two locations.
 
 ### usage
 ```
-GetHalfwayPoint FirstLocation="string" SecondLocation="string"
+GetHalfwayPoint firstLocation="string" secondLocation="string"
 ```
 
 ### arguments
 
 ---
 
-### FirstLocation: Location [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### firstLocation: Location [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"San Francisco, CA"`
 **Allows Variables**: true
 
@@ -30,7 +30,7 @@ with the text.
 
 ---
 
-### SecondLocation: Location [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### secondLocation: Location [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"Philadelphia, PA"`
 **Allows Variables**: true
 

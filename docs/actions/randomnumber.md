@@ -11,14 +11,14 @@ Passes a random number between the given minimum and maximum to the next action.
 
 ### usage
 ```
-RandomNumber Minimum=number Maximum=number
+RandomNumber minimum=number maximum=number
 ```
 
 ### arguments
 
 ---
 
-### Minimum: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+### minimum: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**: `0`
 **Allows Variables**: true
 
@@ -30,7 +30,7 @@ RandomNumber Minimum=number Maximum=number
 
 ---
 
-### Maximum: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+### maximum: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**: `100`
 **Allows Variables**: true
 

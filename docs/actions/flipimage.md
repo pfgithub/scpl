@@ -18,7 +18,7 @@ FlipImage ("Horizontal" | "Vertical")
 
 ---
 
-### Direction: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### direction: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Horizontal"`
 **Allows Variables**: true
 

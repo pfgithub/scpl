@@ -11,14 +11,14 @@ Combines the images passed into the action horizontally, vertically, or in a gri
 
 ### usage
 ```
-CombineImages Mode=("Side-by-Side" | "Grid") Direction=("Horizontal" | "Vertical") Spacing=number
+CombineImages mode=("Side-by-Side" | "Grid") direction=("Horizontal" | "Vertical") spacing=number
 ```
 
 ### arguments
 
 ---
 
-### Mode: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### mode: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Side-by-Side"`
 **Allows Variables**: true
 
@@ -33,7 +33,7 @@ containing one of the options:
 
 ---
 
-### Direction: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### direction: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Horizontal"`
 **Allows Variables**: true
 
@@ -48,7 +48,7 @@ containing one of the options:
 
 ---
 
-### Spacing: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+### spacing: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**: `0`
 **Allows Variables**: true
 

@@ -30,7 +30,7 @@ export class WFParameter {
 		this.internalName = this._data.Key;
 		this.shortName = genShortName(this.name, this.internalName);
 		this.readableName = genShortName(this.name, this.internalName, true);
-		if (!this.readableName.startsWith("wf")) {
+		if (!this.readableName.startsWith("WF")) {
 			this.readableName =
 				this.readableName.charAt(0).toLowerCase() +
 				this.readableName.slice(1);

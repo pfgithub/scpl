@@ -13,14 +13,14 @@ Gets the contents of a folder in Instapaper. Requires Instapaper Premium.
 
 ### usage
 ```
-GetInstapaperBookmarks Folder=("string" | variable)] WFBookmarkCount=number
+GetInstapaperBookmarks folder=("string" | variable)] WFBookmarkCount=number
 ```
 
 ### arguments
 
 ---
 
-### Folder: Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### folder: Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Allows Variables**: true
 
 

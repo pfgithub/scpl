@@ -11,14 +11,14 @@ Joins text together, inserting the separator between each join.
 
 ### usage
 ```
-CombineText Separator=("New Lines" | "Spaces" | "Custom") Custom="string"
+CombineText separator=("New Lines" | "Spaces" | "Custom") custom="string"
 ```
 
 ### arguments
 
 ---
 
-### Separator: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### separator: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Spaces"`
 **Allows Variables**: true
 
@@ -34,7 +34,7 @@ containing one of the options:
 
 ---
 
-### Custom: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### custom: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"Text"`
 **Allows Variables**: true
 

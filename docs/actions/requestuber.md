@@ -24,14 +24,14 @@ The shareable link to your Uber ride
 
 ### usage
 ```
-RequestUber ShowEstimate=(true | false | variable) undefined=NotImplemented undefined=NotImplemented PickUpAt=("Current Location" | "Custom Location") Location="string"
+RequestUber showEstimate=(true | false | variable) undefined=NotImplemented undefined=NotImplemented pickUpAt=("Current Location" | "Custom Location") location="string"
 ```
 
 ### arguments
 
 ---
 
-### ShowEstimate: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### showEstimate: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 
@@ -49,7 +49,7 @@ or a variable.
 
 ---
 
-### PickUpAt: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### pickUpAt: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Current Location"`
 **Allows Variables**: true
 
@@ -64,7 +64,7 @@ containing one of the options:
 
 ---
 
-### Location: Location [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### location: Location [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"One Apple Park Way"`
 **Allows Variables**: true
 

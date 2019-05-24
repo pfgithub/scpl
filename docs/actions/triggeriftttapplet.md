@@ -15,14 +15,14 @@ Triggers an IFTTT applet. Configure which applet in the IFTTT app.
 
 ### usage
 ```
-TriggerIFTTTApplet TriggerName=("string" | variable)] WFIFTTTExtraIngredients=(number | variable) Ingredient1="string" Ingredient2="string" Ingredient3="string" Ingredient4="string" Ingredient5="string" Ingredient6="string" Ingredient7="string" Ingredient8="string" Ingredient9="string" Ingredient10="string" undefined=NotImplemented
+TriggerIFTTTApplet triggerName=("string" | variable)] WFIFTTTExtraIngredients=(number | variable) ingredient1="string" ingredient2="string" ingredient3="string" ingredient4="string" ingredient5="string" ingredient6="string" ingredient7="string" ingredient8="string" ingredient9="string" ingredient10="string" undefined=NotImplemented
 ```
 
 ### arguments
 
 ---
 
-### TriggerName: IFTTT Trigger Name Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### triggerName: IFTTT Trigger Name Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Placeholder**: ```
 		Log to Google Sheets
 		```
@@ -42,7 +42,7 @@ TriggerIFTTTApplet TriggerName=("string" | variable)] WFIFTTTExtraIngredients=(n
 
 ---
 
-### Ingredient1: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### ingredient1: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"optional"`
 **Allows Variables**: true
 
@@ -54,7 +54,7 @@ with the text.
 
 ---
 
-### Ingredient2: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### ingredient2: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"optional"`
 **Allows Variables**: true
 
@@ -66,7 +66,7 @@ with the text.
 
 ---
 
-### Ingredient3: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### ingredient3: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"optional"`
 **Allows Variables**: true
 
@@ -78,7 +78,7 @@ with the text.
 
 ---
 
-### Ingredient4: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### ingredient4: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"optional"`
 **Allows Variables**: true
 
@@ -90,7 +90,7 @@ with the text.
 
 ---
 
-### Ingredient5: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### ingredient5: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"optional"`
 **Allows Variables**: true
 
@@ -102,7 +102,7 @@ with the text.
 
 ---
 
-### Ingredient6: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### ingredient6: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"optional"`
 **Allows Variables**: true
 
@@ -114,7 +114,7 @@ with the text.
 
 ---
 
-### Ingredient7: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### ingredient7: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"optional"`
 **Allows Variables**: true
 
@@ -126,7 +126,7 @@ with the text.
 
 ---
 
-### Ingredient8: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### ingredient8: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"optional"`
 **Allows Variables**: true
 
@@ -138,7 +138,7 @@ with the text.
 
 ---
 
-### Ingredient9: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### ingredient9: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"optional"`
 **Allows Variables**: true
 
@@ -150,7 +150,7 @@ with the text.
 
 ---
 
-### Ingredient10: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### ingredient10: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"optional"`
 **Allows Variables**: true
 

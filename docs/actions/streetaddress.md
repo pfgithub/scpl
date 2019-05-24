@@ -11,14 +11,14 @@ Passes the specified address to the next action.
 
 ### usage
 ```
-StreetAddress Line1="string" Line2="string" City="string" State="string" PostalCode="string" Region="string"
+StreetAddress line1="string" line2="string" city="string" state="string" postalCode="string" region="string"
 ```
 
 ### arguments
 
 ---
 
-### Line1: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### line1: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"One Apple Park Way"`
 **Allows Variables**: true
 
@@ -30,7 +30,7 @@ with the text.
 
 ---
 
-### Line2: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### line2: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Allows Variables**: true
 
 
@@ -41,7 +41,7 @@ with the text.
 
 ---
 
-### City: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### city: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"Cupertino"`
 **Allows Variables**: true
 
@@ -53,7 +53,7 @@ with the text.
 
 ---
 
-### State: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### state: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"California"`
 **Allows Variables**: true
 
@@ -65,7 +65,7 @@ with the text.
 
 ---
 
-### PostalCode: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### postalCode: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"95014"`
 **Allows Variables**: true
 
@@ -77,7 +77,7 @@ with the text.
 
 ---
 
-### Region: Country [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### region: Country [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"United States"`
 **Allows Variables**: true
 

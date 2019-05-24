@@ -13,14 +13,14 @@ Presents a menu of the items passed as input to the action and outputs the user'
 
 ### usage
 ```
-ChoosefromList Prompt="string" SelectMultiple=(true | false | variable) SelectAllInitially=(true | false | variable)
+ChoosefromList prompt="string" selectMultiple=(true | false | variable) selectAllInitially=(true | false | variable)
 ```
 
 ### arguments
 
 ---
 
-### Prompt: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### prompt: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"optional"`
 **Allows Variables**: true
 
@@ -32,7 +32,7 @@ with the text.
 
 ---
 
-### SelectMultiple: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### selectMultiple: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 
@@ -42,7 +42,7 @@ or a variable.
 
 ---
 
-### SelectAllInitially: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### selectAllInitially: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 **Only enabled if**: argument WFChooseFromListActionSelectMultiple == `true`

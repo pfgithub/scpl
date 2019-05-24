@@ -22,14 +22,14 @@ The URL of the newly created item
 
 ### usage
 ```
-AddTodoistItem Content="string" Project=("string" | variable)] DueDate="string" RemindMeOn="string" ReminderType=("Email" | "Push Notification" | "Text Message") Priority=("4" | "3" | "2" | "1") Notes="string"
+AddTodoistItem content="string" project=("string" | variable)] dueDate="string" remindMeOn="string" reminderType=("Email" | "Push Notification" | "Text Message") priority=("4" | "3" | "2" | "1") notes="string"
 ```
 
 ### arguments
 
 ---
 
-### Content: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### content: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"Buy some milk"`
 **Allows Variables**: true
 
@@ -41,7 +41,7 @@ with the text.
 
 ---
 
-### Project: Todoist Project Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### project: Todoist Project Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Default Value**: ```
 		Inbox
 		```
@@ -53,7 +53,7 @@ with the text.
 
 ---
 
-### DueDate: Date [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### dueDate: Date [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"May 23"`
 **Allows Variables**: true
 
@@ -65,7 +65,7 @@ with the text.
 
 ---
 
-### RemindMeOn: Date [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### remindMeOn: Date [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"May 23 at 1 PM"`
 **Allows Variables**: true
 
@@ -77,7 +77,7 @@ with the text.
 
 ---
 
-### ReminderType: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### reminderType: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Email"`
 **Allows Variables**: true
 
@@ -93,7 +93,7 @@ containing one of the options:
 
 ---
 
-### Priority: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### priority: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"4"`
 **Allows Variables**: true
 
@@ -110,7 +110,7 @@ containing one of the options:
 
 ---
 
-### Notes: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### notes: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"Notes"`
 **Allows Variables**: true
 

@@ -13,14 +13,14 @@ Copies the result of the last action to the clipboard.
 
 ### usage
 ```
-CopytoClipboard LocalOnly=(true | false | variable) ExpireAt="string"
+CopytoClipboard localOnly=(true | false | variable) expireAt="string"
 ```
 
 ### arguments
 
 ---
 
-### LocalOnly: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### localOnly: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 
@@ -30,7 +30,7 @@ or a variable.
 
 ---
 
-### ExpireAt: Date [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### expireAt: Date [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"Today at 3 PM"`
 **Allows Variables**: true
 

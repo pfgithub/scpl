@@ -11,14 +11,14 @@ Crops images to a smaller rectangle.
 
 ### usage
 ```
-CropImage Position=("Center" | "Top Left" | "Top Right" | "Bottom Left" | "Bottom Right" | "Custom") XCoordinate=number YCoordinate=number Width=number Height=number
+CropImage position=("Center" | "Top Left" | "Top Right" | "Bottom Left" | "Bottom Right" | "Custom") xCoordinate=number yCoordinate=number width=number height=number
 ```
 
 ### arguments
 
 ---
 
-### Position: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### position: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Center"`
 **Allows Variables**: true
 
@@ -37,7 +37,7 @@ containing one of the options:
 
 ---
 
-### XCoordinate: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+### xCoordinate: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**: `0`
 **Allows Variables**: true
 
@@ -49,7 +49,7 @@ containing one of the options:
 
 ---
 
-### YCoordinate: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+### yCoordinate: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**: `0`
 **Allows Variables**: true
 
@@ -61,7 +61,7 @@ containing one of the options:
 
 ---
 
-### Width: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+### width: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**: `100`
 **Default Value**: `100`
 **Allows Variables**: true
@@ -74,7 +74,7 @@ containing one of the options:
 
 ---
 
-### Height: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+### height: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**: `100`
 **Default Value**: `100`
 **Allows Variables**: true

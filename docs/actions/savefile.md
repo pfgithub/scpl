@@ -22,14 +22,14 @@ The saved files
 
 ### usage
 ```
-SaveFile Service=("iCloud Drive" | "Dropbox") AskWheretoSave=(true | false | variable) DestinationPath="string" OverwriteIfFileExists=(true | false | variable)
+SaveFile service=("iCloud Drive" | "Dropbox") askWheretoSave=(true | false | variable) destinationPath="string" overwriteIfFileExists=(true | false | variable)
 ```
 
 ### arguments
 
 ---
 
-### Service: Storage Service Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### service: Storage Service Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Allows Variables**: true
 
 
@@ -43,7 +43,7 @@ containing one of the options:
 
 ---
 
-### AskWheretoSave: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### askWheretoSave: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Default Value**: ```
 		true
 		```
@@ -56,7 +56,7 @@ or a variable.
 
 ---
 
-### DestinationPath: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### destinationPath: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Allows Variables**: true
 
 **Only enabled if**: argument WFAskWhereToSave == `false`
@@ -67,7 +67,7 @@ with the text.
 
 ---
 
-### OverwriteIfFileExists: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### overwriteIfFileExists: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 **Only enabled if**: argument WFAskWhereToSave == `false`

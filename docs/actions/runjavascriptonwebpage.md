@@ -34,7 +34,7 @@ RunJavaScriptonWebpage "string"
 
 ---
 
-### JavaScript: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### javaScript: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"JavaScript"`
 **Default Value**: `"var result = [];
 // Get all links from the page

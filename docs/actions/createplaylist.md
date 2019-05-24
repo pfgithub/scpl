@@ -18,14 +18,14 @@ Items in your music library or items from the Search iTunes action.
 
 ### usage
 ```
-CreatePlaylist Name="string" Author="string" Description="string"
+CreatePlaylist name="string" author="string" description="string"
 ```
 
 ### arguments
 
 ---
 
-### Name: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### name: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"Greatest Hits"`
 **Allows Variables**: true
 
@@ -37,7 +37,7 @@ with the text.
 
 ---
 
-### Author: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### author: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"Shortcuts"`
 **Allows Variables**: true
 
@@ -49,7 +49,7 @@ with the text.
 
 ---
 
-### Description: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### description: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"All of my favorites"`
 **Allows Variables**: true
 

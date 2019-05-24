@@ -23,7 +23,7 @@ GetComponentofURL ("Scheme" | "User" | "Password" | "Host" | "Port" | "Path" | "
 
 ---
 
-### Component: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### component: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Scheme"`
 **Allows Variables**: true
 

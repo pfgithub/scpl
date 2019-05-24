@@ -16,14 +16,14 @@ Powered by Microsoft Cognitive Services (microsoft.com/cognitive-services). Your
 
 ### usage
 ```
-TranslateTextwithMicrosoft From=("string" | variable)] To=("string" | variable)]
+TranslateTextwithMicrosoft from=("string" | variable)] to=("string" | variable)]
 ```
 
 ### arguments
 
 ---
 
-### From: Translate Language Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### from: Translate Language Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Allows Variables**: true
 
 
@@ -32,7 +32,7 @@ TranslateTextwithMicrosoft From=("string" | variable)] To=("string" | variable)]
 
 ---
 
-### To: Translate Language Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### to: Translate Language Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Allows Variables**: true
 
 

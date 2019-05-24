@@ -15,7 +15,7 @@ Presents a menu and runs different actions based on which menu item was chosen.
 
 ### usage
 ```
-ChoosefromMenu Prompt="string" Items=[list, items]
+ChoosefromMenu prompt="string" items=[list, items]
 case
   ...
 case
@@ -27,7 +27,7 @@ end
 
 ---
 
-### Prompt: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### prompt: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"optional"`
 **Allows Variables**: true
 
@@ -39,7 +39,7 @@ with the text.
 
 ---
 
-### Items: undefined [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#list-field)
+### items: undefined [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#list-field)
 **Default Value**: ```
 		One,Two
 		```

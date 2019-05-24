@@ -23,7 +23,7 @@ Count ("Items" | "Characters" | "Words" | "Sentences" | "Lines")
 
 ---
 
-### Count: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### count: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Allows Variables**: true
 
 

@@ -13,14 +13,14 @@ Converts the measurements passed into the action to the specified unit.
 
 ### usage
 ```
-ConvertMeasurement Type=("string" | variable)] undefined=NotImplemented
+ConvertMeasurement type=("string" | variable)] undefined=NotImplemented
 ```
 
 ### arguments
 
 ---
 
-### Type: Unit Type Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### type: Unit Type Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Default Value**: ```
 		Length
 		```

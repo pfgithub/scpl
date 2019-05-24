@@ -13,14 +13,14 @@ Gets the current weather conditions at the specified location.
 
 ### usage
 ```
-GetCurrentWeather At=("Current Location" | "Custom Location" | variable) Location="string"
+GetCurrentWeather at=("Current Location" | "Custom Location" | variable) location="string"
 ```
 
 ### arguments
 
 ---
 
-### At: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### at: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Current Location"`
 
 
@@ -32,7 +32,7 @@ containing one of the options:
 
 ---
 
-### Location: Location [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### location: Location [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"Cupertino, CA"`
 **Allows Variables**: true
 

@@ -13,14 +13,14 @@ Enables or disables an alarm in the Clock app.
 
 ### usage
 ```
-ToggleAlarm Alarm=("string" | variable)] Enabled=(true | false | variable)
+ToggleAlarm alarm=("string" | variable)] enabled=(true | false | variable)
 ```
 
 ### arguments
 
 ---
 
-### Alarm: Alarm Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### alarm: Alarm Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Allows Variables**: true
 
 
@@ -29,7 +29,7 @@ ToggleAlarm Alarm=("string" | variable)] Enabled=(true | false | variable)
 
 ---
 
-### Enabled: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### enabled: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 

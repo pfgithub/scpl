@@ -17,14 +17,14 @@ The updated note
 
 ### usage
 ```
-AppendtoNote App=("string" | variable)] Note=(v:myvar | mv:myvar | s:myvar)
+AppendtoNote app=("string" | variable)] note=(v:myvar | mv:myvar | s:myvar)
 ```
 
 ### arguments
 
 ---
 
-### App: Intent App Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### app: Intent App Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Default Value**: ```
 		com.apple.mobilenotes
 		```
@@ -36,7 +36,7 @@ AppendtoNote App=("string" | variable)] Note=(v:myvar | mv:myvar | s:myvar)
 
 ---
 
-### Note: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+### note: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
 **Allows Variables**: true
 
 

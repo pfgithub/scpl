@@ -22,14 +22,14 @@ The combined images
 
 ### usage
 ```
-OverlayImage Image=(v:myvar | mv:myvar | s:myvar) ShowImageEditor=(true | false | variable) Position=("Center" | "Top Left" | "Top Right" | "Bottom Left" | "Bottom Right" | "Custom") Width=number Height=number XCoordinate=number YCoordinate=number RotationDegrees=number Opacity=number
+OverlayImage image=(v:myvar | mv:myvar | s:myvar) showImageEditor=(true | false | variable) position=("Center" | "Top Left" | "Top Right" | "Bottom Left" | "Bottom Right" | "Custom") width=number height=number xCoordinate=number yCoordinate=number rotationDegrees=number opacity=number
 ```
 
 ### arguments
 
 ---
 
-### Image: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+### image: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
 **Allows Variables**: true
 
 
@@ -38,7 +38,7 @@ Accepts a variable.
 
 ---
 
-### ShowImageEditor: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### showImageEditor: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Default Value**: ```
 		true
 		```
@@ -51,7 +51,7 @@ or a variable.
 
 ---
 
-### Position: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### position: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Center"`
 **Allows Variables**: true
 
@@ -70,7 +70,7 @@ containing one of the options:
 
 ---
 
-### Width: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+### width: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**: `Auto`
 **Allows Variables**: true
 
@@ -82,7 +82,7 @@ containing one of the options:
 
 ---
 
-### Height: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+### height: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**: `Auto`
 **Allows Variables**: true
 
@@ -94,7 +94,7 @@ containing one of the options:
 
 ---
 
-### XCoordinate: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+### xCoordinate: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**: `0`
 **Allows Variables**: true
 
@@ -108,7 +108,7 @@ containing one of the options:
 
 ---
 
-### YCoordinate: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+### yCoordinate: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**: `0`
 **Allows Variables**: true
 
@@ -122,7 +122,7 @@ containing one of the options:
 
 ---
 
-### RotationDegrees: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+### rotationDegrees: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**: `0`
 **Allows Variables**: true
 
@@ -134,7 +134,7 @@ containing one of the options:
 
 ---
 
-### Opacity: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+### opacity: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**: `100%`
 **Default Value**: `100`
 **Allows Variables**: true

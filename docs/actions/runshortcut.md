@@ -22,14 +22,14 @@ The shortcut's result
 
 ### usage
 ```
-RunShortcut Shortcut=("string" | variable)] ShowWhileRunning=(true | false | variable)
+RunShortcut shortcut=("string" | variable)] showWhileRunning=(true | false | variable)
 ```
 
 ### arguments
 
 ---
 
-### Shortcut: Shortcut Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### shortcut: Shortcut Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Allows Variables**: true
 
 
@@ -38,7 +38,7 @@ RunShortcut Shortcut=("string" | variable)] ShowWhileRunning=(true | false | var
 
 ---
 
-### ShowWhileRunning: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### showWhileRunning: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Default Value**: ```
 		true
 		```

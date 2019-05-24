@@ -15,14 +15,14 @@ Get recent notes from Evernote, optionally filtering based on criteria.
 
 ### usage
 ```
-GetNotes TitleSearch="string" undefined=NotImplemented InNotebook=("string" | variable)] WFEvernoteNotesCount=number
+GetNotes titleSearch="string" undefined=NotImplemented inNotebook=("string" | variable)] WFEvernoteNotesCount=number
 ```
 
 ### arguments
 
 ---
 
-### TitleSearch: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### titleSearch: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"optional"`
 **Allows Variables**: true
 
@@ -38,7 +38,7 @@ with the text.
 
 ---
 
-### InNotebook: Evernote Notebook Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### inNotebook: Evernote Notebook Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Allows Variables**: true
 
 

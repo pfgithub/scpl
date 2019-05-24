@@ -15,14 +15,14 @@ A list of text items that matched the regular expression
 
 ### usage
 ```
-MatchText Pattern="string" CaseSensitive=(true | false | variable)
+MatchText pattern="string" caseSensitive=(true | false | variable)
 ```
 
 ### arguments
 
 ---
 
-### Pattern: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### pattern: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Default Value**: `"[0-9a-zA-Z]"`
 **Allows Variables**: true
 
@@ -34,7 +34,7 @@ with the text.
 
 ---
 
-### CaseSensitive: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### caseSensitive: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Default Value**: ```
 		true
 		```

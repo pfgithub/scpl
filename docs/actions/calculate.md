@@ -11,14 +11,14 @@ Performs a number operation on the input and returns the result.
 
 ### usage
 ```
-Calculate Operation=("+" | "-" | "×" | "÷" | "…") ScientificOperation=("Modulus" | "x^2" | "x^3" | "x^y" | "e^x" | "10^x" | "ln(x)" | "log(x)" | "√x" | "∛x" | "x!" | "sin(x)" | "cos(x)" | "tan(x)" | "abs(x)") Operand=number Operand=number
+Calculate operation=("+" | "-" | "×" | "÷" | "…") scientificOperation=("Modulus" | "x^2" | "x^3" | "x^y" | "e^x" | "10^x" | "ln(x)" | "log(x)" | "√x" | "∛x" | "x!" | "sin(x)" | "cos(x)" | "tan(x)" | "abs(x)") operand=number operand=number
 ```
 
 ### arguments
 
 ---
 
-### Operation: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### operation: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"+"`
 **Allows Variables**: true
 
@@ -36,7 +36,7 @@ containing one of the options:
 
 ---
 
-### ScientificOperation: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### scientificOperation: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Allows Variables**: true
 
 **Only enabled if**: argument WFMathOperation == `…`
@@ -63,7 +63,7 @@ containing one of the options:
 
 ---
 
-### Operand: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+### operand: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**: `0`
 **Allows Variables**: true
 
@@ -75,7 +75,7 @@ containing one of the options:
 
 ---
 
-### Operand: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+### operand: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**: `3`
 **Allows Variables**: true
 

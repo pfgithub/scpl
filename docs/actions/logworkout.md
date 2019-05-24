@@ -15,7 +15,7 @@ Adds a workout into the Health app. You can log all kinds of activities, from ru
 
 ### usage
 ```
-LogWorkout undefined=NotImplemented Date="string" undefined=NotImplemented undefined=NotImplemented undefined=NotImplemented
+LogWorkout undefined=NotImplemented date="string" undefined=NotImplemented undefined=NotImplemented undefined=NotImplemented
 ```
 
 ### arguments
@@ -26,7 +26,7 @@ LogWorkout undefined=NotImplemented Date="string" undefined=NotImplemented undef
 
 ---
 
-### Date: Date [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### date: Date [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"optional"`
 **Allows Variables**: true
 

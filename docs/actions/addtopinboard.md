@@ -13,14 +13,14 @@ Adds the URL passed into the action to your Pinboard.
 
 ### usage
 ```
-AddtoPinboard Title="string" Tags="string" Public=(true | false | variable) Unread=(true | false | variable) Description="string"
+AddtoPinboard title="string" tags="string" public=(true | false | variable) unread=(true | false | variable) description="string"
 ```
 
 ### arguments
 
 ---
 
-### Title: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### title: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"optional"`
 **Allows Variables**: true
 
@@ -32,7 +32,7 @@ with the text.
 
 ---
 
-### Tags: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### tags: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"apple longread"`
 **Allows Variables**: true
 
@@ -44,7 +44,7 @@ with the text.
 
 ---
 
-### Public: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### public: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Default Value**: ```
 		true
 		```
@@ -57,7 +57,7 @@ or a variable.
 
 ---
 
-### Unread: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### unread: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Default Value**: ```
 		true
 		```
@@ -70,7 +70,7 @@ or a variable.
 
 ---
 
-### Description: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### description: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"Description"`
 **Allows Variables**: true
 

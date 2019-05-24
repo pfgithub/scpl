@@ -13,14 +13,14 @@ Gets an hourly or daily weather forecast at the specified location.
 
 ### usage
 ```
-GetWeatherForecast At=("Current Location" | "Custom Location" | variable) Location="string" Type=("Hourly" | "Daily")
+GetWeatherForecast at=("Current Location" | "Custom Location" | variable) location="string" type=("Hourly" | "Daily")
 ```
 
 ### arguments
 
 ---
 
-### At: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### at: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Current Location"`
 
 
@@ -32,7 +32,7 @@ containing one of the options:
 
 ---
 
-### Location: Location [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### location: Location [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"Cupertino, CA"`
 **Allows Variables**: true
 
@@ -44,7 +44,7 @@ with the text.
 
 ---
 
-### Type: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### type: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Daily"`
 **Allows Variables**: true
 

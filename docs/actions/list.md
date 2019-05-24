@@ -23,7 +23,7 @@ List [list, items]
 
 ---
 
-### Items: undefined [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#list-field)
+### items: undefined [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#list-field)
 **Default Value**: ```
 		One,Two
 		```

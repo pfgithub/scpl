@@ -13,14 +13,14 @@ Displays a dialog prompting the user to enter a piece of information.
 
 ### usage
 ```
-AskforInput Question="string" DefaultAnswer="string" DefaultAnswer="string" InputType=("Text" | "Number" | "URL" | "Date") Granularity=("Date" | "Time" | "Date and Time") SkiptoWatchDictation=(true | false | variable)
+AskforInput question="string" defaultAnswer="string" defaultAnswer="string" inputType=("Text" | "Number" | "URL" | "Date") granularity=("Date" | "Time" | "Date and Time") skiptoWatchDictation=(true | false | variable)
 ```
 
 ### arguments
 
 ---
 
-### Question: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### question: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"Enter text"`
 **Allows Variables**: true
 
@@ -32,7 +32,7 @@ with the text.
 
 ---
 
-### DefaultAnswer: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### defaultAnswer: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"optional"`
 **Allows Variables**: true
 
@@ -44,7 +44,7 @@ with the text.
 
 ---
 
-### DefaultAnswer: Date [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### defaultAnswer: Date [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"June 29, 2007"`
 **Allows Variables**: true
 
@@ -56,7 +56,7 @@ with the text.
 
 ---
 
-### InputType: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### inputType: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Text"`
 **Allows Variables**: true
 
@@ -73,7 +73,7 @@ containing one of the options:
 
 ---
 
-### Granularity: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### granularity: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Date"`
 **Allows Variables**: true
 
@@ -89,7 +89,7 @@ containing one of the options:
 
 ---
 
-### SkiptoWatchDictation: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### skiptoWatchDictation: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 **Only enabled if**: argument WFInputType != `Date`

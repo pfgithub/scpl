@@ -15,14 +15,14 @@ Creates an alarm in the Clock app.
 
 ### usage
 ```
-CreateAlarm Label="string" Time="string" undefined=NotImplemented
+CreateAlarm label="string" time="string" undefined=NotImplemented
 ```
 
 ### arguments
 
 ---
 
-### Label: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### label: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"Alarm"`
 **Allows Variables**: true
 
@@ -34,7 +34,7 @@ with the text.
 
 ---
 
-### Time: Date [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### time: Date [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"8 AM"`
 **Allows Variables**: true
 

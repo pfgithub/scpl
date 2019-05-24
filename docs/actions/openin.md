@@ -13,14 +13,14 @@ Opens the input as a file in the specified app.
 
 ### usage
 ```
-OpenIn ShowOpenInMenu=(true | false | variable) App=("app name" | "com.identifier.for.app")] WFAppName="string"
+OpenIn showOpenInMenu=(true | false | variable) app=("app name" | "com.identifier.for.app")] WFAppName="string"
 ```
 
 ### arguments
 
 ---
 
-### ShowOpenInMenu: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### showOpenInMenu: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Default Value**: ```
 		true
 		```
@@ -33,7 +33,7 @@ or a variable.
 
 ---
 
-### App: App [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### app: App [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Allows Variables**: true
 
 **Only enabled if**: argument WFOpenInAskWhenRun == `false`

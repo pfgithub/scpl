@@ -13,14 +13,14 @@ Displays an alert with a title, a message, and two buttons. If the user selects 
 
 ### usage
 ```
-ShowAlert Title="string" Message="string" ShowCancelButton=(true | false | variable)
+ShowAlert title="string" message="string" showCancelButton=(true | false | variable)
 ```
 
 ### arguments
 
 ---
 
-### Title: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### title: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"Attention-grabbing title"`
 **Default Value**: `"Alert"`
 **Allows Variables**: true
@@ -33,7 +33,7 @@ with the text.
 
 ---
 
-### Message: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### message: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"Informational message"`
 **Default Value**: `"Do you want to continue?"`
 **Allows Variables**: true
@@ -46,7 +46,7 @@ with the text.
 
 ---
 
-### ShowCancelButton: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### showCancelButton: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Default Value**: ```
 		true
 		```

@@ -15,14 +15,14 @@ An animated GIF
 
 ### usage
 ```
-MakeGIF SecondsPerPhoto=number LoopForever=(true | false | variable) WFMakeGIFActionLoopCount=number AutoSize=(true | false | variable) Width=number Height=number
+MakeGIF secondsPerPhoto=number loopForever=(true | false | variable) WFMakeGIFActionLoopCount=number autoSize=(true | false | variable) width=number height=number
 ```
 
 ### arguments
 
 ---
 
-### SecondsPerPhoto: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+### secondsPerPhoto: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**: `0.2`
 **Default Value**: `0.2`
 **Allows Variables**: true
@@ -35,7 +35,7 @@ MakeGIF SecondsPerPhoto=number LoopForever=(true | false | variable) WFMakeGIFAc
 
 ---
 
-### LoopForever: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### loopForever: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Default Value**: ```
 		true
 		```
@@ -59,7 +59,7 @@ or a variable.
 
 ---
 
-### AutoSize: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### autoSize: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Default Value**: ```
 		true
 		```
@@ -72,7 +72,7 @@ or a variable.
 
 ---
 
-### Width: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+### width: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**: `500`
 **Allows Variables**: true
 
@@ -84,7 +84,7 @@ or a variable.
 
 ---
 
-### Height: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+### height: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**: `500`
 **Allows Variables**: true
 

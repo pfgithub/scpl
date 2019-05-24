@@ -24,7 +24,7 @@ UploadtoCloudApp ("Private" | "Public")
 
 ---
 
-### LinkPrivacy: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### linkPrivacy: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Private"`
 **Allows Variables**: true
 

@@ -17,14 +17,14 @@ Photo from the camera.
 
 ### usage
 ```
-TakePhoto ShowCameraPreview=(true | false | variable) WFPhotoCount=number Camera=("Front" | "Back")
+TakePhoto showCameraPreview=(true | false | variable) WFPhotoCount=number camera=("Front" | "Back")
 ```
 
 ### arguments
 
 ---
 
-### ShowCameraPreview: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### showCameraPreview: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Default Value**: ```
 		true
 		```
@@ -49,7 +49,7 @@ or a variable.
 
 ---
 
-### Camera: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### camera: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Back"`
 **Allows Variables**: true
 

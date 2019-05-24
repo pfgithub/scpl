@@ -13,14 +13,14 @@ Calls the contact passed in as input using FaceTime.
 
 ### usage
 ```
-FaceTime App=("string" | variable)] CallType=("Video" | "Audio")
+FaceTime app=("string" | variable)] callType=("Video" | "Audio")
 ```
 
 ### arguments
 
 ---
 
-### App: Intent App Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### app: Intent App Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Default Value**: ```
 		com.apple.TelephonyUtilities.PhoneIntentHandler
 		```
@@ -32,7 +32,7 @@ FaceTime App=("string" | variable)] CallType=("Video" | "Audio")
 
 ---
 
-### CallType: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### callType: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Video"`
 **Allows Variables**: true
 

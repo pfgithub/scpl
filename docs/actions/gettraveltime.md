@@ -27,14 +27,14 @@ The amount of time it will take to get to the destination. If passed into an act
 
 ### usage
 ```
-GetTravelTime From=("Current Location" | "Custom Location" | variable) Location="string" TransportationMode=("Driving" | "Walking" | "Transit")
+GetTravelTime from=("Current Location" | "Custom Location" | variable) location="string" transportationMode=("Driving" | "Walking" | "Transit")
 ```
 
 ### arguments
 
 ---
 
-### From: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### from: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Current Location"`
 
 
@@ -46,7 +46,7 @@ containing one of the options:
 
 ---
 
-### Location: Location [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### location: Location [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"One Apple Park Way"`
 **Allows Variables**: true
 
@@ -58,7 +58,7 @@ with the text.
 
 ---
 
-### TransportationMode: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### transportationMode: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Driving"`
 **Allows Variables**: true
 

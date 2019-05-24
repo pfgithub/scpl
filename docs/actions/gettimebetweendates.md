@@ -16,14 +16,14 @@ This action outputs a negative number if the input date takes place before the s
 
 ### usage
 ```
-GetTimeBetweenDates GetTimeFrom=("Right Now" | "Other" | variable) OtherDate="string" In=("Total Time" | "Seconds" | "Minutes" | "Hours" | "Days" | "Weeks" | "Months" | "Years")
+GetTimeBetweenDates getTimeFrom=("Right Now" | "Other" | variable) otherDate="string" in=("Total Time" | "Seconds" | "Minutes" | "Hours" | "Days" | "Weeks" | "Months" | "Years")
 ```
 
 ### arguments
 
 ---
 
-### GetTimeFrom: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### getTimeFrom: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Right Now"`
 
 
@@ -35,7 +35,7 @@ containing one of the options:
 
 ---
 
-### OtherDate: Date [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### otherDate: Date [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"September 9, 2014"`
 **Allows Variables**: true
 
@@ -47,7 +47,7 @@ with the text.
 
 ---
 
-### In: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### in: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Minutes"`
 **Allows Variables**: true
 

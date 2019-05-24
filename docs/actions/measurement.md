@@ -13,14 +13,14 @@ Passes the specified measurement (including number and unit) to the next action.
 
 ### usage
 ```
-Measurement Type=("string" | variable)] undefined=NotImplemented
+Measurement type=("string" | variable)] undefined=NotImplemented
 ```
 
 ### arguments
 
 ---
 
-### Type: Unit Type Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### type: Unit Type Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Default Value**: ```
 		Length
 		```

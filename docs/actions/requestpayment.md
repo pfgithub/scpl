@@ -15,14 +15,14 @@ Requests a payment from the specified people using a payment app on your device.
 
 ### usage
 ```
-RequestPayment App=("string" | variable)] undefined=NotImplemented Amount=number OpeninApp=(true | false | variable) ShowWhenRun=(true | false | variable) Note="string"
+RequestPayment app=("string" | variable)] undefined=NotImplemented amount=number openinApp=(true | false | variable) showWhenRun=(true | false | variable) note="string"
 ```
 
 ### arguments
 
 ---
 
-### App: Intent App Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### app: Intent App Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Default Value**: ```
 		com.apple.PassKit.PassKitIntentsExtension
 		```
@@ -36,7 +36,7 @@ RequestPayment App=("string" | variable)] undefined=NotImplemented Amount=number
 
 ---
 
-### Amount: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+### amount: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**: `7.00`
 **Allows Variables**: true
 
@@ -48,7 +48,7 @@ RequestPayment App=("string" | variable)] undefined=NotImplemented Amount=number
 
 ---
 
-### OpeninApp: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### openinApp: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 
@@ -58,7 +58,7 @@ or a variable.
 
 ---
 
-### ShowWhenRun: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### showWhenRun: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Default Value**: ```
 		true
 		```
@@ -71,7 +71,7 @@ or a variable.
 
 ---
 
-### Note: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### note: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"Note"`
 **Allows Variables**: true
 

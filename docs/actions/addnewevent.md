@@ -17,14 +17,14 @@ The new event
 
 ### usage
 ```
-AddNewEvent Title="string" Location="string" Calendar=("string" | variable)] Date=(true | false) StartDate="string" EndDate="string" AllDay=(true | false | variable) Alert=("At time of event" | "5 minutes before" | "15 minutes before" | "30 minutes before" | "1 hour before" | "2 hours before" | "1 day before" | "2 days before" | "1 week before" | "Custom") AlertTime="string" Notes="string"
+AddNewEvent title="string" location="string" calendar=("string" | variable)] date=(true | false) startDate="string" endDate="string" allDay=(true | false | variable) alert=("At time of event" | "5 minutes before" | "15 minutes before" | "30 minutes before" | "1 hour before" | "2 hours before" | "1 day before" | "2 days before" | "1 week before" | "Custom") alertTime="string" notes="string"
 ```
 
 ### arguments
 
 ---
 
-### Title: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### title: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"Lunch with Tim"`
 **Allows Variables**: true
 
@@ -36,7 +36,7 @@ with the text.
 
 ---
 
-### Location: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### location: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"optional"`
 **Allows Variables**: true
 
@@ -48,7 +48,7 @@ with the text.
 
 ---
 
-### Calendar: Calendar Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### calendar: Calendar Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Allows Variables**: true
 
 
@@ -57,7 +57,7 @@ with the text.
 
 ---
 
-### Date: Expand Arrow [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### date: Expand Arrow [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 
 
 Accepts a boolean for if this
@@ -69,7 +69,7 @@ labels, these can be ignored.
 
 ---
 
-### StartDate: Date [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### startDate: Date [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"Tomorrow at noon"`
 **Allows Variables**: true
 
@@ -81,7 +81,7 @@ with the text.
 
 ---
 
-### EndDate: Date [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### endDate: Date [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"Tomorrow at 1pm"`
 **Allows Variables**: true
 
@@ -93,7 +93,7 @@ with the text.
 
 ---
 
-### AllDay: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### allDay: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 **Only enabled if**: argument WFCalendarItemDates == `true`
@@ -103,7 +103,7 @@ or a variable.
 
 ---
 
-### Alert: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### alert: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Allows Variables**: true
 
 
@@ -125,7 +125,7 @@ containing one of the options:
 
 ---
 
-### AlertTime: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### alertTime: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"Tomorrow at 4pm"`
 **Allows Variables**: true
 
@@ -137,7 +137,7 @@ with the text.
 
 ---
 
-### Notes: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### notes: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"Notes"`
 **Allows Variables**: true
 

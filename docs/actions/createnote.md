@@ -13,14 +13,14 @@ Creates a note using the content passed as input.
 
 ### usage
 ```
-CreateNote App=("string" | variable)] ShowComposeSheet=(true | false | variable)
+CreateNote app=("string" | variable)] showComposeSheet=(true | false | variable)
 ```
 
 ### arguments
 
 ---
 
-### App: Intent App Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### app: Intent App Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Default Value**: ```
 		com.apple.mobilenotes
 		```
@@ -32,7 +32,7 @@ CreateNote App=("string" | variable)] ShowComposeSheet=(true | false | variable)
 
 ---
 
-### ShowComposeSheet: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### showComposeSheet: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Default Value**: ```
 		true
 		```

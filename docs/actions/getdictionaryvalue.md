@@ -16,14 +16,14 @@ You can reference values deep inside of a dictionary by providing multiple keys 
 
 ### usage
 ```
-GetDictionaryValue Get=("Value" | "All Keys" | "All Values" | variable) Key="string"
+GetDictionaryValue get=("Value" | "All Keys" | "All Values" | variable) key="string"
 ```
 
 ### arguments
 
 ---
 
-### Get: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### get: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Value"`
 
 
@@ -36,7 +36,7 @@ containing one of the options:
 
 ---
 
-### Key: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### key: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"example"`
 **Allows Variables**: true
 

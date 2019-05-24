@@ -13,14 +13,14 @@ Creates a new board in your Trello account.
 
 ### usage
 ```
-CreateTrelloBoard Name="string" WFTrelloDescription="string"
+CreateTrelloBoard name="string" WFTrelloDescription="string"
 ```
 
 ### arguments
 
 ---
 
-### Name: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### name: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"Shortcuts"`
 **Allows Variables**: true
 

@@ -11,14 +11,14 @@ Separates text passed into the action into a list.
 
 ### usage
 ```
-SplitText Separator=("New Lines" | "Spaces" | "Every Character" | "Custom") Custom="string"
+SplitText separator=("New Lines" | "Spaces" | "Every Character" | "Custom") custom="string"
 ```
 
 ### arguments
 
 ---
 
-### Separator: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### separator: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"New Lines"`
 **Allows Variables**: true
 
@@ -35,7 +35,7 @@ containing one of the options:
 
 ---
 
-### Custom: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### custom: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"Text"`
 **Allows Variables**: true
 

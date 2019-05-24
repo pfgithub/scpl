@@ -15,14 +15,14 @@ Uses the microphone to record audio.
 
 ### usage
 ```
-RecordAudio AudioQuality=("Normal" | "Very High") StartRecording=("On Tap" | "Immediately") FinishRecording=("On Tap" | "After Time") undefined=NotImplemented
+RecordAudio audioQuality=("Normal" | "Very High") startRecording=("On Tap" | "Immediately") finishRecording=("On Tap" | "After Time") undefined=NotImplemented
 ```
 
 ### arguments
 
 ---
 
-### AudioQuality: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### audioQuality: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Normal"`
 **Allows Variables**: true
 
@@ -37,7 +37,7 @@ containing one of the options:
 
 ---
 
-### StartRecording: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### startRecording: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"On Tap"`
 **Allows Variables**: true
 
@@ -52,7 +52,7 @@ containing one of the options:
 
 ---
 
-### FinishRecording: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### finishRecording: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"On Tap"`
 **Allows Variables**: true
 

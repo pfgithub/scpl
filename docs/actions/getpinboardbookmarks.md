@@ -13,14 +13,14 @@ Gets bookmarks in your Pinboard account.
 
 ### usage
 ```
-GetPinboardBookmarks Tags="string" WFBookmarkCount=number
+GetPinboardBookmarks tags="string" WFBookmarkCount=number
 ```
 
 ### arguments
 
 ---
 
-### Tags: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### tags: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"apple longread"`
 **Allows Variables**: true
 

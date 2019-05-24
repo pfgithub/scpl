@@ -24,7 +24,7 @@ AddtoVariable (v:variableName | variableName)
 
 ---
 
-### Variable: Variable Input [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-field)
+### variable: Variable Input [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-field)
 **Placeholder**: ```
 		Variable Name
 		```

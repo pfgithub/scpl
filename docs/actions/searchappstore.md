@@ -11,14 +11,14 @@ Searches the App Store, returning the apps that match the specified search terms
 
 ### usage
 ```
-SearchAppStore Search="string" SearchBy=("string" | variable)] Results=("string" | variable)] Region=("string" | variable)] WFItemLimit=number
+SearchAppStore search="string" searchBy=("string" | variable)] results=("string" | variable)] region=("string" | variable)] WFItemLimit=number
 ```
 
 ### arguments
 
 ---
 
-### Search: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### search: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"Shortcuts"`
 **Allows Variables**: true
 
@@ -30,7 +30,7 @@ with the text.
 
 ---
 
-### SearchBy: Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### searchBy: Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Allows Variables**: true
 
 
@@ -39,7 +39,7 @@ with the text.
 
 ---
 
-### Results: Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### results: Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Allows Variables**: true
 
 
@@ -48,7 +48,7 @@ with the text.
 
 ---
 
-### Region: iTunes Store Country Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### region: iTunes Store Country Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Allows Variables**: true
 
 

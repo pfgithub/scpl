@@ -13,14 +13,14 @@ Gets cards, lists, or boards in your Trello account.
 
 ### usage
 ```
-GetTrelloItems Get=("Boards" | "Lists" | "Cards") Board=("string" | variable)] List=("string" | variable)]
+GetTrelloItems get=("Boards" | "Lists" | "Cards") board=("string" | variable)] list=("string" | variable)]
 ```
 
 ### arguments
 
 ---
 
-### Get: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### get: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Boards"`
 **Allows Variables**: true
 
@@ -36,7 +36,7 @@ containing one of the options:
 
 ---
 
-### Board: Trello Board Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### board: Trello Board Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Allows Variables**: true
 
 **Only enabled if**: argument WFTrelloItemType == `Lists` or `Cards`
@@ -45,7 +45,7 @@ containing one of the options:
 
 ---
 
-### List: Trello List Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### list: Trello List Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Allows Variables**: true
 
 **Only enabled if**: argument WFTrelloItemType == `Cards`

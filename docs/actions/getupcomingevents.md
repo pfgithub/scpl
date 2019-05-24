@@ -13,14 +13,14 @@ Gets upcoming calendar events, ordered from nearest to farthest away in time.
 
 ### usage
 ```
-GetUpcomingEvents Calendar=("string" | variable)] WFGetUpcomingItemCount=number Day=("Any Day" | "Today" | "Tomorrow" | "Specified Day") SpecifiedDay="string"
+GetUpcomingEvents calendar=("string" | variable)] WFGetUpcomingItemCount=number day=("Any Day" | "Today" | "Tomorrow" | "Specified Day") specifiedDay="string"
 ```
 
 ### arguments
 
 ---
 
-### Calendar: Calendar Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### calendar: Calendar Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Allows Variables**: true
 
 
@@ -41,7 +41,7 @@ GetUpcomingEvents Calendar=("string" | variable)] WFGetUpcomingItemCount=number 
 
 ---
 
-### Day: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### day: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Any Day"`
 **Allows Variables**: true
 
@@ -58,7 +58,7 @@ containing one of the options:
 
 ---
 
-### SpecifiedDay: Date [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### specifiedDay: Date [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"June 29, 2007"`
 **Allows Variables**: true
 

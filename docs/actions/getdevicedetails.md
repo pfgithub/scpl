@@ -18,7 +18,7 @@ GetDeviceDetails ("Device Name" | "Device Model" | "System Version" | "Screen Wi
 
 ---
 
-### Get: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### get: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Device Name"`
 **Allows Variables**: true
 

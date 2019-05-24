@@ -13,14 +13,14 @@ Transcribes what you say aloud into text and passes the result to the next actio
 
 ### usage
 ```
-DictateText Language=("string" | variable)] StopListening=("After Pause" | "After Short Pause" | "On Tap")
+DictateText language=("string" | variable)] stopListening=("After Pause" | "After Short Pause" | "On Tap")
 ```
 
 ### arguments
 
 ---
 
-### Language: Language Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### language: Language Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Allows Variables**: true
 
 
@@ -29,7 +29,7 @@ DictateText Language=("string" | variable)] StopListening=("After Pause" | "Afte
 
 ---
 
-### StopListening: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### stopListening: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"After Pause"`
 **Allows Variables**: true
 

@@ -24,14 +24,14 @@ The distance to the location in miles or kilometers.
 
 ### usage
 ```
-GetDistance From=("Current Location" | "Custom Location" | variable) Location="string" RouteType=("Direct" | "Driving" | "Walking") undefined=NotImplemented
+GetDistance from=("Current Location" | "Custom Location" | variable) location="string" routeType=("Direct" | "Driving" | "Walking") undefined=NotImplemented
 ```
 
 ### arguments
 
 ---
 
-### From: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### from: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Current Location"`
 
 
@@ -43,7 +43,7 @@ containing one of the options:
 
 ---
 
-### Location: Location [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### location: Location [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"One Apple Park Way"`
 **Allows Variables**: true
 
@@ -55,7 +55,7 @@ with the text.
 
 ---
 
-### RouteType: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### routeType: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Direct"`
 **Allows Variables**: true
 

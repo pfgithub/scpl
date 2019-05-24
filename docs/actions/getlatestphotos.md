@@ -13,7 +13,7 @@ Gets the most recent photos from the camera roll.
 
 ### usage
 ```
-GetLatestPhotos WFGetLatestPhotoCount=number IncludeScreenshots=(true | false | variable)
+GetLatestPhotos WFGetLatestPhotoCount=number includeScreenshots=(true | false | variable)
 ```
 
 ### arguments
@@ -32,7 +32,7 @@ GetLatestPhotos WFGetLatestPhotoCount=number IncludeScreenshots=(true | false | 
 
 ---
 
-### IncludeScreenshots: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### includeScreenshots: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Default Value**: ```
 		true
 		```

@@ -15,14 +15,14 @@ Sends an iMessage or SMS. Pass images, videos, or other files as input to includ
 
 ### usage
 ```
-SendMessage App=("string" | variable)] ShowWhenRun=(true | false | variable) undefined=NotImplemented WFSendMessageContent="string" Prefix="string"
+SendMessage app=("string" | variable)] showWhenRun=(true | false | variable) undefined=NotImplemented WFSendMessageContent="string" prefix="string"
 ```
 
 ### arguments
 
 ---
 
-### App: Intent App Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### app: Intent App Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Default Value**: ```
 		com.apple.MobileSMS
 		```
@@ -36,7 +36,7 @@ SendMessage App=("string" | variable)] ShowWhenRun=(true | false | variable) und
 
 ---
 
-### ShowWhenRun: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### showWhenRun: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Default Value**: ```
 		true
 		```
@@ -65,7 +65,7 @@ with the text.
 
 ---
 
-### Prefix: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### prefix: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Allows Variables**: true
 
 **Only enabled if**: This action is always **disabled** inside Shortcutslang.

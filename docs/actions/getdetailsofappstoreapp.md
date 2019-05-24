@@ -12,7 +12,7 @@ GetDetailsofAppStoreApp ("Content Rating" | "Release Date" | "# of Ratings (This
 
 ---
 
-### Get: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### get: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Allows Variables**: true
 
 

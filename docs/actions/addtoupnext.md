@@ -25,7 +25,7 @@ AddtoUpNext ("Next" | "Later")
 
 ---
 
-### Play: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### play: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Next"`
 **Allows Variables**: true
 

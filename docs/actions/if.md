@@ -13,7 +13,7 @@ Tests if any item passed as input matches the specified condition, and if so, ru
 
 ### usage
 ```
-If Input=("Equals" | "Contains" | "Is Greater Than" | "Is Less Than" | variable) Number=number Value="string"
+If input=("Equals" | "Contains" | "Is Greater Than" | "Is Less Than" | variable) number=number value="string"
   ...
 otherwise
   ...
@@ -24,7 +24,7 @@ end
 
 ---
 
-### Input: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### input: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Contains"`
 
 
@@ -38,7 +38,7 @@ containing one of the options:
 
 ---
 
-### Number: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+### number: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**: `7`
 **Allows Variables**: true
 
@@ -50,7 +50,7 @@ containing one of the options:
 
 ---
 
-### Value: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### value: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"example"`
 **Allows Variables**: true
 

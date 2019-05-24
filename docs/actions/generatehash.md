@@ -18,7 +18,7 @@ GenerateHash ("MD5" | "SHA1" | "SHA256" | "SHA512")
 
 ---
 
-### Type: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### type: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"MD5"`
 **Allows Variables**: true
 

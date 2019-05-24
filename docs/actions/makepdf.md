@@ -11,14 +11,14 @@ Makes a PDF out of the input. The resulting PDF can optionally include a quarter
 
 ### usage
 ```
-MakePDF IncludeMargin=(true | false | variable) Include=("All Pages" | "Single Page" | "Page Range") Page=number StartPage=number EndPage=number
+MakePDF includeMargin=(true | false | variable) include=("All Pages" | "Single Page" | "Page Range") page=number startPage=number endPage=number
 ```
 
 ### arguments
 
 ---
 
-### IncludeMargin: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### includeMargin: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 
@@ -28,7 +28,7 @@ or a variable.
 
 ---
 
-### Include: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### include: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"All Pages"`
 **Allows Variables**: true
 
@@ -44,7 +44,7 @@ containing one of the options:
 
 ---
 
-### Page: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+### page: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**: `1`
 **Allows Variables**: true
 
@@ -56,7 +56,7 @@ containing one of the options:
 
 ---
 
-### StartPage: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+### startPage: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**: `1`
 **Allows Variables**: true
 
@@ -68,7 +68,7 @@ containing one of the options:
 
 ---
 
-### EndPage: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+### endPage: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**: `3`
 **Allows Variables**: true
 

@@ -13,14 +13,14 @@ Gets upcoming reminders, ordered from nearest to farthest away due date.
 
 ### usage
 ```
-GetUpcomingReminders List=("string" | variable)] WFGetUpcomingItemCount=number
+GetUpcomingReminders list=("string" | variable)] WFGetUpcomingItemCount=number
 ```
 
 ### arguments
 
 ---
 
-### List: Calendar Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### list: Calendar Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Allows Variables**: true
 
 

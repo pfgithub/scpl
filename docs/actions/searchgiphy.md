@@ -18,14 +18,14 @@ Powered by Giphy (giphy.com)
 
 ### usage
 ```
-SearchGiphy Search="string" ShowGIFPicker=(true | false | variable) WFGiphyLimit=number SelectMultiple=(true | false | variable)
+SearchGiphy search="string" showGIFPicker=(true | false | variable) WFGiphyLimit=number selectMultiple=(true | false | variable)
 ```
 
 ### arguments
 
 ---
 
-### Search: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### search: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"leave blank for trending"`
 **Allows Variables**: true
 
@@ -37,7 +37,7 @@ with the text.
 
 ---
 
-### ShowGIFPicker: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### showGIFPicker: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Default Value**: ```
 		true
 		```
@@ -62,7 +62,7 @@ or a variable.
 
 ---
 
-### SelectMultiple: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### selectMultiple: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
 **Only enabled if**: argument WFGiphyShowPicker == `true`

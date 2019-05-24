@@ -18,14 +18,14 @@ A location to search near.
 
 ### usage
 ```
-SearchLocalBusinesses Search="string" Radiuskm=number
+SearchLocalBusinesses search="string" radiuskm=number
 ```
 
 ### arguments
 
 ---
 
-### Search: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### search: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"coffee shops"`
 **Allows Variables**: true
 
@@ -37,7 +37,7 @@ with the text.
 
 ---
 
-### Radiuskm: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+### radiuskm: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**: `1.5`
 **Default Value**: `1.5`
 **Allows Variables**: true

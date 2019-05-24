@@ -16,14 +16,14 @@ If the width or height is not set, that dimension is automatically calculated to
 
 ### usage
 ```
-ResizeImage Width=number Height=number
+ResizeImage width=number height=number
 ```
 
 ### arguments
 
 ---
 
-### Width: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+### width: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**: `Auto`
 **Default Value**: `640`
 **Allows Variables**: true
@@ -36,7 +36,7 @@ ResizeImage Width=number Height=number
 
 ---
 
-### Height: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+### height: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**: `Auto`
 **Allows Variables**: true
 

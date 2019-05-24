@@ -16,14 +16,14 @@ Lists are one-indexed, so the first item is at index 1, the second is at index 2
 
 ### usage
 ```
-GetItemfromList Get=("First Item" | "Last Item" | "Random Item" | "Item At Index" | "Items in Range") Index=number GetItemsFromIndex=number ToIndex=number
+GetItemfromList get=("First Item" | "Last Item" | "Random Item" | "Item At Index" | "Items in Range") index=number getItemsFromIndex=number toIndex=number
 ```
 
 ### arguments
 
 ---
 
-### Get: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### get: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"First Item"`
 **Allows Variables**: true
 
@@ -41,7 +41,7 @@ containing one of the options:
 
 ---
 
-### Index: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+### index: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**: `1`
 **Allows Variables**: true
 
@@ -53,7 +53,7 @@ containing one of the options:
 
 ---
 
-### GetItemsFromIndex: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+### getItemsFromIndex: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**: `optional`
 **Default Value**: `1`
 **Allows Variables**: true
@@ -66,7 +66,7 @@ containing one of the options:
 
 ---
 
-### ToIndex: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+### toIndex: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**: `optional`
 **Allows Variables**: true
 
