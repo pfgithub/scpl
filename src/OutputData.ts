@@ -30,7 +30,8 @@ import {
 import getTypes, {
 	ComparisonName,
 	ComparisonWFValue,
-	comparisonMethodsMap
+	comparisonMethodsMap,
+	GetTypeInfoProperty
 } from "./Data/GetTypes";
 
 import { GlyphCodepoint, ColorCode, glyphs, colors } from "./Data/ShortcutMeta";
@@ -321,6 +322,11 @@ export type ContentItemFilterItem = {
 	units?: undefined;
 };
 
+export type ContentItemFilterItemTypeData = {
+	propertyData: GetTypeInfoProperty;
+	operatorValue: ComparisonWFValue;
+};
+
 export class ContentItemFilter extends Parameter {
 	data: Array<WFContentItemFilterItem>;
 	coercionType: CoercionTypeClass;
@@ -331,34 +337,87 @@ export class ContentItemFilter extends Parameter {
 		this.coercionType = coercionType;
 		this.mode = mode;
 	}
-	add(item: ContentItemFilterItem): string | undefined {
+	getTypeInfo(item: {
+		property: AggrandizementPropertyName;
+		operator: ComparisonName;
+		units?: undefined;
+	}):
+		| { error: true; message: string }
+		| {
+				error: false;
+				expectedType: "stringOrText" | "number" | "boolean";
+				typeData: ContentItemFilterItemTypeData;
+		  } {
 		const property = item.property;
 		const operator = item.operator;
-		const value = item.value;
 		// const units = item.units;
 
 		const typeInfo = getTypes[this.coercionType];
 		// property -> GetTypeInfo -> AggrandizementPropertyRawName
 		if (!isAggrandizementPropertyName(property)) {
-			return `Not a valid name \`${property}\`. Check the docs page for this action for a full list.`;
+			return {
+				error: true,
+				message: `Not a valid name \`${property}\`. Check the docs page for this action for a full list.`
+			};
 		}
 		const propertyData = typeInfo.properties[property];
 		if (!propertyData) {
-			return `Not a valid property name \`${property}\`. Check the docs page for this action for a full list.`;
+			return {
+				error: true,
+				message: `Not a valid property name \`${property}\`. Check the docs page for this action for a full list.`
+			};
 		}
 		if (propertyData.filter === undefined) {
-			return `The property \`${property}\` does not yet support filters on this action. If you need this property, report an issue on github or submit a pull request.`;
+			return {
+				error: true,
+				message: `The property \`${property}\` does not yet support filters on this action. If you need this property, report an issue on github or submit a pull request.`
+			};
 		}
 		if (!propertyData.filter) {
-			return `The property \`${property}\` does not support filters in shortcuts. Check the docs page for this action for a full list.`;
+			return {
+				error: true,
+				message: `The property \`${property}\` does not support filters in shortcuts. Check the docs page for this action for a full list.`
+			};
 		}
 		// ComparisonName -> ComparisonValue
 		const operatorValue = comparisonMethodsMap.get(operator);
 		if (operatorValue === undefined) {
-			return `The operator \`${operator}\` does not exist or has not been implemented. Check the docs page for this action for a full list.`;
+			return {
+				error: true,
+				message: `The operator \`${operator}\` does not exist or has not been implemented. Check the docs page for this action for a full list.`
+			};
 		}
 		// UnitName -> UnitValue || 4
 		// const unit = units;
+		let expectedType: "stringOrText" | "number" | "boolean" | undefined;
+		if (propertyData.type === "WFStringContentItem") {
+			expectedType = "stringOrText";
+		}
+		if (propertyData.type === "WFNumberContentItem") {
+			expectedType = "number";
+		}
+		if (propertyData.type === "WFBooleanContentItem") {
+			expectedType = "boolean";
+		}
+		if (!expectedType) {
+			return {
+				error: true,
+				message: `The type \`${
+					propertyData.type
+				}\` is probably not implemented yet.`
+			};
+		}
+		return {
+			error: false,
+			expectedType,
+			typeData: { propertyData, operatorValue }
+		};
+	}
+	add(
+		value: string | number | boolean | Text,
+		typeData: ContentItemFilterItemTypeData
+	): string | undefined {
+		const { propertyData, operatorValue } = typeData;
 		const baseData: WFContentItemFilterItemBase = {
 			Property: propertyData.name,
 			Operator: operatorValue,
@@ -367,37 +426,60 @@ export class ContentItemFilter extends Parameter {
 			VariableOverrides: {}
 		};
 		if (propertyData.filterFakeType === "WFEnumerationContentItem") {
-			return `Enumerations are not implemented yet`;
-		} else if (typeof value === "string") {
+			if (typeof value !== "string") {
+				return "Enums must have strings.";
+			}
+			const enumoptions = propertyData.filterEnumValues;
+			if (!enumoptions) {
+				return `This enum was set up wrong. ${
+					propertyData.name
+				}. Report an issue.`;
+			}
+			if (enumoptions.indexOf(value) > -1) {
+				this.data.push({ Enumeration: value, ...baseData });
+				return;
+			}
+			return `Must be one of ${enumoptions.join(",")}`;
+		} else if (propertyData.type === "WFStringContentItem") {
+			if (value instanceof Text) {
+				const built = value.build();
+				if (typeof built === "string") {
+					this.data.push({
+						String: built,
+						...baseData
+					});
+					return;
+				}
+				this.data.push({
+					...baseData,
+					VariableOverrides: { stringValue: value.build() }
+				});
+				return;
+			}
+			if (typeof value !== "string") {
+				return "Strings must have strings.";
+			}
 			this.data.push({
 				String: value,
 				...baseData
 			});
 			return;
-		} else if (typeof value === "number") {
+		} else if (propertyData.type === "WFNumberContentItem") {
+			if (typeof value !== "number") {
+				return "Numbers must have strings.";
+			}
 			this.data.push({
 				Number: value,
 				...baseData
 			});
 			return;
-		} else if (typeof value === "boolean") {
+		} else if (propertyData.type === "WFBooleanContentItem") {
+			if (typeof value !== "boolean") {
+				return "Booleans must have booleans.";
+			}
 			this.data.push({
 				Bool: value,
 				...baseData
-			});
-			return;
-		} else if (value instanceof Text) {
-			const built = value.build();
-			if (typeof built === "string") {
-				this.data.push({
-					String: built,
-					...baseData
-				});
-				return;
-			}
-			this.data.push({
-				...baseData,
-				VariableOverrides: { stringValue: value.build() }
 			});
 			return;
 		}

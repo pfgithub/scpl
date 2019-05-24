@@ -743,6 +743,94 @@ test("filter action by name", t => {
 	);
 });
 
+test("filter boolean", t => {
+	t.deepEqual(
+		scplToShortcut(
+			`FindPhotos :filter{IsAScreenshot Is true :and: Name contains "testname" :and: IsFavorite Is false}`
+		),
+		[
+			{
+				WFWorkflowActionIdentifier: "is.workflow.actions.filter.photos",
+				WFWorkflowActionParameters: {
+					WFContentItemFilter: {
+						Value: {
+							WFActionParameterFilterPrefix: 1,
+							WFContentPredicateBoundedDate: false,
+							WFActionParameterFilterTemplates: [
+								{
+									Operator: 4,
+									Bool: true,
+									Unit: 4,
+									Removable: true,
+									Property: "Is a Screenshot",
+									VariableOverrides: {}
+								},
+								{
+									Operator: 99,
+									String: "testname",
+									Unit: 4,
+									Removable: true,
+									Property: "Name",
+									VariableOverrides: {}
+								},
+								{
+									Operator: 4,
+									Bool: false,
+									Unit: 4,
+									Removable: true,
+									Property: "Is Favorite",
+									VariableOverrides: {}
+								}
+							]
+						},
+						WFSerializationType: "WFContentPredicateTableTemplate"
+					}
+				}
+			}
+		]
+	);
+});
+
+test("filter or", t => {
+	t.deepEqual(
+		scplToShortcut(
+			`FindPhotos :filter{IsAScreenshot Is true :or: Name contains "testname"}`
+		),
+		[
+			{
+				WFWorkflowActionIdentifier: "is.workflow.actions.filter.photos",
+				WFWorkflowActionParameters: {
+					WFContentItemFilter: {
+						Value: {
+							WFActionParameterFilterPrefix: 0,
+							WFContentPredicateBoundedDate: false,
+							WFActionParameterFilterTemplates: [
+								{
+									Operator: 4,
+									Bool: true,
+									Unit: 4,
+									Removable: true,
+									Property: "Is a Screenshot",
+									VariableOverrides: {}
+								},
+								{
+									Operator: 99,
+									String: "testname",
+									Unit: 4,
+									Removable: true,
+									Property: "Name",
+									VariableOverrides: {}
+								}
+							]
+						},
+						WFSerializationType: "WFContentPredicateTableTemplate"
+					}
+				}
+			}
+		]
+	);
+});
+
 test("argument labels and arglists and extendedargs", t => {
 	t.deepEqual(
 		scplToShortcut(`

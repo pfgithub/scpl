@@ -162,7 +162,7 @@ interface AsFilter extends Parse {
 }
 
 interface AsFilterItem extends Parse {
-	asFilterItem(cc: ConvertingContext): ContentItemFilterItem;
+	asFilterItem(cc: ConvertingContext, filter: ContentItemFilter): void;
 }
 
 export type AsAble = Parse;
@@ -283,10 +283,7 @@ export class FilterParse extends Parse implements AsFilter {
 			if (!filterItem.canBeFilterItem(cc)) {
 				throw filterItem.error(cc, "This item is not a filter item.");
 			}
-			const addResult = filter.add(filterItem.asFilterItem(cc));
-			if (addResult) {
-				throw filterItem.error(cc, addResult);
-			}
+			filterItem.asFilterItem(cc, filter);
 		});
 		return filter;
 	}
@@ -314,7 +311,7 @@ export class FilterItemParse extends Parse implements AsFilterItem {
 	canBeFilterItem(_cc: ConvertingContext): boolean {
 		return true;
 	}
-	asFilterItem(cc: ConvertingContext): ContentItemFilterItem {
+	asFilterItem(cc: ConvertingContext, filter: ContentItemFilter): void {
 		if (!this.property.canBeString(cc)) {
 			throw this.property.error(cc, "Property must be a string");
 		}
@@ -336,22 +333,43 @@ export class FilterItemParse extends Parse implements AsFilterItem {
 		}
 		const operatorName: ComparisonName = operator;
 
-		// findbest[string, number, boolean, text]
-		// ...
-		if (!this.value.canBeText(cc)) {
-			throw this.property.error(cc, "Value must be a string");
+		const typeInfo = filter.getTypeInfo({
+			property: propertyName,
+			operator: operatorName
+		});
+		if (typeInfo.error) {
+			throw this.error(cc, typeInfo.message);
 		}
-		const value = this.value.asText(cc);
+		let value: Text | string | number | boolean | undefined;
+		if (typeInfo.expectedType === "stringOrText") {
+			if (!this.value.canBeText(cc)) {
+				throw this.property.error(cc, "Value must be a string");
+			}
+			value = this.value.asText(cc);
+		} else if (typeInfo.expectedType === "number") {
+			if (!this.value.canBeNumber(cc)) {
+				throw this.property.error(cc, "Value must be a number");
+			}
+			value = this.value.asNumber(cc);
+		} else if (typeInfo.expectedType === "boolean") {
+			if (!this.value.canBeBoolean(cc)) {
+				throw this.property.error(cc, "Value must be a boolean");
+			}
+			value = this.value.asBoolean(cc);
+		}
+
+		if (value === undefined) {
+			throw this.error(cc, "Value is unknown. This should never happen.");
+		}
 
 		if (this.units) {
 			throw this.units.error(cc, "Units are not implemented yet");
 		}
 
-		return {
-			property: propertyName,
-			operator: operatorName,
-			value: value
-		};
+		const addResult = filter.add(value, typeInfo.typeData);
+		if (typeof addResult === "string") {
+			throw this.error(cc, addResult);
+		}
 	}
 }
 export class DictionaryParse extends Parse

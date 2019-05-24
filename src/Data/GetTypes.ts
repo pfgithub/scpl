@@ -27,7 +27,7 @@ export function isComparisonMethod(method: string): method is ComparisonName {
 	return comparisonMethodsMap.has(<ComparisonName>method);
 }
 
-type GetTypeInfoProperty = {
+export type GetTypeInfoProperty = {
 	name: AggrandizementPropertyRawName;
 	data?: string | number;
 	type?: CoercionTypeClass;
@@ -36,14 +36,14 @@ type GetTypeInfoProperty = {
 	filterEnumValues?: string[];
 };
 
-type GetTypeInfo = {
+export type GetTypeInfo = {
 	comparisonMethods?: { [name in ComparisonName]?: ComparisonWFValue };
 	units?: { [name: string]: number };
 	properties: { [Name in AggrandizementPropertyName]?: GetTypeInfoProperty };
 };
 // const test: GetTypeInfo = {properties: {}, comparisonMethods: {akjndcsjklnac: 5}};
 
-type GetTypesData = { [Type in CoercionTypeClass]: GetTypeInfo };
+export type GetTypesData = { [Type in CoercionTypeClass]: GetTypeInfo };
 
 // const test: GetTypesData = {fadskjhaf: a};
 
@@ -124,7 +124,9 @@ const data: GetTypesData = {
 				name: "Rating (This Version)"
 			},
 			isuniversal: {
-				name: "Is Universal"
+				name: "Is Universal",
+				type: "WFBooleanContentItem",
+				filter: true
 			},
 			downloadsize: {
 				name: "Download Size"
@@ -172,6 +174,7 @@ const data: GetTypesData = {
 		}
 	},
 	WFBooleanContentItem: {
+		comparisonMethods: { is: 4 },
 		properties: {
 			name: {
 				name: "Name",
@@ -378,7 +381,9 @@ const data: GetTypesData = {
 				name: "Time Taken"
 			},
 			isascreenshot: {
-				name: "Is a Screenshot"
+				name: "Is a Screenshot",
+				type: "WFBooleanContentItem",
+				filter: true
 			},
 			mediatype: {
 				name: "Media Type"
@@ -402,7 +407,9 @@ const data: GetTypesData = {
 				name: "Camera Make"
 			},
 			ishidden: {
-				name: "Is Hidden"
+				name: "Is Hidden",
+				type: "WFBooleanContentItem",
+				filter: true
 			},
 			framerate: {
 				name: "Frame Rate"
@@ -415,7 +422,9 @@ const data: GetTypesData = {
 				name: "Camera Model"
 			},
 			isfavorite: {
-				name: "Is Favorite"
+				name: "Is Favorite",
+				type: "WFBooleanContentItem",
+				filter: true
 			},
 			creationdate: {
 				name: "Creation Date",
@@ -523,7 +532,9 @@ const data: GetTypesData = {
 			},
 			isexplicit: {
 				name: "Is Explicit",
-				data: "isExplicit"
+				data: "isExplicit",
+				type: "WFBooleanContentItem",
+				filter: true
 			},
 			comments: {
 				name: "Comments",
@@ -543,7 +554,9 @@ const data: GetTypesData = {
 			},
 			isclouditem: {
 				name: "Is Cloud Item",
-				data: "isCloudItem"
+				data: "isCloudItem",
+				type: "WFBooleanContentItem",
+				filter: true
 			},
 			albumartist: {
 				name: "Album Artist",
@@ -561,7 +574,9 @@ const data: GetTypesData = {
 				name: "Currency Code"
 			},
 			isexplicit: {
-				name: "Is Explicit"
+				name: "Is Explicit",
+				type: "WFBooleanContentItem",
+				filter: true
 			},
 			genre: {
 				name: "Genre"

@@ -37,12 +37,12 @@ Accepts a :filter{} of filters. This filter supports:
 - ~~albumtrack~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Balbumtrack%7D%20%28in%20WFMPMediaContentItem%29))
 - ~~hasalbumartwork~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Bhasalbumartwork%7D%20%28in%20WFMPMediaContentItem%29))
 - ~~rating~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Brating%7D%20%28in%20WFMPMediaContentItem%29))
-- ~~isexplicit~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Bisexplicit%7D%20%28in%20WFMPMediaContentItem%29))
+- isexplicit (Supported for is)
 - ~~comments~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Bcomments%7D%20%28in%20WFMPMediaContentItem%29))
 - ~~skipcount~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Bskipcount%7D%20%28in%20WFMPMediaContentItem%29))
 - ~~filesize~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Bfilesize%7D%20%28in%20WFMPMediaContentItem%29))
 - ~~lyrics~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Blyrics%7D%20%28in%20WFMPMediaContentItem%29))
-- ~~isclouditem~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Bisclouditem%7D%20%28in%20WFMPMediaContentItem%29))
+- isclouditem (Supported for is)
 - ~~albumartist~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Balbumartist%7D%20%28in%20WFMPMediaContentItem%29))
 - ~~album~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Balbum%7D%20%28in%20WFMPMediaContentItem%29)).
 			

@@ -32,12 +32,12 @@ Accepts a :filter{} of filters. This filter supports:
 - ~~duration~~ (Not yet supported, no comparison methods defined. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20%3Afilter%20support%20for%20WFNumberContentItem))
 - ~~width~~ (Not yet supported, no comparison methods defined. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20%3Afilter%20support%20for%20WFNumberContentItem))
 - ~~timetaken~~ (Not yet supported, no comparison methods defined. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20%3Afilter%20support%20for%20WFDateContentItem))
-- ~~isascreenshot~~ (Not yet supported, no comparison methods defined. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20%3Afilter%20support%20for%20WFBooleanContentItem))
-- ~~ishidden~~ (Not yet supported, no comparison methods defined. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20%3Afilter%20support%20for%20WFBooleanContentItem))
+- isascreenshot (Supported for is)
+- ishidden (Supported for is)
 - ~~framerate~~ (Not yet supported, no comparison methods defined. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20%3Afilter%20support%20for%20WFNumberContentItem))
 - ~~height~~ (Not yet supported, no comparison methods defined. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20%3Afilter%20support%20for%20WFNumberContentItem))
 - 
-- ~~isfavorite~~ (Not yet supported, no comparison methods defined. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20%3Afilter%20support%20for%20WFBooleanContentItem))
+- isfavorite (Supported for is)
 - orientation (Supported for is, isnot, contains, doesnotcontain, beginswith, endswith)
 - 
 - name (Supported for is, isnot, contains, doesnotcontain, beginswith, endswith).
