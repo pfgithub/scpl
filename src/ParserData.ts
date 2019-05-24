@@ -8,8 +8,7 @@ import {
 	Attachment,
 	List,
 	AttachmentType,
-	ContentItemFilter,
-	ContentItemFilterItem
+	ContentItemFilter
 } from "./OutputData";
 import { getActionFromName, genShortName } from "./ActionData";
 import { ConvertingContext } from "./Converter.js";
@@ -346,6 +345,11 @@ export class FilterItemParse extends Parse implements AsFilterItem {
 				throw this.property.error(cc, "Value must be a string");
 			}
 			value = this.value.asText(cc);
+		} else if (typeInfo.expectedType === "string") {
+			if (!this.value.canBeString(cc)) {
+				throw this.property.error(cc, "Value must be a string");
+			}
+			value = this.value.asString(cc);
 		} else if (typeInfo.expectedType === "number") {
 			if (!this.value.canBeNumber(cc)) {
 				throw this.property.error(cc, "Value must be a number");

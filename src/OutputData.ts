@@ -345,7 +345,7 @@ export class ContentItemFilter extends Parameter {
 		| { error: true; message: string }
 		| {
 				error: false;
-				expectedType: "stringOrText" | "number" | "boolean";
+				expectedType: "stringOrText" | "string" | "number" | "boolean";
 				typeData: ContentItemFilterItemTypeData;
 		  } {
 		const property = item.property;
@@ -389,14 +389,20 @@ export class ContentItemFilter extends Parameter {
 		}
 		// UnitName -> UnitValue || 4
 		// const unit = units;
-		let expectedType: "stringOrText" | "number" | "boolean" | undefined;
-		if (propertyData.type === "WFStringContentItem") {
+		let expectedType:
+			| "stringOrText"
+			| "string"
+			| "number"
+			| "boolean"
+			| undefined;
+
+		if (propertyData.filterFakeType === "WFEnumerationContentItem") {
+			expectedType = "string";
+		} else if (propertyData.type === "WFStringContentItem") {
 			expectedType = "stringOrText";
-		}
-		if (propertyData.type === "WFNumberContentItem") {
+		} else if (propertyData.type === "WFNumberContentItem") {
 			expectedType = "number";
-		}
-		if (propertyData.type === "WFBooleanContentItem") {
+		} else if (propertyData.type === "WFBooleanContentItem") {
 			expectedType = "boolean";
 		}
 		if (!expectedType) {

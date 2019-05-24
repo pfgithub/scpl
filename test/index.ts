@@ -831,6 +831,36 @@ test("filter or", t => {
 	);
 });
 
+test("filter enum", t => {
+	t.deepEqual(scplToShortcut(`FindPhotos :filter{Orientation is Up}`), [
+		{
+			WFWorkflowActionIdentifier: "is.workflow.actions.filter.photos",
+			WFWorkflowActionParameters: {
+				WFContentItemFilter: {
+					Value: {
+						WFActionParameterFilterPrefix: 1,
+						WFContentPredicateBoundedDate: false,
+						WFActionParameterFilterTemplates: [
+							{
+								Operator: 4,
+								Enumeration: "Up",
+								Unit: 4,
+								Removable: true,
+								Property: "Orientation",
+								VariableOverrides: {}
+							}
+						]
+					},
+					WFSerializationType: "WFContentPredicateTableTemplate"
+				}
+			}
+		}
+	]);
+	t.throws(() =>
+		scplToShortcut(`FindPhotos :filter{Orientation is NorthEast}`)
+	);
+});
+
 test("argument labels and arglists and extendedargs", t => {
 	t.deepEqual(
 		scplToShortcut(`
