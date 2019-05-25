@@ -1176,3 +1176,113 @@ test("ccOverride", t => {
 	parse(`text v:myvar`, { ccOverride: cc });
 	t.throws(() => parse(`text v:myvar2`, { ccOverride: cc }));
 });
+
+test("Dictionaries", t => {
+	t.deepEqual(
+		scplToShortcut(`
+		Dictionary{}
+		Dictionary { }
+		Dictionary {
+			key: value,
+			subdict: {
+				anotherkey: anothervalue,
+				variable: s:clipboard,
+				list: ["item 1", "item 2"]
+			}
+		}
+		`),
+		[
+			{
+				WFWorkflowActionIdentifier: "is.workflow.actions.dictionary",
+				WFWorkflowActionParameters: {
+					WFItems: {
+						Value: {
+							WFDictionaryFieldValueItems: []
+						},
+						WFSerializationType: "WFDictionaryFieldValue"
+					}
+				}
+			},
+			{
+				WFWorkflowActionIdentifier: "is.workflow.actions.dictionary",
+				WFWorkflowActionParameters: {
+					WFItems: {
+						Value: {
+							WFDictionaryFieldValueItems: []
+						},
+						WFSerializationType: "WFDictionaryFieldValue"
+					}
+				}
+			},
+			{
+				WFWorkflowActionIdentifier: "is.workflow.actions.dictionary",
+				WFWorkflowActionParameters: {
+					WFItems: {
+						Value: {
+							WFDictionaryFieldValueItems: [
+								{
+									WFItemType: 0,
+									WFKey: "key",
+									WFValue: "value"
+								},
+								{
+									WFItemType: 1,
+									WFKey: "subdict",
+									WFValue: {
+										Value: {
+											Value: {
+												WFDictionaryFieldValueItems: [
+													{
+														WFItemType: 0,
+														WFKey: "anotherkey",
+														WFValue: "anothervalue"
+													},
+													{
+														WFItemType: 0,
+														WFKey: "variable",
+														WFValue: {
+															Value: {
+																attachmentsByRange: {
+																	"{0, 1}": {
+																		Type:
+																			"Clipboard",
+																		Aggrandizements: []
+																	}
+																},
+																string:
+																	"[attachment]"
+															},
+															WFSerializationType:
+																"WFTextTokenString"
+														}
+													},
+													{
+														WFItemType: 2,
+														WFKey: "list",
+														WFValue: {
+															Value: [
+																"item 1",
+																"item 2"
+															],
+															WFSerializationType:
+																"WFArrayParameterState"
+														}
+													}
+												]
+											},
+											WFSerializationType:
+												"WFDictionaryFieldValue"
+										},
+										WFSerializationType:
+											"WFDictionaryFieldValue"
+									}
+								}
+							]
+						},
+						WFSerializationType: "WFDictionaryFieldValue"
+					}
+				}
+			}
+		]
+	);
+});

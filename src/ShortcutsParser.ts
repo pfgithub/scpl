@@ -211,9 +211,13 @@ o.value = or(
 	o.filter
 );
 
-o.dictionary = p(c`{`, star(o.keyvaluepair).scb(items => items), c`}`).scb(
-	([, kvps], start, end) => new DictionaryParse(start, end, kvps)
-);
+o.dictionary = p(
+	c`{`,
+	_n,
+	star(o.keyvaluepair).scb(items => items),
+	_n,
+	c`}`
+).scb(([, , kvps], start, end) => new DictionaryParse(start, end, kvps));
 o.list = p(c`[`, _n, star(p(o.value, _n).scb(([value]) => value)), c`]`).scb(
 	([, , values], start, end) => new ListParse(start, end, values)
 );
