@@ -174,6 +174,20 @@ Dictionary {key: "my string", "\\(s:actioninput)": "var key", normalkey: s:actio
 	);
 });
 
+test("invert newlines", t => {
+	const icc = new InverseConvertingContext();
+	t.deepEqual(
+		icc.createActionAble(
+			Action.inverse({
+				WFWorkflowActionIdentifier: "is.workflow.actions.gettext",
+				WFWorkflowActionParameters: {
+					WFTextActionText: "Text with\r\nNewlines."
+				}
+			})
+		),
+		'Text "Text with\\nNewlines."'
+	);
+});
 test("invert complete valid shortcut and ensure output is exact when compiled", t => {
 	// generate sample data
 	const output = parse(
