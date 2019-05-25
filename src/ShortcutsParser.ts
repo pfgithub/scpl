@@ -148,7 +148,7 @@ o.controlFlowMode = p(c`>c:`, o.identifier, c`:gid:`, o.identifier).scb(
 		};
 	}
 ); // TEMP >c:1
-o.inputarg = p(c`^`, _, or(o.parenthesis, o.variable), _).scb(([, , paren]) => {
+o.inputarg = p(c`^`, or(o.parenthesis, o.variable)).scb(([, paren]) => {
 	paren.special = "InputArg";
 	return paren;
 });
@@ -299,8 +299,8 @@ o.variable = p(
 	return new VariableParse(start, end, type, name, forkey, options);
 });
 
-o.parenthesis = p(c`(`, or(o.action, o.variable), c`)`).scb(
-	([, actionOrVariable]) => actionOrVariable
+o.parenthesis = p(c`(`, _n, or(o.action, o.variable), _n, c`)`).scb(
+	([, , actionOrVariable]) => actionOrVariable
 );
 // TODO paramlistparens like (name=hi,value=hmm) for=things like Get Contents Of URL which have lots of complex parameters
 

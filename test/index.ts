@@ -404,7 +404,7 @@ test("undefined variables throw errors", t => {
 });
 
 test("inputarg with actions and other action args", t => {
-	t.deepEqual(scplToShortcut(`calculate ^(number 1) "+" (number 5)`), [
+	t.deepEqual(scplToShortcut(`calculate ^(number 1) "+" ( number 5 )`), [
 		{
 			WFWorkflowActionIdentifier: "is.workflow.actions.number",
 			WFWorkflowActionParameters: {
