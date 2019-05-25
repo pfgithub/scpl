@@ -1097,14 +1097,27 @@ export class ActionsParse extends Parse
 		});
 		return lastAction;
 	}
-	asShortcut(converterActions?: {
-		[key: string]: (cc: ConvertingContext, ...args: AsAble[]) => void;
-	}) {
-		const cc = new ConvertingContext();
-		if (converterActions) {
-			Object.keys(converterActions).forEach(key => {
-				cc.setParserAction(key, converterActions[key]);
-			});
+	asShortcut(
+		arg0?:
+			| {
+					[key: string]: (
+						cc: ConvertingContext,
+						...args: AsAble[]
+					) => void;
+			  }
+			| ConvertingContext
+	) {
+		let cc: ConvertingContext;
+		if (arg0 instanceof ConvertingContext) {
+			cc = arg0;
+		} else {
+			cc = new ConvertingContext();
+			const converterActions = arg0;
+			if (converterActions) {
+				Object.keys(converterActions).forEach(key => {
+					cc.setParserAction(key, converterActions[key]);
+				});
+			}
 		}
 		this.asAction(cc);
 		if (cc.controlFlowStack.length !== 0) {

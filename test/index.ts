@@ -2,6 +2,7 @@ import test from "ava";
 import { Action, Shortcut } from "../src/OutputData";
 import { parse, inverse } from "../index";
 import * as fs from "fs";
+import { ConvertingContext } from "../src/Converter";
 import { InverseConvertingContext } from "../src/InverseConvertingContext";
 import { PositionedError } from "../src/ParserData";
 // import * as path from "path";
@@ -1167,4 +1168,11 @@ test("if macro", t => {
 			}
 		]
 	);
+});
+
+test("ccOverride", t => {
+	const cc = new ConvertingContext();
+	cc.setNamedVariable("myvar");
+	parse(`text v:myvar`, { ccOverride: cc });
+	t.throws(() => parse(`text v:myvar2`, { ccOverride: cc }));
 });

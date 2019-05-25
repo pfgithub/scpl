@@ -25,6 +25,7 @@ export function parse(
 		extraParseActions?: {
 			[key: string]: (cc: ConvertingContext, ...args: AsAble[]) => void;
 		};
+		ccOverride?: ConvertingContext;
 	}
 ) {
 	let parsed: ParseResult;
@@ -59,7 +60,7 @@ export function parse(
 	let shortcut;
 	try {
 		shortcut = (<ActionsParse>parsed.data).asShortcut(
-			options.extraParseActions
+			options.ccOverride || options.extraParseActions || undefined
 		);
 	} catch (er) {
 		if (er instanceof PositionedError) {
