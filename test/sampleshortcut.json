@@ -7333,13 +7333,13 @@
 					"WFMenuPrompt": {
 						"Value": {
 							"attachmentsByRange": {
-								"{26, 1}": {
+								"{25, 1}": {
 									"Type": "Variable",
 									"Aggrandizements": [],
 									"VariableName": "StatusText"
 								}
 							},
-							"string": "The list has been copied.\n[attachment]"
+							"string": "The list has been copied.[attachment]"
 						},
 						"WFSerializationType": "WFTextTokenString"
 					},

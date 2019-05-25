@@ -408,7 +408,7 @@ If input=Equals value=EditList
 		Case
 			GetVariable mv:CurrentListvCard
 			CopytoClipboard
-			ChoosefromMenu prompt="The list has been copied.\n\(v:StatusText)" items=["Continue Editing"]
+			ChoosefromMenu prompt="The list has been copied.\(v:StatusText)" items=["Continue Editing"]
 			Case
 			End
 		Case

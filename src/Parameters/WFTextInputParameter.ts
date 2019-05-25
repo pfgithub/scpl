@@ -23,7 +23,11 @@ Accepts a string ${
 or text`
 				: ""
 		}
-with the text.`;
+with the text. ${
+			this._data.Multiline
+				? "Allows newlines."
+				: "Does not allow newlines."
+		}`;
 	}
 	genDocsDefaultValue(value: string) {
 		return `\`"${value}"\``;
@@ -36,11 +40,32 @@ with the text.`;
 					"This text field only accepts text with no variables."
 				);
 			}
-			return parse.asString(cc);
+			const strData = parse.asString(cc);
+			if (!this._data.Multiline && strData.indexOf("\n") > -1) {
+				throw parse.error(
+					cc,
+					"Newlines are not allowed in this text field."
+				);
+			}
+			return strData;
 		}
 		if (!parse.canBeText(cc)) {
 			throw parse.error(cc, "Text fields only accept text.");
 		}
-		return parse.asText(cc);
+		const textData = parse.asText(cc);
+		if (
+			!this._data.Multiline &&
+			textData._components.find(component =>
+				typeof component === "string"
+					? component.indexOf("\n") > -1
+					: false
+			)
+		) {
+			throw parse.error(
+				cc,
+				"Newlines are not allowed in this text field. Use a variable with a newline instead."
+			);
+		}
+		return textData;
 	}
 }

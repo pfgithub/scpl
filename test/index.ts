@@ -1286,3 +1286,7 @@ test("Dictionaries", t => {
 		]
 	);
 });
+
+test("Newlines are not allowed", t => {
+	t.throws(() => scplToShortcut(`URL "Test \\n"`));
+});

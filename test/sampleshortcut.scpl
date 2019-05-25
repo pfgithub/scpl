@@ -502,7 +502,7 @@ if Equals "EditList"
         case copy
             getVariable mv:CurrentListvCard
             copytoclipboard
-            chooseFromMenu "The list has been copied.\n\(v:StatusText)"
+            chooseFromMenu "The list has been copied.\(v:StatusText)"
             | Continue Editing
             case continue
             end
