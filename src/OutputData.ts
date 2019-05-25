@@ -221,9 +221,6 @@ class Parameter {
 	build(): WFParameter {
 		throw new Error("Blank parameter has no build method");
 	}
-	static inverse(_data: WFParameter): Parameter {
-		throw new Error("Blank parameter has no inverse method");
-	}
 }
 
 type DictionaryFieldValueItem =
@@ -501,6 +498,19 @@ export class ContentItemFilter extends Parameter {
 			},
 			WFSerializationType: "WFContentPredicateTableTemplate"
 		};
+	}
+	static inverse(
+		data: WFContentItemFilter,
+		coercionTypeClass: CoercionTypeClass
+	) {
+		const filter = new ContentItemFilter(
+			coercionTypeClass,
+			data.Value.WFActionParameterFilterPrefix ? "and" : "or"
+		);
+		data.Value.WFActionParameterFilterTemplates.forEach(template => {
+			filter.data.push(template);
+		});
+		return filter;
 	}
 }
 
