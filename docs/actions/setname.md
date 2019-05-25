@@ -26,7 +26,7 @@ SetName name="string" advanced=(true | false) dontIncludeFileExtension=(true | f
 
 Accepts a string 
 or text
-with the text.
+with the text. Does not allow newlines.
 
 ---
 

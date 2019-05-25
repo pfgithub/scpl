@@ -30,7 +30,7 @@ MakeArchive archiveName="string" format=(".zip" | ".tar.gz" | ".tar.bz2" | ".tar
 
 Accepts a string 
 or text
-with the text.
+with the text. Does not allow newlines.
 
 ---
 

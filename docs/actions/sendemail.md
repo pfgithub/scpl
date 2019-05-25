@@ -52,7 +52,7 @@ or a variable.
 
 Accepts a string 
 or text
-with the text.
+with the text. Does not allow newlines.
 
 ---
 
@@ -100,7 +100,7 @@ Accepts a string or string array or variable of email addresses.
 
 Accepts a string 
 or text
-with the text.
+with the text. Does not allow newlines.
 
 ---
 

@@ -28,7 +28,7 @@ CreateTrelloList name="string" board=("string" | variable)] position=("Top" | "B
 
 Accepts a string 
 or text
-with the text.
+with the text. Does not allow newlines.
 
 ---
 

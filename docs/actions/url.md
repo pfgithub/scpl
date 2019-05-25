@@ -26,7 +26,7 @@ URL "string"
 
 Accepts a string 
 or text
-with the text.
+with the text. Does not allow newlines.
 
 ---
 

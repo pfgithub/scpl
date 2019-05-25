@@ -38,7 +38,7 @@ or a variable.
 
 Accepts a string 
 or text
-with the text.
+with the text. Does not allow newlines.
 
 ---
 

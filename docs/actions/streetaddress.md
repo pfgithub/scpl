@@ -26,7 +26,7 @@ StreetAddress line1="string" line2="string" city="string" state="string" postalC
 
 Accepts a string 
 or text
-with the text.
+with the text. Does not allow newlines.
 
 ---
 
@@ -37,7 +37,7 @@ with the text.
 
 Accepts a string 
 or text
-with the text.
+with the text. Does not allow newlines.
 
 ---
 
@@ -49,7 +49,7 @@ with the text.
 
 Accepts a string 
 or text
-with the text.
+with the text. Does not allow newlines.
 
 ---
 
@@ -61,7 +61,7 @@ with the text.
 
 Accepts a string 
 or text
-with the text.
+with the text. Does not allow newlines.
 
 ---
 
@@ -73,7 +73,7 @@ with the text.
 
 Accepts a string 
 or text
-with the text.
+with the text. Does not allow newlines.
 
 ---
 
@@ -85,7 +85,7 @@ with the text.
 
 Accepts a string 
 or text
-with the text.
+with the text. Does not allow newlines.
 
 ---
 

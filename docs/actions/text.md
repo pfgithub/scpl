@@ -26,7 +26,7 @@ Text "string"
 
 Accepts a string 
 or text
-with the text.
+with the text. Allows newlines.
 
 ---
 

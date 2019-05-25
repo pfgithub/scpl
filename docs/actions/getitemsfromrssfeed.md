@@ -26,7 +26,7 @@ GetItemsfromRSSFeed uRL="string" WFRSSItemQuantity=number
 
 Accepts a string 
 or text
-with the text.
+with the text. Does not allow newlines.
 
 ---
 

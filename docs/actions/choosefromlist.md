@@ -28,7 +28,7 @@ ChoosefromList prompt="string" selectMultiple=(true | false | variable) selectAl
 
 Accepts a string 
 or text
-with the text.
+with the text. Does not allow newlines.
 
 ---
 

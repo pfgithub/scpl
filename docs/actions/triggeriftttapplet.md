@@ -50,7 +50,7 @@ TriggerIFTTTApplet triggerName=("string" | variable)] WFIFTTTExtraIngredients=(n
 
 Accepts a string 
 or text
-with the text.
+with the text. Does not allow newlines.
 
 ---
 
@@ -62,7 +62,7 @@ with the text.
 
 Accepts a string 
 or text
-with the text.
+with the text. Does not allow newlines.
 
 ---
 
@@ -74,7 +74,7 @@ with the text.
 
 Accepts a string 
 or text
-with the text.
+with the text. Does not allow newlines.
 
 ---
 
@@ -86,7 +86,7 @@ with the text.
 
 Accepts a string 
 or text
-with the text.
+with the text. Does not allow newlines.
 
 ---
 
@@ -98,7 +98,7 @@ with the text.
 
 Accepts a string 
 or text
-with the text.
+with the text. Does not allow newlines.
 
 ---
 
@@ -110,7 +110,7 @@ with the text.
 
 Accepts a string 
 or text
-with the text.
+with the text. Does not allow newlines.
 
 ---
 
@@ -122,7 +122,7 @@ with the text.
 
 Accepts a string 
 or text
-with the text.
+with the text. Does not allow newlines.
 
 ---
 
@@ -134,7 +134,7 @@ with the text.
 
 Accepts a string 
 or text
-with the text.
+with the text. Does not allow newlines.
 
 ---
 
@@ -146,7 +146,7 @@ with the text.
 
 Accepts a string 
 or text
-with the text.
+with the text. Does not allow newlines.
 
 ---
 
@@ -158,7 +158,7 @@ with the text.
 
 Accepts a string 
 or text
-with the text.
+with the text. Does not allow newlines.
 
 ---
 

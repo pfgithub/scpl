@@ -32,7 +32,7 @@ AddNewEvent title="string" location="string" calendar=("string" | variable)] dat
 
 Accepts a string 
 or text
-with the text.
+with the text. Does not allow newlines.
 
 ---
 
@@ -44,7 +44,7 @@ with the text.
 
 Accepts a string 
 or text
-with the text.
+with the text. Does not allow newlines.
 
 ---
 
@@ -77,7 +77,7 @@ labels, these can be ignored.
 
 Accepts a string 
 or text
-with the text.
+with the text. Does not allow newlines.
 
 ---
 
@@ -89,7 +89,7 @@ with the text.
 
 Accepts a string 
 or text
-with the text.
+with the text. Does not allow newlines.
 
 ---
 
@@ -133,7 +133,7 @@ containing one of the options:
 
 Accepts a string 
 or text
-with the text.
+with the text. Does not allow newlines.
 
 ---
 
@@ -145,7 +145,7 @@ with the text.
 
 Accepts a string 
 or text
-with the text.
+with the text. Allows newlines.
 
 ---
 

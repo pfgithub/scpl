@@ -30,7 +30,7 @@ GetNotes titleSearch="string" undefined=NotImplemented inNotebook=("string" | va
 
 Accepts a string 
 or text
-with the text.
+with the text. Does not allow newlines.
 
 ---
 

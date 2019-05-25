@@ -42,7 +42,7 @@ or a variable.
 
 Accepts a string 
 or text
-with the text.
+with the text. Does not allow newlines.
 
 ---
 
@@ -54,7 +54,7 @@ with the text.
 
 Accepts a string 
 or text
-with the text.
+with the text. Does not allow newlines.
 
 ---
 
@@ -66,7 +66,7 @@ with the text.
 
 Accepts a string 
 or text
-with the text.
+with the text. Does not allow newlines.
 
 ---
 
@@ -88,7 +88,7 @@ or a variable.
 
 Accepts a string 
 or text
-with the text.
+with the text. Does not allow newlines.
 
 ---
 

@@ -35,7 +35,7 @@ RunScriptOverSSH host="string" port="string" user="string" password="string" scr
 
 Accepts a string 
 or text
-with the text.
+with the text. Does not allow newlines.
 
 ---
 
@@ -48,7 +48,7 @@ with the text.
 
 Accepts a string 
 or text
-with the text.
+with the text. Does not allow newlines.
 
 ---
 
@@ -60,7 +60,7 @@ with the text.
 
 Accepts a string 
 or text
-with the text.
+with the text. Does not allow newlines.
 
 ---
 
@@ -72,7 +72,7 @@ with the text.
 
 Accepts a string 
 or text
-with the text.
+with the text. Does not allow newlines.
 
 ---
 
@@ -84,7 +84,7 @@ with the text.
 
 Accepts a string 
 or text
-with the text.
+with the text. Allows newlines.
 
 ---
 

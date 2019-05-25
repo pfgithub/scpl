@@ -23,7 +23,7 @@ Comment "string"
 
 
 Accepts a string 
-with the text.
+with the text. Allows newlines.
 
 ---
 
