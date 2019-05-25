@@ -27,12 +27,9 @@ o.identifier = regex(/^[A-Za-z@_][A-Za-z0-9@_]*/).scb(
 	([fullmatch], start, end) => new IdentifierParse(start, end, fullmatch)
 );
 
-o.newline = p(
-	o.space,
-	optional(o.eolComment),
-	plus(p(o.space, or(c`\n`, c`;`))),
-	o.space
-).scb(_ => null);
+o.newline = p(o.space, plus(p(o.space, or(c`\n`, c`;`))), o.space).scb(
+	_ => null
+);
 o.multilineComment = or(
 	regex(/^--\[\[[\s\S]+?--\]\]/), // --[[ Lua style multiline comments --]]
 	regex(/^\/\*[\s\S]+?\*\//) // /* CLike multiline comments*/
@@ -43,9 +40,12 @@ o.eolComment = or(
 	regex(/^#.*/) // # Python style single line comments
 ); // or --
 o.spaceonly = regex(/^[ ,\r\t]*/).scb(_ => null);
-o.space = p(o.spaceonly, optional(o.multilineComment), o.spaceonly).scb(
-	_ => null
-);
+o.space = p(
+	o.spaceonly,
+	optional(o.multilineComment),
+	o.spaceonly,
+	optional(o.eolComment)
+).scb(_ => null);
 
 o.optionalNewline = star(or(o.newline, o.space)).scb(() => null);
 

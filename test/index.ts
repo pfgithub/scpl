@@ -1290,3 +1290,7 @@ test("Dictionaries", t => {
 test("Newlines are not allowed", t => {
 	t.throws(() => scplToShortcut(`URL "Test \\n"`));
 });
+
+test("Newlines in comments parse", t => {
+	t.deepEqual(scplToShortcut(`// Comment with no newline`), []);
+});

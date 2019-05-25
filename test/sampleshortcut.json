@@ -4,12 +4,12 @@
 		"WFWorkflowClientRelese": "2.1.2",
 		"WFWorkflowMinimumClientVersion": 411,
 		"WFWorkflowIcon": {
-			"WFWorkflowIconStartColor": 2071128575,
+			"WFWorkflowIconGlyphNumber": 59511,
 			"WFWorkflowIconImageData": {
 				"type": "Buffer",
 				"data": []
 			},
-			"WFWorkflowIconGlyphNumber": 59511
+			"WFWorkflowIconStartColor": 2071128575
 		},
 		"WFWorkflowTypes": ["NCWidget", "WatchKit"],
 		"WFWorkflowInputContentItemClasses": [
@@ -403,7 +403,7 @@
 				"SCPLData": {
 					"Position": {
 						"start": [46, 1],
-						"end": [46, 5]
+						"end": [46, 25]
 					}
 				}
 			},
@@ -5532,7 +5532,7 @@
 				"SCPLData": {
 					"Position": {
 						"start": [358, 13],
-						"end": [358, 50]
+						"end": [358, 83]
 					}
 				}
 			},
@@ -6291,7 +6291,7 @@
 				"SCPLData": {
 					"Position": {
 						"start": [428, 9],
-						"end": [428, 41]
+						"end": [428, 80]
 					}
 				}
 			},
@@ -6464,7 +6464,7 @@
 				"SCPLData": {
 					"Position": {
 						"start": [445, 9],
-						"end": [445, 29]
+						"end": [445, 90]
 					}
 				}
 			},
@@ -6964,7 +6964,7 @@
 				"SCPLData": {
 					"Position": {
 						"start": [478, 9],
-						"end": [478, 17]
+						"end": [478, 72]
 					}
 				}
 			},
@@ -7450,7 +7450,7 @@
 				"SCPLData": {
 					"Position": {
 						"start": [516, 5],
-						"end": [516, 22]
+						"end": [516, 111]
 					}
 				}
 			},
@@ -7720,7 +7720,7 @@
 				"SCPLData": {
 					"Position": {
 						"start": [224, 5],
-						"end": [224, 36]
+						"end": [224, 121]
 					}
 				}
 			},
@@ -7843,7 +7843,7 @@
 				"SCPLData": {
 					"Position": {
 						"start": [272, 5],
-						"end": [272, 36]
+						"end": [272, 121]
 					}
 				}
 			},
@@ -7971,7 +7971,7 @@
 				"SCPLData": {
 					"Position": {
 						"start": [406, 5],
-						"end": [406, 38]
+						"end": [406, 123]
 					}
 				}
 			},
@@ -8272,7 +8272,7 @@
 				"SCPLData": {
 					"Position": {
 						"start": [568, 9],
-						"end": [568, 37]
+						"end": [568, 57]
 					}
 				}
 			},
@@ -8881,7 +8881,7 @@
 				"SCPLData": {
 					"Position": {
 						"start": [406, 5],
-						"end": [406, 38]
+						"end": [406, 123]
 					}
 				}
 			},
