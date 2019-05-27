@@ -847,3 +847,76 @@ Foreach will repeat an action multiple times
 <summary>Image</summary>
 <img src="https://i.imgur.com/MVwvypc.png" />
 </details></div>
+
+#### The `@def` macro
+
+The `@def` macro allows you to define your own macros.
+
+```
+@def @printtext ["arg1", "arg2"] @{
+	ShowResult "Arg1 is \(@:arg1) and Arg2 is \(@:arg2)"
+}
+@PrintText arg1="Value1" arg2="Value2"
+```
+
+<div><details>
+<summary>Image</summary>
+<img src="https://i.imgur.com/GlN8fgq.png" />
+</details></div>
+
+#### The `@if` macro
+
+The `@if` macro allows you to do things if a boolean is true
+
+```
+@if true @{
+	text "True Condition"
+} @{
+	text "False Condition"
+}
+```
+
+#### The `@def` macro
+
+The `@def` macro allows you to define your own macros.
+
+```
+@def @PrintText ["arg1", "arg2"] @{
+	ShowResult "Arg1 is \(@:arg1) and Arg2 is \(@:arg2)"
+}
+@PrintText arg1="Value1" arg2="Value2"
+```
+
+#### The `@elseif` macro
+
+The `@elseif` macro is a shorthand for chaining else ifs.
+
+```
+if Equals WifiOn
+	SetWifi true
+@elseif Equals WifiOff
+	SetWifi false
+@elseif Equals BluetoothOn
+	SetBluetooth true
+else
+	SetBluetooth false
+End
+```
+
+<div><details>
+<summary>Image</summary>
+<img src="https://i.imgur.com/hghY9Ho.png" />
+</details></div>
+
+#### The `@error` macro
+
+The `@error` macro throws an error.
+
+```
+@error "There is a problem."
+```
+
+<div><details>
+<summary>Image</summary>
+Code does not compile, there is an error
+</details></div>
