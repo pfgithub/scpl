@@ -1,13 +1,7 @@
-import { Action, MagicVariable, ParameterType } from "./OutputData";
+import { Action, MagicVariable } from "./OutputData";
 import { getVariable } from "./HelpfulActions";
 import { ConvertingContext } from "./Converter";
 import { AsAble } from "./ParserData";
-import {
-	WFResource,
-	WFWorkflowHiddenResource,
-	resourceTypes
-} from "./WFResource";
-import { appNames } from "./Data/AppNames";
 
 import { ArgParser } from "./ArgParser";
 
