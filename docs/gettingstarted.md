@@ -739,7 +739,7 @@ Parser variables are variables that only exist in your scpl file. When the short
 
 Set a parser variable with `@set`, use a parser variable with `@:variable`
 
-```
+```scpleditor
 @set varname "value"
 
 text "value is \(@:varname)"
@@ -752,7 +752,7 @@ text "value is \(@:varname)"
 
 Parser variables inherit the properties of their values.
 
-```
+```scpleditor
 @set number 0.5
 @set list [1, 2, 3]
 
@@ -767,7 +767,7 @@ list @:list
 
 Parser variables can contain actions
 
-```
+```scpleditor
 @set myaction (text "hi")
 
 @:myaction
@@ -780,7 +780,7 @@ Parser variables can contain actions
 
 Parser variables can contain lists of actions
 
-```
+```scpleditor
 @set EscapeText @{
     replacetext "\\" "\\\\"
     replacetext (Text "\n") " "
@@ -798,7 +798,7 @@ Text ";Hi there!\n\\"
 
 Parser variables can take input as a dictionary of parser variables to set
 
-```
+```scpleditor
 @set test (Text @:value)
 
 @:test{value:"Hi!"}
@@ -813,13 +813,13 @@ Parser variables can take input as a dictionary of parser variables to set
 
 In shortcuts, you can make functions by checking different inputs. To run these functions, normally it would take lots of code.
 
-```
+```scpleditor
 runShortcut v:ThisShortcut false ^(Dictionary{ action: Escape, text: "<the text>" })
 ```
 
 You can define a macro/parser variable to insert that for you
 
-```
+```scpleditor
 setVariable v:ThisShortcut ^(text "Shortcut Name")
 
 @set Escape (runShortcut v:ThisShortcut false ^(Dictionary{ action: Escape, text: @:text }))
@@ -837,7 +837,7 @@ AskForInput "Text to escape" -> mv:InputtedText
 
 Foreach will repeat an action multiple times
 
-```
+```scpleditor
 @foreach ["Item 1", "Item 2", "Item 3", "Item 4"] @{
 	Text @:repeatitem
 }
@@ -852,7 +852,7 @@ Foreach will repeat an action multiple times
 
 The `@if` macro allows you to do things if a boolean is true
 
-```
+```scpleditor
 @if true @{
 	text "True Condition"
 } @{
@@ -864,7 +864,7 @@ The `@if` macro allows you to do things if a boolean is true
 
 The `@elseif` macro is a shorthand for chaining else ifs.
 
-```
+```scpleditor
 if Equals WifiOn
 	SetWifi true
 @elseif Equals WifiOff
@@ -885,7 +885,7 @@ End
 
 The `@error` macro throws an error.
 
-```
+```scpleditor
 @error "There is a problem."
 ```
 
@@ -898,7 +898,7 @@ Code does not compile, there is an error
 
 The `@def` macro allows you to define your own macros.
 
-```
+```scpleditor
 @def @printtext ["arg1", "arg2"] @{
 	ShowResult "Arg1 is \(@:arg1) and Arg2 is \(@:arg2)"
 }
