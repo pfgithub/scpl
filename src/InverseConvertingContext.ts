@@ -21,10 +21,14 @@ import { inverseGlyphs, inverseColors } from "./Data/ShortcutMeta";
 const NUMBER = /^-?(?:[0-9]*\.[0-9]+|[0-9]+)$/;
 const IDENTIFIER = /^[A-Za-z@_][A-Za-z0-9@_]*$/;
 const ESCAPEDQUOTEDSTRING = (value: string) =>
-	value.replace(/(["\\\n])/g, d => (d === "\n" ? "\\n" : `\\${d}`)).replace(/\r/g, "");
+	value
+		.replace(/(["\\\n])/g, d => (d === "\n" ? "\\n" : `\\${d}`))
+		.replace(/\r/g, "");
 const DQUOTEDSTRING = (value: string) => `"${ESCAPEDQUOTEDSTRING(value)}"`;
 const ESCAPESQUOTEDSTRING = (value: string) =>
-	value.replace(/(['\\\n])/g, d => (d === "\n" ? "\\n" : `\\${d}`)).replace(/\r/g, "");
+	value
+		.replace(/(['\\\n])/g, d => (d === "\n" ? "\\n" : `\\${d}`))
+		.replace(/\r/g, "");
 const SQUOTEDSTRING = (value: string) => `"${ESCAPESQUOTEDSTRING(value)}"`;
 
 // FOR NOW:
