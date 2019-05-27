@@ -848,22 +848,6 @@ Foreach will repeat an action multiple times
 <img src="https://i.imgur.com/MVwvypc.png" />
 </details></div>
 
-#### The `@def` macro
-
-The `@def` macro allows you to define your own macros.
-
-```
-@def @printtext ["arg1", "arg2"] @{
-	ShowResult "Arg1 is \(@:arg1) and Arg2 is \(@:arg2)"
-}
-@PrintText arg1="Value1" arg2="Value2"
-```
-
-<div><details>
-<summary>Image</summary>
-<img src="https://i.imgur.com/GlN8fgq.png" />
-</details></div>
-
 #### The `@if` macro
 
 The `@if` macro allows you to do things if a boolean is true
@@ -874,17 +858,6 @@ The `@if` macro allows you to do things if a boolean is true
 } @{
 	text "False Condition"
 }
-```
-
-#### The `@def` macro
-
-The `@def` macro allows you to define your own macros.
-
-```
-@def @PrintText ["arg1", "arg2"] @{
-	ShowResult "Arg1 is \(@:arg1) and Arg2 is \(@:arg2)"
-}
-@PrintText arg1="Value1" arg2="Value2"
 ```
 
 #### The `@elseif` macro
@@ -919,4 +892,20 @@ The `@error` macro throws an error.
 <div><details>
 <summary>Image</summary>
 Code does not compile, there is an error
+</details></div>
+
+#### The `@def` macro
+
+The `@def` macro allows you to define your own macros.
+
+```
+@def @printtext ["arg1", "arg2"] @{
+	ShowResult "Arg1 is \(@:arg1) and Arg2 is \(@:arg2)"
+}
+@PrintText arg1="Value1" arg2="Value2"
+```
+
+<div><details>
+<summary>Image</summary>
+<img src="https://i.imgur.com/GlN8fgq.png" />
 </details></div>
