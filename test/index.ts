@@ -1308,3 +1308,37 @@ test("Newlines are not allowed", t => {
 test("Newlines in comments parse", t => {
 	t.deepEqual(scplToShortcut(`// Comment with no newline`), []);
 });
+
+test("define custom macro", t => {
+	t.deepEqual(
+		scplToShortcut(`
+			@def @testmacro ["name", "value"] @{
+				text "Name is: \\(@:name) and value is: \\(@:value)"
+			}
+			@testmacro "jakob" "tall"
+			@testmacro name="jakob" value="tall"
+			@testmacro (value=tall, name=jakob)
+			@testmacro value=tall
+			`),
+		[
+			{
+				WFWorkflowActionIdentifier: "is.workflow.actions.gettext",
+				WFWorkflowActionParameters: {
+					WFTextActionText: "Name is: jakob and value is: tall"
+				}
+			},
+			{
+				WFWorkflowActionIdentifier: "is.workflow.actions.gettext",
+				WFWorkflowActionParameters: {
+					WFTextActionText: "Name is: jakob and value is: tall"
+				}
+			},
+			{
+				WFWorkflowActionIdentifier: "is.workflow.actions.gettext",
+				WFWorkflowActionParameters: {
+					WFTextActionText: "Name is:  and value is: tall"
+				}
+			}
+		]
+	);
+});

@@ -9,6 +9,8 @@ import {
 } from "./WFResource";
 import { appNames } from "./Data/AppNames";
 
+import { ArgParser } from "./ArgParser";
+
 import actionList from "./Data/Actions";
 
 export function genShortName(
@@ -472,7 +474,7 @@ ${JSON.stringify(this._data, null, "\t")}
 		controlFlowData?: { uuid: string; number: number; wfaction: any },
 		...params: Array<AsAble>
 	) {
-		let parami = 0;
+		const parami = 0;
 		let actionAbove = cc.lastVariableAction;
 		// TODO actionAbove = cc.lastVariableAction
 		//
@@ -493,8 +495,31 @@ ${JSON.stringify(this._data, null, "\t")}
 			action.parameters.set("WFControlFlowMode", number);
 			action.parameters.set("GroupingIdentifier", uuid);
 		}
-		params.forEach(param => {
-			if (param.special === "InputArg") {
+		let vi = 0;
+		ArgParser<string | WFParameter>(
+			this._parameters.map(param => ({
+				name:
+					typeof param === "string"
+						? `undefined${vi++}`
+						: param.shortName,
+				data: param
+			})),
+			(
+				name: { name: string; data: string | WFParameter },
+				param: AsAble
+			) => {
+				if (typeof name.data === "string") {
+					throw param.error(
+						cc,
+						"Data is string. This should have been caught earlier. This should never happen."
+					);
+				}
+				action.parameters.set(
+					name.data.internalName,
+					name.data.build(cc, param)
+				);
+			},
+			(param: AsAble) => {
 				if (!param.canBeAction(cc)) {
 					throw param.error(
 						cc,
@@ -503,90 +528,23 @@ ${JSON.stringify(this._data, null, "\t")}
 				}
 				actionAbove = param.asAction(cc);
 				return;
-			}
-			if (param.special === "ControlFlowMode") {
-				throw param.error(
-					cc,
-					"This type of parameter is no longer implemented. Please use the `flow` and `end` pseudoactions in place of >c:1:gid:x and >c>2:gid:x."
-				);
-			}
-			if (param.special === "Arglist") {
-				if (!param.canBeRawKeyedDictionary(cc)) {
+			},
+			(name: { data: string | WFParameter }, param: AsAble) => {
+				if (typeof name.data === "string") {
 					throw param.error(
 						cc,
-						"ArgList fields only accept dictionaries."
+						`This field is not supported yet. If you need this field, submit an issue or pull request on github requesting it. Reason: ${
+							name.data
+						}`
 					);
 				}
-				const dictionary = param.asRawKeyedDictionary(cc);
-				Object.keys(dictionary).forEach(key => {
-					const value = dictionary[key];
-					const shortKey = genShortName(key);
-					const paramtype = this._parameters.find(
-						param =>
-							typeof param !== "string" &&
-							param.shortName === shortKey
-					);
-					if (typeof paramtype === "string") {
-						throw value.error(
-							cc,
-							"This should never happen. Find should exclude string paramtypes."
-						);
-					}
-					if (!paramtype) {
-						throw param.error(
-							cc,
-							`This action does not have a parameter named ${shortKey}.`
-						);
-					}
-					if (action.parameters.has(paramtype.internalName)) {
-						throw value.error(
-							cc,
-							`The parameter named ${shortKey} has already been set for this action.`
-						);
-					}
-					action.parameters.set(
-						paramtype.internalName,
-						paramtype.build(cc, value)
-					);
-				});
-				return;
-			}
-
-			let paramtype;
-			while (!paramtype) {
-				paramtype = this._parameters[parami];
-
-				if (!paramtype) {
-					throw param.error(
-						cc,
-						`This action does not have any more arguments. Check the documentation page for a list of arguments.`
-					);
+				if (action.parameters.has(name.data.internalName)) {
+					return false;
 				}
-				if (typeof paramtype === "string") {
-					throw param.error(
-						cc,
-						`This field is not supported yet. If you need this field, submit an issue or pull request on github requesting it. Reason: ${paramtype}`
-					);
-				}
-				if (action.parameters.has(paramtype.internalName)) {
-					paramtype = undefined;
-					parami++;
-					continue;
-				} // Param [name] was already set
-				if (!paramtype.shouldEnable(action)) {
-					paramtype = undefined;
-					parami++;
-					continue;
-				} // If the required resources are not set, skip
-
-				parami++;
-			}
-
-			action.parameters.set(
-				paramtype.internalName,
-				paramtype.build(cc, param)
-			);
-		});
+				return name.data.shouldEnable(action);
+			},
+			{ cc: cc, args: params }
+		);
 		if (
 			actionAbove &&
 			this.requiresInput &&

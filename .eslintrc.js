@@ -173,7 +173,7 @@ module.exports = {
 		"comma-style": 0, // enforce one true comma style (off by default)
 		"consistent-this": 0, // enforces consistent naming when capturing the current execution context (off by default)
 		"eol-last": 0, // enforce newline at the end of file, with no multiple empty lines
-		"func-names": [1, "as-needed"], // require function expressions to have a name (off by default)
+		"func-names": [0, "as-needed"], // require function expressions to have a name (off by default)
 		"func-style": 0, // enforces use of function declarations or expressions (off by default)
 		"key-spacing": [
 			1,

@@ -122,7 +122,6 @@ o.argument = or(
 	o.value,
 	o.inputarg,
 	o.barlist,
-	o.controlFlowMode,
 	o.argflag,
 	o.arglistparenthesis,
 	o.extendedarg,
@@ -139,15 +138,6 @@ o.arglistparenthesis = p(
 o.arglist = p(c`a{`, star(p(_, o.keyvaluepair, _).scb(([, v]) => v)), c`}`).scb(
 	([, kvps], start, end) => new ArglistParse(start, end, kvps)
 );
-o.controlFlowMode = p(c`>c:`, o.identifier, c`:gid:`, o.identifier).scb(
-	([, controlFlowMode, , groupingIdentifier]) => {
-		return {
-			special: "ControlFlowMode",
-			controlFlowMode,
-			groupingIdentifier
-		};
-	}
-); // TEMP >c:1
 o.inputarg = p(c`^`, or(o.parenthesis, o.variable)).scb(([, paren]) => {
 	paren.special = "InputArg";
 	return paren;

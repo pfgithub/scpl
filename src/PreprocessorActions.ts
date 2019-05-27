@@ -4,6 +4,7 @@ import { otherwise } from "./HelpfulActions";
 import { getActionFromID } from "./ActionData";
 
 import { glyphs, colors } from "./Data/ShortcutMeta";
+import { ArgParser } from "./ArgParser";
 
 function glyphAction(this: AsAble, cc: ConvertingContext, iconName?: AsAble) {
 	if (!iconName) {
@@ -75,7 +76,10 @@ const preprocessorActions: {
 		elseMethod: AsAble | undefined
 	) {
 		if (!test || !method) {
-			throw this.error(cc, "@if must have 2-3 arguments.");
+			throw this.error(
+				cc,
+				"@if must have 2-3 arguments. boolean, @{iftrue} @{iffalse}"
+			);
 		}
 		if (!test.canBeBoolean(cc)) {
 			throw test.error(cc, "Test must be a boolean.");
@@ -99,6 +103,43 @@ const preprocessorActions: {
 			const newCC = cc.in();
 			elseMethod.asAction(newCC);
 		}
+	},
+	"@def": function(this, cc, name?: AsAble, args?: AsAble, cb?: AsAble) {
+		if (!name || !args || !cb) {
+			throw this.error(
+				cc,
+				"@def must have 3 arguments, name, [args...], @{cb}"
+			);
+		}
+		if (!name.canBeString(cc)) {
+			throw name.error(cc, "Name must be a @string");
+		}
+		if (!args.canBeArray(cc)) {
+			throw args.error(cc, "Args must be an array of [argname]");
+		}
+		if (!cb.canBeAction(cc)) {
+			throw args.error(cc, "Cb must be an (action) or @{ of actions }");
+		}
+		const nameStr = name.asString(cc);
+		const argsArr = args.asArray(cc);
+		cc.setParserAction(nameStr, function(this, cc, ...args: AsAble[]) {
+			const newCC = cc.in();
+			ArgParser<undefined>(
+				argsArr.map(aa => ({ name: aa, data: undefined })),
+				(name: { name: string }, value: AsAble) => {
+					newCC.setParserVariable(name.name, value);
+				},
+				(value: AsAble) => {
+					throw value.error(
+						cc,
+						"InputArgs are not yet supported here."
+					);
+				},
+				() => true,
+				{ args, cc }
+			);
+			cb.asAction(newCC);
+		});
 	},
 	"@icon": glyphAction,
 	"@glyph": glyphAction,

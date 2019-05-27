@@ -12,7 +12,11 @@ export class ConvertingContext {
 	controlFlowStack: { uuid: string; number: number; wfaction: WFAction }[][];
 	parserVariables: { [key: string]: AsAble };
 	parserActions: {
-		[key: string]: (cc: ConvertingContext, ...args: AsAble[]) => void;
+		[key: string]: (
+			this: AsAble,
+			cc: ConvertingContext,
+			...args: AsAble[]
+		) => void;
 	};
 	above?: ConvertingContext;
 
@@ -92,7 +96,7 @@ export class ConvertingContext {
 	}
 	setParserAction(
 		name: string,
-		value: (cc: ConvertingContext, ...args: AsAble[]) => void
+		value: (this: AsAble, cc: ConvertingContext, ...args: AsAble[]) => void
 	) {
 		this.parserActions[name] = value;
 	}
