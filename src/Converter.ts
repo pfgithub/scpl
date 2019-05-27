@@ -2,7 +2,9 @@ import * as uuidv4 from "uuid/v4";
 import { Shortcut, Action } from "./OutputData";
 import { WFAction } from "./ActionData";
 import { AsAble } from "./ParserData";
-import defaultPreprocessorActions from "./PreprocessorActions";
+import defaultPreprocessorActions, {
+	PreprocessorAction
+} from "./PreprocessorActions";
 
 export class ConvertingContext {
 	namedVariables: { [key: string]: boolean };
@@ -12,11 +14,7 @@ export class ConvertingContext {
 	controlFlowStack: { uuid: string; number: number; wfaction: WFAction }[][];
 	parserVariables: { [key: string]: AsAble };
 	parserActions: {
-		[key: string]: (
-			this: AsAble,
-			cc: ConvertingContext,
-			...args: AsAble[]
-		) => void;
+		[key: string]: PreprocessorAction;
 	};
 	above?: ConvertingContext;
 
@@ -80,9 +78,7 @@ export class ConvertingContext {
 		this.parserVariables[name] = value;
 	}
 
-	getParserAction(
-		name: string
-	): ((cc: ConvertingContext, ...args: AsAble[]) => void) | undefined {
+	getParserAction(name: string): PreprocessorAction | undefined {
 		if (defaultPreprocessorActions[name]) {
 			return defaultPreprocessorActions[name];
 		}
@@ -94,10 +90,7 @@ export class ConvertingContext {
 		}
 		return undefined;
 	}
-	setParserAction(
-		name: string,
-		value: (this: AsAble, cc: ConvertingContext, ...args: AsAble[]) => void
-	) {
+	setParserAction(name: string, value: PreprocessorAction) {
 		this.parserActions[name] = value;
 	}
 

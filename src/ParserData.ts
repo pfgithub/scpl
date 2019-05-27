@@ -98,6 +98,11 @@ export class Parse {
 	canBeFilterItem(_cc: ConvertingContext): this is AsFilterItem {
 		return false;
 	}
+	canBePreprocessorVariableName(
+		_cc: ConvertingContext
+	): this is AsPreprocessorVariableName {
+		return false;
+	}
 }
 
 interface AsString extends Parse {
@@ -163,43 +168,11 @@ interface AsFilter extends Parse {
 interface AsFilterItem extends Parse {
 	asFilterItem(cc: ConvertingContext, filter: ContentItemFilter): void;
 }
-
-export type AsAble = Parse;
-
-export class ConvertVariableParse extends Parse {
-	name: AsAble;
-	options?: AsAble;
-	constructor(
-		start: Position,
-		end: Position,
-		name: AsAble,
-		options?: AsAble
-	) {
-		super(start, end);
-		this.name = name;
-		this.options = options;
-	}
-	getValue(cc: ConvertingContext): AsAble {
-		if (!this.name.canBeString(cc)) {
-			throw this.name.error(
-				cc,
-				"Name must be a string with no variables."
-			);
-		}
-		const name = this.name.asString(cc);
-		const me = cc.getParserVariable(name);
-		if (!me) {
-			throw super.error(cc, `Parser Variable @:${name} is not defined.`);
-		}
-		return me;
-	}
-	error(cc: ConvertingContext, message: string) {
-		const me = this.getValue(cc);
-		return me.error(cc, `${this.start} ${this.end} ${message}`);
-	}
+interface AsPreprocessorVariableName extends Parse {
+	asPreprocessorVariableName(cc: ConvertingContext): string;
 }
-// there has to be a better way
-[
+
+const ilist = [
 	"String",
 	"Boolean",
 	"Text",
@@ -216,7 +189,53 @@ export class ConvertVariableParse extends Parse {
 	"Number",
 	"Filter",
 	"FilterItem"
-].forEach(val => {
+	// not PreprocessorVariableName
+];
+
+export type AsAble = Parse;
+
+export class ConvertVariableParse extends Parse
+	implements AsPreprocessorVariableName {
+	name: AsAble;
+	options?: AsAble;
+	constructor(
+		start: Position,
+		end: Position,
+		name: AsAble,
+		options?: AsAble
+	) {
+		super(start, end);
+		this.name = name;
+		this.options = options;
+	}
+	canBePreprocessorVariableName(_cc: ConvertingContext) {
+		return true;
+	}
+	asPreprocessorVariableName(cc: ConvertingContext) {
+		if (!this.name.canBeString(cc)) {
+			throw this.name.error(
+				cc,
+				"Name must be a string with no variables."
+			);
+		}
+		const name = this.name.asString(cc);
+		return name;
+	}
+	getValue(cc: ConvertingContext): AsAble {
+		const name = this.asPreprocessorVariableName(cc);
+		const me = cc.getParserVariable(name);
+		if (!me) {
+			throw super.error(cc, `Parser Variable @:${name} is not defined.`);
+		}
+		return me;
+	}
+	error(cc: ConvertingContext, message: string) {
+		const me = this.getValue(cc);
+		return me.error(cc, `${this.start} ${this.end} ${message}`);
+	}
+}
+// there has to be a better way
+ilist.forEach(val => {
 	//eslint-disable-next-line func-names
 	(<any>ConvertVariableParse).prototype[`canBe${val}`] = function(
 		this: ConvertVariableParse,

@@ -1318,7 +1318,6 @@ test("define custom macro", t => {
 			@testmacro "jakob" "tall"
 			@testmacro name="jakob" value="tall"
 			@testmacro (value=tall, name=jakob)
-			@testmacro value=tall
 			`),
 		[
 			{
@@ -1336,9 +1335,24 @@ test("define custom macro", t => {
 			{
 				WFWorkflowActionIdentifier: "is.workflow.actions.gettext",
 				WFWorkflowActionParameters: {
-					WFTextActionText: "Name is:  and value is: tall"
+					WFTextActionText: "Name is: jakob and value is: tall"
 				}
 			}
 		]
 	);
+});
+
+test("@error macro", t => {
+	t.throws(() => scplToShortcut(`@error "Error! A bad happened."`));
+});
+
+test("@set with macro", t => {
+	t.deepEqual(scplToShortcut(`@set @:test val; text @:test`), [
+		{
+			WFWorkflowActionIdentifier: "is.workflow.actions.gettext",
+			WFWorkflowActionParameters: {
+				WFTextActionText: "val"
+			}
+		}
+	]);
 });

@@ -1,10 +1,16 @@
-import { AsAble } from "./ParserData";
+import { AsAble, CharsParse, ConvertVariableParse } from "./ParserData";
 import { ConvertingContext } from "./Converter";
 import { otherwise } from "./HelpfulActions";
 import { getActionFromID } from "./ActionData";
 
 import { glyphs, colors } from "./Data/ShortcutMeta";
 import { ArgParser } from "./ArgParser";
+
+export type PreprocessorAction = (
+	this: AsAble,
+	cc: ConvertingContext,
+	...args: AsAble[]
+) => void | AsAble;
 
 function glyphAction(this: AsAble, cc: ConvertingContext, iconName?: AsAble) {
 	if (!iconName) {
@@ -30,24 +36,30 @@ function glyphAction(this: AsAble, cc: ConvertingContext, iconName?: AsAble) {
 }
 
 const preprocessorActions: {
-	[key: string]: (
-		this: AsAble,
-		cc: ConvertingContext,
-		...args: AsAble[]
-	) => void;
+	[key: string]: PreprocessorAction;
 } = {
-	"@set": function(this, cc, name?: AsAble, value?: AsAble) {
-		if (!name || !value) {
+	"@set": function(this, cc, namea?: AsAble, value?: AsAble) {
+		if (!namea || !value) {
 			throw this.error(cc, "@set must have 2 arguments.");
 		}
 		// sets a variable with name name to value value
-		if (!name.canBeString(cc)) {
-			throw name.error(
-				cc,
-				"Name to set must be a string with no variables."
-			);
+		let name: string | undefined;
+		if (!namea.canBePreprocessorVariableName(cc)) {
+			if (!namea.canBeString(cc)) {
+				throw namea.error(
+					cc,
+					"Must be string or preprocessorvariable, forex: @:myvar or 'myvar'"
+				);
+			} else {
+				name = namea.asString(cc);
+			}
+		} else {
+			name = namea.asPreprocessorVariableName(cc);
 		}
-		cc.setParserVariable(name.asString(cc), value);
+		if (!name) {
+			throw namea.error(cc, "This should never happen.");
+		}
+		cc.setParserVariable(name, value);
 	},
 	"@foreach": function(this, cc, list?: AsAble, method?: AsAble) {
 		if (!list || !method) {
@@ -103,6 +115,18 @@ const preprocessorActions: {
 			const newCC = cc.in();
 			elseMethod.asAction(newCC);
 		}
+	},
+	"@error": function(this, cc, message: AsAble) {
+		if (!message) {
+			throw this.error(
+				cc,
+				"@error must have one argument, the error. Forex: @error 'error message'"
+			);
+		}
+		if (!message.canBeString(cc)) {
+			throw message.error(cc, "Message must be a string");
+		}
+		throw this.error(cc, message.asString(cc));
 	},
 	"@def": function(this, cc, name?: AsAble, args?: AsAble, cb?: AsAble) {
 		if (!name || !args || !cb) {
