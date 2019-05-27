@@ -1340,6 +1340,22 @@ test("define custom macro", t => {
 			}
 		]
 	);
+	t.deepEqual(
+		scplToShortcut(`
+				@def NoAt ["name", "value"] @{
+					text "Name is: \\(@:name) and value is: \\(@:value)"
+				}
+				@NoAt "jakob" "tall"
+				`),
+		[
+			{
+				WFWorkflowActionIdentifier: "is.workflow.actions.gettext",
+				WFWorkflowActionParameters: {
+					WFTextActionText: "Name is: jakob and value is: tall"
+				}
+			}
+		]
+	);
 });
 
 test("@error macro", t => {
