@@ -26,6 +26,7 @@ export function parse(
 			[key: string]: (cc: ConvertingContext, ...args: AsAble[]) => void;
 		};
 		ccOverride?: ConvertingContext;
+		fileLoader?: (filename: string) => string;
 	}
 ) {
 	let parsed: ParseResult;
