@@ -1312,12 +1312,12 @@ test("Newlines in comments parse", t => {
 test("define custom macro", t => {
 	t.deepEqual(
 		scplToShortcut(`
-			@def @testmacro ["name", "value"] @{
+			@def @TestMacro ["name", "value"] @{
 				text "Name is: \\(@:name) and value is: \\(@:value)"
 			}
 			@testmacro "jakob" "tall"
-			@testmacro name="jakob" value="tall"
-			@testmacro (value=tall, name=jakob)
+			@testMacro name="jakob" value="tall"
+			@TestMacro (value=tall, name=jakob)
 			`),
 		[
 			{

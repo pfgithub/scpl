@@ -144,7 +144,7 @@ const preprocessorActions: {
 		if (!cb.canBeAction(cc)) {
 			throw args.error(cc, "Cb must be an (action) or @{ of actions }");
 		}
-		const nameStr = name.asString(cc);
+		const nameStr = name.asString(cc).toLowerCase();
 		const argsArr = args.asArray(cc);
 		cc.setParserAction(nameStr, function(this, cc, ...args: AsAble[]) {
 			const newCC = cc.in();
