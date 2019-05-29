@@ -1372,3 +1372,29 @@ test("@set with macro", t => {
 		}
 	]);
 });
+
+/*
+test("macro that returns a value", t => {
+	t.deepEqual(
+		scplToShortcut(
+			`text (@isdefined @:notdefined)
+			@set @:isdefined "yes";
+			text (@isdefined @:isdefined)`
+		),
+		[
+			{
+				WFWorkflowActionIdentifier: "is.workflow.actions.gettext",
+				WFWorkflowActionParameters: {
+					WFTextActionText: "false"
+				}
+			},
+			{
+				WFWorkflowActionIdentifier: "is.workflow.actions.gettext",
+				WFWorkflowActionParameters: {
+					WFTextActionText: "true"
+				}
+			}
+		]
+	);
+});
+*/
