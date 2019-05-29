@@ -471,11 +471,25 @@ const data: GetTypesData = {
 			},
 			genre: {
 				name: "Genre",
-				data: "genre"
+				data: "genre",
+				type: "WFStringContentItem",
+				filter: true
 			},
 			mediakind: {
 				name: "Media Kind",
-				data: "mediaType"
+				data: "mediaType",
+				type: "WFStringContentItem",
+				filter: true,
+				filterFakeType: "WFEnumerationContentItem",
+				filterEnumValues: [
+					"Movie",
+					"TV Show",
+					"Music",
+					"Podcast",
+					"Music Video",
+					"iTunes U",
+					"Audiobook"
+				]
 			},
 			name: {
 				name: "Name",
@@ -485,7 +499,9 @@ const data: GetTypesData = {
 			},
 			artist: {
 				name: "Artist",
-				data: "artist"
+				data: "artist",
+				type: "WFStringContentItem",
+				filter: true
 			},
 			creationdate: {
 				name: "Creation Date",
@@ -524,7 +540,9 @@ const data: GetTypesData = {
 				data: "albumTrackNumber"
 			},
 			hasalbumartwork: {
-				name: "Has Album Artwork"
+				name: "Has Album Artwork",
+				type: "WFBooleanContentItem",
+				filter: true
 			},
 			rating: {
 				name: "Rating",
@@ -538,7 +556,9 @@ const data: GetTypesData = {
 			},
 			comments: {
 				name: "Comments",
-				data: "comments"
+				data: "comments",
+				type: "WFStringContentItem",
+				filter: true
 			},
 			skipcount: {
 				name: "Skip Count",
@@ -550,7 +570,9 @@ const data: GetTypesData = {
 			},
 			lyrics: {
 				name: "Lyrics",
-				data: "lyrics"
+				data: "lyrics",
+				type: "WFStringContentItem",
+				filter: true
 			},
 			isclouditem: {
 				name: "Is Cloud Item",
@@ -560,11 +582,15 @@ const data: GetTypesData = {
 			},
 			albumartist: {
 				name: "Album Artist",
-				data: "albumArtist"
+				data: "albumArtist",
+				type: "WFStringContentItem",
+				filter: true
 			},
 			album: {
 				name: "Album",
-				data: "albumTitle"
+				data: "albumTitle",
+				type: "WFStringContentItem",
+				filter: true
 			}
 		}
 	},
@@ -606,7 +632,9 @@ const data: GetTypesData = {
 				name: "Store ID"
 			},
 			artist: {
-				name: "Artist"
+				name: "Artist",
+				type: "WFStringContentItem",
+				filter: true
 			},
 			formattedprice: {
 				name: "Formatted Price"
@@ -615,7 +643,9 @@ const data: GetTypesData = {
 				name: "Artwork"
 			},
 			description: {
-				name: "Description"
+				name: "Description",
+				type: "WFStringContentItem",
+				filter: true
 			},
 			duration: {
 				name: "Duration"
@@ -695,11 +725,15 @@ const data: GetTypesData = {
 			},
 			title: {
 				name: "Title",
-				data: "title"
+				data: "title",
+				type: "WFStringContentItem",
+				filter: true
 			},
 			album: {
 				name: "Album",
-				data: "albumName"
+				data: "albumName",
+				type: "WFStringContentItem",
+				filter: true
 			},
 			filesize: {
 				name: "File Size",
@@ -714,7 +748,9 @@ const data: GetTypesData = {
 			},
 			artist: {
 				name: "Artist",
-				data: "artist"
+				data: "artist",
+				type: "WFStringContentItem",
+				filter: true
 			},
 			name: {
 				name: "Name",

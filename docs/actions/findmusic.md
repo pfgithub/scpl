@@ -22,10 +22,10 @@ Accepts a :filter{} of filters. This filter supports:
 - ~~lastplayeddate~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Blastplayeddate%7D%20%28in%20WFMPMediaContentItem%29))
 - ~~fileextension~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Bfileextension%7D%20%28in%20WFMPMediaContentItem%29))
 - ~~releasedate~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Breleasedate%7D%20%28in%20WFMPMediaContentItem%29))
-- ~~genre~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Bgenre%7D%20%28in%20WFMPMediaContentItem%29))
-- ~~mediakind~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Bmediakind%7D%20%28in%20WFMPMediaContentItem%29))
+- genre (Supported for is, isnot, contains, doesnotcontain, beginswith, endswith)
+- mediakind (Supported for is, isnot, contains, doesnotcontain, beginswith, endswith)
 - name (Supported for is, isnot, contains, doesnotcontain, beginswith, endswith)
-- ~~artist~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Bartist%7D%20%28in%20WFMPMediaContentItem%29))
+- artist (Supported for is, isnot, contains, doesnotcontain, beginswith, endswith)
 - ~~creationdate~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Bcreationdate%7D%20%28in%20WFMPMediaContentItem%29))
 - ~~composer~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Bcomposer%7D%20%28in%20WFMPMediaContentItem%29))
 - ~~duration~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Bduration%7D%20%28in%20WFMPMediaContentItem%29))
@@ -35,16 +35,16 @@ Accepts a :filter{} of filters. This filter supports:
 - ~~playcount~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Bplaycount%7D%20%28in%20WFMPMediaContentItem%29))
 - ~~albumartwork~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Balbumartwork%7D%20%28in%20WFMPMediaContentItem%29))
 - ~~albumtrack~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Balbumtrack%7D%20%28in%20WFMPMediaContentItem%29))
-- ~~hasalbumartwork~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Bhasalbumartwork%7D%20%28in%20WFMPMediaContentItem%29))
+- hasalbumartwork (Supported for is)
 - ~~rating~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Brating%7D%20%28in%20WFMPMediaContentItem%29))
 - isexplicit (Supported for is)
-- ~~comments~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Bcomments%7D%20%28in%20WFMPMediaContentItem%29))
+- comments (Supported for is, isnot, contains, doesnotcontain, beginswith, endswith)
 - ~~skipcount~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Bskipcount%7D%20%28in%20WFMPMediaContentItem%29))
 - ~~filesize~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Bfilesize%7D%20%28in%20WFMPMediaContentItem%29))
-- ~~lyrics~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Blyrics%7D%20%28in%20WFMPMediaContentItem%29))
+- lyrics (Supported for is, isnot, contains, doesnotcontain, beginswith, endswith)
 - isclouditem (Supported for is)
-- ~~albumartist~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Balbumartist%7D%20%28in%20WFMPMediaContentItem%29))
-- ~~album~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Balbum%7D%20%28in%20WFMPMediaContentItem%29)).
+- albumartist (Supported for is, isnot, contains, doesnotcontain, beginswith, endswith)
+- album (Supported for is, isnot, contains, doesnotcontain, beginswith, endswith).
 			
 Example: `:filter{name is testname}`
 
