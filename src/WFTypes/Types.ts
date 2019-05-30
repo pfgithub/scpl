@@ -5,6 +5,8 @@ export type CoercionTypeClass =
 	| "WFBooleanContentItem"
 	| "WFContactContentItem"
 	| "WFDateContentItem"
+	| "WFTimeLengthContentItem"
+	| "WFTimeContentItem"
 	| "WFDictionaryContentItem"
 	| "WFEmailAddressContentItem"
 	| "WFGenericFileContentItem"
@@ -23,7 +25,8 @@ export type CoercionTypeClass =
 	| "WFSafariWebPageContentItem"
 	| "WFStringContentItem"
 	| "WFURLContentItem"
-	| "WFVCardContentItem";
+	| "WFVCardContentItem"
+	| "WFEnumerationContentItem";
 
 const coercionTypesMap = {
 	WFContentItem: true,
@@ -32,6 +35,8 @@ const coercionTypesMap = {
 	WFBooleanContentItem: true,
 	WFContactContentItem: true,
 	WFDateContentItem: true,
+	WFTimeLengthContentItem: true,
+	WFTimeContentItem: true,
 	WFDictionaryContentItem: true,
 	WFEmailAddressContentItem: true,
 	WFGenericFileContentItem: true,
@@ -50,7 +55,8 @@ const coercionTypesMap = {
 	WFSafariWebPageContentItem: true,
 	WFStringContentItem: true,
 	WFURLContentItem: true,
-	WFVCardContentItem: true
+	WFVCardContentItem: true,
+	WFEnumerationContentItem: true
 };
 
 export function isCoercionTypeClass(name: string): name is CoercionTypeClass {

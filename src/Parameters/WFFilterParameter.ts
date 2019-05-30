@@ -6,11 +6,7 @@ import {
 	AggrandizementPropertyName
 } from "../WFTypes/Types";
 
-import getTypes, {
-	ComparisonName,
-	ComparisonWFValue,
-	comparisonMethodsMap
-} from "../Data/GetTypes";
+import getTypes from "../Data/GetTypes";
 import { WFParameter } from "./WFParameter";
 
 export class WFFilterParameter extends WFParameter {
@@ -83,6 +79,15 @@ Accepts a :filter{} of filters. This filter supports:
 						.join("%28")
 						.split(")")
 						.join("%29")}))`;
+				}
+				if (val.filterEnumValues) {
+					return `${key} (Supported for ${Object.keys(
+						itemType.comparisonMethods
+					).join(
+						", "
+					)}) (Must be one of: \`${val.filterEnumValues.join(
+						"`, `"
+					)})\``;
 				}
 				return `${key} (Supported for ${Object.keys(
 					itemType.comparisonMethods

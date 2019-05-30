@@ -71,6 +71,8 @@ export const inverseCoercionTypes: { [name in CoercionTypeClass]: string } = {
 	WFBooleanContentItem: "boolean",
 	WFContactContentItem: "contact",
 	WFDateContentItem: "date",
+	WFTimeLengthContentItem: "timelength",
+	WFTimeContentItem: "time",
 	WFDictionaryContentItem: "dictionary",
 	WFEmailAddressContentItem: "emailaddress",
 	WFGenericFileContentItem: "file",
@@ -89,7 +91,8 @@ export const inverseCoercionTypes: { [name in CoercionTypeClass]: string } = {
 	WFSafariWebPageContentItem: "safariwebpage",
 	WFStringContentItem: "text",
 	WFURLContentItem: "url",
-	WFVCardContentItem: "vcard"
+	WFVCardContentItem: "vcard",
+	WFEnumerationContentItem: "enumeration"
 };
 
 type WFAggrandizements = (
@@ -393,7 +396,7 @@ export class ContentItemFilter extends Parameter {
 			| "boolean"
 			| undefined;
 
-		if (propertyData.filterFakeType === "WFEnumerationContentItem") {
+		if (propertyData.type === "WFEnumerationContentItem") {
 			expectedType = "string";
 		} else if (propertyData.type === "WFStringContentItem") {
 			expectedType = "stringOrText";
@@ -428,7 +431,7 @@ export class ContentItemFilter extends Parameter {
 			Unit: 4,
 			VariableOverrides: {}
 		};
-		if (propertyData.filterFakeType === "WFEnumerationContentItem") {
+		if (propertyData.type === "WFEnumerationContentItem") {
 			if (typeof value !== "string") {
 				return "Enums must have strings.";
 			}

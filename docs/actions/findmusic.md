@@ -23,7 +23,7 @@ Accepts a :filter{} of filters. This filter supports:
 - ~~fileextension~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Bfileextension%7D%20%28in%20WFMPMediaContentItem%29))
 - ~~releasedate~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Breleasedate%7D%20%28in%20WFMPMediaContentItem%29))
 - genre (Supported for is, isnot, contains, doesnotcontain, beginswith, endswith)
-- mediakind (Supported for is, isnot, contains, doesnotcontain, beginswith, endswith)
+- mediakind (Supported for is, isnot) (Must be one of: `Movie`, `TV Show`, `Music`, `Podcast`, `Music Video`, `iTunes U`, `Audiobook)`
 - name (Supported for is, isnot, contains, doesnotcontain, beginswith, endswith)
 - artist (Supported for is, isnot, contains, doesnotcontain, beginswith, endswith)
 - ~~creationdate~~ (Not yet supported. [Submit an Issue](https://github.com/pfgithub/shortcutslang/issues/new?title=Add%20support%20for%20%3Afilter%7Bcreationdate%7D%20%28in%20WFMPMediaContentItem%29))

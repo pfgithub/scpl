@@ -32,7 +32,6 @@ export type GetTypeInfoProperty = {
 	data?: string | number;
 	type?: CoercionTypeClass;
 	filter?: boolean;
-	filterFakeType?: string;
 	filterEnumValues?: string[];
 };
 
@@ -304,6 +303,12 @@ const data: GetTypesData = {
 			}
 		}
 	},
+	WFTimeLengthContentItem: {
+		properties: {}
+	},
+	WFTimeContentItem: {
+		properties: {}
+	},
 	WFDictionaryContentItem: {
 		properties: {
 			creationdate: {
@@ -478,9 +483,8 @@ const data: GetTypesData = {
 			mediakind: {
 				name: "Media Kind",
 				data: "mediaType",
-				type: "WFStringContentItem",
+				type: "WFEnumerationContentItem",
 				filter: true,
-				filterFakeType: "WFEnumerationContentItem",
 				filterEnumValues: [
 					"Movie",
 					"TV Show",
@@ -865,9 +869,8 @@ const data: GetTypesData = {
 			},
 			mediatype: {
 				name: "Media Type",
-				type: "WFStringContentItem",
+				type: "WFEnumerationContentItem",
 				filter: true,
-				filterFakeType: "WFEnumerationContentItem",
 				filterEnumValues: ["Image", "Video", "Audio"]
 			},
 			creationdate: {
@@ -887,9 +890,8 @@ const data: GetTypesData = {
 			},
 			phototype: {
 				name: "Photo Type",
-				type: "WFStringContentItem",
+				type: "WFEnumerationContentItem",
 				filter: true,
-				filterFakeType: "WFEnumerationContentItem",
 				filterEnumValues: ["HDR", "Panorama", "Burst", "Live Photo"]
 			},
 			datetaken: {
@@ -899,9 +901,8 @@ const data: GetTypesData = {
 			},
 			duration: {
 				name: "Duration",
-				type: "WFNumberContentItem",
-				filter: true,
-				filterFakeType: "WFTimeLengthContentItem"
+				type: "WFTimeLengthContentItem",
+				filter: true
 			},
 			width: {
 				name: "Width",
@@ -910,9 +911,8 @@ const data: GetTypesData = {
 			},
 			timetaken: {
 				name: "Time Taken",
-				type: "WFDateContentItem",
-				filter: true,
-				filterFakeType: "WFTimeContentItem"
+				type: "WFTimeContentItem",
+				filter: true
 			},
 			isascreenshot: {
 				name: "Is a Screenshot",
@@ -945,9 +945,8 @@ const data: GetTypesData = {
 			},
 			orientation: {
 				name: "Orientation",
-				type: "WFStringContentItem",
+				type: "WFEnumerationContentItem",
 				filter: true,
-				filterFakeType: "WFEnumerationContentItem",
 				filterEnumValues: [
 					"Up",
 					"Down",
@@ -1061,6 +1060,10 @@ const data: GetTypesData = {
 				filter: true
 			}
 		}
+	},
+	WFEnumerationContentItem: {
+		comparisonMethods: { is: 4, isnot: 5 },
+		properties: {}
 	}
 };
 export default data;
