@@ -1234,11 +1234,11 @@ export class Shortcut {
 		});
 		const icon = data[0].WFWorkflowIcon;
 		if (icon) {
-			shortcut.glyph = icon.WFWorkflowIconGlyphNumber;
+			shortcut.glyph = <GlyphCodepoint | undefined>(icon.WFWorkflowIconGlyphNumber >>> 0);
 			if (shortcut.glyph === glyphs.wand) {
 				shortcut.glyph = undefined;
 			}
-			shortcut.color = icon.WFWorkflowIconStartColor;
+			shortcut.color = <ColorCode | undefined>(icon.WFWorkflowIconStartColor >>> 0);
 			if (shortcut.color === colors.darkpurple) {
 				shortcut.color = undefined;
 			}
