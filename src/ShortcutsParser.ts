@@ -19,10 +19,6 @@ import {
 
 import { p, regex, star, plus, optional, or, c, o } from "./ParserHelper.js";
 
-// THINGS TO NOTE:
-// https://github.com/no-context/moo
-// supports string interpolation
-
 o.identifier = regex(/^[A-Za-z@_][A-Za-z0-9@_]*/).scb(
 	([fullmatch], start, end) => new IdentifierParse(start, end, fullmatch)
 );
@@ -117,7 +113,7 @@ o.errorparse = regex(/^\?\?(.+?)\?\?/).scb(
 	([message], start, end) => new ErrorParse(start, end, message)
 );
 o.argument = or(
-	o.arglist, // arglist has to go first because otherwise it will parse as `a` `{}`, this will be fixed with the new argflag syntax.
+	o.arglist, // arglist should be removed.
 	o.namedargument,
 	o.value,
 	o.inputarg,
@@ -241,7 +237,7 @@ o.filteror = p(
 	([, , filterItems, lastFilterItem], start, end) =>
 		new FilterParse(start, end, "or", [...filterItems, lastFilterItem])
 );
-// :filter{name is "hello there" or name "starts with" "test"}
+// :filter{name is "hello there" :or: name "starts with" "test"}
 
 o.filteritem = or(
 	p(o.value, _n, o.value, _n, o.value, _n, o.value).scb(
@@ -253,12 +249,6 @@ o.filteritem = or(
 			new FilterItemParse(start, end, property, comparator, value)
 	)
 );
-// "All of the following are true"
-// "Any of the following are true"
-// name is mytext
-// & filesize "is greater than" 25 bytes
-// & "creation date" "is exactly" 12/2/2222
-// & "is not a screenshot"
 
 o.keyvaluepair = p(
 	_n,
@@ -269,10 +259,6 @@ o.keyvaluepair = p(
 	o.value, // ...
 	_n
 ).scb(([, key, , , , value]) => ({ key: key, value: value }));
-
-// o.canBeString
-// o.canBeText
-// ...
 
 o.variable = p(
 	o.identifier,
@@ -292,7 +278,6 @@ o.variable = p(
 o.parenthesis = p(c`(`, _n, or(o.action, o.variable), _n, c`)`).scb(
 	([, , actionOrVariable]) => actionOrVariable
 );
-// TODO paramlistparens like (name=hi,value=hmm) for=things like Get Contents Of URL which have lots of complex parameters
 
 o.actions = p(
 	_n,
@@ -303,10 +288,4 @@ o.actions = p(
 	([, v, e], start, end) => new ActionsParse(start, end, e ? [...v, ...e] : v)
 );
 
-// TODO [arrays of things]
-// TODO @macros
-// TODOn't imports jk that will be done by some magic in the converter
-
 export default o.actions.getProd();
-
-// would it be bad if this imported converter and handled the whole thing?
