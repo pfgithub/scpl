@@ -239,9 +239,11 @@ export class InverseConvertingContext {
 				dontAllowOnlyVariable: true
 			});
 			if (typeof item.value === "boolean") {
-				return `${key}: ??booleans are not supported yet in dictionaries in scpl. this boolean was ${
-					item.value
-				}??`;
+				console.log("IS BOOLEAN", item);
+				return `<boolean> ${key}: ${item.value}`;
+			}
+			if (item.value instanceof Attachment) {
+				return `<file> ${key}: ${this.handleArgument(item.value)}`;
 			}
 			const value = this.handleArgument(item.value);
 			return `${key}: ${value}`;

@@ -261,6 +261,14 @@ type DictionaryFieldValueItem =
 				Value: 1 | false;
 				WFSerializationType: "WFNumberSubstitutableState";
 			};
+	  }
+	| {
+			WFItemType: 5;
+			WFKey: WFTextParameter;
+			WFValue: {
+				Value: WFAttachmentParameter;
+				WFSerializationType: "WFTokenAttachmentParameterState";
+			};
 	  };
 type WFDictionaryParameter = {
 	Value: {
@@ -540,13 +548,30 @@ export class ContentItemFilter extends Parameter {
 export class Dictionary extends Parameter {
 	items: Array<{
 		key: Text;
-		value: Dictionary | Text | List | ErrorParameter | boolean;
+		value:
+			| Dictionary
+			| Text
+			| List
+			| ErrorParameter
+			| boolean
+			| Attachment
+			| number;
 	}>;
 	constructor() {
 		super();
 		this.items = [];
 	}
-	add(key: Text, value: Dictionary | Text | List | ErrorParameter | boolean) {
+	add(
+		key: Text,
+		value:
+			| Dictionary
+			| Text
+			| List
+			| ErrorParameter
+			| boolean
+			| Attachment
+			| number
+	) {
 		this.items.push({ key, value });
 	}
 	static inverse(data: WFDictionaryParameter): Dictionary {
@@ -577,7 +602,13 @@ export class Dictionary extends Parameter {
 				);
 			}
 			if (item.WFItemType === 4) {
-				return res.add(Text.inverse(item.WFKey), !!item.WFValue);
+				return res.add(Text.inverse(item.WFKey), !!item.WFValue.Value);
+			}
+			if (item.WFItemType === 5) {
+				return res.add(
+					Text.inverse(item.WFKey),
+					Attachment.inverse(item.WFValue.Value)
+				);
 			}
 			return res.add(Text.inverse(item.WFKey), new ErrorParameter());
 		});
@@ -627,6 +658,24 @@ export class Dictionary extends Parameter {
 									Value: value ? 1 : false,
 									WFSerializationType:
 										"WFNumberSubstitutableState"
+								}
+							};
+						}
+						if (typeof value === "number") {
+							return {
+								WFItemType: 3,
+								WFKey: key.build(),
+								WFValue: new Text().add(`${value}`).build()
+							};
+						}
+						if (value instanceof Attachment) {
+							return {
+								WFItemType: 5,
+								WFKey: key.build(),
+								WFValue: {
+									Value: value.build(),
+									WFSerializationType:
+										"WFTokenAttachmentParameterState"
 								}
 							};
 						}
@@ -1234,11 +1283,15 @@ export class Shortcut {
 		});
 		const icon = data[0].WFWorkflowIcon;
 		if (icon) {
-			shortcut.glyph = <GlyphCodepoint | undefined>(icon.WFWorkflowIconGlyphNumber >>> 0);
+			shortcut.glyph = <GlyphCodepoint | undefined>(
+				(icon.WFWorkflowIconGlyphNumber >>> 0)
+			);
 			if (shortcut.glyph === glyphs.wand) {
 				shortcut.glyph = undefined;
 			}
-			shortcut.color = <ColorCode | undefined>(icon.WFWorkflowIconStartColor >>> 0);
+			shortcut.color = <ColorCode | undefined>(
+				(icon.WFWorkflowIconStartColor >>> 0)
+			);
 			if (shortcut.color === colors.darkpurple) {
 				shortcut.color = undefined;
 			}

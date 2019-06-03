@@ -200,7 +200,22 @@ o.value = or(
 o.dictionary = p(
 	c`{`,
 	_n,
-	star(o.keyvaluepair).scb(items => items),
+	//  [ [  ,         [  [   ,     id       ,     ]] , item         ]]
+	star(
+		p(
+			_n,
+			optional(p(c`<`, o.identifier, c`>`).scb(([, m]) => m)).scb(
+				([a]) => a
+			),
+			o.keyvaluepair
+		)
+	).scb(items => {
+		return items.map((item: any) => {
+			const [, type, kvp] = item;
+			kvp.type = type;
+			return kvp;
+		});
+	}),
 	_n,
 	c`}`
 ).scb(([, , kvps], start, end) => new DictionaryParse(start, end, kvps));

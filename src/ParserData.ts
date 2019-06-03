@@ -397,11 +397,11 @@ export class FilterItemParse extends Parse implements AsFilterItem {
 }
 export class DictionaryParse extends Parse
 	implements AsRawDictionary, AsRawKeyedDictionary, AsDictionary {
-	keyvaluepairs: Array<{ key: AsAble; value: AsAble }>;
+	keyvaluepairs: Array<{ key: AsAble; value: AsAble; type?: AsAble }>;
 	constructor(
 		start: Position,
 		end: Position,
-		keyvaluepairs: Array<{ key: AsAble; value: AsAble }>
+		keyvaluepairs: Array<{ key: AsAble; value: AsAble; type?: AsAble }>
 	) {
 		super(start, end);
 		this.keyvaluepairs = keyvaluepairs;
@@ -412,7 +412,10 @@ export class DictionaryParse extends Parse
 	asRawDictionary(cc: ConvertingContext) {
 		// for static things that cannot have interpolated keys or values
 		const dictionary: { [key: string]: string } = {};
-		this.keyvaluepairs.forEach(({ key, value }) => {
+		this.keyvaluepairs.forEach(({ key, value, type }) => {
+			if (type) {
+				throw type.error(cc, "This dictionary can not have a type.");
+			}
 			if (!key.canBeString(cc)) {
 				throw key.error(
 					cc,
@@ -466,24 +469,111 @@ export class DictionaryParse extends Parse
 	asDictionary(cc: ConvertingContext) {
 		// returns an Output Dictionary for this DictionaryParse
 		const dictionary = new Dictionary();
-		this.keyvaluepairs.forEach(({ key, value }) => {
-			let outputValue;
+		//eslint-disable-next-line complexity
+		this.keyvaluepairs.forEach(({ key, value, type }) => {
+			let typeStr:
+				| "text"
+				| "number"
+				| "boolean"
+				| "list"
+				| "dictionary"
+				| "file"
+				| "auto" = "auto";
+			if (type) {
+				if (!type.canBeString(cc)) {
+					throw key.error(cc, "Type must be string.");
+				}
+				let validTypeStr = type.asString(cc);
+				if (validTypeStr === "bool") {
+					validTypeStr = "boolean";
+				}
+				if (validTypeStr === "array") {
+					validTypeStr = "list";
+				}
+				if (
+					validTypeStr !== "text" &&
+					validTypeStr !== "number" &&
+					validTypeStr !== "boolean" &&
+					validTypeStr !== "list" &&
+					validTypeStr !== "dictionary" &&
+					validTypeStr !== "file"
+				) {
+					throw type.error(
+						cc,
+						"Must be text|number|boolean|array|dictionary|file"
+					);
+				}
+				typeStr = validTypeStr;
+			}
+			let outputValue:
+				| Text
+				| number
+				| boolean
+				| List
+				| Dictionary
+				| Attachment
+				| undefined;
 			if (!key.canBeText(cc)) {
 				throw key.error(cc, "Dictionary keys must be texts");
 			}
-			if (value.canBeList(cc)) {
-				outputValue = value.asList(cc);
-			} else if (value.canBeDictionary(cc)) {
-				outputValue = value.asDictionary(cc);
-			} else if (value.canBeText(cc)) {
-				outputValue = value.asText(cc);
-			} else {
+			const keyText = key.asText(cc);
+			if (typeStr === "auto") {
+				if (value.canBeList(cc)) {
+					outputValue = value.asList(cc);
+				} else if (value.canBeDictionary(cc)) {
+					outputValue = value.asDictionary(cc);
+				} else if (value.canBeText(cc)) {
+					outputValue = value.asText(cc);
+				} else {
+					throw value.error(
+						cc,
+						"This value must be a list, string, or dictionary."
+					);
+				}
+			} else if (typeStr === "text") {
+				if (value.canBeText(cc)) {
+					outputValue = value.asText(cc);
+				} else {
+					throw value.error(cc, "This value must be a text.");
+				}
+			} else if (typeStr === "number") {
+				if (value.canBeNumber(cc)) {
+					outputValue = value.asNumber(cc);
+				} else {
+					throw value.error(cc, "This value must be a number.");
+				}
+			} else if (typeStr === "boolean") {
+				if (value.canBeBoolean(cc)) {
+					outputValue = value.asBoolean(cc);
+				} else {
+					throw value.error(cc, "This value must be a boolean.");
+				}
+			} else if (typeStr === "list") {
+				if (value.canBeList(cc)) {
+					outputValue = value.asList(cc);
+				} else {
+					throw value.error(cc, "This value must be a list.");
+				}
+			} else if (typeStr === "dictionary") {
+				if (value.canBeDictionary(cc)) {
+					outputValue = value.asDictionary(cc);
+				} else {
+					throw value.error(cc, "This value must be a dictionary.");
+				}
+			} else if (typeStr === "file") {
+				if (value.canBeVariable(cc)) {
+					outputValue = value.asVariable(cc);
+				} else {
+					throw value.error(cc, "This value must be a variable.");
+				}
+			}
+			if (outputValue === undefined) {
 				throw value.error(
 					cc,
-					"This value must be a list, string, or dictionary."
+					"Output value does not exist. This should never happen."
 				);
 			}
-			dictionary.add(key.asText(cc), outputValue);
+			dictionary.add(keyText, outputValue);
 		});
 		return dictionary;
 	}

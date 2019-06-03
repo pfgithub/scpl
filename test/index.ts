@@ -173,6 +173,22 @@ Dictionary {a: b}
 Dictionary {key: "my string", "\\(s:actioninput)": "var key", normalkey: s:actioninput}`
 	);
 });
+test("invert a boolean", t => {
+	const icc = new InverseConvertingContext();
+	t.deepEqual(
+		icc.createActionsAble(
+			Shortcut.inverse(
+				parse(
+					`
+					dictionary{<bool> a: false, <bool> b: true, <bool> c: false, <file> d: s:shortcutinput}
+					`,
+					{ make: ["shortcutjson"] }
+				).shortcutjson
+			)
+		),
+		`Dictionary {<boolean> a: false, <boolean> b: true, <boolean> c: false, <file> d: s:shortcutinput}`
+	);
+});
 
 test("invert newlines", t => {
 	const icc = new InverseConvertingContext();
@@ -1398,3 +1414,69 @@ test("macro that returns a value", t => {
 	);
 });
 */
+
+test("Dictionary File and Boolean type", t => {
+	t.deepEqual(
+		scplToShortcut(`
+		Dictionary{
+			key: value
+			<file> file: s:shortcutinput
+			<bool> bool: false,
+			<bool> bool2: true
+		}
+		`),
+		[
+			{
+				WFWorkflowActionIdentifier: "is.workflow.actions.dictionary",
+				WFWorkflowActionParameters: {
+					WFItems: {
+						Value: {
+							WFDictionaryFieldValueItems: [
+								{
+									WFItemType: 0,
+									WFKey: "key",
+									WFValue: "value"
+								},
+								{
+									WFItemType: 5,
+									WFKey: "file",
+									WFValue: {
+										Value: {
+											Value: {
+												Aggrandizements: [],
+												Type: "ExtensionInput"
+											},
+											WFSerializationType:
+												"WFTextTokenAttachment"
+										},
+										WFSerializationType:
+											"WFTokenAttachmentParameterState"
+									}
+								},
+								{
+									WFItemType: 4,
+									WFKey: "bool",
+									WFValue: {
+										Value: false,
+										WFSerializationType:
+											"WFNumberSubstitutableState"
+									}
+								},
+								{
+									WFItemType: 4,
+									WFKey: "bool2",
+									WFValue: {
+										Value: 1,
+										WFSerializationType:
+											"WFNumberSubstitutableState"
+									}
+								}
+							]
+						},
+						WFSerializationType: "WFDictionaryFieldValue"
+					}
+				}
+			}
+		]
+	);
+});
