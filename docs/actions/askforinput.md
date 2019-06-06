@@ -13,7 +13,7 @@ Displays a dialog prompting the user to enter a piece of information.
 
 ### usage
 ```
-AskforInput question="string" defaultAnswer="string" defaultAnswer="string" inputType=("Text" | "Number" | "URL" | "Date") granularity=("Date" | "Time" | "Date and Time") skiptoWatchDictation=(true | false | variable)
+AskforInput question="string" defaultAnswer="string" defaultAnswer2="string" inputType=("Text" | "Number" | "URL" | "Date") granularity=("Date" | "Time" | "Date and Time") skiptoWatchDictation=(true | false | variable)
 ```
 
 ### arguments
@@ -44,7 +44,7 @@ with the text. Does not allow newlines.
 
 ---
 
-### defaultAnswer: Date [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### defaultAnswer2: Date [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"June 29, 2007"`
 **Allows Variables**: true
 

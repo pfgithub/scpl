@@ -286,11 +286,16 @@ export class WFAction {
 						? _debugTypes[param.Class].count + 1
 						: 1
 				};
+				// if(param.Class === "WFExpandingParameter") {
+				// 	return;
+				// }
 				if (types[param.Class]) {
 					const type: any = types[param.Class];
 					const paramVal: WFParameter = new type(param);
 					if (parameterNames[paramVal.shortName]) {
+						// console.warn(`IN: ${this.internalName}: Two parameters named ${paramVal.shortName} exist.`);
 						paramVal.shortName += "2";
+						paramVal.readableName += "2";
 					}
 					parameterNames[paramVal.shortName] = true;
 					return paramVal;
@@ -301,7 +306,7 @@ export class WFAction {
 						? _debugMissingTypes[param.Class] + 1
 						: 1;
 				return `This paramtype is not implemented. ${param.Class}`;
-			});
+			}).filter((i: any)=>i);
 		}
 	}
 	get actionOutputType() {

@@ -239,7 +239,6 @@ export class InverseConvertingContext {
 				dontAllowOnlyVariable: true
 			});
 			if (typeof item.value === "boolean") {
-				console.log("IS BOOLEAN", item);
 				return `<boolean> ${key}: ${item.value}`;
 			}
 			if (item.value instanceof Attachment) {

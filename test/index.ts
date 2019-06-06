@@ -189,6 +189,22 @@ test("invert a boolean", t => {
 		`Dictionary {<boolean> a: false, <boolean> b: true, <boolean> c: false, <file> d: s:shortcutinput}`
 	);
 });
+test("invert headers2", t => {
+	const icc = new InverseConvertingContext();
+	t.deepEqual(
+		icc.createActionsAble(
+			Shortcut.inverse(
+				parse(
+					`
+					getcontentsofurl headers=false headers2={<file> t: v:"Repeat Item"}
+					`,
+					{ make: ["shortcutjson"] }
+				).shortcutjson
+			)
+		),
+		`GetContentsofURL headers=false headers2={<file> t: v:"Repeat Item"}`
+	);
+});
 
 test("invert newlines", t => {
 	const icc = new InverseConvertingContext();
