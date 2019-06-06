@@ -43,6 +43,7 @@ containing one of the options:
 		]
 	},
 	"Name": "Get Details of Files",
+	"ResidentCompatible": true,
 	"Subcategory": "Files",
 	"SuggestedNever": true,
 	"WFContentItemClass": "WFGenericFileContentItem",

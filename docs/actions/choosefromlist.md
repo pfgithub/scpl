@@ -13,10 +13,22 @@ Presents a menu of the items passed as input to the action and outputs the user'
 
 ### usage
 ```
-ChoosefromList prompt="string" selectMultiple=(true | false | variable) selectAllInitially=(true | false | variable)
+ChoosefromList list=(v:myvar | mv:myvar | s:myvar) prompt="string" selectMultiple=(true | false | variable) selectAllInitially=(true | false | variable)
 ```
 
 ### arguments
+
+---
+
+### list: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		List
+		```
+**Allows Variables**: true
+
+
+
+Accepts a variable.
 
 ---
 
@@ -65,6 +77,7 @@ or a variable.
 		"menu",
 		"multiple"
 	],
+	"Attribution": "Scripting",
 	"Category": "Scripting",
 	"CreationDate": "2014-02-05T06:00:00.000Z",
 	"Description": {
@@ -73,6 +86,7 @@ or a variable.
 	"IconName": "Scripting.png",
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFInput",
 		"Required": true,
 		"TypePassthrough": true,
 		"Types": [
@@ -81,6 +95,7 @@ or a variable.
 			"WFContentItem"
 		]
 	},
+	"IntentIdentifier": "sirikit.intents.custom.com.apple.WorkflowKit.ShortcutsIntents.WFChooseFromListIntent",
 	"LastModifiedDate": "2016-11-29T06:00:00.000Z",
 	"Name": "Choose from List",
 	"Output": {
@@ -90,7 +105,15 @@ or a variable.
 			"WFContentItem"
 		]
 	},
+	"ParameterSummary": "Choose from ${WFInput}",
 	"Parameters": [
+		{
+			"Class": "WFVariablePickerParameter",
+			"IntentSlotName": "items",
+			"Key": "WFInput",
+			"Label": "List",
+			"Placeholder": "List"
+		},
 		{
 			"Class": "WFTextInputParameter",
 			"DefaultValue": "",
@@ -98,6 +121,7 @@ or a variable.
 			"DisallowedVariableTypes": [
 				"Ask"
 			],
+			"IntentSlotName": "prompt",
 			"Key": "WFChooseFromListActionPrompt",
 			"Label": "Prompt",
 			"Placeholder": "optional",
@@ -132,7 +156,8 @@ or a variable.
 	"UserInterfaces": [
 		"WatchKit",
 		"UIKit",
-		"UIKitWidget"
+		"UIKitWidget",
+		"Siri"
 	]
 }
 ```

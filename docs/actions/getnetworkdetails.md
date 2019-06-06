@@ -96,6 +96,10 @@ containing one of the options:
 			"NSString"
 		]
 	},
+	"ParameterSummary": {
+		"WFNetworkDetailsNetwork(Cellular),WFCellularDetail": "Get ${WFNetworkDetailsNetwork} network's ${WFCellularDetail}",
+		"WFNetworkDetailsNetwork(Wi-Fi),WFWiFiDetail": "Get ${WFNetworkDetailsNetwork} network's ${WFWiFiDetail}"
+	},
 	"Parameters": [
 		{
 			"Class": "WFNetworkPickerParameter",
@@ -138,6 +142,7 @@ containing one of the options:
 			]
 		}
 	],
+	"ResidentCompatible": true,
 	"Subcategory": "Device",
 	"SuggestedNever": true
 }

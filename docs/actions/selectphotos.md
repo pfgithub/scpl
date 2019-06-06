@@ -60,6 +60,7 @@ or a variable.
 			"PHAsset"
 		]
 	},
+	"ParameterSummary": "Select photos",
 	"Parameters": [
 		{
 			"Class": "WFSwitchParameter",

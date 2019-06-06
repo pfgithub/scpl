@@ -1,7 +1,7 @@
 
 ## FaceTime / FaceTime (internally `com.apple.facetime.facetime`)
 
-> This action requires that Shortcuts has permission to use WFContactAccessResource.
+> This action is not yet complete. Some arguments may be missing.
 
 
 ## description
@@ -13,7 +13,7 @@ Calls the contact passed in as input using FaceTime.
 
 ### usage
 ```
-FaceTime app=("string" | variable)] callType=("Video" | "Audio")
+FaceTime app=("string" | variable)] undefined=NotImplemented undefined=NotImplemented
 ```
 
 ### arguments
@@ -32,18 +32,11 @@ FaceTime app=("string" | variable)] callType=("Video" | "Audio")
 
 ---
 
-### callType: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-**Default Value**: `"Video"`
-**Allows Variables**: true
+#### This paramtype is not implemented. WFFaceTimeTypePickerParameter
 
+---
 
-
-Accepts a string 
-or variable
-containing one of the options:
-
-- `Video`
-- `Audio`
+#### This paramtype is not implemented. WFContactFieldParameter
 
 ---
 
@@ -64,6 +57,7 @@ containing one of the options:
 	},
 	"Input": {
 		"Multiple": false,
+		"ParameterKey": "WFFaceTimeContact",
 		"Required": true,
 		"Types": [
 			"WFPhoneNumber",
@@ -72,19 +66,21 @@ containing one of the options:
 		]
 	},
 	"InputPassthrough": true,
+	"IntentIdentifier": "sirikit.intent.call.StartCallIntent",
 	"LastModifiedDate": "2018-10-09T05:00:00.000Z",
 	"Name": "FaceTime",
+	"ParameterSummary": "${WFFaceTimeType} Call ${WFFaceTimeContact}",
 	"Parameters": [
 		{
 			"Class": "WFIntentAppPickerParameter",
 			"DefaultValue": "com.apple.TelephonyUtilities.PhoneIntentHandler",
 			"Hidden": true,
-			"IntentName": "INStartAudioCallIntent",
+			"IntentName": "INStartCallIntent",
 			"Key": "IntentAppIdentifier",
 			"Label": "App"
 		},
 		{
-			"Class": "WFEnumerationParameter",
+			"Class": "WFFaceTimeTypePickerParameter",
 			"DefaultValue": "Video",
 			"Items": [
 				"Video",
@@ -92,10 +88,13 @@ containing one of the options:
 			],
 			"Key": "WFFaceTimeType",
 			"Label": "Call Type"
+		},
+		{
+			"AllowsMultipleValues": true,
+			"Class": "WFContactFieldParameter",
+			"Key": "WFFaceTimeContact",
+			"Label": "Contact"
 		}
-	],
-	"RequiredResources": [
-		"WFContactAccessResource"
 	],
 	"Subcategory": "Phone",
 	"WFStartCallActionType": "FaceTime"

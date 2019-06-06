@@ -1,8 +1,6 @@
 
 ## Get Contacts from Input / GetContactsfromInput (internally `is.workflow.actions.detect.contacts`)
 
-> This action requires that Shortcuts has permission to use WFContactAccessResource.
-
 
 ## description
 
@@ -13,14 +11,22 @@ Gets contacts from the result of the previous action.
 
 ### usage
 ```
-GetContactsfromInput 
+GetContactsfromInput (v:myvar | mv:myvar | s:myvar)
 ```
 
 ### arguments
 
 ---
 
+### input: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		Input
+		```
+**Allows Variables**: true
 
+
+
+Accepts a variable.
 
 ---
 
@@ -46,6 +52,7 @@ GetContactsfromInput
 	},
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFInput",
 		"Required": true,
 		"Types": [
 			"WFContact"
@@ -59,9 +66,16 @@ GetContactsfromInput
 			"WFContactContentItem"
 		]
 	},
-	"RequiredResources": [
-		"WFContactAccessResource"
+	"ParameterSummary": "Get contacts from ${WFInput}",
+	"Parameters": [
+		{
+			"Class": "WFVariablePickerParameter",
+			"Key": "WFInput",
+			"Label": "Input",
+			"Placeholder": "Input"
+		}
 	],
+	"ResidentCompatible": true,
 	"ShortName": "Get Contacts",
 	"Subcategory": "Contacts"
 }

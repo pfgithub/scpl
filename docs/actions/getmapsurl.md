@@ -11,14 +11,22 @@ Creates a URL to search for the location, place, or text that was passed into th
 
 ### usage
 ```
-GetMapsURL 
+GetMapsURL (v:myvar | mv:myvar | s:myvar)
 ```
 
 ### arguments
 
 ---
 
+### location: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		Location
+		```
+**Allows Variables**: true
 
+
+
+Accepts a variable.
 
 ---
 
@@ -39,6 +47,7 @@ GetMapsURL
 	},
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFInput",
 		"Required": true,
 		"Types": [
 			"NSString",
@@ -54,6 +63,15 @@ GetMapsURL
 			"NSURL"
 		]
 	},
+	"ParameterSummary": "Get maps URL from ${WFInput}",
+	"Parameters": [
+		{
+			"Class": "WFVariablePickerParameter",
+			"Key": "WFInput",
+			"Label": "Location",
+			"Placeholder": "Location"
+		}
+	],
 	"Subcategory": "Maps"
 }
 ```

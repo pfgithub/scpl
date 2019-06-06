@@ -276,6 +276,9 @@ export class WFAction {
 		this.shortName = genShortName(this.name, this.internalName);
 		this.readableName = genShortName(this.name, this.internalName, true);
 		this.name = this.name || this.shortName;
+		if (this._data.ActionClass === "WFHandleCustomIntentAction") {
+			this.isComplete = false;
+		}
 		const parameterNames: { [key: string]: true | undefined } = {};
 		if (this._data.Parameters) {
 			this._parameters = this._data.Parameters.map((param: any) => {

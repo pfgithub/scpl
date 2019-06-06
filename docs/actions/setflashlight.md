@@ -65,6 +65,7 @@ containing one of the options:
 	"IconName": "Flashlight.png",
 	"InputPassthrough": true,
 	"Name": "Set Flashlight",
+	"ParameterSummary": "Turn flashlight ${WFFlashlightSetting}",
 	"Parameters": [
 		{
 			"Class": "WFEnumerationParameter",

@@ -69,6 +69,7 @@ or a variable.
 			"PHAsset"
 		]
 	},
+	"ParameterSummary": "Get the latest ${WFGetLatestPhotoCount}",
 	"Parameters": [
 		{
 			"Class": "WFStepperParameter",

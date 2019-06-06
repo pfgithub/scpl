@@ -13,7 +13,7 @@ Presents an email composer. Pass text into the action to set the email body. Oth
 
 ### usage
 ```
-SendEmail showComposeSheet=(true | false | variable) from=("string" | variable)] from="string" to=("string" | [list, of, strings] | variable) cc=("string" | [list, of, strings] | variable) bcc=("string" | [list, of, strings] | variable) subject="string"
+SendEmail showComposeSheet=(true | false | variable) from=("string" | variable)] from="string" to=("string" | [list, of, strings] | variable) cc=("string" | [list, of, strings] | variable) bcc=("string" | [list, of, strings] | variable) subject="string" content=(v:myvar | mv:myvar | s:myvar)
 ```
 
 ### arguments
@@ -104,6 +104,18 @@ with the text. Does not allow newlines.
 
 ---
 
+### content: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		Content
+		```
+**Allows Variables**: true
+
+
+
+Accepts a variable.
+
+---
+
 ### source json (for developers)
 
 ```json
@@ -127,6 +139,7 @@ with the text. Does not allow newlines.
 	},
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFSendEmailActionInputAttachments",
 		"Required": false,
 		"Types": [
 			"NSString",
@@ -136,6 +149,7 @@ with the text. Does not allow newlines.
 	"InputPassthrough": true,
 	"LastModifiedDate": "2015-11-24T06:00:00.000Z",
 	"Name": "Send Email",
+	"ParameterSummary": "Send ${WFSendEmailActionInputAttachments} to ${WFSendEmailActionToRecipients} with subject ${WFSendEmailActionSubject}",
 	"Parameters": [
 		{
 			"Class": "WFSwitchParameter",
@@ -184,18 +198,21 @@ with the text. Does not allow newlines.
 			"TextContentType": "EmailAddress"
 		},
 		{
+			"AllowsMultipleValues": true,
 			"Class": "WFEmailAddressFieldParameter",
 			"Key": "WFSendEmailActionToRecipients",
 			"Label": "To",
 			"Placeholder": "Email addresses"
 		},
 		{
+			"AllowsMultipleValues": true,
 			"Class": "WFEmailAddressFieldParameter",
 			"Key": "WFSendEmailActionCcRecipients",
 			"Label": "Cc",
 			"Placeholder": "Email addresses"
 		},
 		{
+			"AllowsMultipleValues": true,
 			"Class": "WFEmailAddressFieldParameter",
 			"Key": "WFSendEmailActionBccRecipients",
 			"Label": "Bcc",
@@ -206,6 +223,12 @@ with the text. Does not allow newlines.
 			"Key": "WFSendEmailActionSubject",
 			"Label": "Subject",
 			"Placeholder": "optional"
+		},
+		{
+			"Class": "WFVariablePickerParameter",
+			"Key": "WFSendEmailActionInputAttachments",
+			"Label": "Content",
+			"Placeholder": "Content"
 		}
 	],
 	"RequiredResources": [

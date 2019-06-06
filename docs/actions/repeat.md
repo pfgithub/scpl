@@ -64,6 +64,7 @@ end
 			"WFContentItem"
 		]
 	},
+	"ParameterSummary": "Repeat ${WFRepeatCount}",
 	"Parameters": [
 		{
 			"Class": "WFStepperParameter",
@@ -74,6 +75,8 @@ end
 			"StepperPrefix": "Repeat"
 		}
 	],
+	"ResidentCompatible": true,
+	"SnappingPassthrough": true,
 	"Subcategory": "Control Flow",
 	"BlockInfo": {
 		"Example": "\n  ...\nend",

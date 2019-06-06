@@ -16,7 +16,7 @@ This action outputs a negative number if the input date takes place before the s
 
 ### usage
 ```
-GetTimeBetweenDates getTimeFrom=("Right Now" | "Other" | variable) otherDate="string" in=("Total Time" | "Seconds" | "Minutes" | "Hours" | "Days" | "Weeks" | "Months" | "Years")
+GetTimeBetweenDates getTimeFrom=("Right Now" | "Other" | variable) secondDate="string" in=("Total Time" | "Seconds" | "Minutes" | "Hours" | "Days" | "Weeks" | "Months" | "Years")
 ```
 
 ### arguments
@@ -24,6 +24,7 @@ GetTimeBetweenDates getTimeFrom=("Right Now" | "Other" | variable) otherDate="st
 ---
 
 ### getTimeFrom: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+**Placeholder**: `"First Date"`
 **Default Value**: `"Right Now"`
 
 
@@ -35,8 +36,8 @@ containing one of the options:
 
 ---
 
-### otherDate: Date [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**: `"September 9, 2014"`
+### secondDate: Date [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"Second Date"`
 **Allows Variables**: true
 
 **Only enabled if**: argument WFTimeUntilReferenceDate == `Other`
@@ -121,13 +122,14 @@ containing one of the options:
 				"Other"
 			],
 			"Key": "WFTimeUntilReferenceDate",
-			"Label": "Get Time From"
+			"Label": "Get Time From",
+			"Placeholder": "First Date"
 		},
 		{
 			"Class": "WFDateFieldParameter",
 			"Key": "WFTimeUntilCustomDate",
-			"Label": "Other Date",
-			"Placeholder": "September 9, 2014",
+			"Label": "Second Date",
+			"Placeholder": "Second Date",
 			"RequiredResources": [
 				{
 					"WFParameterKey": "WFTimeUntilReferenceDate",
@@ -154,6 +156,7 @@ containing one of the options:
 			"Label": "In"
 		}
 	],
+	"ResidentCompatible": true,
 	"ShortName": "Subtract Dates",
 	"Subcategory": "Dates"
 }

@@ -11,14 +11,22 @@ Returns any phone numbers found in the output from the previous action.
 
 ### usage
 ```
-GetPhoneNumbersfromInput 
+GetPhoneNumbersfromInput "string"
 ```
 
 ### arguments
 
 ---
 
+### input: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"Input"`
+**Allows Variables**: true
 
+
+
+Accepts a string 
+or text
+with the text. Does not allow newlines.
 
 ---
 
@@ -41,6 +49,7 @@ GetPhoneNumbersfromInput
 	"IconName": "PhoneNumber.png",
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFInput",
 		"Required": true,
 		"Types": [
 			"WFPhoneNumber"
@@ -54,6 +63,16 @@ GetPhoneNumbersfromInput
 			"WFPhoneNumberContentItem"
 		]
 	},
+	"ParameterSummary": "Get phone numbers from ${WFInput}",
+	"Parameters": [
+		{
+			"Class": "WFTextInputParameter",
+			"Key": "WFInput",
+			"Label": "Input",
+			"Placeholder": "Input"
+		}
+	],
+	"ResidentCompatible": true,
 	"Subcategory": "Phone"
 }
 ```

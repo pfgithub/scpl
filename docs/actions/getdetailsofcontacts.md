@@ -59,6 +59,7 @@ containing one of the options:
 	"Category": "Contacts",
 	"CreationDate": "2015-01-22T08:00:00.000Z",
 	"Name": "Get Details of Contacts",
+	"ResidentCompatible": true,
 	"Subcategory": "Contacts",
 	"WFContentItemClass": "WFContactContentItem",
 	"Parameters": [

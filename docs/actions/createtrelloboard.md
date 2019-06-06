@@ -63,6 +63,7 @@ with the text. Allows newlines.
 			"WFTrelloBoard"
 		]
 	},
+	"ParameterSummary": "Create the board ${WFTrelloName}",
 	"Parameters": [
 		{
 			"Class": "WFTextInputParameter",

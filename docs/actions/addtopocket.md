@@ -13,7 +13,7 @@ Adds the input to Pocket.
 
 ### usage
 ```
-AddtoPocket "string"
+AddtoPocket tags="string" uRL="string"
 ```
 
 ### arguments
@@ -22,6 +22,18 @@ AddtoPocket "string"
 
 ### tags: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"example, tags"`
+**Allows Variables**: true
+
+
+
+Accepts a string 
+or text
+with the text. Does not allow newlines.
+
+---
+
+### uRL: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"URL"`
 **Allows Variables**: true
 
 
@@ -44,6 +56,7 @@ with the text. Does not allow newlines.
 	},
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFInputURL",
 		"Required": true,
 		"Types": [
 			"WFURLContentItem"
@@ -51,6 +64,7 @@ with the text. Does not allow newlines.
 	},
 	"InputPassthrough": true,
 	"Name": "Add to Pocket",
+	"ParameterSummary": "Add ${WFInputURL}",
 	"Parameters": [
 		{
 			"Class": "WFTextInputParameter",
@@ -58,6 +72,16 @@ with the text. Does not allow newlines.
 			"Key": "WFPocketTags",
 			"Label": "Tags",
 			"Placeholder": "example, tags"
+		},
+		{
+			"AutocapitalizationType": "None",
+			"Class": "WFTextInputParameter",
+			"DisableAutocorrection": true,
+			"Key": "WFInputURL",
+			"KeyboardType": "URL",
+			"Label": "URL",
+			"Placeholder": "URL",
+			"TextContentType": "URL"
 		}
 	],
 	"RequiredResources": [

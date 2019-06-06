@@ -19,7 +19,7 @@ URL "string"
 ---
 
 ### uRL: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**: `"example.com"`
+**Placeholder**: `"apple.com"`
 **Allows Variables**: true
 
 
@@ -43,6 +43,7 @@ with the text. Does not allow newlines.
 		"so wow"
 	],
 	"Category": "Web",
+	"Constructor": true,
 	"Description": {
 		"DescriptionSummary": "Passes the specified URL to the next action."
 	},
@@ -55,6 +56,7 @@ with the text. Does not allow newlines.
 			"NSURL"
 		]
 	},
+	"ParameterSummary": "${WFURLActionURL}",
 	"Parameters": [
 		{
 			"AutocapitalizationType": "None",
@@ -63,7 +65,7 @@ with the text. Does not allow newlines.
 			"Key": "WFURLActionURL",
 			"KeyboardType": "URL",
 			"Label": "URL",
-			"Placeholder": "example.com",
+			"Placeholder": "apple.com",
 			"TextContentType": "URL"
 		}
 	],

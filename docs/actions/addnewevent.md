@@ -25,7 +25,7 @@ AddNewEvent title="string" location="string" calendar=("string" | variable)] dat
 ---
 
 ### title: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**: `"Lunch with Tim"`
+**Placeholder**: `"Event Title"`
 **Allows Variables**: true
 
 
@@ -174,13 +174,14 @@ with the text. Allows newlines.
 			"EKEvent"
 		]
 	},
+	"ParameterSummary": "Add ${WFCalendarItemTitle} from ${WFCalendarItemStartDate} to ${WFCalendarItemEndDate}",
 	"Parameters": [
 		{
 			"Class": "WFTextInputParameter",
 			"Description": "The title of this event.",
 			"Key": "WFCalendarItemTitle",
 			"Label": "Title",
-			"Placeholder": "Lunch with Tim",
+			"Placeholder": "Event Title",
 			"TextAlignment": "Right"
 		},
 		{

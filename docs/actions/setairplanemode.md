@@ -44,7 +44,9 @@ or a variable.
 		"airport",
 		"wi-fi",
 		"bluetooth",
-		"cellular"
+		"cellular",
+		"turn",
+		"toggle"
 	],
 	"Category": "Scripting",
 	"Description": {
@@ -53,6 +55,7 @@ or a variable.
 	"IconName": "AirplaneMode.png",
 	"InputPassthrough": true,
 	"Name": "Set Airplane Mode",
+	"ParameterSummary": "Turn Airplane Mode ${OnValue}",
 	"Parameters": [
 		{
 			"Class": "WFSwitchParameter",

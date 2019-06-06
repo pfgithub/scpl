@@ -18,7 +18,7 @@ An image or video to include in the notification
 
 ### usage
 ```
-ShowNotification title="string" body="string" playSound=(true | false | variable)
+ShowNotification title="string" body="string" playSound=(true | false | variable) attachment=(v:myvar | mv:myvar | s:myvar)
 ```
 
 ### arguments
@@ -38,7 +38,7 @@ with the text. Does not allow newlines.
 ---
 
 ### body: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**: `"Charming notification message"`
+**Placeholder**: `"Text"`
 **Default Value**: `"Hello World"`
 **Allows Variables**: true
 
@@ -63,6 +63,15 @@ or a variable.
 
 ---
 
+### attachment: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Allows Variables**: true
+
+
+
+Accepts a variable.
+
+---
+
 ### source json (for developers)
 
 ```json
@@ -76,6 +85,7 @@ or a variable.
 		"reminder",
 		"push"
 	],
+	"Attribution": "Notifications",
 	"Category": "Scripting",
 	"Description": {
 		"DescriptionInput": "An image or video to include in the notification",
@@ -84,6 +94,7 @@ or a variable.
 	"IconName": "Notification.png",
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFInput",
 		"Required": false,
 		"Types": [
 			"UIImage",
@@ -93,6 +104,7 @@ or a variable.
 	"InputPassthrough": true,
 	"LastModifiedDate": "2016-09-10T07:00:00.000Z",
 	"Name": "Show Notification",
+	"ParameterSummary": "Show notification ${WFNotificationActionBody}",
 	"Parameters": [
 		{
 			"Class": "WFTextInputParameter",
@@ -112,13 +124,18 @@ or a variable.
 			"Key": "WFNotificationActionBody",
 			"Label": "Body",
 			"Multiline": true,
-			"Placeholder": "Charming notification message"
+			"Placeholder": "Text"
 		},
 		{
 			"Class": "WFSwitchParameter",
 			"DefaultValue": true,
 			"Key": "WFNotificationActionSound",
 			"Label": "Play Sound"
+		},
+		{
+			"Class": "WFVariablePickerParameter",
+			"Key": "WFInput",
+			"Label": "Attachment"
 		}
 	],
 	"RequiredResources": [
@@ -130,7 +147,8 @@ or a variable.
 	"UserInterfaces": [
 		"UIKit",
 		"UIKitWidget",
-		"WatchKit"
+		"WatchKit",
+		"Siri"
 	]
 }
 ```

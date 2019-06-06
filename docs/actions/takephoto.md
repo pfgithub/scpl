@@ -91,6 +91,10 @@ containing one of the options:
 			"UIImage"
 		]
 	},
+	"ParameterSummary": {
+		"WFCameraCaptureShowPreview(1),WFPhotoCount,WFCameraCaptureDevice": "Take ${WFPhotoCount} with ${WFCameraCaptureDevice} camera",
+		"WFCameraCaptureShowPreview,WFCameraCaptureDevice": "Take photo with ${WFCameraCaptureDevice} camera"
+	},
 	"Parameters": [
 		{
 			"Class": "WFSwitchParameter",

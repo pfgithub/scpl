@@ -52,6 +52,7 @@ or a variable.
 	"IconName": "CellularData.png",
 	"InputPassthrough": true,
 	"Name": "Set Cellular Data",
+	"ParameterSummary": "Turn Cellular Data ${OnValue}",
 	"Parameters": [
 		{
 			"Class": "WFSwitchParameter",

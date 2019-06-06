@@ -56,7 +56,7 @@ containing one of the options:
 {
 	"ActionClass": "WFContentItemPropertiesAction",
 	"AppIdentifier": "com.apple.Music",
-	"Category": "Music",
+	"Category": "Media",
 	"CreationDate": "2015-01-22T08:00:00.000Z",
 	"Input": {
 		"Types": [
@@ -66,7 +66,8 @@ containing one of the options:
 	},
 	"LastModifiedDate": "2016-05-23T07:00:00.000Z",
 	"Name": "Get Details of Music",
-	"Subcategory": "Music",
+	"ResidentCompatible": true,
+	"Subcategory": "Media",
 	"WFContentItemClass": "WFMPMediaContentItem",
 	"WFContentItemDefaultProperty": "Artist",
 	"Parameters": [

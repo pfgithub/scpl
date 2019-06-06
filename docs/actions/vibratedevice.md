@@ -63,6 +63,7 @@ containing one of the options:
 	"IconName": "Notification.png",
 	"InputPassthrough": true,
 	"Name": "Vibrate Device",
+	"ParameterSummary": "Vibrate device",
 	"Parameters": [
 		{
 			"Class": "WFEnumerationParameter",

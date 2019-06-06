@@ -40,6 +40,7 @@ Number number
 		"math"
 	],
 	"Category": "Scripting",
+	"Constructor": true,
 	"Description": {
 		"DescriptionSummary": "Passes a number to the next action."
 	},
@@ -52,6 +53,7 @@ Number number
 			"NSDecimalNumber"
 		]
 	},
+	"ParameterSummary": "${WFNumberActionNumber}",
 	"Parameters": [
 		{
 			"AllowsDecimalNumbers": true,

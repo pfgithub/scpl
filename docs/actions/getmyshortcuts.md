@@ -46,6 +46,7 @@ GetMyShortcuts
 			"WFWorkflow"
 		]
 	},
+	"ParameterSummary": "Get my shortcuts",
 	"Subcategory": "Shortcuts",
 	"SuggestedNever": true
 }

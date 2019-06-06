@@ -11,7 +11,7 @@ Sets a value in the dictionary passed into the action.
 
 ### usage
 ```
-SetDictionaryValue key="string" value="string"
+SetDictionaryValue key="string" value="string" WFDictionary=(v:myvar | mv:myvar | s:myvar)
 ```
 
 ### arguments
@@ -19,7 +19,7 @@ SetDictionaryValue key="string" value="string"
 ---
 
 ### key: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**: `"name"`
+**Placeholder**: `"Key"`
 **Allows Variables**: true
 
 
@@ -31,7 +31,7 @@ with the text. Does not allow newlines.
 ---
 
 ### value: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**: `"example"`
+**Placeholder**: `"Value"`
 **Allows Variables**: true
 
 
@@ -39,6 +39,18 @@ with the text. Does not allow newlines.
 Accepts a string 
 or text
 with the text. Does not allow newlines.
+
+---
+
+### WFDictionary: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		Dictionary
+		```
+**Allows Variables**: true
+
+
+
+Accepts a variable.
 
 ---
 
@@ -67,6 +79,7 @@ with the text. Does not allow newlines.
 	"IconName": "Scripting.png",
 	"Input": {
 		"Multiple": false,
+		"ParameterKey": "WFDictionary",
 		"Required": true,
 		"Types": [
 			"WFDictionaryContentItem"
@@ -81,6 +94,7 @@ with the text. Does not allow newlines.
 			"WFDictionaryContentItem"
 		]
 	},
+	"ParameterSummary": "Set ${WFDictionaryKey} to ${WFDictionaryValue} in ${WFDictionary}",
 	"Parameters": [
 		{
 			"AutocapitalizationType": "None",
@@ -88,7 +102,7 @@ with the text. Does not allow newlines.
 			"DisableAutocorrection": true,
 			"Key": "WFDictionaryKey",
 			"Label": "Key",
-			"Placeholder": "name",
+			"Placeholder": "Key",
 			"TextAlignment": "Right"
 		},
 		{
@@ -97,8 +111,13 @@ with the text. Does not allow newlines.
 			"DisableAutocorrection": true,
 			"Key": "WFDictionaryValue",
 			"Label": "Value",
-			"Placeholder": "example",
+			"Placeholder": "Value",
 			"TextAlignment": "Right"
+		},
+		{
+			"Class": "WFVariablePickerParameter",
+			"Key": "WFDictionary",
+			"Placeholder": "Dictionary"
 		}
 	],
 	"Subcategory": "Dictionaries"

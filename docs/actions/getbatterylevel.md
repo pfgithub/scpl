@@ -47,6 +47,7 @@ GetBatteryLevel
 			"NSDecimalNumber"
 		]
 	},
+	"ParameterSummary": "Get battery level",
 	"Subcategory": "Device",
 	"SuggestedNever": true
 }

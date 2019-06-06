@@ -42,6 +42,7 @@ Accepts a dictionary.
 		"plist"
 	],
 	"Category": "Scripting",
+	"Constructor": true,
 	"CreationDate": "2016-11-10T20:00:00.000Z",
 	"Description": {
 		"DescriptionNote": "When coerced to text, the dictionary is represented as JSON.",
@@ -70,6 +71,7 @@ Accepts a dictionary.
 			"Label": "Items"
 		}
 	],
+	"ResidentCompatible": true,
 	"Subcategory": "Dictionaries",
 	"SuggestedNever": true
 }

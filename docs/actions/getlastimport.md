@@ -54,6 +54,7 @@ GetLastImport
 			"PHAsset"
 		]
 	},
+	"ParameterSummary": "Get last import",
 	"Parameters": [],
 	"RequiredResources": [
 		"WFPhotoAccessResource"

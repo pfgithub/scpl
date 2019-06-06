@@ -11,7 +11,7 @@ Encodes or decodes text passed into the action to be suitable for inclusion in a
 
 ### usage
 ```
-URLEncode ("Encode" | "Decode")
+URLEncode mode=("Encode" | "Decode") text="string"
 ```
 
 ### arguments
@@ -30,6 +30,18 @@ containing one of the options:
 
 - `Encode`
 - `Decode`
+
+---
+
+### text: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"Text"`
+**Allows Variables**: true
+
+
+
+Accepts a string 
+or text
+with the text. Does not allow newlines.
 
 ---
 
@@ -55,6 +67,7 @@ containing one of the options:
 	"IconName": "URL.png",
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFInput",
 		"Required": true,
 		"Types": [
 			"WFStringContentItem"
@@ -68,6 +81,7 @@ containing one of the options:
 			"WFStringContentItem"
 		]
 	},
+	"ParameterSummary": "URL ${WFEncodeMode} ${WFInput}",
 	"Parameters": [
 		{
 			"Class": "WFEnumerationParameter",
@@ -78,8 +92,15 @@ containing one of the options:
 			],
 			"Key": "WFEncodeMode",
 			"Label": "Mode"
+		},
+		{
+			"Class": "WFTextInputParameter",
+			"Key": "WFInput",
+			"Label": "Text",
+			"Placeholder": "Text"
 		}
 	],
+	"ResidentCompatible": true,
 	"Subcategory": "X-Callback",
 	"SuggestedNever": true
 }

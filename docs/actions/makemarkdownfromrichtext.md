@@ -15,14 +15,22 @@ Markdown
 
 ### usage
 ```
-MakeMarkdownfromRichText 
+MakeMarkdownfromRichText (v:myvar | mv:myvar | s:myvar)
 ```
 
 ### arguments
 
 ---
 
+### richText: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		Rich Text
+		```
+**Allows Variables**: true
 
+
+
+Accepts a variable.
 
 ---
 
@@ -44,6 +52,7 @@ MakeMarkdownfromRichText
 	"IconName": "RichText.png",
 	"Input": {
 		"Multiple": false,
+		"ParameterKey": "WFInput",
 		"Required": true,
 		"Types": [
 			"WFRichTextContentItem"
@@ -57,6 +66,16 @@ MakeMarkdownfromRichText
 			"NSString"
 		]
 	},
+	"ParameterSummary": "Make Markdown from ${WFInput}",
+	"Parameters": [
+		{
+			"Class": "WFVariablePickerParameter",
+			"Key": "WFInput",
+			"Label": "Rich Text",
+			"Placeholder": "Rich Text"
+		}
+	],
+	"ResidentCompatible": true,
 	"ShortName": "Make Markdown",
 	"Subcategory": "Rich Text"
 }

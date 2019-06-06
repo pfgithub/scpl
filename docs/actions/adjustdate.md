@@ -20,14 +20,42 @@ This action supports decimal numbers when adding or subtracting seconds, minutes
 
 ### usage
 ```
-AdjustDate NotImplemented
+AdjustDate date="string" operation=("Add" | "Subtract" | "Get Start of Minute" | "Get Start of Hour" | "Get Start of Day" | "Get Start of Month" | "Get Start of Year" | variable) undefined=NotImplemented
 ```
 
 ### arguments
 
 ---
 
-#### This paramtype is not implemented. WFTimeOffsetParameter
+### date: Date [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Allows Variables**: true
+
+
+
+Accepts a string 
+or text
+with the text. Does not allow newlines.
+
+---
+
+### operation: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+**Default Value**: `"Add"`
+
+
+Accepts a string 
+containing one of the options:
+
+- `Add`
+- `Subtract`
+- `Get Start of Minute`
+- `Get Start of Hour`
+- `Get Start of Day`
+- `Get Start of Month`
+- `Get Start of Year`
+
+---
+
+#### This paramtype is not implemented. WFDurationQuantityFieldParameter
 
 ---
 
@@ -59,6 +87,7 @@ AdjustDate NotImplemented
 	"IconName": "Date.png",
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFDate",
 		"Required": true,
 		"Types": [
 			"WFDateContentItem",
@@ -76,10 +105,61 @@ AdjustDate NotImplemented
 			"NSDate"
 		]
 	},
+	"ParameterSummary": {
+		"WFAdjustOperation(Subtract),WFDuration,WFDate": "${WFAdjustOperation} ${WFDuration} from ${WFDate}",
+		"WFAdjustOperation,WFDate": "${WFAdjustOperation} from ${WFDate}",
+		"WFAdjustOperation,WFDuration,WFDate": "${WFAdjustOperation} ${WFDuration} to ${WFDate}"
+	},
 	"Parameters": [
 		{
-			"Class": "WFTimeOffsetParameter",
-			"Key": "WFAdjustOffsetPicker"
+			"Class": "WFDateFieldParameter",
+			"Key": "WFDate",
+			"Label": "Date",
+			"TextAlignment": "Right"
+		},
+		{
+			"Class": "WFEnumerationParameter",
+			"DefaultValue": "Add",
+			"DisallowedVariableTypes": [
+				"Ask",
+				"Variable"
+			],
+			"Items": [
+				"Add",
+				"Subtract",
+				"Get Start of Minute",
+				"Get Start of Hour",
+				"Get Start of Day",
+				"Get Start of Month",
+				"Get Start of Year"
+			],
+			"Key": "WFAdjustOperation",
+			"Label": "Operation"
+		},
+		{
+			"Class": "WFDurationQuantityFieldParameter",
+			"DefaultUnit": "sec",
+			"Key": "WFDuration",
+			"Placeholder": "0",
+			"PossibleUnits": [
+				"sec",
+				"min",
+				"hr",
+				"days",
+				"weeks",
+				"months",
+				"years"
+			],
+			"RequiredResources": [
+				{
+					"WFParameterKey": "WFAdjustOperation",
+					"WFParameterValues": [
+						"Add",
+						"Subtract"
+					],
+					"WFResourceClass": "WFParameterRelationResource"
+				}
+			]
 		}
 	],
 	"RequiredResources": [
@@ -94,6 +174,7 @@ AdjustDate NotImplemented
 			"WFResourceClass": "WFUserInteractionResource"
 		}
 	],
+	"ResidentCompatible": true,
 	"Subcategory": "Dates"
 }
 ```

@@ -13,7 +13,7 @@ Deletes the notes passed as input from Evernote.
 
 ### usage
 ```
-DeleteNotes (true | false | variable)
+DeleteNotes confirmBeforeDeleting=(true | false | variable) notes=(v:myvar | mv:myvar | s:myvar)
 ```
 
 ### arguments
@@ -33,6 +33,15 @@ or a variable.
 
 ---
 
+### notes: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Allows Variables**: true
+
+
+
+Accepts a variable.
+
+---
+
 ### source json (for developers)
 
 ```json
@@ -46,18 +55,21 @@ or a variable.
 		"byebye"
 	],
 	"AppIdentifier": "com.evernote.iPhone.Evernote",
+	"BlocksOutput": true,
 	"Category": "Documents",
 	"Description": {
 		"DescriptionSummary": "Deletes the notes passed as input from Evernote."
 	},
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFInput",
 		"Required": true,
 		"Types": [
 			"ENNoteRef"
 		]
 	},
 	"Name": "Delete Notes",
+	"ParameterSummary": "Delete ${WFInput}",
 	"Parameters": [
 		{
 			"Class": "WFSwitchParameter",
@@ -65,6 +77,11 @@ or a variable.
 			"Description": "When enabled, this action will confirm with you before deleting notes from Evernote. You'll always be asked for confirmation when deleting 10 notes or more at a time.",
 			"Key": "WFEvernoteConfirmDeletion",
 			"Label": "Confirm Before Deleting"
+		},
+		{
+			"Class": "WFVariablePickerParameter",
+			"Key": "WFInput",
+			"Label": "Notes"
 		}
 	],
 	"RequiredResources": [

@@ -13,7 +13,7 @@ Adds the URL passed into the action to your Pinboard.
 
 ### usage
 ```
-AddtoPinboard title="string" tags="string" public=(true | false | variable) unread=(true | false | variable) description="string"
+AddtoPinboard title="string" tags="string" public=(true | false | variable) unread=(true | false | variable) description="string" uRL="string"
 ```
 
 ### arguments
@@ -82,6 +82,17 @@ with the text. Allows newlines.
 
 ---
 
+### uRL: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Allows Variables**: true
+
+
+
+Accepts a string 
+or text
+with the text. Does not allow newlines.
+
+---
+
 ### source json (for developers)
 
 ```json
@@ -95,6 +106,7 @@ with the text. Allows newlines.
 		"pinboard"
 	],
 	"AppSection": "Pinboard",
+	"Attribution": "Pinboard",
 	"Category": "Web",
 	"CreationDate": "2015-01-11T06:00:00.000Z",
 	"Description": {
@@ -103,6 +115,7 @@ with the text. Allows newlines.
 	"IconName": "Pinboard.png",
 	"Input": {
 		"Multiple": false,
+		"ParameterKey": "WFPinboardURL",
 		"Required": true,
 		"Types": [
 			"WFURLContentItem"
@@ -110,6 +123,7 @@ with the text. Allows newlines.
 	},
 	"InputPassthrough": true,
 	"Name": "Add to Pinboard",
+	"ParameterSummary": "Add ${WFPinboardURL}",
 	"Parameters": [
 		{
 			"AutocapitalizationType": "Words",
@@ -143,6 +157,14 @@ with the text. Allows newlines.
 			"Label": "Description",
 			"Multiline": true,
 			"Placeholder": "Description"
+		},
+		{
+			"Class": "WFTextInputParameter",
+			"DisableAutocorrection": true,
+			"Key": "WFPinboardURL",
+			"KeyboardType": "URL",
+			"Label": "URL",
+			"TextContentType": "URL"
 		}
 	],
 	"RequiredResources": [

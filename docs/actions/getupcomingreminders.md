@@ -66,6 +66,7 @@ GetUpcomingReminders list=("string" | variable)] WFGetUpcomingItemCount=number
 			"EKReminder"
 		]
 	},
+	"ParameterSummary": "Get ${WFGetUpcomingItemCount} from ${WFGetUpcomingItemCalendar}",
 	"Parameters": [
 		{
 			"AllowsAllCalendars": true,

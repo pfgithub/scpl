@@ -16,7 +16,7 @@ If the width or height is not set, that dimension is automatically calculated to
 
 ### usage
 ```
-ResizeImage width=number height=number
+ResizeImage width=number height=number image=(v:myvar | mv:myvar | s:myvar)
 ```
 
 ### arguments
@@ -24,7 +24,7 @@ ResizeImage width=number height=number
 ---
 
 ### width: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
-**Placeholder**: `Auto`
+**Placeholder**: `Auto Width`
 **Default Value**: `640`
 **Allows Variables**: true
 
@@ -37,7 +37,7 @@ ResizeImage width=number height=number
 ---
 
 ### height: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
-**Placeholder**: `Auto`
+**Placeholder**: `Auto Height`
 **Allows Variables**: true
 
 
@@ -45,6 +45,18 @@ ResizeImage width=number height=number
 		Accepts a number 
 		or variable
 		with a number.
+
+---
+
+### image: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		Image
+		```
+**Allows Variables**: true
+
+
+
+Accepts a variable.
 
 ---
 
@@ -70,6 +82,7 @@ ResizeImage width=number height=number
 	"IconName": "Image.png",
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFImage",
 		"Required": true,
 		"Types": [
 			"UIImage"
@@ -85,23 +98,31 @@ ResizeImage width=number height=number
 			"UIImage"
 		]
 	},
+	"ParameterSummary": "Resize ${WFImage} to ${WFImageResizeWidth}x${WFImageResizeHeight}",
 	"Parameters": [
 		{
 			"Class": "WFNumberFieldParameter",
 			"DefaultValue": 640,
 			"Key": "WFImageResizeWidth",
 			"Label": "Width",
-			"Placeholder": "Auto",
+			"Placeholder": "Auto Width",
 			"TextAlignment": "Right"
 		},
 		{
 			"Class": "WFNumberFieldParameter",
 			"Key": "WFImageResizeHeight",
 			"Label": "Height",
-			"Placeholder": "Auto",
+			"Placeholder": "Auto Height",
 			"TextAlignment": "Right"
+		},
+		{
+			"Class": "WFVariablePickerParameter",
+			"Key": "WFImage",
+			"Label": "Image",
+			"Placeholder": "Image"
 		}
 	],
+	"ResidentCompatible": true,
 	"Subcategory": "Editing"
 }
 ```

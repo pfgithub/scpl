@@ -20,7 +20,7 @@ The content to include in your new note
 
 ### usage
 ```
-CreateNewNote noteTitle="string" notebook=("string" | variable)] undefined=NotImplemented
+CreateNewNote noteTitle="string" notebook=("string" | variable)] undefined=NotImplemented content=(v:myvar | mv:myvar | s:myvar)
 ```
 
 ### arguments
@@ -52,6 +52,18 @@ with the text. Does not allow newlines.
 
 ---
 
+### content: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		Content
+		```
+**Allows Variables**: true
+
+
+
+Accepts a variable.
+
+---
+
 ### source json (for developers)
 
 ```json
@@ -69,6 +81,7 @@ with the text. Does not allow newlines.
 	},
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFInput",
 		"Required": true,
 		"Types": [
 			"WFContentItem"
@@ -82,6 +95,7 @@ with the text. Does not allow newlines.
 			"ENNoteRef"
 		]
 	},
+	"ParameterSummary": "Create note with ${WFInput} named ${WFEvernoteNoteTitle}",
 	"Parameters": [
 		{
 			"Class": "WFTextInputParameter",
@@ -101,6 +115,12 @@ with the text. Does not allow newlines.
 			"Key": "WFEvernoteTags",
 			"Label": "Tags",
 			"Placeholder": "optional"
+		},
+		{
+			"Class": "WFVariablePickerParameter",
+			"Key": "WFInput",
+			"Label": "Content",
+			"Placeholder": "Content"
 		}
 	],
 	"RequiredResources": [

@@ -71,6 +71,7 @@ with the text. Does not allow newlines.
 			"WFURLContentItem"
 		]
 	},
+	"ParameterSummary": "Get ${WFBookmarkCount}",
 	"Parameters": [
 		{
 			"AutocapitalizationType": "None",

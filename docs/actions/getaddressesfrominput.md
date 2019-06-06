@@ -11,14 +11,19 @@ Returns any street addresses found in the output from the previous action.
 
 ### usage
 ```
-GetAddressesfromInput 
+GetAddressesfromInput (v:myvar | mv:myvar | s:myvar)
 ```
 
 ### arguments
 
 ---
 
+### input: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Allows Variables**: true
 
+
+
+Accepts a variable.
 
 ---
 
@@ -42,6 +47,7 @@ GetAddressesfromInput
 	},
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFInput",
 		"Required": true,
 		"Types": [
 			"WFStreetAddress"
@@ -55,6 +61,15 @@ GetAddressesfromInput
 			"WFLocationContentItem"
 		]
 	},
+	"ParameterSummary": "Get addresses from ${WFInput}",
+	"Parameters": [
+		{
+			"Class": "WFVariablePickerParameter",
+			"Key": "WFInput",
+			"Label": "Input"
+		}
+	],
+	"ResidentCompatible": true,
 	"ShortName": "Get Addresses",
 	"Subcategory": "Location"
 }

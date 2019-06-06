@@ -11,7 +11,7 @@ Calculates statistics on the numbers that are provided as input.
 
 ### usage
 ```
-CalculateStatistics ("Average" | "Minimum" | "Maximum" | "Sum" | "Median" | "Mode" | "Range" | "Standard Deviation")
+CalculateStatistics operation=("Average" | "Minimum" | "Maximum" | "Sum" | "Median" | "Mode" | "Range" | "Standard Deviation") input=(v:myvar | mv:myvar | s:myvar)
 ```
 
 ### arguments
@@ -39,6 +39,15 @@ containing one of the options:
 
 ---
 
+### input: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Allows Variables**: true
+
+
+
+Accepts a variable.
+
+---
+
 ### source json (for developers)
 
 ```json
@@ -63,6 +72,7 @@ containing one of the options:
 	"IconName": "Calculator.png",
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "Input",
 		"Required": true,
 		"Types": [
 			"NSNumber"
@@ -76,6 +86,7 @@ containing one of the options:
 			"NSNumber"
 		]
 	},
+	"ParameterSummary": "Calculate the ${WFStatisticsOperation} of ${Input}",
 	"Parameters": [
 		{
 			"Class": "WFEnumerationParameter",
@@ -92,6 +103,11 @@ containing one of the options:
 			],
 			"Key": "WFStatisticsOperation",
 			"Label": "Operation"
+		},
+		{
+			"Class": "WFVariablePickerParameter",
+			"Key": "Input",
+			"Label": "Input"
 		}
 	],
 	"Subcategory": "Math"

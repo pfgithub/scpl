@@ -13,7 +13,7 @@ Gets a link to the Evernote note passed into the action, which can be shared.
 
 ### usage
 ```
-GetNoteLink (true | false | variable)
+GetNoteLink inAppLink=(true | false | variable) note=(v:myvar | mv:myvar | s:myvar)
 ```
 
 ### arguments
@@ -27,6 +27,18 @@ GetNoteLink (true | false | variable)
 
 Accepts a boolean
 or a variable.
+
+---
+
+### note: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		Note
+		```
+**Allows Variables**: true
+
+
+
+Accepts a variable.
 
 ---
 
@@ -46,6 +58,7 @@ or a variable.
 	},
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFInput",
 		"Required": true,
 		"Types": [
 			"ENNoteRef"
@@ -59,6 +72,7 @@ or a variable.
 			"NSURL"
 		]
 	},
+	"ParameterSummary": "Get link for ${WFInput}",
 	"Parameters": [
 		{
 			"Class": "WFSwitchParameter",
@@ -66,6 +80,12 @@ or a variable.
 			"Description": "When enabled, an evernote:// URL will be generated, suitable for opening the note in the Evernote app.",
 			"Key": "WFEvernoteShareInAppLink",
 			"Label": "In-App Link"
+		},
+		{
+			"Class": "WFVariablePickerParameter",
+			"Key": "WFInput",
+			"Label": "Note",
+			"Placeholder": "Note"
 		}
 	],
 	"RequiredResources": [

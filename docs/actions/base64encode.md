@@ -11,7 +11,7 @@ Encodes or decodes text or files using Base64 encoding.
 
 ### usage
 ```
-Base64Encode mode=("Encode" | "Decode") lineBreaks=("None" | "Every 64 Characters" | "Every 76 Characters")
+Base64Encode mode=("Encode" | "Decode") lineBreaks=("None" | "Every 64 Characters" | "Every 76 Characters") input=(v:myvar | mv:myvar | s:myvar)
 ```
 
 ### arguments
@@ -49,6 +49,15 @@ containing one of the options:
 
 ---
 
+### input: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Allows Variables**: true
+
+
+
+Accepts a variable.
+
+---
+
 ### source json (for developers)
 
 ```json
@@ -68,6 +77,7 @@ containing one of the options:
 	"IconName": "Scripting.png",
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFInput",
 		"Required": true,
 		"Types": [
 			"WFStringContentItem",
@@ -83,6 +93,7 @@ containing one of the options:
 			"public.data"
 		]
 	},
+	"ParameterSummary": "${WFEncodeMode} ${WFInput} with base64",
 	"Parameters": [
 		{
 			"Class": "WFEnumerationParameter",
@@ -111,8 +122,14 @@ containing one of the options:
 					"WFResourceClass": "WFParameterRelationResource"
 				}
 			]
+		},
+		{
+			"Class": "WFVariablePickerParameter",
+			"Key": "WFInput",
+			"Label": "Input"
 		}
 	],
+	"ResidentCompatible": true,
 	"Subcategory": "Files",
 	"SuggestedNever": true
 }

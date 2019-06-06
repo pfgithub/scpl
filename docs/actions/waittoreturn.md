@@ -41,6 +41,7 @@ WaittoReturn
 	"IconName": "Scripting.png",
 	"InputPassthrough": true,
 	"Name": "Wait to Return",
+	"ParameterSummary": "Wait to return",
 	"RequiredResources": [
 		"WFMainThreadResource"
 	],

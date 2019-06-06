@@ -11,14 +11,19 @@ Plays the audio file passed as input, or a default notification sound if no audi
 
 ### usage
 ```
-PlaySound 
+PlaySound (v:myvar | mv:myvar | s:myvar)
 ```
 
 ### arguments
 
 ---
 
+### soundFile: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Allows Variables**: true
 
+
+
+Accepts a variable.
 
 ---
 
@@ -39,6 +44,7 @@ PlaySound
 	"IconName": "Sound.png",
 	"Input": {
 		"Multiple": false,
+		"ParameterKey": "WFInput",
 		"Required": false,
 		"Types": [
 			"AVAsset"
@@ -47,9 +53,14 @@ PlaySound
 	"InputPassthrough": true,
 	"LastModifiedDate": "2015-11-24T06:00:00.000Z",
 	"Name": "Play Sound",
-	"Subcategory": "Notification",
-	"UnsupportedEnvironments": [
-		"Background"
-	]
+	"ParameterSummary": "Play sound",
+	"Parameters": [
+		{
+			"Class": "WFVariablePickerParameter",
+			"Key": "WFInput",
+			"Label": "Sound File"
+		}
+	],
+	"Subcategory": "Notification"
 }
 ```

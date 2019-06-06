@@ -43,6 +43,7 @@ ScanQRBarCode
 			"AVMetadataMachineReadableCodeObject"
 		]
 	},
+	"ParameterSummary": "Scan QR/Bar Code",
 	"RequiredResources": [
 		"WFUserInteractionResource",
 		"WFCameraAccessResource"

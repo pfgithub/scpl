@@ -13,10 +13,22 @@ Displays a preview of the input.
 
 ### usage
 ```
-QuickLook (true | false | variable)
+QuickLook input=(v:myvar | mv:myvar | s:myvar) fullScreen=(true | false | variable)
 ```
 
 ### arguments
+
+---
+
+### input: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		Input
+		```
+**Allows Variables**: true
+
+
+
+Accepts a variable.
 
 ---
 
@@ -51,6 +63,7 @@ or a variable.
 	"IconName": "Quick Look.png",
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFInput",
 		"Required": true,
 		"Types": [
 			"public.data"
@@ -58,7 +71,14 @@ or a variable.
 	},
 	"InputPassthrough": true,
 	"Name": "Quick Look",
+	"ParameterSummary": "Show ${WFInput} in Quick Look",
 	"Parameters": [
+		{
+			"Class": "WFVariablePickerParameter",
+			"Key": "WFInput",
+			"Label": "Input",
+			"Placeholder": "Input"
+		},
 		{
 			"Class": "WFSwitchParameter",
 			"Key": "WFQuickLookActionFullScreen",

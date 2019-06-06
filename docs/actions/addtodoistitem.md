@@ -22,15 +22,14 @@ The URL of the newly created item
 
 ### usage
 ```
-AddTodoistItem content="string" project=("string" | variable)] dueDate="string" remindMeOn="string" reminderType=("Email" | "Push Notification" | "Text Message") priority=("4" | "3" | "2" | "1") notes="string"
+AddTodoistItem item="string" project=("string" | variable)] dueDate="string" remindMeOn="string" reminderType=("Email" | "Push Notification" | "Text Message") priority=("4" | "3" | "2" | "1") notes="string" files=(v:myvar | mv:myvar | s:myvar)
 ```
 
 ### arguments
 
 ---
 
-### content: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**: `"Buy some milk"`
+### item: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Allows Variables**: true
 
 
@@ -122,6 +121,15 @@ with the text. Allows newlines.
 
 ---
 
+### files: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Allows Variables**: true
+
+
+
+Accepts a variable.
+
+---
+
 ### source json (for developers)
 
 ```json
@@ -144,6 +152,7 @@ with the text. Allows newlines.
 	},
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFTodoistFile",
 		"Required": false,
 		"Types": [
 			"WFGenericFileContentItem"
@@ -158,12 +167,12 @@ with the text. Allows newlines.
 			"NSURL"
 		]
 	},
+	"ParameterSummary": "Add ${WFTodoistContent}",
 	"Parameters": [
 		{
 			"Class": "WFTextInputParameter",
 			"Key": "WFTodoistContent",
-			"Label": "Content",
-			"Placeholder": "Buy some milk",
+			"Label": "Item",
 			"TextAlignment": "Right"
 		},
 		{
@@ -224,6 +233,11 @@ with the text. Allows newlines.
 			"Label": "Notes",
 			"Multiline": true,
 			"Placeholder": "Notes"
+		},
+		{
+			"Class": "WFVariablePickerParameter",
+			"Key": "WFTodoistFile",
+			"Label": "Files"
 		}
 	],
 	"RequiredResources": [

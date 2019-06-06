@@ -11,7 +11,7 @@ Replaces some text passed into the action with other text.
 
 ### usage
 ```
-ReplaceText findText="string" replaceWith="string" caseSensitive=(true | false | variable) regularExpression=(true | false | variable)
+ReplaceText findText="string" replaceWith="string" caseSensitive=(true | false | variable) regularExpression=(true | false | variable) text="string"
 ```
 
 ### arguments
@@ -19,7 +19,7 @@ ReplaceText findText="string" replaceWith="string" caseSensitive=(true | false |
 ---
 
 ### findText: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**: `"hello"`
+**Placeholder**: `"Hello"`
 **Allows Variables**: true
 
 
@@ -31,7 +31,7 @@ with the text. Does not allow newlines.
 ---
 
 ### replaceWith: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**: `"world"`
+**Placeholder**: `"World"`
 **Allows Variables**: true
 
 
@@ -65,6 +65,17 @@ or a variable.
 
 ---
 
+### text: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Allows Variables**: true
+
+
+
+Accepts a string 
+or text
+with the text. Does not allow newlines.
+
+---
+
 ### source json (for developers)
 
 ```json
@@ -85,6 +96,7 @@ or a variable.
 	"IconName": "Text.png",
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFInput",
 		"Required": true,
 		"Types": [
 			"NSString"
@@ -99,20 +111,21 @@ or a variable.
 			"NSString"
 		]
 	},
+	"ParameterSummary": "Replace ${WFReplaceTextFind} with ${WFReplaceTextReplace} in ${WFInput}",
 	"Parameters": [
 		{
 			"Class": "WFTextInputParameter",
 			"Description": "The text to be replaced.",
 			"Key": "WFReplaceTextFind",
 			"Label": "Find Text",
-			"Placeholder": "hello"
+			"Placeholder": "Hello"
 		},
 		{
 			"Class": "WFTextInputParameter",
 			"Description": "The text to replace all occurrences of Find Text.",
 			"Key": "WFReplaceTextReplace",
 			"Label": "Replace With",
-			"Placeholder": "world"
+			"Placeholder": "World"
 		},
 		{
 			"Class": "WFSwitchParameter",
@@ -127,8 +140,14 @@ or a variable.
 			"Description": "When enabled, Find Text is treated as a regular expression.",
 			"Key": "WFReplaceTextRegularExpression",
 			"Label": "Regular Expression"
+		},
+		{
+			"Class": "WFTextInputParameter",
+			"Key": "WFInput",
+			"Label": "Text"
 		}
 	],
+	"ResidentCompatible": true,
 	"Subcategory": "Text Editing"
 }
 ```

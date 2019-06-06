@@ -18,10 +18,22 @@ Powered by Imgur (imgur.com)
 
 ### usage
 ```
-UploadtoImgur uploadAnonymously=(true | false | variable) directLink=(true | false | variable) createAlbum=(true | false | variable) albumLayout=("Blog" | "Grid" | "Horizontal" | "Vertical") albumPrivacy=("Public" | "Hidden" | "Secret") title="string" description="string"
+UploadtoImgur images=(v:myvar | mv:myvar | s:myvar) uploadAnonymously=(true | false | variable) directLink=(true | false | variable) createAlbum=(true | false | variable) albumLayout=("Blog" | "Grid" | "Horizontal" | "Vertical") albumPrivacy=("Public" | "Hidden" | "Secret") title="string" description="string"
 ```
 
 ### arguments
+
+---
+
+### images: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		Images
+		```
+**Allows Variables**: true
+
+
+
+Accepts a variable.
 
 ---
 
@@ -135,6 +147,7 @@ with the text. Allows newlines.
 	},
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFInput",
 		"Required": true,
 		"Types": [
 			"WFImageContentItem"
@@ -148,7 +161,14 @@ with the text. Allows newlines.
 			"NSURL"
 		]
 	},
+	"ParameterSummary": "Upload ${WFInput}",
 	"Parameters": [
+		{
+			"Class": "WFVariablePickerParameter",
+			"Key": "WFInput",
+			"Label": "Images",
+			"Placeholder": "Images"
+		},
 		{
 			"Class": "WFSwitchParameter",
 			"DefaultValue": true,

@@ -13,15 +13,14 @@ Creates a new card on the specified list and board in your Trello account.
 
 ### usage
 ```
-AddTrelloCard name="string" board=("string" | variable)] list=("string" | variable)] due="string" position=("Top" | "Bottom") attachments=(v:myvar | mv:myvar | s:myvar) WFTrelloDescription="string"
+AddTrelloCard item="string" board=("string" | variable)] list=("string" | variable)] due="string" position=("Top" | "Bottom") attachments=(v:myvar | mv:myvar | s:myvar) WFTrelloDescription="string"
 ```
 
 ### arguments
 
 ---
 
-### name: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**: `"Be productive"`
+### item: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Allows Variables**: true
 
 
@@ -117,12 +116,12 @@ with the text. Allows newlines.
 			"WFTrelloCard"
 		]
 	},
+	"ParameterSummary": "Add ${WFTrelloName} to the ${WFTrelloCardPosition} of ${WFTrelloList} in ${WFTrelloBoard}",
 	"Parameters": [
 		{
 			"Class": "WFTextInputParameter",
 			"Key": "WFTrelloName",
-			"Label": "Name",
-			"Placeholder": "Be productive",
+			"Label": "Item",
 			"TextAlignment": "Right"
 		},
 		{
@@ -155,7 +154,7 @@ with the text. Allows newlines.
 		},
 		{
 			"Class": "WFVariablePickerParameter",
-			"Description": "A list of items to be attached to the new card as files",
+			"Description": "A list of items to be attached to the new card as files.",
 			"Key": "WFTrelloAttachments",
 			"Label": "Attachments"
 		},

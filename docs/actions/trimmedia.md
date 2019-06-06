@@ -22,14 +22,22 @@ The trimmed media.
 
 ### usage
 ```
-TrimMedia 
+TrimMedia (v:myvar | mv:myvar | s:myvar)
 ```
 
 ### arguments
 
 ---
 
+### media: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		Media
+		```
+**Allows Variables**: true
 
+
+
+Accepts a variable.
 
 ---
 
@@ -54,6 +62,7 @@ TrimMedia
 	"IconName": "QuickTime.png",
 	"Input": {
 		"Multiple": false,
+		"ParameterKey": "WFInputMedia",
 		"Required": true,
 		"Types": [
 			"WFAVAssetContentItem"
@@ -67,6 +76,15 @@ TrimMedia
 			"com.apple.quicktime-movie"
 		]
 	},
+	"ParameterSummary": "Trim ${WFInputMedia}",
+	"Parameters": [
+		{
+			"Class": "WFVariablePickerParameter",
+			"Key": "WFInputMedia",
+			"Label": "Media",
+			"Placeholder": "Media"
+		}
+	],
 	"RequiredResources": [
 		"WFUserInteractionResource"
 	],

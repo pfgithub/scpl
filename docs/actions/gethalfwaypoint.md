@@ -1,6 +1,10 @@
 
 ## Get Halfway Point / GetHalfwayPoint (internally `is.workflow.actions.gethalfwaypoint`)
 
+> This action is not yet complete. Some arguments may be missing.
+
+> This action requires that Shortcuts has permission to use [object Object],[object Object].
+
 
 ## description
 
@@ -11,34 +15,18 @@ Gets the halfway point between two locations.
 
 ### usage
 ```
-GetHalfwayPoint firstLocation="string" secondLocation="string"
+GetHalfwayPoint undefined=NotImplemented undefined=NotImplemented
 ```
 
 ### arguments
 
 ---
 
-### firstLocation: Location [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**: `"San Francisco, CA"`
-**Allows Variables**: true
-
-
-
-Accepts a string 
-or text
-with the text. Does not allow newlines.
+#### This paramtype is not implemented. WFLocationParameter
 
 ---
 
-### secondLocation: Location [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**: `"Philadelphia, PA"`
-**Allows Variables**: true
-
-
-
-Accepts a string 
-or text
-with the text. Does not allow newlines.
+#### This paramtype is not implemented. WFLocationParameter
 
 ---
 
@@ -68,20 +56,45 @@ with the text. Does not allow newlines.
 	},
 	"Parameters": [
 		{
-			"Class": "WFLocationFieldParameter",
+			"AllowTextOnly": true,
+			"Class": "WFLocationParameter",
 			"Key": "WFGetHalfwayPointFirstLocation",
-			"Label": "First Location",
-			"Placeholder": "San Francisco, CA",
-			"TextAlignment": "Right"
+			"Label": "First Location"
 		},
 		{
-			"Class": "WFLocationFieldParameter",
+			"AllowTextOnly": true,
+			"Class": "WFLocationParameter",
 			"Key": "WFGetHalfwayPointSecondLocation",
-			"Label": "Second Location",
-			"Placeholder": "Philadelphia, PA",
-			"TextAlignment": "Right"
+			"Label": "Second Location"
 		}
 	],
+	"RequiredResources": [
+		{
+			"RequiredResources": [
+				{
+					"WFParameterKey": "WFGetHalfwayPointSecondLocation",
+					"WFParameterValue": {
+						"isCurrentLocation": true
+					},
+					"WFResourceClass": "WFParameterRelationResource"
+				}
+			],
+			"WFResourceClass": "WFLocationAccessResource"
+		},
+		{
+			"RequiredResources": [
+				{
+					"WFParameterKey": "WFGetHalfwayPointFirstLocation",
+					"WFParameterValue": {
+						"isCurrentLocation": true
+					},
+					"WFResourceClass": "WFParameterRelationResource"
+				}
+			],
+			"WFResourceClass": "WFLocationAccessResource"
+		}
+	],
+	"ResidentCompatible": true,
 	"SuggestedNever": true
 }
 ```

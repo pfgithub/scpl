@@ -21,7 +21,7 @@ ShowResult "string"
 ---
 
 ### text: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**: `"Enter text..."`
+**Placeholder**: `"Result"`
 **Allows Variables**: true
 
 
@@ -52,13 +52,14 @@ with the text. Allows newlines.
 	"IconName": "Scripting",
 	"InputPassthrough": true,
 	"Name": "Show Result",
+	"ParameterSummary": "Show ${Text}",
 	"Parameters": [
 		{
 			"Class": "WFTextInputParameter",
 			"DefaultValue": "",
 			"Key": "Text",
 			"Multiline": true,
-			"Placeholder": "Enter text..."
+			"Placeholder": "Result"
 		}
 	],
 	"RequiredResources": [

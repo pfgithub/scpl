@@ -1,6 +1,8 @@
 
 ## Expand URL / ExpandURL (internally `is.workflow.actions.url.expand`)
 
+> This action requires that Shortcuts has permission to use WFRemoteServerAccessResource.
+
 
 ## description
 
@@ -20,14 +22,22 @@ The full, expanded URL, or the original URL if the URL was not shortened
 
 ### usage
 ```
-ExpandURL 
+ExpandURL "string"
 ```
 
 ### arguments
 
 ---
 
+### uRL: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"URL"`
+**Allows Variables**: true
 
+
+
+Accepts a string 
+or text
+with the text. Does not allow newlines.
 
 ---
 
@@ -53,6 +63,7 @@ ExpandURL
 	"IconName": "URL.png",
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "URL",
 		"Required": true,
 		"Types": [
 			"WFURLContentItem"
@@ -66,6 +77,23 @@ ExpandURL
 			"WFURLContentItem"
 		]
 	},
+	"ParameterSummary": "Expand ${URL}",
+	"Parameters": [
+		{
+			"AutocapitalizationType": "None",
+			"Class": "WFTextInputParameter",
+			"DisableAutocorrection": true,
+			"Key": "URL",
+			"KeyboardType": "URL",
+			"Label": "URL",
+			"Placeholder": "URL",
+			"TextContentType": "URL"
+		}
+	],
+	"RequiredResources": [
+		"WFRemoteServerAccessResource"
+	],
+	"ResidentCompatible": true,
 	"Subcategory": "URLs"
 }
 ```

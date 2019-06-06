@@ -13,7 +13,7 @@ Posts the input to the specified Slack channel.
 
 ### usage
 ```
-PosttoSlack account=("string" | variable)] channel=("string" | variable)]
+PosttoSlack account=("string" | variable)] channel=("string" | variable)] content=(v:myvar | mv:myvar | s:myvar)
 ```
 
 ### arguments
@@ -36,6 +36,15 @@ PosttoSlack account=("string" | variable)] channel=("string" | variable)]
 
 ---
 
+### content: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Allows Variables**: true
+
+
+
+Accepts a variable.
+
+---
+
 ### source json (for developers)
 
 ```json
@@ -54,8 +63,10 @@ PosttoSlack account=("string" | variable)] channel=("string" | variable)]
 	"Description": {
 		"DescriptionSummary": "Posts the input to the specified Slack channel."
 	},
+	"Discontinued": true,
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFSlackInput",
 		"Required": true,
 		"Types": [
 			"WFGenericFileContentItem",
@@ -65,6 +76,7 @@ PosttoSlack account=("string" | variable)] channel=("string" | variable)]
 	"InputPassthrough": true,
 	"LastModifiedDate": "2015-11-24T06:00:00.000Z",
 	"Name": "Post to Slack",
+	"ParameterSummary": "Post ${WFSlackInput} to ${SlackChannel}",
 	"Parameters": [
 		{
 			"AccountClass": "WFSlackAccount",
@@ -83,6 +95,11 @@ PosttoSlack account=("string" | variable)] channel=("string" | variable)]
 			"Class": "WFSlackChannelPickerParameter",
 			"Key": "SlackChannel",
 			"Label": "Channel"
+		},
+		{
+			"Class": "WFVariablePickerParameter",
+			"Key": "WFSlackInput",
+			"Label": "Content"
 		}
 	],
 	"RequiredResources": [

@@ -88,7 +88,8 @@ LogHealthSample undefined=NotImplemented undefined=NotImplemented undefined=NotI
 				"Variable"
 			],
 			"Key": "WFQuantitySampleType",
-			"Label": "Type"
+			"Label": "Type",
+			"Placeholder": "Type"
 		},
 		{
 			"AutocapitalizationType": "None",
@@ -96,7 +97,7 @@ LogHealthSample undefined=NotImplemented undefined=NotImplemented undefined=NotI
 			"Key": "WFQuantitySampleQuantity",
 			"KeyboardType": "DecimalPad",
 			"Label": "Value",
-			"Placeholder": "10",
+			"Placeholder": "Value",
 			"QuantityTypeKey": "WFQuantitySampleType",
 			"TextAlignment": "Right"
 		},

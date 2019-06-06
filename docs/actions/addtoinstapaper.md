@@ -13,7 +13,7 @@ Adds the input to Instapaper.
 
 ### usage
 ```
-AddtoInstapaper ("string" | variable)]
+AddtoInstapaper folder=("string" | variable)] uRL="string"
 ```
 
 ### arguments
@@ -26,6 +26,18 @@ AddtoInstapaper ("string" | variable)]
 
 
 		Accepts a string or variable containing the option. Check the shortcuts app for a list of available options. 
+
+---
+
+### uRL: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"URL"`
+**Allows Variables**: true
+
+
+
+Accepts a string 
+or text
+with the text. Does not allow newlines.
 
 ---
 
@@ -42,6 +54,7 @@ AddtoInstapaper ("string" | variable)]
 	},
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFInputURL",
 		"Required": true,
 		"Types": [
 			"WFURLContentItem"
@@ -49,6 +62,7 @@ AddtoInstapaper ("string" | variable)]
 	},
 	"InputPassthrough": true,
 	"Name": "Add to Instapaper",
+	"ParameterSummary": "Add ${WFInputURL}",
 	"Parameters": [
 		{
 			"AlwaysShowsButton": true,
@@ -57,6 +71,16 @@ AddtoInstapaper ("string" | variable)]
 			"Key": "WFInstapaperFolder",
 			"Label": "Folder",
 			"NoneLabel": "None"
+		},
+		{
+			"AutocapitalizationType": "None",
+			"Class": "WFTextInputParameter",
+			"DisableAutocorrection": true,
+			"Key": "WFInputURL",
+			"KeyboardType": "URL",
+			"Label": "URL",
+			"Placeholder": "URL",
+			"TextContentType": "URL"
 		}
 	],
 	"RequiredResources": [

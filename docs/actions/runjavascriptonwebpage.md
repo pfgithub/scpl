@@ -27,7 +27,7 @@ The output from the JavaScript (JSON)
 
 ### usage
 ```
-RunJavaScriptonWebpage "string"
+RunJavaScriptonWebpage javaScript="string" webpage=(v:myvar | mv:myvar | s:myvar)
 ```
 
 ### arguments
@@ -58,6 +58,18 @@ with the text. Allows newlines.
 
 ---
 
+### webpage: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		Webpage
+		```
+**Allows Variables**: true
+
+
+
+Accepts a variable.
+
+---
+
 ### source json (for developers)
 
 ```json
@@ -71,7 +83,10 @@ with the text. Allows newlines.
 		"webpage",
 		"webkit",
 		"browser",
-		"json"
+		"json",
+		"web",
+		"page",
+		"website"
 	],
 	"AppIdentifier": "com.apple.mobilesafari",
 	"Category": "Web",
@@ -83,6 +98,7 @@ with the text. Allows newlines.
 	},
 	"Input": {
 		"Multiple": false,
+		"ParameterKey": "WFInput",
 		"Required": true,
 		"Types": [
 			"WFSafariWebPageContentItem"
@@ -101,6 +117,7 @@ with the text. Allows newlines.
 			"WFNumberContentItem"
 		]
 	},
+	"ParameterSummary": "Run JavaScript on ${WFInput}",
 	"Parameters": [
 		{
 			"AutocapitalizationType": "None",
@@ -114,6 +131,12 @@ with the text. Allows newlines.
 			"Multiline": true,
 			"Placeholder": "JavaScript",
 			"SyntaxHighlightingType": "JavaScript"
+		},
+		{
+			"Class": "WFVariablePickerParameter",
+			"Key": "WFInput",
+			"Label": "Webpage",
+			"Placeholder": "Webpage"
 		}
 	],
 	"RequiredResources": [

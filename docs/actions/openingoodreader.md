@@ -13,14 +13,19 @@ Opens a file in GoodReader.
 
 ### usage
 ```
-OpeninGoodReader 
+OpeninGoodReader (v:myvar | mv:myvar | s:myvar)
 ```
 
 ### arguments
 
 ---
 
+### file: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Allows Variables**: true
 
+
+
+Accepts a variable.
 
 ---
 
@@ -42,6 +47,7 @@ OpeninGoodReader
 	},
 	"Input": {
 		"Multiple": false,
+		"ParameterKey": "WFInput",
 		"Required": true,
 		"Types": [
 			"public.data"
@@ -49,6 +55,14 @@ OpeninGoodReader
 	},
 	"InputPassthrough": true,
 	"Name": "Open in GoodReader",
+	"ParameterSummary": "Open ${WFInput}",
+	"Parameters": [
+		{
+			"Class": "WFVariablePickerParameter",
+			"Key": "WFInput",
+			"Label": "File"
+		}
+	],
 	"RequiredResources": [
 		"WFURLOpenResource",
 		{

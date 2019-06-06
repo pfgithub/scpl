@@ -20,7 +20,7 @@ The output from the shell script (stdout)
 
 ### usage
 ```
-RunScriptOverSSH host="string" port="string" user="string" password="string" script="string"
+RunScriptOverSSH host="string" port="string" user="string" password="string" input=(v:myvar | mv:myvar | s:myvar) script="string"
 ```
 
 ### arguments
@@ -76,6 +76,15 @@ with the text. Does not allow newlines.
 
 ---
 
+### input: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Allows Variables**: true
+
+
+
+Accepts a variable.
+
+---
+
 ### script: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"Script"`
 **Allows Variables**: true
@@ -111,6 +120,7 @@ with the text. Allows newlines.
 	"IconName": "Scripting.png",
 	"Input": {
 		"Multiple": false,
+		"ParameterKey": "WFInput",
 		"Required": false,
 		"Types": [
 			"public.data"
@@ -125,6 +135,7 @@ with the text. Allows newlines.
 			"public.data"
 		]
 	},
+	"ParameterSummary": "Run script over SSH",
 	"Parameters": [
 		{
 			"AutocapitalizationType": "None",
@@ -163,6 +174,11 @@ with the text. Allows newlines.
 			"TextContentType": "Password"
 		},
 		{
+			"Class": "WFVariablePickerParameter",
+			"Key": "WFInput",
+			"Label": "Input"
+		},
+		{
 			"AutocapitalizationType": "None",
 			"Class": "WFTextInputParameter",
 			"DisableAutocorrection": true,
@@ -172,6 +188,7 @@ with the text. Allows newlines.
 			"Placeholder": "Script"
 		}
 	],
+	"ResidentCompatible": true,
 	"ShortName": "Run SSH Script",
 	"Subcategory": "Shell",
 	"SuggestedNever": true

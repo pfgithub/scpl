@@ -1,7 +1,7 @@
 
 ## Call / Call (internally `com.apple.mobilephone.call`)
 
-> This action requires that Shortcuts has permission to use WFContactAccessResource.
+> This action is not yet complete. Some arguments may be missing.
 
 
 ## description
@@ -13,7 +13,7 @@ Calls the phone number passed in as input.
 
 ### usage
 ```
-Call ("string" | variable)]
+Call app=("string" | variable)] undefined=NotImplemented
 ```
 
 ### arguments
@@ -29,6 +29,10 @@ Call ("string" | variable)]
 **Only enabled if**: This action is always **disabled** inside Shortcutslang.
 
 		Accepts a string or variable containing the option. Check the shortcuts app for a list of available options. 
+
+---
+
+#### This paramtype is not implemented. WFContactFieldParameter
 
 ---
 
@@ -51,6 +55,7 @@ Call ("string" | variable)]
 	},
 	"Input": {
 		"Multiple": false,
+		"ParameterKey": "WFCallContact",
 		"Required": true,
 		"Types": [
 			"WFPhoneNumber",
@@ -58,20 +63,25 @@ Call ("string" | variable)]
 		]
 	},
 	"InputPassthrough": true,
+	"IntentIdentifier": "sirikit.intent.call.StartCallIntent",
 	"LastModifiedDate": "2018-10-09T05:00:00.000Z",
 	"Name": "Call",
+	"ParameterSummary": "Call ${WFCallContact}",
 	"Parameters": [
 		{
 			"Class": "WFIntentAppPickerParameter",
 			"DefaultValue": "com.apple.TelephonyUtilities.PhoneIntentHandler",
 			"Hidden": true,
-			"IntentName": "INStartAudioCallIntent",
+			"IntentName": "INStartCallIntent",
 			"Key": "IntentAppIdentifier",
 			"Label": "App"
+		},
+		{
+			"Class": "WFContactFieldParameter",
+			"IntentSlotName": "contacts",
+			"Key": "WFCallContact",
+			"Label": "Contact"
 		}
-	],
-	"RequiredResources": [
-		"WFContactAccessResource"
 	],
 	"Subcategory": "Phone",
 	"WFStartCallActionType": "Phone"

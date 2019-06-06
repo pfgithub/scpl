@@ -13,7 +13,7 @@ Shows the web URL passed into the action in a Safari View Controller, allowing y
 
 ### usage
 ```
-ShowWebpage (true | false | variable)
+ShowWebpage enterSafariReader=(true | false | variable) uRL="string"
 ```
 
 ### arguments
@@ -27,6 +27,18 @@ ShowWebpage (true | false | variable)
 
 Accepts a boolean
 or a variable.
+
+---
+
+### uRL: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"URL"`
+**Allows Variables**: true
+
+
+
+Accepts a string 
+or text
+with the text. Does not allow newlines.
 
 ---
 
@@ -53,6 +65,7 @@ or a variable.
 	},
 	"Input": {
 		"Multiple": false,
+		"ParameterKey": "WFURL",
 		"Required": true,
 		"Types": [
 			"WFURLContentItem",
@@ -61,6 +74,7 @@ or a variable.
 	},
 	"InputPassthrough": true,
 	"Name": "Show Webpage",
+	"ParameterSummary": "Show webpage at ${WFURL}",
 	"Parameters": [
 		{
 			"Class": "WFSwitchParameter",
@@ -68,6 +82,16 @@ or a variable.
 			"Description": "Enter Safari Reader mode if it’s available for the given webpage.",
 			"Key": "WFEnterSafariReader",
 			"Label": "Enter Safari Reader"
+		},
+		{
+			"AutocapitalizationType": "None",
+			"Class": "WFTextInputParameter",
+			"DisableAutocorrection": true,
+			"Key": "WFURL",
+			"KeyboardType": "URL",
+			"Label": "URL",
+			"Placeholder": "URL",
+			"TextContentType": "URL"
 		}
 	],
 	"RequiredResources": [

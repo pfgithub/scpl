@@ -3,8 +3,6 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
-> This action requires that Shortcuts has permission to use WFContactAccessResource.
-
 
 ## description
 
@@ -38,6 +36,7 @@ Contacts NotImplemented
 	],
 	"AppIdentifier": "com.apple.MobileAddressBook",
 	"Category": "Contacts",
+	"Constructor": true,
 	"Description": {
 		"DescriptionSummary": "Passes the specified contacts to the next action."
 	},
@@ -51,15 +50,14 @@ Contacts NotImplemented
 	},
 	"Parameters": [
 		{
+			"AllowsMultipleValues": true,
 			"AllowsTextEntry": false,
 			"Class": "WFContactFieldParameter",
 			"Key": "WFContact",
 			"Placeholder": "Press + to add contacts"
 		}
 	],
-	"RequiredResources": [
-		"WFContactAccessResource"
-	],
+	"ResidentCompatible": true,
 	"Subcategory": "Contacts"
 }
 ```

@@ -26,7 +26,7 @@ SearchGiphy search="string" showGIFPicker=(true | false | variable) WFGiphyLimit
 ---
 
 ### search: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**: `"leave blank for trending"`
+**Placeholder**: `"Trending"`
 **Allows Variables**: true
 
 
@@ -95,13 +95,14 @@ or a variable.
 			"WFGiphyObject"
 		]
 	},
+	"ParameterSummary": "Search Giphy for ${WFGiphyQuery}",
 	"Parameters": [
 		{
 			"AutocapitalizationType": "None",
 			"Class": "WFTextInputParameter",
 			"Key": "WFGiphyQuery",
 			"Label": "Search",
-			"Placeholder": "leave blank for trending",
+			"Placeholder": "Trending",
 			"TextAlignment": "Right"
 		},
 		{

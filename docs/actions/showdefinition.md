@@ -13,14 +13,22 @@ Shows the definition of the word passed into the action.
 
 ### usage
 ```
-ShowDefinition 
+ShowDefinition "string"
 ```
 
 ### arguments
 
 ---
 
+### word: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"word"`
+**Allows Variables**: true
 
+
+
+Accepts a string 
+or text
+with the text. Does not allow newlines.
 
 ---
 
@@ -44,6 +52,7 @@ ShowDefinition
 	"IconName": "Dictionary.png",
 	"Input": {
 		"Multiple": false,
+		"ParameterKey": "Word",
 		"Required": true,
 		"Types": [
 			"NSString"
@@ -51,6 +60,15 @@ ShowDefinition
 	},
 	"InputPassthrough": true,
 	"Name": "Show Definition",
+	"ParameterSummary": "Show definition of ${Word}",
+	"Parameters": [
+		{
+			"Class": "WFTextInputParameter",
+			"Key": "Word",
+			"Label": "Word",
+			"Placeholder": "word"
+		}
+	],
 	"RequiredResources": [
 		"WFUserInteractionResource"
 	],

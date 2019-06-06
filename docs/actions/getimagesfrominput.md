@@ -13,14 +13,19 @@ For example, this action can get the album art of a song, or all the images on a
 
 ### usage
 ```
-GetImagesfromInput 
+GetImagesfromInput (v:myvar | mv:myvar | s:myvar)
 ```
 
 ### arguments
 
 ---
 
+### input: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Allows Variables**: true
 
+
+
+Accepts a variable.
 
 ---
 
@@ -45,6 +50,7 @@ GetImagesfromInput
 	"IconName": "Image.png",
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFInput",
 		"Required": true,
 		"Types": [
 			"UIImage"
@@ -58,6 +64,15 @@ GetImagesfromInput
 			"WFImageContentItem"
 		]
 	},
+	"ParameterSummary": "Get images from ${WFInput}",
+	"Parameters": [
+		{
+			"Class": "WFVariablePickerParameter",
+			"Key": "WFInput",
+			"Label": "Input"
+		}
+	],
+	"ResidentCompatible": true,
 	"ShortName": "Get Images",
 	"Subcategory": "Images"
 }

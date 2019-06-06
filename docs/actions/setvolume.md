@@ -40,13 +40,17 @@ SetVolume number
 		"speaker",
 		"loud"
 	],
-	"Category": "Music",
+	"Categories": [
+		"Media",
+		"Scripting"
+	],
 	"Description": {
 		"DescriptionSummary": "Sets the system volume."
 	},
 	"IconName": "Sound.png",
 	"InputPassthrough": true,
 	"Name": "Set Volume",
+	"ParameterSummary": "Set volume to ${WFVolume}",
 	"Parameters": [
 		{
 			"Class": "WFSliderParameter",

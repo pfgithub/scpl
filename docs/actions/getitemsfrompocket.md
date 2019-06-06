@@ -89,6 +89,7 @@ with the text. Does not allow newlines.
 			"NSURL"
 		]
 	},
+	"ParameterSummary": "Get ${WFPocketItemCount}",
 	"Parameters": [
 		{
 			"Class": "WFStepperParameter",

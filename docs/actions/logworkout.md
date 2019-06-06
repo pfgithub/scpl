@@ -76,6 +76,7 @@ with the text. Does not allow newlines.
 			"WFHKWorkoutContentItem"
 		]
 	},
+	"ParameterSummary": "Log ${WFWorkoutReadableActivityType} workout",
 	"Parameters": [
 		{
 			"Class": "WFWorkoutTypePickerParameter",
@@ -97,6 +98,11 @@ with the text. Does not allow newlines.
 			"Key": "WFWorkoutDuration",
 			"Label": "Duration",
 			"Placeholder": "30",
+			"PossibleUnits": [
+				"sec",
+				"min",
+				"hr"
+			],
 			"TextAlignment": "Right"
 		},
 		{

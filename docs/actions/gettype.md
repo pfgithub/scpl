@@ -11,14 +11,22 @@ Returns the type of every item passed as input. For example, if a URL is passed,
 
 ### usage
 ```
-GetType 
+GetType (v:myvar | mv:myvar | s:myvar)
 ```
 
 ### arguments
 
 ---
 
+### item: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		Item
+		```
+**Allows Variables**: true
 
+
+
+Accepts a variable.
 
 ---
 
@@ -39,6 +47,7 @@ GetType
 	"IconName": "Scripting.png",
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFInput",
 		"Required": true,
 		"Types": [
 			"WFContentItem"
@@ -52,6 +61,16 @@ GetType
 			"NSString"
 		]
 	},
+	"ParameterSummary": "Get type of ${WFInput}",
+	"Parameters": [
+		{
+			"Class": "WFVariablePickerParameter",
+			"Key": "WFInput",
+			"Label": "Item",
+			"Placeholder": "Item"
+		}
+	],
+	"ResidentCompatible": true,
 	"Subcategory": "Content",
 	"SuggestedNever": true
 }

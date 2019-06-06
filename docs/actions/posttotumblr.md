@@ -19,10 +19,22 @@ The URL of the new post
 
 ### usage
 ```
-PosttoTumblr undefined=NotImplemented blog=("string" | variable)] type=("string" | variable)] postStatus=("Post Now" | "Add to Queue" | "Save as Draft" | "Post Privately") title="string" source="string" caption="string" tags="string" description="string"
+PosttoTumblr content=(v:myvar | mv:myvar | s:myvar) undefined=NotImplemented blog=("string" | variable)] type=("string" | variable)] postStatus=("Post Now" | "Add to Queue" | "Save as Draft" | "Post Privately") title="string" source="string" caption="string" tags="string" description="string"
 ```
 
 ### arguments
+
+---
+
+### content: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		Content
+		```
+**Allows Variables**: true
+
+
+
+Accepts a variable.
 
 ---
 
@@ -147,6 +159,7 @@ with the text. Allows newlines.
 	},
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFInput",
 		"Required": true,
 		"Types": [
 			"NSString",
@@ -164,7 +177,14 @@ with the text. Allows newlines.
 			"WFURLContentItem"
 		]
 	},
+	"ParameterSummary": "Post ${WFInput}",
 	"Parameters": [
+		{
+			"Class": "WFVariablePickerParameter",
+			"Key": "WFInput",
+			"Label": "Content",
+			"Placeholder": "Content"
+		},
 		{
 			"Class": "WFTumblrComposeInAppParameter",
 			"Key": "WFComposeInApp",
@@ -172,7 +192,7 @@ with the text. Allows newlines.
 		},
 		{
 			"Class": "WFTumblrBlogPickerParameter",
-			"Description": "The name of the blog to post to",
+			"Description": "The name of the blog to post to.",
 			"Key": "WFBlogName",
 			"Label": "Blog",
 			"RequiredResources": [

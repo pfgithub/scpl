@@ -44,12 +44,12 @@ GetLatestLivePhotos number
 		"photo",
 		"animated"
 	],
+	"AppIdentifier": "com.apple.mobileslideshow",
 	"Category": "Photos & Video",
 	"CreationDate": "2015-12-08T08:00:00.000Z",
 	"Description": {
 		"DescriptionSummary": "Gets the most recent Live Photos from the camera roll."
 	},
-	"IconName": "LivePhotos.png",
 	"Name": "Get Latest Live Photos",
 	"Output": {
 		"Multiple": true,
@@ -58,6 +58,7 @@ GetLatestLivePhotos number
 			"PHAsset"
 		]
 	},
+	"ParameterSummary": "Get the latest ${WFGetLatestPhotoCount}",
 	"Parameters": [
 		{
 			"Class": "WFStepperParameter",

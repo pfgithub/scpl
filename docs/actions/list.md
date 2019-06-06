@@ -44,6 +44,7 @@ Accepts a list.
 		"array"
 	],
 	"Category": "Scripting",
+	"Constructor": true,
 	"Description": {
 		"DescriptionNote": "If you specify a variable, the contents of that variable will be included in the list.",
 		"DescriptionSummary": "Allows you to specify a list of items to be passed to the next action."

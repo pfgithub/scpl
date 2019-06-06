@@ -100,6 +100,7 @@ with the text. Does not allow newlines.
 			"WFAppStoreAppContentItem"
 		]
 	},
+	"ParameterSummary": "Search App Store for ${WFSearchTerm}",
 	"Parameters": [
 		{
 			"Class": "WFTextInputParameter",
@@ -135,6 +136,7 @@ with the text. Does not allow newlines.
 			"StepperPluralNoun": "Items"
 		}
 	],
+	"ResidentCompatible": true,
 	"SuggestedNever": true
 }
 ```

@@ -13,14 +13,19 @@ Shows the date or calendar event passed as input in the Calendar app.
 
 ### usage
 ```
-ShowinCalendar 
+ShowinCalendar (v:myvar | mv:myvar | s:myvar)
 ```
 
 ### arguments
 
 ---
 
+### event: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Allows Variables**: true
 
+
+
+Accepts a variable.
 
 ---
 
@@ -43,6 +48,7 @@ ShowinCalendar
 	},
 	"Input": {
 		"Multiple": false,
+		"ParameterKey": "WFEvent",
 		"Required": true,
 		"Types": [
 			"WFDateContentItem",
@@ -52,6 +58,14 @@ ShowinCalendar
 	},
 	"InputPassthrough": true,
 	"Name": "Show in Calendar",
+	"ParameterSummary": "Show ${WFEvent} in Calendar",
+	"Parameters": [
+		{
+			"Class": "WFVariablePickerParameter",
+			"Key": "WFEvent",
+			"Label": "Event"
+		}
+	],
 	"RequiredResources": [
 		"WFURLOpenResource"
 	],

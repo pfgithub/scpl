@@ -11,7 +11,7 @@ Makes a PDF out of the input. The resulting PDF can optionally include a quarter
 
 ### usage
 ```
-MakePDF includeMargin=(true | false | variable) include=("All Pages" | "Single Page" | "Page Range") page=number startPage=number endPage=number
+MakePDF includeMargin=(true | false | variable) include=("All Pages" | "Single Page" | "Page Range") page=number startPage=number endPage=number input=(v:myvar | mv:myvar | s:myvar)
 ```
 
 ### arguments
@@ -80,6 +80,18 @@ containing one of the options:
 
 ---
 
+### input: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		Input
+		```
+**Allows Variables**: true
+
+
+
+Accepts a variable.
+
+---
+
 ### source json (for developers)
 
 ```json
@@ -98,6 +110,7 @@ containing one of the options:
 	"IconName": "PDF.png",
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFInput",
 		"Required": true,
 		"Types": [
 			"WFContentItem"
@@ -112,6 +125,7 @@ containing one of the options:
 			"WFPDFContentItem"
 		]
 	},
+	"ParameterSummary": "Make PDF from ${WFInput}",
 	"Parameters": [
 		{
 			"Class": "WFSwitchParameter",
@@ -174,8 +188,15 @@ containing one of the options:
 				}
 			],
 			"TextAlignment": "Right"
+		},
+		{
+			"Class": "WFVariablePickerParameter",
+			"Key": "WFInput",
+			"Label": "Input",
+			"Placeholder": "Input"
 		}
 	],
+	"ResidentCompatible": true,
 	"Subcategory": "Printing",
 	"UnsupportedEnvironments": [
 		"MemoryConstrained"

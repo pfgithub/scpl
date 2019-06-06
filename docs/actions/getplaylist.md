@@ -39,7 +39,7 @@ GetPlaylist ("string" | variable)]
 		"track"
 	],
 	"AppIdentifier": "com.apple.Music",
-	"Category": "Music",
+	"Category": "Media",
 	"CreationDate": "2015-04-06T07:00:00.000Z",
 	"Description": {
 		"DescriptionSummary": "Gets every song in the specified playlist."
@@ -52,6 +52,7 @@ GetPlaylist ("string" | variable)]
 			"MPMediaItem"
 		]
 	},
+	"ParameterSummary": "Get songs in ${WFPlaylistName}",
 	"Parameters": [
 		{
 			"Class": "WFPlaylistPickerParameter",

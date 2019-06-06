@@ -16,7 +16,7 @@ You can reference values deep inside of a dictionary by providing multiple keys 
 
 ### usage
 ```
-GetDictionaryValue get=("Value" | "All Keys" | "All Values" | variable) key="string"
+GetDictionaryValue get=("Value" | "All Keys" | "All Values" | variable) key="string" dictionary=(v:myvar | mv:myvar | s:myvar)
 ```
 
 ### arguments
@@ -37,7 +37,7 @@ containing one of the options:
 ---
 
 ### key: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**: `"example"`
+**Placeholder**: `"Key"`
 **Allows Variables**: true
 
 **Only enabled if**: argument WFGetDictionaryValueType == `Value`
@@ -45,6 +45,18 @@ containing one of the options:
 Accepts a string 
 or text
 with the text. Does not allow newlines.
+
+---
+
+### dictionary: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		Dictionary
+		```
+**Allows Variables**: true
+
+
+
+Accepts a variable.
 
 ---
 
@@ -71,6 +83,7 @@ with the text. Does not allow newlines.
 	"IconName": "Scripting.png",
 	"Input": {
 		"Multiple": false,
+		"ParameterKey": "WFInput",
 		"Required": true,
 		"Types": [
 			"WFDictionaryContentItem"
@@ -89,6 +102,11 @@ with the text. Does not allow newlines.
 			"WFDictionaryContentItem",
 			"WFBooleanContentItem"
 		]
+	},
+	"ParameterSummary": {
+		"WFGetDictionaryValueType(All Keys),WFInput": "Get ${WFGetDictionaryValueType} in ${WFInput}",
+		"WFGetDictionaryValueType(All Values),WFInput": "Get ${WFGetDictionaryValueType} in ${WFInput}",
+		"WFGetDictionaryValueType(Value),WFDictionaryKey,WFInput": "Get ${WFGetDictionaryValueType} for ${WFDictionaryKey} in ${WFInput}"
 	},
 	"Parameters": [
 		{
@@ -112,7 +130,7 @@ with the text. Does not allow newlines.
 			"DisableAutocorrection": true,
 			"Key": "WFDictionaryKey",
 			"Label": "Key",
-			"Placeholder": "example",
+			"Placeholder": "Key",
 			"RequiredResources": [
 				{
 					"WFParameterKey": "WFGetDictionaryValueType",
@@ -121,8 +139,15 @@ with the text. Does not allow newlines.
 				}
 			],
 			"TextAlignment": "Right"
+		},
+		{
+			"Class": "WFVariablePickerParameter",
+			"Key": "WFInput",
+			"Label": "Dictionary",
+			"Placeholder": "Dictionary"
 		}
 	],
+	"ResidentCompatible": true,
 	"Subcategory": "Dictionaries"
 }
 ```

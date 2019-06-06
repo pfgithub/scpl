@@ -15,7 +15,7 @@ Archive
 
 ### usage
 ```
-MakeArchive archiveName="string" format=(".zip" | ".tar.gz" | ".tar.bz2" | ".tar.xz" | ".tar" | ".gz" | ".cpio" | ".iso")
+MakeArchive archiveName="string" format=(".zip" | ".tar.gz" | ".tar.bz2" | ".tar.xz" | ".tar" | ".gz" | ".cpio" | ".iso") input=(v:myvar | mv:myvar | s:myvar)
 ```
 
 ### arguments
@@ -54,6 +54,18 @@ containing one of the options:
 
 ---
 
+### input: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		Input
+		```
+**Allows Variables**: true
+
+
+
+Accepts a variable.
+
+---
+
 ### source json (for developers)
 
 ```json
@@ -72,6 +84,7 @@ containing one of the options:
 	"IconName": "Documents.png",
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFInput",
 		"Required": true,
 		"Types": [
 			"WFContentItem"
@@ -86,6 +99,7 @@ containing one of the options:
 			"WFGenericFileContentItem"
 		]
 	},
+	"ParameterSummary": "Make ${WFArchiveFormat} archive from ${WFInput}",
 	"Parameters": [
 		{
 			"Class": "WFTextInputParameter",
@@ -98,8 +112,15 @@ containing one of the options:
 			"Class": "WFArchiveFormatParameter",
 			"Key": "WFArchiveFormat",
 			"Label": "Format"
+		},
+		{
+			"Class": "WFVariablePickerParameter",
+			"Key": "WFInput",
+			"Label": "Input",
+			"Placeholder": "Input"
 		}
 	],
+	"ResidentCompatible": true,
 	"Subcategory": "Archives"
 }
 ```

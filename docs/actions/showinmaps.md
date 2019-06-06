@@ -1,6 +1,10 @@
 
 ## Show in Maps / ShowinMaps (internally `is.workflow.actions.searchmaps`)
 
+> This action is not yet complete. Some arguments may be missing.
+
+> This action requires that Shortcuts has permission to use [object Object].
+
 
 ## description
 
@@ -11,10 +15,14 @@ Opens your choice of Maps, Google Maps, or Waze and searches for the location, p
 
 ### usage
 ```
-ShowinMaps ("Maps" | "Google Maps" | "Waze")
+ShowinMaps undefined=NotImplemented app=("Maps" | "Google Maps" | "Waze")
 ```
 
 ### arguments
+
+---
+
+#### This paramtype is not implemented. WFLocationParameter
 
 ---
 
@@ -53,6 +61,7 @@ containing one of the options:
 	},
 	"Input": {
 		"Multiple": false,
+		"ParameterKey": "WFInput",
 		"Required": true,
 		"Types": [
 			"NSString",
@@ -62,7 +71,14 @@ containing one of the options:
 	},
 	"InputPassthrough": true,
 	"Name": "Show in Maps",
+	"ParameterSummary": "Show ${WFInput} in Maps",
 	"Parameters": [
+		{
+			"Class": "WFLocationParameter",
+			"Key": "WFInput",
+			"Label": "Location",
+			"Placeholder": "Location"
+		},
 		{
 			"Class": "WFMapsAppPickerParameter",
 			"DefaultValue": "Maps",
@@ -74,6 +90,20 @@ containing one of the options:
 				"Google Maps",
 				"Waze"
 			]
+		}
+	],
+	"RequiredResources": [
+		{
+			"RequiredResources": [
+				{
+					"WFParameterKey": "WFInput",
+					"WFParameterValue": {
+						"isCurrentLocation": true
+					},
+					"WFResourceClass": "WFParameterRelationResource"
+				}
+			],
+			"WFResourceClass": "WFLocationAccessResource"
 		}
 	],
 	"ShortName": "Show Map",

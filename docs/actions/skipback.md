@@ -1,6 +1,8 @@
 
 ## Skip Back / SkipBack (internally `is.workflow.actions.skipback`)
 
+> This action is not yet complete. Some arguments may be missing.
+
 > This action requires that Shortcuts has permission to use WFMainThreadResource.
 
 
@@ -13,7 +15,7 @@ Skips to the previous song in the current music queue.
 
 ### usage
 ```
-SkipBack ("Beginning" | "Previous Song")
+SkipBack skipTo=("Beginning" | "Previous Song") undefined=NotImplemented
 ```
 
 ### arguments
@@ -35,6 +37,10 @@ containing one of the options:
 
 ---
 
+#### This paramtype is not implemented. WFMediaRoutePickerParameter
+
+---
+
 ### source json (for developers)
 
 ```json
@@ -47,13 +53,15 @@ containing one of the options:
 		"itunes",
 		"previous"
 	],
-	"Category": "Music",
+	"Attribution": "Now Playing",
+	"Category": "Media",
 	"Description": {
 		"DescriptionSummary": "Skips to the previous song in the current music queue."
 	},
 	"IconName": "Rewind.png",
 	"InputPassthrough": true,
 	"Name": "Skip Back",
+	"ParameterSummary": "Skip back to the ${WFSkipBackBehavior} on ${WFMediaRoute}",
 	"Parameters": [
 		{
 			"Class": "WFEnumerationParameter",
@@ -64,6 +72,15 @@ containing one of the options:
 			],
 			"Key": "WFSkipBackBehavior",
 			"Label": "Skip To"
+		},
+		{
+			"Class": "WFMediaRoutePickerParameter",
+			"DisallowedVariableTypes": [
+				"Variable"
+			],
+			"Key": "WFMediaRoute",
+			"Label": "Device",
+			"RouteType": "Endpoint"
 		}
 	],
 	"RequiredResources": [

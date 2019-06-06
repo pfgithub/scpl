@@ -57,6 +57,7 @@ GetLatestScreenshots number
 			"PHAsset"
 		]
 	},
+	"ParameterSummary": "Get the latest ${WFGetLatestPhotoCount}",
 	"Parameters": [
 		{
 			"Class": "WFStepperParameter",

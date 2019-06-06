@@ -97,6 +97,7 @@ containing one of the options:
 			"com.apple.m4a-audio"
 		]
 	},
+	"ParameterSummary": "Record audio",
 	"Parameters": [
 		{
 			"Class": "WFEnumerationParameter",

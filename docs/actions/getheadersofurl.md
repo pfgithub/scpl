@@ -1,6 +1,8 @@
 
 ## Get Headers of URL / GetHeadersofURL (internally `is.workflow.actions.url.getheaders`)
 
+> This action requires that Shortcuts has permission to use WFRemoteServerAccessResource.
+
 
 ## description
 
@@ -11,14 +13,22 @@ Retrieves the HTTP headers of the URL passed as input using a HEAD request.
 
 ### usage
 ```
-GetHeadersofURL 
+GetHeadersofURL "string"
 ```
 
 ### arguments
 
 ---
 
+### uRL: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"URL"`
+**Allows Variables**: true
 
+
+
+Accepts a string 
+or text
+with the text. Does not allow newlines.
 
 ---
 
@@ -32,6 +42,7 @@ GetHeadersofURL
 		"web",
 		"http"
 	],
+	"Attribution": "Network",
 	"Category": "Web",
 	"CreationDate": "2016-06-04T05:00:00.000Z",
 	"Description": {
@@ -40,6 +51,7 @@ GetHeadersofURL
 	"IconName": "Downloads.png",
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFInput",
 		"Required": true,
 		"Types": [
 			"WFURLContentItem"
@@ -54,6 +66,24 @@ GetHeadersofURL
 			"NSDictionary"
 		]
 	},
+	"ParameterSummary": "Get headers of ${WFInput}",
+	"Parameters": [
+		{
+			"AllowsMultipleValues": false,
+			"AutocapitalizationType": "None",
+			"Class": "WFTextInputParameter",
+			"DisableAutocorrection": true,
+			"Key": "WFInput",
+			"KeyboardType": "URL",
+			"Label": "URL",
+			"Placeholder": "URL",
+			"TextContentType": "URL"
+		}
+	],
+	"RequiredResources": [
+		"WFRemoteServerAccessResource"
+	],
+	"ResidentCompatible": true,
 	"ShortName": "Get Headers",
 	"Subcategory": "URLs",
 	"SuggestedNever": true

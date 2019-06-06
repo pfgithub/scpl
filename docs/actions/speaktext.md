@@ -11,7 +11,7 @@ Speaks the inputted text aloud.
 
 ### usage
 ```
-SpeakText waitUntilFinished=(true | false | variable) rate=number pitch=number language=("string" | variable)] voice=("string" | variable)]
+SpeakText waitUntilFinished=(true | false | variable) rate=number pitch=number language=("string" | variable)] voice=("string" | variable)] text="string"
 ```
 
 ### arguments
@@ -78,6 +78,17 @@ or a variable.
 
 ---
 
+### text: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Allows Variables**: true
+
+
+
+Accepts a string 
+or text
+with the text. Does not allow newlines.
+
+---
+
 ### source json (for developers)
 
 ```json
@@ -101,6 +112,7 @@ or a variable.
 	"IconName": "Sound.png",
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFText",
 		"Required": true,
 		"Types": [
 			"NSString"
@@ -109,6 +121,7 @@ or a variable.
 	"InputPassthrough": true,
 	"LastModifiedDate": "2015-01-11T06:00:00.000Z",
 	"Name": "Speak Text",
+	"ParameterSummary": "Speak ${WFText}",
 	"Parameters": [
 		{
 			"Class": "WFSwitchParameter",
@@ -152,6 +165,11 @@ or a variable.
 				}
 			],
 			"WFSpeakTextLanguageKey": "WFSpeakTextLanguage"
+		},
+		{
+			"Class": "WFTextInputParameter",
+			"Key": "WFText",
+			"Label": "Text"
 		}
 	]
 }

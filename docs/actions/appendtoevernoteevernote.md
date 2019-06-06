@@ -1,5 +1,5 @@
 
-## Append to Note (Evernote) / AppendtoNoteEvernote (internally `is.workflow.actions.evernote.append`)
+## Append to Evernote (Evernote) / AppendtoEvernoteEvernote (internally `is.workflow.actions.evernote.append`)
 
 > This action requires that Shortcuts has permission to use WFEvernoteAccessResource.
 
@@ -18,15 +18,26 @@ The content to add to your note
 
 ### usage
 ```
-AppendtoNoteEvernote noteTitle="string" mode=("Append" | "Prepend") inNotebook=("string" | variable)]
+AppendtoEvernoteEvernote content=(v:myvar | mv:myvar | s:myvar) noteTitle="string" mode=("Append" | "Prepend") inNotebook=("string" | variable)]
 ```
 
 ### arguments
 
 ---
 
+### content: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		Content
+		```
+**Allows Variables**: true
+
+
+
+Accepts a variable.
+
+---
+
 ### noteTitle: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**: `"example note"`
 **Allows Variables**: true
 
 
@@ -80,12 +91,13 @@ containing one of the options:
 	},
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFInput",
 		"Required": true,
 		"Types": [
 			"WFContentItem"
 		]
 	},
-	"Name": "Append to Note",
+	"Name": "Append to Evernote",
 	"Output": {
 		"Multiple": false,
 		"OutputName": "Note",
@@ -93,13 +105,19 @@ containing one of the options:
 			"ENNoteRef"
 		]
 	},
+	"ParameterSummary": "${WFEvernoteWriteMode} ${WFInput} to the note ${WFEvernoteNotesTitleSearch}",
 	"Parameters": [
+		{
+			"Class": "WFVariablePickerParameter",
+			"Key": "WFInput",
+			"Label": "Content",
+			"Placeholder": "Content"
+		},
 		{
 			"Class": "WFTextInputParameter",
 			"Description": "The title (or part of the title) of the note to append to",
 			"Key": "WFEvernoteNotesTitleSearch",
 			"Label": "Note Title",
-			"Placeholder": "example note",
 			"TextAlignment": "Right"
 		},
 		{

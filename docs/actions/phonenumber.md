@@ -3,8 +3,6 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
-> This action requires that Shortcuts has permission to use WFContactAccessResource.
-
 
 ## description
 
@@ -40,6 +38,7 @@ PhoneNumber NotImplemented
 		"telephone"
 	],
 	"Category": "Contacts",
+	"Constructor": true,
 	"Description": {
 		"DescriptionSummary": "Passes the specified phone numbers to the next action."
 	},
@@ -55,13 +54,11 @@ PhoneNumber NotImplemented
 	},
 	"Parameters": [
 		{
+			"AllowsMultipleValues": true,
 			"Class": "WFPhoneNumberFieldParameter",
 			"Key": "WFPhoneNumber",
 			"Placeholder": "Type in a phone number"
 		}
-	],
-	"RequiredResources": [
-		"WFContactAccessResource"
 	],
 	"Subcategory": "Phone"
 }

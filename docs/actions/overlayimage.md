@@ -22,10 +22,19 @@ The combined images
 
 ### usage
 ```
-OverlayImage image=(v:myvar | mv:myvar | s:myvar) showImageEditor=(true | false | variable) position=("Center" | "Top Left" | "Top Right" | "Bottom Left" | "Bottom Right" | "Custom") width=number height=number xCoordinate=number yCoordinate=number rotationDegrees=number opacity=number
+OverlayImage image=(v:myvar | mv:myvar | s:myvar) image=(v:myvar | mv:myvar | s:myvar) showImageEditor=(true | false | variable) position=("Center" | "Top Left" | "Top Right" | "Bottom Left" | "Bottom Right" | "Custom") width=number height=number xCoordinate=number yCoordinate=number rotationDegrees=number opacity=number
 ```
 
 ### arguments
+
+---
+
+### image: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Allows Variables**: true
+
+
+
+Accepts a variable.
 
 ---
 
@@ -167,6 +176,7 @@ containing one of the options:
 	"IconName": "Image.png",
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFInput",
 		"Required": true,
 		"Types": [
 			"WFImageContentItem"
@@ -181,10 +191,16 @@ containing one of the options:
 			"WFImageContentItem"
 		]
 	},
+	"ParameterSummary": "Overlay ${WFImage} on ${WFInput}",
 	"Parameters": [
 		{
 			"Class": "WFVariablePickerParameter",
 			"Key": "WFImage",
+			"Label": "Image"
+		},
+		{
+			"Class": "WFVariablePickerParameter",
+			"Key": "WFInput",
 			"Label": "Image"
 		},
 		{

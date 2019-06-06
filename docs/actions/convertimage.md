@@ -11,7 +11,7 @@ Converts the images passed into the action to the specified image format.
 
 ### usage
 ```
-ConvertImage format=("JPEG" | "PNG" | "TIFF" | "GIF" | "JPEG-2000" | "BMP" | "PDF" | "Match Input") quality=number preserveMetadata=(true | false | variable)
+ConvertImage format=("JPEG" | "PNG" | "TIFF" | "GIF" | "JPEG-2000" | "BMP" | "PDF" | "Match Input") quality=number preserveMetadata=(true | false | variable) image=(v:myvar | mv:myvar | s:myvar)
 ```
 
 ### arguments
@@ -64,6 +64,18 @@ or a variable.
 
 ---
 
+### image: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		Image
+		```
+**Allows Variables**: true
+
+
+
+Accepts a variable.
+
+---
+
 ### source json (for developers)
 
 ```json
@@ -88,6 +100,7 @@ or a variable.
 	"IconName": "Image.png",
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFInput",
 		"Required": true,
 		"Types": [
 			"UIImage"
@@ -102,6 +115,7 @@ or a variable.
 			"UIImage"
 		]
 	},
+	"ParameterSummary": "Convert ${WFInput} to ${WFImageFormat}",
 	"Parameters": [
 		{
 			"Class": "WFImageConvertFormatPickerParameter",
@@ -145,8 +159,15 @@ or a variable.
 					"WFResourceClass": "WFParameterRelationResource"
 				}
 			]
+		},
+		{
+			"Class": "WFVariablePickerParameter",
+			"Key": "WFInput",
+			"Label": "Image",
+			"Placeholder": "Image"
 		}
 	],
+	"ResidentCompatible": true,
 	"Subcategory": "Images"
 }
 ```

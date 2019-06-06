@@ -11,14 +11,22 @@ Gets a public link to the file passed into the action.
 
 ### usage
 ```
-GetLinktoFile 
+GetLinktoFile (v:myvar | mv:myvar | s:myvar)
 ```
 
 ### arguments
 
 ---
 
+### file: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		File
+		```
+**Allows Variables**: true
 
+
+
+Accepts a variable.
 
 ---
 
@@ -39,6 +47,7 @@ GetLinktoFile
 	"IconName": "Documents.png",
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFFile",
 		"Required": true,
 		"Types": []
 	},
@@ -50,6 +59,15 @@ GetLinktoFile
 		]
 	},
 	"OutputName": "Link to File",
+	"ParameterSummary": "Get link to ${WFFile}",
+	"Parameters": [
+		{
+			"Class": "WFVariablePickerParameter",
+			"Key": "WFFile",
+			"Label": "File",
+			"Placeholder": "File"
+		}
+	],
 	"ShortName": "Get Link",
 	"Subcategory": "File Storage"
 }

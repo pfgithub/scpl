@@ -49,6 +49,7 @@ containing one of the options:
 	"CreationDate": "2015-01-22T08:00:00.000Z",
 	"IconName": "Location.png",
 	"Name": "Get Details of Locations",
+	"ResidentCompatible": true,
 	"WFContentItemClass": "WFLocationContentItem",
 	"Parameters": [
 		{

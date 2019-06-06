@@ -4,13 +4,13 @@
 
 [Try Shortcutslang in a web browser](https://editor.scpl.dev)
 
-238/271 builtin actions supported
+219/283 builtin actions supported
 
 ## All Actions:
 
 - [Add Frame to GIF (`AddFrametoGIF`)](actions/addframetogif)
 - [Add New Event (`AddNewEvent`)](actions/addnewevent)
-- [Add New Reminder (`AddNewReminder`)](actions/addnewreminder)
+- [Add New Reminder (`AddNewReminder`)](actions/addnewreminder) (Incomplete)
 - [Add Todoist Item (`AddTodoistItem`)](actions/addtodoistitem)
 - [Add Trello Card (`AddTrelloCard`)](actions/addtrellocard)
 - [Add Wunderlist Task (`AddWunderlistTask`)](actions/addwunderlisttask)
@@ -19,36 +19,31 @@
 - [Add to Playlist (`AddtoPlaylist`)](actions/addtoplaylist)
 - [Add to Pocket (`AddtoPocket`)](actions/addtopocket)
 - [Add to Reading List (`AddtoReadingList`)](actions/addtoreadinglist)
-- [Add to Up Next (`AddtoUpNext`)](actions/addtoupnext)
+- [Add to Up Next (`AddtoUpNext`)](actions/addtoupnext) (Incomplete)
 - [Add to Variable (`AddtoVariable`)](actions/addtovariable)
 - [Adjust Date (`AdjustDate`)](actions/adjustdate) (Incomplete)
 - [AirDrop (`AirDrop`)](actions/airdrop)
+- [Append to Evernote (Evernote) (`AppendtoEvernoteEvernote`)](actions/appendtoevernoteevernote)
 - [Append to File (`AppendtoFile`)](actions/appendtofile)
 - [Append to Note (`AppendtoNote`)](actions/appendtonote)
-- [Append to Note (Evernote) (`AppendtoNoteEvernote`)](actions/appendtonoteevernote)
-- [Ask for Input (`AskforInput`)](actions/askforinput)
 - [Base64 Encode (`Base64Encode`)](actions/base64encode)
 - [Calculate (`Calculate`)](actions/calculate)
 - [Calculate Statistics (`CalculateStatistics`)](actions/calculatestatistics)
-- [Call (`Call`)](actions/call)
-- [Change Case (`ChangeCase`)](actions/changecase)
+- [Call (`Call`)](actions/call) (Incomplete)
 - [Choose from List (`ChoosefromList`)](actions/choosefromlist)
 - [Choose from Menu (`ChoosefromMenu`)](actions/choosefrommenu)
 - [Clear Up Next (`ClearUpNext`)](actions/clearupnext)
 - [Combine Images (`CombineImages`)](actions/combineimages)
-- [Combine Text (`CombineText`)](actions/combinetext)
 - [Comment (`Comment`)](actions/comment)
 - [Contacts (`Contacts`)](actions/contacts) (Incomplete)
 - [Continue Shortcut in App (`ContinueShortcutinApp`)](actions/continueshortcutinapp)
 - [Convert Image (`ConvertImage`)](actions/convertimage)
 - [Convert Measurement (`ConvertMeasurement`)](actions/convertmeasurement) (Incomplete)
 - [Copy to Clipboard (`CopytoClipboard`)](actions/copytoclipboard)
-- [Correct Spelling (`CorrectSpelling`)](actions/correctspelling)
 - [Count (`Count`)](actions/count)
-- [Create Alarm (`CreateAlarm`)](actions/createalarm) (Incomplete)
 - [Create Folder (`CreateFolder`)](actions/createfolder)
 - [Create New Note (`CreateNewNote`)](actions/createnewnote) (Incomplete)
-- [Create Note (`CreateNote`)](actions/createnote)
+- [Create Note (`CreateNote`)](actions/createnote) (Incomplete)
 - [Create Playlist (`CreatePlaylist`)](actions/createplaylist)
 - [Create Trello Board (`CreateTrelloBoard`)](actions/createtrelloboard)
 - [Create Trello List (`CreateTrelloList`)](actions/createtrellolist)
@@ -65,7 +60,7 @@
 - [Exit Shortcut (`ExitShortcut`)](actions/exitshortcut)
 - [Expand URL (`ExpandURL`)](actions/expandurl)
 - [Extract Archive (`ExtractArchive`)](actions/extractarchive)
-- [FaceTime (`FaceTime`)](actions/facetime)
+- [FaceTime (`FaceTime`)](actions/facetime) (Incomplete)
 - [Filter Articles (`FilterArticles`)](actions/filterarticles)
 - [Filter Event Attendees (`FilterEventAttendees`)](actions/filtereventattendees) (Incomplete)
 - [Filter Files (`FilterFiles`)](actions/filterfiles)
@@ -78,13 +73,14 @@
 - [Find Notes (`FindNotes`)](actions/findnotes) (Incomplete)
 - [Find Photos (`FindPhotos`)](actions/findphotos)
 - [Find Reminders (`FindReminders`)](actions/findreminders) (Incomplete)
-- [Flip Image (`FlipImage`)](actions/flipimage)
+- [Flip Image (`FlipImage`)](actions/flipimage) (Incomplete)
 - [Format Date (`FormatDate`)](actions/formatdate)
-- [Format File Size (`FormatFileSize`)](actions/formatfilesize)
+- [Format File Size (`FormatFileSize`)](actions/formatfilesize) (Incomplete)
 - [Format Number (`FormatNumber`)](actions/formatnumber)
 - [Generate Hash (`GenerateHash`)](actions/generatehash)
 - [Generate QR Code (`GenerateQRCode`)](actions/generateqrcode)
 - [Get Addresses from Input (`GetAddressesfromInput`)](actions/getaddressesfrominput)
+- [Get Article using Safari Reader (`GetArticleusingSafariReader`)](actions/getarticleusingsafarireader)
 - [Get Battery Level (`GetBatteryLevel`)](actions/getbatterylevel)
 - [Get Clipboard (`GetClipboard`)](actions/getclipboard)
 - [Get Component of URL (`GetComponentofURL`)](actions/getcomponentofurl)
@@ -94,12 +90,12 @@
 - [Get Current IP Address (`GetCurrentIPAddress`)](actions/getcurrentipaddress)
 - [Get Current Location (`GetCurrentLocation`)](actions/getcurrentlocation)
 - [Get Current Song (`GetCurrentSong`)](actions/getcurrentsong)
-- [Get Current Weather (`GetCurrentWeather`)](actions/getcurrentweather)
+- [Get Current Weather (`GetCurrentWeather`)](actions/getcurrentweather) (Incomplete)
 - [Get Dates from Input (`GetDatesfromInput`)](actions/getdatesfrominput)
 - [Get Details of App Store App (`GetDetailsofAppStoreApp`)](actions/getdetailsofappstoreapp)
+- [Get Details of Article (`GetDetailsofArticle`)](actions/getdetailsofarticle)
 - [Get Details of Calendar Events (`GetDetailsofCalendarEvents`)](actions/getdetailsofcalendarevents) (Incomplete)
 - [Get Details of Contacts (`GetDetailsofContacts`)](actions/getdetailsofcontacts)
-- [Get Details of Diffbot Article (`GetDetailsofDiffbotArticle`)](actions/getdetailsofdiffbotarticle)
 - [Get Details of Event Attendees (`GetDetailsofEventAttendees`)](actions/getdetailsofeventattendees) (Incomplete)
 - [Get Details of Files (`GetDetailsofFiles`)](actions/getdetailsoffiles)
 - [Get Details of Health Sample (`GetDetailsofHealthSample`)](actions/getdetailsofhealthsample) (Incomplete)
@@ -116,14 +112,13 @@
 - [Get Device Details (`GetDeviceDetails`)](actions/getdevicedetails)
 - [Get Dictionary Value (`GetDictionaryValue`)](actions/getdictionaryvalue)
 - [Get Dictionary from Input (`GetDictionaryfromInput`)](actions/getdictionaryfrominput)
-- [Get Diffbot Article from Webpage (`GetDiffbotArticlefromWebpage`)](actions/getdiffbotarticlefromwebpage)
 - [Get Distance (`GetDistance`)](actions/getdistance) (Incomplete)
 - [Get Email Addresses from Input (`GetEmailAddressesfromInput`)](actions/getemailaddressesfrominput)
+- [Get Episodes for Podcast (`GetEpisodesforPodcast`)](actions/getepisodesforpodcast)
 - [Get File (`GetFile`)](actions/getfile)
 - [Get File of Type (`GetFileofType`)](actions/getfileoftype)
 - [Get Frames from Image (`GetFramesfromImage`)](actions/getframesfromimage)
-- [Get Group from Matched Text (`GetGroupfromMatchedText`)](actions/getgroupfrommatchedtext)
-- [Get Halfway Point (`GetHalfwayPoint`)](actions/gethalfwaypoint)
+- [Get Halfway Point (`GetHalfwayPoint`)](actions/gethalfwaypoint) (Incomplete)
 - [Get Headers of URL (`GetHeadersofURL`)](actions/getheadersofurl)
 - [Get Images from Input (`GetImagesfromInput`)](actions/getimagesfrominput)
 - [Get Instapaper Bookmarks (`GetInstapaperBookmarks`)](actions/getinstapaperbookmarks)
@@ -149,21 +144,24 @@
 - [Get Phone Numbers from Input (`GetPhoneNumbersfromInput`)](actions/getphonenumbersfrominput)
 - [Get Pinboard Bookmarks (`GetPinboardBookmarks`)](actions/getpinboardbookmarks)
 - [Get Playlist (`GetPlaylist`)](actions/getplaylist)
+- [Get Podcasts from Library (`GetPodcastsfromLibrary`)](actions/getpodcastsfromlibrary)
 - [Get RSS Feeds from Page (`GetRSSFeedsfromPage`)](actions/getrssfeedsfrompage)
 - [Get Street View Image (`GetStreetViewImage`)](actions/getstreetviewimage)
 - [Get Text from Input (`GetTextfromInput`)](actions/gettextfrominput)
 - [Get Time Between Dates (`GetTimeBetweenDates`)](actions/gettimebetweendates)
-- [Get Travel Time (`GetTravelTime`)](actions/gettraveltime)
+- [Get Travel Time (`GetTravelTime`)](actions/gettraveltime) (Incomplete)
 - [Get Trello Items (`GetTrelloItems`)](actions/gettrelloitems)
 - [Get Type (`GetType`)](actions/gettype)
 - [Get URLs from Input (`GetURLsfromInput`)](actions/geturlsfrominput)
 - [Get Upcoming Events (`GetUpcomingEvents`)](actions/getupcomingevents)
 - [Get Upcoming Reminders (`GetUpcomingReminders`)](actions/getupcomingreminders)
 - [Get Variable (`GetVariable`)](actions/getvariable)
-- [Get Weather Forecast (`GetWeatherForecast`)](actions/getweatherforecast)
-- [If (`If`)](actions/if)
+- [Get Weather Forecast (`GetWeatherForecast`)](actions/getweatherforecast) (Incomplete)
+- [Home (`Home`)](actions/home) (Incomplete)
+- [If (`If`)](actions/if) (Incomplete)
 - [Import to Lightroom (`ImporttoLightroom`)](actions/importtolightroom)
 - [List (`List`)](actions/list)
+- [Location (`Location`)](actions/location) (Incomplete)
 - [Log Health Sample (`LogHealthSample`)](actions/loghealthsample) (Incomplete)
 - [Log Workout (`LogWorkout`)](actions/logworkout) (Incomplete)
 - [Make Archive (`MakeArchive`)](actions/makearchive)
@@ -176,7 +174,6 @@
 - [Make Video from GIF (`MakeVideofromGIF`)](actions/makevideofromgif)
 - [Markup (`Markup`)](actions/markup)
 - [Mask Image (`MaskImage`)](actions/maskimage)
-- [Match Text (`MatchText`)](actions/matchtext)
 - [Measurement (`Measurement`)](actions/measurement) (Incomplete)
 - [Nothing (`Nothing`)](actions/nothing)
 - [Number (`Number`)](actions/number)
@@ -186,10 +183,11 @@
 - [Open X-Callback URL (`OpenXCallbackURL`)](actions/openxcallbackurl)
 - [Open in GoodReader (`OpeninGoodReader`)](actions/openingoodreader)
 - [Overlay Image (`OverlayImage`)](actions/overlayimage)
-- [Pause Music (`PauseMusic`)](actions/pausemusic)
 - [Phone Number (`PhoneNumber`)](actions/phonenumber) (Incomplete)
-- [Play Music (`PlayMusic`)](actions/playmusic)
+- [Play Music (`PlayMusic`)](actions/playmusic) (Incomplete)
+- [Play Podcast (`PlayPodcast`)](actions/playpodcast) (Incomplete)
 - [Play Sound (`PlaySound`)](actions/playsound)
+- [Play/Pause (`PlayPause`)](actions/playpause) (Incomplete)
 - [Post to Slack (`PosttoSlack`)](actions/posttoslack)
 - [Post to Tumblr (`PosttoTumblr`)](actions/posttotumblr) (Incomplete)
 - [Post to WordPress (`PosttoWordPress`)](actions/posttowordpress) (Incomplete)
@@ -207,7 +205,6 @@
 - [Resize Image (`ResizeImage`)](actions/resizeimage)
 - [Rotate Image (`RotateImage`)](actions/rotateimage)
 - [Round Number (`RoundNumber`)](actions/roundnumber)
-- [Run Home Scene (`RunHomeScene`)](actions/runhomescene) (Incomplete)
 - [Run JavaScript on Webpage (`RunJavaScriptonWebpage`)](actions/runjavascriptonwebpage)
 - [Run Script Over SSH (`RunScriptOverSSH`)](actions/runscriptoverssh)
 - [Run Shortcut (`RunShortcut`)](actions/runshortcut)
@@ -216,7 +213,8 @@
 - [Scan QR/Bar Code (`ScanQRBarCode`)](actions/scanqrbarcode)
 - [Search App Store (`SearchAppStore`)](actions/searchappstore)
 - [Search Giphy (`SearchGiphy`)](actions/searchgiphy)
-- [Search Local Businesses (`SearchLocalBusinesses`)](actions/searchlocalbusinesses)
+- [Search Local Businesses (`SearchLocalBusinesses`)](actions/searchlocalbusinesses) (Incomplete)
+- [Search Podcasts (`SearchPodcasts`)](actions/searchpodcasts)
 - [Search Web (`SearchWeb`)](actions/searchweb)
 - [Search iTunes Store (`SearchiTunesStore`)](actions/searchitunesstore)
 - [Select Contact (`SelectContact`)](actions/selectcontact)
@@ -238,32 +236,34 @@
 - [Set Flashlight (`SetFlashlight`)](actions/setflashlight)
 - [Set Low Power Mode (`SetLowPowerMode`)](actions/setlowpowermode)
 - [Set Name (`SetName`)](actions/setname)
+- [Set Playback Destination (`SetPlaybackDestination`)](actions/setplaybackdestination) (Incomplete)
 - [Set Variable (`SetVariable`)](actions/setvariable)
 - [Set Volume (`SetVolume`)](actions/setvolume)
+- [Set Wallpaper (`SetWallpaper`)](actions/setwallpaper)
 - [Set Wi-Fi (`SetWiFi`)](actions/setwifi)
 - [Share (`Share`)](actions/share)
 - [Share with Extensions (`SharewithExtensions`)](actions/sharewithextensions)
 - [Show Alert (`ShowAlert`)](actions/showalert)
 - [Show Definition (`ShowDefinition`)](actions/showdefinition)
-- [Show Directions (`ShowDirections`)](actions/showdirections)
+- [Show Directions (`ShowDirections`)](actions/showdirections) (Incomplete)
 - [Show Note (`ShowNote`)](actions/shownote)
 - [Show Notification (`ShowNotification`)](actions/shownotification)
+- [Show Reminders List (`ShowRemindersList`)](actions/showreminderslist)
 - [Show Result (`ShowResult`)](actions/showresult)
 - [Show Webpage (`ShowWebpage`)](actions/showwebpage)
-- [Show in BlindSquare (`ShowinBlindSquare`)](actions/showinblindsquare)
+- [Show in BlindSquare (`ShowinBlindSquare`)](actions/showinblindsquare) (Incomplete)
 - [Show in Calendar (`ShowinCalendar`)](actions/showincalendar)
-- [Show in Maps (`ShowinMaps`)](actions/showinmaps)
+- [Show in Maps (`ShowinMaps`)](actions/showinmaps) (Incomplete)
 - [Show in iTunes Store (`ShowiniTunesStore`)](actions/showinitunesstore)
-- [Skip Back (`SkipBack`)](actions/skipback)
-- [Skip Forward (`SkipForward`)](actions/skipforward)
+- [Skip Back (`SkipBack`)](actions/skipback) (Incomplete)
+- [Skip Forward (`SkipForward`)](actions/skipforward) (Incomplete)
 - [Speak Text (`SpeakText`)](actions/speaktext)
-- [Split Text (`SplitText`)](actions/splittext)
 - [Start Timer (`StartTimer`)](actions/starttimer) (Incomplete)
 - [Street Address (`StreetAddress`)](actions/streetaddress)
+- [Subscribe to Podcast (`SubscribetoPodcast`)](actions/subscribetopodcast)
 - [Take Photo (`TakePhoto`)](actions/takephoto)
 - [Take Video (`TakeVideo`)](actions/takevideo)
 - [Text (`Text`)](actions/text)
-- [Toggle Alarm (`ToggleAlarm`)](actions/togglealarm)
 - [Translate Text with Microsoft (`TranslateTextwithMicrosoft`)](actions/translatetextwithmicrosoft)
 - [Trigger IFTTT Applet (`TriggerIFTTTApplet`)](actions/triggeriftttapplet) (Incomplete)
 - [Trim Media (`TrimMedia`)](actions/trimmedia)
@@ -277,24 +277,40 @@
 - [View Content Graph (`ViewContentGraph`)](actions/viewcontentgraph)
 - [Wait (`Wait`)](actions/wait)
 - [Wait to Return (`WaittoReturn`)](actions/waittoreturn)
+- [comappletvremoteuiservicelaunchapplicationintent (`comappleTVRemoteUIServiceLaunchApplicationIntent`)](actions/comappletvremoteuiservicelaunchapplicationintent) (Incomplete)
+- [comappletvremoteuiservicelaunchremoteintent (`comappleTVRemoteUIServiceLaunchRemoteIntent`)](actions/comappletvremoteuiservicelaunchremoteintent) (Incomplete)
+- [comappletvremoteuiservicepausecontentintent (`comappleTVRemoteUIServicePauseContentIntent`)](actions/comappletvremoteuiservicepausecontentintent) (Incomplete)
+- [comappletvremoteuiservicesleepappletvintent (`comappleTVRemoteUIServiceSleepAppleTVIntent`)](actions/comappletvremoteuiservicesleepappletvintent) (Incomplete)
+- [comappletvremoteuiservicewakeappletvintent (`comappleTVRemoteUIServiceWakeAppleTVIntent`)](actions/comappletvremoteuiservicewakeappletvintent) (Incomplete)
+- [isworkflowactionsask (`isworkflowactionsask`)](actions/isworkflowactionsask)
+- [isworkflowactionscorrectspelling (`isworkflowactionscorrectspelling`)](actions/isworkflowactionscorrectspelling) (Incomplete)
 - [isworkflowactionspostonfacebook (`isworkflowactionspostonfacebook`)](actions/isworkflowactionspostonfacebook)
+- [isworkflowactionstextchangecase (`isworkflowactionstextchangecase`)](actions/isworkflowactionstextchangecase) (Incomplete)
+- [isworkflowactionstextcombine (`isworkflowactionstextcombine`)](actions/isworkflowactionstextcombine)
+- [isworkflowactionstextmatch (`isworkflowactionstextmatch`)](actions/isworkflowactionstextmatch) (Incomplete)
+- [isworkflowactionstextmatchgetgroup (`isworkflowactionstextmatchgetgroup`)](actions/isworkflowactionstextmatchgetgroup) (Incomplete)
+- [isworkflowactionstextsplit (`isworkflowactionstextsplit`)](actions/isworkflowactionstextsplit)
 - [isworkflowactionstweet (`isworkflowactionstweet`)](actions/isworkflowactionstweet)
 
 ## Parameter Types:
 
 \# actions used in: parameter type
 
+- [ ] 1: WFFaceTimeTypePickerParameter
+- [ ] 1: WFNoteGroupPickerParameter
 - [ ] 1: WFUberProductPickerParameter
 - [ ] 1: WFUberSeatCountPickerParameter
 - [x] Complete - 1: WFCountryFieldParameter
-- [ ] 1: WFTimeOffsetParameter
-- [ ] 1: WFAlarmFrequencyPickerParameter
-- [x] Complete - 1: WFAlarmPickerParameter
 - [x] Complete - 1: WFArrayParameter
-- [ ] 1: WFContactFieldParameter
+- [ ] 1: WFConditionalSubjectParameter
+- [ ] 1: WFConditionalOperatorParameter
+- [ ] 1: WFNumericDynamicEnumerationParameter
 - [x] Complete - 1: WFDictateTextLanguagePickerParameter
 - [x] Complete - 1: WFCustomDateFormatParameter
+- [ ] 1: WFFileSizePickerParameter
 - [ ] 1: WFGetDistanceUnitPickerParameter
+- [ ] 1: WFHomeServicePickerParameter
+- [ ] 1: WFHomeCharacteristicPickerParameter
 - [x] Complete - 1: WFNetworkPickerParameter
 - [ ] 1: WFQuantityTypePickerParameter
 - [ ] 1: WFHealthQuantityAdditionalFieldParameter
@@ -304,18 +320,18 @@
 - [ ] 1: WFHealthCategoryStartDateFieldParameter
 - [ ] 1: WFHealthCategoryEndDateFieldParameter
 - [ ] 1: WFWorkoutTypePickerParameter
+- [ ] 1: WFHomeAccessoryPickerParameter
 - [x] Complete - 1: WFIFTTTTriggerNameParameter
 - [ ] 1: WFIFTTTAddRecipeParameter
 - [x] Complete - 1: WFImageConvertFormatPickerParameter
+- [ ] 1: WFFlipImageDirectionPickerParameter
 - [x] Complete - 1: WFLightroomPresetPickerParameter
 - [x] Complete - 1: WFContentArrayParameter
 - [x] Complete - 1: WFArchiveFormatParameter
 - [ ] 1: WFMeasurementUnitPickerParameter
-- [ ] 1: WFUnitPickerParameter
 - [ ] 1: WFPhoneNumberFieldParameter
+- [ ] 1: WFPodcastPickerParameter
 - [ ] 1: WFTimeIntervalParameter
-- [ ] 1: WFHomePickerParameter
-- [ ] 1: WFHomeScenePickerParameter
 - [x] Complete - 1: WFWorkflowPickerParameter
 - [x] Complete - 1: WFPhotoAlbumPickerParameter
 - [x] Complete - 1: WFEmailAccountPickerParameter
@@ -327,38 +343,43 @@
 - [ ] 1: WFTumblrComposeInAppParameter
 - [x] Complete - 1: WFTumblrBlogPickerParameter
 - [x] Complete - 1: WFWunderlistListPickerParameter
+- [ ] 2: WFMediaPickerParameter
 - [x] Complete - 2: WFPlaylistPickerParameter
 - [x] Complete - 2: WFVariableFieldParameter
+- [ ] 2: WFDatePickerParameter
 - [ ] 2: WFEvernoteTagsTagFieldParameter
 - [x] Complete - 2: WFMapsAppPickerParameter
-- [ ] 2: WFDurationQuantityFieldParameter
 - [x] Complete - 2: WFUnitTypePickerParameter
 - [x] Complete - 2: WFAppPickerParameter
-- [x] Complete - 2: WFiTunesStoreCountryPickerParameter
 - [x] Complete - 2: WFAccountPickerParameter
 - [x] Complete - 2: WFTranslateTextLanguagePickerParameter
 - [x] Complete - 2: WFTrelloListPickerParameter
 - [ ] 2: WFDynamicTagFieldParameter
+- [ ] 3: WFContactFieldParameter
 - [x] Complete - 3: WFEvernoteNotebookPickerParameter
 - [ ] 3: WFHealthQuantityFieldParameter
+- [x] Complete - 3: WFiTunesStoreCountryPickerParameter
 - [ ] 3: WFContactHandleFieldParameter
 - [x] Complete - 3: WFTrelloBoardPickerParameter
-- [x] Complete - 4: WFCalendarPickerParameter
+- [ ] 4: WFUnitQuantityFieldParameter
 - [x] Complete - 4: WFStorageServicePickerParameter
 - [x] Complete - 4: WFEmailAddressFieldParameter
+- [ ] 4: WFMediaRoutePickerParameter
+- [x] Complete - 5: WFCalendarPickerParameter
+- [x] Complete - 5: WFExpandingParameter
+- [ ] 5: WFDurationQuantityFieldParameter
 - [x] Complete - 5: WFDictionaryParameter
-- [x] Complete - 5: WFSliderParameter
 - [x] Complete - 7: WFIntentAppPickerParameter
+- [x] Complete - 7: WFSliderParameter
 - [x] Complete - 7: WFFilterParameter
-- [x] Complete - 8: WFLocationFieldParameter
-- [x] Complete - 8: WFExpandingParameter
-- [x] Complete - 10: WFVariablePickerParameter
 - [ ] 12: _UndefinedCoercionClass
-- [x] Complete - 14: WFDynamicEnumerationParameter
+- [ ] 14: WFLocationParameter
 - [x] Complete - 17: WFDateFieldParameter
-- [x] Complete - 30: WFStepperParameter
-- [x] Complete - 39: WFNumberFieldParameter
-- [x] Complete - 76: WFSwitchParameter
-- [x] Complete - 110: WFEnumerationParameter
-- [x] Complete - 112: WFTextInputParameter
+- [x] Complete - 17: WFDynamicEnumerationParameter
+- [x] Complete - 31: WFStepperParameter
+- [x] Complete - 41: WFNumberFieldParameter
+- [x] Complete - 73: WFSwitchParameter
+- [x] Complete - 93: WFVariablePickerParameter
+- [x] Complete - 99: WFEnumerationParameter
+- [x] Complete - 135: WFTextInputParameter
 

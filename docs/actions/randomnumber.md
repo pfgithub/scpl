@@ -19,7 +19,7 @@ RandomNumber minimum=number maximum=number
 ---
 
 ### minimum: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
-**Placeholder**: `0`
+**Placeholder**: `Minimum`
 **Allows Variables**: true
 
 
@@ -31,7 +31,7 @@ RandomNumber minimum=number maximum=number
 ---
 
 ### maximum: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
-**Placeholder**: `100`
+**Placeholder**: `Maximum`
 **Allows Variables**: true
 
 
@@ -67,13 +67,14 @@ RandomNumber minimum=number maximum=number
 			"NSDecimalNumber"
 		]
 	},
+	"ParameterSummary": "Random number between ${WFRandomNumberMinimum} and ${WFRandomNumberMaximum}",
 	"Parameters": [
 		{
 			"AllowsDecimalNumbers": true,
 			"Class": "WFNumberFieldParameter",
 			"Key": "WFRandomNumberMinimum",
 			"Label": "Minimum",
-			"Placeholder": "0",
+			"Placeholder": "Minimum",
 			"TextAlignment": "Right"
 		},
 		{
@@ -81,10 +82,11 @@ RandomNumber minimum=number maximum=number
 			"Class": "WFNumberFieldParameter",
 			"Key": "WFRandomNumberMaximum",
 			"Label": "Maximum",
-			"Placeholder": "100",
+			"Placeholder": "Maximum",
 			"TextAlignment": "Right"
 		}
 	],
+	"ResidentCompatible": true,
 	"Subcategory": "Math",
 	"SuggestedNever": true
 }

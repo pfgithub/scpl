@@ -22,7 +22,7 @@ The shortcut's result
 
 ### usage
 ```
-RunShortcut shortcut=("string" | variable)] showWhileRunning=(true | false | variable)
+RunShortcut shortcut=("string" | variable)] input=(v:myvar | mv:myvar | s:myvar) showWhileRunning=(true | false | variable)
 ```
 
 ### arguments
@@ -30,11 +30,23 @@ RunShortcut shortcut=("string" | variable)] showWhileRunning=(true | false | var
 ---
 
 ### shortcut: Shortcut Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+**Placeholder**: ```
+		Shortcut
+		```
 **Allows Variables**: true
 
 
 
 		Accepts a string or variable containing the option. Check the shortcuts app for a list of available options. 
+
+---
+
+### input: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Allows Variables**: true
+
+
+
+Accepts a variable.
 
 ---
 
@@ -71,6 +83,7 @@ or a variable.
 	},
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFInput",
 		"Required": true,
 		"Types": [
 			"WFContentItem"
@@ -84,11 +97,18 @@ or a variable.
 			"WFContentItem"
 		]
 	},
+	"ParameterSummary": "Run ${WFWorkflowName}",
 	"Parameters": [
 		{
 			"Class": "WFWorkflowPickerParameter",
 			"Key": "WFWorkflowName",
-			"Label": "Shortcut"
+			"Label": "Shortcut",
+			"Placeholder": "Shortcut"
+		},
+		{
+			"Class": "WFVariablePickerParameter",
+			"Key": "WFInput",
+			"Label": "Input"
 		},
 		{
 			"Class": "WFSwitchParameter",

@@ -11,14 +11,22 @@ Returns any links found in the output from the previous action.
 
 ### usage
 ```
-GetURLsfromInput 
+GetURLsfromInput "string"
 ```
 
 ### arguments
 
 ---
 
+### input: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"Input"`
+**Allows Variables**: true
 
+
+
+Accepts a string 
+or text
+with the text. Does not allow newlines.
 
 ---
 
@@ -42,6 +50,7 @@ GetURLsfromInput
 	"IconName": "URL.png",
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFInput",
 		"Required": true,
 		"Types": [
 			"NSURL"
@@ -55,6 +64,16 @@ GetURLsfromInput
 			"WFURLContentItem"
 		]
 	},
+	"ParameterSummary": "Get URLs from ${WFInput}",
+	"Parameters": [
+		{
+			"Class": "WFTextInputParameter",
+			"Key": "WFInput",
+			"Label": "Input",
+			"Placeholder": "Input"
+		}
+	],
+	"ResidentCompatible": true,
 	"ShortName": "Get URLs",
 	"Subcategory": "URLs"
 }

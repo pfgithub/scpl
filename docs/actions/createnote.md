@@ -1,7 +1,9 @@
 
 ## Create Note / CreateNote (internally `com.apple.mobilenotes.SharingExtension`)
 
-> This action requires that Shortcuts has permission to use [object Object],WFNotesAccessResource.
+> This action is not yet complete. Some arguments may be missing.
+
+> This action requires that Shortcuts has permission to use [object Object].
 
 
 ## description
@@ -13,7 +15,7 @@ Creates a note using the content passed as input.
 
 ### usage
 ```
-CreateNote app=("string" | variable)] showComposeSheet=(true | false | variable)
+CreateNote app=("string" | variable)] showComposeSheet=(true | false | variable) undefined=NotImplemented note="string"
 ```
 
 ### arguments
@@ -45,6 +47,21 @@ or a variable.
 
 ---
 
+#### This paramtype is not implemented. WFNoteGroupPickerParameter
+
+---
+
+### note: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Allows Variables**: true
+
+
+
+Accepts a string 
+or text
+with the text. Does not allow newlines.
+
+---
+
 ### source json (for developers)
 
 ```json
@@ -60,6 +77,7 @@ or a variable.
 	},
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFCreateNoteInput",
 		"Required": true,
 		"Types": [
 			"WFStringContentItem"
@@ -73,6 +91,7 @@ or a variable.
 			"INNote"
 		]
 	},
+	"ParameterSummary": "Create ${WFCreateNoteInput} in ${WFNoteGroup}",
 	"Parameters": [
 		{
 			"Class": "WFIntentAppPickerParameter",
@@ -87,6 +106,26 @@ or a variable.
 			"DefaultValue": true,
 			"Key": "ShowWhenRun",
 			"Label": "Show Compose Sheet"
+		},
+		{
+			"AlwaysShowsButton": true,
+			"Class": "WFNoteGroupPickerParameter",
+			"Description": "The folder in which to save the new note.",
+			"IntentSlotName": "groupName",
+			"Key": "WFNoteGroup",
+			"Label": "Folder",
+			"RequiredResources": [
+				{
+					"WFParameterKey": "ShowWhenRun",
+					"WFParameterValue": false,
+					"WFResourceClass": "WFParameterRelationResource"
+				}
+			]
+		},
+		{
+			"Class": "WFTextInputParameter",
+			"Key": "WFCreateNoteInput",
+			"Label": "Note"
 		}
 	],
 	"RequiredResources": [
@@ -99,8 +138,7 @@ or a variable.
 				}
 			],
 			"WFResourceClass": "WFUserInteractionResource"
-		},
-		"WFNotesAccessResource"
+		}
 	],
 	"UserInterfaces": [
 		"UIKit",

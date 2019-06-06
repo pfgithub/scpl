@@ -18,7 +18,7 @@ This is a destructive and permanent action. You will be asked to confirm before 
 
 ### usage
 ```
-RemoveEvents (true | false | variable)
+RemoveEvents includeFutureEvents=(true | false | variable) events=(v:myvar | mv:myvar | s:myvar)
 ```
 
 ### arguments
@@ -35,6 +35,18 @@ or a variable.
 
 ---
 
+### events: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		Events
+		```
+**Allows Variables**: true
+
+
+
+Accepts a variable.
+
+---
+
 ### source json (for developers)
 
 ```json
@@ -45,6 +57,7 @@ or a variable.
 		"delete"
 	],
 	"AppIdentifier": "com.apple.mobilecal",
+	"BlocksOutput": true,
 	"Category": "Calendar",
 	"CreationDate": "2015-01-11T06:00:00.000Z",
 	"Description": {
@@ -53,6 +66,7 @@ or a variable.
 	},
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFInputEvents",
 		"Required": true,
 		"Types": [
 			"EKEvent"
@@ -60,6 +74,7 @@ or a variable.
 	},
 	"InputPassthrough": false,
 	"Name": "Remove Events",
+	"ParameterSummary": "Remove ${WFInputEvents}",
 	"Parameters": [
 		{
 			"Class": "WFSwitchParameter",
@@ -67,6 +82,12 @@ or a variable.
 			"Description": "When enabled, any repeats of an event in the future are also removed.",
 			"Key": "WFCalendarIncludeFutureEvents",
 			"Label": "Include Future Events"
+		},
+		{
+			"Class": "WFVariablePickerParameter",
+			"Key": "WFInputEvents",
+			"Label": "Events",
+			"Placeholder": "Events"
 		}
 	],
 	"RequiredResources": [

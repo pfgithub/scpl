@@ -17,7 +17,7 @@ CloudApp URL
 
 ### usage
 ```
-UploadtoCloudApp ("Private" | "Public")
+UploadtoCloudApp linkPrivacy=("Private" | "Public") content=(v:myvar | mv:myvar | s:myvar)
 ```
 
 ### arguments
@@ -39,6 +39,15 @@ containing one of the options:
 
 ---
 
+### content: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Allows Variables**: true
+
+
+
+Accepts a variable.
+
+---
+
 ### source json (for developers)
 
 ```json
@@ -54,6 +63,7 @@ containing one of the options:
 	"IconName": "CloudApp.png",
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFInput",
 		"Required": true,
 		"Types": [
 			"WFGenericFileContentItem",
@@ -69,6 +79,7 @@ containing one of the options:
 			"NSURL"
 		]
 	},
+	"ParameterSummary": "Upload ${WFInput}",
 	"Parameters": [
 		{
 			"Class": "WFEnumerationParameter",
@@ -79,6 +90,11 @@ containing one of the options:
 			],
 			"Key": "WFCloudAppPrivacyType",
 			"Label": "Link Privacy"
+		},
+		{
+			"Class": "WFVariablePickerParameter",
+			"Key": "WFInput",
+			"Label": "Content"
 		}
 	],
 	"RequiredResources": [

@@ -18,14 +18,22 @@ This is a destructive and permanent action. You will be asked to confirm before 
 
 ### usage
 ```
-RemoveReminders 
+RemoveReminders (v:myvar | mv:myvar | s:myvar)
 ```
 
 ### arguments
 
 ---
 
+### reminders: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		Reminders
+		```
+**Allows Variables**: true
 
+
+
+Accepts a variable.
 
 ---
 
@@ -39,6 +47,7 @@ RemoveReminders
 		"delete"
 	],
 	"AppIdentifier": "com.apple.reminders",
+	"BlocksOutput": true,
 	"Category": "Calendar",
 	"CreationDate": "2015-01-11T06:00:00.000Z",
 	"Description": {
@@ -47,6 +56,7 @@ RemoveReminders
 	},
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFInputReminders",
 		"Required": true,
 		"Types": [
 			"EKReminder"
@@ -54,6 +64,15 @@ RemoveReminders
 	},
 	"InputPassthrough": false,
 	"Name": "Remove Reminders",
+	"ParameterSummary": "Remove ${WFInputReminders}",
+	"Parameters": [
+		{
+			"Class": "WFVariablePickerParameter",
+			"Key": "WFInputReminders",
+			"Label": "Reminders",
+			"Placeholder": "Reminders"
+		}
+	],
 	"RequiredResources": [
 		"WFReminderAccessResource",
 		"WFUserInteractionResource"

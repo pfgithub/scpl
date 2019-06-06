@@ -19,7 +19,7 @@ Text "string"
 ---
 
 ### WFTextActionText: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**: `"Enter text..."`
+**Placeholder**: `"Text"`
 **Allows Variables**: true
 
 
@@ -44,6 +44,7 @@ with the text. Allows newlines.
 		"string"
 	],
 	"Category": "Text",
+	"Constructor": true,
 	"Description": {
 		"DescriptionSummary": "Passes the specified text to the next action."
 	},
@@ -62,7 +63,7 @@ with the text. Allows newlines.
 			"DefaultValue": "",
 			"Key": "WFTextActionText",
 			"Multiline": true,
-			"Placeholder": "Enter text..."
+			"Placeholder": "Text"
 		}
 	]
 }

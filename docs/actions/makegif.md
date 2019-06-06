@@ -15,7 +15,7 @@ An animated GIF
 
 ### usage
 ```
-MakeGIF secondsPerPhoto=number loopForever=(true | false | variable) WFMakeGIFActionLoopCount=number autoSize=(true | false | variable) width=number height=number
+MakeGIF secondsPerPhoto=number loopForever=(true | false | variable) WFMakeGIFActionLoopCount=number autoSize=(true | false | variable) width=number height=number content=(v:myvar | mv:myvar | s:myvar)
 ```
 
 ### arguments
@@ -96,6 +96,18 @@ or a variable.
 
 ---
 
+### content: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		Content
+		```
+**Allows Variables**: true
+
+
+
+Accepts a variable.
+
+---
+
 ### source json (for developers)
 
 ```json
@@ -115,6 +127,7 @@ or a variable.
 	"IconName": "GIF.png",
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFInput",
 		"Required": true,
 		"Types": [
 			"UIImage",
@@ -131,6 +144,7 @@ or a variable.
 			"com.compuserve.gif"
 		]
 	},
+	"ParameterSummary": "Make GIF from ${WFInput}",
 	"Parameters": [
 		{
 			"AllowsDecimalNumbers": true,
@@ -195,8 +209,15 @@ or a variable.
 				}
 			],
 			"TextAlignment": "Right"
+		},
+		{
+			"Class": "WFVariablePickerParameter",
+			"Key": "WFInput",
+			"Label": "Content",
+			"Placeholder": "Content"
 		}
 	],
+	"ResidentCompatible": true,
 	"Subcategory": "GIFs"
 }
 ```

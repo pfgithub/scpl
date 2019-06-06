@@ -11,7 +11,7 @@ Generates a MD5/SHA1 hash from the input.
 
 ### usage
 ```
-GenerateHash ("MD5" | "SHA1" | "SHA256" | "SHA512")
+GenerateHash type=("MD5" | "SHA1" | "SHA256" | "SHA512") input=(v:myvar | mv:myvar | s:myvar)
 ```
 
 ### arguments
@@ -35,6 +35,15 @@ containing one of the options:
 
 ---
 
+### input: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Allows Variables**: true
+
+
+
+Accepts a variable.
+
+---
+
 ### source json (for developers)
 
 ```json
@@ -51,6 +60,7 @@ containing one of the options:
 	"IconName": "Scripting.png",
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFInput",
 		"Required": true,
 		"Types": [
 			"WFGenericFileContentItem"
@@ -64,6 +74,7 @@ containing one of the options:
 			"NSString"
 		]
 	},
+	"ParameterSummary": "Generate ${WFHashType} hash of ${WFInput}",
 	"Parameters": [
 		{
 			"Class": "WFEnumerationParameter",
@@ -76,8 +87,14 @@ containing one of the options:
 			],
 			"Key": "WFHashType",
 			"Label": "Type"
+		},
+		{
+			"Class": "WFVariablePickerParameter",
+			"Key": "WFInput",
+			"Label": "Input"
 		}
 	],
+	"ResidentCompatible": true,
 	"Subcategory": "Files",
 	"SuggestedNever": true
 }

@@ -21,7 +21,7 @@ CreateTrelloList name="string" board=("string" | variable)] position=("Top" | "B
 ---
 
 ### name: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**: `"Shortcut Ideas"`
+**Placeholder**: `"List"`
 **Allows Variables**: true
 
 
@@ -33,6 +33,9 @@ with the text. Does not allow newlines.
 ---
 
 ### board: Trello Board Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+**Placeholder**: ```
+		Board
+		```
 **Allows Variables**: true
 
 
@@ -75,18 +78,20 @@ containing one of the options:
 			"WFTrelloList"
 		]
 	},
+	"ParameterSummary": "Create the list ${WFTrelloName} in ${WFTrelloBoard}",
 	"Parameters": [
 		{
 			"Class": "WFTextInputParameter",
 			"Key": "WFTrelloName",
 			"Label": "Name",
-			"Placeholder": "Shortcut Ideas",
+			"Placeholder": "List",
 			"TextAlignment": "Right"
 		},
 		{
 			"Class": "WFTrelloBoardPickerParameter",
 			"Key": "WFTrelloBoard",
-			"Label": "Board"
+			"Label": "Board",
+			"Placeholder": "Board"
 		},
 		{
 			"Class": "WFEnumerationParameter",

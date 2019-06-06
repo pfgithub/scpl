@@ -11,7 +11,7 @@ Returns a particular object class from the input.
 
 ### usage
 ```
-GetObjectofClass "string"
+GetObjectofClass class="string" input=(v:myvar | mv:myvar | s:myvar)
 ```
 
 ### arguments
@@ -19,7 +19,7 @@ GetObjectofClass "string"
 ---
 
 ### class: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**: `"NSString"`
+**Placeholder**: `"NSURL"`
 **Default Value**: `"NSURL"`
 **Allows Variables**: true
 
@@ -28,6 +28,18 @@ GetObjectofClass "string"
 Accepts a string 
 or text
 with the text. Does not allow newlines.
+
+---
+
+### input: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		Input
+		```
+**Allows Variables**: true
+
+
+
+Accepts a variable.
 
 ---
 
@@ -43,6 +55,7 @@ with the text. Does not allow newlines.
 	"IconName": "Scripting.png",
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "Input",
 		"Required": true,
 		"Types": [
 			"WFContentItem"
@@ -57,13 +70,20 @@ with the text. Does not allow newlines.
 			"WFContentItem"
 		]
 	},
+	"ParameterSummary": "Get object of class ${Class} from ${Input}",
 	"Parameters": [
 		{
 			"Class": "WFTextInputParameter",
 			"DefaultValue": "NSURL",
 			"Key": "Class",
 			"Label": "Class",
-			"Placeholder": "NSString"
+			"Placeholder": "NSURL"
+		},
+		{
+			"Class": "WFVariablePickerParameter",
+			"Key": "Input",
+			"Label": "Input",
+			"Placeholder": "Input"
 		}
 	],
 	"ShortName": "Object of Class",

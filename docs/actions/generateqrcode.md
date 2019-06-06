@@ -11,7 +11,7 @@ Generates a QR code from the input text.
 
 ### usage
 ```
-GenerateQRCode ("Low" | "Medium" | "Quartile" | "High")
+GenerateQRCode errorCorrection=("Low" | "Medium" | "Quartile" | "High") text="string"
 ```
 
 ### arguments
@@ -35,6 +35,18 @@ containing one of the options:
 
 ---
 
+### text: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"Text"`
+**Allows Variables**: true
+
+
+
+Accepts a string 
+or text
+with the text. Does not allow newlines.
+
+---
+
 ### source json (for developers)
 
 ```json
@@ -47,6 +59,7 @@ containing one of the options:
 	"IconName": "QRCode.png",
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFText",
 		"Required": true,
 		"Types": [
 			"NSString"
@@ -61,6 +74,7 @@ containing one of the options:
 			"UIImage"
 		]
 	},
+	"ParameterSummary": "Generate QR code from ${WFText}",
 	"Parameters": [
 		{
 			"Class": "WFEnumerationParameter",
@@ -73,8 +87,15 @@ containing one of the options:
 			],
 			"Key": "WFQRErrorCorrectionLevel",
 			"Label": "Error Correction"
+		},
+		{
+			"Class": "WFTextInputParameter",
+			"Key": "WFText",
+			"Label": "Text",
+			"Placeholder": "Text"
 		}
 	],
+	"ResidentCompatible": true,
 	"ShortName": "Generate QR"
 }
 ```

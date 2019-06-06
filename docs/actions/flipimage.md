@@ -1,6 +1,8 @@
 
 ## Flip Image / FlipImage (internally `is.workflow.actions.image.flip`)
 
+> This action is not yet complete. Some arguments may be missing.
+
 
 ## description
 
@@ -11,25 +13,26 @@ Reverses the direction of images either horizontally or vertically.
 
 ### usage
 ```
-FlipImage ("Horizontal" | "Vertical")
+FlipImage undefined=NotImplemented image=(v:myvar | mv:myvar | s:myvar)
 ```
 
 ### arguments
 
 ---
 
-### direction: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-**Default Value**: `"Horizontal"`
+#### This paramtype is not implemented. WFFlipImageDirectionPickerParameter
+
+---
+
+### image: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		Image
+		```
 **Allows Variables**: true
 
 
 
-Accepts a string 
-or variable
-containing one of the options:
-
-- `Horizontal`
-- `Vertical`
+Accepts a variable.
 
 ---
 
@@ -51,6 +54,7 @@ containing one of the options:
 	"IconName": "Image.png",
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFInput",
 		"Required": true,
 		"Types": [
 			"UIImage"
@@ -66,9 +70,10 @@ containing one of the options:
 			"UIImage"
 		]
 	},
+	"ParameterSummary": "Flip ${WFInput} ${WFImageFlipDirection}",
 	"Parameters": [
 		{
-			"Class": "WFEnumerationParameter",
+			"Class": "WFFlipImageDirectionPickerParameter",
 			"DefaultValue": "Horizontal",
 			"Items": [
 				"Horizontal",
@@ -76,8 +81,15 @@ containing one of the options:
 			],
 			"Key": "WFImageFlipDirection",
 			"Label": "Direction"
+		},
+		{
+			"Class": "WFVariablePickerParameter",
+			"Key": "WFInput",
+			"Label": "Image",
+			"Placeholder": "Image"
 		}
 	],
+	"ResidentCompatible": true,
 	"Subcategory": "Editing",
 	"SuggestedNever": true
 }

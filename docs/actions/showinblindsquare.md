@@ -1,7 +1,9 @@
 
 ## Show in BlindSquare / ShowinBlindSquare (internally `is.workflow.actions.showinblindsquare`)
 
-> This action requires that Shortcuts has permission to use WFURLOpenResource,[object Object].
+> This action is not yet complete. Some arguments may be missing.
+
+> This action requires that Shortcuts has permission to use WFURLOpenResource,[object Object],[object Object].
 
 
 ## description
@@ -13,7 +15,7 @@ Opens BlindSquare showing information about the place passed as input, so you ca
 
 ### usage
 ```
-ShowinBlindSquare (true | false | variable)
+ShowinBlindSquare startSimulation=(true | false | variable) undefined=NotImplemented
 ```
 
 ### arguments
@@ -30,6 +32,10 @@ or a variable.
 
 ---
 
+#### This paramtype is not implemented. WFLocationParameter
+
+---
+
 ### source json (for developers)
 
 ```json
@@ -43,6 +49,7 @@ or a variable.
 	},
 	"Input": {
 		"Multiple": false,
+		"ParameterKey": "WFInput",
 		"Required": true,
 		"Types": [
 			"CLLocation",
@@ -51,12 +58,18 @@ or a variable.
 	},
 	"InputPassthrough": true,
 	"Name": "Show in BlindSquare",
+	"ParameterSummary": "Show ${WFInput}",
 	"Parameters": [
 		{
 			"Class": "WFSwitchParameter",
 			"DefaultValue": false,
 			"Key": "WFBlindSquareSimulation",
 			"Label": "Start Simulation"
+		},
+		{
+			"Class": "WFLocationParameter",
+			"Key": "WFInput",
+			"Label": "Location"
 		}
 	],
 	"RequiredResources": [
@@ -64,6 +77,18 @@ or a variable.
 		{
 			"AppIdentifier": "com.mipsoft.blindsquare",
 			"WFResourceClass": "WFAppInstalledResource"
+		},
+		{
+			"RequiredResources": [
+				{
+					"WFParameterKey": "WFInput",
+					"WFParameterValue": {
+						"isCurrentLocation": true
+					},
+					"WFResourceClass": "WFParameterRelationResource"
+				}
+			],
+			"WFResourceClass": "WFLocationAccessResource"
 		}
 	],
 	"ShortName": "Show BlindSquare",

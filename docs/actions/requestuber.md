@@ -64,7 +64,7 @@ containing one of the options:
 
 ---
 
-### location: Location [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### location: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"One Apple Park Way"`
 **Allows Variables**: true
 
@@ -149,7 +149,7 @@ with the text. Does not allow newlines.
 			"Label": "Pick Up At"
 		},
 		{
-			"Class": "WFLocationFieldParameter",
+			"Class": "WFTextInputParameter",
 			"Key": "UberCustomLocation",
 			"Label": "Location",
 			"Placeholder": "One Apple Park Way",

@@ -21,8 +21,7 @@ ShowAlert title="string" message="string" showCancelButton=(true | false | varia
 ---
 
 ### title: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**: `"Attention-grabbing title"`
-**Default Value**: `"Alert"`
+**Placeholder**: `"optional"`
 **Allows Variables**: true
 
 
@@ -79,16 +78,16 @@ or a variable.
 	"IconName": "Scripting.png",
 	"InputPassthrough": true,
 	"Name": "Show Alert",
+	"ParameterSummary": "Show alert ${WFAlertActionMessage}",
 	"Parameters": [
 		{
 			"Class": "WFTextInputParameter",
-			"DefaultValue": "Alert",
 			"DisallowedVariableTypes": [
 				"Ask"
 			],
 			"Key": "WFAlertActionTitle",
 			"Label": "Title",
-			"Placeholder": "Attention-grabbing title"
+			"Placeholder": "optional"
 		},
 		{
 			"Class": "WFTextInputParameter",

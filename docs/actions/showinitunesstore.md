@@ -13,14 +13,22 @@ Shows the iTunes products or App Store apps passed as input in a store sheet. Th
 
 ### usage
 ```
-ShowiniTunesStore 
+ShowiniTunesStore (v:myvar | mv:myvar | s:myvar)
 ```
 
 ### arguments
 
 ---
 
+### product: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		Product
+		```
+**Allows Variables**: true
 
+
+
+Accepts a variable.
 
 ---
 
@@ -41,13 +49,14 @@ ShowiniTunesStore
 		"store"
 	],
 	"AppIdentifier": "com.apple.MobileStore",
-	"Category": "Music",
+	"Category": "Media",
 	"CreationDate": "2016-03-15T07:00:00.000Z",
 	"Description": {
 		"DescriptionSummary": "Shows the iTunes products or App Store apps passed as input in a store sheet. This is useful with the Search iTunes Store and Search App Store actions."
 	},
 	"Input": {
 		"Multiple": false,
+		"ParameterKey": "WFProduct",
 		"Required": true,
 		"Types": [
 			"WFiTunesProductContentItem",
@@ -56,7 +65,15 @@ ShowiniTunesStore
 	},
 	"InputPassthrough": true,
 	"Name": "Show in iTunes Store",
-	"Parameters": [],
+	"ParameterSummary": "Show ${WFProduct} in iTunes Store",
+	"Parameters": [
+		{
+			"Class": "WFVariablePickerParameter",
+			"Key": "WFProduct",
+			"Label": "Product",
+			"Placeholder": "Product"
+		}
+	],
 	"RequiredResources": [
 		"WFUserInteractionResource"
 	],

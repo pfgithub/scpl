@@ -45,12 +45,18 @@ StartTimer NotImplemented
 	},
 	"InputPassthrough": true,
 	"Name": "Start Timer",
+	"ParameterSummary": "Start timer for ${WFDuration}",
 	"Parameters": [
 		{
 			"Class": "WFDurationQuantityFieldParameter",
 			"Key": "WFDuration",
 			"Label": "Duration",
 			"Placeholder": "30",
+			"PossibleUnits": [
+				"sec",
+				"min",
+				"hr"
+			],
 			"TextAlignment": "Right"
 		}
 	],

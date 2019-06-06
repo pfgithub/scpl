@@ -1,7 +1,7 @@
 
 ## Append to Note / AppendtoNote (internally `is.workflow.actions.appendnote`)
 
-> This action requires that Shortcuts has permission to use WFNotesAccessResource.
+> This action requires that Shortcuts has permission to use .
 
 
 ## description
@@ -17,7 +17,7 @@ The updated note
 
 ### usage
 ```
-AppendtoNote app=("string" | variable)] note=(v:myvar | mv:myvar | s:myvar)
+AppendtoNote app=("string" | variable)] note=(v:myvar | mv:myvar | s:myvar) text="string"
 ```
 
 ### arguments
@@ -45,6 +45,17 @@ Accepts a variable.
 
 ---
 
+### text: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Allows Variables**: true
+
+
+
+Accepts a string 
+or text
+with the text. Does not allow newlines.
+
+---
+
 ### source json (for developers)
 
 ```json
@@ -61,6 +72,7 @@ Accepts a variable.
 	},
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFInput",
 		"Required": true,
 		"Types": [
 			"WFStringContentItem"
@@ -74,6 +86,7 @@ Accepts a variable.
 			"INNote"
 		]
 	},
+	"ParameterSummary": "Append ${WFInput} to ${WFNote}",
 	"Parameters": [
 		{
 			"Class": "WFIntentAppPickerParameter",
@@ -88,10 +101,13 @@ Accepts a variable.
 			"Description": "The note to append to",
 			"Key": "WFNote",
 			"Label": "Note"
+		},
+		{
+			"Class": "WFTextInputParameter",
+			"Key": "WFInput",
+			"Label": "Text"
 		}
 	],
-	"RequiredResources": [
-		"WFNotesAccessResource"
-	]
+	"RequiredResources": []
 }
 ```

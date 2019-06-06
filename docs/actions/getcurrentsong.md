@@ -41,7 +41,7 @@ GetCurrentSong
 		"playing"
 	],
 	"AppIdentifier": "com.apple.Music",
-	"Category": "Music",
+	"Category": "Media",
 	"Description": {
 		"DescriptionSummary": "Returns the song that is currently playing in the Music app, if any."
 	},
@@ -54,10 +54,11 @@ GetCurrentSong
 			"MPMediaItem"
 		]
 	},
+	"ParameterSummary": "Get current song",
 	"RequiredResources": [
 		"WFMainThreadResource",
 		"WFAppleMusicAccessResource"
 	],
-	"Subcategory": "Music"
+	"Subcategory": "Media"
 }
 ```

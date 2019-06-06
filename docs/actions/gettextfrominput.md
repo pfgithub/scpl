@@ -13,14 +13,22 @@ For example, this action can get the name of a photo or song, or the text of a w
 
 ### usage
 ```
-GetTextfromInput 
+GetTextfromInput (v:myvar | mv:myvar | s:myvar)
 ```
 
 ### arguments
 
 ---
 
+### input: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		Input
+		```
+**Allows Variables**: true
 
+
+
+Accepts a variable.
 
 ---
 
@@ -45,6 +53,7 @@ GetTextfromInput
 	"IconName": "Text.png",
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFInput",
 		"Required": true,
 		"Types": [
 			"WFContentItem"
@@ -58,6 +67,16 @@ GetTextfromInput
 			"WFStringContentItem"
 		]
 	},
+	"ParameterSummary": "Get text from ${WFInput}",
+	"Parameters": [
+		{
+			"Class": "WFVariablePickerParameter",
+			"Key": "WFInput",
+			"Label": "Input",
+			"Placeholder": "Input"
+		}
+	],
+	"ResidentCompatible": true,
 	"ShortName": "Get Text"
 }
 ```

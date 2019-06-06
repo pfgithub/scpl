@@ -19,6 +19,7 @@ GetItemsfromRSSFeed uRL="string" WFRSSItemQuantity=number
 ---
 
 ### uRL: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"RSS feed"`
 **Default Value**: `"https://www.apple.com/newsroom/rss-feed.rss"`
 **Allows Variables**: true
 
@@ -70,6 +71,7 @@ with the text. Does not allow newlines.
 			"NSURL"
 		]
 	},
+	"ParameterSummary": "Get ${WFRSSItemQuantity} from ${WFRSSFeedURL}",
 	"Parameters": [
 		{
 			"AutocapitalizationType": "None",
@@ -79,6 +81,7 @@ with the text. Does not allow newlines.
 			"Key": "WFRSSFeedURL",
 			"KeyboardType": "URL",
 			"Label": "URL",
+			"Placeholder": "RSS feed",
 			"TextContentType": "URL"
 		},
 		{
@@ -91,6 +94,7 @@ with the text. Does not allow newlines.
 			"StepperPrefix": "Get"
 		}
 	],
+	"ResidentCompatible": true,
 	"ShortName": "Get RSS Items",
 	"Subcategory": "URLs"
 }

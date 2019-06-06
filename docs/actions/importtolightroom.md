@@ -11,7 +11,7 @@ Imports the photos passed as input into Lightroom
 
 ### usage
 ```
-ImporttoLightroom applyPreset=(true | false | variable) presetGroup=("B&W" | "Color" | "Creative" | "Curve" | "Grain" | "Sharpening" | "Vignetting") preset=("string" | variable)]
+ImporttoLightroom applyPreset=(true | false | variable) presetGroup=("B&W" | "Color" | "Creative" | "Curve" | "Grain" | "Sharpening" | "Vignetting") preset=("string" | variable)] photos=(v:myvar | mv:myvar | s:myvar)
 ```
 
 ### arguments
@@ -59,6 +59,18 @@ containing one of the options:
 
 ---
 
+### photos: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		Photos
+		```
+**Allows Variables**: true
+
+
+
+Accepts a variable.
+
+---
+
 ### source json (for developers)
 
 ```json
@@ -72,6 +84,7 @@ containing one of the options:
 	},
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFInput",
 		"Required": true,
 		"Types": [
 			"WFPhotoMediaContentItem"
@@ -80,6 +93,7 @@ containing one of the options:
 	"InputPassthrough": true,
 	"IntentName": "THImportIntent",
 	"Name": "Import to Lightroom",
+	"ParameterSummary": "Import ${WFInput} to Lightroom",
 	"Parameters": [
 		{
 			"Class": "WFSwitchParameter",
@@ -133,6 +147,12 @@ containing one of the options:
 					"WFResourceClass": "WFParameterRelationResource"
 				}
 			]
+		},
+		{
+			"Class": "WFVariablePickerParameter",
+			"Key": "WFInput",
+			"Label": "Photos",
+			"Placeholder": "Photos"
 		}
 	]
 }

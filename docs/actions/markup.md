@@ -17,14 +17,22 @@ The edited content
 
 ### usage
 ```
-Markup 
+Markup (v:myvar | mv:myvar | s:myvar)
 ```
 
 ### arguments
 
 ---
 
+### document: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		Document
+		```
+**Allows Variables**: true
 
+
+
+Accepts a variable.
 
 ---
 
@@ -45,7 +53,10 @@ Markup
 		"draw",
 		"document"
 	],
-	"Category": "Documents",
+	"Categories": [
+		"Documents",
+		"Photos & Video"
+	],
 	"CreationDate": "2014-01-20T06:00:00.000Z",
 	"Description": {
 		"DescriptionResult": "The edited content",
@@ -54,6 +65,7 @@ Markup
 	"IconName": "Markup.png",
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFDocument",
 		"Required": true,
 		"Types": [
 			"WFImageContentItem",
@@ -70,7 +82,15 @@ Markup
 			"WFPDFContentItem"
 		]
 	},
-	"Parameters": [],
+	"ParameterSummary": "Mark up ${WFDocument}",
+	"Parameters": [
+		{
+			"Class": "WFVariablePickerParameter",
+			"Key": "WFDocument",
+			"Label": "Document",
+			"Placeholder": "Document"
+		}
+	],
 	"RequiredResources": [
 		"WFUserInteractionResource"
 	],

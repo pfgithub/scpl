@@ -104,6 +104,7 @@ with the text. Does not allow newlines.
 	],
 	"AppIdentifier": "com.apple.Maps",
 	"Category": "Location",
+	"Constructor": true,
 	"Description": {
 		"DescriptionSummary": "Passes the specified address to the next action."
 	},

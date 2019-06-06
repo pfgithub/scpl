@@ -68,6 +68,7 @@ containing one of the options:
 	},
 	"LastModifiedDate": "2015-12-14T08:00:00.000Z",
 	"Name": "Get Details of Images",
+	"ResidentCompatible": true,
 	"Subcategory": "Images",
 	"WFContentItemClass": "WFImageContentItem",
 	"Parameters": [

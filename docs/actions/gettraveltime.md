@@ -1,6 +1,8 @@
 
 ## Get Travel Time / GetTravelTime (internally `is.workflow.actions.gettraveltime`)
 
+> This action is not yet complete. Some arguments may be missing.
+
 > This action requires that Shortcuts has permission to use WFMainThreadResource,WFLocationAccessResource.
 
 
@@ -27,38 +29,22 @@ The amount of time it will take to get to the destination. If passed into an act
 
 ### usage
 ```
-GetTravelTime from=("Current Location" | "Custom Location" | variable) location="string" transportationMode=("Driving" | "Walking" | "Transit")
+GetTravelTime undefined=NotImplemented undefined=NotImplemented mode=("Driving" | "Walking" | "Transit")
 ```
 
 ### arguments
 
 ---
 
-### from: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-**Default Value**: `"Current Location"`
-
-
-Accepts a string 
-containing one of the options:
-
-- `Current Location`
-- `Custom Location`
+#### This paramtype is not implemented. WFLocationParameter
 
 ---
 
-### location: Location [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**: `"One Apple Park Way"`
-**Allows Variables**: true
-
-**Only enabled if**: argument WFGetDirectionsFrom == `Custom Location`
-
-Accepts a string 
-or text
-with the text. Does not allow newlines.
+#### This paramtype is not implemented. WFLocationParameter
 
 ---
 
-### transportationMode: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### mode: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"Driving"`
 **Allows Variables**: true
 
@@ -97,6 +83,7 @@ containing one of the options:
 	},
 	"Input": {
 		"Multiple": false,
+		"ParameterKey": "WFDestination",
 		"Required": true,
 		"Types": [
 			"NSString",
@@ -113,34 +100,20 @@ containing one of the options:
 			"WFTripInfo"
 		]
 	},
+	"ParameterSummary": "Get travel time from ${WFGetDirectionsCustomLocation} to ${WFDestination}",
 	"Parameters": [
 		{
-			"Class": "WFEnumerationParameter",
-			"DefaultValue": "Current Location",
-			"DisallowedVariableTypes": [
-				"Ask",
-				"Variable"
-			],
-			"Items": [
-				"Current Location",
-				"Custom Location"
-			],
-			"Key": "WFGetDirectionsFrom",
-			"Label": "From"
+			"Class": "WFLocationParameter",
+			"DefaultToCurrentLocation": true,
+			"Key": "WFGetDirectionsCustomLocation",
+			"Label": "Start Location",
+			"SkipProcessingCurrentLocation": true
 		},
 		{
-			"Class": "WFLocationFieldParameter",
-			"Key": "WFGetDirectionsCustomLocation",
-			"Label": "Location",
-			"Placeholder": "One Apple Park Way",
-			"RequiredResources": [
-				{
-					"WFParameterKey": "WFGetDirectionsFrom",
-					"WFParameterValue": "Custom Location",
-					"WFResourceClass": "WFParameterRelationResource"
-				}
-			],
-			"TextAlignment": "Right"
+			"Class": "WFLocationParameter",
+			"Key": "WFDestination",
+			"Label": "End Location",
+			"SkipProcessingCurrentLocation": true
 		},
 		{
 			"Class": "WFEnumerationParameter",
@@ -151,16 +124,14 @@ containing one of the options:
 				"Transit"
 			],
 			"Key": "WFGetDirectionsActionMode",
-			"Label": "Transportation Mode"
+			"Label": "Mode"
 		}
 	],
 	"RequiredResources": [
 		"WFMainThreadResource",
 		"WFLocationAccessResource"
 	],
-	"Subcategory": "Maps",
-	"UnsupportedEnvironments": [
-		"Background"
-	]
+	"ResidentCompatible": true,
+	"Subcategory": "Maps"
 }
 ```

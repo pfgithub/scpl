@@ -52,6 +52,7 @@ or a variable.
 	"IconName": "Battery.png",
 	"InputPassthrough": true,
 	"Name": "Set Low Power Mode",
+	"ParameterSummary": "Turn Low Power Mode ${OnValue}",
 	"Parameters": [
 		{
 			"Class": "WFSwitchParameter",

@@ -51,6 +51,7 @@ Wait number
 	"IconName": "Scripting.png",
 	"InputPassthrough": true,
 	"Name": "Wait",
+	"ParameterSummary": "Wait ${WFDelayTime}",
 	"Parameters": [
 		{
 			"Class": "WFStepperParameter",
@@ -65,6 +66,8 @@ Wait number
 	"RequiredResources": [
 		"WFMainThreadResource"
 	],
+	"ResidentCompatible": true,
+	"SnappingPassthrough": true,
 	"Subcategory": "Control Flow"
 }
 ```

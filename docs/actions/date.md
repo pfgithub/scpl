@@ -56,10 +56,10 @@ with the text. Does not allow newlines.
 		"pass date",
 		"time",
 		"current",
-		"now",
-		"get"
+		"now"
 	],
 	"Category": "Calendar",
+	"Constructor": true,
 	"Description": {
 		"DescriptionSummary": "Passes the specified date and time to the next action."
 	},
@@ -71,6 +71,10 @@ with the text. Does not allow newlines.
 		"Types": [
 			"NSDate"
 		]
+	},
+	"ParameterSummary": {
+		"WFDateActionMode(Current Date)": "${WFDateActionMode}",
+		"WFDateActionMode(Specified Date),WFDateActionDate": "${WFDateActionMode} ${WFDateActionDate}"
 	},
 	"Parameters": [
 		{

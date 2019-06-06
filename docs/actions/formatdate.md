@@ -16,7 +16,7 @@ Custom format strings use the format patterns from Unicode Technical Standard #3
 
 ### usage
 ```
-FormatDate dateFormat=("None" | "Short" | "Medium" | "Long" | "Relative" | "RFC 2822" | "ISO 8601" | "Custom") alternateFormat=("Short" | "Medium" | "Long") timeFormat=("None" | "Short" | "Medium" | "Long" | "Relative") includeISO8601Time=(true | false | variable) formatString="string"
+FormatDate dateFormat=("None" | "Short" | "Medium" | "Long" | "Relative" | "RFC 2822" | "ISO 8601" | "Custom") alternateFormat=("Short" | "Medium" | "Long") timeFormat=("None" | "Short" | "Medium" | "Long" | "Relative") includeISO8601Time=(true | false | variable) formatString="string" date="string"
 ```
 
 ### arguments
@@ -99,6 +99,18 @@ with the text. Does not allow newlines.
 
 ---
 
+### date: Date [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"Date"`
+**Allows Variables**: true
+
+
+
+Accepts a string 
+or text
+with the text. Does not allow newlines.
+
+---
+
 ### source json (for developers)
 
 ```json
@@ -109,6 +121,7 @@ with the text. Does not allow newlines.
 		"time",
 		"formatter"
 	],
+	"AppIdentifier": "com.apple.mobilecal",
 	"Category": "Calendar",
 	"Description": {
 		"DescriptionNote": "Custom format strings use the format patterns from Unicode Technical Standard #35 (unicode.org/reports/tr35/tr35-31/tr35-dates.html#Date_Format_Patterns).",
@@ -117,6 +130,7 @@ with the text. Does not allow newlines.
 	"IconName": "Date.png",
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFDate",
 		"Required": true,
 		"Types": [
 			"WFDateContentItem"
@@ -131,6 +145,7 @@ with the text. Does not allow newlines.
 			"NSString"
 		]
 	},
+	"ParameterSummary": "Format ${WFDate}",
 	"Parameters": [
 		{
 			"Class": "WFEnumerationParameter",
@@ -227,8 +242,15 @@ with the text. Does not allow newlines.
 					"WFResourceClass": "WFParameterRelationResource"
 				}
 			]
+		},
+		{
+			"Class": "WFDateFieldParameter",
+			"Key": "WFDate",
+			"Label": "Date",
+			"Placeholder": "Date"
 		}
 	],
+	"ResidentCompatible": true,
 	"Subcategory": "Dates"
 }
 ```

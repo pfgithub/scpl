@@ -11,7 +11,7 @@ Returns a particular file type from the input.
 
 ### usage
 ```
-GetFileofType "string"
+GetFileofType type="string" input=(v:myvar | mv:myvar | s:myvar)
 ```
 
 ### arguments
@@ -31,6 +31,18 @@ with the text. Does not allow newlines.
 
 ---
 
+### input: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		Input
+		```
+**Allows Variables**: true
+
+
+
+Accepts a variable.
+
+---
+
 ### source json (for developers)
 
 ```json
@@ -43,6 +55,7 @@ with the text. Does not allow newlines.
 	"IconName": "Scripting.png",
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFInput",
 		"Required": true,
 		"Types": [
 			"WFContentItem"
@@ -57,6 +70,7 @@ with the text. Does not allow newlines.
 			"public.data"
 		]
 	},
+	"ParameterSummary": "Get file of ${WFFileType} from ${WFInput}",
 	"Parameters": [
 		{
 			"AutocapitalizationType": "None",
@@ -67,6 +81,12 @@ with the text. Does not allow newlines.
 			"KeyboardType": "URL",
 			"Label": "Type",
 			"Placeholder": "UTI"
+		},
+		{
+			"Class": "WFVariablePickerParameter",
+			"Key": "WFInput",
+			"Label": "Input",
+			"Placeholder": "Input"
 		}
 	],
 	"Subcategory": "Content"

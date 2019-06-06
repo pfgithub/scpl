@@ -65,6 +65,7 @@ with the text. Does not allow newlines.
 	"IconName": "Apps.png",
 	"InputPassthrough": true,
 	"Name": "Open App",
+	"ParameterSummary": "Open ${WFAppIdentifier}",
 	"Parameters": [
 		{
 			"AppSearchType": "OpenApp",

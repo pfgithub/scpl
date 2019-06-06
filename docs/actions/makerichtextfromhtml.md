@@ -16,14 +16,22 @@ HTML
 
 ### usage
 ```
-MakeRichTextfromHTML 
+MakeRichTextfromHTML (v:myvar | mv:myvar | s:myvar)
 ```
 
 ### arguments
 
 ---
 
+### hTML: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		HTML
+		```
+**Allows Variables**: true
 
+
+
+Accepts a variable.
 
 ---
 
@@ -46,6 +54,7 @@ MakeRichTextfromHTML
 	"IconName": "RichText.png",
 	"Input": {
 		"Multiple": false,
+		"ParameterKey": "WFHTML",
 		"Required": true,
 		"Types": [
 			"WFStringContentItem"
@@ -59,6 +68,16 @@ MakeRichTextfromHTML
 			"public.html"
 		]
 	},
+	"ParameterSummary": "Make rich text from ${WFHTML}",
+	"Parameters": [
+		{
+			"Class": "WFVariablePickerParameter",
+			"Key": "WFHTML",
+			"Label": "HTML",
+			"Placeholder": "HTML"
+		}
+	],
+	"ResidentCompatible": true,
 	"ShortName": "Make Rich Text",
 	"Subcategory": "Rich Text",
 	"SuggestedNever": true

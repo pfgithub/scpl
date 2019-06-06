@@ -11,10 +11,22 @@ Performs a number operation on the input and returns the result.
 
 ### usage
 ```
-Calculate operation=("+" | "-" | "×" | "÷" | "…") scientificOperation=("Modulus" | "x^2" | "x^3" | "x^y" | "e^x" | "10^x" | "ln(x)" | "log(x)" | "√x" | "∛x" | "x!" | "sin(x)" | "cos(x)" | "tan(x)" | "abs(x)") operand=number operand=number
+Calculate number=number operation=("+" | "-" | "×" | "÷" | "…") scientificOperation=("Modulus" | "x^2" | "x^3" | "x^y" | "e^x" | "10^x" | "ln(x)" | "log(x)" | "√x" | "∛x" | "x!" | "sin(x)" | "cos(x)" | "tan(x)" | "abs(x)") operand=number operand=number
 ```
 
 ### arguments
+
+---
+
+### number: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+**Placeholder**: `Number`
+**Allows Variables**: true
+
+
+
+		Accepts a number 
+		or variable
+		with a number.
 
 ---
 
@@ -64,7 +76,7 @@ containing one of the options:
 ---
 
 ### operand: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
-**Placeholder**: `0`
+**Placeholder**: `Number`
 **Allows Variables**: true
 
 **Only enabled if**: argument WFMathOperation != `…`
@@ -76,7 +88,7 @@ containing one of the options:
 ---
 
 ### operand: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
-**Placeholder**: `3`
+**Placeholder**: `Number`
 **Allows Variables**: true
 
 **Only enabled if**: argument WFMathOperation == `…`
@@ -131,6 +143,7 @@ containing one of the options:
 		"value",
 		"factorial"
 	],
+	"Attribution": "Math",
 	"Category": "Scripting",
 	"Description": {
 		"DescriptionSummary": "Performs a number operation on the input and returns the result."
@@ -138,6 +151,7 @@ containing one of the options:
 	"IconName": "Calculator.png",
 	"Input": {
 		"Multiple": false,
+		"ParameterKey": "WFInput",
 		"Required": true,
 		"Types": [
 			"NSDecimalNumber"
@@ -152,7 +166,19 @@ containing one of the options:
 			"NSDecimalNumber"
 		]
 	},
+	"ParameterCollapsingBehavior": "Never",
+	"ParameterSummary": {
+		"WFInput,WFMathOperation(...),WFScientificMathOperation(Modulus),WFScientificMathOperand": "${WFInput} ${WFMathOperation} ${WFScientificMathOperand}",
+		"WFInput,WFMathOperation,WFMathOperand": "${WFInput} ${WFMathOperation} ${WFMathOperand}"
+	},
 	"Parameters": [
+		{
+			"AllowsDecimalNumbers": true,
+			"Class": "WFNumberFieldParameter",
+			"Key": "WFInput",
+			"Label": "Number",
+			"Placeholder": "Number"
+		},
 		{
 			"Class": "WFEnumerationParameter",
 			"DefaultValue": "+",
@@ -200,7 +226,7 @@ containing one of the options:
 			"Class": "WFNumberFieldParameter",
 			"Key": "WFMathOperand",
 			"Label": "Operand",
-			"Placeholder": "0",
+			"Placeholder": "Number",
 			"RequiredResources": [
 				{
 					"WFParameterKey": "WFMathOperation",
@@ -216,7 +242,7 @@ containing one of the options:
 			"Class": "WFNumberFieldParameter",
 			"Key": "WFScientificMathOperand",
 			"Label": "Operand",
-			"Placeholder": "3",
+			"Placeholder": "Number",
 			"RequiredResources": [
 				{
 					"WFParameterKey": "WFMathOperation",
@@ -235,6 +261,7 @@ containing one of the options:
 			"TextAlignment": "Right"
 		}
 	],
+	"ResidentCompatible": true,
 	"Subcategory": "Math"
 }
 ```

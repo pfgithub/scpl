@@ -125,6 +125,7 @@ containing one of the options:
 			"StepperPluralNoun": "Decimal Places"
 		}
 	],
+	"ResidentCompatible": true,
 	"Subcategory": "Math"
 }
 ```

@@ -55,6 +55,7 @@ GetNumbersfromInput
 			"WFNumberContentItem"
 		]
 	},
+	"ResidentCompatible": true,
 	"ShortName": "Get Numbers",
 	"Subcategory": "Math"
 }

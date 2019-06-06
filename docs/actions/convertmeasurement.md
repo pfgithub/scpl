@@ -13,7 +13,7 @@ Converts the measurements passed into the action to the specified unit.
 
 ### usage
 ```
-ConvertMeasurement type=("string" | variable)] undefined=NotImplemented
+ConvertMeasurement type=("string" | variable)] undefined=NotImplemented measurement=(v:myvar | mv:myvar | s:myvar)
 ```
 
 ### arguments
@@ -36,6 +36,18 @@ ConvertMeasurement type=("string" | variable)] undefined=NotImplemented
 
 ---
 
+### measurement: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		Measurement
+		```
+**Allows Variables**: true
+
+
+
+Accepts a variable.
+
+---
+
 ### source json (for developers)
 
 ```json
@@ -49,6 +61,8 @@ ConvertMeasurement type=("string" | variable)] undefined=NotImplemented
 		"speed",
 		"weather"
 	],
+	"AppIdentifier": "com.apple.measure",
+	"Attribution": "Measurement",
 	"Category": "Scripting",
 	"CreationDate": "2018-09-22T05:00:00.000Z",
 	"Description": {
@@ -57,6 +71,7 @@ ConvertMeasurement type=("string" | variable)] undefined=NotImplemented
 	"IconName": "Calculator.png",
 	"Input": {
 		"Multiple": false,
+		"ParameterKey": "WFInput",
 		"Required": true,
 		"Types": [
 			"NSMeasurement"
@@ -70,6 +85,10 @@ ConvertMeasurement type=("string" | variable)] undefined=NotImplemented
 		"Types": [
 			"NSMeasurement"
 		]
+	},
+	"ParameterSummary": {
+		"WFInput,WFMeasurementUnitType": "Convert ${WFInput} into ${WFMeasurementUnitType}",
+		"WFInput,WFMeasurementUnitType,WFMeasurementUnit": "Convert ${WFInput} into ${WFMeasurementUnitType} in ${WFMeasurementUnit}"
 	},
 	"Parameters": [
 		{
@@ -94,8 +113,15 @@ ConvertMeasurement type=("string" | variable)] undefined=NotImplemented
 				}
 			],
 			"WFMeasurementUnitTypeKey": "WFMeasurementUnitType"
+		},
+		{
+			"Class": "WFVariablePickerParameter",
+			"Key": "WFInput",
+			"Label": "Measurement",
+			"Placeholder": "Measurement"
 		}
 	],
+	"ResidentCompatible": true,
 	"Subcategory": "Math"
 }
 ```

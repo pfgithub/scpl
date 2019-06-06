@@ -1,6 +1,8 @@
 
 ## Format File Size / FormatFileSize (internally `is.workflow.actions.format.filesize`)
 
+> This action is not yet complete. Some arguments may be missing.
+
 
 ## description
 
@@ -21,33 +23,14 @@ A file size from another action, or a number of bytes
 
 ### usage
 ```
-FormatFileSize format=("Automatic" | "Bytes" | "KB" | "MB" | "GB" | "TB" | "PB" | "EB" | "ZB" | "YB or Higher") includeUnits=(true | false | variable)
+FormatFileSize undefined=NotImplemented includeUnits=(true | false | variable) fileSize=number
 ```
 
 ### arguments
 
 ---
 
-### format: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-**Default Value**: `"Automatic"`
-**Allows Variables**: true
-
-
-
-Accepts a string 
-or variable
-containing one of the options:
-
-- `Automatic`
-- `Bytes`
-- `KB`
-- `MB`
-- `GB`
-- `TB`
-- `PB`
-- `EB`
-- `ZB`
-- `YB or Higher`
+#### This paramtype is not implemented. WFFileSizePickerParameter
 
 ---
 
@@ -64,6 +47,18 @@ or a variable.
 
 ---
 
+### fileSize: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+**Placeholder**: `File Size`
+**Allows Variables**: true
+
+
+
+		Accepts a number 
+		or variable
+		with a number.
+
+---
+
 ### source json (for developers)
 
 ```json
@@ -76,6 +71,8 @@ or a variable.
 		"megabytes",
 		"count"
 	],
+	"AppIdentifier": "com.apple.calculator",
+	"Attribution": "Math",
 	"Category": "Documents",
 	"CreationDate": "2016-03-15T07:00:00.000Z",
 	"Description": {
@@ -86,6 +83,7 @@ or a variable.
 	"IconName": "Calculator.png",
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFFileSize",
 		"Required": true,
 		"Types": [
 			"WFFileSizeContentItem",
@@ -100,9 +98,10 @@ or a variable.
 			"NSString"
 		]
 	},
+	"ParameterSummary": "Format ${WFFileSize} into ${WFFileSizeFormat}",
 	"Parameters": [
 		{
-			"Class": "WFEnumerationParameter",
+			"Class": "WFFileSizePickerParameter",
 			"DefaultValue": "Automatic",
 			"Items": [
 				"Automatic",
@@ -132,6 +131,12 @@ or a variable.
 					"WFResourceClass": "WFParameterRelationResource"
 				}
 			]
+		},
+		{
+			"Class": "WFNumberFieldParameter",
+			"Key": "WFFileSize",
+			"Label": "File Size",
+			"Placeholder": "File Size"
 		}
 	],
 	"Subcategory": "Files"

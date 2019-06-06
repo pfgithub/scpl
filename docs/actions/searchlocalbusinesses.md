@@ -1,6 +1,8 @@
 
 ## Search Local Businesses / SearchLocalBusinesses (internally `is.workflow.actions.searchlocalbusinesses`)
 
+> This action is not yet complete. Some arguments may be missing.
+
 > This action requires that Shortcuts has permission to use WFMainThreadResource,WFLocationAccessResource.
 
 
@@ -18,15 +20,19 @@ A location to search near.
 
 ### usage
 ```
-SearchLocalBusinesses search="string" radiuskm=number
+SearchLocalBusinesses undefined=NotImplemented search="string" radiuskm=number
 ```
 
 ### arguments
 
 ---
 
+#### This paramtype is not implemented. WFLocationParameter
+
+---
+
 ### search: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**: `"coffee shops"`
+**Placeholder**: `"Local Businesses"`
 **Allows Variables**: true
 
 
@@ -73,6 +79,7 @@ with the text. Does not allow newlines.
 	},
 	"Input": {
 		"Multiple": false,
+		"ParameterKey": "WFInput",
 		"Required": false,
 		"Types": [
 			"CLLocation"
@@ -87,13 +94,21 @@ with the text. Does not allow newlines.
 			"MKMapItem"
 		]
 	},
+	"ParameterSummary": "Search for ${WFSearchQuery} near ${WFInput}",
 	"Parameters": [
+		{
+			"Class": "WFLocationParameter",
+			"DefaultToCurrentLocation": true,
+			"Key": "WFInput",
+			"Label": "Location",
+			"SkipProcessingCurrentLocation": true
+		},
 		{
 			"Class": "WFTextInputParameter",
 			"Description": "Keywords used to search for businesses.",
 			"Key": "WFSearchQuery",
 			"Label": "Search",
-			"Placeholder": "coffee shops",
+			"Placeholder": "Local Businesses",
 			"TextAlignment": "Right"
 		},
 		{
@@ -111,10 +126,8 @@ with the text. Does not allow newlines.
 		"WFMainThreadResource",
 		"WFLocationAccessResource"
 	],
+	"ResidentCompatible": true,
 	"ShortName": "Search Maps",
-	"Subcategory": "Location",
-	"UnsupportedEnvironments": [
-		"Background"
-	]
+	"Subcategory": "Location"
 }
 ```

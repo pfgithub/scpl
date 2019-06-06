@@ -16,14 +16,15 @@ This is just like the Count in Sesame Street, but instead of a vampire, it's a S
 
 ### usage
 ```
-Count ("Items" | "Characters" | "Words" | "Sentences" | "Lines")
+Count type=("Items" | "Characters" | "Words" | "Sentences" | "Lines") input=(v:myvar | mv:myvar | s:myvar)
 ```
 
 ### arguments
 
 ---
 
-### count: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### type: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+**Default Value**: `"Items"`
 **Allows Variables**: true
 
 
@@ -37,6 +38,18 @@ containing one of the options:
 - `Words`
 - `Sentences`
 - `Lines`
+
+---
+
+### input: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		Input
+		```
+**Allows Variables**: true
+
+
+
+Accepts a variable.
 
 ---
 
@@ -59,6 +72,7 @@ containing one of the options:
 	"IconName": "Calculator.png",
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "Input",
 		"Required": true,
 		"Types": [
 			"WFContentItem",
@@ -73,9 +87,11 @@ containing one of the options:
 			"NSDecimalNumber"
 		]
 	},
+	"ParameterSummary": "Count ${WFCountType} in ${Input}",
 	"Parameters": [
 		{
 			"Class": "WFEnumerationParameter",
+			"DefaultValue": "Items",
 			"Items": [
 				"Items",
 				"Characters",
@@ -84,9 +100,16 @@ containing one of the options:
 				"Lines"
 			],
 			"Key": "WFCountType",
-			"Label": "Count"
+			"Label": "Type"
+		},
+		{
+			"Class": "WFVariablePickerParameter",
+			"Key": "Input",
+			"Label": "Input",
+			"Placeholder": "Input"
 		}
 	],
+	"ResidentCompatible": true,
 	"Subcategory": "Content"
 }
 ```

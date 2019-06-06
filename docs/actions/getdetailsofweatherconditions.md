@@ -28,6 +28,7 @@ GetDetailsofWeatherConditions NotImplemented
 	"CreationDate": "2018-09-20T07:00:00.000Z",
 	"IconName": "Weather.png",
 	"Name": "Get Details of Weather Conditions",
+	"ResidentCompatible": true,
 	"Subcategory": "Weather",
 	"WFContentItemClass": "WFWeatherDataContentItem",
 	"Parameters": [

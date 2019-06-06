@@ -44,12 +44,12 @@ GetLatestBursts number
 		"photo",
 		"animated"
 	],
+	"AppIdentifier": "com.apple.mobileslideshow",
 	"Category": "Photos & Video",
 	"CreationDate": "2015-12-08T08:00:00.000Z",
 	"Description": {
 		"DescriptionSummary": "Gets the most recent burst photos from the camera roll."
 	},
-	"IconName": "Bursts.png",
 	"Name": "Get Latest Bursts",
 	"Output": {
 		"Multiple": true,
@@ -58,6 +58,7 @@ GetLatestBursts number
 			"PHAsset"
 		]
 	},
+	"ParameterSummary": "Get the latest ${WFGetLatestPhotoCount}",
 	"Parameters": [
 		{
 			"Class": "WFStepperParameter",

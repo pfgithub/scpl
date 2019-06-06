@@ -16,7 +16,7 @@ Lists are one-indexed, so the first item is at index 1, the second is at index 2
 
 ### usage
 ```
-GetItemfromList get=("First Item" | "Last Item" | "Random Item" | "Item At Index" | "Items in Range") index=number getItemsFromIndex=number toIndex=number
+GetItemfromList get=("First Item" | "Last Item" | "Random Item" | "Item At Index" | "Items in Range") index=number startIndex=number endIndex=number list=(v:myvar | mv:myvar | s:myvar)
 ```
 
 ### arguments
@@ -53,9 +53,7 @@ containing one of the options:
 
 ---
 
-### getItemsFromIndex: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
-**Placeholder**: `optional`
-**Default Value**: `1`
+### startIndex: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Allows Variables**: true
 
 **Only enabled if**: argument WFItemSpecifier == `Items in Range`
@@ -66,8 +64,7 @@ containing one of the options:
 
 ---
 
-### toIndex: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
-**Placeholder**: `optional`
+### endIndex: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Allows Variables**: true
 
 **Only enabled if**: argument WFItemSpecifier == `Items in Range`
@@ -75,6 +72,18 @@ containing one of the options:
 		Accepts a number 
 		or variable
 		with a number.
+
+---
+
+### list: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		List
+		```
+**Allows Variables**: true
+
+
+
+Accepts a variable.
 
 ---
 
@@ -91,6 +100,7 @@ containing one of the options:
 	"IconName": "Scripting.png",
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFInput",
 		"Required": true,
 		"TypePassthrough": true,
 		"Types": [
@@ -105,6 +115,13 @@ containing one of the options:
 		"Types": [
 			"WFContentItem"
 		]
+	},
+	"ParameterSummary": {
+		"WFItemSpecifier(First Item),WFInput": "Get ${WFItemSpecifier} from ${WFInput}",
+		"WFItemSpecifier(Item At Index),WFItemIndex,WFInput": "Get ${WFItemSpecifier} ${WFItemIndex} from ${WFInput}",
+		"WFItemSpecifier(Items in Range),WFItemRangeStart,WFItemRangeEnd,WFInput": "Get ${WFItemSpecifier} ${WFItemRangeStart} to ${WFItemRangeEnd} from ${WFInput}",
+		"WFItemSpecifier(Last Item),WFInput": "Get ${WFItemSpecifier} from ${WFInput}",
+		"WFItemSpecifier(Random Item),WFInput": "Get ${WFItemSpecifier} from ${WFInput}"
 	},
 	"Parameters": [
 		{
@@ -143,10 +160,8 @@ containing one of the options:
 		},
 		{
 			"Class": "WFNumberFieldParameter",
-			"DefaultValue": 1,
 			"Key": "WFItemRangeStart",
-			"Label": "Get Items From Index",
-			"Placeholder": "optional",
+			"Label": "Start Index",
 			"RequiredResources": [
 				{
 					"WFParameterKey": "WFItemSpecifier",
@@ -159,8 +174,7 @@ containing one of the options:
 		{
 			"Class": "WFNumberFieldParameter",
 			"Key": "WFItemRangeEnd",
-			"Label": "To Index",
-			"Placeholder": "optional",
+			"Label": "End Index",
 			"RequiredResources": [
 				{
 					"WFParameterKey": "WFItemSpecifier",
@@ -169,8 +183,15 @@ containing one of the options:
 				}
 			],
 			"TextAlignment": "Right"
+		},
+		{
+			"Class": "WFVariablePickerParameter",
+			"Key": "WFInput",
+			"Label": "List",
+			"Placeholder": "List"
 		}
 	],
+	"ResidentCompatible": true,
 	"Subcategory": "Lists"
 }
 ```

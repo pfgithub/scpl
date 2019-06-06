@@ -1,6 +1,8 @@
 
 ## If / If (internally `is.workflow.actions.conditional`)
 
+> This action is not yet complete. Some arguments may be missing.
+
 > This action has a block. Make sure to end it with an end. (More info in usage below)
 
 
@@ -8,12 +10,12 @@
 
 ### summary
 
-Tests if any item passed as input matches the specified condition, and if so, runs the actions inside. Otherwise, the actions under “Otherwise” are run.
+Tests if a condition is true, and if so, runs the actions inside. Otherwise, the actions under “Otherwise” are run.
 
 
 ### usage
 ```
-If input=("Equals" | "Contains" | "Is Greater Than" | "Is Less Than" | variable) number=number value="string"
+If undefined=NotImplemented undefined=NotImplemented text="string" number=number number=number number=number number=number undefined=NotImplemented undefined=NotImplemented undefined=NotImplemented undefined=NotImplemented undefined=NotImplemented undefined=NotImplemented WFEnumeration=("string" | variable)] undefined=NotImplemented
   ...
 otherwise
   ...
@@ -24,25 +26,29 @@ end
 
 ---
 
-### input: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-**Default Value**: `"Contains"`
+#### This paramtype is not implemented. WFConditionalSubjectParameter
+
+---
+
+#### This paramtype is not implemented. WFConditionalOperatorParameter
+
+---
+
+### text: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Allows Variables**: true
+
 
 
 Accepts a string 
-containing one of the options:
-
-- `Equals`
-- `Contains`
-- `Is Greater Than`
-- `Is Less Than`
+or text
+with the text. Does not allow newlines.
 
 ---
 
 ### number: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
-**Placeholder**: `7`
 **Allows Variables**: true
 
-**Only enabled if**: argument WFCondition == `Is Greater Than` or `Is Less Than`
+
 
 		Accepts a number 
 		or variable
@@ -50,15 +56,76 @@ containing one of the options:
 
 ---
 
-### value: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**: `"example"`
+### number: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Allows Variables**: true
 
-**Only enabled if**: argument WFCondition == `Contains` or `Equals`
 
-Accepts a string 
-or text
-with the text. Does not allow newlines.
+
+		Accepts a number 
+		or variable
+		with a number.
+
+---
+
+### number: Slider Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#slider-number-fields)
+**Allows Variables**: true
+
+
+
+		Accepts a number 
+		or variable
+		with a number.
+
+---
+
+### number: Slider Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#slider-number-fields)
+**Allows Variables**: true
+
+
+
+		Accepts a number 
+		or variable
+		with a number.
+
+---
+
+#### This paramtype is not implemented. WFDatePickerParameter
+
+---
+
+#### This paramtype is not implemented. WFDatePickerParameter
+
+---
+
+#### This paramtype is not implemented. WFUnitQuantityFieldParameter
+
+---
+
+#### This paramtype is not implemented. WFUnitQuantityFieldParameter
+
+---
+
+#### This paramtype is not implemented. WFDurationQuantityFieldParameter
+
+---
+
+#### This paramtype is not implemented. WFDurationQuantityFieldParameter
+
+---
+
+### WFEnumeration: Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+**Placeholder**: ```
+		Choose
+		```
+**Allows Variables**: true
+
+
+
+		Accepts a string or variable containing the option. Check the shortcuts app for a list of available options. 
+
+---
+
+#### This paramtype is not implemented. WFNumericDynamicEnumerationParameter
 
 ---
 
@@ -74,77 +141,125 @@ with the text. Does not allow newlines.
 	],
 	"Category": "Scripting",
 	"Description": {
-		"DescriptionSummary": "Tests if any item passed as input matches the specified condition, and if so, runs the actions inside. Otherwise, the actions under “Otherwise” are run."
+		"DescriptionSummary": "Tests if a condition is true, and if so, runs the actions inside. Otherwise, the actions under “Otherwise” are run."
 	},
 	"IconName": "Scripting.png",
 	"Input": {
 		"Multiple": true,
-		"Required": true,
+		"ParameterKey": "WFInput",
 		"Types": [
-			"WFStringContentItem",
-			"WFNumberContentItem"
+			"WFContentItem"
 		]
 	},
 	"InputPassthrough": true,
 	"LastModifiedDate": "2015-01-11T06:00:00.000Z",
 	"Name": "If",
+	"ParameterSummary": {
+		"WFInput": "If ${WFInput}",
+		"WFInput,WFCondition": "If ${WFInput} ${WFCondition}",
+		"WFInput,WFCondition,WFBoundedNumber": "If ${WFInput} ${WFCondition} ${WFBoundedNumber}",
+		"WFInput,WFCondition,WFBoundedNumber,WFAnotherBoundedNumber": "If ${WFInput} ${WFCondition} ${WFBoundedNumber} and ${WFAnotherBoundedNumber}",
+		"WFInput,WFCondition,WFConditionalActionString": "If ${WFInput} ${WFCondition} ${WFConditionalActionString}",
+		"WFInput,WFCondition,WFDate": "If ${WFInput} ${WFCondition} ${WFDate}",
+		"WFInput,WFCondition,WFDate,WFAnotherDate": "If ${WFInput} ${WFCondition} ${WFDate} and ${WFAnotherDate}",
+		"WFInput,WFCondition,WFDuration": "If ${WFInput} ${WFCondition} ${WFDuration}",
+		"WFInput,WFCondition,WFDuration,WFAnotherDuration": "If ${WFInput} ${WFCondition} ${WFDuration} and ${WFAnotherDuration}",
+		"WFInput,WFCondition,WFEnumeration": "If ${WFInput} ${WFCondition} ${WFEnumeration}",
+		"WFInput,WFCondition,WFMeasurement": "If ${WFInput} ${WFCondition} ${WFMeasurement}",
+		"WFInput,WFCondition,WFMeasurement,WFAnotherMeasurement": "If ${WFInput} ${WFCondition} ${WFMeasurement} and ${WFAnotherMeasurement}",
+		"WFInput,WFCondition,WFNumberValue": "If ${WFInput} ${WFCondition} ${WFNumberValue}",
+		"WFInput,WFCondition,WFNumberValue,WFAnotherNumber": "If ${WFInput} ${WFCondition} ${WFNumberValue} and ${WFAnotherNumber}",
+		"WFInput,WFCondition,WFNumericEnumeration": "If ${WFInput} ${WFCondition} ${WFNumericEnumeration}"
+	},
 	"Parameters": [
 		{
-			"Class": "WFEnumerationParameter",
-			"DefaultValue": "Contains",
+			"Class": "WFConditionalSubjectParameter",
 			"DisallowedVariableTypes": [
-				"Ask",
-				"Variable"
+				"Ask"
 			],
-			"Items": [
-				"Equals",
-				"Contains",
-				"Is Greater Than",
-				"Is Less Than"
-			],
-			"Key": "WFCondition",
+			"Key": "WFInput",
 			"Label": "Input"
+		},
+		{
+			"Class": "WFConditionalOperatorParameter",
+			"Key": "WFCondition",
+			"Label": "Condition"
+		},
+		{
+			"Class": "WFTextInputParameter",
+			"Key": "WFConditionalActionString",
+			"Label": "Text"
 		},
 		{
 			"AllowsDecimalNumbers": true,
 			"Class": "WFNumberFieldParameter",
 			"Key": "WFNumberValue",
-			"Label": "Number",
-			"Placeholder": "7",
-			"RequiredResources": [
-				{
-					"WFParameterKey": "WFCondition",
-					"WFParameterValues": [
-						"Is Greater Than",
-						"Is Less Than"
-					],
-					"WFResourceClass": "WFParameterRelationResource"
-				}
-			],
-			"TextAlignment": "Right"
+			"Label": "Number"
 		},
 		{
-			"Class": "WFTextInputParameter",
-			"DefaultValue": "",
-			"Key": "WFConditionalActionString",
-			"Label": "Value",
-			"Placeholder": "example",
-			"RequiredResources": [
-				{
-					"WFParameterKey": "WFCondition",
-					"WFParameterValues": [
-						"Contains",
-						"Equals"
-					],
-					"WFResourceClass": "WFParameterRelationResource"
-				}
-			],
-			"TextAlignment": "Right"
+			"AllowsDecimalNumbers": true,
+			"Class": "WFNumberFieldParameter",
+			"Key": "WFAnotherNumber",
+			"Label": "Number"
+		},
+		{
+			"Class": "WFSliderParameter",
+			"Key": "WFBoundedNumber",
+			"Label": "Number"
+		},
+		{
+			"Class": "WFSliderParameter",
+			"Key": "WFAnotherBoundedNumber",
+			"Label": "Number"
+		},
+		{
+			"Class": "WFDatePickerParameter",
+			"Key": "WFDate",
+			"Label": "Date",
+			"ShowsDatePicker": true
+		},
+		{
+			"Class": "WFDatePickerParameter",
+			"Key": "WFAnotherDate",
+			"Label": "Date",
+			"ShowsDatePicker": true
+		},
+		{
+			"Class": "WFUnitQuantityFieldParameter",
+			"Key": "WFMeasurement",
+			"Label": "Number"
+		},
+		{
+			"Class": "WFUnitQuantityFieldParameter",
+			"Key": "WFAnotherMeasurement",
+			"Label": "Number"
+		},
+		{
+			"Class": "WFDurationQuantityFieldParameter",
+			"Key": "WFDuration",
+			"Label": "Number"
+		},
+		{
+			"Class": "WFDurationQuantityFieldParameter",
+			"Key": "WFAnotherDuration",
+			"Label": "Number"
+		},
+		{
+			"Class": "WFDynamicEnumerationParameter",
+			"Key": "WFEnumeration",
+			"Placeholder": "Choose"
+		},
+		{
+			"Class": "WFNumericDynamicEnumerationParameter",
+			"Key": "WFNumericEnumeration",
+			"Placeholder": "Choose"
 		}
 	],
+	"ResidentCompatible": true,
 	"SettingsUI": {
 		"ViewControllerClass": "WFConditionalActionSettingsViewController"
 	},
+	"SnappingPassthrough": true,
 	"Subcategory": "Control Flow",
 	"BlockInfo": {
 		"Example": "\n  ...\notherwise\n  ...\nend",

@@ -13,14 +13,22 @@ Prompts to share the input via AirDrop.
 
 ### usage
 ```
-AirDrop 
+AirDrop (v:myvar | mv:myvar | s:myvar)
 ```
 
 ### arguments
 
 ---
 
+### content: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		Content
+		```
+**Allows Variables**: true
 
+
+
+Accepts a variable.
 
 ---
 
@@ -36,6 +44,7 @@ AirDrop
 		"send",
 		"share"
 	],
+	"Attribution": "AirDrop",
 	"Category": "Sharing",
 	"Description": {
 		"DescriptionSummary": "Prompts to share the input via AirDrop."
@@ -43,6 +52,7 @@ AirDrop
 	"IconName": "AirDrop.png",
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFInput",
 		"Required": true,
 		"Types": [
 			"WFContentItem"
@@ -50,6 +60,15 @@ AirDrop
 	},
 	"InputPassthrough": true,
 	"Name": "AirDrop",
+	"ParameterSummary": "AirDrop ${WFInput}",
+	"Parameters": [
+		{
+			"Class": "WFVariablePickerParameter",
+			"Key": "WFInput",
+			"Label": "Content",
+			"Placeholder": "Content"
+		}
+	],
 	"RequiredResources": [
 		"WFUserInteractionResource"
 	],

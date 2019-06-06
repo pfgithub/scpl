@@ -1,7 +1,7 @@
 
 ## Select Contact / SelectContact (internally `is.workflow.actions.selectcontacts`)
 
-> This action requires that Shortcuts has permission to use WFUserInteractionResource,WFContactAccessResource.
+> This action requires that Shortcuts has permission to use WFUserInteractionResource.
 
 
 ## description
@@ -57,6 +57,7 @@ or a variable.
 			"WFContact"
 		]
 	},
+	"ParameterSummary": "Select contact",
 	"Parameters": [
 		{
 			"Class": "WFSwitchParameter",
@@ -65,8 +66,7 @@ or a variable.
 		}
 	],
 	"RequiredResources": [
-		"WFUserInteractionResource",
-		"WFContactAccessResource"
+		"WFUserInteractionResource"
 	],
 	"Subcategory": "Contacts",
 	"UserInterfaces": [

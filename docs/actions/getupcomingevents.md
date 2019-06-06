@@ -96,6 +96,7 @@ with the text. Does not allow newlines.
 			"EKEvent"
 		]
 	},
+	"ParameterSummary": "Get ${WFGetUpcomingItemCount} from ${WFGetUpcomingItemCalendar}",
 	"Parameters": [
 		{
 			"AllowsAllCalendars": true,

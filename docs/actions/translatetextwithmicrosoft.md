@@ -16,14 +16,14 @@ Powered by Microsoft Cognitive Services (microsoft.com/cognitive-services). Your
 
 ### usage
 ```
-TranslateTextwithMicrosoft from=("string" | variable)] to=("string" | variable)]
+TranslateTextwithMicrosoft language=("string" | variable)] to=("string" | variable)] text="string"
 ```
 
 ### arguments
 
 ---
 
-### from: Translate Language Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+### language: Translate Language Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Allows Variables**: true
 
 
@@ -41,6 +41,17 @@ TranslateTextwithMicrosoft from=("string" | variable)] to=("string" | variable)]
 
 ---
 
+### text: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Allows Variables**: true
+
+
+
+Accepts a string 
+or text
+with the text. Does not allow newlines.
+
+---
+
 ### source json (for developers)
 
 ```json
@@ -52,6 +63,7 @@ TranslateTextwithMicrosoft from=("string" | variable)] to=("string" | variable)]
 		"translation",
 		"language"
 	],
+	"Attribution": "Microsoft Cognitive Services",
 	"Category": "Text",
 	"CreationDate": "2015-02-19T08:00:00.000Z",
 	"Description": {
@@ -61,6 +73,7 @@ TranslateTextwithMicrosoft from=("string" | variable)] to=("string" | variable)]
 	"IconName": "Translate.png",
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFInputText",
 		"Required": true,
 		"Types": [
 			"NSString"
@@ -75,18 +88,25 @@ TranslateTextwithMicrosoft from=("string" | variable)] to=("string" | variable)]
 			"NSString"
 		]
 	},
+	"ParameterSummary": "Translate ${WFInputText} from ${WFSelectedFromLanguage} to ${WFSelectedLanguage}",
 	"Parameters": [
 		{
 			"Class": "WFTranslateTextLanguagePickerParameter",
 			"Key": "WFSelectedFromLanguage",
-			"Label": "From",
+			"Label": "Language",
 			"LanguageDetection": true
 		},
 		{
 			"Class": "WFTranslateTextLanguagePickerParameter",
 			"Key": "WFSelectedLanguage",
 			"Label": "To"
+		},
+		{
+			"Class": "WFTextInputParameter",
+			"Key": "WFInputText",
+			"Label": "Text"
 		}
-	]
+	],
+	"ResidentCompatible": true
 }
 ```

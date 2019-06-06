@@ -17,7 +17,7 @@ The updated contents of the variable.
 
 ### usage
 ```
-AddtoVariable (v:variableName | variableName)
+AddtoVariable variable=(v:variableName | variableName) input=(v:myvar | mv:myvar | s:myvar)
 ```
 
 ### arguments
@@ -38,6 +38,18 @@ or a named variable (v:) that you want to set.
 
 ---
 
+### input: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		Input
+		```
+**Allows Variables**: true
+
+
+
+Accepts a variable.
+
+---
+
 ### source json (for developers)
 
 ```json
@@ -46,6 +58,7 @@ or a named variable (v:) that you want to set.
 	"ActionKeywords": [
 		"add"
 	],
+	"Attribution": "Variables",
 	"Category": "Scripting",
 	"Description": {
 		"DescriptionResult": "The updated contents of the variable.",
@@ -54,6 +67,7 @@ or a named variable (v:) that you want to set.
 	"IconName": "Variable.png",
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFInput",
 		"Required": true,
 		"TypePassthrough": true,
 		"Types": [
@@ -68,6 +82,7 @@ or a named variable (v:) that you want to set.
 			"WFContentItem"
 		]
 	},
+	"ParameterSummary": "Add ${WFInput} to ${WFVariableName}",
 	"Parameters": [
 		{
 			"Class": "WFVariableFieldParameter",
@@ -75,8 +90,15 @@ or a named variable (v:) that you want to set.
 			"Label": "Variable",
 			"Placeholder": "Variable Name",
 			"TextAlignment": "Right"
+		},
+		{
+			"Class": "WFVariablePickerParameter",
+			"Key": "WFInput",
+			"Label": "Input",
+			"Placeholder": "Input"
 		}
 	],
+	"ResidentCompatible": true,
 	"Subcategory": "Variables"
 }
 ```

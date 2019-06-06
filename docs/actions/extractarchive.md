@@ -16,14 +16,22 @@ Archive
 
 ### usage
 ```
-ExtractArchive 
+ExtractArchive (v:myvar | mv:myvar | s:myvar)
 ```
 
 ### arguments
 
 ---
 
+### archive: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		Archive
+		```
+**Allows Variables**: true
 
+
+
+Accepts a variable.
 
 ---
 
@@ -48,6 +56,7 @@ ExtractArchive
 	"IconName": "Documents.png",
 	"Input": {
 		"Multiple": false,
+		"ParameterKey": "WFArchive",
 		"Required": true,
 		"Types": [
 			"public.data"
@@ -61,7 +70,15 @@ ExtractArchive
 			"WFGenericFileContentItem"
 		]
 	},
-	"Parameters": [],
+	"ParameterSummary": "Extract ${WFArchive}",
+	"Parameters": [
+		{
+			"Class": "WFVariablePickerParameter",
+			"Key": "WFArchive",
+			"Label": "Archive",
+			"Placeholder": "Archive"
+		}
+	],
 	"Subcategory": "Archives"
 }
 ```

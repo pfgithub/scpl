@@ -15,7 +15,7 @@ HTML
 
 ### usage
 ```
-MakeHTMLfromRichText (true | false | variable)
+MakeHTMLfromRichText makeFullDocument=(true | false | variable) richText=(v:myvar | mv:myvar | s:myvar)
 ```
 
 ### arguments
@@ -29,6 +29,18 @@ MakeHTMLfromRichText (true | false | variable)
 
 Accepts a boolean
 or a variable.
+
+---
+
+### richText: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		Rich Text
+		```
+**Allows Variables**: true
+
+
+
+Accepts a variable.
 
 ---
 
@@ -51,6 +63,7 @@ or a variable.
 	"IconName": "RichText.png",
 	"Input": {
 		"Multiple": false,
+		"ParameterKey": "WFInput",
 		"Required": true,
 		"Types": [
 			"WFRichTextContentItem"
@@ -64,14 +77,22 @@ or a variable.
 			"NSString"
 		]
 	},
+	"ParameterSummary": "Make HTML from ${WFInput}",
 	"Parameters": [
 		{
 			"Class": "WFSwitchParameter",
 			"Description": "This indicates whether or not this action writes out an entire HTML document. If this is turned off, partial HTML will be returned if possible.",
 			"Key": "WFMakeFullDocument",
 			"Label": "Make Full Document"
+		},
+		{
+			"Class": "WFVariablePickerParameter",
+			"Key": "WFInput",
+			"Label": "Rich Text",
+			"Placeholder": "Rich Text"
 		}
 	],
+	"ResidentCompatible": true,
 	"ShortName": "Make HTML",
 	"Subcategory": "Rich Text"
 }

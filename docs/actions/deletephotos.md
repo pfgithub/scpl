@@ -13,14 +13,22 @@ Deletes the photos passed as input from the device's photo library. This action 
 
 ### usage
 ```
-DeletePhotos 
+DeletePhotos (v:myvar | mv:myvar | s:myvar)
 ```
 
 ### arguments
 
 ---
 
+### photos: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		Photos
+		```
+**Allows Variables**: true
 
+
+
+Accepts a variable.
 
 ---
 
@@ -35,12 +43,14 @@ DeletePhotos
 		"picture"
 	],
 	"AppIdentifier": "com.apple.mobileslideshow",
+	"BlocksOutput": true,
 	"Category": "Photos & Video",
 	"Description": {
 		"DescriptionSummary": "Deletes the photos passed as input from the device's photo library. This action asks for confirmation before performing the deletion."
 	},
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFInputPhotos",
 		"Required": true,
 		"Types": [
 			"PHAsset"
@@ -48,6 +58,15 @@ DeletePhotos
 	},
 	"InputPassthrough": false,
 	"Name": "Delete Photos",
+	"ParameterSummary": "Delete ${WFInputPhotos}",
+	"Parameters": [
+		{
+			"Class": "WFVariablePickerParameter",
+			"Key": "WFInputPhotos",
+			"Label": "Photos",
+			"Placeholder": "Photos"
+		}
+	],
 	"RequiredResources": [
 		"WFPhotoAccessResource"
 	],

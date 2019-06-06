@@ -48,13 +48,12 @@ GetCurrentLocation
 			"CLLocation"
 		]
 	},
+	"ParameterSummary": "Get current location",
 	"RequiredResources": [
 		"WFMainThreadResource",
 		"WFLocationAccessResource"
 	],
-	"ShortName": "Current Location",
-	"UnsupportedEnvironments": [
-		"Background"
-	]
+	"ResidentCompatible": true,
+	"ShortName": "Current Location"
 }
 ```

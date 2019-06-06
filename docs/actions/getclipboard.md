@@ -50,12 +50,10 @@ GetClipboard
 			"WFContentItem"
 		]
 	},
+	"ParameterSummary": "Get clipboard",
 	"RequiredResources": [
 		"WFMainThreadResource"
 	],
-	"Subcategory": "Clipboard",
-	"UnsupportedEnvironments": [
-		"Background"
-	]
+	"Subcategory": "Clipboard"
 }
 ```

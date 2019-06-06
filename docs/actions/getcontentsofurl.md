@@ -1,6 +1,8 @@
 
 ## Get Contents of URL / GetContentsofURL (internally `is.workflow.actions.downloadurl`)
 
+> This action requires that Shortcuts has permission to use WFRemoteServerAccessResource.
+
 
 ## description
 
@@ -20,22 +22,22 @@ The fetched data
 
 ### usage
 ```
-GetContentsofURL advanced=(true | false) method=("GET" | "POST" | "PUT" | "PATCH" | "DELETE") headers=(true | false) headers={dictionary} requestBody=("JSON" | "Form" | "File" | variable) formValues={dictionary} jSONValues={dictionary} file=(v:myvar | mv:myvar | s:myvar)
+GetContentsofURL uRL="string" method=("GET" | "POST" | "PUT" | "PATCH" | "DELETE") headers=(true | false) headers={dictionary} requestBody=("JSON" | "Form" | "File" | variable) formValues={dictionary} jSONValues={dictionary} file=(v:myvar | mv:myvar | s:myvar)
 ```
 
 ### arguments
 
 ---
 
-### advanced: Expand Arrow [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### uRL: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"URL"`
+**Allows Variables**: true
 
 
-Accepts a boolean for if this
-parameter is expanded or not.
-Often expanding fields will
-enable or disable other
-arguments. If you are using
-labels, these can be ignored.
+
+Accepts a string 
+or text
+with the text. Does not allow newlines.
 
 ---
 
@@ -43,7 +45,7 @@ labels, these can be ignored.
 **Default Value**: `"GET"`
 **Allows Variables**: true
 
-**Only enabled if**: argument Advanced == `true`
+
 
 Accepts a string 
 or variable
@@ -58,7 +60,7 @@ containing one of the options:
 ---
 
 ### headers: Expand Arrow [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
-**Only enabled if**: argument Advanced == `true`
+
 
 Accepts a boolean for if this
 parameter is expanded or not.
@@ -72,8 +74,6 @@ labels, these can be ignored.
 ### headers: Dictionary [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#dictionary-field)
 **Allows Variables**: true
 
-**Only enabled if**: argument Advanced == `true`
-
 **Only enabled if**: argument ShowHeaders == `true`
 
 Accepts a dictionary.
@@ -82,8 +82,6 @@ Accepts a dictionary.
 
 ### requestBody: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
 **Default Value**: `"JSON"`
-**Only enabled if**: argument Advanced == `true`
-
 **Only enabled if**: argument WFHTTPMethod != `GET`
 
 Accepts a string 
@@ -98,8 +96,6 @@ containing one of the options:
 ### formValues: Dictionary [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#dictionary-field)
 **Allows Variables**: true
 
-**Only enabled if**: argument Advanced == `true`
-
 **Only enabled if**: argument WFHTTPBodyType == `Form`
 
 **Only enabled if**: argument WFHTTPMethod != `GET`
@@ -111,8 +107,6 @@ Accepts a dictionary.
 ### jSONValues: Dictionary [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#dictionary-field)
 **Allows Variables**: true
 
-**Only enabled if**: argument Advanced == `true`
-
 **Only enabled if**: argument WFHTTPBodyType == `JSON`
 
 **Only enabled if**: argument WFHTTPMethod != `GET`
@@ -123,8 +117,6 @@ Accepts a dictionary.
 
 ### file: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
 **Allows Variables**: true
-
-**Only enabled if**: argument Advanced == `true`
 
 **Only enabled if**: argument WFHTTPBodyType == `File`
 
@@ -156,6 +148,7 @@ Accepts a variable.
 		"request",
 		"form"
 	],
+	"Attribution": "Network",
 	"Category": "Web",
 	"Description": {
 		"DescriptionNote": "To make a multipart HTTP request, choose \"Form\" as the request body type and add files as field values.",
@@ -165,6 +158,7 @@ Accepts a variable.
 	"IconName": "Downloads.png",
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFURL",
 		"Required": true,
 		"Types": [
 			"WFURLContentItem"
@@ -180,11 +174,18 @@ Accepts a variable.
 			"public.data"
 		]
 	},
+	"ParameterSummary": "Get contents of ${WFURL}",
 	"Parameters": [
 		{
-			"Class": "WFExpandingParameter",
-			"Key": "Advanced",
-			"Label": "Advanced"
+			"AllowsMultipleValues": false,
+			"AutocapitalizationType": "None",
+			"Class": "WFTextInputParameter",
+			"DisableAutocorrection": true,
+			"Key": "WFURL",
+			"KeyboardType": "URL",
+			"Label": "URL",
+			"Placeholder": "URL",
+			"TextContentType": "URL"
 		},
 		{
 			"Class": "WFEnumerationParameter",
@@ -199,26 +200,12 @@ Accepts a variable.
 				"DELETE"
 			],
 			"Key": "WFHTTPMethod",
-			"Label": "Method",
-			"RequiredResources": [
-				{
-					"WFParameterKey": "Advanced",
-					"WFParameterValue": true,
-					"WFResourceClass": "WFParameterRelationResource"
-				}
-			]
+			"Label": "Method"
 		},
 		{
 			"Class": "WFExpandingParameter",
 			"Key": "ShowHeaders",
-			"Label": "Headers",
-			"RequiredResources": [
-				{
-					"WFParameterKey": "Advanced",
-					"WFParameterValue": true,
-					"WFResourceClass": "WFParameterRelationResource"
-				}
-			]
+			"Label": "Headers"
 		},
 		{
 			"Class": "WFDictionaryParameter",
@@ -226,11 +213,6 @@ Accepts a variable.
 			"Key": "WFHTTPHeaders",
 			"Label": "Headers",
 			"RequiredResources": [
-				{
-					"WFParameterKey": "Advanced",
-					"WFParameterValue": true,
-					"WFResourceClass": "WFParameterRelationResource"
-				},
 				{
 					"WFParameterKey": "ShowHeaders",
 					"WFParameterValue": true,
@@ -254,11 +236,6 @@ Accepts a variable.
 			"Label": "Request Body",
 			"RequiredResources": [
 				{
-					"WFParameterKey": "Advanced",
-					"WFParameterValue": true,
-					"WFResourceClass": "WFParameterRelationResource"
-				},
-				{
 					"WFParameterKey": "WFHTTPMethod",
 					"WFParameterRelation": "!=",
 					"WFParameterValues": [
@@ -278,11 +255,6 @@ Accepts a variable.
 			"Key": "WFFormValues",
 			"Label": "Form Values",
 			"RequiredResources": [
-				{
-					"WFParameterKey": "Advanced",
-					"WFParameterValue": true,
-					"WFResourceClass": "WFParameterRelationResource"
-				},
 				{
 					"WFParameterKey": "WFHTTPBodyType",
 					"WFParameterValue": "Form",
@@ -312,11 +284,6 @@ Accepts a variable.
 			"Label": "JSON Values",
 			"RequiredResources": [
 				{
-					"WFParameterKey": "Advanced",
-					"WFParameterValue": true,
-					"WFResourceClass": "WFParameterRelationResource"
-				},
-				{
 					"WFParameterKey": "WFHTTPBodyType",
 					"WFParameterValue": "JSON",
 					"WFResourceClass": "WFParameterRelationResource"
@@ -337,11 +304,6 @@ Accepts a variable.
 			"Label": "File",
 			"RequiredResources": [
 				{
-					"WFParameterKey": "Advanced",
-					"WFParameterValue": true,
-					"WFResourceClass": "WFParameterRelationResource"
-				},
-				{
 					"WFParameterKey": "WFHTTPBodyType",
 					"WFParameterValue": "File",
 					"WFResourceClass": "WFParameterRelationResource"
@@ -357,6 +319,10 @@ Accepts a variable.
 			]
 		}
 	],
+	"RequiredResources": [
+		"WFRemoteServerAccessResource"
+	],
+	"ResidentCompatible": true,
 	"ShortName": "Download URL",
 	"Subcategory": "URLs"
 }

@@ -1,7 +1,7 @@
 
 ## Select Email Address / SelectEmailAddress (internally `is.workflow.actions.selectemail`)
 
-> This action requires that Shortcuts has permission to use WFUserInteractionResource,WFContactAccessResource.
+> This action requires that Shortcuts has permission to use WFUserInteractionResource.
 
 
 ## description
@@ -54,8 +54,7 @@ SelectEmailAddress
 		]
 	},
 	"RequiredResources": [
-		"WFUserInteractionResource",
-		"WFContactAccessResource"
+		"WFUserInteractionResource"
 	],
 	"ShortName": "Select Email",
 	"Subcategory": "Email",

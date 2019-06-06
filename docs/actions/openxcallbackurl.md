@@ -17,7 +17,7 @@ When the app that's opened calls back to Shortcuts using x-success, it may inclu
 
 ### usage
 ```
-OpenXCallbackURL customCallback=(true | false | variable) successKey="string" cancelKey="string" errorKey="string" customXSuccessURL=(true | false | variable) xSuccessURL="string"
+OpenXCallbackURL customCallback=(true | false | variable) successKey="string" cancelKey="string" errorKey="string" customXSuccessURL=(true | false | variable) xSuccessURL="string" xCallbackURL="string"
 ```
 
 ### arguments
@@ -92,6 +92,18 @@ with the text. Does not allow newlines.
 
 ---
 
+### xCallbackURL: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"X-Callback URL"`
+**Allows Variables**: true
+
+
+
+Accepts a string 
+or text
+with the text. Does not allow newlines.
+
+---
+
 ### source json (for developers)
 
 ```json
@@ -108,6 +120,7 @@ with the text. Does not allow newlines.
 	"IconName": "URL.png",
 	"Input": {
 		"Multiple": false,
+		"ParameterKey": "WFXCallbackURL",
 		"Required": true,
 		"Types": [
 			"WFURLContentItem"
@@ -123,6 +136,7 @@ with the text. Does not allow newlines.
 			"NSDictionary"
 		]
 	},
+	"ParameterSummary": "Open ${WFXCallbackURL} with x-callback",
 	"Parameters": [
 		{
 			"Class": "WFSwitchParameter",
@@ -192,6 +206,16 @@ with the text. Does not allow newlines.
 					"WFResourceClass": "WFParameterRelationResource"
 				}
 			]
+		},
+		{
+			"AutocapitalizationType": "None",
+			"Class": "WFTextInputParameter",
+			"DisableAutocorrection": true,
+			"Key": "WFXCallbackURL",
+			"KeyboardType": "URL",
+			"Label": "X-Callback URL",
+			"Placeholder": "X-Callback URL",
+			"TextContentType": "URL"
 		}
 	],
 	"RequiredResources": [

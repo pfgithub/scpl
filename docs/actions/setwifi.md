@@ -49,6 +49,7 @@ or a variable.
 		"network",
 		"wlan"
 	],
+	"Attribution": "Wi-Fi",
 	"Category": "Scripting",
 	"Description": {
 		"DescriptionSummary": "Sets the device’s Wi-Fi to on or off."
@@ -56,6 +57,7 @@ or a variable.
 	"IconName": "Wi-Fi.png",
 	"InputPassthrough": true,
 	"Name": "Set Wi-Fi",
+	"ParameterSummary": "Turn Wi-Fi ${OnValue}",
 	"Parameters": [
 		{
 			"Class": "WFSwitchParameter",

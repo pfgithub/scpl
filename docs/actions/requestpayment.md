@@ -3,7 +3,7 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
-> This action requires that Shortcuts has permission to use WFContactAccessResource.
+> This action requires that Shortcuts has permission to use [object Object].
 
 
 ## description
@@ -37,7 +37,6 @@ RequestPayment app=("string" | variable)] undefined=NotImplemented amount=number
 ---
 
 ### amount: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
-**Placeholder**: `7.00`
 **Allows Variables**: true
 
 
@@ -105,6 +104,7 @@ with the text. Allows newlines.
 	"InputPassthrough": true,
 	"IntentIdentifier": "sirikit.intent.payments.RequestPaymentIntent",
 	"Name": "Request Payment",
+	"ParameterSummary": "Request $${WFVenmoActionAmount} from ${WFVenmoActionRecipients}",
 	"Parameters": [
 		{
 			"Class": "WFIntentAppPickerParameter",
@@ -118,11 +118,12 @@ with the text. Allows newlines.
 			"Label": "App"
 		},
 		{
+			"AllowsMultipleValues": true,
 			"Class": "WFContactHandleFieldParameter",
 			"IntentSlotName": "payer",
 			"Key": "WFVenmoActionRecipients",
 			"Label": "Recipients",
-			"Placeholder": "Phone or email"
+			"Placeholder": "Contact"
 		},
 		{
 			"AllowsDecimalNumbers": true,
@@ -130,7 +131,6 @@ with the text. Allows newlines.
 			"IntentSlotName": "currencyAmount",
 			"Key": "WFVenmoActionAmount",
 			"Label": "Amount",
-			"Placeholder": "7.00",
 			"TextAlignment": "Right"
 		},
 		{
@@ -162,7 +162,16 @@ with the text. Allows newlines.
 		}
 	],
 	"RequiredResources": [
-		"WFContactAccessResource"
+		{
+			"RequiredResources": [
+				{
+					"WFParameterKey": "ShowWhenRun",
+					"WFParameterValue": false,
+					"WFResourceClass": "WFParameterRelationResource"
+				}
+			],
+			"WFResourceClass": "WFRequestPaymentAccessResource"
+		}
 	],
 	"Subcategory": "Payments"
 }

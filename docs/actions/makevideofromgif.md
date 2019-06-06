@@ -20,7 +20,7 @@ A video
 
 ### usage
 ```
-MakeVideofromGIF number
+MakeVideofromGIF WFMakeVideoFromGIFActionLoopCount=number image=(v:myvar | mv:myvar | s:myvar)
 ```
 
 ### arguments
@@ -36,6 +36,18 @@ MakeVideofromGIF number
 		Accepts a number 
 		or variable
 		with a number.
+
+---
+
+### image: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		Image
+		```
+**Allows Variables**: true
+
+
+
+Accepts a variable.
 
 ---
 
@@ -60,6 +72,7 @@ MakeVideofromGIF number
 	"IconName": "GIF.png",
 	"Input": {
 		"Multiple": false,
+		"ParameterKey": "WFInputGIF",
 		"Required": true,
 		"Types": [
 			"com.compuserve.gif"
@@ -74,6 +87,7 @@ MakeVideofromGIF number
 			"public.mpeg-4"
 		]
 	},
+	"ParameterSummary": "Make video from GIF ${WFInputGIF}",
 	"Parameters": [
 		{
 			"Class": "WFStepperParameter",
@@ -83,8 +97,15 @@ MakeVideofromGIF number
 			"StepperNoun": "Time",
 			"StepperPluralNoun": "Times",
 			"StepperPrefix": "Loop"
+		},
+		{
+			"Class": "WFVariablePickerParameter",
+			"Key": "WFInputGIF",
+			"Label": "Image",
+			"Placeholder": "Image"
 		}
 	],
+	"ResidentCompatible": true,
 	"ShortName": "Make Video",
 	"Subcategory": "GIFs",
 	"SuggestedNever": true

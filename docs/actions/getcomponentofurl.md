@@ -16,10 +16,21 @@ URLs are structured as follows: scheme://user:password@host:port/path?query#frag
 
 ### usage
 ```
-GetComponentofURL ("Scheme" | "User" | "Password" | "Host" | "Port" | "Path" | "Query" | "Fragment")
+GetComponentofURL uRL="string" component=("Scheme" | "User" | "Password" | "Host" | "Port" | "Path" | "Query" | "Fragment")
 ```
 
 ### arguments
+
+---
+
+### uRL: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Allows Variables**: true
+
+
+
+Accepts a string 
+or text
+with the text. Does not allow newlines.
 
 ---
 
@@ -59,6 +70,7 @@ containing one of the options:
 		"Query",
 		"Fragment"
 	],
+	"Attribution": "URL",
 	"Category": "Web",
 	"Description": {
 		"DescriptionNote": "URLs are structured as follows: scheme://user:password@host:port/path?query#fragment",
@@ -67,6 +79,7 @@ containing one of the options:
 	"IconName": "URL.png",
 	"Input": {
 		"Multiple": false,
+		"ParameterKey": "WFURL",
 		"Required": true,
 		"Types": [
 			"WFURLContentItem"
@@ -81,7 +94,14 @@ containing one of the options:
 			"NSString"
 		]
 	},
+	"ParameterSummary": "Get ${WFURLComponent} from ${WFURL}",
 	"Parameters": [
+		{
+			"Class": "WFTextInputParameter",
+			"Key": "WFURL",
+			"KeyboardType": "URL",
+			"Label": "URL"
+		},
 		{
 			"Class": "WFEnumerationParameter",
 			"DefaultValue": "Scheme",
@@ -99,6 +119,7 @@ containing one of the options:
 			"Label": "Component"
 		}
 	],
+	"ResidentCompatible": true,
 	"ShortName": "Get Component",
 	"Subcategory": "URLs",
 	"SuggestedNever": true

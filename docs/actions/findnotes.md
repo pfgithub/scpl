@@ -3,8 +3,6 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
-> This action requires that Shortcuts has permission to use WFNotesAccessResource.
-
 
 
 ### usage
@@ -35,9 +33,6 @@ FindNotes NotImplemented
 		]
 	},
 	"Name": "Find Notes",
-	"RequiredResources": [
-		"WFNotesAccessResource"
-	],
 	"Subcategory": "Notes",
 	"SuggestedAsInitialAction": false,
 	"WFContentItemClass": "WFNoteContentItem",

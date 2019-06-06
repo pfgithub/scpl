@@ -19,7 +19,7 @@ SearchiTunesStore search="string" category=("string" | variable)] searchBy=("str
 ---
 
 ### search: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**: `"U2"`
+**Placeholder**: `"Search Term"`
 **Allows Variables**: true
 
 
@@ -95,7 +95,7 @@ with the text. Does not allow newlines.
 		"store"
 	],
 	"AppIdentifier": "com.apple.MobileStore",
-	"Category": "Music",
+	"Category": "Media",
 	"CreationDate": "2016-03-15T07:00:00.000Z",
 	"Description": {
 		"DescriptionSummary": "Searches the iTunes Store, returning the items that match the specified search terms. You can get more details about the results using the Get Details of iTunes Product action."
@@ -109,12 +109,13 @@ with the text. Does not allow newlines.
 			"WFiTunesProductContentItem"
 		]
 	},
+	"ParameterSummary": "Search iTunes Store for ${WFSearchTerm}",
 	"Parameters": [
 		{
 			"Class": "WFTextInputParameter",
 			"Key": "WFSearchTerm",
 			"Label": "Search",
-			"Placeholder": "U2",
+			"Placeholder": "Search Term",
 			"TextAlignment": "Right"
 		},
 		{
@@ -149,6 +150,8 @@ with the text. Does not allow newlines.
 			"StepperPluralNoun": "Items"
 		}
 	],
+	"ResidentCompatible": true,
+	"Storefront": "iTunes",
 	"SuggestedAsInitialAction": false
 }
 ```

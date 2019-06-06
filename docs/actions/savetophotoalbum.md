@@ -27,7 +27,7 @@ The saved items
 
 ### usage
 ```
-SavetoPhotoAlbum ("string" | variable)]
+SavetoPhotoAlbum album=("string" | variable)] input=(v:myvar | mv:myvar | s:myvar)
 ```
 
 ### arguments
@@ -35,11 +35,26 @@ SavetoPhotoAlbum ("string" | variable)]
 ---
 
 ### album: Photo Album Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+**Placeholder**: ```
+		Photo Album
+		```
 **Allows Variables**: true
 
 
 
 		Accepts a string or variable containing the option. Check the shortcuts app for a list of available options. 
+
+---
+
+### input: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		Input
+		```
+**Allows Variables**: true
+
+
+
+Accepts a variable.
 
 ---
 
@@ -67,6 +82,7 @@ SavetoPhotoAlbum ("string" | variable)]
 	},
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFInput",
 		"Required": true,
 		"Types": [
 			"WFPhotoMediaContentItem",
@@ -84,12 +100,20 @@ SavetoPhotoAlbum ("string" | variable)]
 			"PHAsset"
 		]
 	},
+	"ParameterSummary": "Save ${WFInput} to ${WFCameraRollSelectedGroup}",
 	"Parameters": [
 		{
 			"AlwaysShowsButton": true,
 			"Class": "WFPhotoAlbumPickerParameter",
 			"Key": "WFCameraRollSelectedGroup",
-			"Label": "Album"
+			"Label": "Album",
+			"Placeholder": "Photo Album"
+		},
+		{
+			"Class": "WFVariablePickerParameter",
+			"Key": "WFInput",
+			"Label": "Input",
+			"Placeholder": "Input"
 		}
 	],
 	"RequiredResources": [

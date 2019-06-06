@@ -22,7 +22,7 @@ The contents of the updated playlist
 
 ### usage
 ```
-AddtoPlaylist ("string" | variable)]
+AddtoPlaylist playlist=("string" | variable)] music=(v:myvar | mv:myvar | s:myvar)
 ```
 
 ### arguments
@@ -30,11 +30,26 @@ AddtoPlaylist ("string" | variable)]
 ---
 
 ### playlist: Music Playlist Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
+**Placeholder**: ```
+		Playlist
+		```
 **Allows Variables**: true
 
 
 
 		Accepts a string or variable containing the option. Check the shortcuts app for a list of available options. 
+
+---
+
+### music: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		Music
+		```
+**Allows Variables**: true
+
+
+
+Accepts a variable.
 
 ---
 
@@ -52,7 +67,7 @@ AddtoPlaylist ("string" | variable)]
 		"album"
 	],
 	"AppIdentifier": "com.apple.Music",
-	"Category": "Music",
+	"Category": "Media",
 	"CreationDate": "2016-03-15T07:00:00.000Z",
 	"Description": {
 		"DescriptionInput": "Items in your music library or items from the Search iTunes action.",
@@ -61,6 +76,7 @@ AddtoPlaylist ("string" | variable)]
 	},
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFInput",
 		"Required": true,
 		"Types": [
 			"WFiTunesProductContentItem",
@@ -76,12 +92,20 @@ AddtoPlaylist ("string" | variable)]
 			"MPMediaItem"
 		]
 	},
+	"ParameterSummary": "Add ${WFInput} to ${WFPlaylistName}",
 	"Parameters": [
 		{
 			"Class": "WFPlaylistPickerParameter",
 			"Key": "WFPlaylistName",
 			"Label": "Playlist",
+			"Placeholder": "Playlist",
 			"ShowLibrary": true
+		},
+		{
+			"Class": "WFVariablePickerParameter",
+			"Key": "WFInput",
+			"Label": "Music",
+			"Placeholder": "Music"
 		}
 	],
 	"RequiredResources": [

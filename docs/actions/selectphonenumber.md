@@ -1,7 +1,7 @@
 
 ## Select Phone Number / SelectPhoneNumber (internally `is.workflow.actions.selectphone`)
 
-> This action requires that Shortcuts has permission to use WFUserInteractionResource,WFContactAccessResource.
+> This action requires that Shortcuts has permission to use WFUserInteractionResource.
 
 
 ## description
@@ -54,8 +54,7 @@ SelectPhoneNumber
 		]
 	},
 	"RequiredResources": [
-		"WFUserInteractionResource",
-		"WFContactAccessResource"
+		"WFUserInteractionResource"
 	],
 	"ShortName": "Select Phone #",
 	"Subcategory": "Phone",

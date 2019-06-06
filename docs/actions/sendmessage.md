@@ -3,7 +3,7 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
-> This action requires that Shortcuts has permission to use WFContactAccessResource,WFUserInteractionResource.
+> This action requires that Shortcuts has permission to use [object Object],[object Object].
 
 
 ## description
@@ -28,8 +28,6 @@ SendMessage app=("string" | variable)] showWhenRun=(true | false | variable) und
 		```
 **Allows Variables**: true
 
-**Only enabled if**: Device attributes match `{"WFDeviceAttributeSystemVersion":{"WFSystemVersion":"12.0","WFSystemVersionRelation":">="}}` This action is always enabled inside Shortcutslang.
-
 **Only enabled if**: This action is always **disabled** inside Shortcutslang.
 
 		Accepts a string or variable containing the option. Check the shortcuts app for a list of available options. 
@@ -42,7 +40,7 @@ SendMessage app=("string" | variable)] showWhenRun=(true | false | variable) und
 		```
 **Allows Variables**: true
 
-**Only enabled if**: Device attributes match `{"WFDeviceAttributeSystemVersion":{"WFSystemVersion":"12.0","WFSystemVersionRelation":">="}}` This action is always enabled inside Shortcutslang.
+
 
 Accepts a boolean
 or a variable.
@@ -94,6 +92,7 @@ with the text. Does not allow newlines.
 	},
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFSendMessageContent",
 		"Required": false,
 		"Types": [
 			"WFContentItem"
@@ -103,6 +102,7 @@ with the text. Does not allow newlines.
 	"IntentIdentifier": "sirikit.intent.messages.SendMessageIntent",
 	"LastModifiedDate": "2015-11-24T06:00:00.000Z",
 	"Name": "Send Message",
+	"ParameterSummary": "Send “${WFSendMessageContent}” to ${WFSendMessageActionRecipients}",
 	"Parameters": [
 		{
 			"Class": "WFIntentAppPickerParameter",
@@ -110,42 +110,20 @@ with the text. Does not allow newlines.
 			"Hidden": true,
 			"IntentName": "INSendMessageIntent",
 			"Key": "IntentAppIdentifier",
-			"Label": "App",
-			"RequiredResources": [
-				{
-					"WFDeviceAttributes": {
-						"WFDeviceAttributeSystemVersion": {
-							"WFSystemVersion": "12.0",
-							"WFSystemVersionRelation": ">="
-						}
-					},
-					"WFResourceClass": "WFDeviceAttributesResource"
-				}
-			]
+			"Label": "App"
 		},
 		{
 			"Class": "WFSwitchParameter",
 			"DefaultValue": true,
 			"Key": "ShowWhenRun",
-			"Label": "Show When Run",
-			"RequiredResources": [
-				{
-					"WFDeviceAttributes": {
-						"WFDeviceAttributeSystemVersion": {
-							"WFSystemVersion": "12.0",
-							"WFSystemVersionRelation": ">="
-						}
-					},
-					"WFResourceClass": "WFDeviceAttributesResource"
-				}
-			]
+			"Label": "Show When Run"
 		},
 		{
+			"AllowsMultipleValues": true,
 			"Class": "WFContactHandleFieldParameter",
 			"IntentSlotName": "recipients",
 			"Key": "WFSendMessageActionRecipients",
-			"Label": "Recipients",
-			"Placeholder": "Phone or email"
+			"Label": "Recipients"
 		},
 		{
 			"Class": "WFTextInputParameter",
@@ -167,8 +145,26 @@ with the text. Does not allow newlines.
 		"Timeout": 30
 	},
 	"RequiredResources": [
-		"WFContactAccessResource",
-		"WFUserInteractionResource"
+		{
+			"RequiredResources": [
+				{
+					"WFParameterKey": "ShowWhenRun",
+					"WFParameterValue": true,
+					"WFResourceClass": "WFParameterRelationResource"
+				}
+			],
+			"WFResourceClass": "WFUserInteractionResource"
+		},
+		{
+			"RequiredResources": [
+				{
+					"WFParameterKey": "ShowWhenRun",
+					"WFParameterValue": false,
+					"WFResourceClass": "WFParameterRelationResource"
+				}
+			],
+			"WFResourceClass": "WFMessagesAccessResource"
+		}
 	],
 	"Subcategory": "Messaging",
 	"SuggestedAsInitialAction": true,

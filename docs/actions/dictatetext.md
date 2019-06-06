@@ -77,6 +77,7 @@ containing one of the options:
 			"NSString"
 		]
 	},
+	"ParameterSummary": "Dictate text",
 	"Parameters": [
 		{
 			"Class": "WFDictateTextLanguagePickerParameter",

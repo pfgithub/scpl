@@ -97,6 +97,7 @@ Accepts a list.
 		"WFUserInteractionResource"
 	],
 	"ShortName": "Menu",
+	"SnappingPassthrough": true,
 	"Subcategory": "Control Flow",
 	"SuggestedAsInitialAction": true,
 	"BlockInfo": {

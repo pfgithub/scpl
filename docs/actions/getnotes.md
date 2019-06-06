@@ -81,6 +81,7 @@ with the text. Does not allow newlines.
 			"ENNoteRef"
 		]
 	},
+	"ParameterSummary": "Get ${WFEvernoteNotesCount}",
 	"Parameters": [
 		{
 			"Class": "WFTextInputParameter",

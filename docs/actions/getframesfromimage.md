@@ -20,14 +20,22 @@ The frames
 
 ### usage
 ```
-GetFramesfromImage 
+GetFramesfromImage (v:myvar | mv:myvar | s:myvar)
 ```
 
 ### arguments
 
 ---
 
+### image: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		Image
+		```
+**Allows Variables**: true
 
+
+
+Accepts a variable.
 
 ---
 
@@ -55,6 +63,7 @@ GetFramesfromImage
 	"IconName": "GIF.png",
 	"Input": {
 		"Multiple": false,
+		"ParameterKey": "WFImage",
 		"Required": true,
 		"Types": [
 			"com.compuserve.gif"
@@ -70,6 +79,16 @@ GetFramesfromImage
 			"WFPhotoMediaContentItem"
 		]
 	},
+	"ParameterSummary": "Get frames from ${WFImage}",
+	"Parameters": [
+		{
+			"Class": "WFVariablePickerParameter",
+			"Key": "WFImage",
+			"Label": "Image",
+			"Placeholder": "Image"
+		}
+	],
+	"ResidentCompatible": true,
 	"ShortName": "Get Frames",
 	"Subcategory": "GIFs"
 }

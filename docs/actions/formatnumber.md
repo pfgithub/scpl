@@ -11,10 +11,21 @@ Formats a number into text.
 
 ### usage
 ```
-FormatNumber number
+FormatNumber number=number WFNumberFormatDecimalPlaces=number
 ```
 
 ### arguments
+
+---
+
+### number: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+**Allows Variables**: true
+
+
+
+		Accepts a number 
+		or variable
+		with a number.
 
 ---
 
@@ -46,6 +57,7 @@ FormatNumber number
 	"IconName": "Calculator.png",
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFNumber",
 		"Required": true,
 		"Types": [
 			"WFBooleanContentItem",
@@ -60,7 +72,14 @@ FormatNumber number
 			"NSString"
 		]
 	},
+	"ParameterSummary": "Format ${WFNumber} to ${WFNumberFormatDecimalPlaces}",
 	"Parameters": [
+		{
+			"AllowsDecimalNumbers": true,
+			"Class": "WFNumberFieldParameter",
+			"Key": "WFNumber",
+			"Label": "Number"
+		},
 		{
 			"Class": "WFStepperParameter",
 			"DefaultValue": 2,
@@ -71,6 +90,7 @@ FormatNumber number
 			"StepperPluralNoun": "Decimal Places"
 		}
 	],
+	"ResidentCompatible": true,
 	"Subcategory": "Math"
 }
 ```

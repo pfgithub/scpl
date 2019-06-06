@@ -11,10 +11,22 @@ Sets the value of the specified variable to the input of this action.
 
 ### usage
 ```
-SetVariable (v:variableName | variableName)
+SetVariable input=(v:myvar | mv:myvar | s:myvar) variable=(v:variableName | variableName)
 ```
 
 ### arguments
+
+---
+
+### input: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		Input
+		```
+**Allows Variables**: true
+
+
+
+Accepts a variable.
 
 ---
 
@@ -42,6 +54,7 @@ or a named variable (v:) that you want to set.
 		"scripting",
 		"var"
 	],
+	"Attribution": "Variables",
 	"Category": "Scripting",
 	"Description": {
 		"DescriptionSummary": "Sets the value of the specified variable to the input of this action."
@@ -49,6 +62,7 @@ or a named variable (v:) that you want to set.
 	"IconName": "Variable.png",
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFInput",
 		"Required": true,
 		"Types": [
 			"WFContentItem"
@@ -56,7 +70,14 @@ or a named variable (v:) that you want to set.
 	},
 	"InputPassthrough": true,
 	"Name": "Set Variable",
+	"ParameterSummary": "Set variable ${WFVariableName} to ${WFInput}",
 	"Parameters": [
+		{
+			"Class": "WFVariablePickerParameter",
+			"Key": "WFInput",
+			"Label": "Input",
+			"Placeholder": "Input"
+		},
 		{
 			"Class": "WFVariableFieldParameter",
 			"Key": "WFVariableName",

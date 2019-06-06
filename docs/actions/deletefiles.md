@@ -11,7 +11,7 @@ Delete the files passed in as input.
 
 ### usage
 ```
-DeleteFiles (true | false | variable)
+DeleteFiles confirmBeforeDeleting=(true | false | variable) files=(v:myvar | mv:myvar | s:myvar)
 ```
 
 ### arguments
@@ -31,6 +31,18 @@ or a variable.
 
 ---
 
+### files: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		Files
+		```
+**Allows Variables**: true
+
+
+
+Accepts a variable.
+
+---
+
 ### source json (for developers)
 
 ```json
@@ -42,6 +54,7 @@ or a variable.
 		"remove",
 		"obliterate"
 	],
+	"BlocksOutput": true,
 	"Category": "Documents",
 	"CreationDate": "2017-03-13T05:00:00.000Z",
 	"Description": {
@@ -50,12 +63,14 @@ or a variable.
 	"IconName": "Documents.png",
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFInput",
 		"Required": true,
 		"Types": [
 			"public.data"
 		]
 	},
 	"Name": "Delete Files",
+	"ParameterSummary": "Delete ${WFInput}",
 	"Parameters": [
 		{
 			"Class": "WFSwitchParameter",
@@ -63,6 +78,12 @@ or a variable.
 			"Description": "When enabled, this action will confirm with you before deleting the file.",
 			"Key": "WFDeleteFileConfirmDeletion",
 			"Label": "Confirm Before Deleting"
+		},
+		{
+			"Class": "WFVariablePickerParameter",
+			"Key": "WFInput",
+			"Label": "Files",
+			"Placeholder": "Files"
 		}
 	],
 	"Subcategory": "File Storage"

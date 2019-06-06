@@ -13,14 +13,22 @@ Prompts to share the input.
 
 ### usage
 ```
-Share 
+Share (v:myvar | mv:myvar | s:myvar)
 ```
 
 ### arguments
 
 ---
 
+### input: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		Input
+		```
+**Allows Variables**: true
 
+
+
+Accepts a variable.
 
 ---
 
@@ -42,6 +50,7 @@ Share
 	"IconName": "Sharing.png",
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFInput",
 		"Required": true,
 		"Types": [
 			"WFContentItem"
@@ -49,6 +58,15 @@ Share
 	},
 	"InputPassthrough": true,
 	"Name": "Share",
+	"ParameterSummary": "Share ${WFInput}",
+	"Parameters": [
+		{
+			"Class": "WFVariablePickerParameter",
+			"Key": "WFInput",
+			"Label": "Input",
+			"Placeholder": "Input"
+		}
+	],
 	"RequiredResources": [
 		"WFUserInteractionResource"
 	],

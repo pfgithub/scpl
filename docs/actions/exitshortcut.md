@@ -48,9 +48,11 @@ ExitShortcut
 	},
 	"LastModifiedDate": "2015-08-20T07:00:00.000Z",
 	"Name": "Exit Shortcut",
+	"ParameterSummary": "Exit shortcut",
 	"RequiredResources": [
 		"WFMainThreadResource"
 	],
+	"ResidentCompatible": true,
 	"Subcategory": "Control Flow",
 	"SuggestedNever": true
 }

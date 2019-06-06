@@ -13,14 +13,15 @@ Searches the web for the text provided as input.
 
 ### usage
 ```
-SearchWeb ("Amazon" | "Bing" | "DuckDuckGo" | "eBay" | "Google" | "Reddit" | "Twitter" | "Yahoo!" | "YouTube")
+SearchWeb service=("Amazon" | "Bing" | "DuckDuckGo" | "eBay" | "Google" | "Reddit" | "Twitter" | "Yahoo!" | "YouTube") text="string"
 ```
 
 ### arguments
 
 ---
 
-### search: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### service: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+**Placeholder**: `"Service"`
 **Default Value**: `"Google"`
 **Allows Variables**: true
 
@@ -39,6 +40,18 @@ containing one of the options:
 - `Twitter`
 - `Yahoo!`
 - `YouTube`
+
+---
+
+### text: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"Text"`
+**Allows Variables**: true
+
+
+
+Accepts a string 
+or text
+with the text. Does not allow newlines.
 
 ---
 
@@ -68,6 +81,7 @@ containing one of the options:
 	},
 	"Input": {
 		"Multiple": false,
+		"ParameterKey": "WFInputText",
 		"Required": true,
 		"Types": [
 			"NSString"
@@ -75,6 +89,7 @@ containing one of the options:
 	},
 	"InputPassthrough": true,
 	"Name": "Search Web",
+	"ParameterSummary": "Search ${WFSearchWebDestination} for ${WFInputText}",
 	"Parameters": [
 		{
 			"Class": "WFEnumerationParameter",
@@ -91,7 +106,14 @@ containing one of the options:
 				"YouTube"
 			],
 			"Key": "WFSearchWebDestination",
-			"Label": "Search"
+			"Label": "Service",
+			"Placeholder": "Service"
+		},
+		{
+			"Class": "WFTextInputParameter",
+			"Key": "WFInputText",
+			"Label": "Text",
+			"Placeholder": "Text"
 		}
 	],
 	"RequiredResources": [

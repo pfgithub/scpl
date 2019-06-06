@@ -11,10 +11,22 @@ Crops images to a smaller rectangle.
 
 ### usage
 ```
-CropImage position=("Center" | "Top Left" | "Top Right" | "Bottom Left" | "Bottom Right" | "Custom") xCoordinate=number yCoordinate=number width=number height=number
+CropImage image=(v:myvar | mv:myvar | s:myvar) position=("Center" | "Top Left" | "Top Right" | "Bottom Left" | "Bottom Right" | "Custom") xCoordinate=number yCoordinate=number width=number height=number
 ```
 
 ### arguments
+
+---
+
+### image: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		Image
+		```
+**Allows Variables**: true
+
+
+
+Accepts a variable.
 
 ---
 
@@ -109,6 +121,7 @@ containing one of the options:
 	"IconName": "Image.png",
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFInput",
 		"Required": true,
 		"Types": [
 			"UIImage"
@@ -124,7 +137,14 @@ containing one of the options:
 			"UIImage"
 		]
 	},
+	"ParameterSummary": "Crop ${WFInput}",
 	"Parameters": [
+		{
+			"Class": "WFVariablePickerParameter",
+			"Key": "WFInput",
+			"Label": "Image",
+			"Placeholder": "Image"
+		},
 		{
 			"Class": "WFEnumerationParameter",
 			"DefaultValue": "Center",
@@ -185,6 +205,7 @@ containing one of the options:
 			"TextAlignment": "Right"
 		}
 	],
+	"ResidentCompatible": true,
 	"Subcategory": "Editing",
 	"SuggestedNever": true
 }

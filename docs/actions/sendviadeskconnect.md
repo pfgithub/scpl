@@ -13,14 +13,22 @@ Sends the input to another device via DeskConnect. DeskConnect makes it easy to 
 
 ### usage
 ```
-SendviaDeskConnect 
+SendviaDeskConnect (v:myvar | mv:myvar | s:myvar)
 ```
 
 ### arguments
 
 ---
 
+### content: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		Content
+		```
+**Allows Variables**: true
 
+
+
+Accepts a variable.
 
 ---
 
@@ -47,6 +55,7 @@ SendviaDeskConnect
 	"Discontinued": true,
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFInput",
 		"Required": true,
 		"Types": [
 			"WFURLContentItem",
@@ -55,6 +64,15 @@ SendviaDeskConnect
 	},
 	"InputPassthrough": true,
 	"Name": "Send via DeskConnect",
+	"ParameterSummary": "Send ${WFInput} via the missing link between your devices, DeskConnect 💔",
+	"Parameters": [
+		{
+			"Class": "WFVariablePickerParameter",
+			"Key": "WFInput",
+			"Label": "Content",
+			"Placeholder": "Content"
+		}
+	],
 	"RequiredResources": [
 		"WFUserInteractionResource",
 		{

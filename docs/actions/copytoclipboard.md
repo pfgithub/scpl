@@ -13,7 +13,7 @@ Copies the result of the last action to the clipboard.
 
 ### usage
 ```
-CopytoClipboard localOnly=(true | false | variable) expireAt="string"
+CopytoClipboard localOnly=(true | false | variable) expireAt="string" content=(v:myvar | mv:myvar | s:myvar)
 ```
 
 ### arguments
@@ -42,6 +42,18 @@ with the text. Does not allow newlines.
 
 ---
 
+### content: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		Content
+		```
+**Allows Variables**: true
+
+
+
+Accepts a variable.
+
+---
+
 ### source json (for developers)
 
 ```json
@@ -61,6 +73,7 @@ with the text. Does not allow newlines.
 	"IconName": "Clipboard.png",
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFInput",
 		"Required": true,
 		"Types": [
 			"WFContentItem"
@@ -69,6 +82,7 @@ with the text. Does not allow newlines.
 	"InputPassthrough": true,
 	"LastModifiedDate": "2016-09-10T07:00:00.000Z",
 	"Name": "Copy to Clipboard",
+	"ParameterSummary": "Copy ${WFInput} to clipboard",
 	"Parameters": [
 		{
 			"Class": "WFSwitchParameter",
@@ -84,6 +98,12 @@ with the text. Does not allow newlines.
 			"Label": "Expire At",
 			"Placeholder": "Today at 3 PM",
 			"TextAlignment": "Right"
+		},
+		{
+			"Class": "WFVariablePickerParameter",
+			"Key": "WFInput",
+			"Label": "Content",
+			"Placeholder": "Content"
 		}
 	],
 	"RequiredResources": [

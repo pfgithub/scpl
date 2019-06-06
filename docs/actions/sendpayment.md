@@ -3,8 +3,6 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
-> This action requires that Shortcuts has permission to use WFContactAccessResource,[object Object].
-
 
 ## description
 
@@ -92,6 +90,7 @@ with the text. Allows newlines.
 	"InputPassthrough": true,
 	"IntentIdentifier": "sirikit.intent.payments.SendPaymentIntent",
 	"Name": "Send Payment",
+	"ParameterSummary": "Send $${WFVenmoActionAmount} to ${WFVenmoActionRecipients}",
 	"Parameters": [
 		{
 			"Class": "WFIntentAppPickerParameter",
@@ -105,6 +104,7 @@ with the text. Allows newlines.
 			"Label": "App"
 		},
 		{
+			"AllowsMultipleValues": true,
 			"Class": "WFContactHandleFieldParameter",
 			"IntentSlotName": "payee",
 			"Key": "WFVenmoActionRecipients",
@@ -133,18 +133,6 @@ with the text. Allows newlines.
 			"Label": "Note",
 			"Multiline": true,
 			"Placeholder": "Note"
-		}
-	],
-	"RequiredResources": [
-		"WFContactAccessResource",
-		{
-			"WFDeviceAttributes": {
-				"WFDeviceAttributeSystemVersion": {
-					"WFSystemVersion": "12.0",
-					"WFSystemVersionRelation": ">="
-				}
-			},
-			"WFResourceClass": "WFDeviceAttributesResource"
 		}
 	],
 	"Subcategory": "Payments"

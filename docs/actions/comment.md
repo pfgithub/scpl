@@ -37,6 +37,7 @@ with the text. Allows newlines.
 		"explain"
 	],
 	"Category": "Scripting",
+	"Constructor": true,
 	"CreationDate": "2015-08-29T17:26:33.000Z",
 	"Description": {
 		"DescriptionSummary": "This action lets you explain how part of a shortcut works. When run, this action does nothing."
@@ -56,6 +57,7 @@ with the text. Allows newlines.
 			"Placeholder": "Enter comment..."
 		}
 	],
+	"SnappingPassthrough": true,
 	"SuggestedNever": true
 }
 ```

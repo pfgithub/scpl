@@ -1,6 +1,8 @@
 
 ## Get Contents of Webpage / GetContentsofWebpage (internally `is.workflow.actions.getwebpagecontents`)
 
+> This action requires that Shortcuts has permission to use WFRemoteServerAccessResource.
+
 
 ## description
 
@@ -11,14 +13,19 @@ Extracts the contents of the webpages passed into the action.
 
 ### usage
 ```
-GetContentsofWebpage 
+GetContentsofWebpage (v:myvar | mv:myvar | s:myvar)
 ```
 
 ### arguments
 
 ---
 
+### uRL: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Allows Variables**: true
 
+
+
+Accepts a variable.
 
 ---
 
@@ -34,6 +41,7 @@ GetContentsofWebpage
 	},
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFInput",
 		"Required": true,
 		"Types": [
 			"WFURLContentItem"
@@ -47,6 +55,18 @@ GetContentsofWebpage
 			"NSAttributedString"
 		]
 	},
+	"ParameterSummary": "Get contents of webpage at ${WFInput}",
+	"Parameters": [
+		{
+			"Class": "WFVariablePickerParameter",
+			"Key": "WFInput",
+			"Label": "URL"
+		}
+	],
+	"RequiredResources": [
+		"WFRemoteServerAccessResource"
+	],
+	"ResidentCompatible": true,
 	"ShortName": "Get Webpage",
 	"Subcategory": "Web",
 	"UnsupportedEnvironments": [

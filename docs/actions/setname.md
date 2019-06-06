@@ -11,7 +11,7 @@ Sets the name of the item passed as input.
 
 ### usage
 ```
-SetName name="string" advanced=(true | false) dontIncludeFileExtension=(true | false | variable)
+SetName name="string" dontIncludeFileExtension=(true | false | variable) input=(v:myvar | mv:myvar | s:myvar)
 ```
 
 ### arguments
@@ -19,7 +19,7 @@ SetName name="string" advanced=(true | false) dontIncludeFileExtension=(true | f
 ---
 
 ### name: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**: `"example"`
+**Placeholder**: `"Name"`
 **Allows Variables**: true
 
 
@@ -30,25 +30,25 @@ with the text. Does not allow newlines.
 
 ---
 
-### advanced: Expand Arrow [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
-
-
-Accepts a boolean for if this
-parameter is expanded or not.
-Often expanding fields will
-enable or disable other
-arguments. If you are using
-labels, these can be ignored.
-
----
-
 ### dontIncludeFileExtension: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
 **Allows Variables**: true
 
-**Only enabled if**: argument Advanced == `true`
+
 
 Accepts a boolean
 or a variable.
+
+---
+
+### input: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		Input
+		```
+**Allows Variables**: true
+
+
+
+Accepts a variable.
 
 ---
 
@@ -67,6 +67,7 @@ or a variable.
 	"IconName": "Scripting.png",
 	"Input": {
 		"Multiple": false,
+		"ParameterKey": "WFInput",
 		"Required": true,
 		"TypePassthrough": true,
 		"Types": [
@@ -82,32 +83,28 @@ or a variable.
 			"WFContentItem"
 		]
 	},
+	"ParameterSummary": "Set name of ${WFInput} to ${WFName}",
 	"Parameters": [
 		{
 			"Class": "WFTextInputParameter",
 			"Key": "WFName",
 			"Label": "Name",
-			"Placeholder": "example"
-		},
-		{
-			"Class": "WFExpandingParameter",
-			"Key": "Advanced",
-			"Label": "Advanced"
+			"Placeholder": "Name"
 		},
 		{
 			"Class": "WFSwitchParameter",
 			"Description": "By default, Shortcuts will automatically include a file extension if one isn't specified. Turn this on if you want to create a file with no extension.",
 			"Key": "WFDontIncludeFileExtension",
-			"Label": "Don't Include File Extension",
-			"RequiredResources": [
-				{
-					"WFParameterKey": "Advanced",
-					"WFParameterValue": true,
-					"WFResourceClass": "WFParameterRelationResource"
-				}
-			]
+			"Label": "Don't Include File Extension"
+		},
+		{
+			"Class": "WFVariablePickerParameter",
+			"Key": "WFInput",
+			"Label": "Input",
+			"Placeholder": "Input"
 		}
 	],
+	"ResidentCompatible": true,
 	"Subcategory": "Content"
 }
 ```

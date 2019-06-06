@@ -41,13 +41,14 @@ ClearUpNext
 		"clear"
 	],
 	"AppIdentifier": "com.apple.Music",
-	"Category": "Music",
+	"Category": "Media",
 	"CreationDate": "2017-02-14T08:00:00.000Z",
 	"Description": {
 		"DescriptionSummary": "Clears all the music in your Up Next queue."
 	},
 	"InputPassthrough": true,
 	"Name": "Clear Up Next",
+	"ParameterSummary": "Clear Up Next",
 	"RequiredResources": [
 		"WFAppleMusicAccessResource",
 		{

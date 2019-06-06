@@ -32,7 +32,7 @@ Measurement type=("string" | variable)] undefined=NotImplemented
 
 ---
 
-#### This paramtype is not implemented. WFUnitPickerParameter
+#### This paramtype is not implemented. WFUnitQuantityFieldParameter
 
 ---
 
@@ -49,7 +49,10 @@ Measurement type=("string" | variable)] undefined=NotImplemented
 		"speed",
 		"weather"
 	],
+	"AppIdentifier": "com.apple.measure",
+	"Attribution": "Measurement",
 	"Category": "Scripting",
+	"Constructor": true,
 	"CreationDate": "2018-09-22T05:00:00.000Z",
 	"Description": {
 		"DescriptionSummary": "Passes the specified measurement (including number and unit) to the next action."
@@ -64,6 +67,7 @@ Measurement type=("string" | variable)] undefined=NotImplemented
 			"NSMeasurement"
 		]
 	},
+	"ParameterSummary": "${WFMeasurementUnitType}\n${WFMeasurementUnit}",
 	"Parameters": [
 		{
 			"Class": "WFUnitTypePickerParameter",
@@ -75,11 +79,10 @@ Measurement type=("string" | variable)] undefined=NotImplemented
 			"Label": "Type"
 		},
 		{
-			"Class": "WFUnitPickerParameter",
+			"Class": "WFUnitQuantityFieldParameter",
 			"Key": "WFMeasurementUnit",
 			"KeyboardType": "DecimalPad",
 			"Label": "Value",
-			"Placeholder": "10",
 			"RequiredResources": [
 				{
 					"WFParameterKey": "WFMeasurementUnitType",
@@ -90,6 +93,7 @@ Measurement type=("string" | variable)] undefined=NotImplemented
 			"TextAlignment": "Right"
 		}
 	],
+	"ResidentCompatible": true,
 	"Subcategory": "Math"
 }
 ```

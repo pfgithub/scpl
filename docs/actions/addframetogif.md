@@ -20,7 +20,7 @@ An animated GIF
 
 ### usage
 ```
-AddFrametoGIF image=(v:myvar | mv:myvar | s:myvar) delayTime=number autoSize=(true | false | variable) width=number height=number
+AddFrametoGIF image=(v:myvar | mv:myvar | s:myvar) gIF=(v:myvar | mv:myvar | s:myvar) delayTime=number autoSize=(true | false | variable) width=number height=number
 ```
 
 ### arguments
@@ -28,6 +28,21 @@ AddFrametoGIF image=(v:myvar | mv:myvar | s:myvar) delayTime=number autoSize=(tr
 ---
 
 ### image: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		Image
+		```
+**Allows Variables**: true
+
+
+
+Accepts a variable.
+
+---
+
+### gIF: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		GIF
+		```
 **Allows Variables**: true
 
 
@@ -107,6 +122,7 @@ or a variable.
 	"IconName": "GIF.png",
 	"Input": {
 		"Multiple": false,
+		"ParameterKey": "WFInputGIF",
 		"Required": true,
 		"Types": [
 			"WFImageContentItem"
@@ -121,11 +137,19 @@ or a variable.
 			"com.compuserve.gif"
 		]
 	},
+	"ParameterSummary": "Add ${WFImage} to ${WFInputGIF}",
 	"Parameters": [
 		{
 			"Class": "WFVariablePickerParameter",
 			"Key": "WFImage",
-			"Label": "Image"
+			"Label": "Image",
+			"Placeholder": "Image"
+		},
+		{
+			"Class": "WFVariablePickerParameter",
+			"Key": "WFInputGIF",
+			"Label": "GIF",
+			"Placeholder": "GIF"
 		},
 		{
 			"AllowsDecimalNumbers": true,
@@ -171,6 +195,7 @@ or a variable.
 			"TextAlignment": "Right"
 		}
 	],
+	"ResidentCompatible": true,
 	"Subcategory": "GIFs"
 }
 ```

@@ -95,6 +95,7 @@ containing one of the options:
 			"com.apple.quicktime-movie"
 		]
 	},
+	"ParameterSummary": "Take video with ${WFCameraCaptureDevice} camera",
 	"Parameters": [
 		{
 			"Class": "WFEnumerationParameter",

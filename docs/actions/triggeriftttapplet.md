@@ -184,6 +184,7 @@ with the text. Does not allow newlines.
 	"Description": {
 		"DescriptionSummary": "Triggers an IFTTT applet. Configure which applet in the IFTTT app."
 	},
+	"Discontinued": true,
 	"Input": {
 		"Multiple": false,
 		"Required": true,

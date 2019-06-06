@@ -75,6 +75,7 @@ containing one of the options:
 			"NSString"
 		]
 	},
+	"ParameterSummary": "Get current IP address",
 	"Parameters": [
 		{
 			"Class": "WFEnumerationParameter",
@@ -97,6 +98,7 @@ containing one of the options:
 			"Label": "Type"
 		}
 	],
+	"ResidentCompatible": true,
 	"Subcategory": "Device",
 	"SuggestedNever": true
 }

@@ -1,7 +1,9 @@
 
 ## Add New Reminder / AddNewReminder (internally `is.workflow.actions.addnewreminder`)
 
-> This action requires that Shortcuts has permission to use WFReminderAccessResource.
+> This action is not yet complete. Some arguments may be missing.
+
+> This action requires that Shortcuts has permission to use WFReminderAccessResource,[object Object].
 
 
 ## description
@@ -17,15 +19,14 @@ The new reminder
 
 ### usage
 ```
-AddNewReminder title="string" list=("string" | variable)] remindMe=(true | false) remind=("At Time" | "At Location") whenI=("Enter" | "Leave") radius=number ofLocation="string" alertTime="string" notes="string"
+AddNewReminder reminder="string" list=("string" | variable)] alert=("No Alert" | "Alert") trigger=("At Time" | "When I Arrive" | "When I Leave") undefined=NotImplemented undefined=NotImplemented 200PM="string" notes="string"
 ```
 
 ### arguments
 
 ---
 
-### title: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**: `"Buy some milk"`
+### reminder: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Allows Variables**: true
 
 
@@ -45,84 +46,51 @@ with the text. Does not allow newlines.
 
 ---
 
-### remindMe: Expand Arrow [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+### alert: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+**Default Value**: `"No Alert"`
+**Allows Variables**: true
 
 
-Accepts a boolean for if this
-parameter is expanded or not.
-Often expanding fields will
-enable or disable other
-arguments. If you are using
-labels, these can be ignored.
+
+Accepts a string 
+or variable
+containing one of the options:
+
+- `No Alert`
+- `Alert`
 
 ---
 
-### remind: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+### trigger: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+**Default Value**: `"At Time"`
 **Allows Variables**: true
 
-**Only enabled if**: argument WFCalendarItemAlert == `true`
+**Only enabled if**: argument WFAlertEnabled == `Alert`
 
 Accepts a string 
 or variable
 containing one of the options:
 
 - `At Time`
-- `At Location`
+- `When I Arrive`
+- `When I Leave`
 
 ---
 
-### whenI: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-**Allows Variables**: true
-
-**Only enabled if**: argument WFCalendarItemAlert == `true`
-
-**Only enabled if**: argument WFAlertTrigger == `At Location`
-
-Accepts a string 
-or variable
-containing one of the options:
-
-- `Enter`
-- `Leave`
+#### This paramtype is not implemented. WFLocationParameter
 
 ---
 
-### radius: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
-**Placeholder**: `in meters`
-**Default Value**: `300`
-**Allows Variables**: true
-
-**Only enabled if**: argument WFCalendarItemAlert == `true`
-
-**Only enabled if**: argument WFAlertTrigger == `At Location`
-
-		Accepts a number 
-		or variable
-		with a number.
+#### This paramtype is not implemented. WFUnitQuantityFieldParameter
 
 ---
 
-### ofLocation: Location [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**: `"One Apple Park Way, Cupertino, CA"`
+### 200PM: Date [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Allows Variables**: true
 
-**Only enabled if**: argument WFCalendarItemAlert == `true`
+**Only enabled if**: argument WFAlertEnabled == `Alert`
 
-**Only enabled if**: argument WFAlertTrigger == `At Location`
-
-Accepts a string 
-or text
-with the text. Does not allow newlines.
-
----
-
-### alertTime: Date [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**: `"Tomorrow at 4pm"`
-**Allows Variables**: true
-
-**Only enabled if**: argument WFCalendarItemAlert == `true`
-
-**Only enabled if**: argument WFAlertTrigger == `At Time`
+**Only enabled if**: argument WFAlertCondition == `At Time`
 
 Accepts a string 
 or text
@@ -170,13 +138,18 @@ with the text. Allows newlines.
 			"EKReminder"
 		]
 	},
+	"ParameterSummary": {
+		"WFCalendarItemTitle,WFCalendarItemCalendar,WFAlertEnabled(Alert),WFAlertCondition(At Time),WFAlertCustomTime,WFCalendarItemNotes": "Add ${WFCalendarItemTitle} to ${WFCalendarItemCalendar} with ${WFAlertEnabled} ${WFAlertCondition} ${WFAlertCustomTime}",
+		"WFCalendarItemTitle,WFCalendarItemCalendar,WFAlertEnabled(Alert),WFAlertCondition(When I Arrive),WFAlertLocation,WFCalendarItemNotes,WFAlertLocationRadius": "Add ${WFCalendarItemTitle} to ${WFCalendarItemCalendar} with ${WFAlertEnabled} ${WFAlertCondition} at ${WFAlertLocation}",
+		"WFCalendarItemTitle,WFCalendarItemCalendar,WFAlertEnabled(Alert),WFAlertCondition(When I Leave),WFAlertLocation,WFCalendarItemNotes,WFAlertLocationRadius": "Add ${WFCalendarItemTitle} to ${WFCalendarItemCalendar} with ${WFAlertEnabled} ${WFAlertCondition} from ${WFAlertLocation}",
+		"WFCalendarItemTitle,WFCalendarItemCalendar,WFAlertEnabled(No Alert),WFCalendarItemNotes": "Add ${WFCalendarItemTitle} to ${WFCalendarItemCalendar} with ${WFAlertEnabled}"
+	},
 	"Parameters": [
 		{
 			"Class": "WFTextInputParameter",
 			"Description": "The title of this reminder.",
 			"Key": "WFCalendarItemTitle",
-			"Label": "Title",
-			"Placeholder": "Buy some milk",
+			"Label": "Reminder",
 			"TextAlignment": "Right"
 		},
 		{
@@ -187,106 +160,93 @@ with the text. Allows newlines.
 			"Label": "List"
 		},
 		{
-			"Class": "WFExpandingParameter",
-			"Description": "Optionally, where or when to show an alert to notify me of this reminder.",
-			"Key": "WFCalendarItemAlert",
-			"Label": "Remind Me"
+			"Class": "WFEnumerationParameter",
+			"DefaultValue": "No Alert",
+			"Items": [
+				"No Alert",
+				"Alert"
+			],
+			"Key": "WFAlertEnabled",
+			"Label": "Alert"
 		},
 		{
 			"Class": "WFEnumerationParameter",
+			"DefaultValue": "At Time",
 			"Items": [
 				"At Time",
-				"At Location"
+				"When I Arrive",
+				"When I Leave"
 			],
-			"Key": "WFAlertTrigger",
-			"Label": "Remind",
+			"Key": "WFAlertCondition",
+			"Label": "Trigger",
 			"RequiredResources": [
 				{
-					"WFParameterKey": "WFCalendarItemAlert",
-					"WFParameterValue": true,
+					"WFParameterKey": "WFAlertEnabled",
+					"WFParameterValue": "Alert",
 					"WFResourceClass": "WFParameterRelationResource"
 				}
 			]
 		},
 		{
-			"Class": "WFEnumerationParameter",
-			"Items": [
-				"Enter",
-				"Leave"
-			],
-			"Key": "WFAlertLocationProximity",
-			"Label": "When I...",
+			"Class": "WFLocationParameter",
+			"Description": "Text representing the address or coordinates of the location that triggers the alert.",
+			"Key": "WFAlertLocation",
+			"Label": "Location",
 			"RequiredResources": [
 				{
-					"WFParameterKey": "WFCalendarItemAlert",
-					"WFParameterValue": true,
+					"WFParameterKey": "WFAlertEnabled",
+					"WFParameterValue": "Alert",
 					"WFResourceClass": "WFParameterRelationResource"
 				},
 				{
-					"WFParameterKey": "WFAlertTrigger",
-					"WFParameterValue": "At Location",
+					"WFParameterKey": "WFAlertCondition",
+					"WFParameterValues": [
+						"When I Arrive",
+						"When I Leave"
+					],
 					"WFResourceClass": "WFParameterRelationResource"
 				}
 			]
 		},
 		{
-			"AllowsDecimalNumbers": true,
-			"Class": "WFNumberFieldParameter",
-			"DefaultValue": 300,
-			"Description": "The distance (in meters) from the provided location to consider “entering” or “leaving” the location.",
+			"Class": "WFUnitQuantityFieldParameter",
+			"DefaultUnit": "ft",
+			"DefaultValue": 1000,
+			"Description": "The distance from the provided location to consider \"arriving\" or \"leaving\" the location",
 			"Key": "WFAlertLocationRadius",
 			"Label": "Radius",
-			"Placeholder": "in meters",
 			"RequiredResources": [
 				{
-					"WFParameterKey": "WFCalendarItemAlert",
-					"WFParameterValue": true,
+					"WFParameterKey": "WFAlertEnabled",
+					"WFParameterValue": "Alert",
 					"WFResourceClass": "WFParameterRelationResource"
 				},
 				{
-					"WFParameterKey": "WFAlertTrigger",
-					"WFParameterValue": "At Location",
+					"WFParameterKey": "WFAlertCondition",
+					"WFParameterValues": [
+						"When I Arrive",
+						"When I Leave"
+					],
 					"WFResourceClass": "WFParameterRelationResource"
 				}
 			],
-			"TextAlignment": "Right"
-		},
-		{
-			"Class": "WFLocationFieldParameter",
-			"Description": "Text representing the address or coordinates of the location that triggers the alert.",
-			"HintDisplayMode": "WhileProcessing",
-			"Key": "WFAlertLocation",
-			"Label": "Of Location",
-			"Placeholder": "One Apple Park Way, Cupertino, CA",
-			"RequiredResources": [
-				{
-					"WFParameterKey": "WFCalendarItemAlert",
-					"WFParameterValue": true,
-					"WFResourceClass": "WFParameterRelationResource"
-				},
-				{
-					"WFParameterKey": "WFAlertTrigger",
-					"WFParameterValue": "At Location",
-					"WFResourceClass": "WFParameterRelationResource"
-				}
-			],
-			"TextAlignment": "Right"
+			"TextAlignment": "Right",
+			"WFUnitType": "Length"
 		},
 		{
 			"Class": "WFDateFieldParameter",
 			"Description": "Text representing the date when the alert should occur. Examples: “tonight at 7”, “March 7”",
 			"HintDisplayMode": "WhileProcessing",
 			"Key": "WFAlertCustomTime",
-			"Label": "Alert Time",
-			"Placeholder": "Tomorrow at 4pm",
+			"Label": "2:00 PM",
 			"RequiredResources": [
 				{
-					"WFParameterKey": "WFCalendarItemAlert",
-					"WFParameterValue": true,
+					"WFParameterKey": "WFAlertEnabled",
+					"WFParameterValue": "Alert",
 					"WFResourceClass": "WFParameterRelationResource"
 				},
 				{
-					"WFParameterKey": "WFAlertTrigger",
+					"WFParameterKey": "WFAlertCondition",
 					"WFParameterValue": "At Time",
 					"WFResourceClass": "WFParameterRelationResource"
 				}
@@ -303,7 +263,19 @@ with the text. Allows newlines.
 		}
 	],
 	"RequiredResources": [
-		"WFReminderAccessResource"
+		"WFReminderAccessResource",
+		{
+			"RequiredResources": [
+				{
+					"WFParameterKey": "WFAlertLocation",
+					"WFParameterValue": {
+						"isCurrentLocation": true
+					},
+					"WFResourceClass": "WFParameterRelationResource"
+				}
+			],
+			"WFResourceClass": "WFLocationAccessResource"
+		}
 	],
 	"ShortName": "Add Reminder",
 	"Subcategory": "Reminders"

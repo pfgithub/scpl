@@ -11,14 +11,22 @@ Gets the names of emoji passed into the action.
 
 ### usage
 ```
-GetNameofEmoji 
+GetNameofEmoji "string"
 ```
 
 ### arguments
 
 ---
 
+### text: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"Text"`
+**Allows Variables**: true
 
+
+
+Accepts a string 
+or text
+with the text. Does not allow newlines.
 
 ---
 
@@ -34,6 +42,7 @@ GetNameofEmoji
 	},
 	"IconName": "Smiley.png",
 	"Input": {
+		"ParameterKey": "WFInput",
 		"Required": true,
 		"Types": [
 			"NSString"
@@ -48,6 +57,16 @@ GetNameofEmoji
 			"NSString"
 		]
 	},
+	"ParameterSummary": "Get name of emoji in ${WFInput}",
+	"Parameters": [
+		{
+			"Class": "WFTextInputParameter",
+			"Key": "WFInput",
+			"Label": "Text",
+			"Placeholder": "Text"
+		}
+	],
+	"ResidentCompatible": true,
 	"ShortName": "Get Emoji Name",
 	"SuggestedNever": true
 }

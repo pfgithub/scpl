@@ -52,6 +52,7 @@ or a variable.
 	"IconName": "Bluetooth.png",
 	"InputPassthrough": true,
 	"Name": "Set Bluetooth",
+	"ParameterSummary": "Turn Bluetooth ${OnValue}",
 	"Parameters": [
 		{
 			"Class": "WFSwitchParameter",

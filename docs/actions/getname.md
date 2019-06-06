@@ -11,14 +11,22 @@ Returns the name of every item passed as input. Depending on the input, this cou
 
 ### usage
 ```
-GetName 
+GetName (v:myvar | mv:myvar | s:myvar)
 ```
 
 ### arguments
 
 ---
 
+### item: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		Item
+		```
+**Allows Variables**: true
 
+
+
+Accepts a variable.
 
 ---
 
@@ -37,6 +45,7 @@ GetName
 	"IconName": "Scripting.png",
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFInput",
 		"Required": true,
 		"Types": [
 			"WFContentItem"
@@ -50,6 +59,16 @@ GetName
 			"NSString"
 		]
 	},
+	"ParameterSummary": "Get name of ${WFInput}",
+	"Parameters": [
+		{
+			"Class": "WFVariablePickerParameter",
+			"Key": "WFInput",
+			"Label": "Item",
+			"Placeholder": "Item"
+		}
+	],
+	"ResidentCompatible": true,
 	"Subcategory": "Content"
 }
 ```

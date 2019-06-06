@@ -11,7 +11,7 @@ Turns an image clockwise by a particular number of degrees.
 
 ### usage
 ```
-RotateImage number
+RotateImage degrees=number image=(v:myvar | mv:myvar | s:myvar)
 ```
 
 ### arguments
@@ -28,6 +28,18 @@ RotateImage number
 		Accepts a number 
 		or variable
 		with a number.
+
+---
+
+### image: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		Image
+		```
+**Allows Variables**: true
+
+
+
+Accepts a variable.
 
 ---
 
@@ -50,6 +62,7 @@ RotateImage number
 	"IconName": "Image.png",
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFImage",
 		"Required": true,
 		"Types": [
 			"UIImage"
@@ -65,6 +78,7 @@ RotateImage number
 			"UIImage"
 		]
 	},
+	"ParameterSummary": "Rotate ${WFImage} by ${WFImageRotateAmount} degrees",
 	"Parameters": [
 		{
 			"AllowsDecimalNumbers": true,
@@ -74,8 +88,15 @@ RotateImage number
 			"Label": "Degrees",
 			"Placeholder": "90",
 			"TextAlignment": "Right"
+		},
+		{
+			"Class": "WFVariablePickerParameter",
+			"Key": "WFImage",
+			"Label": "Image",
+			"Placeholder": "Image"
 		}
 	],
+	"ResidentCompatible": true,
 	"Subcategory": "Editing",
 	"SuggestedNever": true
 }

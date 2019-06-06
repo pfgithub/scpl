@@ -22,7 +22,7 @@ Every item passed to the “End Repeat” action
 
 ### usage
 ```
-RepeatwithEach 
+RepeatwithEach (v:myvar | mv:myvar | s:myvar)
   ...
 end
 ```
@@ -31,7 +31,12 @@ end
 
 ---
 
+### items: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Allows Variables**: true
 
+
+
+Accepts a variable.
 
 ---
 
@@ -54,6 +59,7 @@ end
 	"IconName": "Scripting.png",
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFInput",
 		"Required": false,
 		"Types": [
 			"WFContentItem"
@@ -68,6 +74,15 @@ end
 			"WFContentItem"
 		]
 	},
+	"ParameterSummary": "Repeat with each item in ${WFInput}",
+	"Parameters": [
+		{
+			"Class": "WFVariablePickerParameter",
+			"Key": "WFInput",
+			"Label": "Items"
+		}
+	],
+	"ResidentCompatible": true,
 	"Subcategory": "Control Flow",
 	"BlockInfo": {
 		"Example": "\n  ...\nend",

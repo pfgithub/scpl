@@ -132,6 +132,7 @@ or a variable.
 		]
 	},
 	"Name": "Filter Images",
+	"ResidentCompatible": true,
 	"Subcategory": "Images",
 	"WFContentItemClass": "WFImageContentItem",
 	"Parameters": [

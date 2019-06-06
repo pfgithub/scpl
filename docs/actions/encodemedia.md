@@ -11,10 +11,22 @@ Re-encodes the media passed as input at the specified size, optionally convertin
 
 ### usage
 ```
-EncodeMedia audioOnly=(true | false | variable) format=("M4A" | "AIFF") size=("640x480" | "960x540" | "1280x720" | "1920x1080" | "HEVC 1920x1080" | "HEVC 3840x2160" | "Passthrough") speed=("0.5X" | "Normal" | "2X" | "Custom") customSpeed=number metadata=(true | false) title="string" artist="string" album="string" genre="string" year="string" artwork=(v:myvar | mv:myvar | s:myvar)
+EncodeMedia media=(v:myvar | mv:myvar | s:myvar) audioOnly=(true | false | variable) format=("M4A" | "AIFF") size=("640x480" | "960x540" | "1280x720" | "1920x1080" | "HEVC 1920x1080" | "HEVC 3840x2160" | "Passthrough") speed=("0.5X" | "Normal" | "2X" | "Custom") customSpeed=number metadata=(true | false) title="string" artist="string" album="string" genre="string" year="string" artwork=(v:myvar | mv:myvar | s:myvar)
 ```
 
 ### arguments
+
+---
+
+### media: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		Media
+		```
+**Allows Variables**: true
+
+
+
+Accepts a variable.
 
 ---
 
@@ -195,6 +207,7 @@ Accepts a variable.
 	"IconName": "QuickTime.png",
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFMedia",
 		"Required": true,
 		"Types": [
 			"AVAsset"
@@ -210,7 +223,14 @@ Accepts a variable.
 			"AVAsset"
 		]
 	},
+	"ParameterSummary": "Encode ${WFMedia}",
 	"Parameters": [
+		{
+			"Class": "WFVariablePickerParameter",
+			"Key": "WFMedia",
+			"Label": "Media",
+			"Placeholder": "Media"
+		},
 		{
 			"Class": "WFSwitchParameter",
 			"DefaultValue": false,
@@ -372,6 +392,7 @@ Accepts a variable.
 			]
 		}
 	],
+	"ResidentCompatible": true,
 	"Subcategory": "Video"
 }
 ```

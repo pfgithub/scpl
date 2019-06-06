@@ -1,6 +1,8 @@
 
 ## Show Directions / ShowDirections (internally `is.workflow.actions.getdirections`)
 
+> This action is not yet complete. Some arguments may be missing.
+
 > This action requires that Shortcuts has permission to use WFURLOpenResource.
 
 
@@ -18,10 +20,14 @@ The destination address
 
 ### usage
 ```
-ShowDirections app=("Maps" | "Google Maps" | "Waze") mode=("string" | variable)]
+ShowDirections undefined=NotImplemented app=("Maps" | "Google Maps" | "Waze") mode=("string" | variable)]
 ```
 
 ### arguments
+
+---
+
+#### This paramtype is not implemented. WFLocationParameter
 
 ---
 
@@ -78,6 +84,7 @@ containing one of the options:
 	},
 	"Input": {
 		"Multiple": false,
+		"ParameterKey": "WFDestination",
 		"Required": true,
 		"Types": [
 			"NSString",
@@ -87,7 +94,19 @@ containing one of the options:
 	},
 	"InputPassthrough": true,
 	"Name": "Show Directions",
+	"ParameterSummary": {
+		"WFDestination": "Show directions to ${WFDestination}",
+		"WFDestination,WFGetDirectionsActionApp": "Show directions to ${WFDestination} using ${WFGetDirectionsActionApp}",
+		"WFDestination,WFGetDirectionsActionMode": "Show ${WFGetDirectionsActionMode} directions to ${WFDestination}",
+		"WFDestination,WFGetDirectionsActionMode,WFGetDirectionsActionApp": "Show ${WFGetDirectionsActionMode} directions to ${WFDestination} using ${WFGetDirectionsActionApp}"
+	},
 	"Parameters": [
+		{
+			"AllowCurrentLocation": false,
+			"Class": "WFLocationParameter",
+			"Key": "WFDestination",
+			"Label": "Destination"
+		},
 		{
 			"Class": "WFMapsAppPickerParameter",
 			"DefaultValue": "Maps",

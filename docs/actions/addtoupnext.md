@@ -1,6 +1,8 @@
 
 ## Add to Up Next / AddtoUpNext (internally `is.workflow.actions.addmusictoupnext`)
 
+> This action is not yet complete. Some arguments may be missing.
+
 > This action requires that Shortcuts has permission to use WFAppleMusicAccessResource,[object Object].
 
 
@@ -18,7 +20,7 @@ Items in your music library or items from the Search iTunes action.
 
 ### usage
 ```
-AddtoUpNext ("Next" | "Later")
+AddtoUpNext play=("Next" | "Later") undefined=NotImplemented
 ```
 
 ### arguments
@@ -40,6 +42,10 @@ containing one of the options:
 
 ---
 
+#### This paramtype is not implemented. WFMediaPickerParameter
+
+---
+
 ### source json (for developers)
 
 ```json
@@ -56,7 +62,7 @@ containing one of the options:
 		"play"
 	],
 	"AppIdentifier": "com.apple.Music",
-	"Category": "Music",
+	"Category": "Media",
 	"CreationDate": "2017-02-14T08:00:00.000Z",
 	"Description": {
 		"DescriptionInput": "Items in your music library or items from the Search iTunes action.",
@@ -64,6 +70,7 @@ containing one of the options:
 	},
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFMusic",
 		"Required": true,
 		"Types": [
 			"WFiTunesProductContentItem",
@@ -72,6 +79,7 @@ containing one of the options:
 	},
 	"InputPassthrough": true,
 	"Name": "Add to Up Next",
+	"ParameterSummary": "Add ${WFMusic} to ${WFWhenToPlay} of Up Next",
 	"Parameters": [
 		{
 			"Class": "WFEnumerationParameter",
@@ -85,6 +93,12 @@ containing one of the options:
 			],
 			"Key": "WFWhenToPlay",
 			"Label": "Play"
+		},
+		{
+			"Class": "WFMediaPickerParameter",
+			"Key": "WFMusic",
+			"Label": "Music",
+			"Placeholder": "Music"
 		}
 	],
 	"RequiredResources": [

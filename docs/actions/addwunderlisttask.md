@@ -22,15 +22,14 @@ The URL of the newly created task
 
 ### usage
 ```
-AddWunderlistTask title="string" list=("string" | variable)] dueDate="string" reminder="string" starred=(true | false | variable) notes="string"
+AddWunderlistTask task="string" list=("string" | variable)] dueDate="string" reminder="string" starred=(true | false | variable) notes="string" file=(v:myvar | mv:myvar | s:myvar)
 ```
 
 ### arguments
 
 ---
 
-### title: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**: `"Buy some milk"`
+### task: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Allows Variables**: true
 
 
@@ -96,6 +95,15 @@ with the text. Allows newlines.
 
 ---
 
+### file: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Allows Variables**: true
+
+
+
+Accepts a variable.
+
+---
+
 ### source json (for developers)
 
 ```json
@@ -118,6 +126,7 @@ with the text. Allows newlines.
 	},
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFWunderlistFile",
 		"Required": false,
 		"Types": [
 			"WFGenericFileContentItem"
@@ -131,12 +140,12 @@ with the text. Allows newlines.
 			"NSURL"
 		]
 	},
+	"ParameterSummary": "Add ${WFWunderlistTitle} to ${WFWunderlistList}",
 	"Parameters": [
 		{
 			"Class": "WFTextInputParameter",
 			"Key": "WFWunderlistTitle",
-			"Label": "Title",
-			"Placeholder": "Buy some milk",
+			"Label": "Task",
 			"TextAlignment": "Right"
 		},
 		{
@@ -169,6 +178,11 @@ with the text. Allows newlines.
 			"Label": "Notes",
 			"Multiline": true,
 			"Placeholder": "Notes"
+		},
+		{
+			"Class": "WFVariablePickerParameter",
+			"Key": "WFWunderlistFile",
+			"Label": "File"
 		}
 	],
 	"RequiredResources": [

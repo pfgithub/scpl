@@ -18,15 +18,15 @@ Items in your music library or items from the Search iTunes action.
 
 ### usage
 ```
-CreatePlaylist name="string" author="string" description="string"
+CreatePlaylist playlistName="string" author="string" description="string" music=(v:myvar | mv:myvar | s:myvar)
 ```
 
 ### arguments
 
 ---
 
-### name: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**: `"Greatest Hits"`
+### playlistName: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"Playlist Name"`
 **Allows Variables**: true
 
 
@@ -61,6 +61,18 @@ with the text. Does not allow newlines.
 
 ---
 
+### music: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		Music
+		```
+**Allows Variables**: true
+
+
+
+Accepts a variable.
+
+---
+
 ### source json (for developers)
 
 ```json
@@ -75,7 +87,7 @@ with the text. Does not allow newlines.
 		"album"
 	],
 	"AppIdentifier": "com.apple.Music",
-	"Category": "Music",
+	"Category": "Media",
 	"CreationDate": "2016-03-15T07:00:00.000Z",
 	"Description": {
 		"DescriptionInput": "Items in your music library or items from the Search iTunes action.",
@@ -83,6 +95,7 @@ with the text. Does not allow newlines.
 	},
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFPlaylistItems",
 		"Required": false,
 		"Types": [
 			"WFiTunesProductContentItem",
@@ -98,12 +111,13 @@ with the text. Does not allow newlines.
 			"MPMediaItem"
 		]
 	},
+	"ParameterSummary": "Create playlist ${WFPlaylistName} with ${WFPlaylistItems}",
 	"Parameters": [
 		{
 			"Class": "WFTextInputParameter",
 			"Key": "WFPlaylistName",
-			"Label": "Name",
-			"Placeholder": "Greatest Hits",
+			"Label": "Playlist Name",
+			"Placeholder": "Playlist Name",
 			"TextAlignment": "Right"
 		},
 		{
@@ -119,6 +133,12 @@ with the text. Does not allow newlines.
 			"Label": "Description",
 			"Placeholder": "All of my favorites",
 			"TextAlignment": "Right"
+		},
+		{
+			"Class": "WFVariablePickerParameter",
+			"Key": "WFPlaylistItems",
+			"Label": "Music",
+			"Placeholder": "Music"
 		}
 	],
 	"RequiredResources": [

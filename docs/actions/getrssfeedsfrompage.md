@@ -1,6 +1,8 @@
 
 ## Get RSS Feeds from Page / GetRSSFeedsfromPage (internally `is.workflow.actions.rss.extract`)
 
+> This action requires that Shortcuts has permission to use WFRemoteServerAccessResource.
+
 
 ## description
 
@@ -11,14 +13,22 @@ Extracts any RSS feed URLs from the given web URLs or webpage.
 
 ### usage
 ```
-GetRSSFeedsfromPage 
+GetRSSFeedsfromPage "string"
 ```
 
 ### arguments
 
 ---
 
+### page: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"Page"`
+**Allows Variables**: true
 
+
+
+Accepts a string 
+or text
+with the text. Does not allow newlines.
 
 ---
 
@@ -41,6 +51,7 @@ GetRSSFeedsfromPage
 	"IconName": "RSS.png",
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFURLs",
 		"Required": true,
 		"Types": [
 			"WFURLContentItem",
@@ -55,6 +66,24 @@ GetRSSFeedsfromPage
 			"WFURLContentItem"
 		]
 	},
+	"ParameterSummary": "Get RSS feeds from ${WFURLs}",
+	"Parameters": [
+		{
+			"AllowsMultipleValues": false,
+			"AutocapitalizationType": "None",
+			"Class": "WFTextInputParameter",
+			"DisableAutocorrection": true,
+			"Key": "WFURLs",
+			"KeyboardType": "URL",
+			"Label": "Page",
+			"Placeholder": "Page",
+			"TextContentType": "URL"
+		}
+	],
+	"RequiredResources": [
+		"WFRemoteServerAccessResource"
+	],
+	"ResidentCompatible": true,
 	"ShortName": "Get RSS Feeds",
 	"Subcategory": "URLs"
 }

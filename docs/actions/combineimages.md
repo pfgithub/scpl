@@ -136,6 +136,7 @@ containing one of the options:
 			"TextAlignment": "Right"
 		}
 	],
+	"ResidentCompatible": true,
 	"Subcategory": "Editing"
 }
 ```

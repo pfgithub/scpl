@@ -13,14 +13,22 @@ Prompts to share the input using action extensions and sharing extensions provid
 
 ### usage
 ```
-SharewithExtensions 
+SharewithExtensions (v:myvar | mv:myvar | s:myvar)
 ```
 
 ### arguments
 
 ---
 
+### input: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		Input
+		```
+**Allows Variables**: true
 
+
+
+Accepts a variable.
 
 ---
 
@@ -45,6 +53,7 @@ SharewithExtensions
 	"IconName": "Apps.png",
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFInput",
 		"Required": true,
 		"Types": [
 			"WFContentItem"
@@ -52,6 +61,15 @@ SharewithExtensions
 	},
 	"InputPassthrough": true,
 	"Name": "Share with Extensions",
+	"ParameterSummary": "Share ${WFInput} with extensions",
+	"Parameters": [
+		{
+			"Class": "WFVariablePickerParameter",
+			"Key": "WFInput",
+			"Label": "Input",
+			"Placeholder": "Input"
+		}
+	],
 	"RequiredResources": [
 		"WFUserInteractionResource"
 	],

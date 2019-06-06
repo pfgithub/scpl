@@ -1,8 +1,6 @@
 
 ## Email Address / EmailAddress (internally `is.workflow.actions.email`)
 
-> This action requires that Shortcuts has permission to use WFContactAccessResource.
-
 
 ## description
 
@@ -44,6 +42,7 @@ Accepts a string or string array or variable of email addresses.
 	],
 	"AppIdentifier": "com.apple.mobilemail",
 	"Category": "Contacts",
+	"Constructor": true,
 	"Description": {
 		"DescriptionSummary": "Passes the specified email addresses to the next action."
 	},
@@ -57,13 +56,11 @@ Accepts a string or string array or variable of email addresses.
 	},
 	"Parameters": [
 		{
+			"AllowsMultipleValues": true,
 			"Class": "WFEmailAddressFieldParameter",
 			"Key": "WFEmailAddress",
 			"Placeholder": "Type in an email address"
 		}
-	],
-	"RequiredResources": [
-		"WFContactAccessResource"
 	],
 	"Subcategory": "Email"
 }

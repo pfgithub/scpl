@@ -1,6 +1,8 @@
 
 ## Play Music / PlayMusic (internally `is.workflow.actions.playmusic`)
 
+> This action is not yet complete. Some arguments may be missing.
+
 > This action requires that Shortcuts has permission to use WFAppleMusicAccessResource,WFMainThreadResource.
 
 
@@ -18,10 +20,14 @@ The music to be played
 
 ### usage
 ```
-PlayMusic shuffle=("Off" | "Songs") repeat=("None" | "One" | "All")
+PlayMusic undefined=NotImplemented shuffle=("Off" | "Songs") repeat=("None" | "One" | "All")
 ```
 
 ### arguments
+
+---
+
+#### This paramtype is not implemented. WFMediaPickerParameter
 
 ---
 
@@ -69,20 +75,30 @@ containing one of the options:
 		"library"
 	],
 	"AppIdentifier": "com.apple.Music",
-	"Category": "Music",
+	"Category": "Media",
 	"Description": {
 		"DescriptionInput": "The music to be played",
 		"DescriptionSummary": "Plays music using the Music app."
 	},
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFMediaItems",
 		"Types": [
-			"MPMediaItem"
+			"MPMediaItem",
+			"WFMediaItemCollectionContentItem"
 		]
 	},
 	"InputPassthrough": true,
 	"Name": "Play Music",
+	"ParameterSummary": "Play ${WFMediaItems}",
 	"Parameters": [
+		{
+			"AlwaysShowsButton": true,
+			"Class": "WFMediaPickerParameter",
+			"Description": "Selects music to start playing.",
+			"Key": "WFMediaItems",
+			"Label": "Music"
+		},
 		{
 			"Class": "WFEnumerationParameter",
 			"Items": [

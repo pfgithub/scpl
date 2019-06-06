@@ -1,6 +1,8 @@
 
 ## Get Weather Forecast / GetWeatherForecast (internally `is.workflow.actions.weather.forecast`)
 
+> This action is not yet complete. Some arguments may be missing.
+
 > This action requires that Shortcuts has permission to use WFWeatherAttributionAccessResource,WFLocationAccessResource.
 
 
@@ -13,34 +15,14 @@ Gets an hourly or daily weather forecast at the specified location.
 
 ### usage
 ```
-GetWeatherForecast at=("Current Location" | "Custom Location" | variable) location="string" type=("Hourly" | "Daily")
+GetWeatherForecast undefined=NotImplemented type=("Hourly" | "Daily")
 ```
 
 ### arguments
 
 ---
 
-### at: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-**Default Value**: `"Current Location"`
-
-
-Accepts a string 
-containing one of the options:
-
-- `Current Location`
-- `Custom Location`
-
----
-
-### location: Location [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**: `"Cupertino, CA"`
-**Allows Variables**: true
-
-**Only enabled if**: argument WFWeatherLocation == `Custom Location`
-
-Accepts a string 
-or text
-with the text. Does not allow newlines.
+#### This paramtype is not implemented. WFLocationParameter
 
 ---
 
@@ -96,35 +78,14 @@ containing one of the options:
 			"WFWeatherData"
 		]
 	},
+	"ParameterSummary": "Get ${WFWeatherForecastType} forecast at ${WFWeatherCustomLocation}",
 	"Parameters": [
 		{
-			"Class": "WFEnumerationParameter",
-			"DefaultValue": "Current Location",
-			"DisallowedVariableTypes": [
-				"Ask",
-				"Variable"
-			],
-			"Items": [
-				"Current Location",
-				"Custom Location"
-			],
-			"Key": "WFWeatherLocation",
-			"Label": "At"
-		},
-		{
-			"Class": "WFLocationFieldParameter",
-			"HintDisplayMode": "Never",
+			"Class": "WFLocationParameter",
+			"CurrentLocationAccuracy": "HundredMeters",
+			"DefaultToCurrentLocation": true,
 			"Key": "WFWeatherCustomLocation",
-			"Label": "Location",
-			"Placeholder": "Cupertino, CA",
-			"RequiredResources": [
-				{
-					"WFParameterKey": "WFWeatherLocation",
-					"WFParameterValue": "Custom Location",
-					"WFResourceClass": "WFParameterRelationResource"
-				}
-			],
-			"TextAlignment": "Right"
+			"Label": "Location"
 		},
 		{
 			"Class": "WFEnumerationParameter",
@@ -141,9 +102,7 @@ containing one of the options:
 		"WFWeatherAttributionAccessResource",
 		"WFLocationAccessResource"
 	],
-	"Subcategory": "Weather",
-	"UnsupportedEnvironments": [
-		"Background"
-	]
+	"ResidentCompatible": true,
+	"Subcategory": "Weather"
 }
 ```

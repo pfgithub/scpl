@@ -27,6 +27,7 @@ GetDetailsofCalendarEvents NotImplemented
 	"Category": "Calendar",
 	"CreationDate": "2015-01-22T08:00:00.000Z",
 	"Name": "Get Details of Calendar Events",
+	"ResidentCompatible": true,
 	"Subcategory": "Calendar",
 	"WFContentItemClass": "WFCalendarEventContentItem",
 	"Parameters": [

@@ -51,13 +51,16 @@ SetBrightness number
 	"IconName": "Brightness.png",
 	"InputPassthrough": true,
 	"Name": "Set Brightness",
+	"ParameterSummary": "Set brightness to ${WFBrightness}",
 	"Parameters": [
 		{
 			"Class": "WFSliderParameter",
 			"DefaultValue": 0.5,
 			"Description": "If you set the brightness using a variable, use a number between 0 and 1 (for example, pass 0.5 for half brightness).",
 			"Key": "WFBrightness",
-			"Label": "Brightness"
+			"Label": "Brightness",
+			"MaximumIconName": "BrightnessSliderHigh",
+			"MinimumIconName": "BrightnessSliderLow"
 		}
 	],
 	"RequiredResources": [

@@ -43,7 +43,7 @@ or a variable.
 		"library"
 	],
 	"AppIdentifier": "com.apple.Music",
-	"Category": "Music",
+	"Category": "Media",
 	"Description": {
 		"DescriptionSummary": "Prompts to select music from your local music library."
 	},
@@ -57,6 +57,7 @@ or a variable.
 			"MPMediaItem"
 		]
 	},
+	"ParameterSummary": "Select music",
 	"Parameters": [
 		{
 			"Class": "WFSwitchParameter",
@@ -68,7 +69,7 @@ or a variable.
 		"WFAppleMusicAccessResource",
 		"WFUserInteractionResource"
 	],
-	"Subcategory": "Music",
+	"Subcategory": "Media",
 	"UserInterfaces": [
 		"UIKit"
 	]

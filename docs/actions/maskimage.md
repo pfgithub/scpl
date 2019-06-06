@@ -20,14 +20,27 @@ The masked images
 
 ### usage
 ```
-MaskImage type=("Rounded Rectangle" | "Ellipse" | "Icon" | "Custom Image" | variable) cornerRadius=number imageMask=(v:myvar | mv:myvar | s:myvar)
+MaskImage image=(v:myvar | mv:myvar | s:myvar) type=("Rounded Rectangle" | "Ellipse" | "Icon" | "Custom Image" | variable) cornerRadius=number customImage=(v:myvar | mv:myvar | s:myvar)
 ```
 
 ### arguments
 
 ---
 
+### image: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		Image
+		```
+**Allows Variables**: true
+
+
+
+Accepts a variable.
+
+---
+
 ### type: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+**Default Value**: `"Rounded Rectangle"`
 
 
 Accepts a string 
@@ -52,7 +65,7 @@ containing one of the options:
 
 ---
 
-### imageMask: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+### customImage: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
 **Allows Variables**: true
 
 **Only enabled if**: argument WFMaskType == `Custom Image`
@@ -84,6 +97,7 @@ Accepts a variable.
 	"IconName": "Image.png",
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFInput",
 		"Required": true,
 		"Types": [
 			"WFImageContentItem"
@@ -98,9 +112,21 @@ Accepts a variable.
 			"WFImageContentItem"
 		]
 	},
+	"ParameterSummary": {
+		"WFInput,WFMaskType": "Mask ${WFInput} with ${WFMaskType} shape",
+		"WFInput,WFMaskType(Custom Image),WFCustomMaskImage": "Mask ${WFInput} with ${WFMaskType} ${WFCustomMaskImage}",
+		"WFInput,WFMaskType(Rounded Rectangle),WFMaskCornerRadius": "Mask ${WFInput} with ${WFMaskType} shape"
+	},
 	"Parameters": [
 		{
+			"Class": "WFVariablePickerParameter",
+			"Key": "WFInput",
+			"Label": "Image",
+			"Placeholder": "Image"
+		},
+		{
 			"Class": "WFEnumerationParameter",
+			"DefaultValue": "Rounded Rectangle",
 			"DisallowedVariableTypes": [
 				"Ask",
 				"Variable"
@@ -133,7 +159,7 @@ Accepts a variable.
 			"Class": "WFVariablePickerParameter",
 			"Description": "An alpha mask to apply to the source image, where darker colors become transparent and lighter colors remain opaque. If the mask is sized differently than the source image, the mask is resized to match the dimensions of the source image.",
 			"Key": "WFCustomMaskImage",
-			"Label": "Image Mask",
+			"Label": "Custom Image",
 			"RequiredResources": [
 				{
 					"WFParameterKey": "WFMaskType",
@@ -143,6 +169,7 @@ Accepts a variable.
 			]
 		}
 	],
+	"ResidentCompatible": true,
 	"Subcategory": "Editing"
 }
 ```

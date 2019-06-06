@@ -1,7 +1,9 @@
 
 ## Get Current Weather / GetCurrentWeather (internally `is.workflow.actions.weather.currentconditions`)
 
-> This action requires that Shortcuts has permission to use WFWeatherAttributionAccessResource,WFLocationAccessResource.
+> This action is not yet complete. Some arguments may be missing.
+
+> This action requires that Shortcuts has permission to use WFWeatherAttributionAccessResource,[object Object].
 
 
 ## description
@@ -13,34 +15,14 @@ Gets the current weather conditions at the specified location.
 
 ### usage
 ```
-GetCurrentWeather at=("Current Location" | "Custom Location" | variable) location="string"
+GetCurrentWeather NotImplemented
 ```
 
 ### arguments
 
 ---
 
-### at: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-**Default Value**: `"Current Location"`
-
-
-Accepts a string 
-containing one of the options:
-
-- `Current Location`
-- `Custom Location`
-
----
-
-### location: Location [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**: `"Cupertino, CA"`
-**Allows Variables**: true
-
-**Only enabled if**: argument WFWeatherLocation == `Custom Location`
-
-Accepts a string 
-or text
-with the text. Does not allow newlines.
+#### This paramtype is not implemented. WFLocationParameter
 
 ---
 
@@ -81,44 +63,32 @@ with the text. Does not allow newlines.
 			"WFWeatherData"
 		]
 	},
+	"ParameterSummary": "Get current weather at ${WFWeatherCustomLocation}",
 	"Parameters": [
 		{
-			"Class": "WFEnumerationParameter",
-			"DefaultValue": "Current Location",
-			"DisallowedVariableTypes": [
-				"Ask",
-				"Variable"
-			],
-			"Items": [
-				"Current Location",
-				"Custom Location"
-			],
-			"Key": "WFWeatherLocation",
-			"Label": "At"
-		},
-		{
-			"Class": "WFLocationFieldParameter",
-			"HintDisplayMode": "Never",
+			"Class": "WFLocationParameter",
+			"CurrentLocationAccuracy": "HundredMeters",
+			"DefaultToCurrentLocation": true,
 			"Key": "WFWeatherCustomLocation",
-			"Label": "Location",
-			"Placeholder": "Cupertino, CA",
-			"RequiredResources": [
-				{
-					"WFParameterKey": "WFWeatherLocation",
-					"WFParameterValue": "Custom Location",
-					"WFResourceClass": "WFParameterRelationResource"
-				}
-			],
-			"TextAlignment": "Right"
+			"Label": "Location"
 		}
 	],
 	"RequiredResources": [
 		"WFWeatherAttributionAccessResource",
-		"WFLocationAccessResource"
+		{
+			"RequiredResources": [
+				{
+					"WFParameterKey": "WFWeatherCustomLocation",
+					"WFParameterValue": {
+						"isCurrentLocation": true
+					},
+					"WFResourceClass": "WFParameterRelationResource"
+				}
+			],
+			"WFResourceClass": "WFLocationAccessResource"
+		}
 	],
-	"Subcategory": "Weather",
-	"UnsupportedEnvironments": [
-		"Background"
-	]
+	"ResidentCompatible": true,
+	"Subcategory": "Weather"
 }
 ```

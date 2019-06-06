@@ -60,6 +60,7 @@ GetInstapaperBookmarks folder=("string" | variable)] WFBookmarkCount=number
 			"WFURLContentItem"
 		]
 	},
+	"ParameterSummary": "Get ${WFBookmarkCount} from ${WFInstapaperFolder}",
 	"Parameters": [
 		{
 			"AlwaysShowsButton": true,

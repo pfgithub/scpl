@@ -74,6 +74,7 @@ containing one of the options:
 			"NSNumber"
 		]
 	},
+	"ParameterSummary": "Get the ${WFDeviceDetail}",
 	"Parameters": [
 		{
 			"Class": "WFEnumerationParameter",
@@ -91,6 +92,7 @@ containing one of the options:
 			"Label": "Get"
 		}
 	],
+	"ResidentCompatible": true,
 	"ShortName": "Device Details",
 	"Subcategory": "Device",
 	"SuggestedAsInitialAction": false

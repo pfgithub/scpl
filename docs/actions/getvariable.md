@@ -19,6 +19,9 @@ GetVariable (v:myvar | mv:myvar | s:myvar)
 ---
 
 ### variable: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		Variable
+		```
 **Allows Variables**: true
 
 
@@ -37,10 +40,12 @@ Accepts a variable.
 		"scripting",
 		"var"
 	],
+	"Attribution": "Variables",
 	"Category": "Scripting",
 	"Description": {
 		"DescriptionSummary": "Gets the value of the specified variable and passes it to the next action."
 	},
+	"Discoverable": false,
 	"IconName": "Variable.png",
 	"Name": "Get Variable",
 	"Output": {
@@ -50,6 +55,7 @@ Accepts a variable.
 			"WFContentItem"
 		]
 	},
+	"ParameterSummary": "Get ${WFVariable}",
 	"Parameters": [
 		{
 			"Class": "WFVariablePickerParameter",
@@ -57,9 +63,11 @@ Accepts a variable.
 				"Clipboard"
 			],
 			"Key": "WFVariable",
-			"Label": "Variable"
+			"Label": "Variable",
+			"Placeholder": "Variable"
 		}
 	],
+	"ResidentCompatible": true,
 	"Subcategory": "Variables"
 }
 ```

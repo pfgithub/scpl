@@ -3,7 +3,7 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
-> This action requires that Shortcuts has permission to use WFMainThreadResource,WFLocationAccessResource.
+> This action requires that Shortcuts has permission to use WFMainThreadResource,[object Object],[object Object].
 
 
 ## description
@@ -24,34 +24,18 @@ The distance to the location in miles or kilometers.
 
 ### usage
 ```
-GetDistance from=("Current Location" | "Custom Location" | variable) location="string" routeType=("Direct" | "Driving" | "Walking") undefined=NotImplemented
+GetDistance undefined=NotImplemented undefined=NotImplemented routeType=("Direct" | "Driving" | "Walking") undefined=NotImplemented
 ```
 
 ### arguments
 
 ---
 
-### from: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-**Default Value**: `"Current Location"`
-
-
-Accepts a string 
-containing one of the options:
-
-- `Current Location`
-- `Custom Location`
+#### This paramtype is not implemented. WFLocationParameter
 
 ---
 
-### location: Location [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**: `"One Apple Park Way"`
-**Allows Variables**: true
-
-**Only enabled if**: argument WFGetDirectionsFrom == `Custom Location`
-
-Accepts a string 
-or text
-with the text. Does not allow newlines.
+#### This paramtype is not implemented. WFLocationParameter
 
 ---
 
@@ -95,6 +79,7 @@ containing one of the options:
 	},
 	"Input": {
 		"Multiple": false,
+		"ParameterKey": "WFGetDistanceDestination",
 		"Required": true,
 		"Types": [
 			"NSString",
@@ -110,34 +95,23 @@ containing one of the options:
 			"NSNumber"
 		]
 	},
+	"ParameterSummary": "Get distance from ${WFGetDirectionsCustomLocation} to ${WFGetDistanceDestination}",
 	"Parameters": [
 		{
-			"Class": "WFEnumerationParameter",
-			"DefaultValue": "Current Location",
-			"DisallowedVariableTypes": [
-				"Ask",
-				"Variable"
-			],
-			"Items": [
-				"Current Location",
-				"Custom Location"
-			],
-			"Key": "WFGetDirectionsFrom",
-			"Label": "From"
+			"Class": "WFLocationParameter",
+			"CurrentLocationAccuracy": "HundredMeters",
+			"DefaultToCurrentLocation": true,
+			"Key": "WFGetDirectionsCustomLocation",
+			"Label": "Start Location",
+			"SkipProcessingCurrentLocation": true
 		},
 		{
-			"Class": "WFLocationFieldParameter",
-			"Key": "WFGetDirectionsCustomLocation",
-			"Label": "Location",
-			"Placeholder": "One Apple Park Way",
-			"RequiredResources": [
-				{
-					"WFParameterKey": "WFGetDirectionsFrom",
-					"WFParameterValue": "Custom Location",
-					"WFResourceClass": "WFParameterRelationResource"
-				}
-			],
-			"TextAlignment": "Right"
+			"Class": "WFLocationParameter",
+			"CurrentLocationAccuracy": "HundredMeters",
+			"DefaultToCurrentLocation": false,
+			"Key": "WFGetDistanceDestination",
+			"Label": "End Location",
+			"SkipProcessingCurrentLocation": true
 		},
 		{
 			"Class": "WFEnumerationParameter",
@@ -162,11 +136,32 @@ containing one of the options:
 	],
 	"RequiredResources": [
 		"WFMainThreadResource",
-		"WFLocationAccessResource"
+		{
+			"RequiredResources": [
+				{
+					"WFParameterKey": "WFGetDirectionsCustomLocation",
+					"WFParameterValue": {
+						"isCurrentLocation": true
+					},
+					"WFResourceClass": "WFParameterRelationResource"
+				}
+			],
+			"WFResourceClass": "WFLocationAccessResource"
+		},
+		{
+			"RequiredResources": [
+				{
+					"WFParameterKey": "WFGetDistanceDestination",
+					"WFParameterValue": {
+						"isCurrentLocation": true
+					},
+					"WFResourceClass": "WFParameterRelationResource"
+				}
+			],
+			"WFResourceClass": "WFLocationAccessResource"
+		}
 	],
-	"Subcategory": "Maps",
-	"UnsupportedEnvironments": [
-		"Background"
-	]
+	"ResidentCompatible": true,
+	"Subcategory": "Maps"
 }
 ```

@@ -48,6 +48,7 @@ ContinueShortcutinApp
 	"IconName": "HandoffAction.png",
 	"InputPassthrough": true,
 	"Name": "Continue Shortcut in App",
+	"ParameterSummary": "Continue shortcut in app",
 	"RequiredResources": [
 		"WFUserInteractionResource"
 	],

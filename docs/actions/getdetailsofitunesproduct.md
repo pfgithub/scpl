@@ -45,9 +45,10 @@ containing one of the options:
 {
 	"ActionClass": "WFContentItemPropertiesAction",
 	"AppIdentifier": "com.apple.MobileStore",
-	"Category": "Music",
+	"Category": "Media",
 	"CreationDate": "2016-03-15T07:00:00.000Z",
 	"Name": "Get Details of iTunes Product",
+	"ResidentCompatible": true,
 	"WFContentItemClass": "WFiTunesProductContentItem",
 	"Parameters": [
 		{
