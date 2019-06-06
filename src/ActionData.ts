@@ -306,7 +306,7 @@ export class WFAction {
 						? _debugMissingTypes[param.Class] + 1
 						: 1;
 				return `This paramtype is not implemented. ${param.Class}`;
-			}).filter((i: any)=>i);
+			}).filter((i: any) => i);
 		}
 	}
 	get actionOutputType() {
