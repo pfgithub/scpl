@@ -1496,3 +1496,24 @@ test("Dictionary File and Boolean type", t => {
 		]
 	);
 });
+
+test("backtick strings", t => {
+	t.deepEqual(
+		scplToShortcut(`
+			text \`backtick
+string
+captures
+	everything
+_\\n_\`
+			`),
+		[
+			{
+				WFWorkflowActionIdentifier: "is.workflow.actions.gettext",
+				WFWorkflowActionParameters: {
+					WFTextActionText:
+						"backtick\nstring\ncaptures\n\teverything\n_\n_"
+				}
+			}
+		]
+	);
+});
