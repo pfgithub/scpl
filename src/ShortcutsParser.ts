@@ -17,7 +17,17 @@ import {
 	FilterParse
 } from "./ParserData.js";
 
-import { p, regex, star, plus, optional, or, c, o } from "./ParserHelper.js";
+import {
+	p,
+	regex,
+	star,
+	plus,
+	optional,
+	or,
+	c,
+	o,
+	error
+} from "./ParserHelper.js";
 
 o.identifier = regex(/^[A-Za-z@_][A-Za-z0-9@_]*/).scb(
 	([fullmatch], start, end) => new IdentifierParse(start, end, fullmatch)
@@ -55,7 +65,23 @@ o.number = regex(/^-?(?:[0-9]*\.[0-9]+|[0-9]+)/).scb(
 
 o.escape = p(
 	c`\\`,
-	or(o.parenthesis, c`"`, c`'`, c`\`\`\``, c`\``, c`\\`, c`”`, c`n`.scb(_ => "\n"))
+	or(
+		o.parenthesis,
+		c`"`,
+		c`'`,
+		c`\`\`\``,
+		c`\``,
+		c`\\`,
+		c`”`,
+		c`n`.scb(_ => "\n"),
+		error(
+			regex(/.?/),
+			v =>
+				`Did you mean \`\\\\\`? The character \`${
+					v[0]
+				}\` is not a valid escape sequence. See the docs page on string escapes for more info.`
+		)
+	)
 ).scb(([, val]) => val);
 // o.tripleQuotedStringEscape = p(
 // 	c`\\`,
@@ -113,7 +139,12 @@ o.backtickQuotedString = p(c`\``, star(o.backtickQuotedStringChar), c`\``).scb(
 // 	c`\`\`\``
 // );
 
-o.string = or(o.dquotedString, o.squotedString, o.smartQuotedString, o.backtickQuotedString);
+o.string = or(
+	o.dquotedString,
+	o.squotedString,
+	o.smartQuotedString,
+	o.backtickQuotedString
+);
 
 o.barlistitem = p(newline, _, c`|`, _, o.chars).scb(([, , , , dat]) => dat);
 o.barlist = plus(o.barlistitem).scb(

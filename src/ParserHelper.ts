@@ -1,3 +1,5 @@
+import { PositionedError } from "./ParserData";
+
 import {
 	Production,
 	ManyProduction,
@@ -22,6 +24,13 @@ export const or = (...args: Array<ProductionResolveable>): Production =>
 	new OrProduction(...args);
 export const c = (str: string | TemplateStringsArray): Production =>
 	new StringProduction(`${str}`);
+export const error = (
+	a: ProductionResolveable,
+	message: (value: any) => string
+): Production =>
+	p(a).scb((aval, start, end) => {
+		throw new PositionedError(message(aval), start, end);
+	});
 
 const _realo: { [name: string]: Production } = {}; // todon't make this a proxy such that accessing o.a returns a {getProd:} might be interesting maybe
 

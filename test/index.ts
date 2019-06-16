@@ -1537,3 +1537,14 @@ _\\n_\`
 		]
 	);
 });
+
+test("nicer escape sequence errors", t => {
+	t.throws(
+		() =>
+			scplToShortcut(`
+			text "oh no I seem to think that my \\q needs escaping. This is so sad, Alexa play Ddespacito."
+			`),
+		PositionedError,
+		"Error from 2,41 to 2,42: Did you mean `\\\\`? The character `q` is not a valid escape sequence. See the docs page on string escapes for more info."
+	);
+});
