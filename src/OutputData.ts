@@ -1091,7 +1091,9 @@ export function toParam(value: WFParameter): ParameterType {
 		);
 	}
 	return new ErrorParameter(
-		"Inversion for this parameter type is not implemented yet."
+		`Inversion for this parameter type ${
+			value.WFSerializationType
+		} is not implemented yet.`
 	);
 }
 
@@ -1111,9 +1113,12 @@ export type WFParameter =
 	| WFTextParameter
 	| WFErrorParameter
 	| WFContentItemFilter
+	| WFNotNeverParameter
 	| string
 	| boolean
 	| number;
+
+export type WFNotNeverParameter = { WFSerializationType: "WFNotNeverValue" };
 
 export class Parameters {
 	values: { [internalName: string]: ParameterType };

@@ -220,6 +220,26 @@ test("invert newlines", t => {
 		'Text "Text with\\nNewlines."'
 	);
 });
+test("invert unsupported fields", t => {
+	const icc = new InverseConvertingContext();
+	t.deepEqual(
+		icc.createActionAble(
+			Action.inverse({
+				WFWorkflowActionIdentifier: "is.workflow.actions.email",
+				//@ts-ignore
+				WFWorkflowActionParameters: {
+					WFEmailAddress: {
+						Value: {
+							WFContactFieldValues: ["email@example.com"]
+						},
+						WFSerializationType: "WFContactFieldValue"
+					}
+				}
+			})
+		),
+		"EmailAddress ??error: This parameter is an error: Inversion for this parameter type WFContactFieldValue is not implemented yet??"
+	);
+});
 test("invert complete valid shortcut and ensure output is exact when compiled", t => {
 	// generate sample data
 	const output = parse(
