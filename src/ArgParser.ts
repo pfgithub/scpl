@@ -11,20 +11,20 @@ export function simpleParse(
 	cc: ConvertingContext,
 	names: string[],
 	args: AsAble[]
-): {[key: string]: AsAble | undefined} {
-	const res: {[key: string]: AsAble | undefined} = {};
+): { [key: string]: AsAble | undefined } {
+	const res: { [key: string]: AsAble | undefined } = {};
 	ArgParser<undefined>(
-		names.map(n => ({name: n, data: undefined})),
+		names.map(n => ({ name: n, data: undefined })),
 		(arg, value) => {
 			res[arg.name] = value;
 		},
-		(value) => {
+		value => {
 			throw value.error(cc, "InputArg is not allowed for this function");
 		},
 		(arg, value) => {
 			return true;
 		},
-		{args, cc}
+		{ args, cc }
 	);
 	return res;
 }

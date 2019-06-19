@@ -1,4 +1,4 @@
 language: node_js
 node_js: 11
 after_success:
-- yarn test && cat ./coverage/lcov.info | yarn codecov
+    - yarn test && cat ./coverage/lcov.info | yarn codecov
