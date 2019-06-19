@@ -1,13 +1,26 @@
-import test from "ava";
+import test, { ExecutionContext } from "ava";
 import { Action, Shortcut } from "../src/OutputData";
 import { parse, inverse } from "../index";
 import * as fs from "fs";
 import { ConvertingContext } from "../src/Converter";
 import { InverseConvertingContext } from "../src/InverseConvertingContext";
-import { PositionedError } from "../src/ParserData";
 // import * as path from "path";
 
 import * as sampleshortcutdata from "./sampleshortcut.json";
+
+function throws(t: ExecutionContext<{}>, cb: () => void, message?: string) {
+	let msg = "No error thrown.";
+	try {
+		cb();
+	} catch (e) {
+		msg = e.toString();
+	}
+	if (message) {
+		t.is(msg, message);
+	} else {
+		t.false(msg === "No error thrown.", "No error was thrown.");
+	}
+}
 
 function scplToShortcut(scpl: string) {
 	const output = parse(scpl, {
@@ -393,7 +406,11 @@ test("parsing things", t => {
 });
 
 test("lists cannot be used as strings", t => {
-	t.throws(() => parse(`text [list]`, { makePlist: false }));
+	throws(
+		t,
+		() => parse(`text [list]`, { makePlist: false }),
+		"Error: Error from 1,6 to 1,12: Text fields only accept text."
+	);
 });
 
 test("variables", t => {
@@ -458,14 +475,20 @@ test("magic variables", t => {
 });
 
 test("undefined variables throw errors", t => {
-	t.throws(() =>
-		parse(`text v:undefindenamedvariable`, { makePlist: false })
+	throws(
+		t,
+		() => parse(`text v:undefindenamedvariable`, { makePlist: false }),
+		"Error: Error from 1,6 to 1,30: The variable `v:undefindenamedvariable` has not been defined yet. Define it with a `setVariable` action."
 	);
-	t.throws(() =>
-		parse(`text mv:undefinedmagicvariable`, { makePlist: false })
+	throws(
+		t,
+		() => parse(`text mv:undefinedmagicvariable`, { makePlist: false }),
+		"Error: Error from 1,6 to 1,31: The magic variable `mv:undefinedmagicvariable` has not been defined yet. Define it by putting an arrow on an action, for example `myaction -> mv:undefinedmagicvariable`"
 	);
-	t.throws(() =>
-		parse(`text s:invalidspecialvariable`, { makePlist: false })
+	throws(
+		t,
+		() => parse(`text s:invalidspecialvariable`, { makePlist: false }),
+		"Error: Error from 1,8 to 1,30: This special variable does not exist. Valid special variables are clipboard,askwhenrun,currentdate,shortcutinput,actioninput"
 	);
 });
 
@@ -697,21 +720,28 @@ test("open app action", t => {
 });
 
 test("open app fails with invalid app name", t => {
-	t.throws(() => parse(`openapp myfavoriteapp`, { makePlist: false }));
+	throws(
+		t,
+		() => parse(`openapp myfavoriteapp`, { makePlist: false }),
+		"Error: Error from 1,9 to 1,22: The app myfavoriteapp is not supported by default. Enter its app id which you can get from this shortcut: https://www.icloud.com/shortcuts/7aff3fcdd0ca4bbc9c0d1b70e2825ed8 (More info on the documentation page for this action)"
+	);
 });
 
 test("multiple arrows throws a PositionedError", t => {
-	t.throws(
+	throws(
+		t,
 		() => parse(`v:a = text "hello" -> v:a`, { makePlist: false }),
-		PositionedError
+		"Error: Error from 1,1 to 1,26: Actions cannot output to multiple variables"
 	);
-	t.throws(
+	throws(
+		t,
 		() => parse(`text "hello" -> v:a -> v:b`, { makePlist: false }),
-		PositionedError
+		"Error: Error from 1,1 to 1,27: Actions cannot output to multiple variables"
 	);
-	t.throws(
+	throws(
+		t,
 		() => parse(`v:a = v:b = text "hello"`, { makePlist: false }),
-		PositionedError
+		"Error: Error from 1,8 to 101,1: Parsing error around here"
 	);
 });
 
@@ -728,8 +758,16 @@ test("get details of * actions", t => {
 });
 
 test("an action cannot have multiple = flags", t => {
-	t.throws(() => parse(`v:a = v:b = text "myaction"`, { makePlist: false }));
-	t.throws(() => parse(`v:a = v:b"`, { makePlist: false }));
+	throws(
+		t,
+		() => parse(`v:a = v:b = text "myaction"`, { makePlist: false }),
+		"Error: Error from 1,8 to 101,1: Parsing error around here"
+	);
+	throws(
+		t,
+		() => parse(`v:a = v:b"`, { makePlist: false }),
+		"Error: Error from 1,8 to 101,1: Parsing error around here"
+	);
 });
 
 test("actions that ignore parameters should still support ->", t => {
@@ -923,8 +961,10 @@ test("filter enum", t => {
 			}
 		}
 	]);
-	t.throws(() =>
-		scplToShortcut(`FindPhotos :filter{Orientation is NorthEast}`)
+	throws(
+		t,
+		() => scplToShortcut(`FindPhotos :filter{Orientation is NorthEast}`),
+		"Error: Error from 1,20 to 1,44: Must be one of Up,Down,Left,Right,Up Mirrored,Down Mirrored,Left Mirrored,Right Mirrored"
 	);
 });
 
@@ -1084,11 +1124,11 @@ test("showInWidget", t => {
 });
 
 test("invalid glyph throws error", t => {
-	t.throws(() => scplToShortcut(`@glyph hospitalbank`));
+	throws(t, () => scplToShortcut(`@glyph hospitalbank`));
 });
 
 test("invalid color throws error", t => {
-	t.throws(() => scplToShortcut(`@color lightcyangreen`));
+	throws(t, () => scplToShortcut(`@color lightcyangreen`));
 });
 
 test("else if macro", t => {
@@ -1240,7 +1280,11 @@ test("ccOverride", t => {
 	const cc = new ConvertingContext();
 	cc.setNamedVariable("myvar");
 	parse(`text v:myvar`, { ccOverride: cc });
-	t.throws(() => parse(`text v:myvar2`, { ccOverride: cc }));
+	throws(
+		t,
+		() => parse(`text v:myvar2`, { ccOverride: cc }),
+		"Error: Error from 1,6 to 1,14: The variable `v:myvar2` has not been defined yet. Define it with a `setVariable` action."
+	);
 });
 
 test("Dictionaries", t => {
@@ -1354,7 +1398,11 @@ test("Dictionaries", t => {
 });
 
 test("Newlines are not allowed", t => {
-	t.throws(() => scplToShortcut(`URL "Test \\n"`));
+	throws(
+		t,
+		() => scplToShortcut(`URL "Test \\n"`),
+		"Error: Error from 1,5 to 1,14: Newlines are not allowed in this text field. Use a variable with a newline instead."
+	);
 });
 
 test("Newlines in comments parse", t => {
@@ -1411,7 +1459,11 @@ test("define custom macro", t => {
 });
 
 test("@error macro", t => {
-	t.throws(() => scplToShortcut(`@error "Error! A bad happened."`));
+	throws(
+		t,
+		() => scplToShortcut(`@error "Error! A bad happened."`),
+		"Error: Error from 1,1 to 1,32: Error! A bad happened."
+	);
 });
 
 test("@set with macro", t => {
@@ -1539,12 +1591,23 @@ _\\n_\`
 });
 
 test("nicer escape sequence errors", t => {
-	t.throws(
+	throws(
+		t,
 		() =>
 			scplToShortcut(`
 			text "oh no I seem to think that my \\q needs escaping. This is so sad, Alexa play Ddespacito."
 			`),
-		PositionedError,
-		"Error from 2,41 to 2,42: Did you mean `\\\\`? The character `q` is not a valid escape sequence. See the docs page on string escapes for more info."
+		"Error: Error from 2,41 to 2,42: Did you mean `\\\\`? The character `q` is not a valid escape sequence. See the docs page on string escapes for more info."
+	);
+});
+
+test("macros without the correct number of arguments", t => {
+	throws(
+		t,
+		() =>
+			scplToShortcut(`
+			@set version 12.5.2
+			`),
+		"Error: Error from 2,21 to 2,23: This action does not have any more arguments. Arguments are: name, value"
 	);
 });

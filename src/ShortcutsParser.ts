@@ -14,7 +14,8 @@ import {
 	ErrorParse,
 	Parse,
 	FilterItemParse,
-	FilterParse
+	FilterParse,
+	PositionedError
 } from "./ParserData.js";
 
 import {
@@ -189,9 +190,13 @@ o.inputarg = p(c`^`, or(o.parenthesis, o.variable)).scb(([, paren]) => {
 	return paren;
 });
 o.flaggedaction = p(o.variable, _, c`=`, _, o.onlyaction).scb(
-	([variable, , , , action]) => {
+	([variable, , , , action], start, end) => {
 		if (action.variable) {
-			throw new Error("Actions cannot output to multiple variables");
+			throw new PositionedError(
+				"Actions cannot output to multiple variables",
+				start,
+				end
+			);
 		}
 		action.variable = variable;
 		return action;
@@ -206,7 +211,11 @@ o.onlyaction = p(o.identifier, _, o.args).scb(
 				: true
 		);
 		if (flags.length > 1) {
-			throw new Error("Actions cannot output to multiple variables");
+			throw new PositionedError(
+				"Actions cannot output to multiple variables",
+				start,
+				end
+			);
 		}
 		const res: {
 			type: string;

@@ -4,7 +4,7 @@ import { otherwise } from "./HelpfulActions";
 import { getActionFromID } from "./ActionData";
 
 import { glyphs, colors } from "./Data/ShortcutMeta";
-import { ArgParser } from "./ArgParser";
+import { ArgParser, simpleParse } from "./ArgParser";
 
 export type PreprocessorAction = (
 	this: AsAble,
@@ -38,9 +38,15 @@ function glyphAction(this: AsAble, cc: ConvertingContext, iconName?: AsAble) {
 const preprocessorActions: {
 	[key: string]: PreprocessorAction;
 } = {
-	"@set": function(this, cc, namea?: AsAble, value?: AsAble) {
+	"@set": function(this, cc, ...args: AsAble[]) {
+		const pres = simpleParse(cc, ["name", "value"], args);
+		const namea = pres.name;
+		const value = pres.value;
 		if (!namea || !value) {
-			throw this.error(cc, "@set must have 2 arguments.");
+			throw this.error(
+				cc,
+				"@set must have a name argument and a value argument."
+			);
 		}
 		// sets a variable with name name to value value
 		let name: string | undefined;
@@ -61,9 +67,15 @@ const preprocessorActions: {
 		}
 		cc.setParserVariable(name, value);
 	},
-	"@foreach": function(this, cc, list?: AsAble, method?: AsAble) {
+	"@foreach": function(this, cc, ...args: AsAble[]) {
+		const pres = simpleParse(cc, ["list", "method"], args);
+		const list = pres.list;
+		const method = pres.method;
 		if (!list || !method) {
-			throw this.error(cc, "@foreach must have 2 arguments.");
+			throw this.error(
+				cc,
+				"@foreach must have a list argument and a method argument."
+			);
 		}
 		if (!list.canBeAbleArray(cc)) {
 			throw list.error(cc, "List must be a list.");
@@ -80,13 +92,11 @@ const preprocessorActions: {
 			method.asAction(newCC);
 		});
 	},
-	"@if": function(
-		this,
-		cc,
-		test: AsAble | undefined,
-		method: AsAble | undefined,
-		elseMethod: AsAble | undefined
-	) {
+	"@if": function(this, cc, ...args: AsAble[]) {
+		const pres = simpleParse(cc, ["condition", "iftrue", "iffalse"], args);
+		const test = pres.condition;
+		const method = pres.iftrue;
+		const elseMethod = pres.iffalse;
 		if (!test || !method) {
 			throw this.error(
 				cc,
@@ -116,7 +126,9 @@ const preprocessorActions: {
 			elseMethod.asAction(newCC);
 		}
 	},
-	"@error": function(this, cc, message: AsAble) {
+	"@error": function(this, cc, ...args: AsAble[]) {
+		const pres = simpleParse(cc, ["message"], args);
+		const message = pres.message;
 		if (!message) {
 			throw this.error(
 				cc,
@@ -128,11 +140,15 @@ const preprocessorActions: {
 		}
 		throw this.error(cc, message.asString(cc));
 	},
-	"@def": function(this, cc, name?: AsAble, args?: AsAble, cb?: AsAble) {
+	"@def": function(this, cc, ...args_: AsAble[]) {
+		const pres = simpleParse(cc, ["name", "arguments", "body"], args_);
+		const name = pres.name;
+		const args = pres.arguments;
+		const cb = pres.body;
 		if (!name || !args || !cb) {
 			throw this.error(
 				cc,
-				"@def must have 3 arguments, name, [args...], @{cb}"
+				"@def must have 3 arguments: name, [args...], @{body}"
 			);
 		}
 		if (!name.canBeString(cc)) {
@@ -170,7 +186,9 @@ const preprocessorActions: {
 	},
 	"@icon": glyphAction,
 	"@glyph": glyphAction,
-	"@color": function(this, cc, colorName?: AsAble) {
+	"@color": function(this, cc, ...args: AsAble[]) {
+		const pres = simpleParse(cc, ["color"], args);
+		const colorName = pres.color;
 		if (!colorName) {
 			throw this.error(cc, "Please provide a color name.");
 		}
@@ -192,7 +210,9 @@ const preprocessorActions: {
 		}
 		cc.shortcut.color = color;
 	},
-	"@showinwidget": function(this, cc, setTo?: AsAble) {
+	"@showinwidget": function(this, cc, ...args: AsAble[]) {
+		const pres = simpleParse(cc, ["value"], args);
+		const setTo = pres.value;
 		if (!setTo) {
 			throw this.error(cc, "Please provide a true or false.");
 		}
