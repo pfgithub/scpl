@@ -16,7 +16,7 @@ import {
 	FilterItemParse,
 	FilterParse,
 	PositionedError
-} from "./ParserData.js";
+} from "./ParserData";
 
 import {
 	p,
@@ -28,7 +28,7 @@ import {
 	c,
 	o,
 	error
-} from "./ParserHelper.js";
+} from "./ParserHelper";
 
 o.identifier = regex(/^[A-Za-z@_][A-Za-z0-9@_]*/).scb(
 	([fullmatch], start, end) => new IdentifierParse(start, end, fullmatch)

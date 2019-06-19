@@ -11,7 +11,7 @@ import {
 	ContentItemFilter
 } from "./OutputData";
 import { getActionFromName, genShortName } from "./ActionData";
-import { ConvertingContext } from "./Converter.js";
+import { ConvertingContext } from "./Converter";
 import { setVariable, getVariable } from "./HelpfulActions";
 import { Position } from "./Production";
 import { endIf } from "./HelpfulActions";
