@@ -1,3 +1,5 @@
+[![codecov](https://codecov.io/gh/pfgithub/scpl/branch/master/graph/badge.svg)](https://codecov.io/gh/pfgithub/scpl) [![Build Status](https://travis-ci.org/pfgithub/scpl.png)](https://travis-ci.org/pfgithub/scpl)
+
 # ScPL
 
 ScPL is a text based language for creating shortcuts in the iOS shortcuts app.
