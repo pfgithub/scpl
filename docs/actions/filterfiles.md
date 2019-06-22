@@ -5,7 +5,7 @@
 
 ### usage
 ```
-FilterFiles filter=:filter{...} sortby=("Creation Date" | "File Size" | "File Extension" | "Last Modified Date" | "Name" | "Random") order=("Oldest First" | "Newest First" | "A to Z" | "Z to A") limit=(true | false | variable) getItems=number
+FilterFiles filter=:filter{...} sortby=("Creation Date" | "File Size" | "File Extension" | "Last Modified Date" | "Name" | "Random") order=("Oldest First" | "Newest First" | "Latest First" | "Smallest First" | "Biggest First" | "Ascending" | "Descending" | "Shortest First" | "Longest First" | "A to Z" | "Z to A") limit=(true | false | variable) getItems=number
 ```
 
 ### arguments
@@ -56,6 +56,13 @@ containing one of the options:
 
 - `Oldest First`
 - `Newest First`
+- `Latest First`
+- `Smallest First`
+- `Biggest First`
+- `Ascending`
+- `Descending`
+- `Shortest First`
+- `Longest First`
 - `A to Z`
 - `Z to A`
 
@@ -126,6 +133,13 @@ or a variable.
 			"Items": [
 				"Oldest First",
 				"Newest First",
+				"Latest First",
+				"Smallest First",
+				"Biggest First",
+				"Ascending",
+				"Descending",
+				"Shortest First",
+				"Longest First",
 				"A to Z",
 				"Z to A"
 			],

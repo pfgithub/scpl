@@ -5,7 +5,7 @@
 
 ### usage
 ```
-FilterArticles filter=:filter{...} sortby=("Name" | "Title" | "Published Date" | "Author" | "Number of Words" | "Main Image URL" | "URL" | "Excerpt" | "Random") order=("Oldest First" | "Newest First" | "A to Z" | "Z to A") limit=(true | false | variable) getItems=number
+FilterArticles filter=:filter{...} sortby=("Name" | "Title" | "Published Date" | "Author" | "Number of Words" | "Main Image URL" | "URL" | "Excerpt" | "Random") order=("Oldest First" | "Newest First" | "Latest First" | "Smallest First" | "Biggest First" | "Ascending" | "Descending" | "Shortest First" | "Longest First" | "A to Z" | "Z to A") limit=(true | false | variable) getItems=number
 ```
 
 ### arguments
@@ -62,6 +62,13 @@ containing one of the options:
 
 - `Oldest First`
 - `Newest First`
+- `Latest First`
+- `Smallest First`
+- `Biggest First`
+- `Ascending`
+- `Descending`
+- `Shortest First`
+- `Longest First`
 - `A to Z`
 - `Z to A`
 
@@ -129,6 +136,13 @@ or a variable.
 			"Items": [
 				"Oldest First",
 				"Newest First",
+				"Latest First",
+				"Smallest First",
+				"Biggest First",
+				"Ascending",
+				"Descending",
+				"Shortest First",
+				"Longest First",
 				"A to Z",
 				"Z to A"
 			],
