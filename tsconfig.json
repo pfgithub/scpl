@@ -17,5 +17,6 @@
 		"bin/**/*",
 		"test/**/*",
 		"index.ts"
-	]
+	],
+	"exclude": ["src/**/*.spec.ts"]
 }
