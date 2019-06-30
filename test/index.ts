@@ -4,6 +4,7 @@ import * as fs from "fs";
 import { ConvertingContext } from "../src/Converter";
 import { InverseConvertingContext } from "../src/InverseConvertingContext";
 // import * as path from "path";
+import { PositionedError } from "../src/PositionedError";
 
 import * as sampleshortcutdata from "./sampleshortcut.json";
 
@@ -17,11 +18,17 @@ function err(cb: () => void) {
 	return msg;
 }
 
-function scplToShortcut(scpl: string) {
+function scplToShortcut(scpl: string, useWarnings?: boolean) {
 	const output = parse(scpl, {
-		make: ["shortcutjson"]
+		make: ["shortcutjson"],
+		useWarnings: useWarnings
 	});
 	const actions = output.shortcutjson[0].WFWorkflowActions;
+	if (useWarnings) {
+		actions.push({
+			warnings: output.warnings.map((i: PositionedError) => i.message)
+		});
+	}
 	return noUUID(actions, { noSCPLData: true });
 }
 
@@ -466,12 +473,12 @@ test("undefined variables throw errors", () => {
 	expect(
 		err(() => parse(`text v:undefindenamedvariable`, { makePlist: false }))
 	).toBe(
-		"Error: Error from 1,6 to 1,30: The variable `v:undefindenamedvariable` has not been defined yet. Define it with a `setVariable` action."
+		"Error: Warning from 1,6 to 1,30: The variable `v:undefindenamedvariable` has not been defined yet. Define it with a `setVariable` action."
 	);
 	expect(
 		err(() => parse(`text mv:undefinedmagicvariable`, { makePlist: false }))
 	).toBe(
-		"Error: Error from 1,6 to 1,31: The magic variable `mv:undefinedmagicvariable` has not been defined yet. Define it by putting an arrow on an action, for example `myaction -> mv:undefinedmagicvariable`"
+		"Error: Warning from 1,6 to 1,31: The magic variable `mv:undefinedmagicvariable` has not been defined yet. Define it by putting an arrow on an action, for example `myaction -> mv:undefinedmagicvariable`"
 	);
 	expect(
 		err(() => parse(`text s:invalidspecialvariable`, { makePlist: false }))
@@ -1255,7 +1262,7 @@ test("ccOverride", () => {
 	cc.setNamedVariable("myvar");
 	parse(`text v:myvar`, { ccOverride: cc });
 	expect(err(() => parse(`text v:myvar2`, { ccOverride: cc }))).toEqual(
-		"Error: Error from 1,6 to 1,14: The variable `v:myvar2` has not been defined yet. Define it with a `setVariable` action."
+		"Error: Warning from 1,6 to 1,14: The variable `v:myvar2` has not been defined yet. Define it with a `setVariable` action."
 	);
 });
 
@@ -1575,4 +1582,80 @@ test("macros without the correct number of arguments", () => {
 	).toEqual(
 		"Error: Error from 2,21 to 2,23: This action does not have any more arguments. Arguments are: name, value"
 	);
+});
+
+test("warnings", () => {
+	expect(
+		scplToShortcut(
+			`
+		text v:undef1
+		text v:undef2
+		text mv:undef3
+		`,
+			true
+		)
+	).toEqual([
+		{
+			WFWorkflowActionIdentifier: "is.workflow.actions.gettext",
+			WFWorkflowActionParameters: {
+				WFTextActionText: {
+					Value: {
+						attachmentsByRange: {
+							"{0, 1}": {
+								Aggrandizements: [],
+								Type: "Variable",
+								VariableName: "undef1"
+							}
+						},
+						string: "[attachment]"
+					},
+					WFSerializationType: "WFTextTokenString"
+				}
+			}
+		},
+		{
+			WFWorkflowActionIdentifier: "is.workflow.actions.gettext",
+			WFWorkflowActionParameters: {
+				WFTextActionText: {
+					Value: {
+						attachmentsByRange: {
+							"{0, 1}": {
+								Aggrandizements: [],
+								Type: "Variable",
+								VariableName: "undef2"
+							}
+						},
+						string: "[attachment]"
+					},
+					WFSerializationType: "WFTextTokenString"
+				}
+			}
+		},
+		{
+			WFWorkflowActionIdentifier: "is.workflow.actions.gettext",
+			WFWorkflowActionParameters: {
+				WFTextActionText: {
+					Value: {
+						attachmentsByRange: {
+							"{0, 1}": {
+								Aggrandizements: [],
+								OutputName: "undef3",
+								OutputUUID: "<uuid1>",
+								Type: "ActionOutput"
+							}
+						},
+						string: "[attachment]"
+					},
+					WFSerializationType: "WFTextTokenString"
+				}
+			}
+		},
+		{
+			warnings: [
+				"Error from 2,8 to 2,16: The variable `v:undef1` has not been defined yet. Define it with a `setVariable` action.",
+				"Error from 3,8 to 3,16: The variable `v:undef2` has not been defined yet. Define it with a `setVariable` action.",
+				"Error from 4,8 to 4,17: The magic variable `mv:undef3` has not been defined yet. Define it by putting an arrow on an action, for example `myaction -> mv:undef3`"
+			]
+		}
+	]);
 });

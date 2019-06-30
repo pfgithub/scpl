@@ -23,18 +23,10 @@ import {
 
 import { ComparisonName, isComparisonMethod } from "./Data/GetTypes";
 
-export class PositionedError extends Error {
-	// an error at a position
-	start: Position;
-	end: Position;
-	constructor(message: string, start: Position, end: Position) {
-		super(
-			`Error from ${start.toString()} to ${end.toString()}: ${message}`
-		);
-		this.start = start;
-		this.end = end;
-	}
-}
+import { PositionedError } from "./PositionedError";
+export { PositionedError } from "./PositionedError";
+
+import * as uuidv4 from "uuid/v4";
 
 export class Parse {
 	special: "InputArg" | "ControlFlowMode" | "Arglist" | undefined;
@@ -47,6 +39,9 @@ export class Parse {
 
 	error(_cc: ConvertingContext, message: string) {
 		return new PositionedError(message, this.start, this.end);
+	}
+	warn(cc: ConvertingContext, message: string) {
+		return cc.warn(new PositionedError(message, this.start, this.end));
 	}
 	canBeString(_cc: ConvertingContext): this is AsString {
 		return false;
@@ -232,6 +227,10 @@ export class ConvertVariableParse extends Parse
 	error(cc: ConvertingContext, message: string) {
 		const me = this.getValue(cc);
 		return me.error(cc, `${this.start} ${this.end} ${message}`);
+	}
+	warn(cc: ConvertingContext, message: string) {
+		const me = this.getValue(cc);
+		return me.warn(cc, `${this.start} ${this.end} ${message}`);
 	}
 }
 // there has to be a better way
@@ -1063,7 +1062,7 @@ export class VariableParse extends Parse
 				vardata = true;
 			}
 			if (!vardata) {
-				throw this.error(
+				this.warn(
 					cc,
 					`The variable \`${type}:${name}\` has not been defined yet. Define it with a \`setVariable\` action.`
 				);
@@ -1073,13 +1072,15 @@ export class VariableParse extends Parse
 			// magic variable
 			const vardata = cc.getMagicVariable(name);
 			if (!vardata) {
-				throw this.error(
+				this.warn(
 					cc,
 					`The magic variable \`${type}:${name}\` has not been defined yet. Define it by putting an arrow on an action, for example \`myaction -> ${type}:${name}\``
 				);
 			}
-			const mvact = vardata.action;
-			variable = new MagicVariable(mvact);
+			const mvact: [Action] | [string, string] = vardata
+				? [vardata.action]
+				: [name, uuidv4()];
+			variable = new MagicVariable(...mvact);
 		} else if (type === "s") {
 			// special variable
 			const attachtype: { [key: string]: AttachmentType | undefined } = {
@@ -1207,7 +1208,7 @@ export class ActionsParse extends Parse
 		return lastAction;
 	}
 	asShortcut(
-		arg0?:
+		arg0:
 			| {
 					[key: string]: (
 						cc: ConvertingContext,
@@ -1215,6 +1216,8 @@ export class ActionsParse extends Parse
 					) => void;
 			  }
 			| ConvertingContext
+			| undefined,
+		options: { useWarnings: boolean }
 	) {
 		let cc: ConvertingContext;
 		if (arg0 instanceof ConvertingContext) {
@@ -1228,13 +1231,14 @@ export class ActionsParse extends Parse
 				});
 			}
 		}
+		cc.useWarnings = options.useWarnings;
 		this.asAction(cc);
 		if (cc.controlFlowStack.length !== 0) {
 			throw this.error(
 				cc,
 				`There are ${
 					cc.controlFlowStack.length
-				} unended block actions. Check to make sure that every block has an end.`
+				} unended block actions. Check to make sure that every block (if/repeat/choose from menu) has an end.`
 			);
 		}
 		return cc.shortcut;

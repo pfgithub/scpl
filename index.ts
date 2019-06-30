@@ -19,13 +19,20 @@ export function parse(
 	string: string,
 	options: {
 		make?: ["shortcutjson"?, "shortcutplist"?, "outputdata"?];
-		makePlist?: boolean;
-		makeShortcut?: boolean;
-		generateSCPLData?: boolean;
+		useWarnings?: boolean;
+
+		// --- don't use unless necessary: ---
 		extraParseActions?: {
 			[key: string]: (cc: ConvertingContext, ...args: AsAble[]) => void;
 		};
 		ccOverride?: ConvertingContext;
+
+		// --- unused: ---
+		generateScPLData?: boolean;
+
+		// --- deprecated: ---
+		makePlist?: boolean;
+		makeShortcut?: boolean;
 		fileLoader?: (filename: string) => string;
 	}
 ) {
@@ -55,14 +62,29 @@ export function parse(
 		]);
 	}
 
-	const generateSCPLData =
-		options.generateSCPLData === undefined ? true : false;
+	const generateScPLData =
+		options.generateScPLData === undefined ? true : false;
+
+	let cc: ConvertingContext;
+
+	if (options.ccOverride) {
+		cc = options.ccOverride;
+	} else {
+		cc = new ConvertingContext();
+	}
+	const converterActions = options.extraParseActions;
+	if (converterActions) {
+		Object.keys(converterActions).forEach(key => {
+			cc.setParserAction(key, converterActions[key]);
+		});
+	}
+	cc.useWarnings = !!options.useWarnings;
 
 	let shortcut;
 	try {
-		shortcut = (<ActionsParse>parsed.data).asShortcut(
-			options.ccOverride || options.extraParseActions || undefined
-		);
+		shortcut = (<ActionsParse>parsed.data).asShortcut(cc, {
+			useWarnings: !!options.useWarnings
+		});
 	} catch (er) {
 		if (er instanceof PositionedError) {
 			throw er;
@@ -79,6 +101,7 @@ export function parse(
 			shortcutjson?: any;
 			shortcutplist?: Buffer;
 			outputdata?: Shortcut;
+			warnings?: PositionedError[];
 		} = {};
 		if (options.make.indexOf("outputdata") > -1) {
 			output.outputdata = shortcut;
@@ -88,6 +111,9 @@ export function parse(
 		}
 		if (options.make.indexOf("shortcutplist") > -1) {
 			output.shortcutplist = (<any>bplistc)(data);
+		}
+		if (options.useWarnings) {
+			output.warnings = cc.warnings;
 		}
 		return output;
 	}

@@ -5,6 +5,7 @@ import { AsAble } from "./ParserData";
 import defaultPreprocessorActions, {
 	PreprocessorAction
 } from "./PreprocessorActions";
+import { PositionedError } from "./PositionedError";
 
 export class ConvertingContext {
 	namedVariables: { [key: string]: boolean };
@@ -17,6 +18,8 @@ export class ConvertingContext {
 		[key: string]: PreprocessorAction;
 	};
 	above?: ConvertingContext;
+	useWarnings: boolean;
+	warnings: PositionedError[];
 
 	constructor(above?: ConvertingContext) {
 		this.namedVariables = {};
@@ -28,6 +31,8 @@ export class ConvertingContext {
 		this.lastVariableAction = undefined;
 		///
 		this.controlFlowStack = [];
+		this.useWarnings = false;
+		this.warnings = [];
 
 		this.above = above;
 	}
@@ -134,5 +139,16 @@ export class ConvertingContext {
 		}
 		this.shortcut.add(action);
 		this.lastVariableAction = action;
+	}
+	warn(positionedError: PositionedError) {
+		if (this.useWarnings) {
+			this.warnings.push(positionedError);
+		} else {
+			positionedError.message = positionedError.message.replace(
+				"Error from",
+				"Warning from"
+			);
+			throw positionedError;
+		}
 	}
 }
