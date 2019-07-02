@@ -1676,7 +1676,7 @@ test("time offset parameter", () => {
 			WFWorkflowActionIdentifier: "is.workflow.actions.adjustdate",
 			WFWorkflowActionParameters: {
 				WFAdjustOffsetPicker: {
-					Value: { Operation: "Add", Unit: "Seconds", Value: 5 },
+					Value: { Operation: "Add", Unit: "Second", Value: 5 },
 					WFSerializationType: "WFTimeOffsetValue"
 				}
 			}
@@ -1687,7 +1687,7 @@ test("time offset parameter", () => {
 				WFAdjustOffsetPicker: {
 					Value: {
 						Operation: "Subtract",
-						Unit: "Hours",
+						Unit: "Hour",
 						Value: { Aggrandizements: [], Type: "Clipboard" }
 					},
 					WFSerializationType: "WFTimeOffsetValue"
@@ -1700,7 +1700,7 @@ test("time offset parameter", () => {
 				WFAdjustOffsetPicker: {
 					Value: {
 						Operation: "Get Start Of Month",
-						Unit: "Seconds",
+						Unit: "Second",
 						Value: 0
 					},
 					WFSerializationType: "WFTimeOffsetValue"

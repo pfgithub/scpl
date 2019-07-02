@@ -364,7 +364,8 @@ export class InverseConvertingContext {
 		if (value.opts.mode.startsWith("Get")) {
 			return `[${value.opts.mode
 				.split(" ")
-				.map(i => this.createStringAble(i))}]`;
+				.map(i => this.createStringAble(i))
+				.join(" ")}]`;
 		}
 		return `[${this.createStringAble(value.opts.mode)}]`;
 	}

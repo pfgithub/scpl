@@ -843,7 +843,7 @@ export type WFTimeOffsetValue = {
 				Operation: WFTimeOffsetValueMode;
 		  }
 		| {
-				Unit: "Seconds";
+				Unit: "Second";
 				Value: 0;
 				Operation: WFTimeOffsetValueEnum;
 		  };
@@ -852,21 +852,21 @@ export type WFTimeOffsetValue = {
 
 export type WFTimeOffsetValueMode = "Add" | "Subtract";
 export type WFTimeOffsetValueUnit =
-	| "Seconds"
-	| "Minutes"
-	| "Hours"
-	| "Days"
-	| "Weeks"
-	| "Months"
-	| "Years";
-export const WFTimeOffsetValueUnitList: WFTimeOffsetValueUnit[] = [
-	"Seconds",
-	"Minutes",
-	"Hours",
-	"Days",
-	"Weeks",
-	"Months",
-	"Years"
+	| "Second"
+	| "Minute"
+	| "Hour"
+	| "Day"
+	| "Week"
+	| "Month"
+	| "Year";
+export const WFTimeOffsetValueUnitList: [WFTimeOffsetValueUnit, string][] = [
+	["Second", "Seconds"],
+	["Minute", "Minutes"],
+	["Hour", "Hours"],
+	["Day", "Days"],
+	["Week", "Weeks"],
+	["Month", "Months"],
+	["Year", "Years"]
 ];
 export type WFTimeOffsetValueEnum =
 	| "Get Start Of Minute"
@@ -931,7 +931,7 @@ export class AdjustOffset extends Parameter {
 			Value:
 				this.opts.v === "onearg"
 					? {
-							Unit: "Seconds",
+							Unit: "Second",
 							Value: 0,
 							Operation: this.opts.mode
 					  }

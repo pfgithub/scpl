@@ -9120,7 +9120,7 @@
 				"WFWorkflowActionParameters": {
 					"WFAdjustOffsetPicker": {
 						"Value": {
-							"Unit": "Seconds",
+							"Unit": "Second",
 							"Value": 5,
 							"Operation": "Add"
 						},
@@ -9139,7 +9139,7 @@
 				"WFWorkflowActionParameters": {
 					"WFAdjustOffsetPicker": {
 						"Value": {
-							"Unit": "Hours",
+							"Unit": "Hour",
 							"Value": 6,
 							"Operation": "Subtract"
 						},
@@ -9158,7 +9158,7 @@
 				"WFWorkflowActionParameters": {
 					"WFAdjustOffsetPicker": {
 						"Value": {
-							"Unit": "Seconds",
+							"Unit": "Second",
 							"Value": 0,
 							"Operation": "Get Start Of Month"
 						},

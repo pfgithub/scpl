@@ -5,13 +5,22 @@ import { genShortName } from "./ActionData";
 
 export function nearestString<T extends string>(
 	value: string,
-	list: T[]
+	list: Array<[T, ...string[]] | T>
 ): T | undefined {
 	// hope that list does not contain any duplicates
 	const shortName = genShortName(value);
-	const res = list.filter(i => genShortName(i) === shortName);
+	const res: Array<[T, ...string[]] | T> = list.filter(
+		(i: T | [T, ...string[]]) =>
+			Array.isArray(i)
+				? i.some(i => genShortName(i) === shortName)
+				: genShortName(i) === shortName
+	);
 	if (res.length > 1) {
-		const res2 = list.filter(i => i === value);
+		const res2 = list.filter(i =>
+			Array.isArray(i)
+				? i.some(i => i === value)
+				: genShortName(i) === shortName
+		);
 		if (res2.length > 1) {
 			// eslint-disable-next-line no-console
 			console.log(
@@ -22,7 +31,7 @@ export function nearestString<T extends string>(
 			);
 			return undefined;
 		}
-		return res2[0];
+		return Array.isArray(res2[0]) ? <T>res2[0][0] : <T>res2[0];
 	}
-	return res[0];
+	return Array.isArray(res[0]) ? <T>res[0][0] : <T>res[0];
 }

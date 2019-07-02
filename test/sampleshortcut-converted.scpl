@@ -501,6 +501,6 @@ Dictionary {action: MainMenu} -> mv:Dictionary21
 GetVariable mv:Dictionary21
 RunShortcut shortcut=v:ThisShortcut showWhileRunning=false
 ExitShortcut
-AdjustDate [Add 5 Seconds]
-AdjustDate [Subtract 6 Hours]
-AdjustDate [Get,Start,Of,Month]
+AdjustDate [Add 5 Second]
+AdjustDate [Subtract 6 Hour]
+AdjustDate [Get Start Of Month]
