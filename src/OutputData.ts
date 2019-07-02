@@ -835,6 +835,119 @@ export class MagicVariable extends Variable {
 	}
 }
 
+export type WFTimeOffsetValue = {
+	Value:
+		| {
+				Unit: WFTimeOffsetValueUnit;
+				Value: number | WFAttachmentData;
+				Operation: WFTimeOffsetValueMode;
+		  }
+		| {
+				Unit: "Seconds";
+				Value: 0;
+				Operation: WFTimeOffsetValueEnum;
+		  };
+	WFSerializationType: "WFTimeOffsetValue";
+};
+
+export type WFTimeOffsetValueMode = "Add" | "Subtract";
+export type WFTimeOffsetValueUnit =
+	| "Seconds"
+	| "Minutes"
+	| "Hours"
+	| "Days"
+	| "Weeks"
+	| "Months"
+	| "Years";
+export const WFTimeOffsetValueUnitList: WFTimeOffsetValueUnit[] = [
+	"Seconds",
+	"Minutes",
+	"Hours",
+	"Days",
+	"Weeks",
+	"Months",
+	"Years"
+];
+export type WFTimeOffsetValueEnum =
+	| "Get Start Of Minute"
+	| "Get Start Of Hour"
+	| "Get Start Of Day"
+	| "Get Start Of Week"
+	| "Get Start Of Month"
+	| "Get Start Of Year";
+export const WFTimeOffsetValueEnumList: WFTimeOffsetValueEnum[] = [
+	"Get Start Of Minute",
+	"Get Start Of Hour",
+	"Get Start Of Day",
+	"Get Start Of Week",
+	"Get Start Of Month",
+	"Get Start Of Year"
+];
+
+export type WFTimeOffsetValueOptsType =
+	| {
+			v: "threearg";
+			mode: WFTimeOffsetValueMode;
+			unit: WFTimeOffsetValueUnit;
+			value: number | Attachment;
+	  }
+	| { v: "onearg"; mode: WFTimeOffsetValueEnum };
+
+export class AdjustOffset extends Parameter {
+	opts: WFTimeOffsetValueOptsType;
+	constructor(opts: WFTimeOffsetValueOptsType) {
+		super();
+		this.opts = opts;
+	}
+	static inverse(data: WFTimeOffsetValue): AdjustOffset {
+		if (
+			WFTimeOffsetValueEnumList.indexOf(<WFTimeOffsetValueEnum>(
+				data.Value.Operation
+			)) > -1
+		) {
+			return new AdjustOffset({
+				v: "onearg",
+				mode: <WFTimeOffsetValueEnum>data.Value.Operation
+			});
+		}
+		const operation: WFTimeOffsetValueMode = <WFTimeOffsetValueMode>(
+			data.Value.Operation
+		);
+		return new AdjustOffset({
+			v: "threearg",
+			mode: operation,
+			unit: <WFTimeOffsetValueUnit>data.Value.Unit,
+			value:
+				typeof data.Value.Value === "number"
+					? data.Value.Value
+					: Attachment.inverse({
+							Value: data.Value.Value,
+							WFSerializationType: "WFTextTokenAttachment"
+					  })
+		});
+	}
+	build(): WFTimeOffsetValue {
+		return {
+			Value:
+				this.opts.v === "onearg"
+					? {
+							Unit: "Seconds",
+							Value: 0,
+							Operation: this.opts.mode
+					  }
+					: {
+							Unit: this.opts.unit,
+							Value:
+								this.opts.value instanceof Attachment
+									? this.opts.value.build().Value
+									: this.opts.value,
+							Operation: this.opts.mode
+					  },
+			WFSerializationType: "WFTimeOffsetValue"
+		};
+	}
+}
+
 type WFListParameterItem =
 	| string
 	| { WFItemType: 0; WFValue: WFTextParameter }
@@ -1080,6 +1193,9 @@ export function toParam(value: WFParameter): ParameterType {
 	if (value.WFSerializationType === "WFDictionaryFieldValue") {
 		return Dictionary.inverse(value);
 	}
+	if (value.WFSerializationType === "WFTimeOffsetValue") {
+		return AdjustOffset.inverse(value);
+	}
 	if (value.WFSerializationType === "WFContentPredicateTableTemplate") {
 		return new ErrorParameter(
 			"Inversion for filters is not implemented yet."
@@ -1114,6 +1230,7 @@ export type WFParameter =
 	| WFErrorParameter
 	| WFContentItemFilter
 	| WFNotNeverParameter
+	| WFTimeOffsetValue
 	| string
 	| boolean
 	| number;

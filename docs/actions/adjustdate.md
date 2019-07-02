@@ -1,8 +1,6 @@
 
 ## Adjust Date / AdjustDate (internally `is.workflow.actions.adjustdate`)
 
-> This action is not yet complete. Some arguments may be missing.
-
 > This action requires that Shortcuts has permission to use [object Object].
 
 
@@ -20,14 +18,22 @@ This action supports decimal numbers when adding or subtracting seconds, minutes
 
 ### usage
 ```
-AdjustDate NotImplemented
+AdjustDate ([Add|Subtract, number|v:variable, Seconds|Minutes|Hours|Days|Weeks|Months|Years] | [Get, Start, Of, Minute|Hour|Day|Week|Month|Year])
 ```
 
 ### arguments
 
 ---
 
-#### This paramtype is not implemented. WFTimeOffsetParameter
+### WFAdjustOffsetPicker: Time Offset [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#time-offset)
+**Allows Variables**: true
+
+
+
+Accepts a list containing either:  
+[Add|Subtract, number|variable, unit]  
+or  
+[].
 
 ---
 

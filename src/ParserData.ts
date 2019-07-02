@@ -8,7 +8,12 @@ import {
 	Attachment,
 	List,
 	AttachmentType,
-	ContentItemFilter
+	ContentItemFilter,
+	AdjustOffset,
+	WFTimeOffsetValueEnum,
+	WFTimeOffsetValueEnumList,
+	WFTimeOffsetValueUnitList,
+	WFTimeOffsetValueUnit
 } from "./OutputData";
 import { getActionFromName, genShortName } from "./ActionData";
 import { ConvertingContext } from "./Converter";
@@ -20,6 +25,8 @@ import {
 	isAggrandizementPropertyName,
 	AggrandizementPropertyName
 } from "./WFTypes/Types";
+
+import { nearestString } from "./nearestString";
 
 import { ComparisonName, isComparisonMethod } from "./Data/GetTypes";
 
@@ -98,6 +105,11 @@ export class Parse {
 	): this is AsPreprocessorVariableName {
 		return false;
 	}
+	canBeTimeOffsetParameter(
+		_cc: ConvertingContext
+	): this is AsTimeOffsetParameter {
+		return false;
+	}
 }
 
 interface AsString extends Parse {
@@ -167,6 +179,10 @@ interface AsPreprocessorVariableName extends Parse {
 	asPreprocessorVariableName(cc: ConvertingContext): string;
 }
 
+interface AsTimeOffsetParameter extends Parse {
+	asTimeOffsetParameter(cc: ConvertingContext): AdjustOffset;
+}
+
 const ilist = [
 	"String",
 	"Boolean",
@@ -183,7 +199,8 @@ const ilist = [
 	"StringVariable",
 	"Number",
 	"Filter",
-	"FilterItem"
+	"FilterItem",
+	"TimeOffsetParameter"
 	// not PreprocessorVariableName
 ];
 
@@ -577,7 +594,8 @@ export class DictionaryParse extends Parse
 		return dictionary;
 	}
 }
-export class ListParse extends Parse implements AsArray, AsList, AsAbleArray {
+export class ListParse extends Parse
+	implements AsArray, AsList, AsAbleArray, AsTimeOffsetParameter {
 	items: Array<AsAble>;
 
 	constructor(start: Position, end: Position, items: Array<AsAble>) {
@@ -619,6 +637,91 @@ export class ListParse extends Parse implements AsArray, AsList, AsAbleArray {
 			})
 		);
 	}
+	canBeTimeOffsetParameter(_cc: ConvertingContext) {
+		return true;
+	}
+	asTimeOffsetParameter(cc: ConvertingContext): AdjustOffset {
+		const i0 = this.items[0];
+		if (!i0) {
+			throw this.error(cc, "List must contain at least one item.");
+		}
+		if (!i0.canBeString(cc)) {
+			throw i0.error(cc, "Must be string");
+		}
+		const i0str = i0.asString(cc);
+		if (i0str.toLowerCase() === "get" || this.items.length === 0) {
+			// 1
+			const fullStr = this.items
+				.map(i => {
+					if (!i.canBeString(cc)) {
+						throw i.error(cc, "Must be string with no variables");
+					}
+					return i.asString(cc);
+				})
+				.join(" ");
+			const timeoffsetvalueenum = nearestString<WFTimeOffsetValueEnum>(
+				fullStr,
+				WFTimeOffsetValueEnumList
+			);
+			if (!timeoffsetvalueenum) {
+				throw this.error(
+					cc,
+					`Expected one of: \`${WFTimeOffsetValueEnumList.join()}\``
+				);
+			}
+			const adjustOffset = new AdjustOffset({
+				v: "onearg",
+				mode: timeoffsetvalueenum
+			});
+			return adjustOffset;
+		}
+		if (this.items.length !== 3) {
+			throw this.error(
+				cc,
+				"List must contain exactly three items, [Mode Count Unit]"
+			);
+		}
+		const timeoffsetvalueaddsub = nearestString<"Add" | "Subtract">(i0str, [
+			"Add",
+			"Subtract"
+		]);
+		if (!timeoffsetvalueaddsub) {
+			throw i0.error(cc, `Must be Add | Subtract`);
+		}
+		const i2 = this.items[2];
+		if (!i2) {
+			throw this.error(cc, "List must contain at least one item.");
+		}
+		if (!i2.canBeString(cc)) {
+			throw i2.error(cc, "Must be string");
+		}
+		const i2str = i2.asString(cc);
+		const timeoffsetvalueunit = nearestString<WFTimeOffsetValueUnit>(
+			i2str,
+			WFTimeOffsetValueUnitList
+		);
+		if (!timeoffsetvalueunit) {
+			throw i2.error(
+				cc,
+				`Expected one of: \`${WFTimeOffsetValueUnitList.join()}\``
+			);
+		}
+		let value: number | Attachment;
+		const i1 = this.items[1];
+		if (i1.canBeNumber(cc)) {
+			value = i1.asNumber(cc);
+		} else if (i1.canBeVariable(cc)) {
+			value = i1.asVariable(cc);
+		} else {
+			throw i1.error(cc, "Must be number or variable");
+		}
+		return new AdjustOffset({
+			v: "threearg",
+			mode: timeoffsetvalueaddsub,
+			unit: timeoffsetvalueunit,
+			value
+		});
+	}
 }
 export class BarlistParse extends ListParse implements AsText, AsString {
 	canBeString(_cc: ConvertingContext): boolean {
@@ -655,6 +758,9 @@ export class BarlistParse extends ListParse implements AsText, AsString {
 		// this.data.join`\n` but for non-strings
 		// finalText.add(...this.data.items.map(i=>i.asText()));
 		return finalText;
+	}
+	canBeTimeOffsetParameter(_cc: ConvertingContext) {
+		return false;
 	}
 }
 

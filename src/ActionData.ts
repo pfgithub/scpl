@@ -118,6 +118,9 @@ types.WFExpandingParameter = WFExpandingParameter;
 import { WFFilterParameter } from "./Parameters/WFFilterParameter";
 types.WFFilterParameter = WFFilterParameter;
 
+import { WFTimeOffsetParameter } from "./Parameters/WFTimeOffsetParameter";
+types.WFTimeOffsetParameter = WFTimeOffsetParameter;
+
 import { WFVariableFieldParameter } from "./Parameters/WFVariableFieldParameter";
 types.WFVariableFieldParameter = WFVariableFieldParameter;
 

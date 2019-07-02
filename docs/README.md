@@ -4,7 +4,7 @@
 
 [Try Shortcutslang in a web browser](https://editor.scpl.dev)
 
-238/271 builtin actions supported
+239/271 builtin actions supported
 
 ## All Actions:
 
@@ -21,7 +21,7 @@
 - [Add to Reading List (`AddtoReadingList`)](actions/addtoreadinglist)
 - [Add to Up Next (`AddtoUpNext`)](actions/addtoupnext)
 - [Add to Variable (`AddtoVariable`)](actions/addtovariable)
-- [Adjust Date (`AdjustDate`)](actions/adjustdate) (Incomplete)
+- [Adjust Date (`AdjustDate`)](actions/adjustdate)
 - [AirDrop (`AirDrop`)](actions/airdrop)
 - [Append to File (`AppendtoFile`)](actions/appendtofile)
 - [Append to Note (`AppendtoNote`)](actions/appendtonote)
@@ -287,7 +287,7 @@
 - [ ] 1: WFUberProductPickerParameter
 - [ ] 1: WFUberSeatCountPickerParameter
 - [x] Complete - 1: WFCountryFieldParameter
-- [ ] 1: WFTimeOffsetParameter
+- [x] Complete - 1: WFTimeOffsetParameter
 - [ ] 1: WFAlarmFrequencyPickerParameter
 - [x] Complete - 1: WFAlarmPickerParameter
 - [x] Complete - 1: WFArrayParameter

@@ -647,7 +647,11 @@ test("long shortcut", () => {
 		{ makePlist: false }
 	);
 	const [scdata] = output.build();
-	// fs.writeFileSync("./test/sampleshortcut.json", JSON.stringify(noUUID([scdata]), null, "\t"), "utf8");
+	// fs.writeFileSync(
+	// 	"./test/sampleshortcut.json",
+	// 	JSON.stringify(noUUID([scdata]), null, "\t"),
+	// 	"utf8"
+	// );
 	expect(noUUID([scdata])).toEqual(sampleshortcutdata);
 });
 
@@ -1658,4 +1662,51 @@ test("warnings", () => {
 			]
 		}
 	]);
+});
+
+test("time offset parameter", () => {
+	expect(
+		scplToShortcut(`
+        adjustdate [add 5 Seconds]
+		adjustdate [Subtract s:clipboard hours]
+		adjustdate [Get start of month]
+        `)
+	).toEqual([
+		{
+			WFWorkflowActionIdentifier: "is.workflow.actions.adjustdate",
+			WFWorkflowActionParameters: {
+				WFAdjustOffsetPicker: {
+					Value: { Operation: "Add", Unit: "Seconds", Value: 5 },
+					WFSerializationType: "WFTimeOffsetValue"
+				}
+			}
+		},
+		{
+			WFWorkflowActionIdentifier: "is.workflow.actions.adjustdate",
+			WFWorkflowActionParameters: {
+				WFAdjustOffsetPicker: {
+					Value: {
+						Operation: "Subtract",
+						Unit: "Hours",
+						Value: { Aggrandizements: [], Type: "Clipboard" }
+					},
+					WFSerializationType: "WFTimeOffsetValue"
+				}
+			}
+		},
+		{
+			WFWorkflowActionIdentifier: "is.workflow.actions.adjustdate",
+			WFWorkflowActionParameters: {
+				WFAdjustOffsetPicker: {
+					Value: {
+						Operation: "Get Start Of Month",
+						Unit: "Seconds",
+						Value: 0
+					},
+					WFSerializationType: "WFTimeOffsetValue"
+				}
+			}
+		}
+	]);
+	// todo: error tests
 });

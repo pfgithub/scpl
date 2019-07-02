@@ -12,7 +12,8 @@ import {
 	toParam,
 	Aggrandizements,
 	inverseCoercionTypes,
-	ErrorParameter
+	ErrorParameter,
+	AdjustOffset
 } from "./OutputData";
 import { getActionFromID } from "./ActionData";
 
@@ -184,6 +185,9 @@ export class InverseConvertingContext {
 		if (thing instanceof List) {
 			return this.createListAble(thing);
 		}
+		if (thing instanceof AdjustOffset) {
+			return this.createAdjustOffsetAble(thing);
+		}
 		if (thing instanceof ErrorParameter) {
 			return `??error: ${thing.text.replace(/[^A-Za-z0-9 :]/g, "")}??`;
 		}
@@ -348,6 +352,21 @@ export class InverseConvertingContext {
 			return resstr;
 		} // \() will never match identifier
 		return `"${resstr}"`;
+	}
+	createAdjustOffsetAble(value: AdjustOffset) {
+		if (value.opts.v === "threearg") {
+			return `[${this.createStringAble(value.opts.mode)} ${
+				value.opts.value instanceof Attachment
+					? this.createVariableAble(value.opts.value)
+					: value.opts.value
+			} ${this.createStringAble(value.opts.unit)}]`;
+		}
+		if (value.opts.mode.startsWith("Get")) {
+			return `[${value.opts.mode
+				.split(" ")
+				.map(i => this.createStringAble(i))}]`;
+		}
+		return `[${this.createStringAble(value.opts.mode)}]`;
 	}
 	quoteAndEscape(val: string): string {
 		if (this.quotes === "'") {
