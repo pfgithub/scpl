@@ -339,15 +339,65 @@ export class WFAction {
 		});
 	}
 	genDocsAutocompleteUsage() {
-		return `${this.shortName} a{
-${this.genDocsParams()
-	.map(
-		(arg, i) =>
-			`  ${arg.argName}=\${${i + 1}${arg.argAutocompletePlaceholder}}`
-	)
-	.join(",\n")}
-}${this._data.BlockInfo ? this._data.BlockInfo.Completion : ""}
-`;
+		const docsParams = this.genDocsParams();
+		let autocompleteUsage = `${this.readableName} ${docsParams
+			.map(
+				(arg, i) =>
+					`${arg.argName}=\${${i + 1}${
+						arg.argAutocompletePlaceholder
+					}}`
+			)
+			.join(" ")}`.trim();
+		if (autocompleteUsage.replace(/${.+?}/g, "valuehere").length > 120) {
+			autocompleteUsage = `${this.readableName} (\n${docsParams
+				.map(
+					(arg, i) =>
+						`\t${arg.argName}=\${${i + 1}${
+							arg.argAutocompletePlaceholder
+						}}`
+				)
+				.join(",\n")}\n)`.trim();
+		}
+		if (docsParams.length === 1) {
+			autocompleteUsage = `${this.readableName} \${1${
+				docsParams[0].argAutocompletePlaceholder
+			}}`;
+		}
+		// 		let autocompleteUsage = `${this.readableName} (
+		// ${docsParams
+		// 	.map(
+		// 		(arg, i) =>
+		// 			`\t${arg.argName}=\${${i + 1}${arg.argAutocompletePlaceholder}}`
+		// 	)
+		// 	.join(",\n")}
+		// )${this._data.BlockInfo ? this._data.BlockInfo.Completion : ""}
+		// `;
+		// 		if (docsParams.length === 1) {
+		// 			autocompleteUsage = `${this.readableName} ${docsParams
+		// 				.map(
+		// 					(arg, i) => `\${${i + 1}${arg.argAutocompletePlaceholder}}`
+		// 				)
+		// 				.join(" ")}${
+		// 				this._data.BlockInfo ? this._data.BlockInfo.Completion : ""
+		// 			}`;
+		// 		}
+		// 		if (autocompleteUsage.length < 80) {
+		// 			autocompleteUsage = `${this.readableName} ${docsParams
+		// 				.map(
+		// 					(arg, i) =>
+		// 						`${arg.argName}=\${${i + 1}${
+		// 							arg.argAutocompletePlaceholder
+		// 						}}`
+		// 				)
+		// 				.join(" ")}${
+		// 				this._data.BlockInfo ? this._data.BlockInfo.Completion : ""
+		// 			}
+		// `;
+		// 		}
+		return (
+			autocompleteUsage +
+			(this._data.BlockInfo ? this._data.BlockInfo.Completion : "")
+		);
 	}
 	genDocsUsage() {
 		const docsParams = this.genDocsParams();
