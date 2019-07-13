@@ -113,73 +113,91 @@ export class Parse {
 }
 
 interface AsString extends Parse {
+	canBeString(cc: ConvertingContext): true;
 	asString(cc: ConvertingContext): string;
 }
 
 interface AsBoolean extends Parse {
+	canBeBoolean(cc: ConvertingContext): true;
 	asBoolean(cc: ConvertingContext): boolean;
 }
 
 interface AsText extends Parse {
+	canBeText(cc: ConvertingContext): true;
 	asText(cc: ConvertingContext): Text;
 }
 
 interface AsList extends Parse {
+	canBeList(cc: ConvertingContext): true;
 	asList(cc: ConvertingContext): List;
 }
 
 interface AsArray extends Parse {
+	canBeArray(cc: ConvertingContext): true;
 	asArray(cc: ConvertingContext): Array<string>;
 }
 
 interface AsAbleArray extends Parse {
+	canBeAbleArray(cc: ConvertingContext): true;
 	asAbleArray(cc: ConvertingContext): Array<AsAble>;
 }
 
 interface AsVariable extends Parse {
+	canBeVariable(cc: ConvertingContext): true;
 	asVariable(cc: ConvertingContext): Variable;
 }
 
 interface AsAction extends Parse {
+	canBeAction(cc: ConvertingContext): true;
 	asAction(cc: ConvertingContext): Action | undefined;
 }
 
 interface AsDictionary extends Parse {
+	canBeDictionary(cc: ConvertingContext): true;
 	asDictionary(cc: ConvertingContext): Dictionary;
 }
 
 interface AsRawDictionary extends Parse {
+	canBeRawDictionary(cc: ConvertingContext): true;
 	asRawDictionary(cc: ConvertingContext): { [key: string]: string };
 }
 
 interface AsRawKeyedDictionary extends Parse {
+	canBeRawKeyedDictionary(cc: ConvertingContext): true;
 	asRawKeyedDictionary(cc: ConvertingContext): { [key: string]: AsAble };
 }
 
 interface AsNameType extends Parse {
+	canBeNameType(cc: ConvertingContext): true;
 	asNameType(cc: ConvertingContext): { name: string; type: string };
 }
 
 interface AsStringVariable extends Parse {
+	canBeStringVariable(cc: ConvertingContext): true;
 	asStringVariable(cc: ConvertingContext): string;
 }
 
 interface AsNumber extends Parse {
+	canBeNumber(cc: ConvertingContext): true;
 	asNumber(cc: ConvertingContext): number;
 }
 
 interface AsFilter extends Parse {
+	canBeFilter(cc: ConvertingContext): true;
 	asFilter(cc: ConvertingContext, type: CoercionTypeClass): ContentItemFilter;
 }
 
 interface AsFilterItem extends Parse {
+	canBeFilterItem(cc: ConvertingContext): true;
 	asFilterItem(cc: ConvertingContext, filter: ContentItemFilter): void;
 }
 interface AsPreprocessorVariableName extends Parse {
+	canBePreprocessorVariableName(cc: ConvertingContext): true;
 	asPreprocessorVariableName(cc: ConvertingContext): string;
 }
 
 interface AsTimeOffsetParameter extends Parse {
+	canBeTimeOffsetParameter(cc: ConvertingContext): true;
 	asTimeOffsetParameter(cc: ConvertingContext): AdjustOffset;
 }
 
@@ -220,7 +238,7 @@ export class ConvertVariableParse extends Parse
 		this.name = name;
 		this.options = options;
 	}
-	canBePreprocessorVariableName(_cc: ConvertingContext) {
+	canBePreprocessorVariableName(_cc: ConvertingContext): true {
 		return true;
 	}
 	asPreprocessorVariableName(cc: ConvertingContext) {
@@ -305,7 +323,7 @@ export class FilterParse extends Parse implements AsFilter {
 		this.filterItems = filterItems;
 		this.mode = mode;
 	}
-	canBeFilter(_cc: ConvertingContext): boolean {
+	canBeFilter(_cc: ConvertingContext): true {
 		return true;
 	}
 	asFilter(
@@ -342,7 +360,7 @@ export class FilterItemParse extends Parse implements AsFilterItem {
 		this.value = value;
 		this.units = units;
 	}
-	canBeFilterItem(_cc: ConvertingContext): boolean {
+	canBeFilterItem(_cc: ConvertingContext): true {
 		return true;
 	}
 	asFilterItem(cc: ConvertingContext, filter: ContentItemFilter): void {
@@ -422,7 +440,7 @@ export class DictionaryParse extends Parse
 		super(start, end);
 		this.keyvaluepairs = keyvaluepairs;
 	}
-	canBeRawDictionary(_cc: ConvertingContext): boolean {
+	canBeRawDictionary(_cc: ConvertingContext): true {
 		return true;
 	}
 	asRawDictionary(cc: ConvertingContext) {
@@ -455,7 +473,7 @@ export class DictionaryParse extends Parse
 		});
 		return dictionary;
 	}
-	canBeRawKeyedDictionary(_cc: ConvertingContext): boolean {
+	canBeRawKeyedDictionary(_cc: ConvertingContext): true {
 		return true;
 	}
 	asRawKeyedDictionary(cc: ConvertingContext) {
@@ -479,7 +497,7 @@ export class DictionaryParse extends Parse
 		});
 		return dictionary;
 	}
-	canBeDictionary(_cc: ConvertingContext): boolean {
+	canBeDictionary(_cc: ConvertingContext): true {
 		return true;
 	}
 	asDictionary(cc: ConvertingContext) {
@@ -602,7 +620,7 @@ export class ListParse extends Parse
 		super(start, end);
 		this.items = items;
 	}
-	canBeArray(_cc: ConvertingContext): boolean {
+	canBeArray(_cc: ConvertingContext): true {
 		return true;
 	}
 	asArray(cc: ConvertingContext) {
@@ -617,13 +635,13 @@ export class ListParse extends Parse
 			return item.asString(cc);
 		});
 	}
-	canBeAbleArray(_cc: ConvertingContext): boolean {
+	canBeAbleArray(_cc: ConvertingContext): true {
 		return true;
 	}
 	asAbleArray(_cc: ConvertingContext) {
 		return this.items;
 	}
-	canBeList(_cc: ConvertingContext): boolean {
+	canBeList(_cc: ConvertingContext): true {
 		return true;
 	}
 	asList(cc: ConvertingContext) {
@@ -637,7 +655,7 @@ export class ListParse extends Parse
 			})
 		);
 	}
-	canBeTimeOffsetParameter(_cc: ConvertingContext) {
+	canBeTimeOffsetParameter(_cc: ConvertingContext): true {
 		return true;
 	}
 	asTimeOffsetParameter(cc: ConvertingContext): AdjustOffset {
@@ -724,7 +742,7 @@ export class ListParse extends Parse
 	}
 }
 export class BarlistParse extends ListParse implements AsText, AsString {
-	canBeString(_cc: ConvertingContext): boolean {
+	canBeString(_cc: ConvertingContext): true {
 		return true;
 	}
 	asString(cc: ConvertingContext) {
@@ -740,7 +758,7 @@ export class BarlistParse extends ListParse implements AsText, AsString {
 			})
 			.join("\n");
 	}
-	canBeText(_cc: ConvertingContext): boolean {
+	canBeText(_cc: ConvertingContext): true {
 		return true;
 	}
 	asText(cc: ConvertingContext) {
@@ -759,8 +777,8 @@ export class BarlistParse extends ListParse implements AsText, AsString {
 		// finalText.add(...this.data.items.map(i=>i.asText()));
 		return finalText;
 	}
-	canBeTimeOffsetParameter(_cc: ConvertingContext) {
-		return false;
+	canBeTimeOffsetParameter(_cc: ConvertingContext): true {
+		return <true>false; // hmm...
 	}
 }
 
@@ -771,7 +789,7 @@ export class CharsParse extends Parse implements AsString, AsText, AsNumber {
 		super(start, end);
 		this.items = items;
 	}
-	canBeString(_cc: ConvertingContext): boolean {
+	canBeString(_cc: ConvertingContext): true {
 		return true;
 	}
 	asString(cc: ConvertingContext) {
@@ -795,7 +813,7 @@ export class CharsParse extends Parse implements AsString, AsText, AsNumber {
 		});
 		return string;
 	}
-	canBeNumber(_cc: ConvertingContext): boolean {
+	canBeNumber(_cc: ConvertingContext): true {
 		return true;
 	}
 	asNumber(cc: ConvertingContext) {
@@ -808,7 +826,7 @@ export class CharsParse extends Parse implements AsString, AsText, AsNumber {
 		}
 		return num;
 	}
-	canBeText(_cc: ConvertingContext): boolean {
+	canBeText(_cc: ConvertingContext): true {
 		return true;
 	}
 	asText(cc: ConvertingContext) {
@@ -842,13 +860,13 @@ export class IdentifierParse extends Parse
 		super(start, end);
 		this.value = str;
 	}
-	canBeString(_cc: ConvertingContext): boolean {
+	canBeString(_cc: ConvertingContext): true {
 		return true;
 	}
 	asString(_cc: ConvertingContext) {
 		return this.value;
 	}
-	canBeNumber(_cc: ConvertingContext): boolean {
+	canBeNumber(_cc: ConvertingContext): true {
 		return true;
 	}
 	asNumber(cc: ConvertingContext) {
@@ -861,7 +879,7 @@ export class IdentifierParse extends Parse
 		}
 		return num;
 	}
-	canBeBoolean(_cc: ConvertingContext): boolean {
+	canBeBoolean(_cc: ConvertingContext): true {
 		return true;
 	}
 	asBoolean(cc: ConvertingContext) {
@@ -874,7 +892,7 @@ export class IdentifierParse extends Parse
 		}
 		throw this.error(cc, "This boolean must be either true or false.");
 	}
-	canBeText(_cc: ConvertingContext): boolean {
+	canBeText(_cc: ConvertingContext): true {
 		return true;
 	}
 	asText(_cc: ConvertingContext) {
@@ -918,7 +936,7 @@ export class ActionParse extends Parse implements AsText, AsVariable, AsAction {
 		this.variable = variable;
 	}
 	// Action[Argument,Argument...]
-	canBeText(_cc: ConvertingContext): boolean {
+	canBeText(_cc: ConvertingContext): true {
 		return true;
 	}
 	asText(cc: ConvertingContext) {
@@ -928,7 +946,7 @@ export class ActionParse extends Parse implements AsText, AsVariable, AsAction {
 		text.add(variable);
 		return text;
 	}
-	canBeVariable(_cc: ConvertingContext): boolean {
+	canBeVariable(_cc: ConvertingContext): true {
 		return true;
 	}
 	asVariable(cc: ConvertingContext) {
@@ -941,7 +959,7 @@ export class ActionParse extends Parse implements AsText, AsVariable, AsAction {
 		// otherwise: add a Set Variable action
 		// throw new Error(`Actions of type ${action.info.id} cannot be converted to a variable.`);
 	}
-	canBeAction(_cc: ConvertingContext): boolean {
+	canBeAction(_cc: ConvertingContext): true {
 		return true;
 	}
 	asAction(cc: ConvertingContext): Action | undefined {
@@ -1062,7 +1080,7 @@ export class VariableParse extends Parse
 		this.forkey = forkey;
 		this.options = options;
 	}
-	canBeStringVariable(_cc: ConvertingContext): boolean {
+	canBeStringVariable(_cc: ConvertingContext): true {
 		return true;
 	}
 	asStringVariable(cc: ConvertingContext) {
@@ -1089,7 +1107,7 @@ export class VariableParse extends Parse
 		}
 		return name;
 	}
-	canBeNameType(_cc: ConvertingContext): boolean {
+	canBeNameType(_cc: ConvertingContext): true {
 		return true;
 	}
 	asNameType(cc: ConvertingContext) {
@@ -1116,7 +1134,7 @@ export class VariableParse extends Parse
 		}
 		return { name, type };
 	}
-	canBeText(_cc: ConvertingContext): boolean {
+	canBeText(_cc: ConvertingContext): true {
 		return true;
 	}
 	asText(cc: ConvertingContext) {
@@ -1124,7 +1142,7 @@ export class VariableParse extends Parse
 		text.add(this.asVariable(cc));
 		return text;
 	}
-	canBeVariable(_cc: ConvertingContext): boolean {
+	canBeVariable(_cc: ConvertingContext): true {
 		return true;
 	}
 	asVariable(cc: ConvertingContext) {
@@ -1261,7 +1279,7 @@ export class VariableParse extends Parse
 		});
 		return variable;
 	}
-	canBeAction(_cc: ConvertingContext): boolean {
+	canBeAction(_cc: ConvertingContext): true {
 		return true;
 	}
 	asAction(cc: ConvertingContext) {
@@ -1278,7 +1296,7 @@ export class ActionsParse extends Parse
 		super(start, end);
 		this.actions = actions;
 	}
-	canBeText(_cc: ConvertingContext): boolean {
+	canBeText(_cc: ConvertingContext): true {
 		return true;
 	}
 	asText(cc: ConvertingContext) {
@@ -1287,7 +1305,7 @@ export class ActionsParse extends Parse
 		text.add(variable);
 		return text;
 	}
-	canBeVariable(_cc: ConvertingContext): boolean {
+	canBeVariable(_cc: ConvertingContext): true {
 		return true;
 	}
 	asVariable(cc: ConvertingContext) {
@@ -1300,7 +1318,7 @@ export class ActionsParse extends Parse
 		}
 		return new MagicVariable(action);
 	}
-	canBeAction(_cc: ConvertingContext): boolean {
+	canBeAction(_cc: ConvertingContext): true {
 		return true;
 	}
 	asAction(cc: ConvertingContext) {
