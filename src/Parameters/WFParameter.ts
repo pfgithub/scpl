@@ -45,19 +45,23 @@ export class WFParameter {
 		this.typeName = typeName;
 		this.docs = docs;
 
-		this.requiredResources = requiredResources.map(
-			(resource: ShortcutsResourceSpec) => {
+		this.requiredResources = requiredResources.reduce(
+			(
+				total: WFResource[],
+				resource: ShortcutsResourceSpec
+			): WFResource[] => {
 				if (typeof resource === "string") {
-					return;
+					return total;
 				}
 				const type = resource.WFResourceClass;
 				const resourceClass = resourceTypes[type];
 				if (!resourceClass) {
 					throw new Error(`${type} is not a defined resource class.`);
 				}
-				// @ts-ignore
-				return new resourceClass(resource);
-			}
+				total.push(new resourceClass(resource));
+				return total;
+			},
+			[] as WFResource[]
 		);
 		if (this._data.Hidden) {
 			this.requiredResources.push(

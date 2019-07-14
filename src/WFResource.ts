@@ -20,7 +20,7 @@ export class WFResource {
 	}
 }
 
-const resourceTypes: { [key: string]: any } = {}; // I can't figure out what to put the type as here
+const resourceTypes: { [key: string]: typeof WFResource } = {};
 
 class WFDeviceAttributesResource extends WFResource {
 	_data: ShortcutsDeviceAttributesResourceSpec;
@@ -69,8 +69,8 @@ class WFParameterRelationResource extends WFResource {
 	_data: ShortcutsParameterRelationResourceSpec;
 	relation: string;
 	argInternalName: string;
-	argValue: string | number | boolean | undefined;
-	argValues: (string | number | boolean | undefined)[];
+	argValue: string | number | boolean | object | undefined;
+	argValues: (string | number | boolean | object | undefined)[];
 	constructor(data: ShortcutsParameterRelationResourceSpec) {
 		super(data);
 		this._data = data;
@@ -112,7 +112,10 @@ class WFParameterRelationResource extends WFResource {
 		const isNum = !isNaN(currentValueNum);
 		switch (this.relation) {
 			case "==":
-				return this.argValues.some((val: any) => val === currentValue);
+				return this.argValues.some(
+					(val: string | number | boolean | object | undefined) =>
+						val === currentValue
+				);
 			case "!=":
 				if (
 					typeof currentValue === "string" ||

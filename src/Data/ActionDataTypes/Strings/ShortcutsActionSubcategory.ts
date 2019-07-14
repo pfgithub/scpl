@@ -50,4 +50,6 @@ export type ShortcutsActionSubcategory =
 	| "Shell"
 	| "Camera"
 	| "Social"
-	| "Payments";
+	| "Payments"
+	| "Media"
+	| "Wallpaper";

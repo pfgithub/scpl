@@ -14,12 +14,12 @@ export type ShortcutsParameterRelationResourceSpec = ShortcutsBaseResourceSpec &
 	(
 		| {
 				WFParameterKey: string;
-				WFParameterValue: string | number | boolean;
+				WFParameterValue: string | number | boolean | object;
 				WFParameterRelation?: Relation;
 		  }
 		| {
 				WFParameterKey: string;
-				WFParameterValues: (string | number | boolean)[];
+				WFParameterValues: (string | number | boolean | object)[];
 				WFParameterRelation?: Relation;
 		  }
 		| {
@@ -89,14 +89,11 @@ export type ShortcutsAccountAccessResourceSpec = ShortcutsBaseResourceSpec & {
 		| "WFWunderlistAccount";
 };
 
-export type ShortcutsEmailAccessResourceSpec = ShortcutsBaseResourceSpec;
-
-export type ShortcutsTumblrAccessResourceSpec = ShortcutsBaseResourceSpec;
-
 type _rc<N extends string> = { WFResourceClass: N };
 
 export type ShortcutsResourceSpec =
 	| ShortcutsResourceClass
+	| ShortcutsBaseResourceSpec
 	| (ShortcutsUserInteractionResourceSpec & _rc<"WFUserInteractionResource">)
 	| (ShortcutsParameterRelationResourceSpec &
 			_rc<"WFParameterRelationResource">)
@@ -106,6 +103,4 @@ export type ShortcutsResourceSpec =
 	| (ShortcutsWorkflowTypeResourceSpec & _rc<"WFWorkflowTypeResource">)
 	| (ShortcutsHealthKitAccessResourceSpec & _rc<"WFHealthKitAccessResource">)
 	| (ShortcutsAppInstalledResourceSpec & _rc<"WFAppInstalledResource">)
-	| (ShortcutsAccountAccessResourceSpec & _rc<"WFAccountAccessResource">)
-	| (ShortcutsEmailAccessResourceSpec & _rc<"WFEmailAccessResource">)
-	| (ShortcutsTumblrAccessResourceSpec & _rc<"WFTumblrAccessResource">);
+	| (ShortcutsAccountAccessResourceSpec & _rc<"WFAccountAccessResource">);

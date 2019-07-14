@@ -32,4 +32,7 @@ export type ShortcutsResourceClass =
 	| "WFWeatherAttributionAccessResource"
 	| "WFParameterRelationResource"
 	| "WFWorkflowTypeResource"
-	| "WFWorkflowHiddenResource";
+	| "WFWorkflowHiddenResource"
+	| "WFRemoteServerAccessResource"
+	| "WFMessagesAccessResource"
+	| "WFRequestPaymentAccessResource";

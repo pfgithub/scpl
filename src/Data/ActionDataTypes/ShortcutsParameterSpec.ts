@@ -16,6 +16,7 @@ export type ShortcutsBaseParameterSpec = {
 	Description?: string;
 	IntentSlotName?: string;
 	DoNotLocalizeValues?: boolean;
+	Placeholder?: number | string;
 };
 
 export type ShortcutsIntentAppPickerParameterSpec = ShortcutsBaseParameterSpec & {
@@ -44,6 +45,14 @@ export type ShortcutsLocationFieldParameterSpec = ShortcutsInputParameterSpec & 
 	HintDisplayMode?: "WhileProcessing" | "Always" | "Never";
 };
 
+export type ShortcutsLocationParameterSpec = ShortcutsInputParameterSpec & {
+	AllowCurrentLocation?: boolean;
+	CurrentLocationAccuracy?: "HundredMeters";
+	DefaultToCurrentLocation?: boolean;
+	SkipProcessingCurrentLocation?: boolean;
+	AllowTextOnly?: boolean;
+};
+
 export type ShortcutsVariablePickerParameterSpec = ShortcutsBaseParameterSpec;
 
 export type ShortcutsDynamicEnumerationParameterSpec = ShortcutsBaseParameterSpec & {
@@ -53,8 +62,8 @@ export type ShortcutsDynamicEnumerationParameterSpec = ShortcutsBaseParameterSpe
 
 export type ShortcutsInputParameterSpec = ShortcutsBaseParameterSpec & {
 	TextAlignment?: "Left" | "Right";
+	AllowsMultipleValues?: boolean;
 	DefaultValue?: number | string;
-	Placeholder?: number | string;
 	AutocapitalizationType?: "Words" | "None";
 	DisableAutocorrection?: boolean;
 	DisableSmartDashes?: boolean;
@@ -107,7 +116,6 @@ export type ShortcutsDictionaryParameterSpec = ShortcutsBaseParameterSpec & {
 export type ShortcutsNumberFieldParameterSpec = ShortcutsInputParameterSpec & {
 	TextAlignment?: "Left" | "Right";
 	DefaultValue?: number;
-	Placeholder?: number | string;
 	AllowsDecimalNumbers?: boolean;
 };
 
@@ -119,7 +127,7 @@ export type ShortcutsArrayParameterSpec = ShortcutsBaseParameterSpec & {
 };
 
 export type ShortcutsContactFieldParameterSpec = ShortcutsInputParameterSpec & {
-	AllowsTextEntry: boolean;
+	AllowsTextEntry?: boolean;
 };
 
 export type ShortcutsStepperParameterSpec = ShortcutsNumberFieldParameterSpec & {
@@ -152,7 +160,10 @@ export type ShortcutsFilterParameterSpec = ShortcutsBaseParameterSpec & {
 	ContentItemClass: CoercionTypeClass;
 };
 
-export type ShortcutsSliderParameterSpec = ShortcutsNumberFieldParameterSpec;
+export type ShortcutsSliderParameterSpec = ShortcutsNumberFieldParameterSpec & {
+	MaximumIconName?: "BrightnessSliderHigh";
+	MinimumIconName?: "BrightnessSliderLow";
+};
 export type ShortcutsCustomDateFormatParameterSpec = ShortcutsInputParameterSpec;
 
 export type ShortcutsMapsAppPickerParameterSpec = ShortcutsDynamicEnumerationParameterSpec & {
@@ -184,7 +195,17 @@ export type ShortcutsHealthCategoryStartDateFieldParameterSpec = ShortcutsHealth
 export type ShortcutsHealthCategoryEndDateFieldParameterSpec = ShortcutsHealthQuantityFieldParameterSpec;
 
 export type ShortcutsWorkoutTypePickerParameterSpec = ShortcutsDynamicEnumerationParameterSpec;
-export type ShortcutsDurationQuantityFieldParameterSpec = ShortcutsNumberFieldParameterSpec;
+export type ShortcutsDurationQuantityFieldParameterSpec = ShortcutsNumberFieldParameterSpec & {
+	DefaultUnit?: "days" | "hr" | "min" | "months" | "sec" | "weeks" | "years";
+	PossibleUnits?: (
+		| "days"
+		| "hr"
+		| "min"
+		| "months"
+		| "sec"
+		| "weeks"
+		| "years")[];
+};
 
 export type ShortcutsIFTTTTriggerNameParameterSpec = ShortcutsTextInputParameterSpec;
 export type ShortcutsIFTTTAddRecipeParameterSpec = ShortcutsBaseParameterSpec & {
@@ -230,6 +251,28 @@ export type ShortcutsTumblrBlogPickerParameterSpec = ShortcutsDynamicEnumeration
 export type ShortcutsTumblrComposeInAppParameterSpec = ShortcutsSwitchParameterSpec;
 export type ShortcutsDynamicTagFieldParameterSpec = ShortcutsTextInputParameterSpec;
 export type ShortcutsWunderlistListPickerParameterSpec = ShortcutsDynamicTagFieldParameterSpec;
+export type ShortcutsFaceTimePickerParameterSpec = ShortcutsEnumerationParameterSpec;
+export type ShortcutsNoteGroupPickerParameterSpec = ShortcutsDynamicEnumerationParameterSpec;
+export type ShortcutsMediaPickerParameterSpec = ShortcutsDynamicEnumerationParameterSpec;
+export type ShortcutsConditionalSubjectParameterSpec = ShortcutsDynamicEnumerationParameterSpec;
+export type ShortcutsConditionalOperatorParameterSpec = ShortcutsDynamicEnumerationParameterSpec;
+export type ShortcutsNumericDynamicEnumerationParameterSpec = ShortcutsDynamicEnumerationParameterSpec;
+
+export type ShortcutsFileFormatSizePickerParameterSpec = ShortcutsEnumerationParameterSpec;
+export type ShortcutsFlipImageDirectionPickerParameterSpec = ShortcutsEnumerationParameterSpec;
+
+export type ShortcutsHomeServicePickerParameterSpec = ShortcutsDynamicEnumerationParameterSpec;
+export type ShortcutsHomeCharacteristicPickerParameterSpec = ShortcutsDynamicEnumerationParameterSpec;
+export type ShortcutsHomeAccessoryPickerParameterSpec = ShortcutsDynamicEnumerationParameterSpec;
+export type ShortcutsPodcastPickerParameterSpec = ShortcutsDynamicEnumerationParameterSpec;
+
+export type ShortcutsMediaRoutePickerParameterSpec = ShortcutsDynamicEnumerationParameterSpec & {
+	RouteType: "Endpoint" | "OutputDevice";
+};
+
+export type ShortcutsDatePickerParameterSpec = ShortcutsDynamicEnumerationParameterSpec & {
+	ShowsDatePicker: boolean;
+};
 
 export type ShortcutsTrelloBoardPickerParameterSpec = ShortcutsDynamicEnumerationParameterSpec & {
 	BoardKey?: string;
@@ -238,6 +281,10 @@ export type ShortcutsTrelloListPickerParameterSpec = ShortcutsTrelloBoardPickerP
 
 export type ShortcutsTranslateTextLanguagePickerParameterSpec = ShortcutsDynamicEnumerationParameterSpec & {
 	LanguageDetection?: boolean;
+};
+export type ShortcutsUnitQuantityFieldParameterSpec = ShortcutsNumberFieldParameterSpec & {
+	DefaultUnit?: string;
+	WFUnitType?: "Length";
 };
 
 export type ShortcutsSpeakTextVoicePickerParameterSpec = ShortcutsDynamicEnumerationParameterSpec & {
@@ -263,7 +310,6 @@ export type ShortcutsParameterSpec =
 			_pc<"WFUberProductPickerParameter">)
 	| (ShortcutsUberSeatCountPickerParameterSpec &
 			_pc<"WFUberSeatCountPickerParameter">)
-	| (ShortcutsLocationFieldParameterSpec & _pc<"WFLocationFieldParameter">)
 	| (ShortcutsVariablePickerParameterSpec & _pc<"WFVariablePickerParameter">)
 	| (ShortcutsNumberFieldParameterSpec & _pc<"WFNumberFieldParameter">)
 	| (ShortcutsTextInputParameterSpec & _pc<"WFTextInputParameter">)
@@ -272,12 +318,8 @@ export type ShortcutsParameterSpec =
 	| (ShortcutsExpandingParameterSpec & _pc<"WFExpandingParameter">)
 	| (ShortcutsCountryFieldParameterSpec & _pc<"WFCountryFieldParameter">)
 	| (ShortcutsPlaylistPickerParameterSpec & _pc<"WFPlaylistPickerParameter">)
-	| (ShortcutsTimeOffsetParameterSpec & _pc<"WFTimeOffsetParameter">)
 	| (ShortcutsDynamicEnumerationParameterSpec &
 			_pc<"WFDynamicEnumerationParameter">)
-	| (ShortcutsAlarmFrequencyPickerParameterSpec &
-			_pc<"WFAlarmFrequencyPickerParameter">)
-	| (ShortcutsAlarmPickerParameterSpec & _pc<"WFAlarmPickerParameter">)
 	| (ShortcutsVariableFieldParameterSpec & _pc<"WFVariableFieldParameter">)
 	| (ShortcutsArrayParameterSpec & _pc<"WFArrayParameter">)
 	| (ShortcutsContactFieldParameterSpec & _pc<"WFContactFieldParameter">)
@@ -333,14 +375,10 @@ export type ShortcutsParameterSpec =
 	| (ShortcutsUnitTypePickerParameterSpec & _pc<"WFUnitTypePickerParameter">)
 	| (ShortcutsMeasurementUnitPickerParameterSpec &
 			_pc<"WFMeasurementUnitPickerParameter">)
-	| (ShortcutsUnitPickerParameterSpec & _pc<"WFUnitPickerParameter">)
 	| (ShortcutsAppPickerParameterSpec & _pc<"WFAppPickerParameter">)
 	| (ShortcutsPhoneNumberFieldParameterSpec &
 			_pc<"WFPhoneNumberFieldParameter">)
 	| (ShortcutsTimeIntervalParameterSpec & _pc<"WFTimeIntervalParameter">)
-	| (ShortcutsHomePickerParameterSpec & _pc<"WFHomePickerParameter">)
-	| (ShortcutsHomeScenePickerParameterSpec &
-			_pc<"WFHomeScenePickerParameter">)
 	| (ShortcutsWorkflowPickerParameterSpec & _pc<"WFWorkflowPickerParameter">)
 	| (ShortcutsPhotoAlbumPickerParameterSpec &
 			_pc<"WFPhotoAlbumPickerParameter">)
@@ -374,4 +412,32 @@ export type ShortcutsParameterSpec =
 	| (ShortcutsDynamicTagFieldParameterSpec &
 			_pc<"WFDynamicTagFieldParameter">)
 	| (ShortcutsWunderlistListPickerParameterSpec &
-			_pc<"WFWunderlistListPickerParameter">);
+			_pc<"WFWunderlistListPickerParameter">)
+	| (ShortcutsFaceTimePickerParameterSpec &
+			_pc<"WFFaceTimeTypePickerParameter">)
+	| (ShortcutsNoteGroupPickerParameterSpec &
+			_pc<"WFNoteGroupPickerParameter">)
+	| (ShortcutsMediaPickerParameterSpec & _pc<"WFMediaPickerParameter">)
+	| (ShortcutsUnitQuantityFieldParameterSpec &
+			_pc<"WFUnitQuantityFieldParameter">)
+	| (ShortcutsLocationParameterSpec & _pc<"WFLocationParameter">)
+	| (ShortcutsConditionalSubjectParameterSpec &
+			_pc<"WFConditionalSubjectParameter">)
+	| (ShortcutsConditionalOperatorParameterSpec &
+			_pc<"WFConditionalOperatorParameter">)
+	| (ShortcutsDatePickerParameterSpec & _pc<"WFDatePickerParameter">)
+	| (ShortcutsNumericDynamicEnumerationParameterSpec &
+			_pc<"WFNumericDynamicEnumerationParameter">)
+	| (ShortcutsFileFormatSizePickerParameterSpec &
+			_pc<"WFFileSizePickerParameter">)
+	| (ShortcutsHomeServicePickerParameterSpec &
+			_pc<"WFHomeServicePickerParameter">)
+	| (ShortcutsHomeCharacteristicPickerParameterSpec &
+			_pc<"WFHomeCharacteristicPickerParameter">)
+	| (ShortcutsHomeAccessoryPickerParameterSpec &
+			_pc<"WFHomeAccessoryPickerParameter">)
+	| (ShortcutsFlipImageDirectionPickerParameterSpec &
+			_pc<"WFFlipImageDirectionPickerParameter">)
+	| (ShortcutsMediaRoutePickerParameterSpec &
+			_pc<"WFMediaRoutePickerParameter">)
+	| (ShortcutsPodcastPickerParameterSpec & _pc<"WFPodcastPickerParameter">);

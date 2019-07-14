@@ -16,6 +16,7 @@ import { ShortcutsAppIdentifier } from "./Strings/ShortcutsAppIdentifier";
 import { ShortcutsActionClass } from "./Strings/ShortcutsActionClass";
 import { ShortcutsActionEnvironments } from "./Strings/ShortcutsActionEnvironments";
 import { ShortcutsActionAceCommandClass } from "./Strings/ShortcutsActionAceCommandClass";
+import { ShortcutsActionAttribution } from "./Strings/ShortcutsActionAttribution";
 
 import { CoercionTypeClass } from "../../WFTypes/Types";
 
@@ -28,12 +29,24 @@ export type ShortcutsActionIOSpec = {
 	Types?: ShortcutsActionIODataType[];
 };
 
+export type ShortcutsParameterOverrideSpec = {
+	[key: string]: {
+		DisallowedVariableTypes?: ("Ask" | "Variable")[];
+		Key?: string;
+		IntentEnumOverrides?: {
+			[key: string]: string;
+		};
+	};
+};
+
 export type ShortcutsActionBaseSpec = {
 	ActionClass: ShortcutsActionClass;
 	ActionKeywords?: string[];
 	AppIdentifier?: ShortcutsAppIdentifier;
 	Category?: ShortcutsActionCategory;
+	Categories?: ShortcutsActionCategory[];
 	Subcategory?: ShortcutsActionSubcategory;
+	ParameterSummary?: string | { [values: string]: string };
 	Description?: {
 		DescriptionNote?: string;
 		DescriptionAttribution?: {
@@ -48,7 +61,10 @@ export type ShortcutsActionBaseSpec = {
 		DescriptionResult?: string;
 	};
 	Discontinued?: boolean;
-	Input?: ShortcutsActionIOSpec & { TypePassthrough?: boolean };
+	Input?: ShortcutsActionIOSpec & {
+		TypePassthrough?: boolean;
+		ParameterKey?: string;
+	};
 	Output?: ShortcutsActionIOSpec & { OutputName?: string };
 	IconName?: ShortcutsActionIconName;
 	InputPassthrough?: boolean;
@@ -61,8 +77,10 @@ export type ShortcutsActionBaseSpec = {
 	UserInterfaces?: ShortcutsActionSupportedUserInterface[];
 	UnsupportedEnvironments?: ShortcutsActionEnvironments[];
 	ShortName?: string;
+	SnappingPassthrough?: boolean;
 	SuggestedNever?: boolean;
 	SuggestedAsInitialAction?: boolean;
+	ParameterCollapsingBehavior?: "Never";
 	BlockInfo?: {
 		Example?: string;
 		Completion?: string;
@@ -73,11 +91,18 @@ export type ShortcutsActionBaseSpec = {
 		ShowWhenResourcesUnavailable?: boolean;
 	};
 	RunningUIComponentClass?: string;
+	ConfigurationUIComponentClass?: "WFHomeAccessoryActionComponent";
 	AppInfo?: "Evernote";
 	OutputName?: string;
 	IsDebugAction?: boolean;
 	IntentName?: string;
 	Discoverable?: boolean;
+	ResidentCompatible?: boolean;
+	Constructor?: boolean;
+	Attribution?: ShortcutsActionAttribution;
+	ParameterOverrides?: ShortcutsParameterOverrideSpec;
+	InProcess?: boolean;
+	BlocksOutput?: boolean;
 };
 
 export type ShortcutsStartCallActionSpec = ShortcutsActionBaseSpec & {
@@ -157,6 +182,14 @@ export type ShortcutsTextComponentsActionSpec = ShortcutsActionBaseSpec & {
 	WFTextComponentsMode: "Combine" | "Split";
 };
 
+export type ShortcutsHandleCustomIntentActionSpec = ShortcutsActionBaseSpec & {
+	AppIdentifier: ShortcutsAppIdentifier;
+};
+
+export type ShortcutsSearchiTunesActionSpec = ShortcutsActionBaseSpec & {
+	Storefront: "iTunes" | "Podcasts";
+};
+
 type _ac<N extends string> = { ActionClass: N };
 
 export type ShortcutsActionSpec =
@@ -180,4 +213,7 @@ export type ShortcutsActionSpec =
 	| (ShortcutsSetBrightnessActionSpec & _ac<"WFSetBrightnessAction">)
 	| (ShortcutsSkipSongActionSpec & _ac<"WFSkipSongAction">)
 	| (ShortcutsTextComponentsActionSpec & _ac<"WFTextComponentsAction">)
-	| (ShortcutsACESetWiFiActionSpec & _ac<"WFACESetWiFiAction">);
+	| (ShortcutsACESetWiFiActionSpec & _ac<"WFACESetWiFiAction">)
+	| (ShortcutsHandleCustomIntentActionSpec &
+			_ac<"WFHandleCustomIntentAction">)
+	| (ShortcutsSearchiTunesActionSpec & _ac<"WFSearchiTunesAction">);

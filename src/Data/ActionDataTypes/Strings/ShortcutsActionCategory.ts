@@ -3,12 +3,12 @@ export type ShortcutsActionCategory =
 	| "Text"
 	| "Location"
 	| "Photos & Video"
-	| "Music"
+	| "Media"
 	| "Calendar"
 	| "Sharing"
 	| "Scripting"
-	| "Documents"
 	| "Web"
+	| "Documents"
 	| "Health"
-	| "Apps"
-	| "Home";
+	| "Home"
+	| "Apps";
