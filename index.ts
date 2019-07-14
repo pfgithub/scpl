@@ -98,7 +98,7 @@ export function parse(
 	if (options.make) {
 		const data = shortcut.build();
 		const output: {
-			shortcutjson?: any;
+			shortcutjson?: WFShortcut;
 			shortcutplist?: Buffer;
 			outputdata?: Shortcut;
 			warnings?: PositionedError[];
@@ -110,6 +110,7 @@ export function parse(
 			output.shortcutjson = data;
 		}
 		if (options.make.indexOf("shortcutplist") > -1) {
+			//eslint-disable-next-line @typescript-eslint/no-explicit-any
 			output.shortcutplist = (<any>bplistc)(data);
 		}
 		if (options.useWarnings) {
@@ -118,6 +119,7 @@ export function parse(
 		return output;
 	}
 	if (options.makePlist) {
+		//eslint-disable-next-line @typescript-eslint/no-explicit-any
 		return (<any>bplistc)(shortcut.build());
 	}
 	return shortcut;

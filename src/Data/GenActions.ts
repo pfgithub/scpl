@@ -36,7 +36,7 @@ Object.values(actions).forEach((action: any) => {
 		}
 		const getTypeItemClass = action.WFContentItemClass;
 		if (!isCoercionTypeClass(getTypeItemClass)) {
-			action.Parameters.push({ Class: "_UndefinedCoercionClass" });
+			// action.Parameters.push({ Class: "_UndefinedCoercionClass" });
 		} else {
 			action.Parameters.push({
 				Class: "WFEnumerationParameter",
@@ -53,7 +53,7 @@ Object.values(actions).forEach((action: any) => {
 		}
 		const getTypeItemClass = action.WFContentItemClass;
 		if (!isCoercionTypeClass(getTypeItemClass)) {
-			action.Parameters.push({ Class: "_UndefinedCoercionClass" });
+			// action.Parameters.push({ Class: "_UndefinedCoercionClass" });
 		} else {
 			action.Parameters.push({
 				Class: "WFFilterParameter",

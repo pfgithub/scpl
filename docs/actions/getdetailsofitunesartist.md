@@ -1,20 +1,18 @@
 
 ## Get Details of iTunes Artist / GetDetailsofiTunesArtist (internally `is.workflow.actions.properties.itunesartist`)
 
-> This action is not yet complete. Some arguments may be missing.
-
 
 
 ### usage
 ```
-GetDetailsofiTunesArtist NotImplemented
+GetDetailsofiTunesArtist 
 ```
 
 ### arguments
 
 ---
 
-#### This paramtype is not implemented. _UndefinedCoercionClass
+
 
 ---
 
@@ -28,10 +26,6 @@ GetDetailsofiTunesArtist NotImplemented
 	"CreationDate": "2016-03-15T07:00:00.000Z",
 	"Name": "Get Details of iTunes Artist",
 	"WFContentItemClass": "WFiTunesArtistContentItem",
-	"Parameters": [
-		{
-			"Class": "_UndefinedCoercionClass"
-		}
-	]
+	"Parameters": []
 }
 ```

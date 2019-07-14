@@ -1,8 +1,15 @@
 import { Action } from "./OutputData";
 
+import {
+	ShortcutsBaseResourceSpec,
+	ShortcutsDeviceAttributesResourceSpec,
+	ShortcutsWorkflowTypeResourceSpec,
+	ShortcutsParameterRelationResourceSpec
+} from "./Data/ActionDataTypes/ShortcutsResourceSpec";
+
 export class WFResource {
-	_data: any;
-	constructor(data: any) {
+	_data: ShortcutsBaseResourceSpec;
+	constructor(data: ShortcutsBaseResourceSpec) {
 		this._data = data;
 	}
 	shouldEnable(_action: Action) {
@@ -16,6 +23,11 @@ export class WFResource {
 const resourceTypes: { [key: string]: any } = {}; // I can't figure out what to put the type as here
 
 class WFDeviceAttributesResource extends WFResource {
+	_data: ShortcutsDeviceAttributesResourceSpec;
+	constructor(data: ShortcutsDeviceAttributesResourceSpec) {
+		super(data);
+		this._data = data;
+	}
 	shouldEnable(_action: Action) {
 		return true;
 	}
@@ -28,6 +40,11 @@ class WFDeviceAttributesResource extends WFResource {
 resourceTypes.WFDeviceAttributesResource = WFDeviceAttributesResource;
 
 class WFWorkflowTypeResource extends WFResource {
+	_data: ShortcutsWorkflowTypeResourceSpec;
+	constructor(data: ShortcutsWorkflowTypeResourceSpec) {
+		super(data);
+		this._data = data;
+	}
 	shouldEnable(_action: Action) {
 		return true;
 	}
@@ -49,16 +66,24 @@ export class WFWorkflowHiddenResource extends WFResource {
 }
 
 class WFParameterRelationResource extends WFResource {
+	_data: ShortcutsParameterRelationResourceSpec;
 	relation: string;
 	argInternalName: string;
-	argValue: any;
-	argValues: any;
-	constructor(data: any) {
+	argValue: string | number | boolean | undefined;
+	argValues: (string | number | boolean | undefined)[];
+	constructor(data: ShortcutsParameterRelationResourceSpec) {
 		super(data);
+		this._data = data;
 		this.relation = this._data.WFParameterRelation || "==";
 		this.argInternalName = this._data.WFParameterKey;
-		this.argValue = this._data.WFParameterValue;
-		this.argValues = this._data.WFParameterValues || [this.argValue];
+		this.argValue =
+			"WFParameterValue" in this._data
+				? this._data.WFParameterValue
+				: undefined;
+		this.argValues =
+			"WFParameterValues" in this._data
+				? this._data.WFParameterValues
+				: [this.argValue];
 		const relations: { [key: string]: number } = {
 			"==": 1,
 			"!=": 1,
@@ -77,8 +102,9 @@ class WFParameterRelationResource extends WFResource {
 		}
 	}
 	genDocs() {
-		return `argument ${this.argInternalName} ${this.relation} \`${this
-			.argValues.join`\` or \``}\``;
+		return `argument ${this.argInternalName} ${
+			this.relation
+		} \`${this.argValues.join(`\` or \``)}\``;
 	}
 	shouldEnable(action: Action) {
 		const currentValue = action.parameters.get(this.argInternalName);
@@ -88,27 +114,34 @@ class WFParameterRelationResource extends WFResource {
 			case "==":
 				return this.argValues.some((val: any) => val === currentValue);
 			case "!=":
-				return this.argValues.indexOf(currentValue) === -1;
+				if (
+					typeof currentValue === "string" ||
+					typeof currentValue === "number" ||
+					typeof currentValue === "boolean"
+				) {
+					return this.argValues.indexOf(currentValue) === -1;
+				}
+				return false;
 			case ">=":
 				if (!isNum) {
 					return false;
 				}
-				return currentValueNum >= this.argValue;
+				return currentValueNum >= <number>this.argValue;
 			case "<=":
 				if (!isNum) {
 					return false;
 				}
-				return currentValueNum <= this.argValue;
+				return currentValueNum <= <number>this.argValue;
 			case ">":
 				if (!isNum) {
 					return false;
 				}
-				return currentValueNum > this.argValue;
+				return currentValueNum > <number>this.argValue;
 			case "<":
 				if (!isNum) {
 					return false;
 				}
-				return currentValueNum < this.argValue;
+				return currentValueNum < <number>this.argValue;
 			case "??":
 				return action.parameters.has(this.argInternalName);
 			default:

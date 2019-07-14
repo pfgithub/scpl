@@ -3,13 +3,17 @@ import { AsAble } from "../ParserData";
 
 import { WFParameter } from "./WFParameter";
 
+import { ShortcutsVariablePickerParameterSpec } from "../Data/ActionDataTypes/ShortcutsParameterSpec";
+
 export class WFVariablePickerParameter extends WFParameter {
+	_data: ShortcutsVariablePickerParameterSpec;
 	constructor(
-		data: any,
+		data: ShortcutsVariablePickerParameterSpec,
 		name = "Variable Picker",
 		docs = "https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields"
 	) {
 		super(data, name, docs);
+		this._data = data;
 	}
 	genDocsArgName() {
 		return `(v:myvar | mv:myvar | s:myvar)`;

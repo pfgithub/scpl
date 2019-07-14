@@ -3,13 +3,17 @@ import { AsAble } from "../ParserData";
 
 import { WFParameter } from "./WFParameter";
 
+import { ShortcutsEmailAddressFieldParameterSpec } from "../Data/ActionDataTypes/ShortcutsParameterSpec";
+
 export class WFEmailAddressFieldParameter extends WFParameter {
+	_data: ShortcutsEmailAddressFieldParameterSpec;
 	constructor(
-		data: any,
+		data: ShortcutsEmailAddressFieldParameterSpec,
 		name = "Email",
 		docs = "https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields"
 	) {
 		super(data, name, docs);
+		this._data = data;
 	}
 	genDocsArgName() {
 		return `("string" | [list, of, strings] | variable)`;

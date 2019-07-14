@@ -31,4 +31,5 @@ export type ShortcutsResourceClass =
 	| "WFTumblrAccessResource"
 	| "WFWeatherAttributionAccessResource"
 	| "WFParameterRelationResource"
-	| "WFWorkflowTypeResource";
+	| "WFWorkflowTypeResource"
+	| "WFWorkflowHiddenResource";

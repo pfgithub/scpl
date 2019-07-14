@@ -1,22 +1,20 @@
 
 ## Find Notes / FindNotes (internally `is.workflow.actions.filter.notes`)
 
-> This action is not yet complete. Some arguments may be missing.
-
 > This action requires that Shortcuts has permission to use WFNotesAccessResource.
 
 
 
 ### usage
 ```
-FindNotes NotImplemented
+FindNotes 
 ```
 
 ### arguments
 
 ---
 
-#### This paramtype is not implemented. _UndefinedCoercionClass
+
 
 ---
 
@@ -42,10 +40,6 @@ FindNotes NotImplemented
 	"SuggestedAsInitialAction": false,
 	"WFContentItemClass": "WFNoteContentItem",
 	"WFContentItemDefaultProperty": "Body",
-	"Parameters": [
-		{
-			"Class": "_UndefinedCoercionClass"
-		}
-	]
+	"Parameters": []
 }
 ```

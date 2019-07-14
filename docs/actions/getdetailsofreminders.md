@@ -1,20 +1,18 @@
 
 ## Get Details of Reminders / GetDetailsofReminders (internally `is.workflow.actions.properties.reminders`)
 
-> This action is not yet complete. Some arguments may be missing.
-
 
 
 ### usage
 ```
-GetDetailsofReminders NotImplemented
+GetDetailsofReminders 
 ```
 
 ### arguments
 
 ---
 
-#### This paramtype is not implemented. _UndefinedCoercionClass
+
 
 ---
 
@@ -31,10 +29,6 @@ GetDetailsofReminders NotImplemented
 	"Subcategory": "Reminders",
 	"WFContentItemClass": "WFReminderContentItem",
 	"WFContentItemDefaultProperty": "List",
-	"Parameters": [
-		{
-			"Class": "_UndefinedCoercionClass"
-		}
-	]
+	"Parameters": []
 }
 ```

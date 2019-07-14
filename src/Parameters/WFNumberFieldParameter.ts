@@ -3,13 +3,17 @@ import { AsAble } from "../ParserData";
 
 import { WFParameter } from "./WFParameter";
 
+import { ShortcutsNumberFieldParameterSpec } from "../Data/ActionDataTypes/ShortcutsParameterSpec";
+
 export class WFNumberFieldParameter extends WFParameter {
+	_data: ShortcutsNumberFieldParameterSpec;
 	constructor(
-		data: any,
+		data: ShortcutsNumberFieldParameterSpec,
 		name: string = "Number",
 		docs: string = "https://pfgithub.github.io/shortcutslang/gettingstarted#number-field"
 	) {
 		super(data, name, docs);
+		this._data = data;
 	}
 	genDocsArgName(): string {
 		return this.allowsVariables ? `number` : `(number | variable)`;

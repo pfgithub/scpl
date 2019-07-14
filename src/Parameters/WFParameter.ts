@@ -9,9 +9,11 @@ import {
 
 import { genShortName } from "../ActionData";
 
+import { ShortcutsBaseParameterSpec } from "../Data/ActionDataTypes/ShortcutsParameterSpec";
+import { ShortcutsResourceSpec } from "../Data/ActionDataTypes/ShortcutsResourceSpec";
+
 export class WFParameter {
-	_data: any;
-	defaultValue: string;
+	_data: ShortcutsBaseParameterSpec;
 	requiredResources: Array<WFResource>;
 	allowsVariables: boolean;
 	name: string;
@@ -20,37 +22,48 @@ export class WFParameter {
 	readableName: string;
 	typeName: string;
 	docs: string;
-	constructor(data: any, typeName: string, docs: string) {
+	constructor(
+		data: ShortcutsBaseParameterSpec,
+		typeName: string = "WFParameter",
+		docs: string = "https://pfgithub.github.io/shortcutslang/gettingstarted"
+	) {
 		this._data = data;
-		this.defaultValue = this._data.DefaultValue;
-		this.requiredResources = this._data.RequiredResources || [];
+		const requiredResources = this._data.RequiredResources || [];
 		this.allowsVariables =
-			(this._data.DisallowedVariableTypes || []).join`` !== "AskVariable";
-		this.name = this._data.Label;
+			(this._data.DisallowedVariableTypes || []).join(``) !==
+			"AskVariable";
+		const name = this._data.Label;
 		this.internalName = this._data.Key;
-		this.shortName = genShortName(this.name, this.internalName);
-		this.readableName = genShortName(this.name, this.internalName, true);
+		this.shortName = genShortName(name, this.internalName);
+		this.readableName = genShortName(name, this.internalName, true);
 		if (!this.readableName.startsWith("WF")) {
 			this.readableName =
 				this.readableName.charAt(0).toLowerCase() +
 				this.readableName.slice(1);
 		}
-		this.name = this.name || this.shortName;
+		this.name = name || this.shortName;
 		this.typeName = typeName;
 		this.docs = docs;
 
-		this.requiredResources = this.requiredResources.map((resource: any) => {
-			const type = resource.WFResourceClass;
-			const resourceClass = resourceTypes[type];
-			if (!resourceClass) {
-				throw new Error(`${type} is not a defined resource class.`);
+		this.requiredResources = requiredResources.map(
+			(resource: ShortcutsResourceSpec) => {
+				if (typeof resource === "string") {
+					return;
+				}
+				const type = resource.WFResourceClass;
+				const resourceClass = resourceTypes[type];
+				if (!resourceClass) {
+					throw new Error(`${type} is not a defined resource class.`);
+				}
+				// @ts-ignore
+				return new resourceClass(resource);
 			}
-			// @ts-ignore
-			return new resourceClass(resource);
-		});
+		);
 		if (this._data.Hidden) {
 			this.requiredResources.push(
-				new WFWorkflowHiddenResource({ Hidden: true })
+				new WFWorkflowHiddenResource({
+					WFResourceClass: "WFWorkflowHiddenResource"
+				})
 			);
 		}
 	}
@@ -62,15 +75,18 @@ export class WFParameter {
 	genDocsArgName() {
 		return "[???]";
 	}
-	genDocsDefaultValue(value: string) {
+	genDocsDefaultValue(value: string | number | true | string[]) {
 		return `\`\`\`
-		${value}
+		${Array.isArray(value) ? JSON.stringify(value) : value}
 		\`\`\``;
 	}
 	genDocsAutocompletePlaceholder() {
 		return `:${
-			this._data.DefaultValue
-				? `${this.genDocsArgName()}:"${this._data.DefaultValue}"`
+			(<{ DefaultValue: string }>(<unknown>this._data)).DefaultValue
+				? `${this.genDocsArgName()}:"${
+						(<{ DefaultValue: string }>(<unknown>this._data))
+							.DefaultValue
+				  }"`
 				: `${this.genDocsArgName()}`
 		}`;
 	}
@@ -78,15 +94,15 @@ export class WFParameter {
 		let docs = `### ${this.readableName}: ${this.typeName} [(Docs)](${
 			this.docs
 		})\n`;
-		if (this._data.Placeholder) {
+		if ((<{ Placeholder: string }>(<unknown>this._data)).Placeholder) {
 			docs += `**Placeholder**: ${this.genDocsDefaultValue(
-				this._data.Placeholder
+				(<{ Placeholder: string }>(<unknown>this._data)).Placeholder
 			)}
 `;
 		}
-		if (this._data.DefaultValue) {
+		if ((<{ DefaultValue: string }>(<unknown>this._data)).DefaultValue) {
 			docs += `**Default Value**: ${this.genDocsDefaultValue(
-				this._data.DefaultValue
+				(<{ DefaultValue: string }>(<unknown>this._data)).DefaultValue
 			)}
 `;
 		}

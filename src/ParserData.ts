@@ -270,19 +270,20 @@ export class ConvertVariableParse extends Parse
 }
 // there has to be a better way
 ilist.forEach(val => {
-	//eslint-disable-next-line func-names
+	//eslint-disable-next-line func-names, @typescript-eslint/no-explicit-any
 	(<any>ConvertVariableParse).prototype[`canBe${val}`] = function(
 		this: ConvertVariableParse,
 		cc: ConvertingContext
 	) {
 		const me = this.getValue(cc);
+		//eslint-disable-next-line @typescript-eslint/no-explicit-any
 		return (<any>me)[`canBe${val}`](cc);
 	};
-	//eslint-disable-next-line func-names
+	//eslint-disable-next-line func-names, @typescript-eslint/no-explicit-any
 	(<any>ConvertVariableParse).prototype[`as${val}`] = function(
 		this: ConvertVariableParse,
 		cc: ConvertingContext,
-		...extraData: any[]
+		...extraData: []
 	) {
 		const me = this.getValue(cc);
 		const options = this.options;
@@ -300,6 +301,7 @@ ilist.forEach(val => {
 			const value = rawKeyedOptions[key];
 			newCC.setParserVariable(key, value);
 		});
+		//eslint-disable-next-line @typescript-eslint/no-explicit-any
 		return (<any>me)[`as${val}`](newCC, ...extraData);
 	};
 });

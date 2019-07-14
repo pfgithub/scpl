@@ -9,14 +9,18 @@ import {
 import getTypes from "../Data/GetTypes";
 import { WFParameter } from "./WFParameter";
 
+import { ShortcutsFilterParameterSpec } from "../Data/ActionDataTypes/ShortcutsParameterSpec";
+
 export class WFFilterParameter extends WFParameter {
+	_data: ShortcutsFilterParameterSpec;
 	coercionType: CoercionTypeClass;
 	constructor(
-		data: any,
+		data: ShortcutsFilterParameterSpec,
 		name = "Filter",
 		docs = "https://pfgithub.github.io/shortcutslang/gettingstarted#filter-field"
 	) {
 		super(data, name, docs);
+		this._data = data;
 		this.allowsVariables = false;
 		if (!isCoercionTypeClass(this._data.ContentItemClass)) {
 			//eslint-disable-next-line

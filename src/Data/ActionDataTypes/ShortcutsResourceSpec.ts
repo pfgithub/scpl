@@ -10,21 +10,22 @@ export type ShortcutsBaseResourceSpec = {
 
 export type ShortcutsUserInteractionResourceSpec = ShortcutsBaseResourceSpec;
 
-export type ShortcutsParameterRelationResourceSpec =
-	| ShortcutsBaseResourceSpec & {
-			WFParameterKey: string;
-			WFParameterValue: string | number | boolean;
-			WFParameterRelation?: Relation;
-	  }
-	| {
-			WFParameterKey: string;
-			WFParameterValues: (string | number | boolean)[];
-			WFParameterRelation?: Relation;
-	  }
-	| {
-			WFParameterKey: string;
-			WFParameterRelation?: "??";
-	  };
+export type ShortcutsParameterRelationResourceSpec = ShortcutsBaseResourceSpec &
+	(
+		| {
+				WFParameterKey: string;
+				WFParameterValue: string | number | boolean;
+				WFParameterRelation?: Relation;
+		  }
+		| {
+				WFParameterKey: string;
+				WFParameterValues: (string | number | boolean)[];
+				WFParameterRelation?: Relation;
+		  }
+		| {
+				WFParameterKey: string;
+				WFParameterRelation?: "??";
+		  });
 
 export type ShortcutsUnavailableResourceSpec = ShortcutsBaseResourceSpec & {
 	WFUnavailableResourceReason: string;

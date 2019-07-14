@@ -4,7 +4,7 @@
 
 [Try Shortcutslang in a web browser](https://editor.scpl.dev)
 
-239/271 builtin actions supported
+251/271 builtin actions supported
 
 ## All Actions:
 
@@ -67,17 +67,17 @@
 - [Extract Archive (`ExtractArchive`)](actions/extractarchive)
 - [FaceTime (`FaceTime`)](actions/facetime)
 - [Filter Articles (`FilterArticles`)](actions/filterarticles)
-- [Filter Event Attendees (`FilterEventAttendees`)](actions/filtereventattendees) (Incomplete)
+- [Filter Event Attendees (`FilterEventAttendees`)](actions/filtereventattendees)
 - [Filter Files (`FilterFiles`)](actions/filterfiles)
 - [Filter Images (`FilterImages`)](actions/filterimages)
 - [Filter Locations (`FilterLocations`)](actions/filterlocations)
-- [Find Calendar Events (`FindCalendarEvents`)](actions/findcalendarevents) (Incomplete)
+- [Find Calendar Events (`FindCalendarEvents`)](actions/findcalendarevents)
 - [Find Contacts (`FindContacts`)](actions/findcontacts)
 - [Find Health Samples (`FindHealthSamples`)](actions/findhealthsamples)
 - [Find Music (`FindMusic`)](actions/findmusic)
-- [Find Notes (`FindNotes`)](actions/findnotes) (Incomplete)
+- [Find Notes (`FindNotes`)](actions/findnotes)
 - [Find Photos (`FindPhotos`)](actions/findphotos)
-- [Find Reminders (`FindReminders`)](actions/findreminders) (Incomplete)
+- [Find Reminders (`FindReminders`)](actions/findreminders)
 - [Flip Image (`FlipImage`)](actions/flipimage)
 - [Format Date (`FormatDate`)](actions/formatdate)
 - [Format File Size (`FormatFileSize`)](actions/formatfilesize)
@@ -97,21 +97,21 @@
 - [Get Current Weather (`GetCurrentWeather`)](actions/getcurrentweather)
 - [Get Dates from Input (`GetDatesfromInput`)](actions/getdatesfrominput)
 - [Get Details of App Store App (`GetDetailsofAppStoreApp`)](actions/getdetailsofappstoreapp)
-- [Get Details of Calendar Events (`GetDetailsofCalendarEvents`)](actions/getdetailsofcalendarevents) (Incomplete)
+- [Get Details of Calendar Events (`GetDetailsofCalendarEvents`)](actions/getdetailsofcalendarevents)
 - [Get Details of Contacts (`GetDetailsofContacts`)](actions/getdetailsofcontacts)
 - [Get Details of Diffbot Article (`GetDetailsofDiffbotArticle`)](actions/getdetailsofdiffbotarticle)
-- [Get Details of Event Attendees (`GetDetailsofEventAttendees`)](actions/getdetailsofeventattendees) (Incomplete)
+- [Get Details of Event Attendees (`GetDetailsofEventAttendees`)](actions/getdetailsofeventattendees)
 - [Get Details of Files (`GetDetailsofFiles`)](actions/getdetailsoffiles)
-- [Get Details of Health Sample (`GetDetailsofHealthSample`)](actions/getdetailsofhealthsample) (Incomplete)
+- [Get Details of Health Sample (`GetDetailsofHealthSample`)](actions/getdetailsofhealthsample)
 - [Get Details of Images (`GetDetailsofImages`)](actions/getdetailsofimages)
 - [Get Details of Locations (`GetDetailsofLocations`)](actions/getdetailsoflocations)
 - [Get Details of Music (`GetDetailsofMusic`)](actions/getdetailsofmusic)
-- [Get Details of Reminders (`GetDetailsofReminders`)](actions/getdetailsofreminders) (Incomplete)
+- [Get Details of Reminders (`GetDetailsofReminders`)](actions/getdetailsofreminders)
 - [Get Details of Safari Webpage (`GetDetailsofSafariWebpage`)](actions/getdetailsofsafariwebpage)
-- [Get Details of Trello Item (`GetDetailsofTrelloItem`)](actions/getdetailsoftrelloitem) (Incomplete)
-- [Get Details of Ulysses Sheet (`GetDetailsofUlyssesSheet`)](actions/getdetailsofulyssessheet) (Incomplete)
-- [Get Details of Weather Conditions (`GetDetailsofWeatherConditions`)](actions/getdetailsofweatherconditions) (Incomplete)
-- [Get Details of iTunes Artist (`GetDetailsofiTunesArtist`)](actions/getdetailsofitunesartist) (Incomplete)
+- [Get Details of Trello Item (`GetDetailsofTrelloItem`)](actions/getdetailsoftrelloitem)
+- [Get Details of Ulysses Sheet (`GetDetailsofUlyssesSheet`)](actions/getdetailsofulyssessheet)
+- [Get Details of Weather Conditions (`GetDetailsofWeatherConditions`)](actions/getdetailsofweatherconditions)
+- [Get Details of iTunes Artist (`GetDetailsofiTunesArtist`)](actions/getdetailsofitunesartist)
 - [Get Details of iTunes Product (`GetDetailsofiTunesProduct`)](actions/getdetailsofitunesproduct)
 - [Get Device Details (`GetDeviceDetails`)](actions/getdevicedetails)
 - [Get Dictionary Value (`GetDictionaryValue`)](actions/getdictionaryvalue)
@@ -353,7 +353,6 @@
 - [x] Complete - 8: WFLocationFieldParameter
 - [x] Complete - 8: WFExpandingParameter
 - [x] Complete - 10: WFVariablePickerParameter
-- [ ] 12: _UndefinedCoercionClass
 - [x] Complete - 14: WFDynamicEnumerationParameter
 - [x] Complete - 17: WFDateFieldParameter
 - [x] Complete - 30: WFStepperParameter

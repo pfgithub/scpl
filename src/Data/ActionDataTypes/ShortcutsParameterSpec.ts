@@ -107,7 +107,7 @@ export type ShortcutsDictionaryParameterSpec = ShortcutsBaseParameterSpec & {
 export type ShortcutsNumberFieldParameterSpec = ShortcutsInputParameterSpec & {
 	TextAlignment?: "Left" | "Right";
 	DefaultValue?: number;
-	Placeholder?: string;
+	Placeholder?: number | string;
 	AllowsDecimalNumbers?: boolean;
 };
 
@@ -122,7 +122,7 @@ export type ShortcutsContactFieldParameterSpec = ShortcutsInputParameterSpec & {
 	AllowsTextEntry: boolean;
 };
 
-export type ShortcutsStepperParameterSpec = ShortcutsInputParameterSpec & {
+export type ShortcutsStepperParameterSpec = ShortcutsNumberFieldParameterSpec & {
 	StepperDescription?: string;
 	StepperNoun?: string;
 	StepperPluralNoun?: string;
@@ -152,7 +152,7 @@ export type ShortcutsFilterParameterSpec = ShortcutsBaseParameterSpec & {
 	ContentItemClass: CoercionTypeClass;
 };
 
-export type ShortcutsSliderParameterSpec = ShortcutsInputParameterSpec;
+export type ShortcutsSliderParameterSpec = ShortcutsNumberFieldParameterSpec;
 export type ShortcutsCustomDateFormatParameterSpec = ShortcutsInputParameterSpec;
 
 export type ShortcutsMapsAppPickerParameterSpec = ShortcutsDynamicEnumerationParameterSpec & {
@@ -294,7 +294,6 @@ export type ShortcutsParameterSpec =
 	| (ShortcutsEvernoteTagsTagFieldParameterSpec &
 			_pc<"WFEvernoteTagsTagFieldParameter">)
 	| (ShortcutsFilterParameterSpec & _pc<"WFFilterParameter">)
-	| _pc<"_UndefinedCoercionClass"> // TODO REMOVE THIS!!
 	| (ShortcutsSliderParameterSpec & _pc<"WFSliderParameter">)
 	| (ShortcutsCustomDateFormatParameterSpec &
 			_pc<"WFCustomDateFormatParameter">)

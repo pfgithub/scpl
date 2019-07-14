@@ -219,6 +219,7 @@ module.exports = {
 		////////// ECMAScript 6 //////////
 
 		"no-var": 2, // require let or const instead of var (off by default)
-		"generator-star-spacing": ["error", { before: true, after: false }] // enforce the position of the * in generator functions (off by default)
+		"generator-star-spacing": ["error", { before: true, after: false }], // enforce the position of the * in generator functions (off by default)
+		"@typescript-eslint/no-explicit-any": 1
 	}
 };

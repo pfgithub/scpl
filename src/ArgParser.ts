@@ -21,7 +21,7 @@ export function simpleParse(
 		value => {
 			throw value.error(cc, "InputArg is not allowed for this function");
 		},
-		(arg, value) => {
+		(_arg, _value) => {
 			return true;
 		},
 		{ args, cc }

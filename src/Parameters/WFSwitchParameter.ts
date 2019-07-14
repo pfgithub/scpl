@@ -3,13 +3,17 @@ import { AsAble } from "../ParserData";
 
 import { WFParameter } from "./WFParameter";
 
+import { ShortcutsSwitchParameterSpec } from "../Data/ActionDataTypes/ShortcutsParameterSpec";
+
 export class WFSwitchParameter extends WFParameter {
+	_data: ShortcutsSwitchParameterSpec;
 	constructor(
-		data: any,
+		data: ShortcutsSwitchParameterSpec,
 		name = "Switch",
 		docs = "https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields"
 	) {
 		super(data, name, docs);
+		this._data = data;
 	}
 	genDocsArgName() {
 		return this.allowsVariables

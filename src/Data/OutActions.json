@@ -3996,11 +3996,7 @@
 		"SuggestedAsInitialAction": false,
 		"WFContentItemClass": "WFCalendarEventContentItem",
 		"WFContentItemDefaultProperty": "Calendar",
-		"Parameters": [
-			{
-				"Class": "_UndefinedCoercionClass"
-			}
-		]
+		"Parameters": []
 	},
 	"is.workflow.actions.filter.contacts": {
 		"ActionClass": "WFContentItemFilterAction",
@@ -4114,11 +4110,7 @@
 		"ShortName": "Filter Attendees",
 		"Subcategory": "Event Attendees",
 		"WFContentItemClass": "WFEKParticipantContentItem",
-		"Parameters": [
-			{
-				"Class": "_UndefinedCoercionClass"
-			}
-		]
+		"Parameters": []
 	},
 	"is.workflow.actions.filter.files": {
 		"ActionClass": "WFContentItemFilterAction",
@@ -4543,11 +4535,7 @@
 		"SuggestedAsInitialAction": false,
 		"WFContentItemClass": "WFNoteContentItem",
 		"WFContentItemDefaultProperty": "Body",
-		"Parameters": [
-			{
-				"Class": "_UndefinedCoercionClass"
-			}
-		]
+		"Parameters": []
 	},
 	"is.workflow.actions.filter.photos": {
 		"ActionClass": "WFContentItemFilterAction",
@@ -4670,11 +4658,7 @@
 		"SuggestedAsInitialAction": false,
 		"WFContentItemClass": "WFReminderContentItem",
 		"WFContentItemDefaultProperty": "List",
-		"Parameters": [
-			{
-				"Class": "_UndefinedCoercionClass"
-			}
-		]
+		"Parameters": []
 	},
 	"is.workflow.actions.flashlight": {
 		"ACECommandClass": "SASettingSetFlashlight",
@@ -9832,11 +9816,7 @@
 		"Name": "Get Details of Calendar Events",
 		"Subcategory": "Calendar",
 		"WFContentItemClass": "WFCalendarEventContentItem",
-		"Parameters": [
-			{
-				"Class": "_UndefinedCoercionClass"
-			}
-		]
+		"Parameters": []
 	},
 	"is.workflow.actions.properties.contacts": {
 		"ActionClass": "WFContentItemPropertiesAction",
@@ -9890,11 +9870,7 @@
 		"Name": "Get Details of Event Attendees",
 		"Subcategory": "Event Attendees",
 		"WFContentItemClass": "WFEKParticipantContentItem",
-		"Parameters": [
-			{
-				"Class": "_UndefinedCoercionClass"
-			}
-		]
+		"Parameters": []
 	},
 	"is.workflow.actions.properties.files": {
 		"ActionClass": "WFContentItemPropertiesAction",
@@ -9933,11 +9909,7 @@
 		"Name": "Get Details of Health Sample",
 		"Subcategory": "Get",
 		"WFContentItemClass": "WFHKSampleContentItem",
-		"Parameters": [
-			{
-				"Class": "_UndefinedCoercionClass"
-			}
-		]
+		"Parameters": []
 	},
 	"is.workflow.actions.properties.images": {
 		"ActionClass": "WFContentItemPropertiesAction",
@@ -9999,11 +9971,7 @@
 		"CreationDate": "2016-03-15T07:00:00.000Z",
 		"Name": "Get Details of iTunes Artist",
 		"WFContentItemClass": "WFiTunesArtistContentItem",
-		"Parameters": [
-			{
-				"Class": "_UndefinedCoercionClass"
-			}
-		]
+		"Parameters": []
 	},
 	"is.workflow.actions.properties.itunesstore": {
 		"ActionClass": "WFContentItemPropertiesAction",
@@ -10132,11 +10100,7 @@
 		"Subcategory": "Reminders",
 		"WFContentItemClass": "WFReminderContentItem",
 		"WFContentItemDefaultProperty": "List",
-		"Parameters": [
-			{
-				"Class": "_UndefinedCoercionClass"
-			}
-		]
+		"Parameters": []
 	},
 	"is.workflow.actions.properties.safariwebpage": {
 		"ActionClass": "WFContentItemPropertiesAction",
@@ -10182,11 +10146,7 @@
 			"WFTrelloAccessResource"
 		],
 		"WFContentItemClass": "WFTrelloItemContentItem",
-		"Parameters": [
-			{
-				"Class": "_UndefinedCoercionClass"
-			}
-		]
+		"Parameters": []
 	},
 	"is.workflow.actions.properties.ulysses.sheet": {
 		"ActionClass": "WFContentItemPropertiesAction",
@@ -10202,11 +10162,7 @@
 		},
 		"Name": "Get Details of Ulysses Sheet",
 		"WFContentItemClass": "WFUlyssesSheetContentItem",
-		"Parameters": [
-			{
-				"Class": "_UndefinedCoercionClass"
-			}
-		]
+		"Parameters": []
 	},
 	"is.workflow.actions.properties.weather.conditions": {
 		"ActionClass": "WFContentItemPropertiesAction",
@@ -10217,11 +10173,7 @@
 		"Name": "Get Details of Weather Conditions",
 		"Subcategory": "Weather",
 		"WFContentItemClass": "WFWeatherDataContentItem",
-		"Parameters": [
-			{
-				"Class": "_UndefinedCoercionClass"
-			}
-		]
+		"Parameters": []
 	},
 	"is.workflow.actions.readinglist": {
 		"ActionClass": "WFAddToReadingListAction",

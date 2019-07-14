@@ -3,13 +3,17 @@ import { AsAble } from "../ParserData";
 
 import { WFParameter } from "./WFParameter";
 
+import { ShortcutsTextInputParameterSpec } from "../Data/ActionDataTypes/ShortcutsParameterSpec";
+
 export class WFTextInputParameter extends WFParameter {
+	_data: ShortcutsTextInputParameterSpec;
 	constructor(
-		data: any,
+		data: ShortcutsTextInputParameterSpec,
 		name = "Text",
 		docs = "https://pfgithub.github.io/shortcutslang/gettingstarted#text-field"
 	) {
 		super(data, name, docs);
+		this._data = data;
 	}
 	genDocsArgName() {
 		return `"string"`;

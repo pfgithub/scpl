@@ -1,20 +1,18 @@
 
 ## Get Details of Ulysses Sheet / GetDetailsofUlyssesSheet (internally `is.workflow.actions.properties.ulysses.sheet`)
 
-> This action is not yet complete. Some arguments may be missing.
-
 
 
 ### usage
 ```
-GetDetailsofUlyssesSheet NotImplemented
+GetDetailsofUlyssesSheet 
 ```
 
 ### arguments
 
 ---
 
-#### This paramtype is not implemented. _UndefinedCoercionClass
+
 
 ---
 
@@ -35,10 +33,6 @@ GetDetailsofUlyssesSheet NotImplemented
 	},
 	"Name": "Get Details of Ulysses Sheet",
 	"WFContentItemClass": "WFUlyssesSheetContentItem",
-	"Parameters": [
-		{
-			"Class": "_UndefinedCoercionClass"
-		}
-	]
+	"Parameters": []
 }
 ```

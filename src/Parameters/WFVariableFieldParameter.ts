@@ -3,13 +3,17 @@ import { AsAble } from "../ParserData";
 
 import { WFParameter } from "./WFParameter";
 
+import { ShortcutsVariableFieldParameterSpec } from "../Data/ActionDataTypes/ShortcutsParameterSpec";
+
 export class WFVariableFieldParameter extends WFParameter {
+	_data: ShortcutsVariableFieldParameterSpec;
 	constructor(
-		data: any,
+		data: ShortcutsVariableFieldParameterSpec,
 		name = "Variable Input",
 		docs = "https://pfgithub.github.io/shortcutslang/gettingstarted#variable-field"
 	) {
 		super(data, name, docs);
+		this._data = data;
 	}
 	genDocsArgName() {
 		return `(v:variableName | variableName)`;

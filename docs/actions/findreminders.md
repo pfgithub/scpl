@@ -1,22 +1,20 @@
 
 ## Find Reminders / FindReminders (internally `is.workflow.actions.filter.reminders`)
 
-> This action is not yet complete. Some arguments may be missing.
-
 > This action requires that Shortcuts has permission to use WFReminderAccessResource.
 
 
 
 ### usage
 ```
-FindReminders NotImplemented
+FindReminders 
 ```
 
 ### arguments
 
 ---
 
-#### This paramtype is not implemented. _UndefinedCoercionClass
+
 
 ---
 
@@ -36,10 +34,6 @@ FindReminders NotImplemented
 	"SuggestedAsInitialAction": false,
 	"WFContentItemClass": "WFReminderContentItem",
 	"WFContentItemDefaultProperty": "List",
-	"Parameters": [
-		{
-			"Class": "_UndefinedCoercionClass"
-		}
-	]
+	"Parameters": []
 }
 ```
