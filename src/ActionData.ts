@@ -7,9 +7,20 @@ import { ArgParser } from "./ArgParser";
 
 import actionList from "./Data/Actions";
 
+import { ShortcutsActionSpec } from "./Data/ActionDataTypes/ShortcutsActionSpec";
+import {
+	ShortcutsParameterSpec,
+	ShortcutsEnumerationParameterSpec,
+	ShortcutsDynamicEnumerationParameterSpec,
+	ShortcutsCustomDateFormatParameterSpec,
+	ShortcutsCountryFieldParameterSpec,
+	ShortcutsDateFieldParameterSpec,
+	ShortcutsLocationFieldParameterSpec
+} from "./Data/ActionDataTypes/ShortcutsParameterSpec";
+
 export function genShortName(
-	longName: string,
-	internalName?: string,
+	longName: string | undefined,
+	internalName?: string | undefined,
 	allowUppercase?: boolean
 ) {
 	let shortName = longName || internalName || "nameless";
@@ -24,7 +35,11 @@ export function genShortName(
 
 import { WFParameter } from "./Parameters/WFParameter";
 
-const types: { [key: string]: any } = {};
+type InstanceOfParameterType = typeof WFParameter;
+
+const types: {
+	[key: string]: InstanceOfParameterType;
+} = {};
 types.WFParameter = WFParameter;
 
 import { WFEnumerationParameter } from "./Parameters/WFEnumerationParameter";
@@ -61,7 +76,7 @@ types.WFTextInputParameter = WFTextInputParameter;
 
 class WFCustomDateFormatParameter extends WFTextInputParameter {
 	constructor(
-		data: any,
+		data: ShortcutsCustomDateFormatParameterSpec,
 		name: string = "Date Format String",
 		docs: string = "https://pfgithub.github.io/shortcutslang/gettingstarted#text-field"
 	) {
@@ -72,7 +87,7 @@ types.WFCustomDateFormatParameter = WFCustomDateFormatParameter;
 
 class WFCountryFieldParameter extends WFTextInputParameter {
 	constructor(
-		data: any,
+		data: ShortcutsCountryFieldParameterSpec,
 		name: string = "Country",
 		docs: string = "https://pfgithub.github.io/shortcutslang/gettingstarted#text-field"
 	) {
@@ -83,7 +98,7 @@ types.WFCountryFieldParameter = WFCountryFieldParameter;
 
 class WFDateFieldParameter extends WFTextInputParameter {
 	constructor(
-		data: any,
+		data: ShortcutsDateFieldParameterSpec,
 		name = "Date",
 		docs = "https://pfgithub.github.io/shortcutslang/gettingstarted#text-field"
 	) {
@@ -94,7 +109,7 @@ types.WFDateFieldParameter = WFDateFieldParameter;
 
 class WFLocationFieldParameter extends WFTextInputParameter {
 	constructor(
-		data: any,
+		data: ShortcutsLocationFieldParameterSpec,
 		name = "Location",
 		docs = "https://pfgithub.github.io/shortcutslang/gettingstarted#text-field"
 	) {
@@ -118,6 +133,9 @@ types.WFExpandingParameter = WFExpandingParameter;
 import { WFFilterParameter } from "./Parameters/WFFilterParameter";
 types.WFFilterParameter = WFFilterParameter;
 
+import { WFTimeOffsetParameter } from "./Parameters/WFTimeOffsetParameter";
+types.WFTimeOffsetParameter = WFTimeOffsetParameter;
+
 import { WFVariableFieldParameter } from "./Parameters/WFVariableFieldParameter";
 types.WFVariableFieldParameter = WFVariableFieldParameter;
 
@@ -128,7 +146,7 @@ function addStaticEnum(
 ) {
 	types[internalName] = class extends WFEnumerationParameter {
 		constructor(
-			data: any,
+			data: ShortcutsEnumerationParameterSpec,
 			name: string = visibleName,
 			docs: string = "https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field"
 		) {
@@ -141,7 +159,7 @@ function addStaticEnum(
 function addDynamicEnum(internalName: string, visibleName: string) {
 	types[internalName] = class extends WFDynamicEnumerationParameter {
 		constructor(
-			data: any,
+			data: ShortcutsDynamicEnumerationParameterSpec,
 			name: string = visibleName,
 			docs: string = "https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields"
 		) {
@@ -252,7 +270,7 @@ const _debugTypes: {
 } = {};
 
 export class WFAction {
-	_data: any;
+	_data: ShortcutsActionSpec;
 	id: string;
 	isComplete: boolean;
 	_parameters: Array<WFParameter | string>;
@@ -261,7 +279,7 @@ export class WFAction {
 	name: string;
 	readableName: string;
 
-	constructor(data: any, id: string) {
+	constructor(data: ShortcutsActionSpec, id: string) {
 		//
 		this._data = data;
 		this.id = id;
@@ -269,47 +287,52 @@ export class WFAction {
 		this.isComplete = true;
 		this._parameters = [];
 		this.internalName = this.id;
-		this.name = this._data.Name;
+		let name = this._data.Name;
 		if (data.AppInfo) {
-			this.name += ` (${data.AppInfo})`;
+			name += ` (${data.AppInfo})`;
 		}
-		this.shortName = genShortName(this.name, this.internalName);
-		this.readableName = genShortName(this.name, this.internalName, true);
-		this.name = this.name || this.shortName;
+		this.shortName = genShortName(name, this.internalName);
+		this.readableName = genShortName(name, this.internalName, true);
+		this.name = name || this.shortName;
+		//@ts-ignore
 		if (this._data.ActionClass === "WFHandleCustomIntentAction") {
 			this.isComplete = false;
 		}
 		const parameterNames: { [key: string]: true | undefined } = {};
 		if (this._data.Parameters) {
-			this._parameters = this._data.Parameters.map((param: any) => {
-				_debugTypes[param.Class] = {
-					paramClass: param.Class,
-					missing: !types[param.Class],
-					count: _debugTypes[param.Class]
-						? _debugTypes[param.Class].count + 1
-						: 1
-				};
-				if (types[param.Class]) {
-					const type: any = types[param.Class];
-					const paramVal: WFParameter = new type(param);
-					if (parameterNames[paramVal.shortName]) {
-						paramVal.shortName += "2";
+			this._parameters = this._data.Parameters.map(
+				(param: ShortcutsParameterSpec) => {
+					_debugTypes[param.Class] = {
+						paramClass: param.Class,
+						missing: !types[param.Class],
+						count: _debugTypes[param.Class]
+							? _debugTypes[param.Class].count + 1
+							: 1
+					};
+					// if(param.Class === "WFExpandingParameter") {
+					// 	return;
+					// }
+					if (types[param.Class]) {
+						const type: InstanceOfParameterType =
+							types[param.Class];
+						const paramVal: WFParameter = new type(param); // false. it has a consistent call structure.
+						if (parameterNames[paramVal.shortName]) {
+							// console.warn(`IN: ${this.internalName}: Two parameters named ${paramVal.shortName} exist.`);
+							paramVal.shortName += "2";
+							paramVal.readableName += "2";
+						}
+						parameterNames[paramVal.shortName] = true;
+						return paramVal;
 					}
-					parameterNames[paramVal.shortName] = true;
-					return paramVal;
+					this.isComplete = false;
+					_debugMissingTypes[param.Class] =
+						_debugMissingTypes[param.Class] !== undefined
+							? _debugMissingTypes[param.Class] + 1
+							: 1;
+					return `This paramtype is not implemented. ${param.Class}`;
 				}
-				this.isComplete = false;
-				_debugMissingTypes[param.Class] =
-					_debugMissingTypes[param.Class] !== undefined
-						? _debugMissingTypes[param.Class] + 1
-						: 1;
-				return `This paramtype is not implemented. ${param.Class}`;
-			});
+			);
 		}
-	}
-	get actionOutputType() {
-		// TODO !!! used for the default output type in variables
-		return this._data.Output.Types[0];
 	}
 	get inputPassthrough() {
 		return this._data.InputPassthrough;
@@ -334,15 +357,65 @@ export class WFAction {
 		});
 	}
 	genDocsAutocompleteUsage() {
-		return `${this.shortName} a{
-${this.genDocsParams()
-	.map(
-		(arg, i) =>
-			`  ${arg.argName}=\${${i + 1}${arg.argAutocompletePlaceholder}}`
-	)
-	.join(",\n")}
-}${this._data.BlockInfo ? this._data.BlockInfo.Completion : ""}
-`;
+		const docsParams = this.genDocsParams();
+		let autocompleteUsage = `${this.readableName} ${docsParams
+			.map(
+				(arg, i) =>
+					`${arg.argName}=\${${i + 1}${
+						arg.argAutocompletePlaceholder
+					}}`
+			)
+			.join(" ")}`.trim();
+		if (autocompleteUsage.replace(/${.+?}/g, "valuehere").length > 120) {
+			autocompleteUsage = `${this.readableName} (\n${docsParams
+				.map(
+					(arg, i) =>
+						`\t${arg.argName}=\${${i + 1}${
+							arg.argAutocompletePlaceholder
+						}}`
+				)
+				.join(",\n")}\n)`.trim();
+		}
+		if (docsParams.length === 1) {
+			autocompleteUsage = `${this.readableName} \${1${
+				docsParams[0].argAutocompletePlaceholder
+			}}`;
+		}
+		// 		let autocompleteUsage = `${this.readableName} (
+		// ${docsParams
+		// 	.map(
+		// 		(arg, i) =>
+		// 			`\t${arg.argName}=\${${i + 1}${arg.argAutocompletePlaceholder}}`
+		// 	)
+		// 	.join(",\n")}
+		// )${this._data.BlockInfo ? this._data.BlockInfo.Completion : ""}
+		// `;
+		// 		if (docsParams.length === 1) {
+		// 			autocompleteUsage = `${this.readableName} ${docsParams
+		// 				.map(
+		// 					(arg, i) => `\${${i + 1}${arg.argAutocompletePlaceholder}}`
+		// 				)
+		// 				.join(" ")}${
+		// 				this._data.BlockInfo ? this._data.BlockInfo.Completion : ""
+		// 			}`;
+		// 		}
+		// 		if (autocompleteUsage.length < 80) {
+		// 			autocompleteUsage = `${this.readableName} ${docsParams
+		// 				.map(
+		// 					(arg, i) =>
+		// 						`${arg.argName}=\${${i + 1}${
+		// 							arg.argAutocompletePlaceholder
+		// 						}}`
+		// 				)
+		// 				.join(" ")}${
+		// 				this._data.BlockInfo ? this._data.BlockInfo.Completion : ""
+		// 			}
+		// `;
+		// 		}
+		return (
+			autocompleteUsage +
+			(this._data.BlockInfo ? this._data.BlockInfo.Completion : "")
+		);
 	}
 	genDocsUsage() {
 		const docsParams = this.genDocsParams();
@@ -468,10 +541,13 @@ ${JSON.stringify(this._data, null, "\t")}
 	build(
 		cc: ConvertingContext,
 		actionPosition: AsAble,
-		controlFlowData?: { uuid: string; number: number; wfaction: any },
+		controlFlowData?: {
+			uuid: string;
+			number: number;
+			wfaction: WFAction;
+		},
 		...params: Array<AsAble>
 	) {
-		const parami = 0;
 		let actionAbove = cc.lastVariableAction;
 		// TODO actionAbove = cc.lastVariableAction
 		//

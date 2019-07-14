@@ -3,14 +3,18 @@ import { AsAble } from "../ParserData";
 
 import { WFParameter } from "./WFParameter";
 
+import { ShortcutsEnumerationParameterSpec } from "../Data/ActionDataTypes/ShortcutsParameterSpec";
+
 export class WFEnumerationParameter extends WFParameter {
+	_data: ShortcutsEnumerationParameterSpec;
 	options: Array<string>;
 	constructor(
-		data: any,
+		data: ShortcutsEnumerationParameterSpec,
 		name: string = "Enumeration",
 		docs: string = "https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field"
 	) {
 		super(data, name, docs);
+		this._data = data;
 		this.options = this._data.Items;
 	}
 	genDocsAutocompletePlaceholder() {

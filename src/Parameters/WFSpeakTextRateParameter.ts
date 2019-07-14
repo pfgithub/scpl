@@ -3,13 +3,17 @@ import { AsAble } from "../ParserData";
 
 import { WFNumberFieldParameter } from "./WFNumberFieldParameter";
 
+import { ShortcutsSpeakTextRatePickerParameterSpec } from "../Data/ActionDataTypes/ShortcutsParameterSpec";
+
 export class WFSpeakTextRateParameter extends WFNumberFieldParameter {
+	_data: ShortcutsSpeakTextRatePickerParameterSpec;
 	constructor(
-		data: any,
+		data: ShortcutsSpeakTextRatePickerParameterSpec,
 		name: string = "Speak Text Rate",
 		docs: string = "https://pfgithub.github.io/shortcutslang/gettingstarted#slider-number-fields"
 	) {
 		super(data, name, docs);
+		this._data = data;
 	}
 	build(cc: ConvertingContext, parse: AsAble) {
 		const val = super.build(cc, parse);

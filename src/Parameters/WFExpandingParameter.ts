@@ -3,13 +3,17 @@ import { AsAble } from "../ParserData";
 
 import { WFParameter } from "./WFParameter";
 
+import { ShortcutsExpandingParameterSpec } from "../Data/ActionDataTypes/ShortcutsParameterSpec";
+
 export class WFExpandingParameter extends WFParameter {
+	_data: ShortcutsExpandingParameterSpec;
 	constructor(
-		data: any,
+		data: ShortcutsExpandingParameterSpec,
 		name = "Expand Arrow",
 		docs = "https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields"
 	) {
 		super(data, name, docs);
+		this._data = data;
 		this.allowsVariables = false;
 	}
 	genDocsArgName() {

@@ -15,7 +15,7 @@ Tests if a condition is true, and if so, runs the actions inside. Otherwise, the
 
 ### usage
 ```
-If undefined=NotImplemented undefined=NotImplemented text="string" number=number number=number number=number number=number undefined=NotImplemented undefined=NotImplemented undefined=NotImplemented undefined=NotImplemented undefined=NotImplemented undefined=NotImplemented WFEnumeration=("string" | variable)] undefined=NotImplemented
+If undefined=NotImplemented undefined=NotImplemented text="string" number=number number2=number number2=number number2=number undefined=NotImplemented undefined=NotImplemented undefined=NotImplemented undefined=NotImplemented undefined=NotImplemented undefined=NotImplemented WFEnumeration=("string" | variable)] undefined=NotImplemented
   ...
 otherwise
   ...
@@ -56,7 +56,7 @@ with the text. Does not allow newlines.
 
 ---
 
-### number: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+### number2: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Allows Variables**: true
 
 
@@ -67,7 +67,7 @@ with the text. Does not allow newlines.
 
 ---
 
-### number: Slider Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#slider-number-fields)
+### number2: Slider Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#slider-number-fields)
 **Allows Variables**: true
 
 
@@ -78,7 +78,7 @@ with the text. Does not allow newlines.
 
 ---
 
-### number: Slider Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#slider-number-fields)
+### number2: Slider Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#slider-number-fields)
 **Allows Variables**: true
 
 

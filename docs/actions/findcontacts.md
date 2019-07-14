@@ -7,7 +7,7 @@
 
 ### usage
 ```
-FindContacts filter=:filter{...} sortby=("Email Address" | "Phonetic First Name" | "Prefix" | "URL" | "Nickname" | "Last Name" | "Phone Number" | "Has Photo" | "File Size" | "Creation Date" | "Last Modified Date" | "Middle Name" | "Company" | "Department" | "Name" | "Contact Photo" | "First Name" | "Phonetic Last Name" | "File Extension" | "Street Address" | "Suffix" | "Job Title" | "Notes" | "Birthday" | "Group" | "Phonetic Middle Name" | "Random") order=("Oldest First" | "Newest First" | "A to Z" | "Z to A") limit=(true | false | variable) getItems=number
+FindContacts filter=:filter{...} sortby=("Email Address" | "Phonetic First Name" | "Prefix" | "URL" | "Nickname" | "Last Name" | "Phone Number" | "Has Photo" | "File Size" | "Creation Date" | "Last Modified Date" | "Middle Name" | "Company" | "Department" | "Name" | "Contact Photo" | "First Name" | "Phonetic Last Name" | "File Extension" | "Street Address" | "Suffix" | "Job Title" | "Notes" | "Birthday" | "Group" | "Phonetic Middle Name" | "Random") order=("Oldest First" | "Newest First" | "Latest First" | "Smallest First" | "Biggest First" | "Ascending" | "Descending" | "Shortest First" | "Longest First" | "A to Z" | "Z to A") limit=(true | false | variable) getItems=number
 ```
 
 ### arguments
@@ -100,6 +100,13 @@ containing one of the options:
 
 - `Oldest First`
 - `Newest First`
+- `Latest First`
+- `Smallest First`
+- `Biggest First`
+- `Ascending`
+- `Descending`
+- `Shortest First`
+- `Longest First`
 - `A to Z`
 - `Z to A`
 
@@ -190,6 +197,13 @@ or a variable.
 			"Items": [
 				"Oldest First",
 				"Newest First",
+				"Latest First",
+				"Smallest First",
+				"Biggest First",
+				"Ascending",
+				"Descending",
+				"Shortest First",
+				"Longest First",
 				"A to Z",
 				"Z to A"
 			],

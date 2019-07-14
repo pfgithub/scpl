@@ -7,6 +7,28 @@ import { genShortName } from "./ActionData";
 
 type ArgData<T> = { name: string; data: T };
 
+export function simpleParse(
+	cc: ConvertingContext,
+	names: string[],
+	args: AsAble[]
+): { [key: string]: AsAble | undefined } {
+	const res: { [key: string]: AsAble | undefined } = {};
+	ArgParser<undefined>(
+		names.map(n => ({ name: n, data: undefined })),
+		(arg, value) => {
+			res[arg.name] = value;
+		},
+		value => {
+			throw value.error(cc, "InputArg is not allowed for this function");
+		},
+		(_arg, _value) => {
+			return true;
+		},
+		{ args, cc }
+	);
+	return res;
+}
+
 export function ArgParser<T>(
 	argnames: ArgData<T>[],
 	cb: (arg: ArgData<T>, value: AsAble) => void,

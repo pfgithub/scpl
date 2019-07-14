@@ -3,13 +3,17 @@ import { AsAble } from "../ParserData";
 
 import { WFNumberFieldParameter } from "./WFNumberFieldParameter";
 
+import { ShortcutsSliderParameterSpec } from "../Data/ActionDataTypes/ShortcutsParameterSpec";
+
 export class WFSliderParameter extends WFNumberFieldParameter {
+	_data: ShortcutsSliderParameterSpec;
 	constructor(
-		data: any,
+		data: ShortcutsSliderParameterSpec,
 		name: string = "Slider Number",
 		docs: string = "https://pfgithub.github.io/shortcutslang/gettingstarted#slider-number-fields"
 	) {
 		super(data, name, docs);
+		this._data = data;
 	}
 	build(cc: ConvertingContext, parse: AsAble) {
 		const val = super.build(cc, parse);

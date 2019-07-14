@@ -23,9 +23,9 @@ List [list, items]
 
 ---
 
-### items: undefined [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#list-field)
+### items: WFParameter [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#list-field)
 **Default Value**: ```
-		One,Two
+		["One","Two"]
 		```
 **Allows Variables**: true
 

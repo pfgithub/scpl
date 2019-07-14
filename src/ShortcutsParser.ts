@@ -14,10 +14,21 @@ import {
 	ErrorParse,
 	Parse,
 	FilterItemParse,
-	FilterParse
-} from "./ParserData.js";
+	FilterParse,
+	PositionedError
+} from "./ParserData";
 
-import { p, regex, star, plus, optional, or, c, o } from "./ParserHelper.js";
+import {
+	p,
+	regex,
+	star,
+	plus,
+	optional,
+	or,
+	c,
+	o,
+	error
+} from "./ParserHelper";
 
 o.identifier = regex(/^[A-Za-z@_][A-Za-z0-9@_]*/).scb(
 	([fullmatch], start, end) => new IdentifierParse(start, end, fullmatch)
@@ -55,7 +66,23 @@ o.number = regex(/^-?(?:[0-9]*\.[0-9]+|[0-9]+)/).scb(
 
 o.escape = p(
 	c`\\`,
-	or(o.parenthesis, c`"`, c`'`, c`\`\`\``, c`\\`, c`”`, c`n`.scb(_ => "\n"))
+	or(
+		o.parenthesis,
+		c`"`,
+		c`'`,
+		c`\`\`\``,
+		c`\``,
+		c`\\`,
+		c`”`,
+		c`n`.scb(_ => "\n"),
+		error(
+			regex(/.?/),
+			v =>
+				`Did you mean \`\\\\\`? The character \`${
+					v[0]
+				}\` is not a valid escape sequence. See the docs page on string escapes for more info.`
+		)
+	)
 ).scb(([, val]) => val);
 // o.tripleQuotedStringEscape = p(
 // 	c`\\`,
@@ -76,6 +103,11 @@ o.smartQuotedStringChar = or(
 	regex(/^[^”\\\n]+/).scb(data => data[0])
 );
 
+o.backtickQuotedStringChar = or(
+	o.escape,
+	regex(/^[^`\\]+/).scb(data => data[0])
+);
+
 // o.triplequotedStringChar = or(
 // 	o.tripleQuotedStringEscape, // \``` | ${varname}
 // 	regex(/^[^`\\\n]+/).scb(data => data[0]),
@@ -90,11 +122,30 @@ o.squotedString = p(c`'`, star(o.squotedStringChar), c`'`).scb(
 o.smartQuotedString = p(c`“`, star(o.smartQuotedStringChar), c`”`).scb(
 	([, chars], start, end) => new CharsParse(start, end, chars)
 );
+
+o.backtickQuotedString = p(c`\``, star(o.backtickQuotedStringChar), c`\``).scb(
+	([, chars], start, end) => new CharsParse(start, end, chars)
+);
+
 // o.triplequotedString = p(c`\`\`\``, star(o.triplequotedStringChar), c`\`\`\``).scb(
 // 	([, chars], start, end) => new CharsParse(start, end, chars)
 // );
 
-o.string = or(o.dquotedString, o.squotedString, o.smartQuotedString);
+// o.tripleQuotedStringChar = or(regex(/^[^`]+/));
+//
+// o.triplequotedString = p(
+// 	c`\`\`\``,
+// 	newline,
+// 	star(o.tripleQuotedStringChar),
+// 	c`\`\`\``
+// );
+
+o.string = or(
+	o.dquotedString,
+	o.squotedString,
+	o.smartQuotedString,
+	o.backtickQuotedString
+);
 
 o.barlistitem = p(newline, _, c`|`, _, o.chars).scb(([, , , , dat]) => dat);
 o.barlist = plus(o.barlistitem).scb(
@@ -139,9 +190,13 @@ o.inputarg = p(c`^`, or(o.parenthesis, o.variable)).scb(([, paren]) => {
 	return paren;
 });
 o.flaggedaction = p(o.variable, _, c`=`, _, o.onlyaction).scb(
-	([variable, , , , action]) => {
+	([variable, , , , action], start, end) => {
 		if (action.variable) {
-			throw new Error("Actions cannot output to multiple variables");
+			throw new PositionedError(
+				"Actions cannot output to multiple variables",
+				start,
+				end
+			);
 		}
 		action.variable = variable;
 		return action;
@@ -156,7 +211,11 @@ o.onlyaction = p(o.identifier, _, o.args).scb(
 				: true
 		);
 		if (flags.length > 1) {
-			throw new Error("Actions cannot output to multiple variables");
+			throw new PositionedError(
+				"Actions cannot output to multiple variables",
+				start,
+				end
+			);
 		}
 		const res: {
 			type: string;

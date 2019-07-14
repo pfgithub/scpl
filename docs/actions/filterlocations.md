@@ -5,7 +5,7 @@
 
 ### usage
 ```
-FilterLocations filter=:filter{...} sortby=("Phone Number" | "State" | "Altitude" | "Name" | "Longitude" | "Country" | "City" | "Street" | "URL" | "Latitude" | "ZIP Code" | "Random") order=("Oldest First" | "Newest First" | "A to Z" | "Z to A") limit=(true | false | variable) getItems=number
+FilterLocations filter=:filter{...} sortby=("Phone Number" | "State" | "Altitude" | "Name" | "Longitude" | "Country" | "City" | "Street" | "URL" | "Latitude" | "ZIP Code" | "Random") order=("Oldest First" | "Newest First" | "Latest First" | "Smallest First" | "Biggest First" | "Ascending" | "Descending" | "Shortest First" | "Longest First" | "A to Z" | "Z to A") limit=(true | false | variable) getItems=number
 ```
 
 ### arguments
@@ -68,6 +68,13 @@ containing one of the options:
 
 - `Oldest First`
 - `Newest First`
+- `Latest First`
+- `Smallest First`
+- `Biggest First`
+- `Ascending`
+- `Descending`
+- `Shortest First`
+- `Longest First`
 - `A to Z`
 - `Z to A`
 
@@ -137,6 +144,13 @@ or a variable.
 			"Items": [
 				"Oldest First",
 				"Newest First",
+				"Latest First",
+				"Smallest First",
+				"Biggest First",
+				"Ascending",
+				"Descending",
+				"Shortest First",
+				"Longest First",
 				"A to Z",
 				"Z to A"
 			],

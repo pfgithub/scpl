@@ -625,3 +625,7 @@ end
 
 @:MainMenu
 exitShortcut
+
+adjustdate [add 5 seconds]
+adjustdate [subtract 6 hours]
+adjustdate [get start of month]

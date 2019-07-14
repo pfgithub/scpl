@@ -1,16 +1,20 @@
 import { ConvertingContext } from "../Converter";
 import { AsAble } from "../ParserData";
-import {appNames} from "../Data/AppNames";
+import { appNames } from "../Data/AppNames";
 
 import { WFParameter } from "./WFParameter";
 
+import { ShortcutsAppPickerParameterSpec } from "../Data/ActionDataTypes/ShortcutsParameterSpec";
+
 export class WFAppPickerParameter extends WFParameter {
+	_data: ShortcutsAppPickerParameterSpec;
 	constructor(
-		data: any,
+		data: ShortcutsAppPickerParameterSpec,
 		name = "App",
 		docs: string = "https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields"
 	) {
 		super(data, name, docs);
+		this._data = data;
 	}
 	genDocsArgName() {
 		return `("app name" | "com.identifier.for.app")]`;

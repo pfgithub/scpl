@@ -3,13 +3,17 @@ import { AsAble } from "../ParserData";
 
 import { WFParameter } from "./WFParameter";
 
+import { ShortcutsDynamicEnumerationParameterSpec } from "../Data/ActionDataTypes/ShortcutsParameterSpec";
+
 export class WFDynamicEnumerationParameter extends WFParameter {
+	_data: ShortcutsDynamicEnumerationParameterSpec;
 	constructor(
-		data: any,
+		data: ShortcutsDynamicEnumerationParameterSpec,
 		name = "Picker",
 		docs: string = "https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields"
 	) {
 		super(data, name, docs);
+		this._data = data;
 	}
 	genDocsArgName() {
 		return `("string" | variable)]`;

@@ -6,3 +6,4 @@ yarn-error.log
 test.shortcut
 test.xml
 built/*
+coverage

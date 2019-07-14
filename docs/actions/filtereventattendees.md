@@ -1,20 +1,18 @@
 
 ## Filter Event Attendees / FilterEventAttendees (internally `is.workflow.actions.filter.eventattendees`)
 
-> This action is not yet complete. Some arguments may be missing.
-
 
 
 ### usage
 ```
-FilterEventAttendees NotImplemented
+FilterEventAttendees 
 ```
 
 ### arguments
 
 ---
 
-#### This paramtype is not implemented. _UndefinedCoercionClass
+
 
 ---
 
@@ -30,10 +28,6 @@ FilterEventAttendees NotImplemented
 	"ShortName": "Filter Attendees",
 	"Subcategory": "Event Attendees",
 	"WFContentItemClass": "WFEKParticipantContentItem",
-	"Parameters": [
-		{
-			"Class": "_UndefinedCoercionClass"
-		}
-	]
+	"Parameters": []
 }
 ```

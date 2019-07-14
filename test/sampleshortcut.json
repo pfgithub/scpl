@@ -9114,6 +9114,63 @@
 						"end": [627, 13]
 					}
 				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.adjustdate",
+				"WFWorkflowActionParameters": {
+					"WFAdjustOffsetPicker": {
+						"Value": {
+							"Unit": "Second",
+							"Value": 5,
+							"Operation": "Add"
+						},
+						"WFSerializationType": "WFTimeOffsetValue"
+					}
+				},
+				"SCPLData": {
+					"Position": {
+						"start": [629, 1],
+						"end": [629, 27]
+					}
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.adjustdate",
+				"WFWorkflowActionParameters": {
+					"WFAdjustOffsetPicker": {
+						"Value": {
+							"Unit": "Hour",
+							"Value": 6,
+							"Operation": "Subtract"
+						},
+						"WFSerializationType": "WFTimeOffsetValue"
+					}
+				},
+				"SCPLData": {
+					"Position": {
+						"start": [630, 1],
+						"end": [630, 30]
+					}
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.adjustdate",
+				"WFWorkflowActionParameters": {
+					"WFAdjustOffsetPicker": {
+						"Value": {
+							"Unit": "Second",
+							"Value": 0,
+							"Operation": "Get Start Of Month"
+						},
+						"WFSerializationType": "WFTimeOffsetValue"
+					}
+				},
+				"SCPLData": {
+					"Position": {
+						"start": [631, 1],
+						"end": [631, 32]
+					}
+				}
 			}
 		]
 	}

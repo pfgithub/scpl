@@ -9,12 +9,14 @@
 		"lib": ["es2017"],
 		"resolveJsonModule": true,
 		"declaration": true,
-		"strict": true
+		"strict": true,
+		"types": ["jest"]
 	},
 	"include": [
 		"src/**/*",
 		"bin/**/*",
 		"test/**/*",
 		"index.ts"
-	]
+	],
+	"exclude": ["src/**/*.spec.ts"]
 }

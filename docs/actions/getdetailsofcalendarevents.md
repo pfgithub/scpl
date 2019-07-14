@@ -1,20 +1,18 @@
 
 ## Get Details of Calendar Events / GetDetailsofCalendarEvents (internally `is.workflow.actions.properties.calendarevents`)
 
-> This action is not yet complete. Some arguments may be missing.
-
 
 
 ### usage
 ```
-GetDetailsofCalendarEvents NotImplemented
+GetDetailsofCalendarEvents 
 ```
 
 ### arguments
 
 ---
 
-#### This paramtype is not implemented. _UndefinedCoercionClass
+
 
 ---
 
@@ -30,10 +28,6 @@ GetDetailsofCalendarEvents NotImplemented
 	"ResidentCompatible": true,
 	"Subcategory": "Calendar",
 	"WFContentItemClass": "WFCalendarEventContentItem",
-	"Parameters": [
-		{
-			"Class": "_UndefinedCoercionClass"
-		}
-	]
+	"Parameters": []
 }
 ```

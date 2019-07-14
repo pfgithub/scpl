@@ -1,22 +1,20 @@
 
 ## Find Calendar Events / FindCalendarEvents (internally `is.workflow.actions.filter.calendarevents`)
 
-> This action is not yet complete. Some arguments may be missing.
-
 > This action requires that Shortcuts has permission to use WFCalendarAccessResource.
 
 
 
 ### usage
 ```
-FindCalendarEvents NotImplemented
+FindCalendarEvents 
 ```
 
 ### arguments
 
 ---
 
-#### This paramtype is not implemented. _UndefinedCoercionClass
+
 
 ---
 
@@ -37,10 +35,6 @@ FindCalendarEvents NotImplemented
 	"SuggestedAsInitialAction": false,
 	"WFContentItemClass": "WFCalendarEventContentItem",
 	"WFContentItemDefaultProperty": "Calendar",
-	"Parameters": [
-		{
-			"Class": "_UndefinedCoercionClass"
-		}
-	]
+	"Parameters": []
 }
 ```

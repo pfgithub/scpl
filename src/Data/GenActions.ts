@@ -36,14 +36,14 @@ Object.values(actions).forEach((action: any) => {
 		}
 		const getTypeItemClass = action.WFContentItemClass;
 		if (!isCoercionTypeClass(getTypeItemClass)) {
-			action.Parameters.push({ Class: "_UndefinedCoercionClass" });
+			// action.Parameters.push({ Class: "_UndefinedCoercionClass" });
 		} else {
 			action.Parameters.push({
 				Class: "WFEnumerationParameter",
 				Key: "WFContentItemPropertyName",
 				Label: "Get",
 				Items: Object.values(getTypes[getTypeItemClass].properties).map(
-					t => (<{name: string}>t).name
+					t => (<{ name: string }>t).name
 				)
 			});
 		}
@@ -53,7 +53,7 @@ Object.values(actions).forEach((action: any) => {
 		}
 		const getTypeItemClass = action.WFContentItemClass;
 		if (!isCoercionTypeClass(getTypeItemClass)) {
-			action.Parameters.push({ Class: "_UndefinedCoercionClass" });
+			// action.Parameters.push({ Class: "_UndefinedCoercionClass" });
 		} else {
 			action.Parameters.push({
 				Class: "WFFilterParameter",
@@ -67,7 +67,7 @@ Object.values(actions).forEach((action: any) => {
 				Label: "Sort by",
 				Items: [
 					...Object.values(getTypes[getTypeItemClass].properties).map(
-						t => (<{name: string}>t).name
+						t => (<{ name: string }>t).name
 					),
 					"Random"
 				]
@@ -76,7 +76,19 @@ Object.values(actions).forEach((action: any) => {
 				Class: "WFEnumerationParameter",
 				Key: "WFContentItemSortOrder",
 				Label: "Order",
-				Items: ["Oldest First", "Newest First", "A to Z", "Z to A"],
+				Items: [
+					"Oldest First",
+					"Newest First",
+					"Latest First",
+					"Smallest First",
+					"Biggest First",
+					"Ascending",
+					"Descending",
+					"Shortest First",
+					"Longest First",
+					"A to Z",
+					"Z to A"
+				],
 				RequiredResources: [
 					{
 						WFParameterKey: "WFContentItemSortProperty",

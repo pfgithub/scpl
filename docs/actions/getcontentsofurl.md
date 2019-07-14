@@ -22,7 +22,7 @@ The fetched data
 
 ### usage
 ```
-GetContentsofURL uRL="string" method=("GET" | "POST" | "PUT" | "PATCH" | "DELETE") headers=(true | false) headers={dictionary} requestBody=("JSON" | "Form" | "File" | variable) formValues={dictionary} jSONValues={dictionary} file=(v:myvar | mv:myvar | s:myvar)
+GetContentsofURL uRL="string" method=("GET" | "POST" | "PUT" | "PATCH" | "DELETE") headers=(true | false) headers2={dictionary} requestBody=("JSON" | "Form" | "File" | variable) formValues={dictionary} jSONValues={dictionary} file=(v:myvar | mv:myvar | s:myvar)
 ```
 
 ### arguments
@@ -71,7 +71,7 @@ labels, these can be ignored.
 
 ---
 
-### headers: Dictionary [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#dictionary-field)
+### headers2: Dictionary [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#dictionary-field)
 **Allows Variables**: true
 
 **Only enabled if**: argument ShowHeaders == `true`

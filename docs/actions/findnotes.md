@@ -1,20 +1,18 @@
 
 ## Find Notes / FindNotes (internally `is.workflow.actions.filter.notes`)
 
-> This action is not yet complete. Some arguments may be missing.
-
 
 
 ### usage
 ```
-FindNotes NotImplemented
+FindNotes 
 ```
 
 ### arguments
 
 ---
 
-#### This paramtype is not implemented. _UndefinedCoercionClass
+
 
 ---
 
@@ -37,10 +35,6 @@ FindNotes NotImplemented
 	"SuggestedAsInitialAction": false,
 	"WFContentItemClass": "WFNoteContentItem",
 	"WFContentItemDefaultProperty": "Body",
-	"Parameters": [
-		{
-			"Class": "_UndefinedCoercionClass"
-		}
-	]
+	"Parameters": []
 }
 ```

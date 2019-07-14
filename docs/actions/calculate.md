@@ -11,7 +11,7 @@ Performs a number operation on the input and returns the result.
 
 ### usage
 ```
-Calculate number=number operation=("+" | "-" | "×" | "÷" | "…") scientificOperation=("Modulus" | "x^2" | "x^3" | "x^y" | "e^x" | "10^x" | "ln(x)" | "log(x)" | "√x" | "∛x" | "x!" | "sin(x)" | "cos(x)" | "tan(x)" | "abs(x)") operand=number operand=number
+Calculate number=number operation=("+" | "-" | "×" | "÷" | "…") scientificOperation=("Modulus" | "x^2" | "x^3" | "x^y" | "e^x" | "10^x" | "ln(x)" | "log(x)" | "√x" | "∛x" | "x!" | "sin(x)" | "cos(x)" | "tan(x)" | "abs(x)") operand=number operand2=number
 ```
 
 ### arguments
@@ -87,7 +87,7 @@ containing one of the options:
 
 ---
 
-### operand: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+### operand2: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Placeholder**: `Number`
 **Allows Variables**: true
 

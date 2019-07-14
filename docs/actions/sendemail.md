@@ -13,7 +13,7 @@ Presents an email composer. Pass text into the action to set the email body. Oth
 
 ### usage
 ```
-SendEmail showComposeSheet=(true | false | variable) from=("string" | variable)] from="string" to=("string" | [list, of, strings] | variable) cc=("string" | [list, of, strings] | variable) bcc=("string" | [list, of, strings] | variable) subject="string" content=(v:myvar | mv:myvar | s:myvar)
+SendEmail showComposeSheet=(true | false | variable) from=("string" | variable)] from2="string" to=("string" | [list, of, strings] | variable) cc=("string" | [list, of, strings] | variable) bcc=("string" | [list, of, strings] | variable) subject="string" content=(v:myvar | mv:myvar | s:myvar)
 ```
 
 ### arguments
@@ -42,7 +42,7 @@ or a variable.
 
 ---
 
-### from: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### from2: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"optional"`
 **Allows Variables**: true
 

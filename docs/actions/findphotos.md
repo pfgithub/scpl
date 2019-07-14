@@ -7,7 +7,7 @@
 
 ### usage
 ```
-FindPhotos filter=:filter{...} sortby=("File Size" | "Camera Make" | "Last Modified Date" | "File Extension" | "Media Type" | "Creation Date" | "Location" | "Album" | "Photo Type" | "Date Taken" | "Duration" | "Width" | "Time Taken" | "Is a Screenshot" | "Is Hidden" | "Frame Rate" | "Height" | "Camera Model" | "Is Favorite" | "Orientation" | "Metadata Dictionary" | "Name" | "Random") order=("Oldest First" | "Newest First" | "A to Z" | "Z to A") limit=(true | false | variable) getItems=number
+FindPhotos filter=:filter{...} sortby=("File Size" | "Camera Make" | "Last Modified Date" | "File Extension" | "Media Type" | "Creation Date" | "Location" | "Album" | "Photo Type" | "Date Taken" | "Duration" | "Width" | "Time Taken" | "Is a Screenshot" | "Is Hidden" | "Frame Rate" | "Height" | "Camera Model" | "Is Favorite" | "Orientation" | "Metadata Dictionary" | "Name" | "Random") order=("Oldest First" | "Newest First" | "Latest First" | "Smallest First" | "Biggest First" | "Ascending" | "Descending" | "Shortest First" | "Longest First" | "A to Z" | "Z to A") limit=(true | false | variable) getItems=number
 ```
 
 ### arguments
@@ -92,6 +92,13 @@ containing one of the options:
 
 - `Oldest First`
 - `Newest First`
+- `Latest First`
+- `Smallest First`
+- `Biggest First`
+- `Ascending`
+- `Descending`
+- `Shortest First`
+- `Longest First`
 - `A to Z`
 - `Z to A`
 
@@ -187,6 +194,13 @@ or a variable.
 			"Items": [
 				"Oldest First",
 				"Newest First",
+				"Latest First",
+				"Smallest First",
+				"Biggest First",
+				"Ascending",
+				"Descending",
+				"Shortest First",
+				"Longest First",
 				"A to Z",
 				"Z to A"
 			],
