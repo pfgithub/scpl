@@ -4,7 +4,7 @@
 
 [Try Shortcutslang in a web browser](https://editor.scpl.dev)
 
-251/271 builtin actions supported
+243/271 builtin actions supported
 
 ## All Actions:
 
@@ -97,21 +97,21 @@
 - [Get Current Weather (`GetCurrentWeather`)](actions/getcurrentweather)
 - [Get Dates from Input (`GetDatesfromInput`)](actions/getdatesfrominput)
 - [Get Details of App Store App (`GetDetailsofAppStoreApp`)](actions/getdetailsofappstoreapp)
-- [Get Details of Calendar Events (`GetDetailsofCalendarEvents`)](actions/getdetailsofcalendarevents)
+- [Get Details of Calendar Events (`GetDetailsofCalendarEvents`)](actions/getdetailsofcalendarevents) (Incomplete)
 - [Get Details of Contacts (`GetDetailsofContacts`)](actions/getdetailsofcontacts)
 - [Get Details of Diffbot Article (`GetDetailsofDiffbotArticle`)](actions/getdetailsofdiffbotarticle)
-- [Get Details of Event Attendees (`GetDetailsofEventAttendees`)](actions/getdetailsofeventattendees)
+- [Get Details of Event Attendees (`GetDetailsofEventAttendees`)](actions/getdetailsofeventattendees) (Incomplete)
 - [Get Details of Files (`GetDetailsofFiles`)](actions/getdetailsoffiles)
-- [Get Details of Health Sample (`GetDetailsofHealthSample`)](actions/getdetailsofhealthsample)
+- [Get Details of Health Sample (`GetDetailsofHealthSample`)](actions/getdetailsofhealthsample) (Incomplete)
 - [Get Details of Images (`GetDetailsofImages`)](actions/getdetailsofimages)
 - [Get Details of Locations (`GetDetailsofLocations`)](actions/getdetailsoflocations)
 - [Get Details of Music (`GetDetailsofMusic`)](actions/getdetailsofmusic)
-- [Get Details of Reminders (`GetDetailsofReminders`)](actions/getdetailsofreminders)
+- [Get Details of Reminders (`GetDetailsofReminders`)](actions/getdetailsofreminders) (Incomplete)
 - [Get Details of Safari Webpage (`GetDetailsofSafariWebpage`)](actions/getdetailsofsafariwebpage)
-- [Get Details of Trello Item (`GetDetailsofTrelloItem`)](actions/getdetailsoftrelloitem)
-- [Get Details of Ulysses Sheet (`GetDetailsofUlyssesSheet`)](actions/getdetailsofulyssessheet)
-- [Get Details of Weather Conditions (`GetDetailsofWeatherConditions`)](actions/getdetailsofweatherconditions)
-- [Get Details of iTunes Artist (`GetDetailsofiTunesArtist`)](actions/getdetailsofitunesartist)
+- [Get Details of Trello Item (`GetDetailsofTrelloItem`)](actions/getdetailsoftrelloitem) (Incomplete)
+- [Get Details of Ulysses Sheet (`GetDetailsofUlyssesSheet`)](actions/getdetailsofulyssessheet) (Incomplete)
+- [Get Details of Weather Conditions (`GetDetailsofWeatherConditions`)](actions/getdetailsofweatherconditions) (Incomplete)
+- [Get Details of iTunes Artist (`GetDetailsofiTunesArtist`)](actions/getdetailsofitunesartist) (Incomplete)
 - [Get Details of iTunes Product (`GetDetailsofiTunesProduct`)](actions/getdetailsofitunesproduct)
 - [Get Device Details (`GetDeviceDetails`)](actions/getdevicedetails)
 - [Get Dictionary Value (`GetDictionaryValue`)](actions/getdictionaryvalue)
@@ -352,6 +352,7 @@
 - [x] Complete - 7: WFFilterParameter
 - [x] Complete - 8: WFLocationFieldParameter
 - [x] Complete - 8: WFExpandingParameter
+- [ ] 8: _UndefinedCoercionClass
 - [x] Complete - 10: WFVariablePickerParameter
 - [x] Complete - 14: WFDynamicEnumerationParameter
 - [x] Complete - 17: WFDateFieldParameter

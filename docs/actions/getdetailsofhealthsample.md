@@ -1,18 +1,20 @@
 
 ## Get Details of Health Sample / GetDetailsofHealthSample (internally `is.workflow.actions.properties.health.quantity`)
 
+> This action is not yet complete. Some arguments may be missing.
+
 
 
 ### usage
 ```
-GetDetailsofHealthSample 
+GetDetailsofHealthSample NotImplemented
 ```
 
 ### arguments
 
 ---
 
-
+#### This paramtype is not implemented. _UndefinedCoercionClass
 
 ---
 
@@ -27,6 +29,11 @@ GetDetailsofHealthSample
 	"Name": "Get Details of Health Sample",
 	"Subcategory": "Get",
 	"WFContentItemClass": "WFHKSampleContentItem",
-	"Parameters": []
+	"Parameters": [
+		{
+			"Class": "_UndefinedCoercionClass",
+			"Key": "_UndefinedCoercion"
+		}
+	]
 }
 ```

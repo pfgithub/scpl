@@ -216,6 +216,8 @@ export type ShortcutsAppPickerParameterSpec = ShortcutsDynamicEnumerationParamet
 export type ShortcutsPhoneNumberFieldParameterSpec = ShortcutsTextInputParameterSpec;
 export type ShortcutsTimeIntervalParameterSpec = ShortcutsTextInputParameterSpec;
 
+export type ShortcutsUndefinedCoercionParameterSpec = ShortcutsBaseParameterSpec;
+
 export type ShortcutsHomePickerParameterSpec = ShortcutsDynamicEnumerationParameterSpec;
 export type ShortcutsHomeScenePickerParameterSpec = ShortcutsDynamicEnumerationParameterSpec;
 export type ShortcutsWorkflowPickerParameterSpec = ShortcutsDynamicEnumerationParameterSpec;
@@ -273,6 +275,7 @@ export type ShortcutsParameterSpec =
 	| (ShortcutsCountryFieldParameterSpec & _pc<"WFCountryFieldParameter">)
 	| (ShortcutsPlaylistPickerParameterSpec & _pc<"WFPlaylistPickerParameter">)
 	| (ShortcutsTimeOffsetParameterSpec & _pc<"WFTimeOffsetParameter">)
+	| (ShortcutsUndefinedCoercionParameterSpec & _pc<"_UndefinedCoercionClass">)
 	| (ShortcutsDynamicEnumerationParameterSpec &
 			_pc<"WFDynamicEnumerationParameter">)
 	| (ShortcutsAlarmFrequencyPickerParameterSpec &

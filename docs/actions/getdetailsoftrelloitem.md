@@ -1,20 +1,22 @@
 
 ## Get Details of Trello Item / GetDetailsofTrelloItem (internally `is.workflow.actions.properties.trello`)
 
+> This action is not yet complete. Some arguments may be missing.
+
 > This action requires that Shortcuts has permission to use WFTrelloAccessResource.
 
 
 
 ### usage
 ```
-GetDetailsofTrelloItem 
+GetDetailsofTrelloItem NotImplemented
 ```
 
 ### arguments
 
 ---
 
-
+#### This paramtype is not implemented. _UndefinedCoercionClass
 
 ---
 
@@ -40,6 +42,11 @@ GetDetailsofTrelloItem
 		"WFTrelloAccessResource"
 	],
 	"WFContentItemClass": "WFTrelloItemContentItem",
-	"Parameters": []
+	"Parameters": [
+		{
+			"Class": "_UndefinedCoercionClass",
+			"Key": "_UndefinedCoercion"
+		}
+	]
 }
 ```

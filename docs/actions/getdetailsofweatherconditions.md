@@ -1,18 +1,20 @@
 
 ## Get Details of Weather Conditions / GetDetailsofWeatherConditions (internally `is.workflow.actions.properties.weather.conditions`)
 
+> This action is not yet complete. Some arguments may be missing.
+
 
 
 ### usage
 ```
-GetDetailsofWeatherConditions 
+GetDetailsofWeatherConditions NotImplemented
 ```
 
 ### arguments
 
 ---
 
-
+#### This paramtype is not implemented. _UndefinedCoercionClass
 
 ---
 
@@ -28,6 +30,11 @@ GetDetailsofWeatherConditions
 	"Name": "Get Details of Weather Conditions",
 	"Subcategory": "Weather",
 	"WFContentItemClass": "WFWeatherDataContentItem",
-	"Parameters": []
+	"Parameters": [
+		{
+			"Class": "_UndefinedCoercionClass",
+			"Key": "_UndefinedCoercion"
+		}
+	]
 }
 ```

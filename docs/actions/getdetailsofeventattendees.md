@@ -1,18 +1,20 @@
 
 ## Get Details of Event Attendees / GetDetailsofEventAttendees (internally `is.workflow.actions.properties.eventattendees`)
 
+> This action is not yet complete. Some arguments may be missing.
+
 
 
 ### usage
 ```
-GetDetailsofEventAttendees 
+GetDetailsofEventAttendees NotImplemented
 ```
 
 ### arguments
 
 ---
 
-
+#### This paramtype is not implemented. _UndefinedCoercionClass
 
 ---
 
@@ -27,6 +29,11 @@ GetDetailsofEventAttendees
 	"Name": "Get Details of Event Attendees",
 	"Subcategory": "Event Attendees",
 	"WFContentItemClass": "WFEKParticipantContentItem",
-	"Parameters": []
+	"Parameters": [
+		{
+			"Class": "_UndefinedCoercionClass",
+			"Key": "_UndefinedCoercion"
+		}
+	]
 }
 ```

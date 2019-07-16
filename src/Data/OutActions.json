@@ -9816,7 +9816,12 @@
 		"Name": "Get Details of Calendar Events",
 		"Subcategory": "Calendar",
 		"WFContentItemClass": "WFCalendarEventContentItem",
-		"Parameters": []
+		"Parameters": [
+			{
+				"Class": "_UndefinedCoercionClass",
+				"Key": "_UndefinedCoercion"
+			}
+		]
 	},
 	"is.workflow.actions.properties.contacts": {
 		"ActionClass": "WFContentItemPropertiesAction",
@@ -9870,7 +9875,12 @@
 		"Name": "Get Details of Event Attendees",
 		"Subcategory": "Event Attendees",
 		"WFContentItemClass": "WFEKParticipantContentItem",
-		"Parameters": []
+		"Parameters": [
+			{
+				"Class": "_UndefinedCoercionClass",
+				"Key": "_UndefinedCoercion"
+			}
+		]
 	},
 	"is.workflow.actions.properties.files": {
 		"ActionClass": "WFContentItemPropertiesAction",
@@ -9909,7 +9919,12 @@
 		"Name": "Get Details of Health Sample",
 		"Subcategory": "Get",
 		"WFContentItemClass": "WFHKSampleContentItem",
-		"Parameters": []
+		"Parameters": [
+			{
+				"Class": "_UndefinedCoercionClass",
+				"Key": "_UndefinedCoercion"
+			}
+		]
 	},
 	"is.workflow.actions.properties.images": {
 		"ActionClass": "WFContentItemPropertiesAction",
@@ -9971,7 +9986,12 @@
 		"CreationDate": "2016-03-15T07:00:00.000Z",
 		"Name": "Get Details of iTunes Artist",
 		"WFContentItemClass": "WFiTunesArtistContentItem",
-		"Parameters": []
+		"Parameters": [
+			{
+				"Class": "_UndefinedCoercionClass",
+				"Key": "_UndefinedCoercion"
+			}
+		]
 	},
 	"is.workflow.actions.properties.itunesstore": {
 		"ActionClass": "WFContentItemPropertiesAction",
@@ -10100,7 +10120,12 @@
 		"Subcategory": "Reminders",
 		"WFContentItemClass": "WFReminderContentItem",
 		"WFContentItemDefaultProperty": "List",
-		"Parameters": []
+		"Parameters": [
+			{
+				"Class": "_UndefinedCoercionClass",
+				"Key": "_UndefinedCoercion"
+			}
+		]
 	},
 	"is.workflow.actions.properties.safariwebpage": {
 		"ActionClass": "WFContentItemPropertiesAction",
@@ -10146,7 +10171,12 @@
 			"WFTrelloAccessResource"
 		],
 		"WFContentItemClass": "WFTrelloItemContentItem",
-		"Parameters": []
+		"Parameters": [
+			{
+				"Class": "_UndefinedCoercionClass",
+				"Key": "_UndefinedCoercion"
+			}
+		]
 	},
 	"is.workflow.actions.properties.ulysses.sheet": {
 		"ActionClass": "WFContentItemPropertiesAction",
@@ -10162,7 +10192,12 @@
 		},
 		"Name": "Get Details of Ulysses Sheet",
 		"WFContentItemClass": "WFUlyssesSheetContentItem",
-		"Parameters": []
+		"Parameters": [
+			{
+				"Class": "_UndefinedCoercionClass",
+				"Key": "_UndefinedCoercion"
+			}
+		]
 	},
 	"is.workflow.actions.properties.weather.conditions": {
 		"ActionClass": "WFContentItemPropertiesAction",
@@ -10173,7 +10208,12 @@
 		"Name": "Get Details of Weather Conditions",
 		"Subcategory": "Weather",
 		"WFContentItemClass": "WFWeatherDataContentItem",
-		"Parameters": []
+		"Parameters": [
+			{
+				"Class": "_UndefinedCoercionClass",
+				"Key": "_UndefinedCoercion"
+			}
+		]
 	},
 	"is.workflow.actions.readinglist": {
 		"ActionClass": "WFAddToReadingListAction",
