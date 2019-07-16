@@ -318,6 +318,9 @@ export class WFAction {
 							paramVal.readableName += "2";
 						}
 						parameterNames[paramVal.shortName] = true;
+						if (!paramVal.isComplete) {
+							this.isComplete = false;
+						}
 						return paramVal;
 					}
 					this.isComplete = false;

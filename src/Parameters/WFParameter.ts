@@ -22,12 +22,14 @@ export class WFParameter {
 	readableName: string;
 	typeName: string;
 	docs: string;
+	isComplete: boolean;
 	constructor(
 		data: ShortcutsBaseParameterSpec,
 		typeName: string = "WFParameter",
 		docs: string = "https://pfgithub.github.io/shortcutslang/gettingstarted"
 	) {
 		this._data = data;
+		this.isComplete = true;
 		const requiredResources = this._data.RequiredResources || [];
 		this.allowsVariables =
 			(this._data.DisallowedVariableTypes || []).join(``) !==
