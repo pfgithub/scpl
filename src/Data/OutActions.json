@@ -3996,7 +3996,85 @@
 		"SuggestedAsInitialAction": false,
 		"WFContentItemClass": "WFCalendarEventContentItem",
 		"WFContentItemDefaultProperty": "Calendar",
-		"Parameters": []
+		"Parameters": [
+			{
+				"Class": "WFFilterParameter",
+				"Key": "WFContentItemFilter",
+				"Label": "Filter",
+				"ContentItemClass": "WFCalendarEventContentItem"
+			},
+			{
+				"Class": "WFEnumerationParameter",
+				"Key": "WFContentItemSortProperty",
+				"Label": "Sort by",
+				"Items": [
+					"Attendees",
+					"Calendar",
+					"Creation Date",
+					"Duration",
+					"File Extension",
+					"File Size",
+					"Has Alarms",
+					"Is All Day",
+					"Last Modified Date",
+					"Location",
+					"Name",
+					"Notes",
+					"Organizer",
+					"Start Date",
+					"Title",
+					"URL",
+					"Random"
+				]
+			},
+			{
+				"Class": "WFEnumerationParameter",
+				"Key": "WFContentItemSortOrder",
+				"Label": "Order",
+				"Items": [
+					"Oldest First",
+					"Newest First",
+					"Latest First",
+					"Smallest First",
+					"Biggest First",
+					"Ascending",
+					"Descending",
+					"Shortest First",
+					"Longest First",
+					"A to Z",
+					"Z to A"
+				],
+				"RequiredResources": [
+					{
+						"WFParameterKey": "WFContentItemSortProperty",
+						"WFParameterValues": [
+							"Random"
+						],
+						"WFResourceClass": "WFParameterRelationResource",
+						"WFParameterRelation": "!="
+					}
+				]
+			},
+			{
+				"Class": "WFSwitchParameter",
+				"Key": "WFContentItemLimitEnabled",
+				"Label": "Limit"
+			},
+			{
+				"Class": "WFStepperParameter",
+				"Key": "WFContentItemLimitNumber",
+				"Label": "Get Items",
+				"RequiredResources": [
+					{
+						"WFParameterKey": "WFSwitchParameter",
+						"WFParameterValues": [
+							true
+						],
+						"WFResourceClass": "WFParameterRelationResource"
+					}
+				]
+			}
+		]
 	},
 	"is.workflow.actions.filter.contacts": {
 		"ActionClass": "WFContentItemFilterAction",
@@ -9818,8 +9896,27 @@
 		"WFContentItemClass": "WFCalendarEventContentItem",
 		"Parameters": [
 			{
-				"Class": "_UndefinedCoercionClass",
-				"Key": "_UndefinedCoercion"
+				"Class": "WFEnumerationParameter",
+				"Key": "WFContentItemPropertyName",
+				"Label": "Get",
+				"Items": [
+					"Attendees",
+					"Calendar",
+					"Creation Date",
+					"Duration",
+					"File Extension",
+					"File Size",
+					"Has Alarms",
+					"Is All Day",
+					"Last Modified Date",
+					"Location",
+					"Name",
+					"Notes",
+					"Organizer",
+					"Start Date",
+					"Title",
+					"URL"
+				]
 			}
 		]
 	},

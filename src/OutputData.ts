@@ -62,7 +62,8 @@ const coercionTypes: { [name: string]: CoercionTypeClass } = {
 	safariwebpage: "WFSafariWebPageContentItem",
 	text: "WFStringContentItem",
 	url: "WFURLContentItem",
-	vcard: "WFVCardContentItem"
+	vcard: "WFVCardContentItem",
+	calendarevent: "WFCalendarEventContentItem"
 };
 export const inverseCoercionTypes: { [name in CoercionTypeClass]: string } = {
 	WFContentItem: "anything",
@@ -92,7 +93,8 @@ export const inverseCoercionTypes: { [name in CoercionTypeClass]: string } = {
 	WFStringContentItem: "text",
 	WFURLContentItem: "url",
 	WFVCardContentItem: "vcard",
-	WFEnumerationContentItem: "enumeration"
+	WFEnumerationContentItem: "enumeration",
+	WFCalendarEventContentItem: "calendarevent"
 };
 
 type WFAggrandizements = (

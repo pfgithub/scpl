@@ -1,20 +1,42 @@
 
 ## Get Details of Calendar Events / GetDetailsofCalendarEvents (internally `is.workflow.actions.properties.calendarevents`)
 
-> This action is not yet complete. Some arguments may be missing.
-
 
 
 ### usage
 ```
-GetDetailsofCalendarEvents NotImplemented
+GetDetailsofCalendarEvents ("Attendees" | "Calendar" | "Creation Date" | "Duration" | "File Extension" | "File Size" | "Has Alarms" | "Is All Day" | "Last Modified Date" | "Location" | "Name" | "Notes" | "Organizer" | "Start Date" | "Title" | "URL")
 ```
 
 ### arguments
 
 ---
 
-#### This paramtype is not implemented. _UndefinedCoercionClass
+### get: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+**Allows Variables**: true
+
+
+
+Accepts a string 
+or variable
+containing one of the options:
+
+- `Attendees`
+- `Calendar`
+- `Creation Date`
+- `Duration`
+- `File Extension`
+- `File Size`
+- `Has Alarms`
+- `Is All Day`
+- `Last Modified Date`
+- `Location`
+- `Name`
+- `Notes`
+- `Organizer`
+- `Start Date`
+- `Title`
+- `URL`
 
 ---
 
@@ -31,8 +53,27 @@ GetDetailsofCalendarEvents NotImplemented
 	"WFContentItemClass": "WFCalendarEventContentItem",
 	"Parameters": [
 		{
-			"Class": "_UndefinedCoercionClass",
-			"Key": "_UndefinedCoercion"
+			"Class": "WFEnumerationParameter",
+			"Key": "WFContentItemPropertyName",
+			"Label": "Get",
+			"Items": [
+				"Attendees",
+				"Calendar",
+				"Creation Date",
+				"Duration",
+				"File Extension",
+				"File Size",
+				"Has Alarms",
+				"Is All Day",
+				"Last Modified Date",
+				"Location",
+				"Name",
+				"Notes",
+				"Organizer",
+				"Start Date",
+				"Title",
+				"URL"
+			]
 		}
 	]
 }

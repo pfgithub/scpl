@@ -26,7 +26,8 @@ export type CoercionTypeClass =
 	| "WFStringContentItem"
 	| "WFURLContentItem"
 	| "WFVCardContentItem"
-	| "WFEnumerationContentItem";
+	| "WFEnumerationContentItem"
+	| "WFCalendarEventContentItem";
 
 const coercionTypesMap = {
 	WFContentItem: true,
@@ -56,7 +57,8 @@ const coercionTypesMap = {
 	WFStringContentItem: true,
 	WFURLContentItem: true,
 	WFVCardContentItem: true,
-	WFEnumerationContentItem: true
+	WFEnumerationContentItem: true,
+	WFCalendarEventContentItem: true
 };
 
 export function isCoercionTypeClass(name: string): name is CoercionTypeClass {
@@ -85,7 +87,6 @@ export type AggrandizementPropertyRawName =
 	| "Release Notes"
 	| "Artwork"
 	| "Artwork URL"
-	| "[object Object]"
 	| "Name"
 	| "Rating (This Version)"
 	| "Is Universal"
@@ -170,7 +171,23 @@ export type AggrandizementPropertyRawName =
 	| "ZIP Code"
 	| "Page Contents"
 	| "Page URL"
-	| "Page Selection";
+	| "Page Selection"
+	| "Attendees"
+	| "Calendar"
+	| "Creation Date"
+	| "Duration"
+	| "File Extension"
+	| "File Size"
+	| "Has Alarms"
+	| "Is All Day"
+	| "Last Modified Date"
+	| "Location"
+	| "Name"
+	| "Notes"
+	| "Organizer"
+	| "Start Date"
+	| "Title"
+	| "URL";
 
 export type AggrandizementPropertyName =
 	| "ofratingsthisversion"
@@ -278,7 +295,13 @@ export type AggrandizementPropertyName =
 	| "values"
 	| "version"
 	| "width"
-	| "zipcode";
+	| "zipcode"
+	| "attendees"
+	| "calendar"
+	| "hasalarms"
+	| "isallday"
+	| "organizer"
+	| "startdate";
 
 export const propertyNameMap = {
 	ofratingsthisversion: true,
@@ -386,7 +409,13 @@ export const propertyNameMap = {
 	values: true,
 	version: true,
 	width: true,
-	zipcode: true
+	zipcode: true,
+	attendees: true,
+	calendar: true,
+	hasalarms: true,
+	isallday: true,
+	organizer: true,
+	startdate: true
 };
 
 export function isAggrandizementPropertyName(

@@ -4,7 +4,7 @@
 
 [Try Shortcutslang in a web browser](https://editor.scpl.dev)
 
-243/271 builtin actions supported
+244/271 builtin actions supported
 
 ## All Actions:
 
@@ -97,7 +97,7 @@
 - [Get Current Weather (`GetCurrentWeather`)](actions/getcurrentweather)
 - [Get Dates from Input (`GetDatesfromInput`)](actions/getdatesfrominput)
 - [Get Details of App Store App (`GetDetailsofAppStoreApp`)](actions/getdetailsofappstoreapp)
-- [Get Details of Calendar Events (`GetDetailsofCalendarEvents`)](actions/getdetailsofcalendarevents) (Incomplete)
+- [Get Details of Calendar Events (`GetDetailsofCalendarEvents`)](actions/getdetailsofcalendarevents)
 - [Get Details of Contacts (`GetDetailsofContacts`)](actions/getdetailsofcontacts)
 - [Get Details of Diffbot Article (`GetDetailsofDiffbotArticle`)](actions/getdetailsofdiffbotarticle)
 - [Get Details of Event Attendees (`GetDetailsofEventAttendees`)](actions/getdetailsofeventattendees) (Incomplete)
@@ -349,16 +349,16 @@
 - [x] Complete - 5: WFDictionaryParameter
 - [x] Complete - 5: WFSliderParameter
 - [x] Complete - 7: WFIntentAppPickerParameter
-- [x] Complete - 7: WFFilterParameter
+- [ ] 7: _UndefinedCoercionClass
 - [x] Complete - 8: WFLocationFieldParameter
 - [x] Complete - 8: WFExpandingParameter
-- [ ] 8: _UndefinedCoercionClass
+- [x] Complete - 8: WFFilterParameter
 - [x] Complete - 10: WFVariablePickerParameter
 - [x] Complete - 14: WFDynamicEnumerationParameter
 - [x] Complete - 17: WFDateFieldParameter
-- [x] Complete - 30: WFStepperParameter
+- [x] Complete - 31: WFStepperParameter
 - [x] Complete - 39: WFNumberFieldParameter
-- [x] Complete - 76: WFSwitchParameter
-- [x] Complete - 110: WFEnumerationParameter
+- [x] Complete - 77: WFSwitchParameter
 - [x] Complete - 112: WFTextInputParameter
+- [x] Complete - 113: WFEnumerationParameter
 

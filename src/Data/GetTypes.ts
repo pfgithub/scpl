@@ -1064,6 +1064,28 @@ const data: GetTypesData = {
 	WFEnumerationContentItem: {
 		comparisonMethods: { is: 4, isnot: 5 },
 		properties: {}
+	},
+	WFCalendarEventContentItem: {
+		properties: {
+			attendees: { name: "Attendees" },
+			calendar: { name: "Calendar" },
+			creationdate: { name: "Creation Date" },
+			duration: { name: "Duration" },
+			fileextension: { name: "File Extension" },
+			filesize: { name: "File Size" },
+			hasalarms: { name: "Has Alarms" },
+			isallday: { name: "Is All Day" },
+			lastmodifieddate: { name: "Last Modified Date" },
+			location: { name: "Location" },
+			name: { name: "Name" },
+			notes: { name: "Notes" },
+			organizer: { name: "Organizer" },
+			startdate: { name: "Start Date" },
+			title: { name: "Title" },
+			url: { name: "URL" }
+		}
 	}
 };
+
+//console.log(JSON.stringify([...new Set(         )].sort().reduce((total, o) => {Object.assign(total, {[o.toLowerCase().replace(/[^a-z0-9]+/g, "")]: {name: o}}); return total;}, {})));
 export default data;
