@@ -7,7 +7,7 @@
 
 <div align="center">
 
-[![Build Status](https://travis-ci.org/pfgithub/scpl.png)](https://travis-ci.org/pfgithub/scpl) [![codecov](https://codecov.io/gh/pfgithub/scpl/branch/master/graph/badge.svg)](https://codecov.io/gh/pfgithub/scpl)
+[![Build Status](https://travis-ci.org/pfgithub/scpl.png)](https://travis-ci.org/pfgithub/scpl) [![codecov](https://codecov.io/gh/pfgithub/scpl/branch/master/graph/badge.svg)](https://codecov.io/gh/pfgithub/scpl) [![discord](https://img.shields.io/discord/581979006463639565.svg?logo=discord&color=blue)](https://discord.gg/2qqfFKc)
 
 </div>
 
