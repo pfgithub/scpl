@@ -15,7 +15,8 @@ import {
 	Parse,
 	FilterItemParse,
 	FilterParse,
-	PositionedError
+	PositionedError,
+	RawParse
 } from "./ParserData";
 
 import {
@@ -202,45 +203,47 @@ o.flaggedaction = p(o.variable, _, c`=`, _, o.onlyaction).scb(
 		return action;
 	}
 );
-o.onlyaction = p(o.identifier, _, o.args).scb(
-	([actionIdentifier, _, args], start, end) => {
-		const flags: any = [];
-		args = args.filter((arg: any) =>
-			arg && arg instanceof VariableFlagParse
-				? flags.push(arg) && false
-				: true
-		);
-		if (flags.length > 1) {
-			throw new PositionedError(
-				"Actions cannot output to multiple variables",
-				start,
-				end
-			);
-		}
-		const res: {
-			type: string;
-			action: Parse;
-			args: Parse[];
-			variable?: Parse;
-		} = {
-			type: "action",
-			action: actionIdentifier,
-			args: args
-		};
-		if (flags[0]) {
-			res.variable = flags[0].variable;
-		}
-		// @ts-ignore
-		const actionParse = new ActionParse(
+o.onlyaction = p(
+	or(o.identifier, p(c`:raw`, _, o.string).scb(([, , v]) => v)),
+	_,
+	o.args
+).scb(([actionIdentifier, _, args], start, end) => {
+	const flags: any = [];
+	args = args.filter((arg: any) =>
+		arg && arg instanceof VariableFlagParse
+			? flags.push(arg) && false
+			: true
+	);
+	if (flags.length > 1) {
+		throw new PositionedError(
+			"Actions cannot output to multiple variables",
 			start,
-			end,
-			res.action,
-			res.args,
-			res.variable
+			end
 		);
-		return actionParse;
 	}
-);
+	const res: {
+		type: string;
+		action: Parse;
+		args: Parse[];
+		variable?: Parse;
+	} = {
+		type: "action",
+		action: actionIdentifier,
+		args: args
+	};
+	if (flags[0]) {
+		res.variable = flags[0].variable;
+	}
+	// @ts-ignore
+	const actionParse = new ActionParse(
+		start,
+		end,
+		res.action,
+		res.args,
+		res.variable
+	);
+	return actionParse;
+});
 
 o.args = star(p(o.argument, _).scb(data => data[0]));
 
@@ -253,7 +256,11 @@ o.value = or(
 	o.parenthesis,
 	o.dictionary,
 	o.list,
-	o.filter
+	o.filter,
+	o.rawvalue
+);
+o.rawvalue = p(c`:raw`, _, o.dictionary).scb(
+	([, , dict], start, end) => new RawParse(start, end, dict)
 );
 
 o.dictionary = p(

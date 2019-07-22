@@ -1037,6 +1037,17 @@ export class List extends Parameter {
 	}
 }
 
+export class PrebuiltParameter extends Parameter {
+	value: {};
+	constructor(value: {}) {
+		super();
+		this.value = value;
+	}
+	build(): WFParameter {
+		return <WFParameter>this.value;
+	}
+}
+
 type WFTextValue = {
 	attachmentsByRange: { [key: string]: WFAttachmentData };
 	string: string;

@@ -13,7 +13,9 @@ import {
 	WFTimeOffsetValueEnum,
 	WFTimeOffsetValueEnumList,
 	WFTimeOffsetValueUnitList,
-	WFTimeOffsetValueUnit
+	WFTimeOffsetValueUnit,
+	ParameterType,
+	PrebuiltParameter
 } from "./OutputData";
 import { getActionFromName, genShortName } from "./ActionData";
 import { ConvertingContext } from "./Converter";
@@ -110,6 +112,9 @@ export class Parse {
 	): this is AsTimeOffsetParameter {
 		return false;
 	}
+	canBeRaw(_cc: ConvertingContext): this is AsRaw {
+		return false;
+	}
 }
 
 interface AsString extends Parse {
@@ -201,6 +206,11 @@ interface AsTimeOffsetParameter extends Parse {
 	asTimeOffsetParameter(cc: ConvertingContext): AdjustOffset;
 }
 
+interface AsRaw extends Parse {
+	canBeRaw(cc: ConvertingContext): true;
+	asRaw(cc: ConvertingContext): PrebuiltParameter;
+}
+
 const ilist = [
 	"String",
 	"Boolean",
@@ -218,7 +228,8 @@ const ilist = [
 	"Number",
 	"Filter",
 	"FilterItem",
-	"TimeOffsetParameter"
+	"TimeOffsetParameter",
+	"Raw"
 	// not PreprocessorVariableName
 ];
 
@@ -429,6 +440,22 @@ export class FilterItemParse extends Parse implements AsFilterItem {
 		if (typeof addResult === "string") {
 			throw this.error(cc, addResult);
 		}
+	}
+}
+export class RawParse extends Parse implements AsRaw {
+	dictionary: AsAble;
+	constructor(start: Position, end: Position, dictionary: AsAble) {
+		super(start, end);
+		this.dictionary = dictionary;
+	}
+	canBeRaw(_cc: ConvertingContext): true {
+		return true;
+	}
+	asRaw(cc: ConvertingContext) {
+		if (!this.dictionary.canBeRawDictionary(cc)) {
+			throw this.dictionary.error(cc, "Must be raw dictionary");
+		}
+		return new PrebuiltParameter(this.dictionary.asRawDictionary(cc));
 	}
 }
 export class DictionaryParse extends Parse
@@ -972,7 +999,8 @@ export class ActionParse extends Parse implements AsText, AsVariable, AsAction {
 				"This action must contain a string name with no variables."
 			);
 		}
-		const actionName = this.name.asString(cc).toLowerCase();
+		const actionNameFull = this.name.asString(cc);
+		const actionName = actionNameFull.toLowerCase();
 		let wfAction;
 		let controlFlowData;
 		if (
@@ -1018,7 +1046,7 @@ export class ActionParse extends Parse implements AsText, AsVariable, AsAction {
 			}
 			return;
 		} else {
-			wfAction = getActionFromName(actionName);
+			wfAction = getActionFromName(actionNameFull);
 			if (!wfAction) {
 				throw this.name.error(
 					cc,

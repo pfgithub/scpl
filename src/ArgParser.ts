@@ -28,12 +28,25 @@ export function simpleParse(
 	);
 	return res;
 }
-
+export function ArgParser(
+	argnames: "any",
+	cb: (arg: ArgData<string>, value: AsAble) => void,
+	inputarg: (value: AsAble) => void,
+	shouldEnable: (arg: ArgData<string>, value: AsAble) => boolean,
+	data: { args: AsAble[]; cc: ConvertingContext }
+): void;
 export function ArgParser<T>(
 	argnames: ArgData<T>[],
 	cb: (arg: ArgData<T>, value: AsAble) => void,
 	inputarg: (value: AsAble) => void,
 	shouldEnable: (arg: ArgData<T>, value: AsAble) => boolean,
+	data: { args: AsAble[]; cc: ConvertingContext }
+): void;
+export function ArgParser<T>(
+	argnames: ArgData<T>[] | "any",
+	cb: (arg: ArgData<T> | ArgData<string>, value: AsAble) => void,
+	inputarg: (value: AsAble) => void,
+	shouldEnable: (arg: ArgData<T> | ArgData<string>, value: AsAble) => boolean,
 	data: { args: AsAble[]; cc: ConvertingContext }
 ) {
 	const cc = data.cc;
@@ -61,13 +74,18 @@ export function ArgParser<T>(
 			Object.keys(dictionary).forEach(key_ => {
 				const key = genShortName(key_);
 				const value = dictionary[key_];
-				const foundData = argnames.find(an => an.name === key);
+				const foundData =
+					argnames === "any"
+						? { name: key_, data: key_ }
+						: argnames.find(an => an.name === key);
 				if (!foundData) {
 					throw value.error(
 						cc,
-						`No argument exists with the name \`${key}\`. Arguments are: ${argnames
-							.map(an => an.name)
-							.join(`, `)}`
+						`No argument exists with the name \`${key}\`. Arguments are: ${
+							argnames === "any"
+								? "anything"
+								: argnames.map(an => an.name).join(`, `)
+						}`
 					);
 				}
 				if (setArgs.indexOf(key) > -1) {
@@ -80,6 +98,13 @@ export function ArgParser<T>(
 				cb(foundData, value);
 			});
 			return;
+		}
+
+		if (argnames === "any") {
+			throw param.error(
+				cc,
+				"Labels are required on functions with variable numbers of arguments."
+			);
 		}
 
 		let paramname;

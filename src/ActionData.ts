@@ -546,7 +546,7 @@ ${JSON.stringify(this._data, null, "\t")}
 			wfaction: WFAction;
 		},
 		...params: Array<AsAble>
-	) {
+	): Action {
 		let actionAbove = cc.lastVariableAction;
 		// TODO actionAbove = cc.lastVariableAction
 		//
@@ -622,6 +622,85 @@ ${JSON.stringify(this._data, null, "\t")}
 			this.requiresInput &&
 			actionAbove !== cc.lastVariableAction
 		) {
+			cc.add(
+				getVariable(
+					{
+						start: <[number, number]>actionAbove.start,
+						end: <[number, number]>actionAbove.end
+					},
+					new MagicVariable(actionAbove)
+				)
+			);
+		}
+		// TODO if(actionAbove) cc.add(getVariableAction(actionAbove))
+		cc.add(action);
+		return action;
+	}
+}
+
+class RawAction {
+	id: string;
+	constructor(id: string) {
+		this.id = id;
+	}
+	build(
+		cc: ConvertingContext,
+		actionPosition: AsAble,
+		_controlFlowData?: {
+			uuid: string;
+			number: number;
+			wfaction: WFAction;
+		},
+		...params: Array<AsAble>
+	): Action {
+		let actionAbove = cc.lastVariableAction;
+		// TODO actionAbove = cc.lastVariableAction
+		//
+		const action = new Action(
+			actionPosition.start,
+			actionPosition.end,
+			this.id,
+			this.id
+		);
+		const vi = 0;
+		ArgParser(
+			"any",
+			(name: { name: string; data: string }, param: AsAble) => {
+				if (!param.canBeRaw(cc)) {
+					throw param.error(
+						cc,
+						"Raw arguments must have raw parameters"
+					);
+				}
+				action.parameters.set(name.data, param.asRaw(cc));
+			},
+			(param: AsAble) => {
+				if (!param.canBeAction(cc)) {
+					throw param.error(
+						cc,
+						"InputArg fields only accept actions and variables."
+					);
+				}
+				actionAbove = param.asAction(cc);
+				return;
+			},
+			(name: { data: string | WFParameter }, param: AsAble) => {
+				if (typeof name.data === "string") {
+					throw param.error(
+						cc,
+						`This field is not supported yet. If you need this field, submit an issue or pull request on github requesting it. Reason: ${
+							name.data
+						}`
+					);
+				}
+				if (action.parameters.has(name.data.internalName)) {
+					return false;
+				}
+				return name.data.shouldEnable(action);
+			},
+			{ cc: cc, args: params }
+		);
+		if (actionAbove && actionAbove !== cc.lastVariableAction) {
 			cc.add(
 				getVariable(
 					{
@@ -723,7 +802,12 @@ export function getActionFromID(id: string): WFAction | undefined {
 	}
 	return actionsByID[id];
 }
-export function getActionFromName(name: string): WFAction | undefined {
+export function getActionFromName(
+	name: string
+): WFAction | RawAction | undefined {
+	if (name.indexOf(".") > -1) {
+		return new RawAction(name);
+	}
 	name = name.toLowerCase();
 	if (!actionsByName[name]) {
 		return undefined;

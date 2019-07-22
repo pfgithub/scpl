@@ -1710,3 +1710,29 @@ test("time offset parameter", () => {
 	]);
 	// todo: error tests
 });
+
+test("raw actions", () => {
+	expect(
+		scplToShortcut(`
+        :raw "dev.scpl.action.test"
+        :raw "dev.scpl.action.test" SPMyParameter=:raw{"raw": "value"}
+        `)
+	).toEqual([
+		{
+			WFWorkflowActionIdentifier: "dev.scpl.action.test",
+			WFWorkflowActionParameters: {}
+		},
+		{
+			WFWorkflowActionIdentifier: "dev.scpl.action.test",
+			WFWorkflowActionParameters: {
+				SPMyParameter: { raw: "value" }
+			}
+		}
+	]);
+
+	expect(
+		err(() => scplToShortcut(`:raw "dev.scpl.my.action" "notright"`))
+	).toEqual(
+		"Error: Error from 1,27 to 1,37: Labels are required on functions with variable numbers of arguments."
+	);
+});
