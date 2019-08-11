@@ -2,5 +2,9 @@ SetVariable :filter{only "Is" stringsandnamedvariables}
 
 @!ShouldEqual --------------------------------
 
-Output Error:
-[Error: Error from 1,13 to 1,56: Variable fields only accept strings and named variables with no aggrandizements.]
+Output Warnings:
+Array [
+  [Error: Error from 1,13 to 1,56: Variable fields only accept strings and named variables with no aggrandizements.],
+]
+
+Because there were warnings, no inversion test will be run!!

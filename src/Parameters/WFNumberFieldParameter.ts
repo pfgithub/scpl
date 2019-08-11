@@ -46,9 +46,7 @@ export class WFNumberFieldParameter extends WFParameter {
 			const num = parse.asNumber(cc); // asString returns a string like "" <-- that's a string
 			return num;
 		}
-		throw parse.error(
-			cc,
-			"Number fields only accept numbers and variables."
-		);
+		parse.warn(cc, "Number fields only accept numbers and variables.");
+		return 0;
 	}
 }

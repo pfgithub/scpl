@@ -2,5 +2,9 @@ EmailAddress :filter{Name is Nothing}
 
 @!ShouldEqual --------------------------------
 
-Output Error:
-[Error: Error from 1,14 to 1,38: Email adress fields only accept variables, lists without variables, and strings without variables.]
+Output Warnings:
+Array [
+  [Error: Error from 1,14 to 1,38: Email adress fields only accept variables, lists without variables, and strings without variables.],
+]
+
+Because there were warnings, no inversion test will be run!!

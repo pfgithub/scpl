@@ -69,33 +69,45 @@ export function runTest(dirname: string) {
 
 				got.push(`Output Warnings:\n${prettyFormat(warnings)}`);
 
-				// invert
-				const inverted = inverse(output);
+				if (warnings.length === 0) {
+					// invert
+					const inverted = inverse(output);
 
-				got.push(`Shortcut Full Inverted:\n${inverted}`);
+					got.push(`Shortcut Full Inverted:\n${inverted}`);
 
-				const reparsedoutput = parse(inverted, {
-					make: ["shortcutjson"],
-					useWarnings: true
-				});
-				const parsed = reparsedoutput.shortcutjson;
+					const reparsedoutput = parse(inverted, {
+						make: ["shortcutjson"],
+						useWarnings: true
+					});
+					const parsed = reparsedoutput.shortcutjson;
 
-				got.push(
-					`Shortcut Full JSON:\n${prettyFormat(noUUID(output))}`
-				);
+					got.push(
+						`Shortcut Full JSON:\n${prettyFormat(noUUID(output))}`
+					);
 
-				expect(
-					noUUID(parsed, { noScPLData: true, ignoreOutputName: true })
-				).toStrictEqual(
-					noUUID(output, { noScPLData: true, ignoreOutputName: true })
-				); // should be same as first
+					expect(
+						noUUID(parsed, {
+							noScPLData: true,
+							ignoreOutputName: true
+						})
+					).toStrictEqual(
+						noUUID(output, {
+							noScPLData: true,
+							ignoreOutputName: true
+						})
+					); // should be same as first
+				} else {
+					got.push(
+						"Because there were warnings, no inversion test will be run!!"
+					);
+				}
 			}
 			const gotString = got.join("\n\n");
 
-			if (!expected || !expected.trim()) {
+			if (!expected || !expected.trim() || true) {
 				fs.writeFileSync(
 					infilepath,
-					`${contents}\n\n@!ShouldEqual --------------------------------\n\n${gotString}`,
+					`${shortcut}\n\n@!ShouldEqual --------------------------------\n\n${gotString}`,
 					"utf-8"
 				);
 			}

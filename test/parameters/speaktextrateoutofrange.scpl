@@ -2,5 +2,9 @@ SpeakText rate=2.1
 
 @!ShouldEqual --------------------------------
 
-Output Error:
-[Error: Error from 1,16 to 1,19: Speak text rate fields only accept numbers from 0 to 2]
+Output Warnings:
+Array [
+  [Error: Error from 1,16 to 1,19: Speak text rate fields only accept numbers from 0 to 2],
+]
+
+Because there were warnings, no inversion test will be run!!

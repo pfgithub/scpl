@@ -377,7 +377,7 @@ test("parsing things", () => {
 
 test("lists cannot be used as strings", () => {
 	expect(err(() => parse(`text [list]`, { makePlist: false }))).toBe(
-		"Error: Error from 1,6 to 1,12: Text fields only accept text."
+		"Error: Warning from 1,6 to 1,12: Text fields only accept text."
 	);
 });
 
@@ -456,7 +456,7 @@ test("undefined variables throw errors", () => {
 	expect(
 		err(() => parse(`text s:invalidspecialvariable`, { makePlist: false }))
 	).toBe(
-		"Error: Error from 1,8 to 1,30: This special variable does not exist. Valid special variables are clipboard,askwhenrun,currentdate,shortcutinput,actioninput"
+		"Error: Warning from 1,8 to 1,30: This special variable does not exist. Valid special variables are clipboard,askwhenrun,currentdate,shortcutinput,actioninput"
 	);
 });
 
@@ -678,7 +678,7 @@ test("open app fails with invalid app name", () => {
 	expect(
 		err(() => parse(`openapp myfavoriteapp`, { makePlist: false }))
 	).toBe(
-		"Error: Error from 1,9 to 1,22: The app myfavoriteapp is not supported by default. Enter its app id which you can get from this shortcut: https://www.icloud.com/shortcuts/7aff3fcdd0ca4bbc9c0d1b70e2825ed8 (More info on the documentation page for this action)"
+		"Error: Warning from 1,9 to 1,22: The app myfavoriteapp is not supported by default. Enter its app id which you can get from this shortcut: https://www.icloud.com/shortcuts/7aff3fcdd0ca4bbc9c0d1b70e2825ed8 (More info on the documentation page for this action)"
 	);
 });
 
@@ -911,7 +911,7 @@ test("filter enum", () => {
 			scplToShortcut(`FindPhotos :filter{Orientation is NorthEast}`)
 		)
 	).toBe(
-		"Error: Error from 1,20 to 1,44: Must be one of Up,Down,Left,Right,Up Mirrored,Down Mirrored,Left Mirrored,Right Mirrored"
+		"Error: Warning from 1,20 to 1,44: Must be one of Up,Down,Left,Right,Up Mirrored,Down Mirrored,Left Mirrored,Right Mirrored"
 	);
 });
 
@@ -1340,7 +1340,7 @@ test("Dictionaries", () => {
 
 test("Newlines are not allowed", () => {
 	expect(err(() => scplToShortcut(`URL "Test \\n"`))).toEqual(
-		"Error: Error from 1,5 to 1,14: Newlines are not allowed in this text field. Use a variable with a newline instead."
+		"Error: Warning from 1,5 to 1,14: Newlines are not allowed in this text field. Use a variable with a newline instead."
 	);
 });
 
@@ -1398,7 +1398,7 @@ test("define custom macro", () => {
 test("@error macro", () => {
 	expect(
 		err(() => scplToShortcut(`@error "Error! A bad happened."`))
-	).toEqual("Error: Error from 1,1 to 1,32: Error! A bad happened.");
+	).toEqual("Error: Warning from 1,1 to 1,32: Error! A bad happened.");
 });
 
 test("@set with macro", () => {
@@ -1543,7 +1543,7 @@ test("macros without the correct number of arguments", () => {
 			`)
 		)
 	).toEqual(
-		"Error: Error from 2,21 to 2,23: This action does not have any more arguments. Arguments are: name, value"
+		"Error: Warning from 2,21 to 2,23: This action does not have any more arguments. Arguments are: name, value"
 	);
 });
 

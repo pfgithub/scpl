@@ -19,10 +19,13 @@ export class WFSliderParameter extends WFNumberFieldParameter {
 		const val = super.build(cc, parse);
 		if (typeof val === "number") {
 			if (val < 0 || val > 1) {
-				throw parse.error(
-					cc,
-					"Slider fields only accept numbers from 0 to 1"
+				cc.warn(
+					parse.error(
+						cc,
+						"Slider fields only accept numbers from 0 to 1"
+					)
 				);
+				return 0;
 			}
 		}
 		return val;
