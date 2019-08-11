@@ -45,6 +45,11 @@
 		"testPathIgnorePatterns": [
 			"/node_modules/",
 			"/built"
+		],
+		"coverageReporters": [
+			"json",
+			"lcov",
+			"clover"
 		]
 	},
 	"dependencies": {

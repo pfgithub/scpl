@@ -13,9 +13,10 @@ import {
 	Aggrandizements,
 	inverseCoercionTypes,
 	ErrorParameter,
-	AdjustOffset
+	AdjustOffset,
+	RawParameter
 } from "./OutputData";
-import { getActionFromID } from "./ActionData";
+import { getActionFromID, WFParameter } from "./ActionData";
 
 import { inverseGlyphs, inverseColors } from "./Data/ShortcutMeta";
 
@@ -73,21 +74,63 @@ export class InverseConvertingContext {
 		const result: string[] = [];
 
 		// get action data
-		const actionData = getActionFromID(value.id);
+		let actionData:
+			| {
+					name?: string;
+					readableName?: string;
+					internalName?: string;
+					getParameterOrder: () => Array<WFParameter | string>;
+					_data: { BlockInfo?: {} };
+			  }
+			| undefined = getActionFromID(value.id);
+		let rawWarning = false;
 
 		if (!actionData) {
-			return `??unknown action with id ${value.id.replace(
-				/[^A-Za-z0-9.]/g,
-				""
-			)}??`;
+			// create raw action
+			rawWarning = true;
+			actionData = {
+				readableName: `:raw ${this.createStringAble(value.id)}`,
+				getParameterOrder: () => [],
+				_data: {
+					BlockInfo:
+						Object.keys(value.parameters.values).indexOf(
+							"GroupingIdentifier"
+						) > -1
+				}
+			};
 		}
 
 		// let parameters = actionData.getParameters();
 		const order = actionData.getParameterOrder(); // TODO future
+		Object.keys(value.parameters.values).forEach(paramName => {
+			if (
+				paramName === "GroupingIdentifier" ||
+				paramName === "WFControlFlowMode" ||
+				paramName === "UUID" ||
+				paramName === "CustomOutputName"
+			) {
+				return;
+			}
+			if (
+				!order.find(it =>
+					it instanceof WFParameter
+						? it.internalName === paramName
+						: it === paramName
+				)
+			) {
+				order.push(paramName);
+			}
+		});
+		// TODO check if unlisted parameters are present
 		order.forEach(param => {
 			if (typeof param === "string") {
+				// :raw{json data}
+				const paramName = param;
+				rawWarning = true;
 				return result.push(
-					`??${param.replace(/[^A-Za-z0-9 ]/g, "")}??`
+					`${param}=${this.createRawAble(
+						value.parameters.get(paramName)
+					)}`
 				);
 			}
 
@@ -159,7 +202,11 @@ export class InverseConvertingContext {
 
 		return (
 			this.indent.repeat(indentLevel) +
-			`${actionName} ${paramResult}`.trim()
+			`${actionName} ${paramResult} ${
+				rawWarning
+					? "// Warning: This action contains some parameters that are not supported. Editing them may cause errors."
+					: ""
+			}`.trim()
 		);
 	}
 
@@ -190,6 +237,9 @@ export class InverseConvertingContext {
 		}
 		if (thing instanceof ErrorParameter) {
 			return `??error: ${thing.text.replace(/[^A-Za-z0-9 :]/g, "")}??`;
+		}
+		if (thing instanceof RawParameter) {
+			return this.createRawAble(thing.build());
 		}
 		return "??this argument type is not supported yet??";
 	}
@@ -368,6 +418,13 @@ export class InverseConvertingContext {
 				.join(" ")}]`;
 		}
 		return `[${this.createStringAble(value.opts.mode)}]`;
+	}
+	createRawAble(val: {}) {
+		const indentLevel = this._indentLevel;
+		return `:raw${JSON.stringify(val, null, "\t")
+			.split("\n")
+			.map((q, i) => (i === 0 ? q : " ".repeat(indentLevel) + q))
+			.join("\n")}`;
 	}
 	quoteAndEscape(val: string): string {
 		if (this.quotes === "'") {

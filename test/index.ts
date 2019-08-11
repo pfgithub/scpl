@@ -227,41 +227,7 @@ test("invert newlines", () => {
 		)
 	).toEqual('Text "Text with\\nNewlines."');
 });
-test("invert unsupported fields", () => {
-	const icc = new InverseConvertingContext();
-	expect(
-		icc.createActionAble(
-			Action.inverse({
-				WFWorkflowActionIdentifier: "is.workflow.actions.email",
-				//@ts-ignore
-				WFWorkflowActionParameters: {
-					WFEmailAddress: {
-						Value: {
-							WFContactFieldValues: ["email@example.com"]
-						},
-						WFSerializationType: "WFContactFieldValue"
-					}
-				}
-			})
-		)
-	).toEqual(
-		"EmailAddress ??error: This parameter is an error: Inversion for this parameter type WFContactFieldValue is not implemented yet??"
-	);
-});
 
-test("invert an invalid action", () => {
-	const icc = new InverseConvertingContext();
-	expect(
-		icc.createActionAble(
-			Action.inverse({
-				WFWorkflowActionIdentifier: "dev.scpl.actions.invalid",
-				WFWorkflowActionParameters: {
-					WFTextActionText: "Icon List V2"
-				}
-			})
-		)
-	).toEqual(`??unknown action with id dev.scpl.actions.invalid??`);
-});
 test("invert an incomplete action", () => {
 	const icc = new InverseConvertingContext();
 	expect(

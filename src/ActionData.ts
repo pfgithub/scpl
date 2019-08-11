@@ -34,6 +34,7 @@ export function genShortName(
 }
 
 import { WFParameter } from "./Parameters/WFParameter";
+export { WFParameter } from "./Parameters/WFParameter";
 
 type InstanceOfParameterType = typeof WFParameter;
 
@@ -328,7 +329,7 @@ export class WFAction {
 						_debugMissingTypes[param.Class] !== undefined
 							? _debugMissingTypes[param.Class] + 1
 							: 1;
-					return `This paramtype is not implemented. ${param.Class}`;
+					return `${param.Class}`;
 				}
 			);
 		}
@@ -376,9 +377,7 @@ export class WFAction {
 				.join(",\n")}\n)`.trim();
 		}
 		if (docsParams.length === 1) {
-			autocompleteUsage = `${this.readableName} \${1${
-				docsParams[0].argAutocompletePlaceholder
-			}}`;
+			autocompleteUsage = `${this.readableName} \${1${docsParams[0].argAutocompletePlaceholder}}`;
 		}
 		// 		let autocompleteUsage = `${this.readableName} (
 		// ${docsParams
@@ -445,9 +444,7 @@ ${
 }${
 			this._data.RequiredResources
 				? `
-> This action requires that Shortcuts has permission to use ${
-						this._data.RequiredResources
-				  }.
+> This action requires that Shortcuts has permission to use ${this._data.RequiredResources}.
 `
 				: ""
 		}${
@@ -586,6 +583,12 @@ ${JSON.stringify(this._data, null, "\t")}
 						"Data is string. This should have been caught earlier. This should never happen."
 					);
 				}
+				if (param.canBeRaw(cc)) {
+					return action.parameters.set(
+						name.data.internalName,
+						param.asRaw(cc)
+					);
+				}
 				action.parameters.set(
 					name.data.internalName,
 					name.data.build(cc, param)
@@ -605,9 +608,7 @@ ${JSON.stringify(this._data, null, "\t")}
 				if (typeof name.data === "string") {
 					throw param.error(
 						cc,
-						`This field is not supported yet. If you need this field, submit an issue or pull request on github requesting it. Reason: ${
-							name.data
-						}`
+						`This field is not supported yet. If you need this field, submit an issue or pull request on github requesting it. Reason: ${name.data}`
 					);
 				}
 				if (action.parameters.has(name.data.internalName)) {
@@ -615,7 +616,20 @@ ${JSON.stringify(this._data, null, "\t")}
 				}
 				return name.data.shouldEnable(action);
 			},
-			{ cc: cc, args: params }
+			{ cc: cc, args: params },
+			{
+				noArgumentExistsHandler: (key, value, paramList) => {
+					if (!value.canBeRaw(cc)) {
+						throw value.error(
+							cc,
+							`No argument exists with the name ${value}. Valud are ${paramList.join(
+								","
+							)}`
+						);
+					}
+					action.parameters.set(key, value.asRaw(cc));
+				}
+			}
 		);
 		if (
 			actionAbove &&
@@ -688,9 +702,7 @@ class RawAction {
 				if (typeof name.data === "string") {
 					throw param.error(
 						cc,
-						`This field is not supported yet. If you need this field, submit an issue or pull request on github requesting it. Reason: ${
-							name.data
-						}`
+						`This field is not supported yet. If you need this field, submit an issue or pull request on github requesting it. Reason: ${name.data}`
 					);
 				}
 				if (action.parameters.has(name.data.internalName)) {
@@ -733,9 +745,7 @@ Object.keys(actionList).forEach(key => {
 	if (actionsByName[action.shortName]) {
 		//eslint-disable-next-line no-console
 		console.warn(
-			`WARNING, ${action.shortName} (${
-				action.internalName
-			}) is already defined`
+			`WARNING, ${action.shortName} (${action.internalName}) is already defined`
 		);
 		return;
 	}

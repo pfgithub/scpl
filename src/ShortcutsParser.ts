@@ -79,9 +79,7 @@ o.escape = p(
 		error(
 			regex(/.?/),
 			v =>
-				`Did you mean \`\\\\\`? The character \`${
-					v[0]
-				}\` is not a valid escape sequence. See the docs page on string escapes for more info.`
+				`Did you mean \`\\\\\`? The character \`${v[0]}\` is not a valid escape sequence. See the docs page on string escapes for more info.`
 		)
 	)
 ).scb(([, val]) => val);
@@ -259,7 +257,7 @@ o.value = or(
 	o.filter,
 	o.rawvalue
 );
-o.rawvalue = p(c`:raw`, _, o.dictionary).scb(
+o.rawvalue = p(c`:raw`, _, or(o.dictionary, o.string)).scb(
 	([, , dict], start, end) => new RawParse(start, end, dict)
 );
 

@@ -418,9 +418,7 @@ export class ContentItemFilter extends Parameter {
 		if (!expectedType) {
 			return {
 				error: true,
-				message: `The type \`${
-					propertyData.type
-				}\` is probably not implemented yet.`
+				message: `The type \`${propertyData.type}\` is probably not implemented yet.`
 			};
 		}
 		return {
@@ -447,9 +445,7 @@ export class ContentItemFilter extends Parameter {
 			}
 			const enumoptions = propertyData.filterEnumValues;
 			if (!enumoptions) {
-				return `This enum was set up wrong. ${
-					propertyData.name
-				}. Report an issue.`;
+				return `This enum was set up wrong. ${propertyData.name}. Report an issue.`;
 			}
 			if (enumoptions.indexOf(value) > -1) {
 				this.data.push({ Enumeration: value, ...baseData });
@@ -1179,6 +1175,24 @@ export class ErrorParameter extends Parameter {
 	}
 }
 
+type WFRawParameter = {
+	WFSerializationType: "This does not actually exist. There is no way to tell if a built value is a raw parameter.";
+};
+
+export class RawParameter extends Parameter {
+	value: {};
+	constructor(value: {}) {
+		super();
+		this.value = value;
+	}
+	build(): WFRawParameter {
+		return <WFRawParameter>this.value;
+	}
+	static inverse(value: {}) {
+		return new RawParameter(value);
+	}
+}
+
 type WFErrorParameter = {
 	WFSerializationType: "WFErrorParameter";
 	Value: { Text: string };
@@ -1219,11 +1233,7 @@ export function toParam(value: WFParameter): ParameterType {
 			`This parameter is an error: ${value.Value.Text}`
 		);
 	}
-	return new ErrorParameter(
-		`Inversion for this parameter type ${
-			value.WFSerializationType
-		} is not implemented yet.`
-	);
+	return new RawParameter(value);
 }
 
 export type ParameterType =
@@ -1244,6 +1254,7 @@ export type WFParameter =
 	| WFContentItemFilter
 	| WFNotNeverParameter
 	| WFTimeOffsetValue
+	| WFRawParameter
 	| string
 	| boolean
 	| number;

@@ -33,22 +33,53 @@ export function ArgParser(
 	cb: (arg: ArgData<string>, value: AsAble) => void,
 	inputarg: (value: AsAble) => void,
 	shouldEnable: (arg: ArgData<string>, value: AsAble) => boolean,
-	data: { args: AsAble[]; cc: ConvertingContext }
+	data: { args: AsAble[]; cc: ConvertingContext },
+	handlers?: {
+		noArgumentExistsHandler?: (
+			realKey: string,
+			value: AsAble,
+			paramList: string[]
+		) => void;
+	}
 ): void;
 export function ArgParser<T>(
 	argnames: ArgData<T>[],
 	cb: (arg: ArgData<T>, value: AsAble) => void,
 	inputarg: (value: AsAble) => void,
 	shouldEnable: (arg: ArgData<T>, value: AsAble) => boolean,
-	data: { args: AsAble[]; cc: ConvertingContext }
+	data: { args: AsAble[]; cc: ConvertingContext },
+	handlers?: {
+		noArgumentExistsHandler?: (
+			realKey: string,
+			value: AsAble,
+			paramList: string[]
+		) => void;
+	}
 ): void;
 export function ArgParser<T>(
 	argnames: ArgData<T>[] | "any",
 	cb: (arg: ArgData<T> | ArgData<string>, value: AsAble) => void,
 	inputarg: (value: AsAble) => void,
 	shouldEnable: (arg: ArgData<T> | ArgData<string>, value: AsAble) => boolean,
-	data: { args: AsAble[]; cc: ConvertingContext }
+	data: { args: AsAble[]; cc: ConvertingContext },
+	handlers: {
+		noArgumentExistsHandler?: (
+			realKey: string,
+			value: AsAble,
+			paramList: string[]
+		) => void;
+	} = {}
 ) {
+	if (!handlers.noArgumentExistsHandler) {
+		handlers.noArgumentExistsHandler = (key, value, paramList) => {
+			throw value.error(
+				cc,
+				`No argument exists with the name \`${key}\`. Arguments are: ${paramList.join(
+					", "
+				)}`
+			);
+		};
+	}
 	const cc = data.cc;
 	let parami = 0;
 	const setArgs: string[] = [];
@@ -79,14 +110,15 @@ export function ArgParser<T>(
 						? { name: key_, data: key_ }
 						: argnames.find(an => an.name === key);
 				if (!foundData) {
-					throw value.error(
-						cc,
-						`No argument exists with the name \`${key}\`. Arguments are: ${
+					handlers.noArgumentExistsHandler &&
+						handlers.noArgumentExistsHandler(
+							key_,
+							value,
 							argnames === "any"
-								? "anything"
-								: argnames.map(an => an.name).join(`, `)
-						}`
-					);
+								? ["anything"]
+								: argnames.map(an => an.name)
+						);
+					return;
 				}
 				if (setArgs.indexOf(key) > -1) {
 					throw value.error(

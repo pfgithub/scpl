@@ -63,6 +63,9 @@ export function runTest(dirname: string) {
 			} catch (e) {
 				got.push(`Output Error:\n${prettyFormat(e)}`);
 			}
+			let pass: boolean = true;
+			let _check1: any;
+			let _equals1: any;
 			if (parseoutput) {
 				const output = parseoutput.shortcutjson;
 				const warnings = parseoutput.warnings;
@@ -75,27 +78,36 @@ export function runTest(dirname: string) {
 
 					got.push(`Shortcut Full Inverted:\n${inverted}`);
 
-					const reparsedoutput = parse(inverted, {
-						make: ["shortcutjson"],
-						useWarnings: true
-					});
-					const parsed = reparsedoutput.shortcutjson;
+					let reparsedoutput;
+					let parsed;
+
+					try {
+						reparsedoutput = parse(inverted, {
+							make: ["shortcutjson"],
+							useWarnings: true
+						});
+						parsed = reparsedoutput.shortcutjson;
+					} catch (e) {
+						got.push(
+							`!!! Error Invert Parsing ${
+								(<Error>e).message
+							} ${` ${(<Error>e).stack}`}`
+						);
+						pass = false;
+					}
 
 					got.push(
 						`Shortcut Full JSON:\n${prettyFormat(noUUID(output))}`
 					);
 
-					expect(
-						noUUID(parsed, {
-							noScPLData: true,
-							ignoreOutputName: true
-						})
-					).toStrictEqual(
-						noUUID(output, {
-							noScPLData: true,
-							ignoreOutputName: true
-						})
-					); // should be same as first
+					_check1 = noUUID(parsed, {
+						noScPLData: true,
+						ignoreOutputName: true
+					});
+					_equals1 = noUUID(output, {
+						noScPLData: true,
+						ignoreOutputName: true
+					});
 				} else {
 					got.push(
 						"Because there were warnings, no inversion test will be run!!"
@@ -109,13 +121,19 @@ export function runTest(dirname: string) {
 			const gotString = got.join("\n\n");
 
 			if (!expected || !expected.trim() || true) {
-				fs.writeFileSync(
-					infilepath,
-					`${shortcut}\n\n@!ShouldEqual --------------------------------\n\n${gotString}`,
-					"utf-8"
-				);
+				const setValue = `${shortcut}\n\n@!ShouldEqual --------------------------------\n\n${gotString}`;
+				if (contents === setValue) {
+				} else {
+					fs.writeFileSync(infilepath, setValue, "utf-8");
+				}
 			}
 
+			if (_check1 || _equals1) {
+				expect(_check1).toStrictEqual(_equals1);
+			}
+			if (!pass) {
+				expect("Error invert parsing").toEqual("No errors");
+			}
 			expect(expected).toEqual(gotString);
 		});
 	});

@@ -14,7 +14,6 @@ import {
 	WFTimeOffsetValueEnumList,
 	WFTimeOffsetValueUnitList,
 	WFTimeOffsetValueUnit,
-	ParameterType,
 	PrebuiltParameter
 } from "./OutputData";
 import { getActionFromName, genShortName } from "./ActionData";
@@ -85,6 +84,14 @@ export class Parse {
 	canBeRawKeyedDictionary(
 		_cc: ConvertingContext
 	): this is AsRawKeyedDictionary {
+		return false;
+	}
+	canBeRawDeepDictionary(
+		_cc: ConvertingContext
+	): this is AsRawDeepDictionary {
+		return false;
+	}
+	canBeRawDeepArray(_cc: ConvertingContext): this is AsRawDeepArray {
 		return false;
 	}
 	canBeNameType(_cc: ConvertingContext): this is AsNameType {
@@ -172,6 +179,16 @@ interface AsRawKeyedDictionary extends Parse {
 	asRawKeyedDictionary(cc: ConvertingContext): { [key: string]: AsAble };
 }
 
+interface AsRawDeepDictionary extends Parse {
+	canBeRawDeepDictionary(cc: ConvertingContext): true;
+	asRawDeepDictionary(cc: ConvertingContext): NestedStringDictionary;
+}
+
+interface AsRawDeepArray extends Parse {
+	canBeRawDeepArray(cc: ConvertingContext): true;
+	asRawDeepArray(cc: ConvertingContext): NestedStringDictionaryItemArray;
+}
+
 interface AsNameType extends Parse {
 	canBeNameType(cc: ConvertingContext): true;
 	asNameType(cc: ConvertingContext): { name: string; type: string };
@@ -223,6 +240,7 @@ const ilist = [
 	"Dictionary",
 	"RawDictionary",
 	"RawKeyedDictionary",
+	"RawDeepDictionary",
 	"NameType",
 	"StringVariable",
 	"Number",
@@ -443,21 +461,53 @@ export class FilterItemParse extends Parse implements AsFilterItem {
 	}
 }
 export class RawParse extends Parse implements AsRaw {
-	dictionary: AsAble;
-	constructor(start: Position, end: Position, dictionary: AsAble) {
+	dictOrString: AsAble;
+	constructor(start: Position, end: Position, dictOrString: AsAble) {
 		super(start, end);
-		this.dictionary = dictionary;
+		this.dictOrString = dictOrString;
 	}
 	canBeRaw(_cc: ConvertingContext): true {
 		return true;
 	}
 	asRaw(cc: ConvertingContext) {
-		if (!this.dictionary.canBeRawDictionary(cc)) {
-			throw this.dictionary.error(cc, "Must be raw dictionary");
+		if (this.dictOrString.canBeRawDeepDictionary(cc)) {
+			return new PrebuiltParameter(
+				this.dictOrString.asRawDeepDictionary(cc)
+			);
 		}
-		return new PrebuiltParameter(this.dictionary.asRawDictionary(cc));
+		if (this.dictOrString.canBeString(cc)) {
+			return new PrebuiltParameter(this.dictOrString.asString(cc));
+		}
+		throw this.dictOrString.error(cc, "Must be raw dictionary");
 	}
 }
+type NestedStringDictionaryItem =
+	| string
+	| number
+	| boolean
+	| undefined
+	| NestedStringDictionaryItemArray
+	| NestedStringDictionary;
+type NestedStringDictionary = {
+	[key: string]: NestedStringDictionaryItem;
+};
+interface NestedStringDictionaryItemArray
+	extends Array<NestedStringDictionaryItem> {}
+
+function createRawDeepItem(
+	cc: ConvertingContext,
+	value: Parse
+): NestedStringDictionaryItem {
+	if (value.canBeString(cc)) {
+		return value.asString(cc);
+	} else if (value.canBeRawDeepDictionary(cc)) {
+		return value.asRawDeepDictionary(cc);
+	} else if (value.canBeRawDeepArray(cc)) {
+		return value.asRawDeepArray(cc);
+	}
+	throw value.error(cc, "Must be string or raw deep dictionary");
+}
+
 export class DictionaryParse extends Parse
 	implements AsRawDictionary, AsRawKeyedDictionary, AsDictionary {
 	keyvaluepairs: Array<{ key: AsAble; value: AsAble; type?: AsAble }>;
@@ -499,6 +549,39 @@ export class DictionaryParse extends Parse
 				);
 			}
 			dictionary[stringKey] = value.asString(cc);
+		});
+		return dictionary;
+	}
+	canBeRawDeepDictionary(_cc: ConvertingContext): true {
+		return true;
+	}
+	asRawDeepDictionary(cc: ConvertingContext) {
+		// for static things that cannot have interpolated keys or values
+		const dictionary: NestedStringDictionary = {};
+		this.keyvaluepairs.forEach(({ key, value, type }) => {
+			if (type) {
+				throw type.error(cc, "This dictionary can not have a type.");
+			}
+			if (!key.canBeString(cc)) {
+				throw key.error(
+					cc,
+					"This key name must be a string with no variables."
+				);
+			}
+
+			const keyValue: NestedStringDictionaryItem = createRawDeepItem(
+				cc,
+				value
+			);
+
+			const stringKey = key.asString(cc);
+			if (dictionary[stringKey]) {
+				throw key.error(
+					cc,
+					`This key was already defined in this dictionary.`
+				);
+			}
+			dictionary[stringKey] = keyValue;
 		});
 		return dictionary;
 	}
@@ -663,6 +746,12 @@ export class ListParse extends Parse
 			}
 			return item.asString(cc);
 		});
+	}
+	canBeRawDeepArray(_cc: ConvertingContext) {
+		return true;
+	}
+	asRawDeepArray(cc: ConvertingContext) {
+		return this.items.map(item => createRawDeepItem(cc, item));
 	}
 	canBeAbleArray(_cc: ConvertingContext): true {
 		return true;
@@ -1401,9 +1490,7 @@ export class ActionsParse extends Parse
 		if (cc.controlFlowStack.length !== 0) {
 			throw this.error(
 				cc,
-				`There are ${
-					cc.controlFlowStack.length
-				} unended block actions. Check to make sure that every block (if/repeat/choose from menu) has an end.`
+				`There are ${cc.controlFlowStack.length} unended block actions. Check to make sure that every block (if/repeat/choose from menu) has an end.`
 			);
 		}
 		return cc.shortcut;
