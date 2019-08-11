@@ -1,0 +1,6 @@
+:raw "dev.scpl.my.action" "notright"
+
+@!ShouldEqual --------------------------------
+
+Output Error:
+[Error: Error from 1,27 to 1,37: Labels are required on functions with variable numbers of arguments.]

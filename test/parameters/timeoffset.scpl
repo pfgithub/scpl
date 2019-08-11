@@ -1,0 +1,133 @@
+adjustdate [add 5 Seconds]
+adjustdate [Subtract s:clipboard hours]
+adjustdate [Get start of month]
+
+@!ShouldEqual --------------------------------
+
+Output Warnings:
+Array []
+
+Shortcut Full Inverted:
+AdjustDate [Add 5 Second]
+AdjustDate [Subtract s:clipboard Hour]
+AdjustDate [Get Start Of Month]
+
+Shortcut Full JSON:
+Array [
+  Object {
+    "WFWorkflowActions": Array [
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              1,
+              27,
+            ],
+            "start": Array [
+              1,
+              1,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.adjustdate",
+        "WFWorkflowActionParameters": Object {
+          "WFAdjustOffsetPicker": Object {
+            "Value": Object {
+              "Operation": "Add",
+              "Unit": "Second",
+              "Value": 5,
+            },
+            "WFSerializationType": "WFTimeOffsetValue",
+          },
+        },
+      },
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              2,
+              40,
+            ],
+            "start": Array [
+              2,
+              1,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.adjustdate",
+        "WFWorkflowActionParameters": Object {
+          "WFAdjustOffsetPicker": Object {
+            "Value": Object {
+              "Operation": "Subtract",
+              "Unit": "Hour",
+              "Value": Object {
+                "Aggrandizements": Array [],
+                "Type": "Clipboard",
+              },
+            },
+            "WFSerializationType": "WFTimeOffsetValue",
+          },
+        },
+      },
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              3,
+              32,
+            ],
+            "start": Array [
+              3,
+              1,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.adjustdate",
+        "WFWorkflowActionParameters": Object {
+          "WFAdjustOffsetPicker": Object {
+            "Value": Object {
+              "Operation": "Get Start Of Month",
+              "Unit": "Second",
+              "Value": 0,
+            },
+            "WFSerializationType": "WFTimeOffsetValue",
+          },
+        },
+      },
+    ],
+    "WFWorkflowClientRelese": "2.1.2",
+    "WFWorkflowClientVersion": "754",
+    "WFWorkflowIcon": Object {
+      "WFWorkflowIconGlyphNumber": 59511,
+      "WFWorkflowIconImageData": Object {
+        "data": Array [],
+        "type": "Buffer",
+      },
+      "WFWorkflowIconStartColor": 2071128575,
+    },
+    "WFWorkflowInputContentItemClasses": Array [
+      "WFAppStoreAppContentItem",
+      "WFArticleContentItem",
+      "WFContactContentItem",
+      "WFDateContentItem",
+      "WFEmailAddressContentItem",
+      "WFGenericFileContentItem",
+      "WFImageContentItem",
+      "WFiTunesProductContentItem",
+      "WFLocationContentItem",
+      "WFDCMapsLinkContentItem",
+      "WFAVAssetContentItem",
+      "WFPDFContentItem",
+      "WFPhoneNumberContentItem",
+      "WFRichTextContentItem",
+      "WFSafariWebPageContentItem",
+      "WFStringContentItem",
+      "WFURLContentItem",
+    ],
+    "WFWorkflowMinimumClientVersion": 411,
+    "WFWorkflowTypes": Array [
+      "NCWidget",
+      "WatchKit",
+    ],
+  },
+]
