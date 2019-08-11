@@ -1,10 +1,11 @@
-Comment "Interpolation where \(text "one") isn't allowed"
+if equals 5
+end
 
 @!ShouldEqual --------------------------------
 
 Output Warnings:
 Array [
-  [Error: Error from 1,32 to 1,42: This string is not allowed to have variables.],
+  [Error: Error from 1,4 to 1,10: This enumeration field must be one of the following: `Equals`, `Contains`, `Is Greater Than`, `Is Less Than`],
 ]
 
 Because there were warnings, no inversion test will be run!!
@@ -17,18 +18,19 @@ Array [
         "SCPLData": Object {
           "Position": Object {
             "end": Array [
-              1,
-              58,
+              2,
+              4,
             ],
             "start": Array [
-              1,
+              2,
               1,
             ],
           },
         },
-        "WFWorkflowActionIdentifier": "is.workflow.actions.comment",
+        "WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
         "WFWorkflowActionParameters": Object {
-          "WFCommentActionText": "Interpolation where  isn't allowed",
+          "GroupingIdentifier": "<uuid1>",
+          "WFControlFlowMode": 2,
         },
       },
     ],

@@ -100,6 +100,10 @@ export function runTest(dirname: string) {
 					got.push(
 						"Because there were warnings, no inversion test will be run!!"
 					);
+
+					got.push(
+						`Shortcut Full JSON:\n${prettyFormat(noUUID(output))}`
+					);
 				}
 			}
 			const gotString = got.join("\n\n");
