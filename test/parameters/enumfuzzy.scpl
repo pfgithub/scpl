@@ -4,16 +4,37 @@ end
 @!ShouldEqual --------------------------------
 
 Output Warnings:
-Array [
-  [Error: Error from 1,4 to 1,10: This enumeration field must be one of the following: `Equals`, `Contains`, `Is Greater Than`, `Is Less Than`],
-]
+Array []
 
-Because there were warnings, no inversion test will be run!!
+Shortcut Full Inverted:
+If input=Equals value=5
+End
 
 Shortcut Full JSON:
 Array [
   Object {
     "WFWorkflowActions": Array [
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              1,
+              12,
+            ],
+            "start": Array [
+              1,
+              1,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+        "WFWorkflowActionParameters": Object {
+          "GroupingIdentifier": "<uuid1>",
+          "WFCondition": "Equals",
+          "WFConditionalActionString": "5",
+          "WFControlFlowMode": 0,
+        },
+      },
       Object {
         "SCPLData": Object {
           "Position": Object {

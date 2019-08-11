@@ -16,10 +16,9 @@ export function nearestString<T extends string>(
 				: genShortName(i) === shortName
 	);
 	if (res.length > 1) {
+		// In this case, fuzzy cannot be used because the value exists multiple times
 		const res2 = list.filter(i =>
-			Array.isArray(i)
-				? i.some(i => i === value)
-				: genShortName(i) === shortName
+			Array.isArray(i) ? i.some(i => i === value) : i === value
 		);
 		if (res2.length > 1) {
 			// eslint-disable-next-line no-console
