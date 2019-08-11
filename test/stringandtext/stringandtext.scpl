@@ -1,0 +1,14 @@
+Text "a" -> v:a
+If ^v:a Equals "b"
+	ShowResult "Error! This should never happen. \(v:a) = \(Text "b")."
+Otherwise
+	Comment "Problem!"
+End
+
+@!TestSplit
+
+Text "invalid \escape"
+
+@!TestSplit
+
+Comment "Interpolation where \(text "one") isn't allowed"

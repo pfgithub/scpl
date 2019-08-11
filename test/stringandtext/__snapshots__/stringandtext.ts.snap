@@ -1,0 +1,283 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`stringandtext.scpl: error (test 1) 1`] = `[Error: Error from 3,16 to 3,17: Did you mean \`\\\\\`? The character \`e\` is not a valid escape sequence. See the docs page on string escapes for more info.]`;
+
+exports[`stringandtext.scpl: error (test 2) 1`] = `[Error: Error from 3,32 to 3,42: This string is not allowed to have variables.]`;
+
+exports[`stringandtext.scpl: inverted shortcut (test 0) 1`] = `
+"Text a
+SetVariable a
+GetVariable v:a
+If input=Equals value=b -> mv:If
+	Text b -> mv:Text
+	GetVariable mv:If
+	ShowResult \\"Error! This should never happen. \\\\(v:a) = \\\\(mv:Text).\\"
+Otherwise
+	Comment \\"Problem!\\"
+End"
+`;
+
+exports[`stringandtext.scpl: shortcut data (test 0) 1`] = `
+Array [
+  Object {
+    "WFWorkflowActions": Array [
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              1,
+              16,
+            ],
+            "start": Array [
+              1,
+              1,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
+        "WFWorkflowActionParameters": Object {
+          "WFTextActionText": "a",
+        },
+      },
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              1,
+              16,
+            ],
+            "start": Array [
+              1,
+              13,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.setvariable",
+        "WFWorkflowActionParameters": Object {
+          "WFVariableName": "a",
+        },
+      },
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              2,
+              8,
+            ],
+            "start": Array [
+              2,
+              5,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.getvariable",
+        "WFWorkflowActionParameters": Object {
+          "WFVariable": Object {
+            "Value": Object {
+              "Aggrandizements": Array [],
+              "Type": "Variable",
+              "VariableName": "a",
+            },
+            "WFSerializationType": "WFTextTokenAttachment",
+          },
+        },
+      },
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              2,
+              19,
+            ],
+            "start": Array [
+              2,
+              1,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+        "WFWorkflowActionParameters": Object {
+          "GroupingIdentifier": "<uuid1>",
+          "UUID": "<uuid2>",
+          "WFCondition": "Equals",
+          "WFConditionalActionString": "b",
+          "WFControlFlowMode": 0,
+        },
+      },
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              3,
+              66,
+            ],
+            "start": Array [
+              3,
+              58,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
+        "WFWorkflowActionParameters": Object {
+          "UUID": "<uuid3>",
+          "WFTextActionText": "b",
+        },
+      },
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              2,
+              19,
+            ],
+            "start": Array [
+              2,
+              1,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.getvariable",
+        "WFWorkflowActionParameters": Object {
+          "WFVariable": Object {
+            "Value": Object {
+              "Aggrandizements": Array [],
+              "OutputName": "If",
+              "OutputUUID": "<uuid2>",
+              "Type": "ActionOutput",
+            },
+            "WFSerializationType": "WFTextTokenAttachment",
+          },
+        },
+      },
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              3,
+              69,
+            ],
+            "start": Array [
+              3,
+              2,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.showresult",
+        "WFWorkflowActionParameters": Object {
+          "Text": Object {
+            "Value": Object {
+              "attachmentsByRange": Object {
+                "{33, 1}": Object {
+                  "Aggrandizements": Array [],
+                  "Type": "Variable",
+                  "VariableName": "a",
+                },
+                "{37, 1}": Object {
+                  "Aggrandizements": Array [],
+                  "OutputName": "Text",
+                  "OutputUUID": "<uuid3>",
+                  "Type": "ActionOutput",
+                },
+              },
+              "string": "Error! This should never happen. [attachment] = [attachment].",
+            },
+            "WFSerializationType": "WFTextTokenString",
+          },
+        },
+      },
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              4,
+              10,
+            ],
+            "start": Array [
+              4,
+              1,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+        "WFWorkflowActionParameters": Object {
+          "GroupingIdentifier": "<uuid1>",
+          "WFControlFlowMode": 1,
+        },
+      },
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              5,
+              20,
+            ],
+            "start": Array [
+              5,
+              2,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.comment",
+        "WFWorkflowActionParameters": Object {
+          "WFCommentActionText": "Problem!",
+        },
+      },
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              6,
+              4,
+            ],
+            "start": Array [
+              6,
+              1,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+        "WFWorkflowActionParameters": Object {
+          "GroupingIdentifier": "<uuid1>",
+          "WFControlFlowMode": 2,
+        },
+      },
+    ],
+    "WFWorkflowClientRelese": "2.1.2",
+    "WFWorkflowClientVersion": "754",
+    "WFWorkflowIcon": Object {
+      "WFWorkflowIconGlyphNumber": 59511,
+      "WFWorkflowIconImageData": Object {
+        "data": Array [],
+        "type": "Buffer",
+      },
+      "WFWorkflowIconStartColor": 2071128575,
+    },
+    "WFWorkflowInputContentItemClasses": Array [
+      "WFAppStoreAppContentItem",
+      "WFArticleContentItem",
+      "WFContactContentItem",
+      "WFDateContentItem",
+      "WFEmailAddressContentItem",
+      "WFGenericFileContentItem",
+      "WFImageContentItem",
+      "WFiTunesProductContentItem",
+      "WFLocationContentItem",
+      "WFDCMapsLinkContentItem",
+      "WFAVAssetContentItem",
+      "WFPDFContentItem",
+      "WFPhoneNumberContentItem",
+      "WFRichTextContentItem",
+      "WFSafariWebPageContentItem",
+      "WFStringContentItem",
+      "WFURLContentItem",
+    ],
+    "WFWorkflowMinimumClientVersion": 411,
+    "WFWorkflowTypes": Array [
+      "NCWidget",
+      "WatchKit",
+    ],
+  },
+]
+`;
+
+exports[`stringandtext.scpl: warnings (test 0) 1`] = `Array []`;

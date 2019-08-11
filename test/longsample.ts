@@ -1,5 +1,5 @@
 import { parse, inverse } from "../index";
-import {noUUID} from ".";
+import { noUUID } from ".";
 import * as fs from "fs";
 
 test("invert complete valid shortcut and ensure output is exact when compiled", () => {
