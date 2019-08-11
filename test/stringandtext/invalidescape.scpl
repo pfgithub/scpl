@@ -1,0 +1,6 @@
+Text "invalid \escape"
+
+@!ShouldEqual --------------------------------
+
+Output Error:
+[Error: Error from 1,16 to 1,17: Did you mean `\\`? The character `e` is not a valid escape sequence. See the docs page on string escapes for more info.]

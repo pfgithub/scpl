@@ -1,8 +1,16 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+Comment "Interpolation where \(text "one") isn't allowed"
 
-exports[`textaction.scpl (test 0): inverted shortcut 1`] = `"Text \\"my text\\""`;
+@!ShouldEqual --------------------------------
 
-exports[`textaction.scpl (test 0): shortcut data 1`] = `
+Output Warnings:
+Array [
+  [Error: Error from 1,32 to 1,42: This string is not allowed to have variables.],
+]
+
+Shortcut Full Inverted:
+Comment "Interpolation where  isn't allowed"
+
+Shortcut Full JSON:
 Array [
   Object {
     "WFWorkflowActions": Array [
@@ -11,7 +19,7 @@ Array [
           "Position": Object {
             "end": Array [
               1,
-              14,
+              58,
             ],
             "start": Array [
               1,
@@ -19,9 +27,9 @@ Array [
             ],
           },
         },
-        "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
+        "WFWorkflowActionIdentifier": "is.workflow.actions.comment",
         "WFWorkflowActionParameters": Object {
-          "WFTextActionText": "my text",
+          "WFCommentActionText": "Interpolation where  isn't allowed",
         },
       },
     ],
@@ -61,6 +69,3 @@ Array [
     ],
   },
 ]
-`;
-
-exports[`textaction.scpl (test 0): warnings 1`] = `Array []`;

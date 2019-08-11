@@ -1,19 +1,28 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+Text "a" -> v:a
+If ^v:a Equals "b"
+	ShowResult "Error! This should never happen. \(v:a) = \(Text "b")."
+Otherwise
+	Comment "Problem!"
+End
 
-exports[`stringandtext.scpl (test 0): inverted shortcut 1`] = `
-"Text a
+@!ShouldEqual --------------------------------
+
+Output Warnings:
+Array []
+
+Shortcut Full Inverted:
+Text a
 SetVariable a
 GetVariable v:a
 If input=Equals value=b -> mv:If
 	Text b -> mv:Text
 	GetVariable mv:If
-	ShowResult \\"Error! This should never happen. \\\\(v:a) = \\\\(mv:Text).\\"
+	ShowResult "Error! This should never happen. \(v:a) = \(mv:Text)."
 Otherwise
-	Comment \\"Problem!\\"
-End"
-`;
+	Comment "Problem!"
+End
 
-exports[`stringandtext.scpl (test 0): shortcut data 1`] = `
+Shortcut Full JSON:
 Array [
   Object {
     "WFWorkflowActions": Array [
@@ -274,77 +283,3 @@ Array [
     ],
   },
 ]
-`;
-
-exports[`stringandtext.scpl (test 0): warnings 1`] = `Array []`;
-
-exports[`stringandtext.scpl (test 1): error 1`] = `[Error: Error from 3,16 to 3,17: Did you mean \`\\\\\`? The character \`e\` is not a valid escape sequence. See the docs page on string escapes for more info.]`;
-
-exports[`stringandtext.scpl (test 2): inverted shortcut 1`] = `"Comment \\"Interpolation where  isn't allowed\\""`;
-
-exports[`stringandtext.scpl (test 2): shortcut data 1`] = `
-Array [
-  Object {
-    "WFWorkflowActions": Array [
-      Object {
-        "SCPLData": Object {
-          "Position": Object {
-            "end": Array [
-              3,
-              58,
-            ],
-            "start": Array [
-              3,
-              1,
-            ],
-          },
-        },
-        "WFWorkflowActionIdentifier": "is.workflow.actions.comment",
-        "WFWorkflowActionParameters": Object {
-          "WFCommentActionText": "Interpolation where  isn't allowed",
-        },
-      },
-    ],
-    "WFWorkflowClientRelese": "2.1.2",
-    "WFWorkflowClientVersion": "754",
-    "WFWorkflowIcon": Object {
-      "WFWorkflowIconGlyphNumber": 59511,
-      "WFWorkflowIconImageData": Object {
-        "data": Array [],
-        "type": "Buffer",
-      },
-      "WFWorkflowIconStartColor": 2071128575,
-    },
-    "WFWorkflowInputContentItemClasses": Array [
-      "WFAppStoreAppContentItem",
-      "WFArticleContentItem",
-      "WFContactContentItem",
-      "WFDateContentItem",
-      "WFEmailAddressContentItem",
-      "WFGenericFileContentItem",
-      "WFImageContentItem",
-      "WFiTunesProductContentItem",
-      "WFLocationContentItem",
-      "WFDCMapsLinkContentItem",
-      "WFAVAssetContentItem",
-      "WFPDFContentItem",
-      "WFPhoneNumberContentItem",
-      "WFRichTextContentItem",
-      "WFSafariWebPageContentItem",
-      "WFStringContentItem",
-      "WFURLContentItem",
-    ],
-    "WFWorkflowMinimumClientVersion": 411,
-    "WFWorkflowTypes": Array [
-      "NCWidget",
-      "WatchKit",
-    ],
-  },
-]
-`;
-
-exports[`stringandtext.scpl (test 2): warnings 1`] = `
-Array [
-  [Error: Error from 3,32 to 3,42: This string is not allowed to have variables.],
-]
-`;

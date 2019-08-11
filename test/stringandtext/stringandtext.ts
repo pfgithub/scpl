@@ -1,3 +1,3 @@
-import {runTest} from "../../testconfig/runtest";
+import { runTest } from "../../testconfig/runtest";
 
-runTest(`${__dirname}/stringandtext.scpl`);
+runTest(__dirname);

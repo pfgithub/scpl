@@ -1,7 +1,8 @@
 import * as fs from "fs";
 import * as path from "path";
+import * as prettyFormat from "pretty-format";
 
-import { parse, inverse, PositionedError } from "..";
+import { parse, inverse } from "..";
 
 export function noUUID(
 	obj: {},
@@ -38,45 +39,68 @@ export function noUUID(
 	);
 }
 
-export function runTest(filename: string) {
-	const inshortcutfull = fs.readFileSync(path.normalize(filename), "utf-8");
+export function runTest(dirname: string) {
+	const infiles = fs.readdirSync(dirname);
+	infiles.forEach(infile => {
+		if (!infile.endsWith(".scpl")) {
+			return;
+		}
+		test(infile, () => {
+			const infilepath = path.join(dirname, infile);
+			const contents = fs.readFileSync(infilepath, "utf-8");
+			const [shortcut, expected] = contents.split(
+				"\n\n@!ShouldEqual --------------------------------\n\n"
+			);
 
-	inshortcutfull.split("@!TestSplit").forEach((inshortcut, i) => {
-		test(path.basename(`${filename} (test ${i})`), () => {
-			let parseoutput;
+			const got = [];
+
+			let parseoutput: any;
 			try {
-				parseoutput = parse(inshortcut, {
+				parseoutput = parse(shortcut, {
 					make: ["shortcutjson"],
 					useWarnings: true
 				});
 			} catch (e) {
-				expect(e).toMatchSnapshot(`error`);
-				return;
+				got.push(`Output Error:\n${prettyFormat(e)}`);
 			}
-			const output = parseoutput.shortcutjson;
-			const warnings = parseoutput.warnings;
+			if (parseoutput) {
+				const output = parseoutput.shortcutjson;
+				const warnings = parseoutput.warnings;
 
-			expect(noUUID(output)).toMatchSnapshot(`shortcut data`);
+				got.push(`Output Warnings:\n${prettyFormat(warnings)}`);
 
-			expect(warnings).toMatchSnapshot(`warnings`);
+				// invert
+				const inverted = inverse(output);
 
-			// invert
-			const inverted = inverse(output);
+				got.push(`Shortcut Full Inverted:\n${inverted}`);
 
-			expect(inverted).toMatchSnapshot(`inverted shortcut`);
+				const reparsedoutput = parse(inverted, {
+					make: ["shortcutjson"],
+					useWarnings: true
+				});
+				const parsed = reparsedoutput.shortcutjson;
 
-			const reparsedoutput = parse(inverted, {
-				make: ["shortcutjson"],
-				useWarnings: true
-			});
-			const parsed = reparsedoutput.shortcutjson;
+				got.push(
+					`Shortcut Full JSON:\n${prettyFormat(noUUID(output))}`
+				);
 
-			expect(
-				noUUID(parsed, { noScPLData: true, ignoreOutputName: true })
-			).toStrictEqual(
-				noUUID(output, { noScPLData: true, ignoreOutputName: true })
-			); // should be same as first
-			expect(warnings).toStrictEqual(reparsedoutput.warnings);
+				expect(
+					noUUID(parsed, { noScPLData: true, ignoreOutputName: true })
+				).toStrictEqual(
+					noUUID(output, { noScPLData: true, ignoreOutputName: true })
+				); // should be same as first
+			}
+			const gotString = got.join("\n\n");
+
+			if (!expected || !expected.trim()) {
+				fs.writeFileSync(
+					infilepath,
+					`${contents}\n\n@!ShouldEqual --------------------------------\n\n${gotString}`,
+					"utf-8"
+				);
+			}
+
+			expect(expected).toEqual(gotString);
 		});
 	});
 }
