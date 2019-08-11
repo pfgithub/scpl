@@ -44,7 +44,7 @@
 		],
 		"testPathIgnorePatterns": [
 			"/node_modules/",
-			"/built/"
+			"/built"
 		]
 	},
 	"dependencies": {

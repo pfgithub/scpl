@@ -1,0 +1,7 @@
+If :filter{a is b}
+End
+
+@!ShouldEqual --------------------------------
+
+Output Error:
+[Error: Error from 1,4 to 1,19: Enumeration fields only accept strings and variables.]

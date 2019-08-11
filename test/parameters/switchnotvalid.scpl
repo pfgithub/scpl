@@ -1,0 +1,6 @@
+SetWifi :filter{this "Is Not" valid}
+
+@!ShouldEqual --------------------------------
+
+Output Error:
+[Error: Error from 1,9 to 1,37: Toggle switch fields only accept booleans (true/false) and variables.]

@@ -1,0 +1,7 @@
+if s:clipboard Equals "hi"
+end
+
+@!ShouldEqual --------------------------------
+
+Output Error:
+[Error: Error from 1,4 to 1,15: This enum field does not accept variables.]

@@ -1,0 +1,7 @@
+Repeat -1
+End
+
+@!ShouldEqual --------------------------------
+
+Output Error:
+[Error: Error from 1,8 to 1,10: Stepper fields only accept positive integer numbers.]

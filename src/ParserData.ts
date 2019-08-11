@@ -1092,16 +1092,16 @@ export class VariableParse extends Parse
 	implements AsStringVariable, AsNameType, AsText, AsVariable, AsAction {
 	type: AsAble;
 	name: AsAble;
-	forkey: AsAble;
-	options: AsAble;
+	forkey?: AsAble;
+	options?: AsAble;
 
 	constructor(
 		start: Position,
 		end: Position,
 		type: AsAble,
 		name: AsAble,
-		forkey: AsAble,
-		options: AsAble
+		forkey?: AsAble,
+		options?: AsAble
 	) {
 		super(start, end);
 		this.type = type;
@@ -1113,20 +1113,7 @@ export class VariableParse extends Parse
 		return true;
 	}
 	asStringVariable(cc: ConvertingContext) {
-		if (!this.name.canBeString(cc)) {
-			throw this.name.error(
-				cc,
-				"This variable must have a string name with no variables."
-			);
-		}
-		if (!this.type.canBeString(cc)) {
-			throw this.type.error(
-				cc,
-				"This variable must have a string type with no variables."
-			);
-		}
-		const name = this.name.asString(cc);
-		const type = this.type.asString(cc);
+		const { name, type } = this.asNameType(cc);
 
 		if (type !== "v") {
 			throw this.type.error(
@@ -1134,12 +1121,31 @@ export class VariableParse extends Parse
 				`This variable must be a v:named variable.`
 			);
 		}
+
 		return name;
 	}
 	canBeNameType(_cc: ConvertingContext): true {
 		return true;
 	}
 	asNameType(cc: ConvertingContext) {
+		if (this.forkey) {
+			cc.warn(
+				this.forkey.error(
+					cc,
+					"This variable cannot have aggrandizements"
+				)
+			);
+		}
+
+		if (this.options) {
+			cc.warn(
+				this.options.error(
+					cc,
+					"This variable cannot have aggrandizements"
+				)
+			);
+		}
+
 		if (!this.name.canBeString(cc)) {
 			throw this.name.error(
 				cc,

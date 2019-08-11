@@ -1,0 +1,7 @@
+If "Might Be" 5
+End
+
+@!ShouldEqual --------------------------------
+
+Output Error:
+[Error: Error from 1,4 to 1,14: This enumeration field must be one of the following: `Equals`, `Contains`, `Is Greater Than`, `Is Less Than`]

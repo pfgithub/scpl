@@ -1,0 +1,6 @@
+EmailAddress :filter{Name is Nothing}
+
+@!ShouldEqual --------------------------------
+
+Output Error:
+[Error: Error from 1,14 to 1,38: Email adress fields only accept variables, lists without variables, and strings without variables.]
