@@ -1,12 +1,9 @@
 import { Action, Shortcut } from "../src/OutputData";
 import { parse, inverse } from "../index";
-import * as fs from "fs";
 import { ConvertingContext } from "../src/Converter";
 import { InverseConvertingContext } from "../src/InverseConvertingContext";
 // import * as path from "path";
 import { PositionedError } from "../src/PositionedError";
-
-import * as sampleshortcutdata from "./sampleshortcut.json";
 
 function err(cb: () => void) {
 	let msg = "No error thrown.";
@@ -32,7 +29,7 @@ function scplToShortcut(scpl: string, useWarnings?: boolean) {
 	return noUUID(actions, { noSCPLData: true });
 }
 
-function noUUID(
+export function noUUID(
 	obj: any,
 	options: { noSCPLData?: boolean; ignoreOutputName?: boolean } = {}
 ) {
@@ -249,30 +246,6 @@ test("invert unsupported fields", () => {
 		)
 	).toEqual(
 		"EmailAddress ??error: This parameter is an error: Inversion for this parameter type WFContactFieldValue is not implemented yet??"
-	);
-});
-test("invert complete valid shortcut and ensure output is exact when compiled", () => {
-	// generate sample data
-	const output = parse(
-		fs.readFileSync(`./test/sampleshortcut.scpl`, "utf8"),
-		{ makePlist: false }
-	);
-	const scdata = output.build();
-	// invert
-	const inverted = inverse(scdata);
-	fs.writeFileSync("./test/sampleshortcut-converted.scpl", inverted, "utf8");
-	const parsed = parse(inverted, { make: ["shortcutjson"] }).shortcutjson;
-	// compare
-	expect(
-		noUUID(sampleshortcutdata[0].WFWorkflowActions, {
-			noSCPLData: true,
-			ignoreOutputName: true
-		})
-	).toEqual(
-		noUUID(parsed[0].WFWorkflowActions, {
-			noSCPLData: true,
-			ignoreOutputName: true
-		})
 	);
 });
 
@@ -639,20 +612,6 @@ test("inputarg with variables without parenthesis", () => {
 			}
 		}
 	]);
-});
-
-test("long shortcut", () => {
-	const output = parse(
-		fs.readFileSync(`./test/sampleshortcut.scpl`, "utf8"),
-		{ makePlist: false }
-	);
-	const [scdata] = output.build();
-	// fs.writeFileSync(
-	// 	"./test/sampleshortcut.json",
-	// 	JSON.stringify(noUUID([scdata]), null, "\t"),
-	// 	"utf8"
-	// );
-	expect(noUUID([scdata])).toEqual(sampleshortcutdata);
 });
 
 test("foreach macro", () => {
