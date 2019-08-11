@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`textaction.scpl: inverted shortcut (test 0) 1`] = `"Text \\"my text\\""`;
+exports[`textaction.scpl (test 0): inverted shortcut 1`] = `"Text \\"my text\\""`;
 
-exports[`textaction.scpl: shortcut data (test 0) 1`] = `
+exports[`textaction.scpl (test 0): shortcut data 1`] = `
 Array [
   Object {
     "WFWorkflowActions": Array [
@@ -63,4 +63,4 @@ Array [
 ]
 `;
 
-exports[`textaction.scpl: warnings (test 0) 1`] = `Array []`;
+exports[`textaction.scpl (test 0): warnings 1`] = `Array []`;

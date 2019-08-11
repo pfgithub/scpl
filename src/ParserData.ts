@@ -835,9 +835,8 @@ export class CharsParse extends Parse implements AsString, AsText, AsNumber {
 					return;
 				}
 			}
-			throw item.error(
-				cc,
-				`This string is not allowed to have variables.`
+			cc.warn(
+				item.error(cc, `This string is not allowed to have variables.`)
 			);
 		});
 		return string;

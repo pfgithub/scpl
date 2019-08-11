@@ -39,13 +39,10 @@ export function noUUID(
 }
 
 export function runTest(filename: string) {
-	test(path.basename(filename), () => {
-		const inshortcutfull = fs.readFileSync(
-			path.normalize(filename),
-			"utf-8"
-		);
+	const inshortcutfull = fs.readFileSync(path.normalize(filename), "utf-8");
 
-		inshortcutfull.split("@!TestSplit").forEach((inshortcut, i) => {
+	inshortcutfull.split("@!TestSplit").forEach((inshortcut, i) => {
+		test(path.basename(`${filename} (test ${i})`), () => {
 			let parseoutput;
 			try {
 				parseoutput = parse(inshortcut, {
@@ -53,20 +50,20 @@ export function runTest(filename: string) {
 					useWarnings: true
 				});
 			} catch (e) {
-				expect(e).toMatchSnapshot(`error (test ${i})`);
+				expect(e).toMatchSnapshot(`error`);
 				return;
 			}
 			const output = parseoutput.shortcutjson;
 			const warnings = parseoutput.warnings;
 
-			expect(noUUID(output)).toMatchSnapshot(`shortcut data (test ${i})`);
+			expect(noUUID(output)).toMatchSnapshot(`shortcut data`);
 
-			expect(warnings).toMatchSnapshot(`warnings (test ${i})`);
+			expect(warnings).toMatchSnapshot(`warnings`);
 
 			// invert
 			const inverted = inverse(output);
 
-			expect(inverted).toMatchSnapshot(`inverted shortcut (test ${i})`);
+			expect(inverted).toMatchSnapshot(`inverted shortcut`);
 
 			const reparsedoutput = parse(inverted, {
 				make: ["shortcutjson"],
