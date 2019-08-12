@@ -18,7 +18,7 @@ export {
 export function parse(
 	string: string,
 	options: {
-		make?: ["shortcutjson"?, "shortcutplist"?, "outputdata"?];
+		make?: ("shortcutjson" | "shortcutplist" | "outputdata")[];
 		useWarnings?: boolean;
 
 		// --- don't use unless necessary: ---
