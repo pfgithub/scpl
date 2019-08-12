@@ -425,9 +425,9 @@ export class InverseConvertingContext {
 	}
 	createRawAble(val: {}) {
 		const indentLevel = this._indentLevel;
-		return `:raw${JSON.stringify(val, null, "\t")
+		return `:raw${JSON.stringify(val, null, this.indent)
 			.split("\n")
-			.map((q, i) => (i === 0 ? q : " ".repeat(indentLevel) + q))
+			.map((q, i) => (i === 0 ? q : this.indent.repeat(indentLevel) + q))
 			.join("\n")}`;
 	}
 	quoteAndEscape(val: string): string {
