@@ -1,0 +1,226 @@
+@ForEach [1, 2, 3] @{
+	Text "Number \(@:repeatitem)"
+	@ForEach [A, B] @{
+		Text "Part \(@:repeatitem)"
+	}
+}
+
+@!ShouldEqual --------------------------------
+
+Output Warnings:
+Array []
+
+Shortcut Full Inverted:
+Text "Number 1"
+Text "Part A"
+Text "Part B"
+Text "Number 2"
+Text "Part A"
+Text "Part B"
+Text "Number 3"
+Text "Part A"
+Text "Part B"
+
+Shortcut Full JSON:
+Array [
+  Object {
+    "WFWorkflowActions": Array [
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              2,
+              31,
+            ],
+            "start": Array [
+              2,
+              2,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
+        "WFWorkflowActionParameters": Object {
+          "WFTextActionText": "Number 1",
+        },
+      },
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              4,
+              30,
+            ],
+            "start": Array [
+              4,
+              3,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
+        "WFWorkflowActionParameters": Object {
+          "WFTextActionText": "Part A",
+        },
+      },
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              4,
+              30,
+            ],
+            "start": Array [
+              4,
+              3,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
+        "WFWorkflowActionParameters": Object {
+          "WFTextActionText": "Part B",
+        },
+      },
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              2,
+              31,
+            ],
+            "start": Array [
+              2,
+              2,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
+        "WFWorkflowActionParameters": Object {
+          "WFTextActionText": "Number 2",
+        },
+      },
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              4,
+              30,
+            ],
+            "start": Array [
+              4,
+              3,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
+        "WFWorkflowActionParameters": Object {
+          "WFTextActionText": "Part A",
+        },
+      },
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              4,
+              30,
+            ],
+            "start": Array [
+              4,
+              3,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
+        "WFWorkflowActionParameters": Object {
+          "WFTextActionText": "Part B",
+        },
+      },
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              2,
+              31,
+            ],
+            "start": Array [
+              2,
+              2,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
+        "WFWorkflowActionParameters": Object {
+          "WFTextActionText": "Number 3",
+        },
+      },
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              4,
+              30,
+            ],
+            "start": Array [
+              4,
+              3,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
+        "WFWorkflowActionParameters": Object {
+          "WFTextActionText": "Part A",
+        },
+      },
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              4,
+              30,
+            ],
+            "start": Array [
+              4,
+              3,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
+        "WFWorkflowActionParameters": Object {
+          "WFTextActionText": "Part B",
+        },
+      },
+    ],
+    "WFWorkflowClientRelese": "2.1.2",
+    "WFWorkflowClientVersion": "754",
+    "WFWorkflowIcon": Object {
+      "WFWorkflowIconGlyphNumber": 59511,
+      "WFWorkflowIconImageData": Object {
+        "data": Array [],
+        "type": "Buffer",
+      },
+      "WFWorkflowIconStartColor": 2071128575,
+    },
+    "WFWorkflowInputContentItemClasses": Array [
+      "WFAppStoreAppContentItem",
+      "WFArticleContentItem",
+      "WFContactContentItem",
+      "WFDateContentItem",
+      "WFEmailAddressContentItem",
+      "WFGenericFileContentItem",
+      "WFImageContentItem",
+      "WFiTunesProductContentItem",
+      "WFLocationContentItem",
+      "WFDCMapsLinkContentItem",
+      "WFAVAssetContentItem",
+      "WFPDFContentItem",
+      "WFPhoneNumberContentItem",
+      "WFRichTextContentItem",
+      "WFSafariWebPageContentItem",
+      "WFStringContentItem",
+      "WFURLContentItem",
+    ],
+    "WFWorkflowMinimumClientVersion": 411,
+    "WFWorkflowTypes": Array [
+      "NCWidget",
+      "WatchKit",
+    ],
+  },
+]

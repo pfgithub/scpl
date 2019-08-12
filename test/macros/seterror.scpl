@@ -1,0 +1,57 @@
+@Set missingvalue
+@Set value="missing name"
+@Set // missing both
+@Set :filter{name "Is Not" string} "Value"
+
+@!ShouldEqual --------------------------------
+
+Output Warnings:
+Array [
+  [Error: Error from 1,1 to 1,18: @set must have a name argument and a value argument.],
+  [Error: Error from 2,1 to 2,26: @set must have a name argument and a value argument.],
+  [Error: Error from 3,1 to 3,21: @set must have a name argument and a value argument.],
+  [Error: Error from 4,6 to 4,35: Must be string or preprocessorvariable, forex: @:myvar or 'myvar'],
+]
+
+Because there were warnings, no inversion test will be run!!
+
+Shortcut Full JSON:
+Array [
+  Object {
+    "WFWorkflowActions": Array [],
+    "WFWorkflowClientRelese": "2.1.2",
+    "WFWorkflowClientVersion": "754",
+    "WFWorkflowIcon": Object {
+      "WFWorkflowIconGlyphNumber": 59511,
+      "WFWorkflowIconImageData": Object {
+        "data": Array [],
+        "type": "Buffer",
+      },
+      "WFWorkflowIconStartColor": 2071128575,
+    },
+    "WFWorkflowInputContentItemClasses": Array [
+      "WFAppStoreAppContentItem",
+      "WFArticleContentItem",
+      "WFContactContentItem",
+      "WFDateContentItem",
+      "WFEmailAddressContentItem",
+      "WFGenericFileContentItem",
+      "WFImageContentItem",
+      "WFiTunesProductContentItem",
+      "WFLocationContentItem",
+      "WFDCMapsLinkContentItem",
+      "WFAVAssetContentItem",
+      "WFPDFContentItem",
+      "WFPhoneNumberContentItem",
+      "WFRichTextContentItem",
+      "WFSafariWebPageContentItem",
+      "WFStringContentItem",
+      "WFURLContentItem",
+    ],
+    "WFWorkflowMinimumClientVersion": 411,
+    "WFWorkflowTypes": Array [
+      "NCWidget",
+      "WatchKit",
+    ],
+  },
+]

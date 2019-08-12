@@ -68,6 +68,10 @@ export class InverseConvertingContext {
 		if (value.glyph) {
 			res.unshift(`@Icon ${inverseGlyphs[value.glyph]}`);
 		}
+		if (!value.showInWidget) {
+			// default is true
+			res.unshift(`@ShowInWidget ${value.showInWidget}`);
+		}
 		return res.join("\n");
 	}
 	createActionAble(value: Action) {

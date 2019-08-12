@@ -1,0 +1,55 @@
+@error "Whoops, there was an error"
+@error // Missing error argument
+@error :filter{not a string}
+
+@!ShouldEqual --------------------------------
+
+Output Warnings:
+Array [
+  [Error: Error from 1,1 to 1,36: Whoops, there was an error],
+  [Error: Error from 2,1 to 2,33: @error must have one argument, the error. Forex: @error 'error message'],
+  [Error: Error from 3,8 to 3,29: Message must be a string],
+]
+
+Because there were warnings, no inversion test will be run!!
+
+Shortcut Full JSON:
+Array [
+  Object {
+    "WFWorkflowActions": Array [],
+    "WFWorkflowClientRelese": "2.1.2",
+    "WFWorkflowClientVersion": "754",
+    "WFWorkflowIcon": Object {
+      "WFWorkflowIconGlyphNumber": 59511,
+      "WFWorkflowIconImageData": Object {
+        "data": Array [],
+        "type": "Buffer",
+      },
+      "WFWorkflowIconStartColor": 2071128575,
+    },
+    "WFWorkflowInputContentItemClasses": Array [
+      "WFAppStoreAppContentItem",
+      "WFArticleContentItem",
+      "WFContactContentItem",
+      "WFDateContentItem",
+      "WFEmailAddressContentItem",
+      "WFGenericFileContentItem",
+      "WFImageContentItem",
+      "WFiTunesProductContentItem",
+      "WFLocationContentItem",
+      "WFDCMapsLinkContentItem",
+      "WFAVAssetContentItem",
+      "WFPDFContentItem",
+      "WFPhoneNumberContentItem",
+      "WFRichTextContentItem",
+      "WFSafariWebPageContentItem",
+      "WFStringContentItem",
+      "WFURLContentItem",
+    ],
+    "WFWorkflowMinimumClientVersion": 411,
+    "WFWorkflowTypes": Array [
+      "NCWidget",
+      "WatchKit",
+    ],
+  },
+]

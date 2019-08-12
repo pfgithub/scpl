@@ -49,7 +49,7 @@ const preprocessorActions: {
 			);
 		}
 		// sets a variable with name name to value value
-		let name: string | undefined;
+		let name;
 		if (!namea.canBePreprocessorVariableName(cc)) {
 			if (!namea.canBeString(cc)) {
 				throw namea.error(
@@ -61,9 +61,6 @@ const preprocessorActions: {
 			}
 		} else {
 			name = namea.asPreprocessorVariableName(cc);
-		}
-		if (!name) {
-			throw namea.error(cc, "This should never happen.");
 		}
 		cc.setParserVariable(name, value);
 	},
@@ -226,6 +223,8 @@ const preprocessorActions: {
 		if (!ifAction) {
 			throw this.error(cc, "The @elseif macro requires an if.");
 		}
+		// this should never happen shouldn't be testable
+		/* istanbul ignore if */
 		if (!ifAction[ifAction.length - 1]) {
 			throw this.error(
 				cc,
@@ -247,6 +246,8 @@ const preprocessorActions: {
 		cc.add(otherwiseAction);
 		// create if action
 		const newIfAction = getActionFromID("is.workflow.actions.conditional");
+		// this should never happen shouldn't be testable
+		/* istanbul ignore if */
 		if (!newIfAction) {
 			throw this.error(
 				cc,
@@ -255,6 +256,8 @@ const preprocessorActions: {
 		}
 		newIfAction.build(cc, this, undefined, ...args);
 		const added = cc.endControlFlow();
+		// this should never happen shouldn't be testable
+		/* istanbul ignore if */
 		if (!added) {
 			throw this.error(
 				cc,

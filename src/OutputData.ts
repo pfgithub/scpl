@@ -1442,6 +1442,10 @@ export class Shortcut {
 				shortcut.color = undefined;
 			}
 		}
+		const workflowTypes = data[0].WFWorkflowTypes;
+		if (workflowTypes) {
+			shortcut.showInWidget = workflowTypes.indexOf("NCWidget") > -1;
+		}
 		return shortcut;
 	}
 	build(): WFShortcut {

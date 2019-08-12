@@ -1,0 +1,59 @@
+@ForEach :filter{is not list} @{}
+@ForEach [1, 2] :filter{is not action}
+@ForEach method=@{} // Missing List
+@ForEach list=[] // Missing Method
+@ForEach // Missing Both
+
+@!ShouldEqual --------------------------------
+
+Output Warnings:
+Array [
+  [Error: Error from 1,10 to 1,30: List must be a list.],
+  [Error: Error from 2,17 to 2,39: Method must be action, for example `@{Text "\(@:repeatitem)"}`],
+  [Error: Error from 3,1 to 3,36: @foreach must have a list argument and a method argument.],
+  [Error: Error from 4,1 to 4,35: @foreach must have a list argument and a method argument.],
+  [Error: Error from 5,1 to 5,25: @foreach must have a list argument and a method argument.],
+]
+
+Because there were warnings, no inversion test will be run!!
+
+Shortcut Full JSON:
+Array [
+  Object {
+    "WFWorkflowActions": Array [],
+    "WFWorkflowClientRelese": "2.1.2",
+    "WFWorkflowClientVersion": "754",
+    "WFWorkflowIcon": Object {
+      "WFWorkflowIconGlyphNumber": 59511,
+      "WFWorkflowIconImageData": Object {
+        "data": Array [],
+        "type": "Buffer",
+      },
+      "WFWorkflowIconStartColor": 2071128575,
+    },
+    "WFWorkflowInputContentItemClasses": Array [
+      "WFAppStoreAppContentItem",
+      "WFArticleContentItem",
+      "WFContactContentItem",
+      "WFDateContentItem",
+      "WFEmailAddressContentItem",
+      "WFGenericFileContentItem",
+      "WFImageContentItem",
+      "WFiTunesProductContentItem",
+      "WFLocationContentItem",
+      "WFDCMapsLinkContentItem",
+      "WFAVAssetContentItem",
+      "WFPDFContentItem",
+      "WFPhoneNumberContentItem",
+      "WFRichTextContentItem",
+      "WFSafariWebPageContentItem",
+      "WFStringContentItem",
+      "WFURLContentItem",
+    ],
+    "WFWorkflowMinimumClientVersion": 411,
+    "WFWorkflowTypes": Array [
+      "NCWidget",
+      "WatchKit",
+    ],
+  },
+]
