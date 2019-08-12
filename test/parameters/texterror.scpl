@@ -1,0 +1,140 @@
+Comment "Comments do not contain variable\(s:clipboard)"
+ChooseFromMenu "Some texts do not allow \newlines"
+ChooseFromMenu `Even in
+backtick strings`
+@Set parservariableswithnewlines "\n"
+ChooseFromMenu "Even \(@:parservariableswithnewlines)"
+Text "Invalid escape sequences \ha\ve nice errors"
+End
+End
+End
+
+@!ShouldEqual --------------------------------
+
+Output Warnings:
+Array [
+  [Error: Error from 1,44 to 1,55: This string is not allowed to have variables.],
+  [Error: Error from 2,16 to 2,51: Newlines are not allowed in this text field. Use a variable with a newline instead.],
+  [Error: Error from 3,16 to 4,25: Newlines are not allowed in this text field. Use a variable with a newline instead.],
+  [Error: Error from 6,16 to 6,55: Newlines are not allowed in this text field. Use a variable with a newline instead.],
+  [Error: Error from 7,33 to 7,34: String interpolations can only contain variables.],
+]
+
+Because there were warnings, no inversion test will be run!!
+
+Shortcut Full JSON:
+Array [
+  Object {
+    "WFWorkflowActions": Array [
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              1,
+              57,
+            ],
+            "start": Array [
+              1,
+              1,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.comment",
+        "WFWorkflowActionParameters": Object {
+          "WFCommentActionText": "Comments do not contain variable[Variable]",
+        },
+      },
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              8,
+              4,
+            ],
+            "start": Array [
+              8,
+              1,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.choosefrommenu",
+        "WFWorkflowActionParameters": Object {
+          "GroupingIdentifier": "<uuid1>",
+          "WFControlFlowMode": 2,
+        },
+      },
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              9,
+              4,
+            ],
+            "start": Array [
+              9,
+              1,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.choosefrommenu",
+        "WFWorkflowActionParameters": Object {
+          "GroupingIdentifier": "<uuid2>",
+          "WFControlFlowMode": 2,
+        },
+      },
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              10,
+              4,
+            ],
+            "start": Array [
+              10,
+              1,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.choosefrommenu",
+        "WFWorkflowActionParameters": Object {
+          "GroupingIdentifier": "<uuid3>",
+          "WFControlFlowMode": 2,
+        },
+      },
+    ],
+    "WFWorkflowClientRelese": "2.1.2",
+    "WFWorkflowClientVersion": "754",
+    "WFWorkflowIcon": Object {
+      "WFWorkflowIconGlyphNumber": 59511,
+      "WFWorkflowIconImageData": Object {
+        "data": Array [],
+        "type": "Buffer",
+      },
+      "WFWorkflowIconStartColor": 2071128575,
+    },
+    "WFWorkflowInputContentItemClasses": Array [
+      "WFAppStoreAppContentItem",
+      "WFArticleContentItem",
+      "WFContactContentItem",
+      "WFDateContentItem",
+      "WFEmailAddressContentItem",
+      "WFGenericFileContentItem",
+      "WFImageContentItem",
+      "WFiTunesProductContentItem",
+      "WFLocationContentItem",
+      "WFDCMapsLinkContentItem",
+      "WFAVAssetContentItem",
+      "WFPDFContentItem",
+      "WFPhoneNumberContentItem",
+      "WFRichTextContentItem",
+      "WFSafariWebPageContentItem",
+      "WFStringContentItem",
+      "WFURLContentItem",
+    ],
+    "WFWorkflowMinimumClientVersion": 411,
+    "WFWorkflowTypes": Array [
+      "NCWidget",
+      "WatchKit",
+    ],
+  },
+]

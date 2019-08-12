@@ -1489,30 +1489,6 @@ _\\n_\`
 	]);
 });
 
-test("nicer escape sequence errors", () => {
-	expect(
-		err(() =>
-			scplToShortcut(`
-			text "oh no I seem to think that my \\q needs escaping. This is so sad, Alexa play Ddespacito."
-			`)
-		)
-	).toEqual(
-		"Error: Error from 2,41 to 2,42: Did you mean `\\\\`? The character `q` is not a valid escape sequence. See the docs page on string escapes for more info."
-	);
-});
-
-test("macros without the correct number of arguments", () => {
-	expect(
-		err(() =>
-			scplToShortcut(`
-			@set version 12.5.2
-			`)
-		)
-	).toEqual(
-		"Error: Warning from 2,21 to 2,23: This action does not have any more arguments. Arguments are: name, value"
-	);
-});
-
 test("warnings", () => {
 	expect(
 		scplToShortcut(

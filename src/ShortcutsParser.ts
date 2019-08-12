@@ -19,17 +19,7 @@ import {
 	RawParse
 } from "./ParserData";
 
-import {
-	p,
-	regex,
-	star,
-	plus,
-	optional,
-	or,
-	c,
-	o,
-	error
-} from "./ParserHelper";
+import { p, regex, star, plus, optional, or, c, o } from "./ParserHelper";
 
 o.identifier = regex(/^[A-Za-z@_][A-Za-z0-9@_]*/).scb(
 	([fullmatch], start, end) => new IdentifierParse(start, end, fullmatch)
@@ -76,10 +66,13 @@ o.escape = p(
 		c`\\`,
 		c`”`,
 		c`n`.scb(_ => "\n"),
-		error(
-			regex(/.?/),
-			v =>
-				`Did you mean \`\\\\\`? The character \`${v[0]}\` is not a valid escape sequence. See the docs page on string escapes for more info.`
+		regex(/.?/).scb(
+			(v, start, end) =>
+				new ErrorParse(
+					start,
+					end,
+					`Did you mean \`\\\\\`? The character \`${v[0]}\` is not a valid escape sequence. See the docs page on string escapes for more info.`
+				)
 		)
 	)
 ).scb(([, val]) => val);

@@ -28,7 +28,7 @@ Array [
         },
         "WFWorkflowActionIdentifier": "is.workflow.actions.comment",
         "WFWorkflowActionParameters": Object {
-          "WFCommentActionText": "Interpolation where  isn't allowed",
+          "WFCommentActionText": "Interpolation where [Variable] isn't allowed",
         },
       },
     ],

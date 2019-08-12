@@ -867,10 +867,11 @@ export class BarlistParse extends ListParse implements AsText, AsString {
 		return this.items
 			.map(item => {
 				if (!item.canBeString(cc)) {
-					throw item.error(
+					item.warn(
 						cc,
 						"This barlist can only contain strings with no variables."
 					);
+					return "[variable]";
 				}
 				return item.asString(cc);
 			})
@@ -924,9 +925,8 @@ export class CharsParse extends Parse implements AsString, AsText, AsNumber {
 					return;
 				}
 			}
-			cc.warn(
-				item.error(cc, `This string is not allowed to have variables.`)
-			);
+			item.warn(cc, `This string is not allowed to have variables.`);
+			string += "[Variable]";
 		});
 		return string;
 	}
