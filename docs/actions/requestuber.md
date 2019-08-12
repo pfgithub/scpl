@@ -41,11 +41,19 @@ or a variable.
 
 ---
 
-#### This paramtype is not implemented. WFUberProductPickerParameter
+#### This parameter is not implemented yet.
+
+The parameter type is WFUberProductPickerParameter. If you need to use this parameter, you may
+be able to use a raw value. Try converting a .shortcut to a .scpl containing
+the values you want in this parameter.
 
 ---
 
-#### This paramtype is not implemented. WFUberSeatCountPickerParameter
+#### This parameter is not implemented yet.
+
+The parameter type is WFUberSeatCountPickerParameter. If you need to use this parameter, you may
+be able to use a raw value. Try converting a .shortcut to a .scpl containing
+the values you want in this parameter.
 
 ---
 

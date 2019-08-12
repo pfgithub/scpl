@@ -22,35 +22,67 @@ LogHealthSample undefined=NotImplemented undefined=NotImplemented undefined=NotI
 
 ---
 
-#### This paramtype is not implemented. WFQuantityTypePickerParameter
+#### This parameter is not implemented yet.
+
+The parameter type is WFQuantityTypePickerParameter. If you need to use this parameter, you may
+be able to use a raw value. Try converting a .shortcut to a .scpl containing
+the values you want in this parameter.
 
 ---
 
-#### This paramtype is not implemented. WFHealthQuantityFieldParameter
+#### This parameter is not implemented yet.
+
+The parameter type is WFHealthQuantityFieldParameter. If you need to use this parameter, you may
+be able to use a raw value. Try converting a .shortcut to a .scpl containing
+the values you want in this parameter.
 
 ---
 
-#### This paramtype is not implemented. WFHealthQuantityAdditionalFieldParameter
+#### This parameter is not implemented yet.
+
+The parameter type is WFHealthQuantityAdditionalFieldParameter. If you need to use this parameter, you may
+be able to use a raw value. Try converting a .shortcut to a .scpl containing
+the values you want in this parameter.
 
 ---
 
-#### This paramtype is not implemented. WFHealthQuantityAdditionalPickerParameter
+#### This parameter is not implemented yet.
+
+The parameter type is WFHealthQuantityAdditionalPickerParameter. If you need to use this parameter, you may
+be able to use a raw value. Try converting a .shortcut to a .scpl containing
+the values you want in this parameter.
 
 ---
 
-#### This paramtype is not implemented. WFHealthCategoryPickerParameter
+#### This parameter is not implemented yet.
+
+The parameter type is WFHealthCategoryPickerParameter. If you need to use this parameter, you may
+be able to use a raw value. Try converting a .shortcut to a .scpl containing
+the values you want in this parameter.
 
 ---
 
-#### This paramtype is not implemented. WFHealthCategoryAdditionalPickerParameter
+#### This parameter is not implemented yet.
+
+The parameter type is WFHealthCategoryAdditionalPickerParameter. If you need to use this parameter, you may
+be able to use a raw value. Try converting a .shortcut to a .scpl containing
+the values you want in this parameter.
 
 ---
 
-#### This paramtype is not implemented. WFHealthCategoryStartDateFieldParameter
+#### This parameter is not implemented yet.
+
+The parameter type is WFHealthCategoryStartDateFieldParameter. If you need to use this parameter, you may
+be able to use a raw value. Try converting a .shortcut to a .scpl containing
+the values you want in this parameter.
 
 ---
 
-#### This paramtype is not implemented. WFHealthCategoryEndDateFieldParameter
+#### This parameter is not implemented yet.
+
+The parameter type is WFHealthCategoryEndDateFieldParameter. If you need to use this parameter, you may
+be able to use a raw value. Try converting a .shortcut to a .scpl containing
+the values you want in this parameter.
 
 ---
 

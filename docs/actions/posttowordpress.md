@@ -79,11 +79,19 @@ with the text. Does not allow newlines.
 
 ---
 
-#### This paramtype is not implemented. WFDynamicTagFieldParameter
+#### This parameter is not implemented yet.
+
+The parameter type is WFDynamicTagFieldParameter. If you need to use this parameter, you may
+be able to use a raw value. Try converting a .shortcut to a .scpl containing
+the values you want in this parameter.
 
 ---
 
-#### This paramtype is not implemented. WFDynamicTagFieldParameter
+#### This parameter is not implemented yet.
+
+The parameter type is WFDynamicTagFieldParameter. If you need to use this parameter, you may
+be able to use a raw value. Try converting a .shortcut to a .scpl containing
+the values you want in this parameter.
 
 ---
 
