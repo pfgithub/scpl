@@ -1,10 +1,11 @@
-Text "invalid \escape"
+v:a = text "hello" -> v:a
+text "hello" -> v:a -> v:b
 
 @!ShouldEqual --------------------------------
 
 Output Warnings:
 Array [
-  [Error: Error from 1,16 to 1,17: Did you mean `\\`? The character `e` is not a valid escape sequence. See the docs page on string escapes for more info.],
+  [Error: Error from 2,1 to 2,27: Actions cannot output to multiple variables],
 ]
 
 Because there were warnings, no inversion test will be run!!
@@ -12,7 +13,44 @@ Because there were warnings, no inversion test will be run!!
 Shortcut Full JSON:
 Array [
   Object {
-    "WFWorkflowActions": Array [],
+    "WFWorkflowActions": Array [
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              1,
+              26,
+            ],
+            "start": Array [
+              1,
+              7,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
+        "WFWorkflowActionParameters": Object {
+          "WFTextActionText": "hello",
+        },
+      },
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              1,
+              4,
+            ],
+            "start": Array [
+              1,
+              1,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.setvariable",
+        "WFWorkflowActionParameters": Object {
+          "WFVariableName": "a",
+        },
+      },
+    ],
     "WFWorkflowClientRelese": "2.1.2",
     "WFWorkflowClientVersion": "754",
     "WFWorkflowIcon": Object {

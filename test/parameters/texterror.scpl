@@ -18,7 +18,7 @@ Array [
   [Error: Error from 2,16 to 2,51: Newlines are not allowed in this text field. Use a variable with a newline instead.],
   [Error: Error from 3,16 to 4,25: Newlines are not allowed in this text field. Use a variable with a newline instead.],
   [Error: Error from 6,16 to 6,55: Newlines are not allowed in this text field. Use a variable with a newline instead.],
-  [Error: Error from 7,33 to 7,34: String interpolations can only contain variables.],
+  [Error: Error from 7,33 to 7,34: Did you mean `\\`? The character `h` is not a valid escape sequence. See the docs page on string escapes for more info.],
   [Error: Error from 8,9 to 8,29: This text field only accepts text with no variables.],
 ]
 

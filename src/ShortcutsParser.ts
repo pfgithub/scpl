@@ -183,13 +183,6 @@ o.inputarg = p(c`^`, or(o.parenthesis, o.variable)).scb(([, paren]) => {
 });
 o.flaggedaction = p(o.variable, _, c`=`, _, o.onlyaction).scb(
 	([variable, , , , action], start, end) => {
-		if (action.variable) {
-			throw new PositionedError(
-				"Actions cannot output to multiple variables",
-				start,
-				end
-			);
-		}
 		action.variable = variable;
 		return action;
 	}
@@ -206,10 +199,10 @@ o.onlyaction = p(
 			: true
 	);
 	if (flags.length > 1) {
-		throw new PositionedError(
-			"Actions cannot output to multiple variables",
+		return new ErrorParse(
 			start,
-			end
+			end,
+			"Actions cannot output to multiple variables"
 		);
 	}
 	const res: {

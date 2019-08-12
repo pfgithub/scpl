@@ -1,0 +1,6 @@
+v:a = v:b
+
+@!ShouldEqual --------------------------------
+
+Output Error:
+[Error: Error from 1,8 to 101,1: Parsing error around here]

@@ -336,10 +336,29 @@ ilist.forEach(val => {
 });
 
 export class ErrorParse extends Parse {
+	message: string;
 	constructor(start: Position, end: Position, _message: string) {
 		super(start, end);
+		this.message = _message;
 	}
 }
+ilist.forEach(val => {
+	//eslint-disable-next-line func-names, @typescript-eslint/no-explicit-any
+	(<any>ErrorParse).prototype[`canBe${val}`] = function(
+		this: ErrorParse,
+		_cc: ConvertingContext
+	) {
+		return true; // accept all
+	};
+	//eslint-disable-next-line func-names, @typescript-eslint/no-explicit-any
+	(<any>ErrorParse).prototype[`as${val}`] = function(
+		this: ErrorParse,
+		cc: ConvertingContext,
+		...extraData: []
+	) {
+		throw this.error(cc, this.message);
+	};
+});
 export class FilterParse extends Parse implements AsFilter {
 	filterItems: AsAble[];
 	mode: "and" | "or";
@@ -1081,105 +1100,100 @@ export class ActionParse extends Parse implements AsText, AsVariable, AsAction {
 	}
 	asAction(cc: ConvertingContext): Action | undefined {
 		// returns an Action for this ActionParse
-		try {
-			if (!this.name.canBeString(cc)) {
+		if (!this.name.canBeString(cc)) {
+			throw this.name.error(
+				cc,
+				"This action must contain a string name with no variables."
+			);
+		}
+		const actionNameFull = this.name.asString(cc);
+		const actionName = actionNameFull.toLowerCase();
+		let wfAction;
+		let controlFlowData;
+		if (
+			actionName === "flow" ||
+			actionName === "otherwise" ||
+			actionName === "else" ||
+			actionName === "case"
+		) {
+			// flow/case/otherwise action
+			controlFlowData = cc.nextControlFlow();
+			if (!controlFlowData) {
 				throw this.name.error(
 					cc,
-					"This action must contain a string name with no variables."
+					"There are no open block actions. Make you have a block action such as `if` or `chooseFromMenu` and that you don't have any extra ends."
 				);
 			}
-			const actionNameFull = this.name.asString(cc);
-			const actionName = actionNameFull.toLowerCase();
-			let wfAction;
-			let controlFlowData;
-			if (
-				actionName === "flow" ||
-				actionName === "otherwise" ||
-				actionName === "else" ||
-				actionName === "case"
-			) {
-				// flow/case/otherwise action
-				controlFlowData = cc.nextControlFlow();
-				if (!controlFlowData) {
-					throw this.name.error(
-						cc,
-						"There are no open block actions. Make you have a block action such as `if` or `chooseFromMenu` and that you don't have any extra ends."
-					);
-				}
-				wfAction = controlFlowData[controlFlowData.length - 1].wfaction;
-			} else if (actionName === "end") {
-				controlFlowData = cc.endControlFlow();
-				if (!controlFlowData) {
-					throw this.name.error(
-						cc,
-						"There are no open block actions. Make you have a block action such as `if` or `chooseFromMenu` and that you don't have any extra ends."
-					);
-				}
-				for (let i = controlFlowData.length - 1; i > 0; i--) {
-					const d = controlFlowData[i];
-					cc.add(endIf({ start: this.start, end: this.end }, d.uuid));
-				}
-				controlFlowData = [controlFlowData[0]];
-				wfAction = controlFlowData[0].wfaction;
-			} else if (actionName.startsWith("@")) {
-				const preprocessorAction = cc.getParserAction(
-					actionName.toLowerCase()
+			wfAction = controlFlowData[controlFlowData.length - 1].wfaction;
+		} else if (actionName === "end") {
+			controlFlowData = cc.endControlFlow();
+			if (!controlFlowData) {
+				throw this.name.error(
+					cc,
+					"There are no open block actions. Make you have a block action such as `if` or `chooseFromMenu` and that you don't have any extra ends."
 				);
-				if (preprocessorAction) {
-					preprocessorAction.call(this, cc, ...this.args);
-				} else {
-					throw this.name.error(
-						cc,
-						`There is no converter action with the name ${actionName}.`
-					);
-				}
-				return;
+			}
+			for (let i = controlFlowData.length - 1; i > 0; i--) {
+				const d = controlFlowData[i];
+				cc.add(endIf({ start: this.start, end: this.end }, d.uuid));
+			}
+			controlFlowData = [controlFlowData[0]];
+			wfAction = controlFlowData[0].wfaction;
+		} else if (actionName.startsWith("@")) {
+			const preprocessorAction = cc.getParserAction(
+				actionName.toLowerCase()
+			);
+			if (preprocessorAction) {
+				preprocessorAction.call(this, cc, ...this.args);
 			} else {
-				wfAction = getActionFromName(actionNameFull);
-				if (!wfAction) {
-					throw this.name.error(
-						cc,
-						`This action could not be found. Check the documentation for a list of actions.`
-					);
-				}
+				throw this.name.error(
+					cc,
+					`There is no converter action with the name ${actionName}.`
+				);
 			}
+			return;
+		} else {
+			wfAction = getActionFromName(actionNameFull);
 			if (!wfAction) {
 				throw this.name.error(
 					cc,
-					`The action named ${actionName.toLowerCase()} could not be found.`
+					`This action could not be found. Check the documentation for a list of actions.`
 				);
 			}
-			const action = wfAction.build(
-				cc,
-				this,
-				controlFlowData
-					? controlFlowData[controlFlowData.length - 1]
-					: undefined,
-				...this.args
-			);
-			// WFAction adds it to cc for us, no need to do it ourselves.
-			// now add any required set variable actions
-			if (this.variable) {
-				if (!this.variable.canBeNameType(cc)) {
-					throw this.variable.error(
-						cc,
-						"To set an output variable, the output variable must be a variable."
-					);
-				}
-				const { name, type } = this.variable.asNameType(cc); // TODO not this
-				if (type === "v") {
-					cc.add(setVariable(this.variable, name));
-					cc.setNamedVariable(name);
-				} else if (type === "mv") {
-					action.magicvarname = name;
-					cc.setMagicVariable(name, action);
-				}
-			}
-			return action;
-		} catch (e) {
-			cc.warn(e);
-			return undefined;
 		}
+		if (!wfAction) {
+			throw this.name.error(
+				cc,
+				`The action named ${actionName.toLowerCase()} could not be found.`
+			);
+		}
+		const action = wfAction.build(
+			cc,
+			this,
+			controlFlowData
+				? controlFlowData[controlFlowData.length - 1]
+				: undefined,
+			...this.args
+		);
+		// WFAction adds it to cc for us, no need to do it ourselves.
+		// now add any required set variable actions
+		if (this.variable) {
+			if (!this.variable.canBeNameType(cc)) {
+				throw this.variable.error(
+					cc,
+					"To set an output variable, the output variable must be a variable."
+				);
+			}
+			const { name, type } = this.variable.asNameType(cc); // TODO not this
+			if (type === "v") {
+				cc.add(setVariable(this.variable, name));
+				cc.setNamedVariable(name);
+			} else if (type === "mv") {
+				action.magicvarname = name;
+				cc.setMagicVariable(name, action);
+			}
+		}
+		return action;
 	}
 }
 export class VariableParse extends Parse
@@ -1457,7 +1471,12 @@ export class ActionsParse extends Parse
 				action.warn(cc, "This value must be an action.");
 				return;
 			}
-			lastAction = action.asAction(cc);
+			try {
+				lastAction = action.asAction(cc);
+			} catch (e) {
+				cc.warn(e);
+				return undefined;
+			}
 		});
 		return lastAction;
 	}

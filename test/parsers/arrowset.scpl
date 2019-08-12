@@ -1,0 +1,237 @@
+Text "myvar" -> v:mynamedvar
+v:myvar2 = Text "myvar2"
+ShowResult "My variables are \(v:mynamedvar) and \(v:myvar2)"
+
+If
+End If -> mv:If
+GetVariable mv:If
+
+@!ShouldEqual --------------------------------
+
+Output Warnings:
+Array []
+
+Shortcut Full Inverted:
+Text myvar
+SetVariable mynamedvar
+Text myvar2
+SetVariable myvar2
+ShowResult "My variables are \(v:mynamedvar) and \(v:myvar2)"
+If
+End -> mv:If
+GetVariable mv:If
+
+Shortcut Full JSON:
+Array [
+  Object {
+    "WFWorkflowActions": Array [
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              1,
+              29,
+            ],
+            "start": Array [
+              1,
+              1,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
+        "WFWorkflowActionParameters": Object {
+          "WFTextActionText": "myvar",
+        },
+      },
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              1,
+              29,
+            ],
+            "start": Array [
+              1,
+              17,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.setvariable",
+        "WFWorkflowActionParameters": Object {
+          "WFVariableName": "mynamedvar",
+        },
+      },
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              2,
+              25,
+            ],
+            "start": Array [
+              2,
+              12,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
+        "WFWorkflowActionParameters": Object {
+          "WFTextActionText": "myvar2",
+        },
+      },
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              2,
+              9,
+            ],
+            "start": Array [
+              2,
+              1,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.setvariable",
+        "WFWorkflowActionParameters": Object {
+          "WFVariableName": "myvar2",
+        },
+      },
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              3,
+              62,
+            ],
+            "start": Array [
+              3,
+              1,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.showresult",
+        "WFWorkflowActionParameters": Object {
+          "Text": Object {
+            "Value": Object {
+              "attachmentsByRange": Object {
+                "{17, 1}": Object {
+                  "Aggrandizements": Array [],
+                  "Type": "Variable",
+                  "VariableName": "mynamedvar",
+                },
+                "{23, 1}": Object {
+                  "Aggrandizements": Array [],
+                  "Type": "Variable",
+                  "VariableName": "myvar2",
+                },
+              },
+              "string": "My variables are [attachment] and [attachment]",
+            },
+            "WFSerializationType": "WFTextTokenString",
+          },
+        },
+      },
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              5,
+              3,
+            ],
+            "start": Array [
+              5,
+              1,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+        "WFWorkflowActionParameters": Object {
+          "GroupingIdentifier": "<uuid1>",
+          "WFControlFlowMode": 0,
+        },
+      },
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              6,
+              16,
+            ],
+            "start": Array [
+              6,
+              1,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+        "WFWorkflowActionParameters": Object {
+          "CustomOutputName": "If",
+          "GroupingIdentifier": "<uuid1>",
+          "UUID": "<uuid2>",
+          "WFControlFlowMode": 2,
+        },
+      },
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              7,
+              18,
+            ],
+            "start": Array [
+              7,
+              1,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.getvariable",
+        "WFWorkflowActionParameters": Object {
+          "WFVariable": Object {
+            "Value": Object {
+              "Aggrandizements": Array [],
+              "OutputName": "If",
+              "OutputUUID": "<uuid2>",
+              "Type": "ActionOutput",
+            },
+            "WFSerializationType": "WFTextTokenAttachment",
+          },
+        },
+      },
+    ],
+    "WFWorkflowClientRelese": "2.1.2",
+    "WFWorkflowClientVersion": "754",
+    "WFWorkflowIcon": Object {
+      "WFWorkflowIconGlyphNumber": 59511,
+      "WFWorkflowIconImageData": Object {
+        "data": Array [],
+        "type": "Buffer",
+      },
+      "WFWorkflowIconStartColor": 2071128575,
+    },
+    "WFWorkflowInputContentItemClasses": Array [
+      "WFAppStoreAppContentItem",
+      "WFArticleContentItem",
+      "WFContactContentItem",
+      "WFDateContentItem",
+      "WFEmailAddressContentItem",
+      "WFGenericFileContentItem",
+      "WFImageContentItem",
+      "WFiTunesProductContentItem",
+      "WFLocationContentItem",
+      "WFDCMapsLinkContentItem",
+      "WFAVAssetContentItem",
+      "WFPDFContentItem",
+      "WFPhoneNumberContentItem",
+      "WFRichTextContentItem",
+      "WFSafariWebPageContentItem",
+      "WFStringContentItem",
+      "WFURLContentItem",
+    ],
+    "WFWorkflowMinimumClientVersion": 411,
+    "WFWorkflowTypes": Array [
+      "NCWidget",
+      "WatchKit",
+    ],
+  },
+]
