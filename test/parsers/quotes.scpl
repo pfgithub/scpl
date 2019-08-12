@@ -1,13 +1,4 @@
-@Set @:MyVariable "Test"
-@Set myvar2 "test2"
-
-Text "My Variable is: \(@:MyVariable), and also \(@:myvar2)"
-
-@Set OldStyleDef @{
-    Text @:Val1
-}
-
-@:OldStyleDef{Val1: "Hmm"}
+text "double' \"quotes"; text 'single ""\'quotes'; text “smart “"'quotes '"\””
 
 @!ShouldEqual --------------------------------
 
@@ -15,8 +6,9 @@ Output Warnings:
 Array []
 
 Shortcut Full Inverted:
-Text "My Variable is: Test, and also test2"
-Text Hmm
+Text "double' \"quotes"
+Text "single \"\"'quotes"
+Text "smart “\"'quotes '\"”"
 
 Shortcut Full JSON:
 Array [
@@ -26,36 +18,54 @@ Array [
         "SCPLData": Object {
           "Position": Object {
             "end": Array [
-              4,
-              61,
+              1,
+              24,
             ],
             "start": Array [
-              4,
+              1,
               1,
             ],
           },
         },
         "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
         "WFWorkflowActionParameters": Object {
-          "WFTextActionText": "My Variable is: Test, and also test2",
+          "WFTextActionText": "double' \"quotes",
         },
       },
       Object {
         "SCPLData": Object {
           "Position": Object {
             "end": Array [
-              7,
-              16,
+              1,
+              50,
             ],
             "start": Array [
-              7,
-              5,
+              1,
+              26,
             ],
           },
         },
         "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
         "WFWorkflowActionParameters": Object {
-          "WFTextActionText": "Hmm",
+          "WFTextActionText": "single \"\"'quotes",
+        },
+      },
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              1,
+              79,
+            ],
+            "start": Array [
+              1,
+              52,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
+        "WFWorkflowActionParameters": Object {
+          "WFTextActionText": "smart “\"'quotes '\"”",
         },
       },
     ],

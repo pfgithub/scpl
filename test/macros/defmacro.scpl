@@ -10,6 +10,13 @@
 
 @emptyargs
 
+@def @TestMacro ["name", "value"] @{
+	text "Name is: \\(@:name) and value is: \\(@:value)"
+}
+@testmacro "jakob" "tall"
+@testMacro name="jakob" value="tall"
+@TestMacro (value=tall, name=jakob)
+
 @!ShouldEqual --------------------------------
 
 Output Warnings:
@@ -19,6 +26,9 @@ Shortcut Full Inverted:
 ShowResult "the item is my item"
 ShowResult "the item is my item"
 ShowResult "Args are empty"
+Text "Name is: \\(@:name) and value is: \\(@:value)"
+Text "Name is: \\(@:name) and value is: \\(@:value)"
+Text "Name is: \\(@:name) and value is: \\(@:value)"
 
 Shortcut Full JSON:
 Array [
@@ -76,6 +86,60 @@ Array [
         "WFWorkflowActionIdentifier": "is.workflow.actions.showresult",
         "WFWorkflowActionParameters": Object {
           "Text": "Args are empty",
+        },
+      },
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              14,
+              54,
+            ],
+            "start": Array [
+              14,
+              2,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
+        "WFWorkflowActionParameters": Object {
+          "WFTextActionText": "Name is: \\(@:name) and value is: \\(@:value)",
+        },
+      },
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              14,
+              54,
+            ],
+            "start": Array [
+              14,
+              2,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
+        "WFWorkflowActionParameters": Object {
+          "WFTextActionText": "Name is: \\(@:name) and value is: \\(@:value)",
+        },
+      },
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              14,
+              54,
+            ],
+            "start": Array [
+              14,
+              2,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
+        "WFWorkflowActionParameters": Object {
+          "WFTextActionText": "Name is: \\(@:name) and value is: \\(@:value)",
         },
       },
     ],

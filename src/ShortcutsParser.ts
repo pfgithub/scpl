@@ -15,7 +15,6 @@ import {
 	Parse,
 	FilterItemParse,
 	FilterParse,
-	PositionedError,
 	RawParse
 } from "./ParserData";
 

@@ -1,13 +1,16 @@
-@Set @:MyVariable "Test"
-@Set myvar2 "test2"
-
-Text "My Variable is: \(@:MyVariable), and also \(@:myvar2)"
-
-@Set OldStyleDef @{
-    Text @:Val1
-}
-
-@:OldStyleDef{Val1: "Hmm"}
+Text # python/shell style comment
+Text // clike comment
+Text -- lua comment
+/*
+Multiline Comment
+Text "This should not get parsed"
+*/
+--[[
+Why was this added?
+It really isn't needed
+No one uses this
+(lua-style multiline comment)
+--]]
 
 @!ShouldEqual --------------------------------
 
@@ -15,8 +18,9 @@ Output Warnings:
 Array []
 
 Shortcut Full Inverted:
-Text "My Variable is: Test, and also test2"
-Text Hmm
+Text
+Text
+Text
 
 Shortcut Full JSON:
 Array [
@@ -26,37 +30,49 @@ Array [
         "SCPLData": Object {
           "Position": Object {
             "end": Array [
-              4,
-              61,
+              1,
+              34,
             ],
             "start": Array [
-              4,
+              1,
               1,
             ],
           },
         },
         "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
-        "WFWorkflowActionParameters": Object {
-          "WFTextActionText": "My Variable is: Test, and also test2",
-        },
+        "WFWorkflowActionParameters": Object {},
       },
       Object {
         "SCPLData": Object {
           "Position": Object {
             "end": Array [
-              7,
-              16,
+              2,
+              22,
             ],
             "start": Array [
-              7,
-              5,
+              2,
+              1,
             ],
           },
         },
         "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
-        "WFWorkflowActionParameters": Object {
-          "WFTextActionText": "Hmm",
+        "WFWorkflowActionParameters": Object {},
+      },
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              3,
+              20,
+            ],
+            "start": Array [
+              3,
+              1,
+            ],
+          },
         },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
+        "WFWorkflowActionParameters": Object {},
       },
     ],
     "WFWorkflowClientRelese": "2.1.2",
