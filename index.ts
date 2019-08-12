@@ -125,8 +125,11 @@ export function parse(
 	return shortcut;
 }
 
-export function inverse(data: WFShortcut | Buffer): string {
-	const icc = new InverseConvertingContext();
+export function inverse(
+	data: WFShortcut | Buffer,
+	options?: { quotes?: '"' | "'"; indent?: string | number }
+): string {
+	const icc = new InverseConvertingContext(options);
 	if (data instanceof Buffer) {
 		data = <WFShortcut>bplistp.parseBuffer(data);
 	}

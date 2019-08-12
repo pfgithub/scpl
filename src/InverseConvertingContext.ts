@@ -31,7 +31,7 @@ const ESCAPESQUOTEDSTRING = (value: string) =>
 	value
 		.replace(/(['\\\n])/g, d => (d === "\n" ? "\\n" : `\\${d}`))
 		.replace(/\r/g, "");
-const SQUOTEDSTRING = (value: string) => `"${ESCAPESQUOTEDSTRING(value)}"`;
+const SQUOTEDSTRING = (value: string) => `'${ESCAPESQUOTEDSTRING(value)}'`;
 
 // FOR NOW:
 // put argument labels on all arguments
