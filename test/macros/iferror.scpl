@@ -10,6 +10,9 @@
 @If true "not an action"
 @If true @{} "else method cannot be an action"
 
+@If ^(Text "inputargs not allowed") @{}
+@If condition=true condition=false
+
 @!ShouldEqual --------------------------------
 
 Output Warnings:
@@ -20,6 +23,8 @@ Array [
   [Error: Error from 7,5 to 7,29: Test must be a boolean.],
   [Error: Error from 10,10 to 10,25: Method must be action, for example `@{Text ""}`],
   [Error: Error from 11,12 to 11,12: Else method must be action, for example `@{Text ""}`],
+  [Error: Error from 13,7 to 13,35: InputArg is not allowed for this function],
+  [Error: Error from 14,30 to 14,35: The argument `condition` has already been set for this function.],
 ]
 
 Because there were warnings, no inversion test will be run!!
