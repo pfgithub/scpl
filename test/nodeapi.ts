@@ -45,3 +45,12 @@ test("invert shortcut plist", () => {
 		)
 	).toMatchSnapshot();
 });
+
+test("override cc value", () => {
+	const cc = new main.ConvertingContext();
+	cc.setNamedVariable("myvar");
+	main.parse(`text v:myvar`, { ccOverride: cc });
+	expect(() => main.parse(`text v:myvar2`, { ccOverride: cc })).toThrow(
+		"Warning from 1,6 to 1,14: The variable `v:myvar2` has not been defined yet. Define it with a `setVariable` action."
+	);
+});

@@ -1,0 +1,250 @@
+Dictionary{}
+Dictionary { }
+Dictionary {
+	key: value,
+	subdict: {
+		anotherkey: anothervalue,
+		variable: s:clipboard,
+		list: ["item 1", "item 2"]
+	}
+}
+
+Dictionary{
+	key: value
+	<file> file: s:shortcutinput
+	<bool> bool: false,
+	<bool> bool2: true
+}
+
+@!ShouldEqual --------------------------------
+
+Output Warnings:
+Array []
+
+Shortcut Full Inverted:
+Dictionary {}
+Dictionary {}
+Dictionary {key: value, subdict: {anotherkey: anothervalue, variable: s:clipboard, list: ["item 1", "item 2"]}}
+Dictionary {key: value, <file> file: s:shortcutinput, <boolean> bool: false, <boolean> bool2: true}
+
+Shortcut Full JSON:
+Array [
+  Object {
+    "WFWorkflowActions": Array [
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              1,
+              13,
+            ],
+            "start": Array [
+              1,
+              1,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.dictionary",
+        "WFWorkflowActionParameters": Object {
+          "WFItems": Object {
+            "Value": Object {
+              "WFDictionaryFieldValueItems": Array [],
+            },
+            "WFSerializationType": "WFDictionaryFieldValue",
+          },
+        },
+      },
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              2,
+              15,
+            ],
+            "start": Array [
+              2,
+              1,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.dictionary",
+        "WFWorkflowActionParameters": Object {
+          "WFItems": Object {
+            "Value": Object {
+              "WFDictionaryFieldValueItems": Array [],
+            },
+            "WFSerializationType": "WFDictionaryFieldValue",
+          },
+        },
+      },
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              10,
+              2,
+            ],
+            "start": Array [
+              3,
+              1,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.dictionary",
+        "WFWorkflowActionParameters": Object {
+          "WFItems": Object {
+            "Value": Object {
+              "WFDictionaryFieldValueItems": Array [
+                Object {
+                  "WFItemType": 0,
+                  "WFKey": "key",
+                  "WFValue": "value",
+                },
+                Object {
+                  "WFItemType": 1,
+                  "WFKey": "subdict",
+                  "WFValue": Object {
+                    "Value": Object {
+                      "Value": Object {
+                        "WFDictionaryFieldValueItems": Array [
+                          Object {
+                            "WFItemType": 0,
+                            "WFKey": "anotherkey",
+                            "WFValue": "anothervalue",
+                          },
+                          Object {
+                            "WFItemType": 0,
+                            "WFKey": "variable",
+                            "WFValue": Object {
+                              "Value": Object {
+                                "attachmentsByRange": Object {
+                                  "{0, 1}": Object {
+                                    "Aggrandizements": Array [],
+                                    "Type": "Clipboard",
+                                  },
+                                },
+                                "string": "[attachment]",
+                              },
+                              "WFSerializationType": "WFTextTokenString",
+                            },
+                          },
+                          Object {
+                            "WFItemType": 2,
+                            "WFKey": "list",
+                            "WFValue": Object {
+                              "Value": Array [
+                                "item 1",
+                                "item 2",
+                              ],
+                              "WFSerializationType": "WFArrayParameterState",
+                            },
+                          },
+                        ],
+                      },
+                      "WFSerializationType": "WFDictionaryFieldValue",
+                    },
+                    "WFSerializationType": "WFDictionaryFieldValue",
+                  },
+                },
+              ],
+            },
+            "WFSerializationType": "WFDictionaryFieldValue",
+          },
+        },
+      },
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              17,
+              2,
+            ],
+            "start": Array [
+              12,
+              1,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.dictionary",
+        "WFWorkflowActionParameters": Object {
+          "WFItems": Object {
+            "Value": Object {
+              "WFDictionaryFieldValueItems": Array [
+                Object {
+                  "WFItemType": 0,
+                  "WFKey": "key",
+                  "WFValue": "value",
+                },
+                Object {
+                  "WFItemType": 5,
+                  "WFKey": "file",
+                  "WFValue": Object {
+                    "Value": Object {
+                      "Value": Object {
+                        "Aggrandizements": Array [],
+                        "Type": "ExtensionInput",
+                      },
+                      "WFSerializationType": "WFTextTokenAttachment",
+                    },
+                    "WFSerializationType": "WFTokenAttachmentParameterState",
+                  },
+                },
+                Object {
+                  "WFItemType": 4,
+                  "WFKey": "bool",
+                  "WFValue": Object {
+                    "Value": false,
+                    "WFSerializationType": "WFNumberSubstitutableState",
+                  },
+                },
+                Object {
+                  "WFItemType": 4,
+                  "WFKey": "bool2",
+                  "WFValue": Object {
+                    "Value": 1,
+                    "WFSerializationType": "WFNumberSubstitutableState",
+                  },
+                },
+              ],
+            },
+            "WFSerializationType": "WFDictionaryFieldValue",
+          },
+        },
+      },
+    ],
+    "WFWorkflowClientRelese": "2.1.2",
+    "WFWorkflowClientVersion": "754",
+    "WFWorkflowIcon": Object {
+      "WFWorkflowIconGlyphNumber": 59511,
+      "WFWorkflowIconImageData": Object {
+        "data": Array [],
+        "type": "Buffer",
+      },
+      "WFWorkflowIconStartColor": 2071128575,
+    },
+    "WFWorkflowInputContentItemClasses": Array [
+      "WFAppStoreAppContentItem",
+      "WFArticleContentItem",
+      "WFContactContentItem",
+      "WFDateContentItem",
+      "WFEmailAddressContentItem",
+      "WFGenericFileContentItem",
+      "WFImageContentItem",
+      "WFiTunesProductContentItem",
+      "WFLocationContentItem",
+      "WFDCMapsLinkContentItem",
+      "WFAVAssetContentItem",
+      "WFPDFContentItem",
+      "WFPhoneNumberContentItem",
+      "WFRichTextContentItem",
+      "WFSafariWebPageContentItem",
+      "WFStringContentItem",
+      "WFURLContentItem",
+    ],
+    "WFWorkflowMinimumClientVersion": 411,
+    "WFWorkflowTypes": Array [
+      "NCWidget",
+      "WatchKit",
+    ],
+  },
+]

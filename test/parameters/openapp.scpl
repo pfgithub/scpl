@@ -1,17 +1,6 @@
-@def iftest [val] @{
-	@If @:val @{
-		Text "It's true!"
-	} @{
-		Text "It's false!"
-	}
-}
-
-@iftest true
-@iftest false
-
-@If true @{
-	Text "no else"
-}
+openapp Safari
+openapp Shortcuts
+openapp "is.workflow.my.app"
 
 @!ShouldEqual --------------------------------
 
@@ -19,9 +8,9 @@ Output Warnings:
 Array []
 
 Shortcut Full Inverted:
-Text "It's true!"
-Text "It's false!"
-Text "no else"
+OpenApp app="com.apple.mobilesafari"
+OpenApp app="is.workflow.my.app"
+OpenApp app="is.workflow.my.app"
 
 Shortcut Full JSON:
 Array [
@@ -31,54 +20,54 @@ Array [
         "SCPLData": Object {
           "Position": Object {
             "end": Array [
-              3,
-              20,
+              1,
+              15,
             ],
             "start": Array [
-              3,
-              3,
+              1,
+              1,
             ],
           },
         },
-        "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
+        "WFWorkflowActionIdentifier": "is.workflow.actions.openapp",
         "WFWorkflowActionParameters": Object {
-          "WFTextActionText": "It's true!",
+          "WFAppIdentifier": "com.apple.mobilesafari",
         },
       },
       Object {
         "SCPLData": Object {
           "Position": Object {
             "end": Array [
-              5,
-              21,
-            ],
-            "start": Array [
-              5,
-              3,
-            ],
-          },
-        },
-        "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
-        "WFWorkflowActionParameters": Object {
-          "WFTextActionText": "It's false!",
-        },
-      },
-      Object {
-        "SCPLData": Object {
-          "Position": Object {
-            "end": Array [
-              13,
-              16,
-            ],
-            "start": Array [
-              13,
               2,
+              18,
+            ],
+            "start": Array [
+              2,
+              1,
             ],
           },
         },
-        "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
+        "WFWorkflowActionIdentifier": "is.workflow.actions.openapp",
         "WFWorkflowActionParameters": Object {
-          "WFTextActionText": "no else",
+          "WFAppIdentifier": "is.workflow.my.app",
+        },
+      },
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              3,
+              29,
+            ],
+            "start": Array [
+              3,
+              1,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.openapp",
+        "WFWorkflowActionParameters": Object {
+          "WFAppIdentifier": "is.workflow.my.app",
         },
       },
     ],
