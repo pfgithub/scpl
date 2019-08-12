@@ -1507,7 +1507,7 @@ export class ActionsParse extends Parse
 		cc.useWarnings = options.useWarnings;
 		this.asAction(cc);
 		if (cc.controlFlowStack.length !== 0) {
-			throw this.error(
+			this.warn(
 				cc,
 				`There are ${cc.controlFlowStack.length} unended block actions. Check to make sure that every block (if/repeat/choose from menu) has an end.`
 			);
