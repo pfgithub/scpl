@@ -6,8 +6,13 @@ Comment "even comments contain \(@:parservar)"
 Text v:itisavariable
 Text "it contains \newlines and \"scapes"
 Text 'it contains single quotes'
-Text `it contains
-backtick quotes`
+Text `
+
+
+it contains
+backtick quotes
+  that keep
+spacing\nand escapes       `
 
 @!ShouldEqual --------------------------------
 
@@ -25,7 +30,7 @@ Comment "even comments contain parser text"
 Text v:itisavariable
 Text "it contains \newlines and \"scapes"
 Text "it contains single quotes"
-Text "it contains\nbacktick quotes"
+Text "\n\n\nit contains\nbacktick quotes\n  that keep\nspacing\nand escapes       "
 
 Shortcut Full JSON:
 Array [
@@ -251,8 +256,8 @@ ewlines and \"scapes",
         "SCPLData": Object {
           "Position": Object {
             "end": Array [
-              10,
-              28,
+              15,
+              71,
             ],
             "start": Array [
               9,
@@ -262,8 +267,14 @@ ewlines and \"scapes",
         },
         "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
         "WFWorkflowActionParameters": Object {
-          "WFTextActionText": "it contains
-backtick quotes",
+          "WFTextActionText": "
+
+
+it contains
+backtick quotes
+  that keep
+spacing
+and escapes       ",
         },
       },
     ],

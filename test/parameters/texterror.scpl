@@ -5,6 +5,7 @@ backtick strings`
 @Set parservariableswithnewlines "\n"
 ChooseFromMenu "Even \(@:parservariableswithnewlines)"
 Text "Invalid escape sequences \ha\ve nice errors"
+Comment :filter{is not text}
 End
 End
 End
@@ -18,6 +19,7 @@ Array [
   [Error: Error from 3,16 to 4,25: Newlines are not allowed in this text field. Use a variable with a newline instead.],
   [Error: Error from 6,16 to 6,55: Newlines are not allowed in this text field. Use a variable with a newline instead.],
   [Error: Error from 7,33 to 7,34: String interpolations can only contain variables.],
+  [Error: Error from 8,9 to 8,29: This text field only accepts text with no variables.],
 ]
 
 Because there were warnings, no inversion test will be run!!
@@ -48,11 +50,11 @@ Array [
         "SCPLData": Object {
           "Position": Object {
             "end": Array [
-              8,
+              9,
               4,
             ],
             "start": Array [
-              8,
+              9,
               1,
             ],
           },
@@ -67,11 +69,11 @@ Array [
         "SCPLData": Object {
           "Position": Object {
             "end": Array [
-              9,
+              10,
               4,
             ],
             "start": Array [
-              9,
+              10,
               1,
             ],
           },
@@ -86,11 +88,11 @@ Array [
         "SCPLData": Object {
           "Position": Object {
             "end": Array [
-              10,
+              11,
               4,
             ],
             "start": Array [
-              10,
+              11,
               1,
             ],
           },

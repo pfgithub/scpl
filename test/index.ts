@@ -1469,26 +1469,6 @@ test("Dictionary File and Boolean type", () => {
 	]);
 });
 
-test("backtick strings", () => {
-	expect(
-		scplToShortcut(`
-        text \`backtick
-string
-captures
-	everything
-_\\n_\`
-        `)
-	).toEqual([
-		{
-			WFWorkflowActionIdentifier: "is.workflow.actions.gettext",
-			WFWorkflowActionParameters: {
-				WFTextActionText:
-					"backtick\nstring\ncaptures\n\teverything\n_\n_"
-			}
-		}
-	]);
-});
-
 test("warnings", () => {
 	expect(
 		scplToShortcut(
