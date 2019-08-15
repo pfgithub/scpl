@@ -1,10 +1,12 @@
 EmailAddress :filter{Name is Nothing}
+EmailAddress [v:notastring] // this might actually be valid shortcuts...
 
 @!ShouldEqual --------------------------------
 
 Output Warnings:
 Array [
   [Error: Error from 1,14 to 1,38: Email adress fields only accept variables, lists without variables, and strings without variables.],
+  [Error: Error from 2,15 to 2,27: This list can only contain strings with no variables.],
 ]
 
 Because there were warnings, no inversion test will be run!!
