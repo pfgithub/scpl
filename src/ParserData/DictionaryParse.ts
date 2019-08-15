@@ -1,7 +1,6 @@
 import { ConvertingContext } from "../Converter";
 import {
 	Parse,
-	AsRawDictionary,
 	AsRawKeyedDictionary,
 	AsDictionary,
 	AsAble,
@@ -13,7 +12,7 @@ import { Text, Dictionary, List, Attachment } from "../OutputData";
 import { Position } from "../Production";
 
 export class DictionaryParse extends Parse
-	implements AsRawDictionary, AsRawKeyedDictionary, AsDictionary {
+	implements AsRawKeyedDictionary, AsDictionary {
 	keyvaluepairs: Array<{ key: AsAble; value: AsAble; type?: AsAble }>;
 	constructor(
 		start: Position,
@@ -22,39 +21,6 @@ export class DictionaryParse extends Parse
 	) {
 		super(start, end);
 		this.keyvaluepairs = keyvaluepairs;
-	}
-	canBeRawDictionary(_cc: ConvertingContext): true {
-		return true;
-	}
-	asRawDictionary(cc: ConvertingContext) {
-		// for static things that cannot have interpolated keys or values
-		const dictionary: { [key: string]: string } = {};
-		this.keyvaluepairs.forEach(({ key, value, type }) => {
-			if (type) {
-				throw type.error(cc, "This dictionary can not have a type.");
-			}
-			if (!key.canBeString(cc)) {
-				throw key.error(
-					cc,
-					"This key name must be a string with no variables."
-				);
-			}
-			if (!value.canBeString(cc)) {
-				throw value.error(
-					cc,
-					"This value must be a string with no variables."
-				);
-			}
-			const stringKey = key.asString(cc);
-			if (dictionary[stringKey]) {
-				throw key.error(
-					cc,
-					`This key was already defined in this dictionary.`
-				);
-			}
-			dictionary[stringKey] = value.asString(cc);
-		});
-		return dictionary;
 	}
 	canBeRawDeepDictionary(_cc: ConvertingContext): true {
 		return true;

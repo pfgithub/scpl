@@ -11,9 +11,7 @@ import {
 } from "./OutputData";
 import { ConvertingContext } from "./Converter";
 import { Position } from "./Production";
-import {
-	CoercionTypeClass,
-} from "./WFTypes/Types";
+import { CoercionTypeClass } from "./WFTypes/Types";
 
 import { PositionedError } from "./PositionedError";
 export { PositionedError } from "./PositionedError";
@@ -58,9 +56,6 @@ export class Parse {
 		return false;
 	}
 	canBeDictionary(_cc: ConvertingContext): this is AsDictionary {
-		return false;
-	}
-	canBeRawDictionary(_cc: ConvertingContext): this is AsRawDictionary {
 		return false;
 	}
 	canBeRawKeyedDictionary(
@@ -154,11 +149,6 @@ export interface AsDictionary extends Parse {
 	asDictionary(cc: ConvertingContext): Dictionary;
 }
 
-export interface AsRawDictionary extends Parse {
-	canBeRawDictionary(cc: ConvertingContext): true;
-	asRawDictionary(cc: ConvertingContext): { [key: string]: string };
-}
-
 export interface AsRawKeyedDictionary extends Parse {
 	canBeRawKeyedDictionary(cc: ConvertingContext): true;
 	asRawKeyedDictionary(cc: ConvertingContext): { [key: string]: AsAble };
@@ -223,7 +213,6 @@ export const parseTypeList = [
 	"Variable",
 	"Action",
 	"Dictionary",
-	"RawDictionary",
 	"RawKeyedDictionary",
 	"RawDeepDictionary",
 	"NameType",
