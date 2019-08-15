@@ -99,6 +99,9 @@ export class Parse {
 	canBeRaw(_cc: ConvertingContext): this is AsRaw {
 		return false;
 	}
+	getDeepestRealValue(_cc: ConvertingContext): Parse {
+		return this;
+	}
 	// [Symbol.hasInstance]() {
 	// 	throw new Error("Instanceof is not supported on Parse. This should never happen.");
 	// }

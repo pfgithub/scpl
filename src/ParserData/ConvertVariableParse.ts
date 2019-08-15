@@ -50,6 +50,9 @@ export class ConvertVariableParse extends Parse
 		const me = this.getValue(cc);
 		return me.warn(cc, `${this.start} ${this.end} ${message}`);
 	}
+	getDeepestRealValue(cc: ConvertingContext): Parse {
+		return this.getValue(cc);
+	}
 }
 // there has to be a better way
 parseTypeList.forEach(val => {

@@ -3,6 +3,8 @@
 @Set // missing both
 @Set :filter{name "Is Not" string} "Value"
 
+@Set b @:a // a not defined
+
 @!ShouldEqual --------------------------------
 
 Output Warnings:
@@ -11,6 +13,7 @@ Array [
   [Error: Error from 2,1 to 2,26: @set must have a name argument and a value argument.],
   [Error: Error from 3,1 to 3,21: @set must have a name argument and a value argument.],
   [Error: Error from 4,6 to 4,35: Must be string or preprocessorvariable, forex: @:myvar or 'myvar'],
+  [Error: Error from 6,8 to 6,11: Parser Variable @:a is not defined.],
 ]
 
 Because there were warnings, no inversion test will be run!!

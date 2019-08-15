@@ -9,6 +9,11 @@ Text "My Variable is: \(@:MyVariable), and also \(@:myvar2)"
 
 @:OldStyleDef{Val1: "Hmm"}
 
+@Set a 1
+@Set b @:a
+@Set a 2
+Text @:b
+
 @!ShouldEqual --------------------------------
 
 Output Warnings:
@@ -17,6 +22,7 @@ Array []
 Shortcut Full Inverted:
 Text "My Variable is: Test, and also test2"
 Text Hmm
+Text 1
 
 Shortcut Full JSON:
 Array [
@@ -56,6 +62,24 @@ Array [
         "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
         "WFWorkflowActionParameters": Object {
           "WFTextActionText": "Hmm",
+        },
+      },
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              15,
+              9,
+            ],
+            "start": Array [
+              15,
+              1,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
+        "WFWorkflowActionParameters": Object {
+          "WFTextActionText": "1",
         },
       },
     ],

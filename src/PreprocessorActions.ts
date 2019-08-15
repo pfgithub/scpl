@@ -62,7 +62,7 @@ const preprocessorActions: {
 		} else {
 			name = namea.asPreprocessorVariableName(cc);
 		}
-		cc.setParserVariable(name, value);
+		cc.setParserVariable(name, value.getDeepestRealValue(cc));
 	},
 	"@foreach": function(this, cc, ...args: AsAble[]) {
 		const pres = simpleParse(cc, ["list", "method"], args);
