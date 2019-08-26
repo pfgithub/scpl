@@ -1,48 +1,48 @@
-o.identifier  =  /^[A-Za-z@_][A-Za-z0-9@_]*/
-o.newline  =  o.space ( o.space ( "\n" | ";" ) )+ o.space
-o.multilineComment  =  ( /^--\[\[[\s\S]+?--\]\]/ | /^\/\*[\s\S]+?\*\// )
-o.eolComment  =  ( /^\/\/.*/ | /^--.*/ | /^#.*/ )
-o.spaceonly  =  /^[ ,\r\t]*/
-o.space  =  o.spaceonly ( o.multilineComment ){0..1} o.spaceonly ( o.eolComment ){0..1}
-o.optionalNewline  =  ( ( o.newline | o.space ) )*
-o.number  =  /^-?(?:[0-9]*\.[0-9]+|[0-9]+)/
-o.escape  =  "\\" ( o.parenthesis | "\"" | "'" | "```" | "`" | "\\" | "”" | "n" | /.?/ )
-o.char  =  ( o.escape | /^[^\\\n]+/ )
-o.chars  =  ( o.char )*
-o.dquotedStringChar  =  ( o.escape | /^[^"\\\n]+/ )
-o.squotedStringChar  =  ( o.escape | /^[^'\\\n]+/ )
-o.smartQuotedStringChar  =  ( o.escape | /^[^”\\\n]+/ )
+o.identifier                =  /^[A-Za-z@_][A-Za-z0-9@_]*/
+o.newline                   =  o.space ( o.space ( "\n" | ";" ) )+ o.space
+o.multilineComment          =  ( /^--\[\[[\s\S]+?--\]\]/ | /^\/\*[\s\S]+?\*\// )
+o.eolComment                =  ( /^\/\/.*/ | /^--.*/ | /^#.*/ )
+o.spaceonly                 =  /^[ ,\r\t]*/
+o.space                     =  o.spaceonly ( o.multilineComment ){0..1} o.spaceonly ( o.eolComment ){0..1}
+o.optionalNewline           =  ( ( o.newline | o.space ) )*
+o.number                    =  /^-?(?:[0-9]*\.[0-9]+|[0-9]+)/
+o.escape                    =  "\\" ( o.parenthesis | "\"" | "'" | "```" | "`" | "\\" | "”" | "n" | /.?/ )
+o.char                      =  ( o.escape | /^[^\\\n]+/ )
+o.chars                     =  ( o.char )*
+o.dquotedStringChar         =  ( o.escape | /^[^"\\\n]+/ )
+o.squotedStringChar         =  ( o.escape | /^[^'\\\n]+/ )
+o.smartQuotedStringChar     =  ( o.escape | /^[^”\\\n]+/ )
 o.backtickQuotedStringChar  =  ( o.escape | /^[^`\\]+/ )
-o.dquotedString  =  "\"" ( o.dquotedStringChar )* "\""
-o.squotedString  =  "'" ( o.squotedStringChar )* "'"
-o.smartQuotedString  =  "“" ( o.smartQuotedStringChar )* "”"
-o.backtickQuotedString  =  "`" ( o.backtickQuotedStringChar )* "`"
-o.string  =  ( o.dquotedString | o.squotedString | o.smartQuotedString | o.backtickQuotedString )
-o.barlistitem  =  o.newline o.space "|" o.space o.chars
-o.barlist  =  ( o.barlistitem )+
-o.extendedarg  =  o.newline o.space ">" o.space o.argument
-o.argflagarrow  =  ( "->" | "=>" )
-o.argflag  =  o.argflagarrow o.space o.variable
-o.namedargument  =  o.identifier o.space "=" o.space o.value
-o.errorparse  =  /^\?\?(.+?)\?\?/
-o.argument  =  ( o.arglist | o.namedargument | o.value | o.inputarg | o.barlist | o.argflag | o.arglistparenthesis | o.extendedarg | o.errorparse )
-o.macroBlock  =  "@{" o.actions "}"
-o.action  =  ( o.flaggedaction | o.variable | o.onlyaction )
-o.arglistparenthesis  =  "(" ( o.optionalNewline o.keyvaluepair o.optionalNewline )* ")"
-o.arglist  =  "a{" ( o.space o.keyvaluepair o.space )* "}"
-o.inputarg  =  "^" ( o.parenthesis | o.variable )
-o.flaggedaction  =  o.variable o.space "=" o.space o.onlyaction
-o.onlyaction  =  ( o.identifier | ":raw" o.space o.string ) o.space o.args
-o.args  =  ( o.argument o.space )*
-o.value  =  ( o.variable | o.string | o.number | o.macroBlock | o.identifier | o.parenthesis | o.dictionary | o.list | o.filter | o.rawvalue )
-o.rawvalue  =  ":raw" o.space ( o.dictionary | o.string )
-o.dictionary  =  "{" o.optionalNewline ( o.optionalNewline ( "<" o.identifier ">" ){0..1} o.keyvaluepair )* o.optionalNewline "}"
-o.list  =  "[" o.optionalNewline ( o.value o.optionalNewline )* "]"
-o.filter  =  ( o.filterand | o.filteror )
-o.filterand  =  ":filter{" o.optionalNewline ( o.optionalNewline o.filteritem o.optionalNewline ( "&" | ":and:" ) o.optionalNewline )* o.filteritem o.optionalNewline "}"
-o.filteror  =  ":filter{" o.optionalNewline ( o.optionalNewline o.filteritem o.optionalNewline ( "|" | ":or:" ) o.optionalNewline )* o.filteritem o.optionalNewline "}"
-o.filteritem  =  ( o.value o.optionalNewline o.value o.optionalNewline o.value o.optionalNewline o.value | o.value o.optionalNewline o.value o.optionalNewline o.value )
-o.keyvaluepair  =  o.optionalNewline ( o.string | o.identifier ) o.optionalNewline ( "=" | ":" ) o.optionalNewline o.value o.optionalNewline
-o.variable  =  o.identifier ":" ( o.identifier | o.string | o.errorparse ) ( ( ":" | "." ) ( o.identifier | o.string ) ){0..1} ( o.dictionary ){0..1}
-o.parenthesis  =  "(" o.optionalNewline ( o.action | o.variable ) o.optionalNewline ")"
-o.actions  =  o.optionalNewline ( o.optionalNewline o.action o.newline )* ( o.optionalNewline o.action ){0..1} o.optionalNewline
+o.dquotedString             =  "\"" ( o.dquotedStringChar )* "\""
+o.squotedString             =  "'" ( o.squotedStringChar )* "'"
+o.smartQuotedString         =  "“" ( o.smartQuotedStringChar )* "”"
+o.backtickQuotedString      =  "`" ( o.backtickQuotedStringChar )* "`"
+o.string                    =  ( o.dquotedString | o.squotedString | o.smartQuotedString | o.backtickQuotedString )
+o.barlistitem               =  o.newline o.space "|" o.space o.chars
+o.barlist                   =  ( o.barlistitem )+
+o.extendedarg               =  o.newline o.space ">" o.space o.argument
+o.argflagarrow              =  ( "->" | "=>" )
+o.argflag                   =  o.argflagarrow o.space o.variable
+o.namedargument             =  o.identifier o.space "=" o.space o.value
+o.errorparse                =  /^\?\?(.+?)\?\?/
+o.argument                  =  ( o.arglist | o.namedargument | o.value | o.inputarg | o.barlist | o.argflag | o.arglistparenthesis | o.extendedarg | o.errorparse )
+o.macroBlock                =  "@{" o.actions "}"
+o.action                    =  ( o.flaggedaction | o.variable | o.onlyaction )
+o.arglistparenthesis        =  "(" ( o.optionalNewline o.keyvaluepair o.optionalNewline )* ")"
+o.arglist                   =  "a{" ( o.space o.keyvaluepair o.space )* "}"
+o.inputarg                  =  "^" ( o.parenthesis | o.variable )
+o.flaggedaction             =  o.variable o.space "=" o.space o.onlyaction
+o.onlyaction                =  ( o.identifier | ":raw" o.space o.string ) o.space o.args
+o.args                      =  ( o.argument o.space )*
+o.value                     =  ( o.variable | o.string | o.number | o.macroBlock | o.identifier | o.parenthesis | o.dictionary | o.list | o.filter | o.rawvalue )
+o.rawvalue                  =  ":raw" o.space ( o.dictionary | o.string )
+o.dictionary                =  "{" o.optionalNewline ( o.optionalNewline ( "<" o.identifier ">" ){0..1} o.keyvaluepair )* o.optionalNewline "}"
+o.list                      =  "[" o.optionalNewline ( o.value o.optionalNewline )* "]"
+o.filter                    =  ( o.filterand | o.filteror )
+o.filterand                 =  ":filter{" o.optionalNewline ( o.optionalNewline o.filteritem o.optionalNewline ( "&" | ":and:" ) o.optionalNewline )* o.filteritem o.optionalNewline "}"
+o.filteror                  =  ":filter{" o.optionalNewline ( o.optionalNewline o.filteritem o.optionalNewline ( "|" | ":or:" ) o.optionalNewline )* o.filteritem o.optionalNewline "}"
+o.filteritem                =  ( o.value o.optionalNewline o.value o.optionalNewline o.value o.optionalNewline o.value | o.value o.optionalNewline o.value o.optionalNewline o.value )
+o.keyvaluepair              =  o.optionalNewline ( o.string | o.identifier ) o.optionalNewline ( "=" | ":" ) o.optionalNewline o.value o.optionalNewline
+o.variable                  =  o.identifier ":" ( o.identifier | o.string | o.errorparse ) ( ( ":" | "." ) ( o.identifier | o.string ) ){0..1} ( o.dictionary ){0..1}
+o.parenthesis               =  "(" o.optionalNewline ( o.action | o.variable ) o.optionalNewline ")"
+o.actions                   =  o.optionalNewline ( o.optionalNewline o.action o.newline )* ( o.optionalNewline o.action ){0..1} o.optionalNewline
