@@ -1,5 +1,3 @@
-import { PositionedError } from "./ParserData";
-
 import {
 	Production,
 	ManyProduction,
@@ -7,25 +5,27 @@ import {
 	OrderedProduction,
 	RegexProduction,
 	OrProduction,
-	ProductionResolveable
+	ProductionResolveable,
+	PositionedError,
+	ProductionResolveableIn
 } from "./Production";
 
-export const p = (...args: Array<ProductionResolveable>): Production =>
+export const p = (...args: Array<ProductionResolveableIn>): Production =>
 	new OrderedProduction(...args);
 export const regex = (regex: RegExp): Production => new RegexProduction(regex);
 
-export const star = (thing: ProductionResolveable): Production =>
+export const star = (thing: ProductionResolveableIn): Production =>
 	new ManyProduction(thing, 0, undefined);
-export const plus = (thing: ProductionResolveable): Production =>
+export const plus = (thing: ProductionResolveableIn): Production =>
 	new ManyProduction(thing, 1, undefined);
 export const optional = (thing: ProductionResolveable): Production =>
 	new ManyProduction(thing, 0, 1);
-export const or = (...args: Array<ProductionResolveable>): Production =>
+export const or = (...args: Array<ProductionResolveableIn>): Production =>
 	new OrProduction(...args);
 export const c = (str: string | TemplateStringsArray): Production =>
 	new StringProduction(`${str}`);
 export const error = (
-	a: ProductionResolveable,
+	a: ProductionResolveableIn,
 	message: (value: any) => string
 ): Production =>
 	p(a).scb((aval, start, end) => {
