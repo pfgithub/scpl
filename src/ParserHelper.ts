@@ -51,7 +51,7 @@ export const o: { [name: string]: ProductionResolveable } = new Proxy(_realo, {
 	},
 	set: (obj, prop, value) => {
 		if (value instanceof Production && typeof prop === "string") {
-			value.name = `o.${prop}`;
+			value.name = prop;
 		}
 		return Reflect.set(obj, prop, value);
 	}
