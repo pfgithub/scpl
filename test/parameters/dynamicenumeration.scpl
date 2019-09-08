@@ -32,7 +32,6 @@ Array [
           "WFGetDirectionsActionApp": "Maps",
           "WFGetDirectionsActionMode": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "ExtensionInput",
             },
             "WFSerializationType": "WFTextTokenAttachment",
@@ -59,7 +58,7 @@ Array [
         },
       },
     ],
-    "WFWorkflowClientRelese": "2.1.2",
+    "WFWorkflowClientRelease": "2.1.2",
     "WFWorkflowClientVersion": "754",
     "WFWorkflowIcon": Object {
       "WFWorkflowIconGlyphNumber": 59511,

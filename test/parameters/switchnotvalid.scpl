@@ -13,7 +13,7 @@ Shortcut Full JSON:
 Array [
   Object {
     "WFWorkflowActions": Array [],
-    "WFWorkflowClientRelese": "2.1.2",
+    "WFWorkflowClientRelease": "2.1.2",
     "WFWorkflowClientVersion": "754",
     "WFWorkflowIcon": Object {
       "WFWorkflowIconGlyphNumber": 59511,

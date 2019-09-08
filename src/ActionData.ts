@@ -537,7 +537,7 @@ ${JSON.stringify(this._data, null, "\t")}
 		});
 		return res;
 	}
-	getParameterOrder() {
+	getParameterOrder(): ReadonlyArray<string | WFParameter> {
 		return this._parameters;
 	}
 	build(

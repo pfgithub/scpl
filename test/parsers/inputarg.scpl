@@ -85,7 +85,6 @@ Array [
         "WFWorkflowActionParameters": Object {
           "WFMathOperand": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "OutputName": "Number",
               "OutputUUID": "<uuid1>",
               "Type": "ActionOutput",
@@ -149,7 +148,6 @@ Array [
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "myvar",
             },
@@ -174,7 +172,6 @@ Array [
         "WFWorkflowActionParameters": Object {
           "WFMathOperand": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "OutputName": "Number",
               "OutputUUID": "<uuid2>",
               "Type": "ActionOutput",
@@ -239,7 +236,6 @@ Array [
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "OutputName": "Number",
               "OutputUUID": "<uuid3>",
               "Type": "ActionOutput",
@@ -265,7 +261,6 @@ Array [
         "WFWorkflowActionParameters": Object {
           "WFMathOperand": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "OutputName": "Number",
               "OutputUUID": "<uuid4>",
               "Type": "ActionOutput",
@@ -313,7 +308,6 @@ Array [
           "UUID": "<uuid6>",
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "OutputName": "mynum",
               "OutputUUID": "<uuid5>",
               "Type": "ActionOutput",
@@ -358,7 +352,6 @@ Array [
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "OutputName": "get variable",
               "OutputUUID": "<uuid6>",
               "Type": "ActionOutput",
@@ -384,7 +377,6 @@ Array [
         "WFWorkflowActionParameters": Object {
           "WFMathOperand": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "OutputName": "Number",
               "OutputUUID": "<uuid7>",
               "Type": "ActionOutput",
@@ -395,7 +387,7 @@ Array [
         },
       },
     ],
-    "WFWorkflowClientRelese": "2.1.2",
+    "WFWorkflowClientRelease": "2.1.2",
     "WFWorkflowClientVersion": "754",
     "WFWorkflowIcon": Object {
       "WFWorkflowIconGlyphNumber": 59511,

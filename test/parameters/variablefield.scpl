@@ -76,7 +76,6 @@ Array [
             "Value": Object {
               "attachmentsByRange": Object {
                 "{0, 1}": Object {
-                  "Aggrandizements": Array [],
                   "Type": "Variable",
                   "VariableName": "myvariable",
                 },
@@ -106,7 +105,6 @@ Array [
             "Value": Object {
               "attachmentsByRange": Object {
                 "{0, 1}": Object {
-                  "Aggrandizements": Array [],
                   "Type": "Variable",
                   "VariableName": "myvarname",
                 },
@@ -118,7 +116,7 @@ Array [
         },
       },
     ],
-    "WFWorkflowClientRelese": "2.1.2",
+    "WFWorkflowClientRelease": "2.1.2",
     "WFWorkflowClientVersion": "754",
     "WFWorkflowIcon": Object {
       "WFWorkflowIconGlyphNumber": 59511,

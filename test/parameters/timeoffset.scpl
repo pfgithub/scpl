@@ -61,7 +61,6 @@ Array [
               "Operation": "Subtract",
               "Unit": "Hour",
               "Value": Object {
-                "Aggrandizements": Array [],
                 "Type": "Clipboard",
               },
             },
@@ -95,7 +94,7 @@ Array [
         },
       },
     ],
-    "WFWorkflowClientRelese": "2.1.2",
+    "WFWorkflowClientRelease": "2.1.2",
     "WFWorkflowClientVersion": "754",
     "WFWorkflowIcon": Object {
       "WFWorkflowIconGlyphNumber": 59511,

@@ -62,7 +62,6 @@ pfg#4865
                 "Value": Object {
                   "attachmentsByRange": Object {
                     "{0, 1}": Object {
-                      "Aggrandizements": Array [],
                       "Type": "Variable",
                       "VariableName": "ThisShortcut",
                     },
@@ -100,7 +99,6 @@ pfg#4865
         "Value": Object {
           "attachmentsByRange": Object {
             "{0, 1}": Object {
-              "Aggrandizements": Array [],
               "OutputUUID": "<uuid1>",
               "Type": "ActionOutput",
             },
@@ -194,7 +192,6 @@ pfg#4865
     "WFWorkflowActionParameters": Object {
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "OutputUUID": "<uuid3>",
           "Type": "ActionOutput",
         },
@@ -209,7 +206,6 @@ pfg#4865
         "Value": Object {
           "attachmentsByRange": Object {
             "{0, 1}": Object {
-              "Aggrandizements": Array [],
               "OutputUUID": "<uuid4>",
               "Type": "ActionOutput",
             },
@@ -322,9 +318,7 @@ pfg#4865
   },
   Object {
     "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
-    "WFWorkflowActionParameters": Object {
-      "WFTextActionText": "",
-    },
+    "WFWorkflowActionParameters": Object {},
   },
   Object {
     "WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
@@ -467,7 +461,6 @@ pfg#4865
                 "Value": Object {
                   "attachmentsByRange": Object {
                     "{0, 1}": Object {
-                      "Aggrandizements": Array [],
                       "OutputUUID": "<uuid9>",
                       "Type": "ActionOutput",
                     },
@@ -488,7 +481,6 @@ pfg#4865
     "WFWorkflowActionParameters": Object {
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "OutputUUID": "<uuid10>",
           "Type": "ActionOutput",
         },
@@ -503,7 +495,6 @@ pfg#4865
       "WFShowWorkflow": false,
       "WFWorkflowName": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "Type": "Variable",
           "VariableName": "ThisShortcut",
         },
@@ -560,7 +551,6 @@ pfg#4865
     "WFWorkflowActionParameters": Object {
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "OutputUUID": "<uuid12>",
           "Type": "ActionOutput",
         },
@@ -575,7 +565,6 @@ pfg#4865
       "WFShowWorkflow": false,
       "WFWorkflowName": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "Type": "Variable",
           "VariableName": "ThisShortcut",
         },
@@ -632,7 +621,6 @@ pfg#4865
     "WFWorkflowActionParameters": Object {
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "OutputUUID": "<uuid14>",
           "Type": "ActionOutput",
         },
@@ -647,7 +635,6 @@ pfg#4865
       "WFShowWorkflow": false,
       "WFWorkflowName": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "Type": "Variable",
           "VariableName": "ThisShortcut",
         },
@@ -660,7 +647,6 @@ pfg#4865
     "WFWorkflowActionParameters": Object {
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "OutputUUID": "<uuid9>",
           "Type": "ActionOutput",
         },
@@ -676,22 +662,18 @@ pfg#4865
         "Value": Object {
           "attachmentsByRange": Object {
             "{40, 1}": Object {
-              "Aggrandizements": Array [],
               "OutputUUID": "<uuid11>",
               "Type": "ActionOutput",
             },
             "{63, 1}": Object {
-              "Aggrandizements": Array [],
               "OutputUUID": "<uuid13>",
               "Type": "ActionOutput",
             },
             "{84, 1}": Object {
-              "Aggrandizements": Array [],
               "OutputUUID": "<uuid15>",
               "Type": "ActionOutput",
             },
             "{86, 1}": Object {
-              "Aggrandizements": Array [],
               "OutputUUID": "<uuid7>",
               "Type": "ActionOutput",
             },
@@ -713,7 +695,6 @@ END:VCARD",
     "WFWorkflowActionParameters": Object {
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "OutputUUID": "<uuid16>",
           "Type": "ActionOutput",
         },
@@ -877,7 +858,6 @@ END:VCARD",
     "WFWorkflowActionParameters": Object {
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "Type": "Variable",
           "VariableName": "Image",
         },
@@ -900,7 +880,6 @@ END:VCARD",
     "WFWorkflowActionParameters": Object {
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "OutputUUID": "<uuid20>",
           "Type": "ActionOutput",
         },
@@ -933,7 +912,6 @@ END:VCARD",
     "WFWorkflowActionParameters": Object {
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "OutputUUID": "<uuid20>",
           "Type": "ActionOutput",
         },
@@ -986,7 +964,6 @@ END:VCARD",
     "WFWorkflowActionParameters": Object {
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "OutputUUID": "<uuid22>",
           "Type": "ActionOutput",
         },
@@ -999,7 +976,6 @@ END:VCARD",
     "WFWorkflowActionParameters": Object {
       "WFImage": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "Type": "Variable",
           "VariableName": "Image",
         },
@@ -1020,7 +996,6 @@ END:VCARD",
     "WFWorkflowActionParameters": Object {
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "OutputUUID": "<uuid22>",
           "Type": "ActionOutput",
         },
@@ -1033,7 +1008,6 @@ END:VCARD",
     "WFWorkflowActionParameters": Object {
       "WFImage": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "Type": "Variable",
           "VariableName": "Image",
         },
@@ -1056,7 +1030,6 @@ END:VCARD",
     "WFWorkflowActionParameters": Object {
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "OutputUUID": "<uuid22>",
           "Type": "ActionOutput",
         },
@@ -1069,7 +1042,6 @@ END:VCARD",
     "WFWorkflowActionParameters": Object {
       "WFImage": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "Type": "Variable",
           "VariableName": "FilledImage",
         },
@@ -1090,7 +1062,6 @@ END:VCARD",
     "WFWorkflowActionParameters": Object {
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "Type": "Variable",
           "VariableName": "Image",
         },
@@ -1116,7 +1087,6 @@ END:VCARD",
     "WFWorkflowActionParameters": Object {
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "Type": "Variable",
           "VariableName": "FitImage",
         },
@@ -1142,7 +1112,6 @@ END:VCARD",
     "WFWorkflowActionParameters": Object {
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "Type": "Variable",
           "VariableName": "FilledImage",
         },
@@ -1170,17 +1139,14 @@ END:VCARD",
         "Value": Object {
           "attachmentsByRange": Object {
             "{156, 1}": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "Image",
             },
             "{275, 1}": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "FitImage",
             },
             "{41, 1}": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "FilledImage",
             },
@@ -1252,7 +1218,6 @@ END:VCARD",
     "WFWorkflowActionParameters": Object {
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "OutputUUID": "<uuid23>",
           "Type": "ActionOutput",
         },
@@ -1266,7 +1231,6 @@ END:VCARD",
       "WFShowWorkflow": false,
       "WFWorkflowName": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "Type": "Variable",
           "VariableName": "ThisShortcut",
         },
@@ -1317,7 +1281,6 @@ END:VCARD",
     "WFWorkflowActionParameters": Object {
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "Type": "Variable",
           "VariableName": "FilledImage",
         },
@@ -1353,7 +1316,6 @@ END:VCARD",
     "WFWorkflowActionParameters": Object {
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "Type": "Variable",
           "VariableName": "Image",
         },
@@ -1389,7 +1351,6 @@ END:VCARD",
     "WFWorkflowActionParameters": Object {
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "Type": "Variable",
           "VariableName": "FitImage",
         },
@@ -1472,7 +1433,6 @@ END:VCARD",
       "WFShowWorkflow": false,
       "WFWorkflowName": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "Type": "Variable",
           "VariableName": "ThisShortcut",
         },
@@ -1579,7 +1539,6 @@ END:VCARD",
                 "Value": Object {
                   "attachmentsByRange": Object {
                     "{0, 1}": Object {
-                      "Aggrandizements": Array [],
                       "Type": "Variable",
                       "VariableName": "CardData",
                     },
@@ -1600,7 +1559,6 @@ END:VCARD",
     "WFWorkflowActionParameters": Object {
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "OutputUUID": "<uuid32>",
           "Type": "ActionOutput",
         },
@@ -1615,7 +1573,6 @@ END:VCARD",
       "WFShowWorkflow": false,
       "WFWorkflowName": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "Type": "Variable",
           "VariableName": "ThisShortcut",
         },
@@ -1672,7 +1629,6 @@ END:VCARD",
     "WFWorkflowActionParameters": Object {
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "OutputUUID": "<uuid34>",
           "Type": "ActionOutput",
         },
@@ -1687,7 +1643,6 @@ END:VCARD",
       "WFShowWorkflow": false,
       "WFWorkflowName": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "Type": "Variable",
           "VariableName": "ThisShortcut",
         },
@@ -1744,7 +1699,6 @@ END:VCARD",
     "WFWorkflowActionParameters": Object {
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "OutputUUID": "<uuid36>",
           "Type": "ActionOutput",
         },
@@ -1759,7 +1713,6 @@ END:VCARD",
       "WFShowWorkflow": false,
       "WFWorkflowName": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "Type": "Variable",
           "VariableName": "ThisShortcut",
         },
@@ -1816,7 +1769,6 @@ END:VCARD",
     "WFWorkflowActionParameters": Object {
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "OutputUUID": "<uuid38>",
           "Type": "ActionOutput",
         },
@@ -1831,7 +1783,6 @@ END:VCARD",
       "WFShowWorkflow": false,
       "WFWorkflowName": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "Type": "Variable",
           "VariableName": "ThisShortcut",
         },
@@ -1844,7 +1795,6 @@ END:VCARD",
     "WFWorkflowActionParameters": Object {
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "OutputUUID": "<uuid31>",
           "Type": "ActionOutput",
         },
@@ -1860,22 +1810,18 @@ END:VCARD",
         "Value": Object {
           "attachmentsByRange": Object {
             "{0, 1}": Object {
-              "Aggrandizements": Array [],
               "OutputUUID": "<uuid33>",
               "Type": "ActionOutput",
             },
             "{240, 1}": Object {
-              "Aggrandizements": Array [],
               "OutputUUID": "<uuid35>",
               "Type": "ActionOutput",
             },
             "{359, 1}": Object {
-              "Aggrandizements": Array [],
               "OutputUUID": "<uuid37>",
               "Type": "ActionOutput",
             },
             "{473, 1}": Object {
-              "Aggrandizements": Array [],
               "OutputUUID": "<uuid39>",
               "Type": "ActionOutput",
             },
@@ -1941,7 +1887,6 @@ END:VCARD",
                 "Value": Object {
                   "attachmentsByRange": Object {
                     "{0, 1}": Object {
-                      "Aggrandizements": Array [],
                       "OutputUUID": "<uuid40>",
                       "Type": "ActionOutput",
                     },
@@ -1962,7 +1907,6 @@ END:VCARD",
     "WFWorkflowActionParameters": Object {
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "OutputUUID": "<uuid41>",
           "Type": "ActionOutput",
         },
@@ -1976,7 +1920,6 @@ END:VCARD",
       "WFShowWorkflow": false,
       "WFWorkflowName": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "Type": "Variable",
           "VariableName": "ThisShortcut",
         },
@@ -2028,7 +1971,6 @@ END:VCARD",
       "UUID": "<uuid44>",
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "Type": "Variable",
           "VariableName": "CardData",
         },
@@ -2059,7 +2001,6 @@ END:VCARD",
     "WFWorkflowActionParameters": Object {
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "OutputUUID": "<uuid45>",
           "Type": "ActionOutput",
         },
@@ -2074,7 +2015,6 @@ END:VCARD",
       "WFShowWorkflow": false,
       "WFWorkflowName": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "Type": "Variable",
           "VariableName": "ThisShortcut",
         },
@@ -2087,7 +2027,6 @@ END:VCARD",
     "WFWorkflowActionParameters": Object {
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "OutputUUID": "<uuid44>",
           "Type": "ActionOutput",
         },
@@ -2103,7 +2042,6 @@ END:VCARD",
         "Value": Object {
           "attachmentsByRange": Object {
             "{0, 1}": Object {
-              "Aggrandizements": Array [],
               "OutputUUID": "<uuid46>",
               "Type": "ActionOutput",
             },
@@ -2181,7 +2119,6 @@ END:VCARD",
     "WFWorkflowActionParameters": Object {
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "Type": "Variable",
           "VariableName": "CardData",
         },
@@ -2197,7 +2134,6 @@ END:VCARD",
         "Value": Object {
           "attachmentsByRange": Object {
             "{0, 1}": Object {
-              "Aggrandizements": Array [],
               "OutputUUID": "<uuid48>",
               "Type": "ActionOutput",
             },
@@ -2275,7 +2211,6 @@ END:VCARD",
     "WFWorkflowActionParameters": Object {
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "Type": "Variable",
           "VariableName": "CardData",
         },
@@ -2291,7 +2226,6 @@ END:VCARD",
         "Value": Object {
           "attachmentsByRange": Object {
             "{0, 1}": Object {
-              "Aggrandizements": Array [],
               "OutputUUID": "<uuid50>",
               "Type": "ActionOutput",
             },
@@ -2369,7 +2303,6 @@ END:VCARD",
     "WFWorkflowActionParameters": Object {
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "Type": "Variable",
           "VariableName": "CardData",
         },
@@ -2385,7 +2318,6 @@ END:VCARD",
         "Value": Object {
           "attachmentsByRange": Object {
             "{0, 1}": Object {
-              "Aggrandizements": Array [],
               "OutputUUID": "<uuid52>",
               "Type": "ActionOutput",
             },
@@ -2434,7 +2366,6 @@ END:VCARD",
     "WFWorkflowActionParameters": Object {
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "Type": "Variable",
           "VariableName": "CardData",
         },
@@ -2479,7 +2410,6 @@ END:VCARD",
                 "Value": Object {
                   "attachmentsByRange": Object {
                     "{0, 1}": Object {
-                      "Aggrandizements": Array [],
                       "Type": "Variable",
                       "VariableName": "CardData",
                     },
@@ -2500,7 +2430,6 @@ END:VCARD",
     "WFWorkflowActionParameters": Object {
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "OutputUUID": "<uuid54>",
           "Type": "ActionOutput",
         },
@@ -2514,7 +2443,6 @@ END:VCARD",
       "WFShowWorkflow": false,
       "WFWorkflowName": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "Type": "Variable",
           "VariableName": "ThisShortcut",
         },
@@ -2622,7 +2550,6 @@ END:VCARD",
     "WFWorkflowActionParameters": Object {
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "Type": "Variable",
           "VariableName": "Length",
         },
@@ -2668,7 +2595,6 @@ END:VCARD",
     "WFWorkflowActionParameters": Object {
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "Type": "Variable",
           "VariableName": "Index",
         },
@@ -2690,7 +2616,6 @@ END:VCARD",
     "WFWorkflowActionParameters": Object {
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "Type": "Variable",
           "VariableName": "List",
         },
@@ -2703,7 +2628,6 @@ END:VCARD",
     "WFWorkflowActionParameters": Object {
       "WFItemRangeEnd": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "Type": "Variable",
           "VariableName": "Length",
         },
@@ -2736,7 +2660,6 @@ END:VCARD",
     "WFWorkflowActionParameters": Object {
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "Type": "Variable",
           "VariableName": "Index",
         },
@@ -2753,7 +2676,6 @@ END:VCARD",
         "Value": Object {
           "attachmentsByRange": Object {
             "{0, 1}": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "Length",
             },
@@ -2771,7 +2693,6 @@ END:VCARD",
       "UUID": "<uuid59>",
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "Type": "Variable",
           "VariableName": "List",
         },
@@ -2784,7 +2705,6 @@ END:VCARD",
     "WFWorkflowActionParameters": Object {
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "Type": "Variable",
           "VariableName": "Length",
         },
@@ -2805,7 +2725,6 @@ END:VCARD",
     "WFWorkflowActionParameters": Object {
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "OutputUUID": "<uuid59>",
           "Type": "ActionOutput",
         },
@@ -2818,7 +2737,6 @@ END:VCARD",
     "WFWorkflowActionParameters": Object {
       "WFItemRangeEnd": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "OutputUUID": "<uuid60>",
           "Type": "ActionOutput",
         },
@@ -2852,7 +2770,6 @@ END:VCARD",
       "UUID": "<uuid61>",
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "Type": "Variable",
           "VariableName": "List",
         },
@@ -2865,7 +2782,6 @@ END:VCARD",
     "WFWorkflowActionParameters": Object {
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "Type": "Variable",
           "VariableName": "Index",
         },
@@ -2886,7 +2802,6 @@ END:VCARD",
     "WFWorkflowActionParameters": Object {
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "OutputUUID": "<uuid61>",
           "Type": "ActionOutput",
         },
@@ -2899,7 +2814,6 @@ END:VCARD",
     "WFWorkflowActionParameters": Object {
       "WFItemRangeEnd": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "OutputUUID": "<uuid62>",
           "Type": "ActionOutput",
         },
@@ -2921,7 +2835,6 @@ END:VCARD",
       "UUID": "<uuid63>",
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "Type": "Variable",
           "VariableName": "List",
         },
@@ -2934,7 +2847,6 @@ END:VCARD",
     "WFWorkflowActionParameters": Object {
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "Type": "Variable",
           "VariableName": "Index",
         },
@@ -2955,7 +2867,6 @@ END:VCARD",
     "WFWorkflowActionParameters": Object {
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "OutputUUID": "<uuid63>",
           "Type": "ActionOutput",
         },
@@ -2968,7 +2879,6 @@ END:VCARD",
     "WFWorkflowActionParameters": Object {
       "WFItemRangeEnd": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "Type": "Variable",
           "VariableName": "Length",
         },
@@ -2976,7 +2886,6 @@ END:VCARD",
       },
       "WFItemRangeStart": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "OutputUUID": "<uuid64>",
           "Type": "ActionOutput",
         },
@@ -3119,7 +3028,6 @@ END:VCARD",
     "WFWorkflowActionParameters": Object {
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "Type": "Variable",
           "VariableName": "Length",
         },
@@ -3141,7 +3049,6 @@ END:VCARD",
     "WFWorkflowActionParameters": Object {
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "Type": "Variable",
           "VariableName": "ItemToAdd",
         },
@@ -3172,7 +3079,6 @@ END:VCARD",
     "WFWorkflowActionParameters": Object {
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "Type": "Variable",
           "VariableName": "Index",
         },
@@ -3194,7 +3100,6 @@ END:VCARD",
     "WFWorkflowActionParameters": Object {
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "Type": "Variable",
           "VariableName": "ItemToAdd",
         },
@@ -3213,7 +3118,6 @@ END:VCARD",
     "WFWorkflowActionParameters": Object {
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "Type": "Variable",
           "VariableName": "List",
         },
@@ -3251,7 +3155,6 @@ END:VCARD",
       "UUID": "<uuid68>",
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "Type": "Variable",
           "VariableName": "Index",
         },
@@ -3264,7 +3167,6 @@ END:VCARD",
     "WFWorkflowActionParameters": Object {
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "Type": "Variable",
           "VariableName": "Length",
         },
@@ -3285,7 +3187,6 @@ END:VCARD",
     "WFWorkflowActionParameters": Object {
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "OutputUUID": "<uuid68>",
           "Type": "ActionOutput",
         },
@@ -3302,7 +3203,6 @@ END:VCARD",
         "Value": Object {
           "attachmentsByRange": Object {
             "{0, 1}": Object {
-              "Aggrandizements": Array [],
               "OutputUUID": "<uuid69>",
               "Type": "ActionOutput",
             },
@@ -3319,7 +3219,6 @@ END:VCARD",
     "WFWorkflowActionParameters": Object {
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "Type": "Variable",
           "VariableName": "List",
         },
@@ -3338,7 +3237,6 @@ END:VCARD",
     "WFWorkflowActionParameters": Object {
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "Type": "Variable",
           "VariableName": "ItemToAdd",
         },
@@ -3376,7 +3274,6 @@ END:VCARD",
       "UUID": "<uuid71>",
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "Type": "Variable",
           "VariableName": "List",
         },
@@ -3389,7 +3286,6 @@ END:VCARD",
     "WFWorkflowActionParameters": Object {
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "Type": "Variable",
           "VariableName": "Index",
         },
@@ -3410,7 +3306,6 @@ END:VCARD",
     "WFWorkflowActionParameters": Object {
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "OutputUUID": "<uuid71>",
           "Type": "ActionOutput",
         },
@@ -3423,7 +3318,6 @@ END:VCARD",
     "WFWorkflowActionParameters": Object {
       "WFItemRangeEnd": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "OutputUUID": "<uuid72>",
           "Type": "ActionOutput",
         },
@@ -3444,7 +3338,6 @@ END:VCARD",
     "WFWorkflowActionParameters": Object {
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "Type": "Variable",
           "VariableName": "ItemToAdd",
         },
@@ -3463,7 +3356,6 @@ END:VCARD",
     "WFWorkflowActionParameters": Object {
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "Type": "Variable",
           "VariableName": "List",
         },
@@ -3476,7 +3368,6 @@ END:VCARD",
     "WFWorkflowActionParameters": Object {
       "WFItemRangeEnd": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "Type": "Variable",
           "VariableName": "Length",
         },
@@ -3484,7 +3375,6 @@ END:VCARD",
       },
       "WFItemRangeStart": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "Type": "Variable",
           "VariableName": "Index",
         },
@@ -3585,7 +3475,6 @@ Items should be added as 'Item Title/Note Value/Description'",
             "Value": Object {
               "attachmentsByRange": Object {
                 "{22, 1}": Object {
-                  "Aggrandizements": Array [],
                   "Type": "Ask",
                 },
               },
@@ -3658,7 +3547,6 @@ Items should be added as 'Item Title/Note Value/Description'",
     "WFWorkflowActionParameters": Object {
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "Type": "Variable",
           "VariableName": "TitleNoteDescription",
         },
@@ -3679,7 +3567,6 @@ Items should be added as 'Item Title/Note Value/Description'",
     "WFWorkflowActionParameters": Object {
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "Type": "Variable",
           "VariableName": "TitleNoteDescription",
         },
@@ -3700,7 +3587,6 @@ Items should be added as 'Item Title/Note Value/Description'",
     "WFWorkflowActionParameters": Object {
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "Type": "Variable",
           "VariableName": "TitleNoteDescription",
         },
@@ -3729,7 +3615,6 @@ Items should be added as 'Item Title/Note Value/Description'",
                 "Value": Object {
                   "attachmentsByRange": Object {
                     "{0, 1}": Object {
-                      "Aggrandizements": Array [],
                       "OutputUUID": "<uuid77>",
                       "Type": "ActionOutput",
                     },
@@ -3746,7 +3631,6 @@ Items should be added as 'Item Title/Note Value/Description'",
                 "Value": Object {
                   "attachmentsByRange": Object {
                     "{0, 1}": Object {
-                      "Aggrandizements": Array [],
                       "OutputUUID": "<uuid78>",
                       "Type": "ActionOutput",
                     },
@@ -3763,7 +3647,6 @@ Items should be added as 'Item Title/Note Value/Description'",
                 "Value": Object {
                   "attachmentsByRange": Object {
                     "{0, 1}": Object {
-                      "Aggrandizements": Array [],
                       "OutputUUID": "<uuid79>",
                       "Type": "ActionOutput",
                     },
@@ -3841,7 +3724,6 @@ Items should be added as 'Item Title/Note Value/Description'",
         "Value": Object {
           "attachmentsByRange": Object {
             "{20, 1}": Object {
-              "Aggrandizements": Array [],
               "OutputUUID": "<uuid81>",
               "Type": "ActionOutput",
             },
@@ -3873,7 +3755,6 @@ Items should be added as 'Item Title/Note Value/Description'",
     "WFWorkflowActionParameters": Object {
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "OutputUUID": "<uuid81>",
           "Type": "ActionOutput",
         },
@@ -3899,7 +3780,6 @@ Items should be added as 'Item Title/Note Value/Description'",
         "Value": Object {
           "attachmentsByRange": Object {
             "{13, 1}": Object {
-              "Aggrandizements": Array [],
               "OutputUUID": "<uuid81>",
               "Type": "ActionOutput",
             },
@@ -3940,7 +3820,6 @@ Items should be added as 'Item Title/Note Value/Description'",
     "WFWorkflowActionParameters": Object {
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "OutputUUID": "<uuid83>",
           "Type": "ActionOutput",
         },
@@ -3954,7 +3833,6 @@ Items should be added as 'Item Title/Note Value/Description'",
       "WFShowWorkflow": false,
       "WFWorkflowName": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "Type": "Variable",
           "VariableName": "ThisShortcut",
         },
@@ -4050,7 +3928,6 @@ Items should be added as 'Item Title/Note Value/Description'",
     "WFWorkflowActionParameters": Object {
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "Type": "Variable",
           "VariableName": "Filename",
         },
@@ -4137,7 +4014,6 @@ END:VCARD",
         "Value": Object {
           "attachmentsByRange": Object {
             "{0, 1}": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "Items",
             },
@@ -4157,7 +4033,6 @@ END:VCARD",
         "Value": Object {
           "attachmentsByRange": Object {
             "{0, 1}": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "Filename",
             },
@@ -4176,7 +4051,6 @@ END:VCARD",
         "Value": Object {
           "attachmentsByRange": Object {
             "{20, 1}": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "Filename",
             },
@@ -4196,7 +4070,6 @@ END:VCARD",
         "Value": Object {
           "attachmentsByRange": Object {
             "{44, 1}": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "Filename",
             },
@@ -4241,7 +4114,6 @@ END:VCARD",
     "WFWorkflowActionParameters": Object {
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "Type": "Variable",
           "VariableName": "Items",
         },
@@ -4281,7 +4153,6 @@ END:VCARD",
     "WFWorkflowActionParameters": Object {
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "Type": "Variable",
           "VariableName": "Repeat Item",
         },
@@ -4298,7 +4169,6 @@ END:VCARD",
         "Value": Object {
           "attachmentsByRange": Object {
             "{0, 1}": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "Repeat Index",
             },
@@ -4328,7 +4198,6 @@ END:VCARD",
                 "Value": Object {
                   "attachmentsByRange": Object {
                     "{0, 1}": Object {
-                      "Aggrandizements": Array [],
                       "OutputUUID": "<uuid88>",
                       "Type": "ActionOutput",
                     },
@@ -4349,7 +4218,6 @@ END:VCARD",
     "WFWorkflowActionParameters": Object {
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "OutputUUID": "<uuid89>",
           "Type": "ActionOutput",
         },
@@ -4363,7 +4231,6 @@ END:VCARD",
       "WFShowWorkflow": false,
       "WFWorkflowName": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "Type": "Variable",
           "VariableName": "ThisShortcut",
         },
@@ -4400,12 +4267,10 @@ END:VCARD",
         "Value": Object {
           "attachmentsByRange": Object {
             "{0, 1}": Object {
-              "Aggrandizements": Array [],
               "OutputUUID": "<uuid90>",
               "Type": "ActionOutput",
             },
             "{301, 1}": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "SaveItem",
             },
@@ -4459,7 +4324,6 @@ END:VCARD",
                 "Value": Object {
                   "attachmentsByRange": Object {
                     "{0, 1}": Object {
-                      "Aggrandizements": Array [],
                       "OutputUUID": "<uuid91>",
                       "Type": "ActionOutput",
                     },
@@ -4480,7 +4344,6 @@ END:VCARD",
     "WFWorkflowActionParameters": Object {
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "OutputUUID": "<uuid92>",
           "Type": "ActionOutput",
         },
@@ -4494,7 +4357,6 @@ END:VCARD",
       "WFShowWorkflow": false,
       "WFWorkflowName": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "Type": "Variable",
           "VariableName": "ThisShortcut",
         },
@@ -4510,7 +4372,6 @@ END:VCARD",
         "Value": Object {
           "attachmentsByRange": Object {
             "{0, 1}": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "StatusText",
             },
@@ -4611,7 +4472,6 @@ END:VCARD",
     "WFWorkflowActionParameters": Object {
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "OutputUUID": "<uuid96>",
           "Type": "ActionOutput",
         },
@@ -4625,7 +4485,6 @@ END:VCARD",
       "WFShowWorkflow": false,
       "WFWorkflowName": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "Type": "Variable",
           "VariableName": "ThisShortcut",
         },
@@ -4641,9 +4500,7 @@ END:VCARD",
   },
   Object {
     "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
-    "WFWorkflowActionParameters": Object {
-      "WFTextActionText": "",
-    },
+    "WFWorkflowActionParameters": Object {},
   },
   Object {
     "WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
@@ -4691,7 +4548,6 @@ END:VCARD",
     "WFWorkflowActionParameters": Object {
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "OutputUUID": "<uuid98>",
           "Type": "ActionOutput",
         },
@@ -4705,7 +4561,6 @@ END:VCARD",
       "WFShowWorkflow": false,
       "WFWorkflowName": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "Type": "Variable",
           "VariableName": "ThisShortcut",
         },
@@ -4721,9 +4576,7 @@ END:VCARD",
   },
   Object {
     "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
-    "WFWorkflowActionParameters": Object {
-      "WFTextActionText": "",
-    },
+    "WFWorkflowActionParameters": Object {},
   },
   Object {
     "WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
@@ -4771,7 +4624,6 @@ END:VCARD",
     "WFWorkflowActionParameters": Object {
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "OutputUUID": "<uuid100>",
           "Type": "ActionOutput",
         },
@@ -4785,7 +4637,6 @@ END:VCARD",
       "WFShowWorkflow": false,
       "WFWorkflowName": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "Type": "Variable",
           "VariableName": "ThisShortcut",
         },
@@ -4801,9 +4652,7 @@ END:VCARD",
   },
   Object {
     "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
-    "WFWorkflowActionParameters": Object {
-      "WFTextActionText": "",
-    },
+    "WFWorkflowActionParameters": Object {},
   },
   Object {
     "WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
@@ -4852,7 +4701,6 @@ END:VCARD",
     "WFWorkflowActionParameters": Object {
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "OutputUUID": "<uuid90>",
           "Type": "ActionOutput",
         },
@@ -4876,7 +4724,6 @@ END:VCARD",
         "Value": Object {
           "attachmentsByRange": Object {
             "{25, 1}": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "StatusText",
             },
@@ -4917,9 +4764,7 @@ END:VCARD",
   },
   Object {
     "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
-    "WFWorkflowActionParameters": Object {
-      "WFTextActionText": "",
-    },
+    "WFWorkflowActionParameters": Object {},
   },
   Object {
     "WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
@@ -4967,7 +4812,6 @@ END:VCARD",
       "UUID": "<uuid105>",
       "WFNumberActionNumber": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "OutputUUID": "<uuid94>",
           "Type": "ActionOutput",
         },
@@ -4980,7 +4824,6 @@ END:VCARD",
     "WFWorkflowActionParameters": Object {
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "Type": "Variable",
           "VariableName": "Items",
         },
@@ -4994,7 +4837,6 @@ END:VCARD",
       "UUID": "<uuid106>",
       "WFItemIndex": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "OutputUUID": "<uuid105>",
           "Type": "ActionOutput",
         },
@@ -5022,7 +4864,6 @@ END:VCARD",
                 "Value": Object {
                   "attachmentsByRange": Object {
                     "{0, 1}": Object {
-                      "Aggrandizements": Array [],
                       "OutputUUID": "<uuid106>",
                       "Type": "ActionOutput",
                     },
@@ -5043,7 +4884,6 @@ END:VCARD",
     "WFWorkflowActionParameters": Object {
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "OutputUUID": "<uuid107>",
           "Type": "ActionOutput",
         },
@@ -5057,7 +4897,6 @@ END:VCARD",
       "WFShowWorkflow": false,
       "WFWorkflowName": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "Type": "Variable",
           "VariableName": "ThisShortcut",
         },
@@ -5097,7 +4936,6 @@ END:VCARD",
                 "Value": Object {
                   "attachmentsByRange": Object {
                     "{0, 1}": Object {
-                      "Aggrandizements": Array [],
                       "OutputUUID": "<uuid105>",
                       "Type": "ActionOutput",
                     },
@@ -5121,7 +4959,6 @@ END:VCARD",
         "Value": Object {
           "attachmentsByRange": Object {
             "{0, 1}": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "Items",
             },
@@ -5138,7 +4975,6 @@ END:VCARD",
       "WFShowWorkflow": false,
       "WFWorkflowName": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "Type": "Variable",
           "VariableName": "ThisShortcut",
         },
@@ -5178,7 +5014,6 @@ END:VCARD",
                 "Value": Object {
                   "attachmentsByRange": Object {
                     "{0, 1}": Object {
-                      "Aggrandizements": Array [],
                       "Type": "Variable",
                       "VariableName": "NewItem",
                     },
@@ -5195,7 +5030,6 @@ END:VCARD",
                 "Value": Object {
                   "attachmentsByRange": Object {
                     "{0, 1}": Object {
-                      "Aggrandizements": Array [],
                       "OutputUUID": "<uuid105>",
                       "Type": "ActionOutput",
                     },
@@ -5219,7 +5053,6 @@ END:VCARD",
         "Value": Object {
           "attachmentsByRange": Object {
             "{0, 1}": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "Items",
             },
@@ -5236,7 +5069,6 @@ END:VCARD",
       "WFShowWorkflow": false,
       "WFWorkflowName": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "Type": "Variable",
           "VariableName": "ThisShortcut",
         },
@@ -5287,7 +5119,6 @@ END:VCARD",
                 "Value": Object {
                   "attachmentsByRange": Object {
                     "{0, 1}": Object {
-                      "Aggrandizements": Array [],
                       "Type": "Variable",
                       "VariableName": "Filename",
                     },
@@ -5311,7 +5142,6 @@ END:VCARD",
         "Value": Object {
           "attachmentsByRange": Object {
             "{0, 1}": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "Items",
             },
@@ -5328,7 +5158,6 @@ END:VCARD",
       "WFShowWorkflow": false,
       "WFWorkflowName": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "Type": "Variable",
           "VariableName": "ThisShortcut",
         },
@@ -5448,7 +5277,6 @@ END:VCARD",
     "WFWorkflowActionParameters": Object {
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "OutputUUID": "<uuid111>",
           "Type": "ActionOutput",
         },
@@ -5462,7 +5290,6 @@ END:VCARD",
       "WFShowWorkflow": false,
       "WFWorkflowName": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "Type": "Variable",
           "VariableName": "ThisShortcut",
         },
@@ -5481,7 +5308,6 @@ END:VCARD",
     "WFWorkflowActionParameters": Object {
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "OutputUUID": "<uuid110>",
           "Type": "ActionOutput",
         },
@@ -5559,17 +5385,14 @@ END:VCARD",
         "Value": Object {
           "attachmentsByRange": Object {
             "{40, 1}": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "Name",
             },
             "{63, 1}": Object {
-              "Aggrandizements": Array [],
               "OutputUUID": "<uuid112>",
               "Type": "ActionOutput",
             },
             "{65, 1}": Object {
-              "Aggrandizements": Array [],
               "OutputUUID": "<uuid114>",
               "Type": "ActionOutput",
             },
@@ -5607,7 +5430,6 @@ END:VCARD",
         "Value": Object {
           "attachmentsByRange": Object {
             "{0, 1}": Object {
-              "Aggrandizements": Array [],
               "OutputUUID": "<uuid115>",
               "Type": "ActionOutput",
             },
@@ -5646,7 +5468,6 @@ END:VCARD",
                 "Value": Object {
                   "attachmentsByRange": Object {
                     "{0, 1}": Object {
-                      "Aggrandizements": Array [],
                       "OutputUUID": "<uuid116>",
                       "Type": "ActionOutput",
                     },
@@ -5667,7 +5488,6 @@ END:VCARD",
     "WFWorkflowActionParameters": Object {
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "OutputUUID": "<uuid117>",
           "Type": "ActionOutput",
         },
@@ -5681,7 +5501,6 @@ END:VCARD",
       "WFShowWorkflow": false,
       "WFWorkflowName": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "Type": "Variable",
           "VariableName": "ThisShortcut",
         },
@@ -5765,7 +5584,6 @@ END:VCARD",
       "WFShowWorkflow": false,
       "WFWorkflowName": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "Type": "Variable",
           "VariableName": "ThisShortcut",
         },
@@ -5828,7 +5646,6 @@ END:VCARD",
     "WFWorkflowActionParameters": Object {
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "OutputUUID": "<uuid118>",
           "Type": "ActionOutput",
         },
@@ -5851,7 +5668,6 @@ END:VCARD",
         "Value": Object {
           "attachmentsByRange": Object {
             "{20, 1}": Object {
-              "Aggrandizements": Array [],
               "OutputUUID": "<uuid122>",
               "Type": "ActionOutput",
             },
@@ -5903,7 +5719,6 @@ END:VCARD",
                 "Value": Object {
                   "attachmentsByRange": Object {
                     "{0, 1}": Object {
-                      "Aggrandizements": Array [],
                       "OutputUUID": "<uuid122>",
                       "Type": "ActionOutput",
                     },
@@ -5927,7 +5742,6 @@ END:VCARD",
         "Value": Object {
           "attachmentsByRange": Object {
             "{0, 1}": Object {
-              "Aggrandizements": Array [],
               "OutputUUID": "<uuid123>",
               "Type": "ActionOutput",
             },
@@ -5944,7 +5758,6 @@ END:VCARD",
       "WFShowWorkflow": false,
       "WFWorkflowName": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "Type": "Variable",
           "VariableName": "ThisShortcut",
         },
@@ -5993,7 +5806,6 @@ END:VCARD",
     "WFWorkflowActionParameters": Object {
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "OutputUUID": "<uuid124>",
           "Type": "ActionOutput",
         },
@@ -6007,7 +5819,6 @@ END:VCARD",
       "WFShowWorkflow": false,
       "WFWorkflowName": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "Type": "Variable",
           "VariableName": "ThisShortcut",
         },
@@ -6056,7 +5867,6 @@ END:VCARD",
     "WFWorkflowActionParameters": Object {
       "WFVariable": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "OutputUUID": "<uuid125>",
           "Type": "ActionOutput",
         },
@@ -6070,7 +5880,6 @@ END:VCARD",
       "WFShowWorkflow": false,
       "WFWorkflowName": Object {
         "Value": Object {
-          "Aggrandizements": Array [],
           "Type": "Variable",
           "VariableName": "ThisShortcut",
         },
@@ -6153,7 +5962,7 @@ If input=Equals value=CreateCard
 	GetVariable v:CardData.photo
 	Count Characters
 	If input=Equals value=1
-		Text \\"\\"
+		Text
 	Otherwise
 		Text \\"PHOTO;ENCODING=b:\\\\(v:CardData.photo)\\"
 	End -> mv:Photo
@@ -6511,7 +6320,7 @@ If input=Equals value=EditList
 		GetVariable mv:Dictionary14
 		RunShortcut shortcut=v:ThisShortcut showWhileRunning=false
 		AddtoVariable Items
-		Text \\"\\"
+		Text
 	Otherwise
 	End
 	If input=Equals value=quickAdd
@@ -6519,7 +6328,7 @@ If input=Equals value=EditList
 		GetVariable mv:Dictionary15
 		RunShortcut shortcut=v:ThisShortcut showWhileRunning=false
 		AddtoVariable Items
-		Text \\"\\"
+		Text
 	Otherwise
 	End
 	If input=Equals value=saveList
@@ -6527,7 +6336,7 @@ If input=Equals value=EditList
 		GetVariable mv:Dictionary16
 		RunShortcut shortcut=v:ThisShortcut showWhileRunning=false
 		SetVariable Filename
-		Text \\"\\"
+		Text
 	Otherwise
 	End
 	If input=Equals value=copyToClipboard
@@ -6540,7 +6349,7 @@ If input=Equals value=EditList
 			End
 		Case
 		End
-		Text \\"\\"
+		Text
 	Otherwise
 	End
 	Count Characters
@@ -6794,7 +6603,6 @@ pfg#4865
                     "Value": Object {
                       "attachmentsByRange": Object {
                         "{0, 1}": Object {
-                          "Aggrandizements": Array [],
                           "Type": "Variable",
                           "VariableName": "ThisShortcut",
                         },
@@ -6856,7 +6664,6 @@ pfg#4865
             "Value": Object {
               "attachmentsByRange": Object {
                 "{0, 1}": Object {
-                  "Aggrandizements": Array [],
                   "OutputName": "CFUDictionary",
                   "OutputUUID": "<uuid1>",
                   "Type": "ActionOutput",
@@ -7035,7 +6842,6 @@ pfg#4865
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "OutputName": "Replace Text",
               "OutputUUID": "<uuid3>",
               "Type": "ActionOutput",
@@ -7063,7 +6869,6 @@ pfg#4865
             "Value": Object {
               "attachmentsByRange": Object {
                 "{0, 1}": Object {
-                  "Aggrandizements": Array [],
                   "OutputName": "Text",
                   "OutputUUID": "<uuid4>",
                   "Type": "ActionOutput",
@@ -7588,7 +7393,6 @@ pfg#4865
                     "Value": Object {
                       "attachmentsByRange": Object {
                         "{0, 1}": Object {
-                          "Aggrandizements": Array [],
                           "OutputName": "Name",
                           "OutputUUID": "<uuid9>",
                           "Type": "ActionOutput",
@@ -7622,7 +7426,6 @@ pfg#4865
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "OutputName": "Dictionary",
               "OutputUUID": "<uuid10>",
               "Type": "ActionOutput",
@@ -7650,7 +7453,6 @@ pfg#4865
           "WFShowWorkflow": false,
           "WFWorkflowName": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "ThisShortcut",
             },
@@ -7731,7 +7533,6 @@ pfg#4865
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "OutputName": "Dictionary",
               "OutputUUID": "<uuid12>",
               "Type": "ActionOutput",
@@ -7759,7 +7560,6 @@ pfg#4865
           "WFShowWorkflow": false,
           "WFWorkflowName": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "ThisShortcut",
             },
@@ -7840,7 +7640,6 @@ pfg#4865
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "OutputName": "Dictionary",
               "OutputUUID": "<uuid14>",
               "Type": "ActionOutput",
@@ -7868,7 +7667,6 @@ pfg#4865
           "WFShowWorkflow": false,
           "WFWorkflowName": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "ThisShortcut",
             },
@@ -7893,7 +7691,6 @@ pfg#4865
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "OutputName": "Name",
               "OutputUUID": "<uuid9>",
               "Type": "ActionOutput",
@@ -7923,25 +7720,21 @@ pfg#4865
             "Value": Object {
               "attachmentsByRange": Object {
                 "{40, 1}": Object {
-                  "Aggrandizements": Array [],
                   "OutputName": "Run Shortcut",
                   "OutputUUID": "<uuid11>",
                   "Type": "ActionOutput",
                 },
                 "{63, 1}": Object {
-                  "Aggrandizements": Array [],
                   "OutputName": "Run Shortcut",
                   "OutputUUID": "<uuid13>",
                   "Type": "ActionOutput",
                 },
                 "{84, 1}": Object {
-                  "Aggrandizements": Array [],
                   "OutputName": "Run Shortcut",
                   "OutputUUID": "<uuid15>",
                   "Type": "ActionOutput",
                 },
                 "{86, 1}": Object {
-                  "Aggrandizements": Array [],
                   "OutputName": "Photo",
                   "OutputUUID": "<uuid7>",
                   "Type": "ActionOutput",
@@ -7976,7 +7769,6 @@ END:VCARD",
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "OutputName": "Result",
               "OutputUUID": "<uuid16>",
               "Type": "ActionOutput",
@@ -8348,7 +8140,6 @@ END:VCARD",
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "Image",
             },
@@ -8407,7 +8198,6 @@ END:VCARD",
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "OutputName": "SelectedPhoto",
               "OutputUUID": "<uuid20>",
               "Type": "ActionOutput",
@@ -8489,7 +8279,6 @@ END:VCARD",
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "OutputName": "SelectedPhoto",
               "OutputUUID": "<uuid20>",
               "Type": "ActionOutput",
@@ -8628,7 +8417,6 @@ END:VCARD",
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "OutputName": "TransparentImage",
               "OutputUUID": "<uuid22>",
               "Type": "ActionOutput",
@@ -8654,7 +8442,6 @@ END:VCARD",
         "WFWorkflowActionParameters": Object {
           "WFImage": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "Image",
             },
@@ -8699,7 +8486,6 @@ END:VCARD",
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "OutputName": "TransparentImage",
               "OutputUUID": "<uuid22>",
               "Type": "ActionOutput",
@@ -8725,7 +8511,6 @@ END:VCARD",
         "WFWorkflowActionParameters": Object {
           "WFImage": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "Image",
             },
@@ -8772,7 +8557,6 @@ END:VCARD",
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "OutputName": "TransparentImage",
               "OutputUUID": "<uuid22>",
               "Type": "ActionOutput",
@@ -8798,7 +8582,6 @@ END:VCARD",
         "WFWorkflowActionParameters": Object {
           "WFImage": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "FilledImage",
             },
@@ -8843,7 +8626,6 @@ END:VCARD",
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "Image",
             },
@@ -8905,7 +8687,6 @@ END:VCARD",
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "FitImage",
             },
@@ -8967,7 +8748,6 @@ END:VCARD",
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "FilledImage",
             },
@@ -9031,17 +8811,14 @@ END:VCARD",
             "Value": Object {
               "attachmentsByRange": Object {
                 "{156, 1}": Object {
-                  "Aggrandizements": Array [],
                   "Type": "Variable",
                   "VariableName": "Image",
                 },
                 "{275, 1}": Object {
-                  "Aggrandizements": Array [],
                   "Type": "Variable",
                   "VariableName": "FitImage",
                 },
                 "{41, 1}": Object {
-                  "Aggrandizements": Array [],
                   "Type": "Variable",
                   "VariableName": "FilledImage",
                 },
@@ -9149,7 +8926,6 @@ END:VCARD",
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "OutputName": "Dictionary",
               "OutputUUID": "<uuid23>",
               "Type": "ActionOutput",
@@ -9176,7 +8952,6 @@ END:VCARD",
           "WFShowWorkflow": false,
           "WFWorkflowName": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "ThisShortcut",
             },
@@ -9277,7 +9052,6 @@ END:VCARD",
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "FilledImage",
             },
@@ -9361,7 +9135,6 @@ END:VCARD",
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "Image",
             },
@@ -9445,7 +9218,6 @@ END:VCARD",
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "FitImage",
             },
@@ -9636,7 +9408,6 @@ END:VCARD",
           "WFShowWorkflow": false,
           "WFWorkflowName": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "ThisShortcut",
             },
@@ -9875,7 +9646,6 @@ END:VCARD",
                     "Value": Object {
                       "attachmentsByRange": Object {
                         "{0, 1}": Object {
-                          "Aggrandizements": Array [],
                           "Type": "Variable",
                           "VariableName": "CardData",
                         },
@@ -9908,7 +9678,6 @@ END:VCARD",
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "OutputName": "Dictionary",
               "OutputUUID": "<uuid32>",
               "Type": "ActionOutput",
@@ -9936,7 +9705,6 @@ END:VCARD",
           "WFShowWorkflow": false,
           "WFWorkflowName": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "ThisShortcut",
             },
@@ -10017,7 +9785,6 @@ END:VCARD",
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "OutputName": "Dictionary",
               "OutputUUID": "<uuid34>",
               "Type": "ActionOutput",
@@ -10045,7 +9812,6 @@ END:VCARD",
           "WFShowWorkflow": false,
           "WFWorkflowName": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "ThisShortcut",
             },
@@ -10126,7 +9892,6 @@ END:VCARD",
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "OutputName": "Dictionary",
               "OutputUUID": "<uuid36>",
               "Type": "ActionOutput",
@@ -10154,7 +9919,6 @@ END:VCARD",
           "WFShowWorkflow": false,
           "WFWorkflowName": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "ThisShortcut",
             },
@@ -10235,7 +9999,6 @@ END:VCARD",
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "OutputName": "Dictionary",
               "OutputUUID": "<uuid38>",
               "Type": "ActionOutput",
@@ -10263,7 +10026,6 @@ END:VCARD",
           "WFShowWorkflow": false,
           "WFWorkflowName": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "ThisShortcut",
             },
@@ -10288,7 +10050,6 @@ END:VCARD",
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "OutputName": "get variable",
               "OutputUUID": "<uuid31>",
               "Type": "ActionOutput",
@@ -10318,25 +10079,21 @@ END:VCARD",
             "Value": Object {
               "attachmentsByRange": Object {
                 "{0, 1}": Object {
-                  "Aggrandizements": Array [],
                   "OutputName": "Run Shortcut",
                   "OutputUUID": "<uuid33>",
                   "Type": "ActionOutput",
                 },
                 "{240, 1}": Object {
-                  "Aggrandizements": Array [],
                   "OutputName": "Run Shortcut",
                   "OutputUUID": "<uuid35>",
                   "Type": "ActionOutput",
                 },
                 "{359, 1}": Object {
-                  "Aggrandizements": Array [],
                   "OutputName": "Run Shortcut",
                   "OutputUUID": "<uuid37>",
                   "Type": "ActionOutput",
                 },
                 "{473, 1}": Object {
-                  "Aggrandizements": Array [],
                   "OutputName": "Run Shortcut",
                   "OutputUUID": "<uuid39>",
                   "Type": "ActionOutput",
@@ -10415,7 +10172,6 @@ END:VCARD",
                     "Value": Object {
                       "attachmentsByRange": Object {
                         "{0, 1}": Object {
-                          "Aggrandizements": Array [],
                           "OutputName": "vCard",
                           "OutputUUID": "<uuid40>",
                           "Type": "ActionOutput",
@@ -10449,7 +10205,6 @@ END:VCARD",
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "OutputName": "Dictionary",
               "OutputUUID": "<uuid41>",
               "Type": "ActionOutput",
@@ -10476,7 +10231,6 @@ END:VCARD",
           "WFShowWorkflow": false,
           "WFWorkflowName": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "ThisShortcut",
             },
@@ -10579,7 +10333,6 @@ END:VCARD",
           "UUID": "<uuid44>",
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "CardData",
             },
@@ -10634,7 +10387,6 @@ END:VCARD",
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "OutputName": "Dictionary",
               "OutputUUID": "<uuid45>",
               "Type": "ActionOutput",
@@ -10662,7 +10414,6 @@ END:VCARD",
           "WFShowWorkflow": false,
           "WFWorkflowName": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "ThisShortcut",
             },
@@ -10687,7 +10438,6 @@ END:VCARD",
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "OutputName": "get variable",
               "OutputUUID": "<uuid44>",
               "Type": "ActionOutput",
@@ -10716,7 +10466,6 @@ END:VCARD",
             "Value": Object {
               "attachmentsByRange": Object {
                 "{0, 1}": Object {
-                  "Aggrandizements": Array [],
                   "OutputName": "Run Shortcut",
                   "OutputUUID": "<uuid46>",
                   "Type": "ActionOutput",
@@ -10880,7 +10629,6 @@ END:VCARD",
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "CardData",
             },
@@ -10908,7 +10656,6 @@ END:VCARD",
             "Value": Object {
               "attachmentsByRange": Object {
                 "{0, 1}": Object {
-                  "Aggrandizements": Array [],
                   "OutputName": "NewValue",
                   "OutputUUID": "<uuid48>",
                   "Type": "ActionOutput",
@@ -11072,7 +10819,6 @@ END:VCARD",
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "CardData",
             },
@@ -11100,7 +10846,6 @@ END:VCARD",
             "Value": Object {
               "attachmentsByRange": Object {
                 "{0, 1}": Object {
-                  "Aggrandizements": Array [],
                   "OutputName": "NewValue",
                   "OutputUUID": "<uuid50>",
                   "Type": "ActionOutput",
@@ -11264,7 +11009,6 @@ END:VCARD",
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "CardData",
             },
@@ -11292,7 +11036,6 @@ END:VCARD",
             "Value": Object {
               "attachmentsByRange": Object {
                 "{0, 1}": Object {
-                  "Aggrandizements": Array [],
                   "OutputName": "NewValue",
                   "OutputUUID": "<uuid52>",
                   "Type": "ActionOutput",
@@ -11414,7 +11157,6 @@ END:VCARD",
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "CardData",
             },
@@ -11507,7 +11249,6 @@ END:VCARD",
                     "Value": Object {
                       "attachmentsByRange": Object {
                         "{0, 1}": Object {
-                          "Aggrandizements": Array [],
                           "Type": "Variable",
                           "VariableName": "CardData",
                         },
@@ -11540,7 +11281,6 @@ END:VCARD",
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "OutputName": "Dictionary",
               "OutputUUID": "<uuid54>",
               "Type": "ActionOutput",
@@ -11567,7 +11307,6 @@ END:VCARD",
           "WFShowWorkflow": false,
           "WFWorkflowName": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "ThisShortcut",
             },
@@ -11807,7 +11546,6 @@ END:VCARD",
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "Length",
             },
@@ -11925,7 +11663,6 @@ END:VCARD",
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "Index",
             },
@@ -11971,7 +11708,6 @@ END:VCARD",
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "List",
             },
@@ -11996,7 +11732,6 @@ END:VCARD",
         "WFWorkflowActionParameters": Object {
           "WFItemRangeEnd": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "Length",
             },
@@ -12077,7 +11812,6 @@ END:VCARD",
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "Index",
             },
@@ -12106,7 +11840,6 @@ END:VCARD",
             "Value": Object {
               "attachmentsByRange": Object {
                 "{0, 1}": Object {
-                  "Aggrandizements": Array [],
                   "Type": "Variable",
                   "VariableName": "Length",
                 },
@@ -12136,7 +11869,6 @@ END:VCARD",
           "UUID": "<uuid59>",
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "List",
             },
@@ -12161,7 +11893,6 @@ END:VCARD",
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "Length",
             },
@@ -12206,7 +11937,6 @@ END:VCARD",
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "OutputName": "get variable",
               "OutputUUID": "<uuid59>",
               "Type": "ActionOutput",
@@ -12232,7 +11962,6 @@ END:VCARD",
         "WFWorkflowActionParameters": Object {
           "WFItemRangeEnd": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "OutputName": "Calculate",
               "OutputUUID": "<uuid60>",
               "Type": "ActionOutput",
@@ -12315,7 +12044,6 @@ END:VCARD",
           "UUID": "<uuid61>",
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "List",
             },
@@ -12340,7 +12068,6 @@ END:VCARD",
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "Index",
             },
@@ -12385,7 +12112,6 @@ END:VCARD",
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "OutputName": "get variable",
               "OutputUUID": "<uuid61>",
               "Type": "ActionOutput",
@@ -12411,7 +12137,6 @@ END:VCARD",
         "WFWorkflowActionParameters": Object {
           "WFItemRangeEnd": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "OutputName": "Calculate",
               "OutputUUID": "<uuid62>",
               "Type": "ActionOutput",
@@ -12458,7 +12183,6 @@ END:VCARD",
           "UUID": "<uuid63>",
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "List",
             },
@@ -12483,7 +12207,6 @@ END:VCARD",
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "Index",
             },
@@ -12528,7 +12251,6 @@ END:VCARD",
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "OutputName": "get variable",
               "OutputUUID": "<uuid63>",
               "Type": "ActionOutput",
@@ -12554,7 +12276,6 @@ END:VCARD",
         "WFWorkflowActionParameters": Object {
           "WFItemRangeEnd": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "Length",
             },
@@ -12562,7 +12283,6 @@ END:VCARD",
           },
           "WFItemRangeStart": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "OutputName": "Calculate",
               "OutputUUID": "<uuid64>",
               "Type": "ActionOutput",
@@ -12874,7 +12594,6 @@ END:VCARD",
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "Length",
             },
@@ -12920,7 +12639,6 @@ END:VCARD",
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "ItemToAdd",
             },
@@ -12999,7 +12717,6 @@ END:VCARD",
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "Index",
             },
@@ -13045,7 +12762,6 @@ END:VCARD",
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "ItemToAdd",
             },
@@ -13088,7 +12804,6 @@ END:VCARD",
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "List",
             },
@@ -13186,7 +12901,6 @@ END:VCARD",
           "UUID": "<uuid68>",
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "Index",
             },
@@ -13211,7 +12925,6 @@ END:VCARD",
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "Length",
             },
@@ -13256,7 +12969,6 @@ END:VCARD",
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "OutputName": "get variable",
               "OutputUUID": "<uuid68>",
               "Type": "ActionOutput",
@@ -13286,7 +12998,6 @@ END:VCARD",
             "Value": Object {
               "attachmentsByRange": Object {
                 "{0, 1}": Object {
-                  "Aggrandizements": Array [],
                   "OutputName": "Calculate",
                   "OutputUUID": "<uuid69>",
                   "Type": "ActionOutput",
@@ -13316,7 +13027,6 @@ END:VCARD",
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "List",
             },
@@ -13359,7 +13069,6 @@ END:VCARD",
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "ItemToAdd",
             },
@@ -13457,7 +13166,6 @@ END:VCARD",
           "UUID": "<uuid71>",
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "List",
             },
@@ -13482,7 +13190,6 @@ END:VCARD",
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "Index",
             },
@@ -13527,7 +13234,6 @@ END:VCARD",
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "OutputName": "get variable",
               "OutputUUID": "<uuid71>",
               "Type": "ActionOutput",
@@ -13553,7 +13259,6 @@ END:VCARD",
         "WFWorkflowActionParameters": Object {
           "WFItemRangeEnd": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "OutputName": "Calculate",
               "OutputUUID": "<uuid72>",
               "Type": "ActionOutput",
@@ -13599,7 +13304,6 @@ END:VCARD",
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "ItemToAdd",
             },
@@ -13642,7 +13346,6 @@ END:VCARD",
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "List",
             },
@@ -13667,7 +13370,6 @@ END:VCARD",
         "WFWorkflowActionParameters": Object {
           "WFItemRangeEnd": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "Length",
             },
@@ -13675,7 +13377,6 @@ END:VCARD",
           },
           "WFItemRangeStart": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "Index",
             },
@@ -13932,7 +13633,6 @@ Items should be added as 'Item Title/Note Value/Description'",
                 "Value": Object {
                   "attachmentsByRange": Object {
                     "{22, 1}": Object {
-                      "Aggrandizements": Array [],
                       "Type": "Ask",
                     },
                   },
@@ -14113,7 +13813,6 @@ Items should be added as 'Item Title/Note Value/Description'",
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "TitleNoteDescription",
             },
@@ -14159,7 +13858,6 @@ Items should be added as 'Item Title/Note Value/Description'",
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "TitleNoteDescription",
             },
@@ -14205,7 +13903,6 @@ Items should be added as 'Item Title/Note Value/Description'",
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "TitleNoteDescription",
             },
@@ -14259,7 +13956,6 @@ Items should be added as 'Item Title/Note Value/Description'",
                     "Value": Object {
                       "attachmentsByRange": Object {
                         "{0, 1}": Object {
-                          "Aggrandizements": Array [],
                           "OutputName": "Title",
                           "OutputUUID": "<uuid77>",
                           "Type": "ActionOutput",
@@ -14277,7 +13973,6 @@ Items should be added as 'Item Title/Note Value/Description'",
                     "Value": Object {
                       "attachmentsByRange": Object {
                         "{0, 1}": Object {
-                          "Aggrandizements": Array [],
                           "OutputName": "Note",
                           "OutputUUID": "<uuid78>",
                           "Type": "ActionOutput",
@@ -14295,7 +13990,6 @@ Items should be added as 'Item Title/Note Value/Description'",
                     "Value": Object {
                       "attachmentsByRange": Object {
                         "{0, 1}": Object {
-                          "Aggrandizements": Array [],
                           "OutputName": "Description",
                           "OutputUUID": "<uuid79>",
                           "Type": "ActionOutput",
@@ -14471,7 +14165,6 @@ Items should be added as 'Item Title/Note Value/Description'",
             "Value": Object {
               "attachmentsByRange": Object {
                 "{20, 1}": Object {
-                  "Aggrandizements": Array [],
                   "OutputName": "Filename",
                   "OutputUUID": "<uuid81>",
                   "Type": "ActionOutput",
@@ -14540,7 +14233,6 @@ Items should be added as 'Item Title/Note Value/Description'",
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "OutputName": "Filename",
               "OutputUUID": "<uuid81>",
               "Type": "ActionOutput",
@@ -14603,7 +14295,6 @@ Items should be added as 'Item Title/Note Value/Description'",
             "Value": Object {
               "attachmentsByRange": Object {
                 "{13, 1}": Object {
-                  "Aggrandizements": Array [],
                   "OutputName": "Filename",
                   "OutputUUID": "<uuid81>",
                   "Type": "ActionOutput",
@@ -14681,7 +14372,6 @@ Items should be added as 'Item Title/Note Value/Description'",
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "OutputName": "Dictionary",
               "OutputUUID": "<uuid83>",
               "Type": "ActionOutput",
@@ -14708,7 +14398,6 @@ Items should be added as 'Item Title/Note Value/Description'",
           "WFShowWorkflow": false,
           "WFWorkflowName": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "ThisShortcut",
             },
@@ -14912,7 +14601,6 @@ Items should be added as 'Item Title/Note Value/Description'",
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "Filename",
             },
@@ -15107,7 +14795,6 @@ END:VCARD",
             "Value": Object {
               "attachmentsByRange": Object {
                 "{0, 1}": Object {
-                  "Aggrandizements": Array [],
                   "Type": "Variable",
                   "VariableName": "Items",
                 },
@@ -15139,7 +14826,6 @@ END:VCARD",
             "Value": Object {
               "attachmentsByRange": Object {
                 "{0, 1}": Object {
-                  "Aggrandizements": Array [],
                   "Type": "Variable",
                   "VariableName": "Filename",
                 },
@@ -15170,7 +14856,6 @@ END:VCARD",
             "Value": Object {
               "attachmentsByRange": Object {
                 "{20, 1}": Object {
-                  "Aggrandizements": Array [],
                   "Type": "Variable",
                   "VariableName": "Filename",
                 },
@@ -15202,7 +14887,6 @@ END:VCARD",
             "Value": Object {
               "attachmentsByRange": Object {
                 "{44, 1}": Object {
-                  "Aggrandizements": Array [],
                   "Type": "Variable",
                   "VariableName": "Filename",
                 },
@@ -15307,7 +14991,6 @@ END:VCARD",
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "Items",
             },
@@ -15407,7 +15090,6 @@ END:VCARD",
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "Repeat Item",
             },
@@ -15437,7 +15119,6 @@ END:VCARD",
             "Value": Object {
               "attachmentsByRange": Object {
                 "{0, 1}": Object {
-                  "Aggrandizements": Array [],
                   "Type": "Variable",
                   "VariableName": "Repeat Index",
                 },
@@ -15479,7 +15160,6 @@ END:VCARD",
                     "Value": Object {
                       "attachmentsByRange": Object {
                         "{0, 1}": Object {
-                          "Aggrandizements": Array [],
                           "OutputName": "CardData",
                           "OutputUUID": "<uuid88>",
                           "Type": "ActionOutput",
@@ -15513,7 +15193,6 @@ END:VCARD",
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "OutputName": "Dictionary",
               "OutputUUID": "<uuid89>",
               "Type": "ActionOutput",
@@ -15540,7 +15219,6 @@ END:VCARD",
           "WFShowWorkflow": false,
           "WFWorkflowName": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "ThisShortcut",
             },
@@ -15627,13 +15305,11 @@ END:VCARD",
             "Value": Object {
               "attachmentsByRange": Object {
                 "{0, 1}": Object {
-                  "Aggrandizements": Array [],
                   "OutputName": "CurrentListvCard",
                   "OutputUUID": "<uuid90>",
                   "Type": "ActionOutput",
                 },
                 "{301, 1}": Object {
-                  "Aggrandizements": Array [],
                   "Type": "Variable",
                   "VariableName": "SaveItem",
                 },
@@ -15699,7 +15375,6 @@ END:VCARD",
                     "Value": Object {
                       "attachmentsByRange": Object {
                         "{0, 1}": Object {
-                          "Aggrandizements": Array [],
                           "OutputName": "vCard",
                           "OutputUUID": "<uuid91>",
                           "Type": "ActionOutput",
@@ -15733,7 +15408,6 @@ END:VCARD",
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "OutputName": "Dictionary",
               "OutputUUID": "<uuid92>",
               "Type": "ActionOutput",
@@ -15760,7 +15434,6 @@ END:VCARD",
           "WFShowWorkflow": false,
           "WFWorkflowName": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "ThisShortcut",
             },
@@ -15789,7 +15462,6 @@ END:VCARD",
             "Value": Object {
               "attachmentsByRange": Object {
                 "{0, 1}": Object {
-                  "Aggrandizements": Array [],
                   "Type": "Variable",
                   "VariableName": "StatusText",
                 },
@@ -15940,7 +15612,6 @@ END:VCARD",
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "OutputName": "Dictionary",
               "OutputUUID": "<uuid96>",
               "Type": "ActionOutput",
@@ -15967,7 +15638,6 @@ END:VCARD",
           "WFShowWorkflow": false,
           "WFWorkflowName": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "ThisShortcut",
             },
@@ -16117,7 +15787,6 @@ END:VCARD",
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "OutputName": "Dictionary",
               "OutputUUID": "<uuid98>",
               "Type": "ActionOutput",
@@ -16144,7 +15813,6 @@ END:VCARD",
           "WFShowWorkflow": false,
           "WFWorkflowName": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "ThisShortcut",
             },
@@ -16294,7 +15962,6 @@ END:VCARD",
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "OutputName": "Dictionary",
               "OutputUUID": "<uuid100>",
               "Type": "ActionOutput",
@@ -16321,7 +15988,6 @@ END:VCARD",
           "WFShowWorkflow": false,
           "WFWorkflowName": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "ThisShortcut",
             },
@@ -16484,7 +16150,6 @@ END:VCARD",
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "OutputName": "CurrentListvCard",
               "OutputUUID": "<uuid90>",
               "Type": "ActionOutput",
@@ -16533,7 +16198,6 @@ END:VCARD",
             "Value": Object {
               "attachmentsByRange": Object {
                 "{25, 1}": Object {
-                  "Aggrandizements": Array [],
                   "Type": "Variable",
                   "VariableName": "StatusText",
                 },
@@ -16769,7 +16433,6 @@ END:VCARD",
           "UUID": "<uuid105>",
           "WFNumberActionNumber": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "OutputName": "ChosenData",
               "OutputUUID": "<uuid94>",
               "Type": "ActionOutput",
@@ -16795,7 +16458,6 @@ END:VCARD",
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "Items",
             },
@@ -16822,7 +16484,6 @@ END:VCARD",
           "UUID": "<uuid106>",
           "WFItemIndex": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "OutputName": "Index",
               "OutputUUID": "<uuid105>",
               "Type": "ActionOutput",
@@ -16863,7 +16524,6 @@ END:VCARD",
                     "Value": Object {
                       "attachmentsByRange": Object {
                         "{0, 1}": Object {
-                          "Aggrandizements": Array [],
                           "OutputName": "ItemToEdit",
                           "OutputUUID": "<uuid106>",
                           "Type": "ActionOutput",
@@ -16897,7 +16557,6 @@ END:VCARD",
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "OutputName": "Dictionary",
               "OutputUUID": "<uuid107>",
               "Type": "ActionOutput",
@@ -16924,7 +16583,6 @@ END:VCARD",
           "WFShowWorkflow": false,
           "WFWorkflowName": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "ThisShortcut",
             },
@@ -16988,7 +16646,6 @@ END:VCARD",
                     "Value": Object {
                       "attachmentsByRange": Object {
                         "{0, 1}": Object {
-                          "Aggrandizements": Array [],
                           "OutputName": "Index",
                           "OutputUUID": "<uuid105>",
                           "Type": "ActionOutput",
@@ -17025,7 +16682,6 @@ END:VCARD",
             "Value": Object {
               "attachmentsByRange": Object {
                 "{0, 1}": Object {
-                  "Aggrandizements": Array [],
                   "Type": "Variable",
                   "VariableName": "Items",
                 },
@@ -17054,7 +16710,6 @@ END:VCARD",
           "WFShowWorkflow": false,
           "WFWorkflowName": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "ThisShortcut",
             },
@@ -17118,7 +16773,6 @@ END:VCARD",
                     "Value": Object {
                       "attachmentsByRange": Object {
                         "{0, 1}": Object {
-                          "Aggrandizements": Array [],
                           "Type": "Variable",
                           "VariableName": "NewItem",
                         },
@@ -17135,7 +16789,6 @@ END:VCARD",
                     "Value": Object {
                       "attachmentsByRange": Object {
                         "{0, 1}": Object {
-                          "Aggrandizements": Array [],
                           "OutputName": "Index",
                           "OutputUUID": "<uuid105>",
                           "Type": "ActionOutput",
@@ -17172,7 +16825,6 @@ END:VCARD",
             "Value": Object {
               "attachmentsByRange": Object {
                 "{0, 1}": Object {
-                  "Aggrandizements": Array [],
                   "Type": "Variable",
                   "VariableName": "Items",
                 },
@@ -17201,7 +16853,6 @@ END:VCARD",
           "WFShowWorkflow": false,
           "WFWorkflowName": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "ThisShortcut",
             },
@@ -17300,7 +16951,6 @@ END:VCARD",
                     "Value": Object {
                       "attachmentsByRange": Object {
                         "{0, 1}": Object {
-                          "Aggrandizements": Array [],
                           "Type": "Variable",
                           "VariableName": "Filename",
                         },
@@ -17336,7 +16986,6 @@ END:VCARD",
             "Value": Object {
               "attachmentsByRange": Object {
                 "{0, 1}": Object {
-                  "Aggrandizements": Array [],
                   "Type": "Variable",
                   "VariableName": "Items",
                 },
@@ -17365,7 +17014,6 @@ END:VCARD",
           "WFShowWorkflow": false,
           "WFWorkflowName": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "ThisShortcut",
             },
@@ -17595,7 +17243,6 @@ END:VCARD",
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "OutputName": "Dictionary",
               "OutputUUID": "<uuid111>",
               "Type": "ActionOutput",
@@ -17622,7 +17269,6 @@ END:VCARD",
           "WFShowWorkflow": false,
           "WFWorkflowName": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "ThisShortcut",
             },
@@ -17665,7 +17311,6 @@ END:VCARD",
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "OutputName": "CurrentItem",
               "OutputUUID": "<uuid110>",
               "Type": "ActionOutput",
@@ -17866,18 +17511,15 @@ END:VCARD",
             "Value": Object {
               "attachmentsByRange": Object {
                 "{40, 1}": Object {
-                  "Aggrandizements": Array [],
                   "Type": "Variable",
                   "VariableName": "Name",
                 },
                 "{63, 1}": Object {
-                  "Aggrandizements": Array [],
                   "OutputName": "Count",
                   "OutputUUID": "<uuid112>",
                   "Type": "ActionOutput",
                 },
                 "{65, 1}": Object {
-                  "Aggrandizements": Array [],
                   "OutputName": "IfResult",
                   "OutputUUID": "<uuid114>",
                   "Type": "ActionOutput",
@@ -17954,7 +17596,6 @@ END:VCARD",
             "Value": Object {
               "attachmentsByRange": Object {
                 "{0, 1}": Object {
-                  "Aggrandizements": Array [],
                   "OutputName": "CombinedText",
                   "OutputUUID": "<uuid115>",
                   "Type": "ActionOutput",
@@ -18006,7 +17647,6 @@ END:VCARD",
                     "Value": Object {
                       "attachmentsByRange": Object {
                         "{0, 1}": Object {
-                          "Aggrandizements": Array [],
                           "OutputName": "vCard",
                           "OutputUUID": "<uuid116>",
                           "Type": "ActionOutput",
@@ -18040,7 +17680,6 @@ END:VCARD",
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "OutputName": "Dictionary",
               "OutputUUID": "<uuid117>",
               "Type": "ActionOutput",
@@ -18067,7 +17706,6 @@ END:VCARD",
           "WFShowWorkflow": false,
           "WFWorkflowName": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "ThisShortcut",
             },
@@ -18214,7 +17852,6 @@ END:VCARD",
           "WFShowWorkflow": false,
           "WFWorkflowName": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "ThisShortcut",
             },
@@ -18373,7 +18010,6 @@ END:VCARD",
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "OutputName": "ChosenItem",
               "OutputUUID": "<uuid118>",
               "Type": "ActionOutput",
@@ -18422,7 +18058,6 @@ END:VCARD",
             "Value": Object {
               "attachmentsByRange": Object {
                 "{20, 1}": Object {
-                  "Aggrandizements": Array [],
                   "OutputName": "Name",
                   "OutputUUID": "<uuid122>",
                   "Type": "ActionOutput",
@@ -18512,7 +18147,6 @@ END:VCARD",
                     "Value": Object {
                       "attachmentsByRange": Object {
                         "{0, 1}": Object {
-                          "Aggrandizements": Array [],
                           "OutputName": "Name",
                           "OutputUUID": "<uuid122>",
                           "Type": "ActionOutput",
@@ -18549,7 +18183,6 @@ END:VCARD",
             "Value": Object {
               "attachmentsByRange": Object {
                 "{0, 1}": Object {
-                  "Aggrandizements": Array [],
                   "OutputName": "Items",
                   "OutputUUID": "<uuid123>",
                   "Type": "ActionOutput",
@@ -18579,7 +18212,6 @@ END:VCARD",
           "WFShowWorkflow": false,
           "WFWorkflowName": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "ThisShortcut",
             },
@@ -18688,7 +18320,6 @@ END:VCARD",
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "OutputName": "Dictionary",
               "OutputUUID": "<uuid124>",
               "Type": "ActionOutput",
@@ -18715,7 +18346,6 @@ END:VCARD",
           "WFShowWorkflow": false,
           "WFWorkflowName": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "ThisShortcut",
             },
@@ -18824,7 +18454,6 @@ END:VCARD",
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "OutputName": "Dictionary",
               "OutputUUID": "<uuid125>",
               "Type": "ActionOutput",
@@ -18851,7 +18480,6 @@ END:VCARD",
           "WFShowWorkflow": false,
           "WFWorkflowName": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "ThisShortcut",
             },
@@ -18951,7 +18579,7 @@ END:VCARD",
         },
       },
     ],
-    "WFWorkflowClientRelese": "2.1.2",
+    "WFWorkflowClientRelease": "2.1.2",
     "WFWorkflowClientVersion": "754",
     "WFWorkflowIcon": Object {
       "WFWorkflowIconGlyphNumber": 59511,

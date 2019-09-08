@@ -7,20 +7,63 @@ import { parse, inverse } from "..";
 
 export function noUUID(
 	obj: {},
-	options: { noScPLData?: boolean; ignoreOutputName?: boolean } = {}
+	options: {
+		noScPLData?: boolean;
+		ignoreOutputName?: boolean;
+		noWorkflowVersion?: boolean;
+		noUnusedUUID?: boolean;
+		flattenUselessStringSerialization?: boolean;
+		ignoreMenuItemTitles?: boolean;
+		ignoreEmptyString?: boolean;
+	} = {}
 ) {
+	const fullString = JSON.stringify(obj, null);
 	const uuids: string[] = [];
 	return JSON.parse(
+		//eslint-disable-next-line complexity
 		JSON.stringify(obj, (key, value: unknown) => {
 			if (options.noScPLData && key === "SCPLData") {
 				return undefined;
 			}
+			if (options.ignoreMenuItemTitles && key === "WFMenuItemTitle") {
+				return undefined;
+			}
+			if (options.ignoreEmptyString && value === "") {
+				return undefined;
+			}
+			if (
+				options.noWorkflowVersion &&
+				(key === "WFWorkflowMinimumClientVersion" ||
+					key === "WFWorkflowClientRelease" ||
+					key === "WFWorkflowClientVersion")
+			) {
+				return "Ignored Version";
+			}
+			if (
+				options.flattenUselessStringSerialization &&
+				(value as any).WFSerializationType === "WFTextTokenString"
+			) {
+				const stringserialization = value as any;
+				if (
+					Object.keys(stringserialization.Value.attachmentsByRange)
+						.length === 0
+				) {
+					return stringserialization.Value.string;
+				}
+			}
 			if (typeof value === "string") {
 				if (
 					value.match(
-						/[a-z0-9]{6}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}/
+						/[a-z0-9]{6}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}/i
 					)
 				) {
+					if (
+						options.noUnusedUUID &&
+						fullString.split(value).length - 1 === 1
+					) {
+						// uuid only used once
+						return undefined;
+					}
 					let index = uuids.indexOf(value);
 					if (index === -1) {
 						index = uuids.push(value) - 1; // push returns array length
@@ -52,7 +95,7 @@ function runShortcutTest(dirname: string, infile: string) {
 		} catch (e) {}
 		const inversionoutputpath = path.join(
 			outputfolderpath,
-			infile.replace(/\.shortcut$/, ".scploutput")
+			infile.replace(/\.shortcut$/, ".scpl")
 		);
 		const jsonvaluepath = path.join(
 			outputfolderpath,
@@ -70,7 +113,25 @@ function runShortcutTest(dirname: string, infile: string) {
 		fs.writeFileSync(inversionoutputpath, inverted, "utf-8");
 		// re-parse and ensure equal
 		const { shortcutjson } = parse(inverted, { make: ["shortcutjson"] });
-		expect(jsonvalue).toStrictEqual(shortcutjson);
+		expect(
+			noUUID(shortcutjson, {
+				noScPLData: true,
+				noWorkflowVersion: true,
+				ignoreOutputName: true,
+				flattenUselessStringSerialization: true,
+				ignoreMenuItemTitles: true
+			})
+		).toStrictEqual(
+			noUUID(jsonvalue, {
+				noScPLData: true,
+				noWorkflowVersion: true,
+				ignoreOutputName: true,
+				noUnusedUUID: true,
+				flattenUselessStringSerialization: true,
+				ignoreMenuItemTitles: true,
+				ignoreEmptyString: true
+			})
+		);
 	});
 }
 

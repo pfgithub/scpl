@@ -29,7 +29,6 @@ Array [
         "WFWorkflowActionParameters": Object {
           "WFMathOperation": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "Clipboard",
             },
             "WFSerializationType": "WFTextTokenAttachment",
@@ -37,7 +36,7 @@ Array [
         },
       },
     ],
-    "WFWorkflowClientRelese": "2.1.2",
+    "WFWorkflowClientRelease": "2.1.2",
     "WFWorkflowClientVersion": "754",
     "WFWorkflowIcon": Object {
       "WFWorkflowIconGlyphNumber": 59511,

@@ -1,0 +1,245 @@
+@Icon headphones
+@Color darkgray
+Comment "Deezer music 🎵 downloader.\nRipped from source directly.\n\nV: 2.1.0, Made by /u/74Y3M"
+Comment "When sharing from deezer, input is messed up hence we split and combine them for getting the actual urls."
+SplitText separator=Spaces -> mv:"Split Text"
+CombineText separator="New Lines" -> mv:"Combine Text"
+If value=mv:"Combine Text"
+Otherwise
+	Text "Found deezer links on clipboard, would you like to continue with download?\n\n\(s:clipboard)" -> mv:Text
+	GetClipboard -> mv:"Get Clipboard"
+	If value="deezer.com"
+		Comment "Let the user know if they wanna download the content from their clipboard link and if they don't go with search!"
+		ChoosefromMenu prompt=mv:Text items=[Yes, No]
+		Case WFMenuItemTitle=:raw"Yes" // Warning: This action contains some parameters that are not supported. Editing them may cause errors.
+		Case WFMenuItemTitle=:raw"No" // Warning: This action contains some parameters that are not supported. Editing them may cause errors.
+			Nothing
+		End -> mv:"Choose from Menu"
+	End
+End -> mv:If
+SetVariable Input
+Comment "Enter quality to download.\n    128/320/1411\n\n128 - 128 kbps mp3\n320 - 320 kbps mp3\n1411 - 1411 kbps flac"
+Number 128 -> mv:Number
+SetVariable Quality
+GetVariable v:Input
+If value="lnk.to"
+	Comment "Artists nowadays usually share artistname.lnk.to/albumName like urls for redirecting to various streaming services. If we have this on input, parse it for getting deezer urls."
+	GetContentsofURL advanced=false -> mv:"Get Contents of URL"
+	MakeHTMLfromRichText -> mv:"Make HTML from Rich Text"
+	MatchText pattern="https?.*?deezer.com/.*" caseSensitive=false -> mv:"Match Text"
+End -> mv:If1
+If value="deezer.com"
+	Comment "If we have deezer link, just move along with downloads."
+Otherwise
+	Text "Enter search input or type any of this:\n\n- \"C\" for top 10 tracks!\n- \"A:album name\" for albums\n- \"P:playlist name\" for playlists\n- \":search query\" for tracks, playlists and albums\n\nPS: Word (A/P) before colon (:) are case sensitive. Without colon only tracks results will be fetched." -> mv:Text1
+	AskforInput question=mv:Text1 -> mv:"Ask for Input"
+	If input=Equals value=C
+		Comment "C is for top charts. You can replace this url with any of your specific charts."
+		URL "https://api.deezer.com/chart/0/tracks" -> mv:URL
+	Otherwise
+		URLEncode -> mv:"URL Encode"
+		If value=":"
+			If value="A:"
+				MatchText pattern="[^:]+$" caseSensitive=false -> mv:"Match Text1"
+				URL "https://api.deezer.com/search/album?q=\(mv:"Match Text1")" -> mv:URL1
+			Otherwise
+				If value="P:"
+					MatchText pattern="[^:]+$" caseSensitive=false -> mv:"Match Text2"
+					URL "https://api.deezer.com/search/playlist?q=\(mv:"Match Text2")" -> mv:URL2
+				Otherwise
+					MatchText pattern="[^:]+$" caseSensitive=false -> mv:"Match Text3"
+					Text "https://api.deezer.com/search/track?q=\(mv:"Match Text3")\nhttps://api.deezer.com/search/playlist?q=\(mv:"Match Text3")\nhttps://api.deezer.com/search/album?q=\(mv:"Match Text3")" -> mv:Text2
+				End
+			End -> mv:If2
+		Otherwise
+			Comment "If none of charts, album or playlist was selected go with default track search."
+			URL "https://api.deezer.com/search?q=\(mv:"URL Encode")" -> mv:URL3
+		End -> mv:If3
+	End -> mv:If4
+	GetContentsofURL -> mv:"Get Contents of URL1"
+	Comment "If \":\" was selected it gets multiple pages else one single page was fetched. Just repeat with each and add results to variable."
+	RepeatwithEach
+		GetDictionaryValue key=data -> mv:"Get Dictionary Value"
+		Count Items
+		Comment "Every search results have 25 results but we cut them to 10 for decreasing clutter. Specially when \":\" was used it gets messy! Change the number if you want more result but don't go over 25."
+		If input="Is Greater Than" number=10
+			Number 10
+			SetVariable ItemsData
+		End
+		GetVariable mv:"Get Dictionary Value"
+		GetItemfromList get="Items in Range" toIndex=v:ItemsData
+		Comment "From dictionary > data we get the actual tracks. Repeat with each and add to our list for downloading on next step."
+		RepeatwithEach
+			GetDictionaryValue key=artist -> mv:"Get Dictionary Value1"
+			URL v:"Repeat Item 2".link -> mv:URL4
+			SetName name="\(mv:"Get Dictionary Value1".name) - \(v:"Repeat Item 2".title)" -> mv:"Set Name"
+			AddtoVariable SearchItems
+		End -> mv:"Repeat with Each"
+	End -> mv:"Repeat with Each1"
+	GetVariable v:SearchItems
+	Comment "Here we choose songs from our searched results. By default, we select only one song. You can enable multiple button here for selecting multiple songs."
+	ChoosefromList prompt="Select a music to download" selectMultiple=false -> mv:"Choose from List"
+End -> mv:If5
+ReplaceText findText=".+?(?=/album|/artist|/playlist|/profile|/track)" replaceWith="http://api.deezer.com" regularExpression=true -> mv:"Replace Text"
+Comment "Replace all the deezer links with their api endpoint. You shouldn't download multiple albums/playlist at the same time, only tracks are good."
+If value="/track/"
+	SplitText -> mv:"Split Text1"
+	Count Items -> mv:Count
+	Comment "Deezer have a api limit and that is 50 requests every 5 seconds. So we have to use their api slowly if we have more than 50 tracks. If we have less tracks we will fetch 'em all at once!"
+	If input="Is Greater Than" number=50
+		GetVariable mv:"Split Text1"
+		RepeatwithEach
+			GetContentsofURL -> mv:"Get Contents of URL2"
+		End -> mv:"Repeat with Each2"
+	Otherwise
+		GetVariable mv:"Replace Text"
+		GetContentsofURL -> mv:"Get Contents of URL3"
+	End -> mv:If6
+Otherwise
+	Comment "Here we are gonna fetch album/playlist or anything else with a single request. Please bear in mind, we cannot get more than 400 tracks from a playlist with a single request."
+	If value="deezer.com"
+		GetContentsofURL -> mv:"Get Contents of URL4"
+		GetDictionaryValue key=title -> mv:"Get Dictionary Value2"
+		ReplaceText findText="[/:|;\",\\\\*']" replaceWith=_ regularExpression=true -> mv:"Replace Text1"
+		Comment "Remove all illegal characters from title as it mess up later saving to file."
+		SetVariable PlaylistTitle
+		GetVariable mv:"Get Contents of URL4"
+		If value="\"data\""
+			GetDictionaryValue key=tracks -> mv:"Get Dictionary Value3"
+		Otherwise
+			GetDictionaryValue key=tracklist
+			GetContentsofURL -> mv:"Get Contents of URL5"
+		End
+		GetDictionaryValue key=data -> mv:"Get Dictionary Value4"
+	End
+End -> mv:If7
+SetVariable Data
+Count Items -> mv:Count1
+If input="Is Greater Than" number=99
+	Number 3 -> mv:Number1
+Otherwise
+	Number 2 -> mv:Number2
+End -> mv:If8
+Comment "This number are for using later for numbering tracks in order like this:\n   01\n  99\n400"
+GetVariable v:Data
+RepeatwithEach
+	GetDictionaryValue key=title
+	ReplaceText findText="[/:|;\",\\\\*']" replaceWith=_ regularExpression=true -> mv:"Replace Text2"
+	SetVariable SongTitle
+	GetVariable v:"Repeat Item"
+	GetDictionaryValue key=artist -> mv:"Get Dictionary Value5"
+	Comment "Set this number to 0 to disable track numbering and set it to 1 to enable numbering."
+	Number 1
+	If input="Is Greater Than" number=0
+		Text "00\(v:"Repeat Item".track_position)"
+		If input="Is Less Than" number=1
+			Text "00\(v:"Repeat Index")"
+		End -> mv:If9
+		MatchText pattern=".{\(mv:If8)}$" caseSensitive=false -> mv:"Match Text4"
+		Text "{\"title\":\"\(mv:"Match Text4") - \(mv:"Get Dictionary Value5".name) - \(v:SongTitle)\",\"url\":\"\(v:"Repeat Item".link)\"}" -> mv:Text3
+	Otherwise
+		Text "{\"title\":\"\(mv:"Get Dictionary Value5".name) - \(v:SongTitle)\",\"url\":\"\(v:"Repeat Item".link)\"}" -> mv:Text4
+	End -> mv:If10
+	Comment "Set tracks name and number for when we would choose tracks for album or playlist."
+	SetName name="\(v:"Repeat Index")) \(mv:"Get Dictionary Value5".name) - \(v:SongTitle) (\(v:"Repeat Item".duration)s)" -> mv:"Set Name1"
+	AddtoVariable "Song Data"
+End -> mv:"Repeat with Each3"
+GetVariable v:"Song Data"
+Count Items -> mv:Count2
+Comment "If we have more than two tracks to download, give us an option if we wanna download 'em all or not."
+If input="Is Greater Than" number=2
+	GetVariable v:"Song Data"
+	ChoosefromMenu prompt="Choose an option (\(mv:Count2) Tracks)" items=["Download ‘em all", "Choose ‘em (none)", "Choose ‘em (all)", "Choose range"]
+	Case WFMenuItemTitle=:raw"Download ‘em all" // Warning: This action contains some parameters that are not supported. Editing them may cause errors.
+	Case WFMenuItemTitle=:raw"Choose ‘em (none)" // Warning: This action contains some parameters that are not supported. Editing them may cause errors.
+		ChoosefromList selectMultiple=true
+	Case WFMenuItemTitle=:raw"Choose ‘em (all)" // Warning: This action contains some parameters that are not supported. Editing them may cause errors.
+		ChoosefromList selectMultiple=true selectAllInitially=true -> mv:"Choose from List1"
+	Case WFMenuItemTitle=:raw"Choose range" // Warning: This action contains some parameters that are not supported. Editing them may cause errors.
+		GetItemfromList get="Items in Range" getItemsFromIndex=s:askWhenRun toIndex=s:askWhenRun
+	End
+	SetVariable "Song Data"
+End
+Comment "Set this to iCloud to save files on iCloud and Browser for saving on Browser app. You can also use \"iCloud and Browser\" to save on both of 'em 😉"
+Text "iCloud and Browser" -> mv:Text5
+SetVariable SaveTo
+Comment "Here will be the actual processing for downloads. We will repeat with each tracks and get the song from the backend server."
+GetVariable v:"Song Data"
+RepeatwithEach
+	Text "aHR0cDovL2R6LmdldGh0dHAub25saW5lL2RlZXplcnByZW1pdW0=" -> mv:Text6
+	Base64Encode mode=Decode -> mv:"Base64 Encode"
+	Comment "Hold on! I'm working my magic 😁 Single track downloads shouldn't take long. Stay on this screen for smooth downloading experience 🙂"
+	GetContentsofURL advanced=false method=POST jSONValues={url: v:"Repeat Item".url, ver: "2.1.0", quality: v:Quality} -> mv:"Get Contents of URL6"
+	SetVariable Contents
+	GetDetailsofFiles "File Extension"
+	MatchText pattern="mp3|flac|m4a" caseSensitive=false -> mv:"Match Text5"
+	Comment "If any of this extension files were received from our server, we would assume download was successful."
+	If value=mv:"Match Text5"
+		GetVariable v:Contents
+		SetName name=v:"Repeat Item".title -> mv:"Set Name2"
+		AddtoVariable Music
+		GetVariable v:SaveTo
+		If input=Contains value=iCloud
+			GetVariable v:PlaylistTitle
+			If value=v:PlaylistTitle
+				CreateFolder path="Music/\(v:PlaylistTitle)/"
+				GetVariable v:Music
+				GetItemfromList get="Last Item"
+				SaveFile askWheretoSave=false destinationPath="Music/\(v:PlaylistTitle)/" overwriteIfFileExists=true -> mv:"Save File"
+			Otherwise
+				CreateFolder path="Music/"
+				GetVariable v:Music
+				GetItemfromList get="Last Item"
+				SaveFile askWheretoSave=false destinationPath="Music/" -> mv:"Save File1"
+			End -> mv:If11
+			ShowNotification title="Deezer++" body="Downloaded Track #\(v:"Repeat Index")\n\(v:"Repeat Item".title) to iCloud" playSound=false
+		Otherwise
+			ShowNotification title="Deezer++" body="Downloaded Track #\(v:"Repeat Index")\n\(v:"Repeat Item".title)" playSound=false
+		End -> mv:If12
+	Otherwise
+		ShowNotification title="Deezer++" body="Failed to download track #\(v:"Repeat Index")\n\(v:"Repeat Item".title)"
+		GetVariable v:Contents
+		If value="\"error\""
+			GetVariable v:PlaylistTitle
+			If value=v:PlaylistTitle
+			Otherwise
+				ShowAlert title=v:Contents.error message=v:Contents.message showCancelButton=false
+			End
+			GetVariable v:Contents
+			If value=update_url
+				URL v:Contents.update_url -> mv:URL5
+				OpenURLs
+				Wait 2
+			End
+			Nothing
+		End
+	End -> mv:If13
+End -> mv:"Repeat with Each4"
+GetVariable v:Music
+Count Items -> mv:Count3
+If input=Equals value=0
+	ShowAlert title="Oops!" message="We were unable to download any music ☹️" showCancelButton=false
+Otherwise
+	GetVariable v:SaveTo
+	If input=Contains number=0 value=Browser
+		GetVariable v:PlaylistTitle
+		If input=Contains number=2 value=v:PlaylistTitle
+			GetVariable v:Music
+			MakeArchive archiveName=v:PlaylistTitle -> mv:"Make Archive"
+		Otherwise
+			GetVariable v:Music
+			Count Items -> mv:Count4
+			If input="Is Greater Than" number=1
+				GetVariable v:Music
+				MakeArchive archiveName="Deezer - \(s:currentDate) " -> mv:"Make Archive1"
+			Otherwise
+				GetVariable v:Music
+			End
+		End -> mv:If14
+		OpenIn showOpenInMenu=false app="com.eilvera.idwl"
+		ShowNotification title=Downloaded body="Music from Deezer downloaded to Browser app. Open Inbox folder for data."
+	Otherwise
+		ShowNotification title="Deezer++" body="Music from Deezer downloaded to iCloud. Open Files app to view contents."
+	End -> mv:If15
+End
+Comment "If you experience any kind of error, report on our telegram group with error context, timestamp, time zone, track link, your country code and first part of your ip."

@@ -759,10 +759,13 @@ export class Attachment extends Parameter {
 		return result;
 	}
 	build(): WFAttachmentParameter {
+		const aggrandizementsArr = this.aggrandizements.build();
 		return {
 			Value: {
 				Type: this.type,
-				Aggrandizements: this.aggrandizements.build()
+				...(aggrandizementsArr.length > 0
+					? { Aggrandizements: aggrandizementsArr }
+					: {})
 			},
 			WFSerializationType: "WFTextTokenAttachment"
 		};
@@ -790,10 +793,13 @@ export class NamedVariable extends Variable {
 		return new NamedVariable(data.Value.VariableName);
 	}
 	build(): WFAttachmentParameter {
+		const aggrandizementsArr = this.aggrandizements.build();
 		return {
 			Value: {
 				Type: "Variable",
-				Aggrandizements: this.aggrandizements.build(),
+				...(aggrandizementsArr.length > 0
+					? { Aggrandizements: aggrandizementsArr }
+					: {}),
 				VariableName: this.varname
 			},
 			WFSerializationType: "WFTextTokenAttachment"
@@ -821,10 +827,13 @@ export class MagicVariable extends Variable {
 		return new MagicVariable(data.Value.OutputName, data.Value.OutputUUID);
 	}
 	build(): WFAttachmentParameter {
+		const aggrandizementsArr = this.aggrandizements.build();
 		return {
 			Value: {
 				Type: "ActionOutput",
-				Aggrandizements: this.aggrandizements.build(),
+				...(aggrandizementsArr.length > 0
+					? { Aggrandizements: aggrandizementsArr }
+					: {}),
 				OutputName: this.varname,
 				OutputUUID: this.uuid
 			},
@@ -1187,7 +1196,10 @@ type WFErrorParameter = {
 	Value: { Text: string };
 };
 
-export function toParam(value: WFParameter): ParameterType {
+export function toParam(value: WFParameter): ParameterType | undefined {
+	if (value === "") {
+		return undefined; // same thing
+	}
 	if (typeof value === "string") {
 		return value;
 	}
@@ -1260,7 +1272,11 @@ export class Parameters {
 	static inverse(data: WFParameters): Parameters {
 		const parameters = new Parameters();
 		Object.keys(data).forEach(paramkey => {
-			parameters.set(paramkey, toParam(data[paramkey])); // why is it being converted just to be unconverted again
+			const paramValue = toParam(data[paramkey]);
+			if (paramValue === undefined) {
+				return;
+			}
+			parameters.set(paramkey, paramValue); // why is it being converted just to be unconverted again
 		});
 		return parameters;
 	}
@@ -1384,7 +1400,7 @@ type WorkflowTypes = "NCWidget" | "WatchKit";
 export type WFShortcut = [
 	{
 		WFWorkflowClientVersion: string;
-		WFWorkflowClientRelese: string;
+		WFWorkflowClientRelease: string;
 		WFWorkflowMinimumClientVersion: number;
 		WFWorkflowIcon: {
 			WFWorkflowIconStartColor: ColorCode;
@@ -1441,7 +1457,7 @@ export class Shortcut {
 		return [
 			{
 				WFWorkflowClientVersion: "754",
-				WFWorkflowClientRelese: "2.1.2",
+				WFWorkflowClientRelease: "2.1.2",
 				WFWorkflowMinimumClientVersion: 411,
 				WFWorkflowIcon: {
 					WFWorkflowIconGlyphNumber: this.glyph || glyphs.wand,

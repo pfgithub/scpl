@@ -79,7 +79,6 @@ Array [
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "Type": "Variable",
               "VariableName": "a",
             },
@@ -145,7 +144,6 @@ Array [
         "WFWorkflowActionParameters": Object {
           "WFVariable": Object {
             "Value": Object {
-              "Aggrandizements": Array [],
               "OutputName": "If",
               "OutputUUID": "<uuid2>",
               "Type": "ActionOutput",
@@ -173,12 +171,10 @@ Array [
             "Value": Object {
               "attachmentsByRange": Object {
                 "{33, 1}": Object {
-                  "Aggrandizements": Array [],
                   "Type": "Variable",
                   "VariableName": "a",
                 },
                 "{37, 1}": Object {
-                  "Aggrandizements": Array [],
                   "OutputName": "Text",
                   "OutputUUID": "<uuid3>",
                   "Type": "ActionOutput",
@@ -247,7 +243,7 @@ Array [
         },
       },
     ],
-    "WFWorkflowClientRelese": "2.1.2",
+    "WFWorkflowClientRelease": "2.1.2",
     "WFWorkflowClientVersion": "754",
     "WFWorkflowIcon": Object {
       "WFWorkflowIconGlyphNumber": 59511,

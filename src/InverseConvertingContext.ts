@@ -83,7 +83,9 @@ export class InverseConvertingContext {
 					name?: string;
 					readableName?: string;
 					internalName?: string;
-					getParameterOrder: () => Array<WFParameter | string>;
+					getParameterOrder: () => ReadonlyArray<
+						WFParameter | string
+					>;
 					_data: { BlockInfo?: {} };
 			  }
 			| undefined = getActionFromID(value.id);
@@ -105,7 +107,7 @@ export class InverseConvertingContext {
 		}
 
 		// let parameters = actionData.getParameters();
-		const order = actionData.getParameterOrder(); // TODO future
+		const order = actionData.getParameterOrder().slice(0); // TODO future
 		Object.keys(value.parameters.values).forEach(paramName => {
 			if (
 				paramName === "GroupingIdentifier" ||
@@ -122,6 +124,16 @@ export class InverseConvertingContext {
 						: it === paramName
 				)
 			) {
+				if (paramName === "WFMenuItems") {
+					console.log(
+						"!!ADDING WFMenuItems as a raw parameter because parameters internalnames are ",
+						order.map(it =>
+							it instanceof WFParameter
+								? `wfparam_${it.internalName}`
+								: `raw_${it}`
+						)
+					);
+				}
 				order.push(paramName);
 			}
 		});
@@ -143,12 +155,18 @@ export class InverseConvertingContext {
 				return;
 			}
 			if (order.length === 1) {
-				return result.push(this.handleArgument(toParam(paramValue)));
+				const madeParam = toParam(paramValue);
+				if (madeParam === undefined) {
+					return;
+				}
+				return result.push(this.handleArgument(madeParam));
+			}
+			const madeParam = toParam(paramValue);
+			if (madeParam === undefined) {
+				return;
 			}
 			result.push(
-				`${param.readableName}=${this.handleArgument(
-					toParam(paramValue)
-				)}`
+				`${param.readableName}=${this.handleArgument(madeParam)}`
 			);
 		});
 

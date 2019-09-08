@@ -35,7 +35,7 @@ flaggedaction             =  variable space "=" space onlyaction
 onlyaction                =  ( identifier | ":raw" space string ) space args
 args                      =  ( argument space )*
 value                     =  ( variable | string | number | macroBlock | identifier | parenthesis | dictionary | list | filter | rawvalue )
-rawvalue                  =  ":raw" space ( dictionary | string )
+rawvalue                  =  ":raw" space ( dictionary | string | "true" | "false" | /^-?(?:[0-9]*\.[0-9]+|[0-9]+)/ )
 dictionary                =  "{" optionalNewline ( optionalNewline ( "<" identifier ">" ){0..1} keyvaluepair )* optionalNewline "}"
 list                      =  "[" optionalNewline ( value optionalNewline )* "]"
 filter                    =  ( filterand | filteror )

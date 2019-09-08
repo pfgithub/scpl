@@ -364,7 +364,6 @@ test("variables", () => {
 						string: "[attachment]",
 						attachmentsByRange: {
 							"{0, 1}": {
-								Aggrandizements: [],
 								Type: "Variable",
 								VariableName: "myvar"
 							}
@@ -395,7 +394,6 @@ test("magic variables", () => {
 						string: "[attachment]",
 						attachmentsByRange: {
 							"{0, 1}": {
-								Aggrandizements: [],
 								Type: "ActionOutput",
 								OutputName: "myvar",
 								OutputUUID: "<uuid1>"
@@ -446,7 +444,6 @@ test("filter action by name", () => {
 											string: "[attachment]hmm",
 											attachmentsByRange: {
 												"{0, 1}": {
-													Aggrandizements: [],
 													Type: "Ask"
 												}
 											}

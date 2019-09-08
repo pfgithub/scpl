@@ -242,9 +242,18 @@ o.value = or(
 	o.filter,
 	o.rawvalue
 );
-o.rawvalue = p(c`:raw`, _, or(o.dictionary, o.string)).scb(
-	([, , dict], start, end) => new RawParse(start, end, dict)
-);
+o.rawvalue = p(
+	c`:raw`,
+	_,
+	or(
+		o.dictionary,
+		o.string,
+		c`true`.scb(() => true),
+		c`false`.scb(_ => false),
+		regex(/^-?(?:[0-9]*\.[0-9]+|[0-9]+)/).scb(([v]) => +v)
+		// o.array
+	)
+).scb(([, , dict], start, end) => new RawParse(start, end, dict));
 
 o.dictionary = p(
 	c`{`,

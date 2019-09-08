@@ -119,7 +119,6 @@ Array [
                               "Value": Object {
                                 "attachmentsByRange": Object {
                                   "{0, 1}": Object {
-                                    "Aggrandizements": Array [],
                                     "Type": "Clipboard",
                                   },
                                 },
@@ -181,7 +180,6 @@ Array [
                   "WFValue": Object {
                     "Value": Object {
                       "Value": Object {
-                        "Aggrandizements": Array [],
                         "Type": "ExtensionInput",
                       },
                       "WFSerializationType": "WFTextTokenAttachment",
@@ -212,7 +210,7 @@ Array [
         },
       },
     ],
-    "WFWorkflowClientRelese": "2.1.2",
+    "WFWorkflowClientRelease": "2.1.2",
     "WFWorkflowClientVersion": "754",
     "WFWorkflowIcon": Object {
       "WFWorkflowIconGlyphNumber": 59511,
