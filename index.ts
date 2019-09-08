@@ -18,7 +18,7 @@ export {
 export function parse(
 	string: string,
 	options: {
-		make?: ["shortcutjson"?, "shortcutplist"?, "outputdata"?];
+		make?: ("shortcutjson" | "shortcutplist" | "outputdata")[];
 		useWarnings?: boolean;
 
 		// --- don't use unless necessary: ---
@@ -125,8 +125,11 @@ export function parse(
 	return shortcut;
 }
 
-export function inverse(data: WFShortcut | Buffer): string {
-	const icc = new InverseConvertingContext();
+export function inverse(
+	data: WFShortcut | Buffer,
+	options?: { quotes?: '"' | "'"; indent?: string | number }
+): string {
+	const icc = new InverseConvertingContext(options);
 	if (data instanceof Buffer) {
 		data = <WFShortcut>bplistp.parseBuffer(data);
 	}

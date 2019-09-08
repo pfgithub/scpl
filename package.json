@@ -1,6 +1,6 @@
 {
 	"name": "scpl",
-	"version": "1.13.9",
+	"version": "1.14.0",
 	"main": "built/index.js",
 	"types": "built/index.d.ts",
 	"license": "MIT",
@@ -44,7 +44,12 @@
 		],
 		"testPathIgnorePatterns": [
 			"/node_modules/",
-			"/built/"
+			"/built"
+		],
+		"coverageReporters": [
+			"json",
+			"lcov",
+			"clover"
 		]
 	},
 	"dependencies": {

@@ -1,0 +1,425 @@
+calculate "+" (number 5) ^(number 1) -> v:myvar
+calculate "-" (number 5) ^v:myvar
+calculate ^(number 1) "+" ( number 5 )
+number 1 -> mv:mynum
+calculate ^mv:mynum "+" (number 5)
+
+@!ShouldEqual --------------------------------
+
+Output Warnings:
+Array []
+
+Shortcut Full Inverted:
+Number 5 -> mv:Number
+Number 1
+Calculate operation="+" operand=mv:Number
+SetVariable myvar
+Number 5 -> mv:Number1
+GetVariable v:myvar
+Calculate operation="-" operand=mv:Number1
+Number 1 -> mv:Number2
+Number 5 -> mv:Number3
+GetVariable mv:Number2
+Calculate operation="+" operand=mv:Number3
+Number 1 -> mv:mynum
+GetVariable mv:mynum -> mv:"Get Variable"
+Number 5 -> mv:Number4
+GetVariable mv:"Get Variable"
+Calculate operation="+" operand=mv:Number4
+
+Shortcut Full JSON:
+Array [
+  Object {
+    "WFWorkflowActions": Array [
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              1,
+              24,
+            ],
+            "start": Array [
+              1,
+              16,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.number",
+        "WFWorkflowActionParameters": Object {
+          "UUID": "<uuid1>",
+          "WFNumberActionNumber": 5,
+        },
+      },
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              1,
+              36,
+            ],
+            "start": Array [
+              1,
+              28,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.number",
+        "WFWorkflowActionParameters": Object {
+          "WFNumberActionNumber": 1,
+        },
+      },
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              1,
+              48,
+            ],
+            "start": Array [
+              1,
+              1,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.math",
+        "WFWorkflowActionParameters": Object {
+          "WFMathOperand": Object {
+            "Value": Object {
+              "OutputName": "Number",
+              "OutputUUID": "<uuid1>",
+              "Type": "ActionOutput",
+            },
+            "WFSerializationType": "WFTextTokenAttachment",
+          },
+          "WFMathOperation": "+",
+        },
+      },
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              1,
+              48,
+            ],
+            "start": Array [
+              1,
+              41,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.setvariable",
+        "WFWorkflowActionParameters": Object {
+          "WFVariableName": "myvar",
+        },
+      },
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              2,
+              24,
+            ],
+            "start": Array [
+              2,
+              16,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.number",
+        "WFWorkflowActionParameters": Object {
+          "UUID": "<uuid2>",
+          "WFNumberActionNumber": 5,
+        },
+      },
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              2,
+              34,
+            ],
+            "start": Array [
+              2,
+              27,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.getvariable",
+        "WFWorkflowActionParameters": Object {
+          "WFVariable": Object {
+            "Value": Object {
+              "Type": "Variable",
+              "VariableName": "myvar",
+            },
+            "WFSerializationType": "WFTextTokenAttachment",
+          },
+        },
+      },
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              2,
+              34,
+            ],
+            "start": Array [
+              2,
+              1,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.math",
+        "WFWorkflowActionParameters": Object {
+          "WFMathOperand": Object {
+            "Value": Object {
+              "OutputName": "Number",
+              "OutputUUID": "<uuid2>",
+              "Type": "ActionOutput",
+            },
+            "WFSerializationType": "WFTextTokenAttachment",
+          },
+          "WFMathOperation": "-",
+        },
+      },
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              3,
+              21,
+            ],
+            "start": Array [
+              3,
+              13,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.number",
+        "WFWorkflowActionParameters": Object {
+          "UUID": "<uuid3>",
+          "WFNumberActionNumber": 1,
+        },
+      },
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              3,
+              38,
+            ],
+            "start": Array [
+              3,
+              29,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.number",
+        "WFWorkflowActionParameters": Object {
+          "UUID": "<uuid4>",
+          "WFNumberActionNumber": 5,
+        },
+      },
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              3,
+              21,
+            ],
+            "start": Array [
+              3,
+              13,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.getvariable",
+        "WFWorkflowActionParameters": Object {
+          "WFVariable": Object {
+            "Value": Object {
+              "OutputName": "Number",
+              "OutputUUID": "<uuid3>",
+              "Type": "ActionOutput",
+            },
+            "WFSerializationType": "WFTextTokenAttachment",
+          },
+        },
+      },
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              3,
+              39,
+            ],
+            "start": Array [
+              3,
+              1,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.math",
+        "WFWorkflowActionParameters": Object {
+          "WFMathOperand": Object {
+            "Value": Object {
+              "OutputName": "Number",
+              "OutputUUID": "<uuid4>",
+              "Type": "ActionOutput",
+            },
+            "WFSerializationType": "WFTextTokenAttachment",
+          },
+          "WFMathOperation": "+",
+        },
+      },
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              4,
+              21,
+            ],
+            "start": Array [
+              4,
+              1,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.number",
+        "WFWorkflowActionParameters": Object {
+          "CustomOutputName": "mynum",
+          "UUID": "<uuid5>",
+          "WFNumberActionNumber": 1,
+        },
+      },
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              5,
+              20,
+            ],
+            "start": Array [
+              5,
+              12,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.getvariable",
+        "WFWorkflowActionParameters": Object {
+          "UUID": "<uuid6>",
+          "WFVariable": Object {
+            "Value": Object {
+              "OutputName": "mynum",
+              "OutputUUID": "<uuid5>",
+              "Type": "ActionOutput",
+            },
+            "WFSerializationType": "WFTextTokenAttachment",
+          },
+        },
+      },
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              5,
+              34,
+            ],
+            "start": Array [
+              5,
+              26,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.number",
+        "WFWorkflowActionParameters": Object {
+          "UUID": "<uuid7>",
+          "WFNumberActionNumber": 5,
+        },
+      },
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              5,
+              20,
+            ],
+            "start": Array [
+              5,
+              12,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.getvariable",
+        "WFWorkflowActionParameters": Object {
+          "WFVariable": Object {
+            "Value": Object {
+              "OutputName": "get variable",
+              "OutputUUID": "<uuid6>",
+              "Type": "ActionOutput",
+            },
+            "WFSerializationType": "WFTextTokenAttachment",
+          },
+        },
+      },
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              5,
+              35,
+            ],
+            "start": Array [
+              5,
+              1,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.math",
+        "WFWorkflowActionParameters": Object {
+          "WFMathOperand": Object {
+            "Value": Object {
+              "OutputName": "Number",
+              "OutputUUID": "<uuid7>",
+              "Type": "ActionOutput",
+            },
+            "WFSerializationType": "WFTextTokenAttachment",
+          },
+          "WFMathOperation": "+",
+        },
+      },
+    ],
+    "WFWorkflowClientRelease": "2.1.2",
+    "WFWorkflowClientVersion": "754",
+    "WFWorkflowIcon": Object {
+      "WFWorkflowIconGlyphNumber": 59511,
+      "WFWorkflowIconImageData": Object {
+        "data": Array [],
+        "type": "Buffer",
+      },
+      "WFWorkflowIconStartColor": 2071128575,
+    },
+    "WFWorkflowInputContentItemClasses": Array [
+      "WFAppStoreAppContentItem",
+      "WFArticleContentItem",
+      "WFContactContentItem",
+      "WFDateContentItem",
+      "WFEmailAddressContentItem",
+      "WFGenericFileContentItem",
+      "WFImageContentItem",
+      "WFiTunesProductContentItem",
+      "WFLocationContentItem",
+      "WFDCMapsLinkContentItem",
+      "WFAVAssetContentItem",
+      "WFPDFContentItem",
+      "WFPhoneNumberContentItem",
+      "WFRichTextContentItem",
+      "WFSafariWebPageContentItem",
+      "WFStringContentItem",
+      "WFURLContentItem",
+    ],
+    "WFWorkflowMinimumClientVersion": 411,
+    "WFWorkflowTypes": Array [
+      "NCWidget",
+      "WatchKit",
+    ],
+  },
+]

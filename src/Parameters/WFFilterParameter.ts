@@ -30,6 +30,28 @@ export class WFFilterParameter extends WFParameter {
 			);
 		}
 		this.coercionType = this._data.ContentItemClass;
+		Object.keys(getTypes[this.coercionType].properties).forEach(key => {
+			const val =
+				getTypes[this.coercionType].properties[
+					<AggrandizementPropertyName>key
+				];
+			if (!val) {
+				return;
+			}
+			if (val.filter === false) {
+				return;
+			}
+			if (!val.filter) {
+				return (this.isComplete = false);
+			}
+			if (!val.type) {
+				return (this.isComplete = false);
+			}
+			const itemType = getTypes[val.type];
+			if (!itemType.comparisonMethods) {
+				return (this.isComplete = false);
+			}
+		});
 	}
 	genDocsArgName() {
 		return `:filter{...}`;

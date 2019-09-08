@@ -1,0 +1,181 @@
+@def myname ["item"] @{
+	ShowResult "the item is \(@:item)"
+}
+@myname "my item"
+@myname item="my item"
+
+@def @emptyargs [] @{
+	ShowResult "Args are empty"
+}
+
+@emptyargs
+
+@def @TestMacro ["name", "value"] @{
+	text "Name is: \\(@:name) and value is: \\(@:value)"
+}
+@testmacro "jakob" "tall"
+@testMacro name="jakob" value="tall"
+@TestMacro (value=tall, name=jakob)
+
+@!ShouldEqual --------------------------------
+
+Output Warnings:
+Array []
+
+Shortcut Full Inverted:
+ShowResult "the item is my item"
+ShowResult "the item is my item"
+ShowResult "Args are empty"
+Text "Name is: \\(@:name) and value is: \\(@:value)"
+Text "Name is: \\(@:name) and value is: \\(@:value)"
+Text "Name is: \\(@:name) and value is: \\(@:value)"
+
+Shortcut Full JSON:
+Array [
+  Object {
+    "WFWorkflowActions": Array [
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              2,
+              36,
+            ],
+            "start": Array [
+              2,
+              2,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.showresult",
+        "WFWorkflowActionParameters": Object {
+          "Text": "the item is my item",
+        },
+      },
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              2,
+              36,
+            ],
+            "start": Array [
+              2,
+              2,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.showresult",
+        "WFWorkflowActionParameters": Object {
+          "Text": "the item is my item",
+        },
+      },
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              8,
+              29,
+            ],
+            "start": Array [
+              8,
+              2,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.showresult",
+        "WFWorkflowActionParameters": Object {
+          "Text": "Args are empty",
+        },
+      },
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              14,
+              54,
+            ],
+            "start": Array [
+              14,
+              2,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
+        "WFWorkflowActionParameters": Object {
+          "WFTextActionText": "Name is: \\(@:name) and value is: \\(@:value)",
+        },
+      },
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              14,
+              54,
+            ],
+            "start": Array [
+              14,
+              2,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
+        "WFWorkflowActionParameters": Object {
+          "WFTextActionText": "Name is: \\(@:name) and value is: \\(@:value)",
+        },
+      },
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              14,
+              54,
+            ],
+            "start": Array [
+              14,
+              2,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
+        "WFWorkflowActionParameters": Object {
+          "WFTextActionText": "Name is: \\(@:name) and value is: \\(@:value)",
+        },
+      },
+    ],
+    "WFWorkflowClientRelease": "2.1.2",
+    "WFWorkflowClientVersion": "754",
+    "WFWorkflowIcon": Object {
+      "WFWorkflowIconGlyphNumber": 59511,
+      "WFWorkflowIconImageData": Object {
+        "data": Array [],
+        "type": "Buffer",
+      },
+      "WFWorkflowIconStartColor": 2071128575,
+    },
+    "WFWorkflowInputContentItemClasses": Array [
+      "WFAppStoreAppContentItem",
+      "WFArticleContentItem",
+      "WFContactContentItem",
+      "WFDateContentItem",
+      "WFEmailAddressContentItem",
+      "WFGenericFileContentItem",
+      "WFImageContentItem",
+      "WFiTunesProductContentItem",
+      "WFLocationContentItem",
+      "WFDCMapsLinkContentItem",
+      "WFAVAssetContentItem",
+      "WFPDFContentItem",
+      "WFPhoneNumberContentItem",
+      "WFRichTextContentItem",
+      "WFSafariWebPageContentItem",
+      "WFStringContentItem",
+      "WFURLContentItem",
+    ],
+    "WFWorkflowMinimumClientVersion": 411,
+    "WFWorkflowTypes": Array [
+      "NCWidget",
+      "WatchKit",
+    ],
+  },
+]

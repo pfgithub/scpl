@@ -15,7 +15,8 @@ import {
 	ShortcutsCustomDateFormatParameterSpec,
 	ShortcutsCountryFieldParameterSpec,
 	ShortcutsDateFieldParameterSpec,
-	ShortcutsLocationFieldParameterSpec
+	ShortcutsLocationFieldParameterSpec,
+	ShortcutsParameterSpecMap
 } from "./Data/ActionDataTypes/ShortcutsParameterSpec";
 
 export function genShortName(
@@ -34,13 +35,21 @@ export function genShortName(
 }
 
 import { WFParameter } from "./Parameters/WFParameter";
+export { WFParameter } from "./Parameters/WFParameter";
 
-type InstanceOfParameterType = typeof WFParameter;
+type InstanceOfParameterType<
+	Key extends keyof ShortcutsParameterSpecMap = keyof ShortcutsParameterSpecMap
+> = {
+	new (
+		data: ShortcutsParameterSpecMap[Key],
+		typeName?: string,
+		docs?: string
+	): WFParameter;
+};
 
 const types: {
-	[key: string]: InstanceOfParameterType;
+	[key in keyof ShortcutsParameterSpecMap]?: InstanceOfParameterType<key>;
 } = {};
-types.WFParameter = WFParameter;
 
 import { WFEnumerationParameter } from "./Parameters/WFEnumerationParameter";
 types.WFEnumerationParameter = WFEnumerationParameter;
@@ -65,8 +74,8 @@ types.WFSpeakTextRateParameter = WFSpeakTextRateParameter;
 
 import { WFContentArrayParameter } from "./Parameters/WFContentArrayParameter";
 types.WFContentArrayParameter = WFContentArrayParameter;
-
-types.WFArrayParameter = class extends WFContentArrayParameter {}; // not sure what the difference is
+//@ts-ignore
+types.WFArrayParameter = class extends WFContentArrayParameter {}; // good enough
 
 import { WFVariablePickerParameter } from "./Parameters/WFVariablePickerParameter";
 types.WFVariablePickerParameter = WFVariablePickerParameter;
@@ -107,17 +116,6 @@ class WFDateFieldParameter extends WFTextInputParameter {
 }
 types.WFDateFieldParameter = WFDateFieldParameter;
 
-class WFLocationFieldParameter extends WFTextInputParameter {
-	constructor(
-		data: ShortcutsLocationFieldParameterSpec,
-		name = "Location",
-		docs = "https://pfgithub.github.io/shortcutslang/gettingstarted#text-field"
-	) {
-		super(data, name, docs);
-	}
-}
-types.WFLocationFieldParameter = WFLocationFieldParameter;
-
 import { WFEmailAddressFieldParameter } from "./Parameters/WFEmailAddressFieldParameter";
 types.WFEmailAddressFieldParameter = WFEmailAddressFieldParameter;
 
@@ -144,6 +142,7 @@ function addStaticEnum(
 	visibleName: string,
 	options: string[]
 ) {
+	//@ts-ignore
 	types[internalName] = class extends WFEnumerationParameter {
 		constructor(
 			data: ShortcutsEnumerationParameterSpec,
@@ -157,6 +156,7 @@ function addStaticEnum(
 	};
 }
 function addDynamicEnum(internalName: string, visibleName: string) {
+	//@ts-ignore
 	types[internalName] = class extends WFDynamicEnumerationParameter {
 		constructor(
 			data: ShortcutsDynamicEnumerationParameterSpec,
@@ -313,8 +313,9 @@ export class WFAction {
 					// 	return;
 					// }
 					if (types[param.Class]) {
-						const type: InstanceOfParameterType =
-							types[param.Class];
+						const type: InstanceOfParameterType<any> = types[
+							param.Class
+						]!;
 						const paramVal: WFParameter = new type(param); // false. it has a consistent call structure.
 						if (parameterNames[paramVal.shortName]) {
 							// console.warn(`IN: ${this.internalName}: Two parameters named ${paramVal.shortName} exist.`);
@@ -322,6 +323,9 @@ export class WFAction {
 							paramVal.readableName += "2";
 						}
 						parameterNames[paramVal.shortName] = true;
+						if (!paramVal.isComplete) {
+							this.isComplete = false;
+						}
 						return paramVal;
 					}
 					this.isComplete = false;
@@ -329,7 +333,7 @@ export class WFAction {
 						_debugMissingTypes[param.Class] !== undefined
 							? _debugMissingTypes[param.Class] + 1
 							: 1;
-					return `This paramtype is not implemented. ${param.Class}`;
+					return `${param.Class}`;
 				}
 			);
 		}
@@ -377,9 +381,7 @@ export class WFAction {
 				.join(",\n")}\n)`.trim();
 		}
 		if (docsParams.length === 1) {
-			autocompleteUsage = `${this.readableName} \${1${
-				docsParams[0].argAutocompletePlaceholder
-			}}`;
+			autocompleteUsage = `${this.readableName} \${1${docsParams[0].argAutocompletePlaceholder}}`;
 		}
 		// 		let autocompleteUsage = `${this.readableName} (
 		// ${docsParams
@@ -446,9 +448,7 @@ ${
 }${
 			this._data.RequiredResources
 				? `
-> This action requires that Shortcuts has permission to use ${
-						this._data.RequiredResources
-				  }.
+> This action requires that Shortcuts has permission to use ${this._data.RequiredResources}.
 `
 				: ""
 		}${
@@ -508,7 +508,13 @@ ${this.genDocsUsage()}
 ---
 
 ${this._parameters.map(param =>
-	typeof param === "string" ? `#### ${param}` : param.genDocs()
+	typeof param === "string"
+		? `#### This parameter is not implemented yet.
+
+The parameter type is ${param}. If you need to use this parameter, you may
+be able to use a raw value. Try converting a .shortcut to a .scpl containing
+the values you want in this parameter.`
+		: param.genDocs()
 ).join(`
 
 ---
@@ -535,7 +541,7 @@ ${JSON.stringify(this._data, null, "\t")}
 		});
 		return res;
 	}
-	getParameterOrder() {
+	getParameterOrder(): ReadonlyArray<string | WFParameter> {
 		return this._parameters;
 	}
 	build(
@@ -547,7 +553,7 @@ ${JSON.stringify(this._data, null, "\t")}
 			wfaction: WFAction;
 		},
 		...params: Array<AsAble>
-	) {
+	): Action {
 		let actionAbove = cc.lastVariableAction;
 		// TODO actionAbove = cc.lastVariableAction
 		//
@@ -587,9 +593,15 @@ ${JSON.stringify(this._data, null, "\t")}
 						"Data is string. This should have been caught earlier. This should never happen."
 					);
 				}
+				if (param.canBeRaw(cc)) {
+					return action.parameters.set(
+						name.data.internalName,
+						param.asRaw(cc)
+					);
+				}
 				action.parameters.set(
 					name.data.internalName,
-					name.data.build(cc, param)
+					name.data.build(cc, param, action)
 				);
 			},
 			(param: AsAble) => {
@@ -606,9 +618,101 @@ ${JSON.stringify(this._data, null, "\t")}
 				if (typeof name.data === "string") {
 					throw param.error(
 						cc,
-						`This field is not supported yet. If you need this field, submit an issue or pull request on github requesting it. Reason: ${
-							name.data
-						}`
+						`This field is not supported yet. If you need this field, submit an issue or pull request on github requesting it. Reason: ${name.data}`
+					);
+				}
+				if (action.parameters.has(name.data.internalName)) {
+					return false;
+				}
+				return name.data.shouldEnable(action);
+			},
+			{ cc: cc, args: params },
+			{
+				noArgumentExistsHandler: (key, value, paramList) => {
+					if (!value.canBeRaw(cc)) {
+						throw value.error(
+							cc,
+							`No argument exists with the name ${value}. Valud are ${paramList.join(
+								","
+							)}`
+						);
+					}
+					action.parameters.set(key, value.asRaw(cc));
+				}
+			}
+		);
+		if (
+			actionAbove &&
+			this.requiresInput &&
+			actionAbove !== cc.lastVariableAction
+		) {
+			cc.add(
+				getVariable(
+					{
+						start: <[number, number]>actionAbove.start,
+						end: <[number, number]>actionAbove.end
+					},
+					new MagicVariable(actionAbove)
+				)
+			);
+		}
+		// TODO if(actionAbove) cc.add(getVariableAction(actionAbove))
+		cc.add(action);
+		return action;
+	}
+}
+
+class RawAction {
+	id: string;
+	constructor(id: string) {
+		this.id = id;
+	}
+	build(
+		cc: ConvertingContext,
+		actionPosition: AsAble,
+		_controlFlowData?: {
+			uuid: string;
+			number: number;
+			wfaction: WFAction;
+		},
+		...params: Array<AsAble>
+	): Action {
+		let actionAbove = cc.lastVariableAction;
+		// TODO actionAbove = cc.lastVariableAction
+		//
+		const action = new Action(
+			actionPosition.start,
+			actionPosition.end,
+			this.id,
+			this.id
+		);
+		const vi = 0;
+		ArgParser(
+			"any",
+			(name: { name: string; data: string }, param: AsAble) => {
+				if (!param.canBeRaw(cc)) {
+					throw param.error(
+						cc,
+						"Raw arguments must have raw parameters"
+					);
+				}
+				action.parameters.set(name.data, param.asRaw(cc));
+			},
+			(param: AsAble) => {
+				if (!param.canBeAction(cc)) {
+					throw param.error(
+						cc,
+						"InputArg fields only accept actions and variables."
+					);
+				}
+				actionAbove = param.asAction(cc);
+				return;
+			},
+			(name: { data: string | WFParameter }, param: AsAble) => {
+				if (typeof name.data === "string") {
+					throw param.error(
+						cc,
+						`This field is not supported yet. If you need this field, submit an issue or pull request on github requesting it. Reason: ${name.data}`
 					);
 				}
 				if (action.parameters.has(name.data.internalName)) {
@@ -618,11 +722,7 @@ ${JSON.stringify(this._data, null, "\t")}
 			},
 			{ cc: cc, args: params }
 		);
-		if (
-			actionAbove &&
-			this.requiresInput &&
-			actionAbove !== cc.lastVariableAction
-		) {
+		if (actionAbove && actionAbove !== cc.lastVariableAction) {
 			cc.add(
 				getVariable(
 					{
@@ -655,9 +755,7 @@ Object.keys(actionList).forEach(key => {
 	if (actionsByName[action.shortName]) {
 		//eslint-disable-next-line no-console
 		console.warn(
-			`WARNING, ${action.shortName} (${
-				action.internalName
-			}) is already defined`
+			`WARNING, ${action.shortName} (${action.internalName}) is already defined`
 		);
 		return;
 	}
@@ -724,7 +822,12 @@ export function getActionFromID(id: string): WFAction | undefined {
 	}
 	return actionsByID[id];
 }
-export function getActionFromName(name: string): WFAction | undefined {
+export function getActionFromName(
+	name: string
+): WFAction | RawAction | undefined {
+	if (name.indexOf(".") > -1) {
+		return new RawAction(name);
+	}
 	name = name.toLowerCase();
 	if (!actionsByName[name]) {
 		return undefined;

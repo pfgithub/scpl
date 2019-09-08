@@ -1,13 +1,44 @@
 let totalSteps = 0;
 let began: Date;
 
+export class PositionedError extends Error {
+	// an error at a position
+	start: Position;
+	end: Position;
+	constructor(message: string, start: Position, end: Position) {
+		super(
+			`Error from ${start.toString()} to ${end.toString()}: ${message}`
+		);
+		this.start = start;
+		this.end = end;
+	}
+}
+
 export type ProductionResolveable =
 	| Production
 	| { getProd: () => Production; name: string };
+export type ProductionResolveableIn =
+	| Production
+	| { getProd: () => Production; name: string }
+	| RegExp
+	| string;
 export type Position = [number, number];
 export type ParseResult =
 	| { success: false }
 	| { data: any; remainingStr: string; success: true; pos: Position };
+
+export function resolveIn(production: ProductionResolveableIn) {
+	if (production instanceof RegExp) {
+		return new RegexProduction(production);
+	}
+	if (typeof production === "string") {
+		return new StringProduction(production);
+	}
+	return production;
+}
+export function resolve(production: ProductionResolveable) {
+	return production.getProd();
+}
 
 export class Performance {
 	static startMonitoring() {
@@ -35,15 +66,15 @@ function calculateChange(str: string, position: Position) {
 	position[1] += change.length;
 }
 
-type ProductionCallback = (a: any, fromPos: Position, toPos: Position) => any;
+type ProductionCallback<T> = (a: T, fromPos: Position, toPos: Position) => any;
 
-export class Production {
-	cb: ProductionCallback; // todo cb: (input: any) => Parse
+export class Production<T = any> {
+	cb: ProductionCallback<T>; // todo cb: (input: any) => Parse
 	name?: string;
-	constructor(cb = (a: any) => a) {
+	constructor(cb = (a: T) => a) {
 		this.cb = cb;
 	}
-	scb(cb: ProductionCallback) {
+	scb(cb: ProductionCallback<T>) {
 		this.cb = cb;
 		return this;
 	}
@@ -64,18 +95,18 @@ export class Production {
 
 export class OrderedProduction extends Production {
 	requirements: Array<ProductionResolveable>;
-	constructor(...requirements: Array<ProductionResolveable>) {
+	constructor(...requirements: Array<ProductionResolveableIn>) {
 		super();
-		this.requirements = requirements;
+		this.requirements = requirements.map(resolveIn);
 	}
 	parse(string: string, position: Position): ParseResult {
 		super.parse(string, position);
 		const resdata: Array<any> = [];
 		const startpos = <Position>position.slice();
 		const success = this.requirements.every(requirement => {
-			const result = requirement
-				.getProd()
-				.parse(string, <Position>position.slice());
+			const result = resolve(requirement).parse(string, <Position>(
+				position.slice()
+			));
 			if (!result.success) {
 				return false;
 			}
@@ -96,15 +127,15 @@ export class OrderedProduction extends Production {
 	}
 	toString() {
 		return `${this.requirements
-			.map(option => option.getProd().nameOrTostring())
+			.map(option => resolve(option).nameOrTostring())
 			.join(" ")}`;
 	}
 }
 export class OrProduction extends Production {
 	options: Array<ProductionResolveable>;
-	constructor(...options: Array<ProductionResolveable>) {
+	constructor(...options: Array<ProductionResolveableIn>) {
 		super();
-		this.options = options;
+		this.options = options.map(resolveIn);
 	}
 	parse(string: string, position: Position): ParseResult {
 		super.parse(string, position);
@@ -112,9 +143,9 @@ export class OrProduction extends Production {
 		const startpos = <Position>position.slice();
 		const success = this.options.some(option => {
 			// find the first option that parses... might cause problems if things try to parse too deep only to realise the code is wrong... may want to have some number of depth or something idk
-			const result = option
-				.getProd()
-				.parse(string, <Position>position.slice());
+			const result = resolve(option).parse(string, <Position>(
+				position.slice()
+			));
 			if (!result.success) {
 				return false;
 			}
@@ -135,13 +166,13 @@ export class OrProduction extends Production {
 	}
 	toString() {
 		return `( ${this.options
-			.map(option => option.getProd().nameOrTostring())
+			.map(option => resolve(option).nameOrTostring())
 			.join(" | ")} )`;
 	}
 }
 // remove notproduction for now
 
-export class RegexProduction extends Production {
+export class RegexProduction extends Production<RegExpMatchArray> {
 	regex: RegExp;
 	constructor(regex: RegExp) {
 		super();
@@ -176,7 +207,7 @@ export class RegexProduction extends Production {
 	}
 }
 
-export class StringProduction extends Production {
+export class StringProduction extends Production<string> {
 	string: string;
 	constructor(string: string) {
 		super();
@@ -207,13 +238,13 @@ export class ManyProduction extends Production {
 	start: number;
 	end: number;
 	constructor(
-		thing: ProductionResolveable,
+		thing: ProductionResolveableIn,
 		start = -Infinity,
 		end = Infinity
 	) {
 		// range = 0.. 1.. 0..1 ..1 or something
 		super();
-		this.prod = thing;
+		this.prod = resolveIn(thing);
 		this.start = start;
 		this.end = end;
 	}
@@ -228,9 +259,9 @@ export class ManyProduction extends Production {
 				succeeding = false;
 				continue;
 			}
-			const result = this.prod
-				.getProd()
-				.parse(string, <Position>position.slice());
+			const result = resolve(this.prod).parse(string, <Position>(
+				position.slice()
+			));
 			if (!result.success) {
 				succeeding = false;
 				continue;
@@ -255,8 +286,16 @@ export class ManyProduction extends Production {
 		};
 	}
 	toString() {
-		return `{ ${this.start}..${
-			this.end
-		} }( ${this.prod.getProd().nameOrTostring()} )`;
+		const item = `( ${resolve(this.prod).nameOrTostring()} )`;
+		if (this.end === Infinity) {
+			if (this.start === 0) {
+				return `${item}*`;
+			}
+			if (this.start === 1) {
+				return `${item}+`;
+			}
+			return `${item}{${this.start}..}`;
+		}
+		return `${item}{${this.start}..${this.end}}`;
 	}
 }

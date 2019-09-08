@@ -1,0 +1,71 @@
+@If iffalse=@{} // missing condition, iftrue
+@If iftrue=@{} // missing condition
+@If condition=false // Missing iftrue
+@If false @{
+	Text "This should not output."
+}
+@If :filter{not a condition} @{
+	
+}
+@If true "not an action"
+@If true @{} "else method cannot be an action"
+
+@If ^(Text "inputargs not allowed") @{}
+@If condition=true condition=false
+
+@!ShouldEqual --------------------------------
+
+Output Warnings:
+Array [
+  [Error: Error from 1,1 to 1,45: @if must have 2-3 arguments. boolean, @{iftrue} @{iffalse}],
+  [Error: Error from 2,1 to 2,36: @if must have 2-3 arguments. boolean, @{iftrue} @{iffalse}],
+  [Error: Error from 3,1 to 3,38: @if must have 2-3 arguments. boolean, @{iftrue} @{iffalse}],
+  [Error: Error from 7,5 to 7,29: Test must be a boolean.],
+  [Error: Error from 10,10 to 10,25: Method must be action, for example `@{Text ""}`],
+  [Error: Error from 11,12 to 11,12: Else method must be action, for example `@{Text ""}`],
+  [Error: Error from 13,7 to 13,35: InputArg is not allowed for this function],
+  [Error: Error from 14,30 to 14,35: The argument `condition` has already been set for this function.],
+]
+
+Because there were warnings, no inversion test will be run!!
+
+Shortcut Full JSON:
+Array [
+  Object {
+    "WFWorkflowActions": Array [],
+    "WFWorkflowClientRelease": "2.1.2",
+    "WFWorkflowClientVersion": "754",
+    "WFWorkflowIcon": Object {
+      "WFWorkflowIconGlyphNumber": 59511,
+      "WFWorkflowIconImageData": Object {
+        "data": Array [],
+        "type": "Buffer",
+      },
+      "WFWorkflowIconStartColor": 2071128575,
+    },
+    "WFWorkflowInputContentItemClasses": Array [
+      "WFAppStoreAppContentItem",
+      "WFArticleContentItem",
+      "WFContactContentItem",
+      "WFDateContentItem",
+      "WFEmailAddressContentItem",
+      "WFGenericFileContentItem",
+      "WFImageContentItem",
+      "WFiTunesProductContentItem",
+      "WFLocationContentItem",
+      "WFDCMapsLinkContentItem",
+      "WFAVAssetContentItem",
+      "WFPDFContentItem",
+      "WFPhoneNumberContentItem",
+      "WFRichTextContentItem",
+      "WFSafariWebPageContentItem",
+      "WFStringContentItem",
+      "WFURLContentItem",
+    ],
+    "WFWorkflowMinimumClientVersion": 411,
+    "WFWorkflowTypes": Array [
+      "NCWidget",
+      "WatchKit",
+    ],
+  },
+]

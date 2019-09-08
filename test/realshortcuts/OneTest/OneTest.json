@@ -1,0 +1,2603 @@
+[
+	{
+		"WFWorkflowClientVersion": "700",
+		"WFWorkflowClientRelease": "2.0",
+		"WFWorkflowMinimumClientVersion": 467,
+		"WFWorkflowIcon": {
+			"WFWorkflowIconStartColor": 255,
+			"WFWorkflowIconImageData": {
+				"type": "Buffer",
+				"data": []
+			},
+			"WFWorkflowIconGlyphNumber": 59753
+		},
+		"WFWorkflowImportQuestions": [
+			{
+				"ParameterKey": "WFNumberActionNumber",
+				"Category": "Parameter",
+				"ActionIndex": 19,
+				"Text": "Please enter default quality to download. Accepted values are: 128/320/1411\n\n  128 - 128 kbps mp3\n 320 - 320 kbps mp3\n1411 - 1411 kbps flac",
+				"DefaultValue": 320
+			},
+			{
+				"ParameterKey": "WFNumberActionNumber",
+				"Category": "Parameter",
+				"ActionIndex": 129,
+				"Text": "Add track numbers to filename?\nAccepted values are: 0/1\n\n0 - Disable\n1 - Enable",
+				"DefaultValue": 1
+			},
+			{
+				"ParameterKey": "WFTextActionText",
+				"Category": "Parameter",
+				"ActionIndex": 161,
+				"Text": "Please choose default location to save music. Accepted values are: iCloud/Browser or both (Case sensitive)\n\n‘iCloud’ saves on iCloud and ‘Browser’ saves on Browser app while “iCloud and Browser” saves on both.",
+				"DefaultValue": "Browser"
+			}
+		],
+		"WFWorkflowTypes": ["ActionExtension", "NCWidget"],
+		"WFWorkflowInputContentItemClasses": [
+			"WFRichTextContentItem",
+			"WFStringContentItem",
+			"WFURLContentItem"
+		],
+		"WFWorkflowActions": [
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.comment",
+				"WFWorkflowActionParameters": {
+					"WFCommentActionText": "Deezer music 🎵 downloader.\nRipped from source directly.\n\nV: 2.1.0, Made by /u/74Y3M"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.comment",
+				"WFWorkflowActionParameters": {
+					"WFCommentActionText": "When sharing from deezer, input is messed up hence we split and combine them for getting the actual urls."
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.text.split",
+				"WFWorkflowActionParameters": {
+					"WFTextSeparator": "Spaces",
+					"UUID": "895CD43A-2CC5-4F1D-9931-426DD998F4EF"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.text.combine",
+				"WFWorkflowActionParameters": {
+					"WFTextSeparator": "New Lines",
+					"UUID": "FE69E279-F227-4F58-B169-96D7731B25E4"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+				"WFWorkflowActionParameters": {
+					"WFConditionalActionString": {
+						"Value": {
+							"string": "￼",
+							"attachmentsByRange": {
+								"{0, 1}": {
+									"OutputUUID": "FE69E279-F227-4F58-B169-96D7731B25E4",
+									"Type": "ActionOutput",
+									"OutputName": "Combined Text"
+								}
+							}
+						},
+						"WFSerializationType": "WFTextTokenString"
+					},
+					"GroupingIdentifier": "D2DB5C2E-F16C-4995-9EAF-7ED68785E34E",
+					"WFControlFlowMode": 0
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+				"WFWorkflowActionParameters": {
+					"GroupingIdentifier": "D2DB5C2E-F16C-4995-9EAF-7ED68785E34E",
+					"WFControlFlowMode": 1
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
+				"WFWorkflowActionParameters": {
+					"WFTextActionText": {
+						"Value": {
+							"string": "Found deezer links on clipboard, would you like to continue with download?\n\n￼",
+							"attachmentsByRange": {
+								"{76, 1}": {
+									"Type": "Clipboard"
+								}
+							}
+						},
+						"WFSerializationType": "WFTextTokenString"
+					},
+					"UUID": "45A461F9-14CE-4492-9E72-E1B4B715D6B9"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.getclipboard",
+				"WFWorkflowActionParameters": {
+					"UUID": "FC4EC667-814E-4146-A764-8B9598C632C5"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+				"WFWorkflowActionParameters": {
+					"WFConditionalActionString": "deezer.com",
+					"GroupingIdentifier": "C5B41456-D647-477C-8CF4-F8577C390C0F",
+					"WFControlFlowMode": 0
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.comment",
+				"WFWorkflowActionParameters": {
+					"WFCommentActionText": "Let the user know if they wanna download the content from their clipboard link and if they don't go with search!"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.choosefrommenu",
+				"WFWorkflowActionParameters": {
+					"WFMenuPrompt": {
+						"Value": {
+							"string": "￼",
+							"attachmentsByRange": {
+								"{0, 1}": {
+									"OutputUUID": "45A461F9-14CE-4492-9E72-E1B4B715D6B9",
+									"Type": "ActionOutput",
+									"OutputName": "Text"
+								}
+							}
+						},
+						"WFSerializationType": "WFTextTokenString"
+					},
+					"WFControlFlowMode": 0,
+					"WFMenuItems": ["Yes", "No"],
+					"GroupingIdentifier": "20727C27-7196-460A-97F0-A7CD6D88204A"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.choosefrommenu",
+				"WFWorkflowActionParameters": {
+					"WFMenuItemTitle": "Yes",
+					"GroupingIdentifier": "20727C27-7196-460A-97F0-A7CD6D88204A",
+					"WFControlFlowMode": 1
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.choosefrommenu",
+				"WFWorkflowActionParameters": {
+					"WFMenuItemTitle": "No",
+					"GroupingIdentifier": "20727C27-7196-460A-97F0-A7CD6D88204A",
+					"WFControlFlowMode": 1
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.nothing",
+				"WFWorkflowActionParameters": {}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.choosefrommenu",
+				"WFWorkflowActionParameters": {
+					"WFControlFlowMode": 2,
+					"GroupingIdentifier": "20727C27-7196-460A-97F0-A7CD6D88204A",
+					"UUID": "9DF60686-01DB-4996-81D1-9C9256E887C9"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+				"WFWorkflowActionParameters": {
+					"GroupingIdentifier": "C5B41456-D647-477C-8CF4-F8577C390C0F",
+					"WFControlFlowMode": 2
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+				"WFWorkflowActionParameters": {
+					"UUID": "CF3E6A2A-F74A-4975-8CFC-DE71AB401E9D",
+					"GroupingIdentifier": "D2DB5C2E-F16C-4995-9EAF-7ED68785E34E",
+					"WFControlFlowMode": 2
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.setvariable",
+				"WFWorkflowActionParameters": {
+					"WFVariableName": "Input"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.comment",
+				"WFWorkflowActionParameters": {
+					"WFCommentActionText": "Enter quality to download.\n    128/320/1411\n\n128 - 128 kbps mp3\n320 - 320 kbps mp3\n1411 - 1411 kbps flac"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.number",
+				"WFWorkflowActionParameters": {
+					"UUID": "3F7AB5A8-9321-440C-AB5F-EFC88F5A75C5",
+					"WFNumberActionNumber": 128
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.setvariable",
+				"WFWorkflowActionParameters": {
+					"WFVariableName": "Quality"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.getvariable",
+				"WFWorkflowActionParameters": {
+					"WFVariable": {
+						"Value": {
+							"VariableName": "Input",
+							"Type": "Variable"
+						},
+						"WFSerializationType": "WFTextTokenAttachment"
+					}
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+				"WFWorkflowActionParameters": {
+					"WFConditionalActionString": "lnk.to",
+					"GroupingIdentifier": "CB155801-9EB1-42C2-B8D6-F472BC8F3178",
+					"WFControlFlowMode": 0
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.comment",
+				"WFWorkflowActionParameters": {
+					"WFCommentActionText": "Artists nowadays usually share artistname.lnk.to/albumName like urls for redirecting to various streaming services. If we have this on input, parse it for getting deezer urls."
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.downloadurl",
+				"WFWorkflowActionParameters": {
+					"Advanced": false,
+					"UUID": "6C8E57B8-7FCB-43BD-A2C0-4D5B090C2C14"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.gethtmlfromrichtext",
+				"WFWorkflowActionParameters": {
+					"UUID": "C59B6D79-4BB5-4DE1-BC94-C1E68F8215AD"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.text.match",
+				"WFWorkflowActionParameters": {
+					"WFMatchTextPattern": "https?.*?deezer.com/.*",
+					"WFMatchTextCaseSensitive": false,
+					"UUID": "CFE3A601-0CF6-4D4C-9C74-FF0C677AC82C"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+				"WFWorkflowActionParameters": {
+					"UUID": "CF19BF55-BA51-4C2B-B8EC-409BA3648DBF",
+					"GroupingIdentifier": "CB155801-9EB1-42C2-B8D6-F472BC8F3178",
+					"WFControlFlowMode": 2
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+				"WFWorkflowActionParameters": {
+					"WFConditionalActionString": "deezer.com",
+					"GroupingIdentifier": "0A8FB1B7-0982-41EB-B4D5-9AF46ED32A88",
+					"WFControlFlowMode": 0
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.comment",
+				"WFWorkflowActionParameters": {
+					"WFCommentActionText": "If we have deezer link, just move along with downloads."
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+				"WFWorkflowActionParameters": {
+					"GroupingIdentifier": "0A8FB1B7-0982-41EB-B4D5-9AF46ED32A88",
+					"WFControlFlowMode": 1
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
+				"WFWorkflowActionParameters": {
+					"UUID": "B454D1E1-E2F0-49DB-9B54-E64D2D74CB17",
+					"WFTextActionText": "Enter search input or type any of this:\n\n- \"C\" for top 10 tracks!\n- \"A:album name\" for albums\n- \"P:playlist name\" for playlists\n- \":search query\" for tracks, playlists and albums\n\nPS: Word (A/P) before colon (:) are case sensitive. Without colon only tracks results will be fetched."
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.ask",
+				"WFWorkflowActionParameters": {
+					"WFAskActionPrompt": {
+						"Value": {
+							"string": "￼",
+							"attachmentsByRange": {
+								"{0, 1}": {
+									"OutputUUID": "B454D1E1-E2F0-49DB-9B54-E64D2D74CB17",
+									"Type": "ActionOutput",
+									"OutputName": "Text"
+								}
+							}
+						},
+						"WFSerializationType": "WFTextTokenString"
+					},
+					"UUID": "0CBCB7E6-FFFF-44BB-874A-6EBDC7886F0C",
+					"WFAskActionDefaultAnswer": ""
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+				"WFWorkflowActionParameters": {
+					"WFControlFlowMode": 0,
+					"WFConditionalActionString": "C",
+					"GroupingIdentifier": "B17315A2-5959-4704-B2CF-CA4FB12723A5",
+					"WFCondition": "Equals"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.comment",
+				"WFWorkflowActionParameters": {
+					"WFCommentActionText": "C is for top charts. You can replace this url with any of your specific charts."
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.url",
+				"WFWorkflowActionParameters": {
+					"WFURLActionURL": "https://api.deezer.com/chart/0/tracks",
+					"UUID": "561C87ED-1FF5-4DF0-B2A9-8756C3D79F14"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+				"WFWorkflowActionParameters": {
+					"GroupingIdentifier": "B17315A2-5959-4704-B2CF-CA4FB12723A5",
+					"WFControlFlowMode": 1
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.urlencode",
+				"WFWorkflowActionParameters": {
+					"UUID": "19B1A1CA-6F18-489B-87D1-95ED2AC16045"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+				"WFWorkflowActionParameters": {
+					"WFConditionalActionString": ":",
+					"GroupingIdentifier": "6116780D-420C-479A-A94C-BE7D84EDEF2F",
+					"WFControlFlowMode": 0
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+				"WFWorkflowActionParameters": {
+					"WFConditionalActionString": "A:",
+					"GroupingIdentifier": "7BEC2EB1-9001-400F-A9EF-9F255F8C1C12",
+					"WFControlFlowMode": 0
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.text.match",
+				"WFWorkflowActionParameters": {
+					"WFMatchTextPattern": "[^:]+$",
+					"WFMatchTextCaseSensitive": false,
+					"UUID": "E944ECA8-F89F-4FA6-B4F8-8E3D3FA1FC60"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.url",
+				"WFWorkflowActionParameters": {
+					"WFURLActionURL": {
+						"Value": {
+							"string": "https://api.deezer.com/search/album?q=￼",
+							"attachmentsByRange": {
+								"{38, 1}": {
+									"OutputUUID": "E944ECA8-F89F-4FA6-B4F8-8E3D3FA1FC60",
+									"Type": "ActionOutput",
+									"OutputName": "Text Matches"
+								}
+							}
+						},
+						"WFSerializationType": "WFTextTokenString"
+					},
+					"UUID": "8F56AE18-F1E8-40E8-B427-B81492441335"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+				"WFWorkflowActionParameters": {
+					"GroupingIdentifier": "7BEC2EB1-9001-400F-A9EF-9F255F8C1C12",
+					"WFControlFlowMode": 1
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+				"WFWorkflowActionParameters": {
+					"WFConditionalActionString": "P:",
+					"GroupingIdentifier": "0ABEC796-15EE-4501-B605-37E4E3A46210",
+					"WFControlFlowMode": 0
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.text.match",
+				"WFWorkflowActionParameters": {
+					"WFMatchTextPattern": "[^:]+$",
+					"WFMatchTextCaseSensitive": false,
+					"UUID": "DD10363A-5C34-4E59-8529-7E111509566C"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.url",
+				"WFWorkflowActionParameters": {
+					"WFURLActionURL": {
+						"Value": {
+							"string": "https://api.deezer.com/search/playlist?q=￼",
+							"attachmentsByRange": {
+								"{41, 1}": {
+									"OutputUUID": "DD10363A-5C34-4E59-8529-7E111509566C",
+									"Type": "ActionOutput",
+									"OutputName": "Text Matches"
+								}
+							}
+						},
+						"WFSerializationType": "WFTextTokenString"
+					},
+					"UUID": "0721EB40-9C79-4C3D-A308-84118B2041C5"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+				"WFWorkflowActionParameters": {
+					"GroupingIdentifier": "0ABEC796-15EE-4501-B605-37E4E3A46210",
+					"WFControlFlowMode": 1
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.text.match",
+				"WFWorkflowActionParameters": {
+					"WFMatchTextPattern": "[^:]+$",
+					"WFMatchTextCaseSensitive": false,
+					"UUID": "3FA9D499-E41F-4CC4-8BC0-E92A98F5D18E"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
+				"WFWorkflowActionParameters": {
+					"UUID": "C26DF900-2E1A-4F6F-8511-64EE10A3D534",
+					"WFTextActionText": {
+						"Value": {
+							"string": "https://api.deezer.com/search/track?q=￼\nhttps://api.deezer.com/search/playlist?q=￼\nhttps://api.deezer.com/search/album?q=￼",
+							"attachmentsByRange": {
+								"{38, 1}": {
+									"OutputUUID": "3FA9D499-E41F-4CC4-8BC0-E92A98F5D18E",
+									"Type": "ActionOutput",
+									"OutputName": "Text Matches"
+								},
+								"{81, 1}": {
+									"OutputUUID": "3FA9D499-E41F-4CC4-8BC0-E92A98F5D18E",
+									"Type": "ActionOutput",
+									"OutputName": "Text Matches"
+								},
+								"{121, 1}": {
+									"OutputUUID": "3FA9D499-E41F-4CC4-8BC0-E92A98F5D18E",
+									"Type": "ActionOutput",
+									"OutputName": "Text Matches"
+								}
+							}
+						},
+						"WFSerializationType": "WFTextTokenString"
+					}
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+				"WFWorkflowActionParameters": {
+					"GroupingIdentifier": "0ABEC796-15EE-4501-B605-37E4E3A46210",
+					"WFControlFlowMode": 2
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+				"WFWorkflowActionParameters": {
+					"WFControlFlowMode": 2,
+					"GroupingIdentifier": "7BEC2EB1-9001-400F-A9EF-9F255F8C1C12",
+					"UUID": "CBE13540-BCE6-4820-81EC-3FE6CD858519"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+				"WFWorkflowActionParameters": {
+					"GroupingIdentifier": "6116780D-420C-479A-A94C-BE7D84EDEF2F",
+					"WFControlFlowMode": 1
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.comment",
+				"WFWorkflowActionParameters": {
+					"WFCommentActionText": "If none of charts, album or playlist was selected go with default track search."
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.url",
+				"WFWorkflowActionParameters": {
+					"WFURLActionURL": {
+						"Value": {
+							"string": "https://api.deezer.com/search?q=￼",
+							"attachmentsByRange": {
+								"{32, 1}": {
+									"OutputUUID": "19B1A1CA-6F18-489B-87D1-95ED2AC16045",
+									"Type": "ActionOutput",
+									"OutputName": "URL Encoded Text"
+								}
+							}
+						},
+						"WFSerializationType": "WFTextTokenString"
+					},
+					"UUID": "EE0D61C5-A3BD-4262-BDB8-FC70947E769A"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+				"WFWorkflowActionParameters": {
+					"WFControlFlowMode": 2,
+					"GroupingIdentifier": "6116780D-420C-479A-A94C-BE7D84EDEF2F",
+					"UUID": "72BBF848-8FC8-45F0-BF77-6C488F303803"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+				"WFWorkflowActionParameters": {
+					"UUID": "88EE46CC-C728-4422-9B35-CD024213907E",
+					"GroupingIdentifier": "B17315A2-5959-4704-B2CF-CA4FB12723A5",
+					"WFControlFlowMode": 2
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.downloadurl",
+				"WFWorkflowActionParameters": {
+					"UUID": "BC5A709D-BD01-4DF9-88A4-A5A736D1EDC2"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.comment",
+				"WFWorkflowActionParameters": {
+					"WFCommentActionText": "If \":\" was selected it gets multiple pages else one single page was fetched. Just repeat with each and add results to variable."
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.repeat.each",
+				"WFWorkflowActionParameters": {
+					"GroupingIdentifier": "B657A325-EE73-4D84-8BD0-E74B90036347",
+					"WFControlFlowMode": 0
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.getvalueforkey",
+				"WFWorkflowActionParameters": {
+					"UUID": "77BCA0F9-B6E8-4EE0-9BE5-4E41866C12AB",
+					"WFDictionaryKey": "data"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.count",
+				"WFWorkflowActionParameters": {
+					"WFCountType": "Items"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.comment",
+				"WFWorkflowActionParameters": {
+					"WFCommentActionText": "Every search results have 25 results but we cut them to 10 for decreasing clutter. Specially when \":\" was used it gets messy! Change the number if you want more result but don't go over 25."
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+				"WFWorkflowActionParameters": {
+					"WFCondition": "Is Greater Than",
+					"WFControlFlowMode": 0,
+					"WFNumberValue": 10,
+					"GroupingIdentifier": "A48585F8-06D9-462D-A39D-89DFC2C5444E"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.number",
+				"WFWorkflowActionParameters": {
+					"WFNumberActionNumber": 10
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.setvariable",
+				"WFWorkflowActionParameters": {
+					"WFVariableName": "ItemsData"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+				"WFWorkflowActionParameters": {
+					"GroupingIdentifier": "A48585F8-06D9-462D-A39D-89DFC2C5444E",
+					"WFControlFlowMode": 2
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.getvariable",
+				"WFWorkflowActionParameters": {
+					"WFVariable": {
+						"Value": {
+							"OutputUUID": "77BCA0F9-B6E8-4EE0-9BE5-4E41866C12AB",
+							"Type": "ActionOutput",
+							"OutputName": "Dictionary Value"
+						},
+						"WFSerializationType": "WFTextTokenAttachment"
+					}
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.getitemfromlist",
+				"WFWorkflowActionParameters": {
+					"WFItemRangeStart": "",
+					"WFItemRangeEnd": {
+						"Value": {
+							"VariableName": "ItemsData",
+							"Type": "Variable"
+						},
+						"WFSerializationType": "WFTextTokenAttachment"
+					},
+					"WFItemSpecifier": "Items in Range"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.comment",
+				"WFWorkflowActionParameters": {
+					"WFCommentActionText": "From dictionary > data we get the actual tracks. Repeat with each and add to our list for downloading on next step."
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.repeat.each",
+				"WFWorkflowActionParameters": {
+					"GroupingIdentifier": "5E71EE17-17C8-4393-9781-9DC00FD857A5",
+					"WFControlFlowMode": 0
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.getvalueforkey",
+				"WFWorkflowActionParameters": {
+					"UUID": "29627097-540F-48FD-99F7-8B3FBCC3358D",
+					"WFDictionaryKey": "artist"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.url",
+				"WFWorkflowActionParameters": {
+					"WFURLActionURL": {
+						"Value": {
+							"string": "￼",
+							"attachmentsByRange": {
+								"{0, 1}": {
+									"VariableName": "Repeat Item 2",
+									"Type": "Variable",
+									"Aggrandizements": [
+										{
+											"Type": "WFCoercionVariableAggrandizement",
+											"CoercionItemClass": "WFDictionaryContentItem"
+										},
+										{
+											"Type": "WFDictionaryValueVariableAggrandizement",
+											"DictionaryKey": "link"
+										}
+									]
+								}
+							}
+						},
+						"WFSerializationType": "WFTextTokenString"
+					},
+					"UUID": "E11681A3-DE8E-47C7-B9F0-292853342EA8"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.setitemname",
+				"WFWorkflowActionParameters": {
+					"WFName": {
+						"Value": {
+							"string": "￼ - ￼",
+							"attachmentsByRange": {
+								"{4, 1}": {
+									"VariableName": "Repeat Item 2",
+									"Type": "Variable",
+									"Aggrandizements": [
+										{
+											"Type": "WFCoercionVariableAggrandizement",
+											"CoercionItemClass": "WFDictionaryContentItem"
+										},
+										{
+											"Type": "WFDictionaryValueVariableAggrandizement",
+											"DictionaryKey": "title"
+										}
+									]
+								},
+								"{0, 1}": {
+									"Type": "ActionOutput",
+									"OutputName": "Dictionary Value",
+									"OutputUUID": "29627097-540F-48FD-99F7-8B3FBCC3358D",
+									"Aggrandizements": [
+										{
+											"Type": "WFCoercionVariableAggrandizement",
+											"CoercionItemClass": "WFDictionaryContentItem"
+										},
+										{
+											"Type": "WFDictionaryValueVariableAggrandizement",
+											"DictionaryKey": "name"
+										}
+									]
+								}
+							}
+						},
+						"WFSerializationType": "WFTextTokenString"
+					},
+					"UUID": "C8B82685-8DB8-4C6F-97F2-875FA77C8BFB"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.appendvariable",
+				"WFWorkflowActionParameters": {
+					"WFVariableName": "SearchItems"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.repeat.each",
+				"WFWorkflowActionParameters": {
+					"UUID": "8D118C8A-6415-4D29-8CE7-6F635A14E7C9",
+					"GroupingIdentifier": "5E71EE17-17C8-4393-9781-9DC00FD857A5",
+					"WFControlFlowMode": 2
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.repeat.each",
+				"WFWorkflowActionParameters": {
+					"UUID": "74241144-F387-425A-A2BC-B7B5B693FB5F",
+					"GroupingIdentifier": "B657A325-EE73-4D84-8BD0-E74B90036347",
+					"WFControlFlowMode": 2
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.getvariable",
+				"WFWorkflowActionParameters": {
+					"WFVariable": {
+						"Value": {
+							"VariableName": "SearchItems",
+							"Type": "Variable"
+						},
+						"WFSerializationType": "WFTextTokenAttachment"
+					}
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.comment",
+				"WFWorkflowActionParameters": {
+					"WFCommentActionText": "Here we choose songs from our searched results. By default, we select only one song. You can enable multiple button here for selecting multiple songs."
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.choosefromlist",
+				"WFWorkflowActionParameters": {
+					"WFChooseFromListActionPrompt": "Select a music to download",
+					"WFChooseFromListActionSelectMultiple": false,
+					"UUID": "4E498579-7C1C-40E9-B964-0EC0101DA3D6"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+				"WFWorkflowActionParameters": {
+					"UUID": "7D885BCA-1135-4C32-89F7-853980B9B776",
+					"GroupingIdentifier": "0A8FB1B7-0982-41EB-B4D5-9AF46ED32A88",
+					"WFControlFlowMode": 2
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.text.replace",
+				"WFWorkflowActionParameters": {
+					"WFReplaceTextRegularExpression": true,
+					"WFReplaceTextReplace": "http://api.deezer.com",
+					"UUID": "D43A0078-7570-4054-8A1B-FE2E9892AB5C",
+					"WFReplaceTextFind": ".+?(?=/album|/artist|/playlist|/profile|/track)"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.comment",
+				"WFWorkflowActionParameters": {
+					"WFCommentActionText": "Replace all the deezer links with their api endpoint. You shouldn't download multiple albums/playlist at the same time, only tracks are good."
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+				"WFWorkflowActionParameters": {
+					"WFConditionalActionString": "/track/",
+					"GroupingIdentifier": "259BAF8F-8345-4D84-91AE-6469FCC0AF18",
+					"WFControlFlowMode": 0
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.text.split",
+				"WFWorkflowActionParameters": {
+					"UUID": "75353495-67A2-498C-90EF-5E5447DB40E7"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.count",
+				"WFWorkflowActionParameters": {
+					"WFCountType": "Items",
+					"UUID": "34EA5177-7FBA-41DD-8E42-C90224B32979"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.comment",
+				"WFWorkflowActionParameters": {
+					"WFCommentActionText": "Deezer have a api limit and that is 50 requests every 5 seconds. So we have to use their api slowly if we have more than 50 tracks. If we have less tracks we will fetch 'em all at once!"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+				"WFWorkflowActionParameters": {
+					"WFCondition": "Is Greater Than",
+					"WFControlFlowMode": 0,
+					"WFNumberValue": 50,
+					"GroupingIdentifier": "8A216AF6-6577-4865-A74A-0EF1338EEDDE"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.getvariable",
+				"WFWorkflowActionParameters": {
+					"WFVariable": {
+						"Value": {
+							"OutputUUID": "75353495-67A2-498C-90EF-5E5447DB40E7",
+							"Type": "ActionOutput",
+							"OutputName": "Split Text"
+						},
+						"WFSerializationType": "WFTextTokenAttachment"
+					}
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.repeat.each",
+				"WFWorkflowActionParameters": {
+					"GroupingIdentifier": "5D0232EE-1AD4-4610-854A-47295F619F51",
+					"WFControlFlowMode": 0
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.downloadurl",
+				"WFWorkflowActionParameters": {
+					"UUID": "8DF69BA1-82EC-459B-803B-094895E29BDD"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.repeat.each",
+				"WFWorkflowActionParameters": {
+					"UUID": "D4475B62-FEB0-4486-8D0D-AAB1924A6E6D",
+					"GroupingIdentifier": "5D0232EE-1AD4-4610-854A-47295F619F51",
+					"WFControlFlowMode": 2
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+				"WFWorkflowActionParameters": {
+					"GroupingIdentifier": "8A216AF6-6577-4865-A74A-0EF1338EEDDE",
+					"WFControlFlowMode": 1
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.getvariable",
+				"WFWorkflowActionParameters": {
+					"WFVariable": {
+						"Value": {
+							"OutputUUID": "D43A0078-7570-4054-8A1B-FE2E9892AB5C",
+							"Type": "ActionOutput",
+							"OutputName": "Replace Text"
+						},
+						"WFSerializationType": "WFTextTokenAttachment"
+					}
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.downloadurl",
+				"WFWorkflowActionParameters": {
+					"UUID": "A314FAE9-7800-4A1B-AB19-56D571898D11"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+				"WFWorkflowActionParameters": {
+					"UUID": "9066BC71-623F-42A5-8232-B8234793CA32",
+					"GroupingIdentifier": "8A216AF6-6577-4865-A74A-0EF1338EEDDE",
+					"WFControlFlowMode": 2
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+				"WFWorkflowActionParameters": {
+					"GroupingIdentifier": "259BAF8F-8345-4D84-91AE-6469FCC0AF18",
+					"WFControlFlowMode": 1
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.comment",
+				"WFWorkflowActionParameters": {
+					"WFCommentActionText": "Here we are gonna fetch album/playlist or anything else with a single request. Please bear in mind, we cannot get more than 400 tracks from a playlist with a single request."
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+				"WFWorkflowActionParameters": {
+					"WFConditionalActionString": "deezer.com",
+					"GroupingIdentifier": "3FB6DD3F-1102-4BEC-83AF-0AD53B0E53BC",
+					"WFControlFlowMode": 0
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.downloadurl",
+				"WFWorkflowActionParameters": {
+					"UUID": "9B84E331-EE33-4610-BD83-5B06C894BD2D"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.getvalueforkey",
+				"WFWorkflowActionParameters": {
+					"UUID": "9A78E7F1-1738-4EFE-8EDF-49365C305844",
+					"WFDictionaryKey": "title"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.text.replace",
+				"WFWorkflowActionParameters": {
+					"WFReplaceTextRegularExpression": true,
+					"WFReplaceTextReplace": "_",
+					"UUID": "6E4C0199-7305-404D-A0BF-B1D795DD2DBD",
+					"WFReplaceTextFind": "[/:|;\",\\\\*']"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.comment",
+				"WFWorkflowActionParameters": {
+					"WFCommentActionText": "Remove all illegal characters from title as it mess up later saving to file."
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.setvariable",
+				"WFWorkflowActionParameters": {
+					"WFVariableName": "PlaylistTitle"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.getvariable",
+				"WFWorkflowActionParameters": {
+					"WFVariable": {
+						"Value": {
+							"OutputUUID": "9B84E331-EE33-4610-BD83-5B06C894BD2D",
+							"Type": "ActionOutput",
+							"OutputName": "Contents of URL"
+						},
+						"WFSerializationType": "WFTextTokenAttachment"
+					}
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+				"WFWorkflowActionParameters": {
+					"WFConditionalActionString": "\"data\"",
+					"GroupingIdentifier": "F966AC29-E71F-429E-B5DA-B8C1FF5AC638",
+					"WFControlFlowMode": 0
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.getvalueforkey",
+				"WFWorkflowActionParameters": {
+					"UUID": "BF7C952D-BB45-4CCE-811D-0A43D4765458",
+					"WFDictionaryKey": "tracks"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+				"WFWorkflowActionParameters": {
+					"GroupingIdentifier": "F966AC29-E71F-429E-B5DA-B8C1FF5AC638",
+					"WFControlFlowMode": 1
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.getvalueforkey",
+				"WFWorkflowActionParameters": {
+					"WFDictionaryKey": "tracklist"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.downloadurl",
+				"WFWorkflowActionParameters": {
+					"UUID": "D7C607BF-4A8B-451D-B494-62231C58B5FE"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+				"WFWorkflowActionParameters": {
+					"GroupingIdentifier": "F966AC29-E71F-429E-B5DA-B8C1FF5AC638",
+					"WFControlFlowMode": 2
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.getvalueforkey",
+				"WFWorkflowActionParameters": {
+					"UUID": "8807B2B8-4A02-4114-A328-7C2D1802112F",
+					"WFDictionaryKey": "data"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+				"WFWorkflowActionParameters": {
+					"GroupingIdentifier": "3FB6DD3F-1102-4BEC-83AF-0AD53B0E53BC",
+					"WFControlFlowMode": 2
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+				"WFWorkflowActionParameters": {
+					"UUID": "EB376172-6975-4EBC-8DBB-13FFEFDE3863",
+					"GroupingIdentifier": "259BAF8F-8345-4D84-91AE-6469FCC0AF18",
+					"WFControlFlowMode": 2
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.setvariable",
+				"WFWorkflowActionParameters": {
+					"WFVariableName": "Data"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.count",
+				"WFWorkflowActionParameters": {
+					"WFCountType": "Items",
+					"UUID": "3015AA0D-F10D-4582-A163-AC4AB35D0E4A"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+				"WFWorkflowActionParameters": {
+					"WFCondition": "Is Greater Than",
+					"WFControlFlowMode": 0,
+					"WFNumberValue": 99,
+					"GroupingIdentifier": "2ACB3C85-F48C-49C9-8189-F5149C4902BB"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.number",
+				"WFWorkflowActionParameters": {
+					"UUID": "CDA2153E-4A68-4D0F-B260-7726359E2982",
+					"WFNumberActionNumber": 3
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+				"WFWorkflowActionParameters": {
+					"GroupingIdentifier": "2ACB3C85-F48C-49C9-8189-F5149C4902BB",
+					"WFControlFlowMode": 1
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.number",
+				"WFWorkflowActionParameters": {
+					"UUID": "A93B6C4E-9157-4ED9-AD79-5514F5F651E8",
+					"WFNumberActionNumber": 2
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+				"WFWorkflowActionParameters": {
+					"UUID": "E8B3354F-6BB4-409E-AF39-3C146D2CA8C0",
+					"GroupingIdentifier": "2ACB3C85-F48C-49C9-8189-F5149C4902BB",
+					"WFControlFlowMode": 2
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.comment",
+				"WFWorkflowActionParameters": {
+					"WFCommentActionText": "This number are for using later for numbering tracks in order like this:\n   01\n  99\n400"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.getvariable",
+				"WFWorkflowActionParameters": {
+					"WFVariable": {
+						"Value": {
+							"VariableName": "Data",
+							"Type": "Variable"
+						},
+						"WFSerializationType": "WFTextTokenAttachment"
+					}
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.repeat.each",
+				"WFWorkflowActionParameters": {
+					"GroupingIdentifier": "3D98EA01-0C2D-4DBB-B9CC-FE076C184347",
+					"WFControlFlowMode": 0
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.getvalueforkey",
+				"WFWorkflowActionParameters": {
+					"WFDictionaryKey": "title"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.text.replace",
+				"WFWorkflowActionParameters": {
+					"WFReplaceTextRegularExpression": true,
+					"WFReplaceTextReplace": "_",
+					"UUID": "FD8E4F18-7126-4068-8D83-1CDDF1342D2F",
+					"WFReplaceTextFind": "[/:|;\",\\\\*']"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.setvariable",
+				"WFWorkflowActionParameters": {
+					"WFVariableName": "SongTitle"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.getvariable",
+				"WFWorkflowActionParameters": {
+					"WFVariable": {
+						"Value": {
+							"VariableName": "Repeat Item",
+							"Type": "Variable"
+						},
+						"WFSerializationType": "WFTextTokenAttachment"
+					}
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.getvalueforkey",
+				"WFWorkflowActionParameters": {
+					"UUID": "175ABE78-79CE-4EC8-9329-A65C9CE616F7",
+					"WFDictionaryKey": "artist"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.comment",
+				"WFWorkflowActionParameters": {
+					"WFCommentActionText": "Set this number to 0 to disable track numbering and set it to 1 to enable numbering."
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.number",
+				"WFWorkflowActionParameters": {
+					"WFNumberActionNumber": 1
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+				"WFWorkflowActionParameters": {
+					"WFCondition": "Is Greater Than",
+					"WFControlFlowMode": 0,
+					"WFNumberValue": 0,
+					"GroupingIdentifier": "F134213E-CA0B-4287-AE6C-CAB2D99E608D"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
+				"WFWorkflowActionParameters": {
+					"WFTextActionText": {
+						"Value": {
+							"string": "00￼",
+							"attachmentsByRange": {
+								"{2, 1}": {
+									"VariableName": "Repeat Item",
+									"Type": "Variable",
+									"Aggrandizements": [
+										{
+											"Type": "WFCoercionVariableAggrandizement",
+											"CoercionItemClass": "WFDictionaryContentItem"
+										},
+										{
+											"Type": "WFDictionaryValueVariableAggrandizement",
+											"DictionaryKey": "track_position"
+										}
+									]
+								}
+							}
+						},
+						"WFSerializationType": "WFTextTokenString"
+					}
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+				"WFWorkflowActionParameters": {
+					"WFCondition": "Is Less Than",
+					"WFControlFlowMode": 0,
+					"WFNumberValue": 1,
+					"GroupingIdentifier": "E2A21E70-3F66-4F3D-B49A-59C3A78D1F59"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
+				"WFWorkflowActionParameters": {
+					"WFTextActionText": {
+						"Value": {
+							"string": "00￼",
+							"attachmentsByRange": {
+								"{2, 1}": {
+									"VariableName": "Repeat Index",
+									"Type": "Variable"
+								}
+							}
+						},
+						"WFSerializationType": "WFTextTokenString"
+					}
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+				"WFWorkflowActionParameters": {
+					"UUID": "0B3E1B80-5AA9-44E3-B150-8BEB013A1DE7",
+					"GroupingIdentifier": "E2A21E70-3F66-4F3D-B49A-59C3A78D1F59",
+					"WFControlFlowMode": 2
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.text.match",
+				"WFWorkflowActionParameters": {
+					"WFMatchTextPattern": {
+						"Value": {
+							"string": ".{￼}$",
+							"attachmentsByRange": {
+								"{2, 1}": {
+									"OutputUUID": "E8B3354F-6BB4-409E-AF39-3C146D2CA8C0",
+									"Type": "ActionOutput",
+									"OutputName": "If Result"
+								}
+							}
+						},
+						"WFSerializationType": "WFTextTokenString"
+					},
+					"WFMatchTextCaseSensitive": false,
+					"UUID": "0D9E998B-AEB0-4511-993F-4020B99B9412"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
+				"WFWorkflowActionParameters": {
+					"UUID": "25008442-E992-4B7D-9E90-D94F241EFCB5",
+					"WFTextActionText": {
+						"Value": {
+							"string": "{\"title\":\"￼ - ￼ - ￼\",\"url\":\"￼\"}",
+							"attachmentsByRange": {
+								"{18, 1}": {
+									"VariableName": "SongTitle",
+									"Type": "Variable"
+								},
+								"{10, 1}": {
+									"OutputUUID": "0D9E998B-AEB0-4511-993F-4020B99B9412",
+									"Type": "ActionOutput",
+									"OutputName": "Text Matches"
+								},
+								"{28, 1}": {
+									"VariableName": "Repeat Item",
+									"Type": "Variable",
+									"Aggrandizements": [
+										{
+											"Type": "WFCoercionVariableAggrandizement",
+											"CoercionItemClass": "WFDictionaryContentItem"
+										},
+										{
+											"Type": "WFDictionaryValueVariableAggrandizement",
+											"DictionaryKey": "link"
+										}
+									]
+								},
+								"{14, 1}": {
+									"Type": "ActionOutput",
+									"OutputName": "Dictionary Value",
+									"OutputUUID": "175ABE78-79CE-4EC8-9329-A65C9CE616F7",
+									"Aggrandizements": [
+										{
+											"Type": "WFCoercionVariableAggrandizement",
+											"CoercionItemClass": "WFDictionaryContentItem"
+										},
+										{
+											"Type": "WFDictionaryValueVariableAggrandizement",
+											"DictionaryKey": "name"
+										}
+									]
+								}
+							}
+						},
+						"WFSerializationType": "WFTextTokenString"
+					}
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+				"WFWorkflowActionParameters": {
+					"GroupingIdentifier": "F134213E-CA0B-4287-AE6C-CAB2D99E608D",
+					"WFControlFlowMode": 1
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
+				"WFWorkflowActionParameters": {
+					"WFTextActionText": {
+						"Value": {
+							"string": "{\"title\":\"￼ - ￼\",\"url\":\"￼\"}",
+							"attachmentsByRange": {
+								"{10, 1}": {
+									"Type": "ActionOutput",
+									"OutputName": "Dictionary Value",
+									"OutputUUID": "175ABE78-79CE-4EC8-9329-A65C9CE616F7",
+									"Aggrandizements": [
+										{
+											"Type": "WFCoercionVariableAggrandizement",
+											"CoercionItemClass": "WFDictionaryContentItem"
+										},
+										{
+											"Type": "WFDictionaryValueVariableAggrandizement",
+											"DictionaryKey": "name"
+										}
+									]
+								},
+								"{14, 1}": {
+									"VariableName": "SongTitle",
+									"Type": "Variable"
+								},
+								"{24, 1}": {
+									"VariableName": "Repeat Item",
+									"Type": "Variable",
+									"Aggrandizements": [
+										{
+											"Type": "WFCoercionVariableAggrandizement",
+											"CoercionItemClass": "WFDictionaryContentItem"
+										},
+										{
+											"Type": "WFDictionaryValueVariableAggrandizement",
+											"DictionaryKey": "link"
+										}
+									]
+								}
+							}
+						},
+						"WFSerializationType": "WFTextTokenString"
+					},
+					"UUID": "829A5788-F70D-4A84-A8F9-A4230E4ECDF6"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+				"WFWorkflowActionParameters": {
+					"WFControlFlowMode": 2,
+					"GroupingIdentifier": "F134213E-CA0B-4287-AE6C-CAB2D99E608D",
+					"UUID": "8F668598-39C6-446C-BC1D-EA51F47F8C07"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.comment",
+				"WFWorkflowActionParameters": {
+					"WFCommentActionText": "Set tracks name and number for when we would choose tracks for album or playlist."
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.setitemname",
+				"WFWorkflowActionParameters": {
+					"WFName": {
+						"Value": {
+							"string": "￼) ￼ - ￼ (￼s)",
+							"attachmentsByRange": {
+								"{7, 1}": {
+									"VariableName": "SongTitle",
+									"Type": "Variable"
+								},
+								"{10, 1}": {
+									"VariableName": "Repeat Item",
+									"Type": "Variable",
+									"Aggrandizements": [
+										{
+											"Type": "WFCoercionVariableAggrandizement",
+											"CoercionItemClass": "WFDictionaryContentItem"
+										},
+										{
+											"Type": "WFDictionaryValueVariableAggrandizement",
+											"DictionaryKey": "duration"
+										}
+									]
+								},
+								"{3, 1}": {
+									"Type": "ActionOutput",
+									"OutputName": "Dictionary Value",
+									"OutputUUID": "175ABE78-79CE-4EC8-9329-A65C9CE616F7",
+									"Aggrandizements": [
+										{
+											"Type": "WFCoercionVariableAggrandizement",
+											"CoercionItemClass": "WFDictionaryContentItem"
+										},
+										{
+											"Type": "WFDictionaryValueVariableAggrandizement",
+											"DictionaryKey": "name"
+										}
+									]
+								},
+								"{0, 1}": {
+									"VariableName": "Repeat Index",
+									"Type": "Variable"
+								}
+							}
+						},
+						"WFSerializationType": "WFTextTokenString"
+					},
+					"UUID": "E210171F-79A7-44E5-A757-1CB3297F13F4"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.appendvariable",
+				"WFWorkflowActionParameters": {
+					"WFVariableName": "Song Data"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.repeat.each",
+				"WFWorkflowActionParameters": {
+					"UUID": "29432566-7B28-4725-BF0D-F307F831CC73",
+					"GroupingIdentifier": "3D98EA01-0C2D-4DBB-B9CC-FE076C184347",
+					"WFControlFlowMode": 2
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.getvariable",
+				"WFWorkflowActionParameters": {
+					"WFVariable": {
+						"Value": {
+							"VariableName": "Song Data",
+							"Type": "Variable"
+						},
+						"WFSerializationType": "WFTextTokenAttachment"
+					}
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.count",
+				"WFWorkflowActionParameters": {
+					"WFCountType": "Items",
+					"UUID": "479EF7A7-3E47-4D40-BDF4-F50399D1B54B"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.comment",
+				"WFWorkflowActionParameters": {
+					"WFCommentActionText": "If we have more than two tracks to download, give us an option if we wanna download 'em all or not."
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+				"WFWorkflowActionParameters": {
+					"WFCondition": "Is Greater Than",
+					"WFControlFlowMode": 0,
+					"WFNumberValue": 2,
+					"GroupingIdentifier": "4F04DDA6-02EC-4597-B2EE-8D368797EA76"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.getvariable",
+				"WFWorkflowActionParameters": {
+					"WFVariable": {
+						"Value": {
+							"VariableName": "Song Data",
+							"Type": "Variable"
+						},
+						"WFSerializationType": "WFTextTokenAttachment"
+					}
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.choosefrommenu",
+				"WFWorkflowActionParameters": {
+					"WFMenuPrompt": {
+						"Value": {
+							"string": "Choose an option (￼ Tracks)",
+							"attachmentsByRange": {
+								"{18, 1}": {
+									"OutputUUID": "479EF7A7-3E47-4D40-BDF4-F50399D1B54B",
+									"Type": "ActionOutput",
+									"OutputName": "Count"
+								}
+							}
+						},
+						"WFSerializationType": "WFTextTokenString"
+					},
+					"WFControlFlowMode": 0,
+					"WFMenuItems": [
+						"Download ‘em all",
+						"Choose ‘em (none)",
+						"Choose ‘em (all)",
+						"Choose range"
+					],
+					"GroupingIdentifier": "D6F51D14-9B93-4A4B-8130-A861E00BDD02"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.choosefrommenu",
+				"WFWorkflowActionParameters": {
+					"WFMenuItemTitle": "Download ‘em all",
+					"GroupingIdentifier": "D6F51D14-9B93-4A4B-8130-A861E00BDD02",
+					"WFControlFlowMode": 1
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.choosefrommenu",
+				"WFWorkflowActionParameters": {
+					"WFMenuItemTitle": "Choose ‘em (none)",
+					"GroupingIdentifier": "D6F51D14-9B93-4A4B-8130-A861E00BDD02",
+					"WFControlFlowMode": 1
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.choosefromlist",
+				"WFWorkflowActionParameters": {
+					"WFChooseFromListActionPrompt": "",
+					"WFChooseFromListActionSelectMultiple": true
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.choosefrommenu",
+				"WFWorkflowActionParameters": {
+					"WFMenuItemTitle": "Choose ‘em (all)",
+					"GroupingIdentifier": "D6F51D14-9B93-4A4B-8130-A861E00BDD02",
+					"WFControlFlowMode": 1
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.choosefromlist",
+				"WFWorkflowActionParameters": {
+					"UUID": "849A9790-4963-4F7D-A914-2BDFE54805D3",
+					"WFChooseFromListActionSelectAll": true,
+					"WFChooseFromListActionSelectMultiple": true
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.choosefrommenu",
+				"WFWorkflowActionParameters": {
+					"WFMenuItemTitle": "Choose range",
+					"GroupingIdentifier": "D6F51D14-9B93-4A4B-8130-A861E00BDD02",
+					"WFControlFlowMode": 1
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.getitemfromlist",
+				"WFWorkflowActionParameters": {
+					"WFItemRangeStart": {
+						"Value": {
+							"Type": "Ask"
+						},
+						"WFSerializationType": "WFTextTokenAttachment"
+					},
+					"WFItemRangeEnd": {
+						"Value": {
+							"Type": "Ask"
+						},
+						"WFSerializationType": "WFTextTokenAttachment"
+					},
+					"WFItemSpecifier": "Items in Range"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.choosefrommenu",
+				"WFWorkflowActionParameters": {
+					"GroupingIdentifier": "D6F51D14-9B93-4A4B-8130-A861E00BDD02",
+					"WFControlFlowMode": 2
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.setvariable",
+				"WFWorkflowActionParameters": {
+					"WFVariableName": "Song Data"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+				"WFWorkflowActionParameters": {
+					"GroupingIdentifier": "4F04DDA6-02EC-4597-B2EE-8D368797EA76",
+					"WFControlFlowMode": 2
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.comment",
+				"WFWorkflowActionParameters": {
+					"WFCommentActionText": "Set this to iCloud to save files on iCloud and Browser for saving on Browser app. You can also use \"iCloud and Browser\" to save on both of 'em 😉"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
+				"WFWorkflowActionParameters": {
+					"WFTextActionText": "iCloud and Browser",
+					"UUID": "FE734D6B-18FA-42A0-9061-4C31C3F5552A"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.setvariable",
+				"WFWorkflowActionParameters": {
+					"WFVariableName": "SaveTo"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.comment",
+				"WFWorkflowActionParameters": {
+					"WFCommentActionText": "Here will be the actual processing for downloads. We will repeat with each tracks and get the song from the backend server."
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.getvariable",
+				"WFWorkflowActionParameters": {
+					"WFVariable": {
+						"Value": {
+							"VariableName": "Song Data",
+							"Type": "Variable"
+						},
+						"WFSerializationType": "WFTextTokenAttachment"
+					}
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.repeat.each",
+				"WFWorkflowActionParameters": {
+					"GroupingIdentifier": "6CAADD71-418A-4330-9B77-394D651238A5",
+					"WFControlFlowMode": 0
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
+				"WFWorkflowActionParameters": {
+					"UUID": "27E944F4-10C7-44E2-BC8C-1E9CB9CB0251",
+					"WFTextActionText": "aHR0cDovL2R6LmdldGh0dHAub25saW5lL2RlZXplcnByZW1pdW0="
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.base64encode",
+				"WFWorkflowActionParameters": {
+					"WFEncodeMode": "Decode",
+					"UUID": "257215A9-0606-4E9A-8EBD-A10A61660811"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.comment",
+				"WFWorkflowActionParameters": {
+					"WFCommentActionText": "Hold on! I'm working my magic 😁 Single track downloads shouldn't take long. Stay on this screen for smooth downloading experience 🙂"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.downloadurl",
+				"WFWorkflowActionParameters": {
+					"Advanced": false,
+					"UUID": "B8136E47-A7A2-4D11-8823-A6A32A350AD1",
+					"WFJSONValues": {
+						"Value": {
+							"WFDictionaryFieldValueItems": [
+								{
+									"WFKey": {
+										"Value": {
+											"string": "url",
+											"attachmentsByRange": {}
+										},
+										"WFSerializationType": "WFTextTokenString"
+									},
+									"WFItemType": 0,
+									"WFValue": {
+										"Value": {
+											"string": "￼",
+											"attachmentsByRange": {
+												"{0, 1}": {
+													"VariableName": "Repeat Item",
+													"Type": "Variable",
+													"Aggrandizements": [
+														{
+															"Type": "WFCoercionVariableAggrandizement",
+															"CoercionItemClass": "WFDictionaryContentItem"
+														},
+														{
+															"Type": "WFDictionaryValueVariableAggrandizement",
+															"DictionaryKey": "url"
+														}
+													]
+												}
+											}
+										},
+										"WFSerializationType": "WFTextTokenString"
+									}
+								},
+								{
+									"WFKey": {
+										"Value": {
+											"string": "ver",
+											"attachmentsByRange": {}
+										},
+										"WFSerializationType": "WFTextTokenString"
+									},
+									"WFItemType": 0,
+									"WFValue": {
+										"Value": {
+											"string": "2.1.0",
+											"attachmentsByRange": {}
+										},
+										"WFSerializationType": "WFTextTokenString"
+									}
+								},
+								{
+									"WFKey": {
+										"Value": {
+											"string": "quality",
+											"attachmentsByRange": {}
+										},
+										"WFSerializationType": "WFTextTokenString"
+									},
+									"WFItemType": 0,
+									"WFValue": {
+										"Value": {
+											"string": "￼",
+											"attachmentsByRange": {
+												"{0, 1}": {
+													"VariableName": "Quality",
+													"Type": "Variable"
+												}
+											}
+										},
+										"WFSerializationType": "WFTextTokenString"
+									}
+								}
+							]
+						},
+						"WFSerializationType": "WFDictionaryFieldValue"
+					},
+					"WFHTTPMethod": "POST"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.setvariable",
+				"WFWorkflowActionParameters": {
+					"WFVariableName": "Contents"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.properties.files",
+				"WFWorkflowActionParameters": {
+					"WFContentItemPropertyName": "File Extension"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.text.match",
+				"WFWorkflowActionParameters": {
+					"WFMatchTextPattern": "mp3|flac|m4a",
+					"WFMatchTextCaseSensitive": false,
+					"UUID": "8F87AF21-0064-4B02-9FAF-531301957615"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.comment",
+				"WFWorkflowActionParameters": {
+					"WFCommentActionText": "If any of this extension files were received from our server, we would assume download was successful."
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+				"WFWorkflowActionParameters": {
+					"WFConditionalActionString": {
+						"Value": {
+							"string": "￼",
+							"attachmentsByRange": {
+								"{0, 1}": {
+									"OutputUUID": "8F87AF21-0064-4B02-9FAF-531301957615",
+									"Type": "ActionOutput",
+									"OutputName": "Text Matches"
+								}
+							}
+						},
+						"WFSerializationType": "WFTextTokenString"
+					},
+					"GroupingIdentifier": "19C58059-82B4-406F-8CD6-4BAF0F94A715",
+					"WFControlFlowMode": 0
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.getvariable",
+				"WFWorkflowActionParameters": {
+					"WFVariable": {
+						"Value": {
+							"VariableName": "Contents",
+							"Type": "Variable"
+						},
+						"WFSerializationType": "WFTextTokenAttachment"
+					}
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.setitemname",
+				"WFWorkflowActionParameters": {
+					"WFName": {
+						"Value": {
+							"string": "￼",
+							"attachmentsByRange": {
+								"{0, 1}": {
+									"VariableName": "Repeat Item",
+									"Type": "Variable",
+									"Aggrandizements": [
+										{
+											"Type": "WFCoercionVariableAggrandizement",
+											"CoercionItemClass": "WFDictionaryContentItem"
+										},
+										{
+											"Type": "WFDictionaryValueVariableAggrandizement",
+											"DictionaryKey": "title"
+										}
+									]
+								}
+							}
+						},
+						"WFSerializationType": "WFTextTokenString"
+					},
+					"UUID": "2CA6B3B2-CB3E-4B04-978B-4B960565775C"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.appendvariable",
+				"WFWorkflowActionParameters": {
+					"WFVariableName": "Music"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.getvariable",
+				"WFWorkflowActionParameters": {
+					"WFVariable": {
+						"Value": {
+							"VariableName": "SaveTo",
+							"Type": "Variable"
+						},
+						"WFSerializationType": "WFTextTokenAttachment"
+					}
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+				"WFWorkflowActionParameters": {
+					"WFControlFlowMode": 0,
+					"WFConditionalActionString": "iCloud",
+					"GroupingIdentifier": "A6D41B29-3DB1-47C9-90B7-CFC2EFF55AC3",
+					"WFCondition": "Contains"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.getvariable",
+				"WFWorkflowActionParameters": {
+					"WFVariable": {
+						"Value": {
+							"VariableName": "PlaylistTitle",
+							"Type": "Variable"
+						},
+						"WFSerializationType": "WFTextTokenAttachment"
+					}
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+				"WFWorkflowActionParameters": {
+					"WFConditionalActionString": {
+						"Value": {
+							"string": "￼",
+							"attachmentsByRange": {
+								"{0, 1}": {
+									"VariableName": "PlaylistTitle",
+									"Type": "Variable"
+								}
+							}
+						},
+						"WFSerializationType": "WFTextTokenString"
+					},
+					"GroupingIdentifier": "DF46D995-7EA7-4CA6-8B6F-20067E65BBF3",
+					"WFControlFlowMode": 0
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.file.createfolder",
+				"WFWorkflowActionParameters": {
+					"WFFilePath": {
+						"Value": {
+							"string": "Music/￼/",
+							"attachmentsByRange": {
+								"{6, 1}": {
+									"VariableName": "PlaylistTitle",
+									"Type": "Variable"
+								}
+							}
+						},
+						"WFSerializationType": "WFTextTokenString"
+					}
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.getvariable",
+				"WFWorkflowActionParameters": {
+					"WFVariable": {
+						"Value": {
+							"VariableName": "Music",
+							"Type": "Variable"
+						},
+						"WFSerializationType": "WFTextTokenAttachment"
+					}
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.getitemfromlist",
+				"WFWorkflowActionParameters": {
+					"WFItemSpecifier": "Last Item"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.documentpicker.save",
+				"WFWorkflowActionParameters": {
+					"WFAskWhereToSave": false,
+					"UUID": "9F09133E-65D3-4CB1-8820-87DF18C1C0EA",
+					"WFSaveFileOverwrite": true,
+					"WFFileDestinationPath": {
+						"Value": {
+							"string": "Music/￼/",
+							"attachmentsByRange": {
+								"{6, 1}": {
+									"VariableName": "PlaylistTitle",
+									"Type": "Variable"
+								}
+							}
+						},
+						"WFSerializationType": "WFTextTokenString"
+					}
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+				"WFWorkflowActionParameters": {
+					"GroupingIdentifier": "DF46D995-7EA7-4CA6-8B6F-20067E65BBF3",
+					"WFControlFlowMode": 1
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.file.createfolder",
+				"WFWorkflowActionParameters": {
+					"WFFilePath": "Music/"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.getvariable",
+				"WFWorkflowActionParameters": {
+					"WFVariable": {
+						"Value": {
+							"VariableName": "Music",
+							"Type": "Variable"
+						},
+						"WFSerializationType": "WFTextTokenAttachment"
+					}
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.getitemfromlist",
+				"WFWorkflowActionParameters": {
+					"WFItemSpecifier": "Last Item"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.documentpicker.save",
+				"WFWorkflowActionParameters": {
+					"WFAskWhereToSave": false,
+					"WFFileDestinationPath": "Music/",
+					"UUID": "7C6FA75C-532E-4809-B867-5DA117DA5C4A"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+				"WFWorkflowActionParameters": {
+					"UUID": "86AD7B52-8E00-48B4-BB36-884FA356FB4D",
+					"GroupingIdentifier": "DF46D995-7EA7-4CA6-8B6F-20067E65BBF3",
+					"WFControlFlowMode": 2
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.notification",
+				"WFWorkflowActionParameters": {
+					"WFNotificationActionSound": false,
+					"WFNotificationActionBody": {
+						"Value": {
+							"string": "Downloaded Track #￼\n￼ to iCloud",
+							"attachmentsByRange": {
+								"{18, 1}": {
+									"VariableName": "Repeat Index",
+									"Type": "Variable"
+								},
+								"{20, 1}": {
+									"VariableName": "Repeat Item",
+									"Type": "Variable",
+									"Aggrandizements": [
+										{
+											"Type": "WFCoercionVariableAggrandizement",
+											"CoercionItemClass": "WFDictionaryContentItem"
+										},
+										{
+											"Type": "WFDictionaryValueVariableAggrandizement",
+											"DictionaryKey": "title"
+										}
+									]
+								}
+							}
+						},
+						"WFSerializationType": "WFTextTokenString"
+					},
+					"WFNotificationActionTitle": "Deezer++"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+				"WFWorkflowActionParameters": {
+					"GroupingIdentifier": "A6D41B29-3DB1-47C9-90B7-CFC2EFF55AC3",
+					"WFControlFlowMode": 1
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.notification",
+				"WFWorkflowActionParameters": {
+					"WFNotificationActionSound": false,
+					"WFNotificationActionBody": {
+						"Value": {
+							"string": "Downloaded Track #￼\n￼",
+							"attachmentsByRange": {
+								"{18, 1}": {
+									"VariableName": "Repeat Index",
+									"Type": "Variable"
+								},
+								"{20, 1}": {
+									"VariableName": "Repeat Item",
+									"Type": "Variable",
+									"Aggrandizements": [
+										{
+											"Type": "WFCoercionVariableAggrandizement",
+											"CoercionItemClass": "WFDictionaryContentItem"
+										},
+										{
+											"Type": "WFDictionaryValueVariableAggrandizement",
+											"DictionaryKey": "title"
+										}
+									]
+								}
+							}
+						},
+						"WFSerializationType": "WFTextTokenString"
+					},
+					"WFNotificationActionTitle": "Deezer++"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+				"WFWorkflowActionParameters": {
+					"UUID": "5CB544D5-A7A9-47C3-8270-D9883BE1F1D9",
+					"GroupingIdentifier": "A6D41B29-3DB1-47C9-90B7-CFC2EFF55AC3",
+					"WFControlFlowMode": 2
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+				"WFWorkflowActionParameters": {
+					"GroupingIdentifier": "19C58059-82B4-406F-8CD6-4BAF0F94A715",
+					"WFControlFlowMode": 1
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.notification",
+				"WFWorkflowActionParameters": {
+					"WFNotificationActionBody": {
+						"Value": {
+							"string": "Failed to download track #￼\n￼",
+							"attachmentsByRange": {
+								"{26, 1}": {
+									"VariableName": "Repeat Index",
+									"Type": "Variable"
+								},
+								"{28, 1}": {
+									"VariableName": "Repeat Item",
+									"Type": "Variable",
+									"Aggrandizements": [
+										{
+											"Type": "WFCoercionVariableAggrandizement",
+											"CoercionItemClass": "WFDictionaryContentItem"
+										},
+										{
+											"Type": "WFDictionaryValueVariableAggrandizement",
+											"DictionaryKey": "title"
+										}
+									]
+								}
+							}
+						},
+						"WFSerializationType": "WFTextTokenString"
+					},
+					"WFNotificationActionTitle": "Deezer++"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.getvariable",
+				"WFWorkflowActionParameters": {
+					"WFVariable": {
+						"Value": {
+							"VariableName": "Contents",
+							"Type": "Variable"
+						},
+						"WFSerializationType": "WFTextTokenAttachment"
+					}
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+				"WFWorkflowActionParameters": {
+					"WFConditionalActionString": "\"error\"",
+					"GroupingIdentifier": "A4799E54-E5F6-441F-A200-70F142CF17B2",
+					"WFControlFlowMode": 0
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.getvariable",
+				"WFWorkflowActionParameters": {
+					"WFVariable": {
+						"Value": {
+							"VariableName": "PlaylistTitle",
+							"Type": "Variable"
+						},
+						"WFSerializationType": "WFTextTokenAttachment"
+					}
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+				"WFWorkflowActionParameters": {
+					"WFConditionalActionString": {
+						"Value": {
+							"string": "￼",
+							"attachmentsByRange": {
+								"{0, 1}": {
+									"VariableName": "PlaylistTitle",
+									"Type": "Variable"
+								}
+							}
+						},
+						"WFSerializationType": "WFTextTokenString"
+					},
+					"GroupingIdentifier": "1F06022C-B548-43B4-A49F-3415D9A2D39E",
+					"WFControlFlowMode": 0
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+				"WFWorkflowActionParameters": {
+					"GroupingIdentifier": "1F06022C-B548-43B4-A49F-3415D9A2D39E",
+					"WFControlFlowMode": 1
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.alert",
+				"WFWorkflowActionParameters": {
+					"WFAlertActionMessage": {
+						"Value": {
+							"string": "￼",
+							"attachmentsByRange": {
+								"{0, 1}": {
+									"VariableName": "Contents",
+									"Type": "Variable",
+									"Aggrandizements": [
+										{
+											"Type": "WFCoercionVariableAggrandizement",
+											"CoercionItemClass": "WFDictionaryContentItem"
+										},
+										{
+											"Type": "WFDictionaryValueVariableAggrandizement",
+											"DictionaryKey": "message"
+										}
+									]
+								}
+							}
+						},
+						"WFSerializationType": "WFTextTokenString"
+					},
+					"WFAlertActionTitle": {
+						"Value": {
+							"string": "￼",
+							"attachmentsByRange": {
+								"{0, 1}": {
+									"VariableName": "Contents",
+									"Type": "Variable",
+									"Aggrandizements": [
+										{
+											"Type": "WFCoercionVariableAggrandizement",
+											"CoercionItemClass": "WFDictionaryContentItem"
+										},
+										{
+											"Type": "WFDictionaryValueVariableAggrandizement",
+											"DictionaryKey": "error"
+										}
+									]
+								}
+							}
+						},
+						"WFSerializationType": "WFTextTokenString"
+					},
+					"WFAlertActionCancelButtonShown": false
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+				"WFWorkflowActionParameters": {
+					"GroupingIdentifier": "1F06022C-B548-43B4-A49F-3415D9A2D39E",
+					"WFControlFlowMode": 2
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.getvariable",
+				"WFWorkflowActionParameters": {
+					"WFVariable": {
+						"Value": {
+							"VariableName": "Contents",
+							"Type": "Variable"
+						},
+						"WFSerializationType": "WFTextTokenAttachment"
+					}
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+				"WFWorkflowActionParameters": {
+					"WFConditionalActionString": "update_url",
+					"GroupingIdentifier": "6CDF9E78-1C42-4AB8-8212-3D1E94E74EF2",
+					"WFControlFlowMode": 0
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.url",
+				"WFWorkflowActionParameters": {
+					"WFURLActionURL": {
+						"Value": {
+							"string": "￼",
+							"attachmentsByRange": {
+								"{0, 1}": {
+									"VariableName": "Contents",
+									"Type": "Variable",
+									"Aggrandizements": [
+										{
+											"Type": "WFCoercionVariableAggrandizement",
+											"CoercionItemClass": "WFDictionaryContentItem"
+										},
+										{
+											"Type": "WFDictionaryValueVariableAggrandizement",
+											"DictionaryKey": "update_url"
+										}
+									]
+								}
+							}
+						},
+						"WFSerializationType": "WFTextTokenString"
+					},
+					"UUID": "192F958A-C7A4-493E-98E3-0D58563490A6"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.openurl",
+				"WFWorkflowActionParameters": {}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.delay",
+				"WFWorkflowActionParameters": {
+					"WFDelayTime": 2
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+				"WFWorkflowActionParameters": {
+					"GroupingIdentifier": "6CDF9E78-1C42-4AB8-8212-3D1E94E74EF2",
+					"WFControlFlowMode": 2
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.nothing",
+				"WFWorkflowActionParameters": {}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+				"WFWorkflowActionParameters": {
+					"GroupingIdentifier": "A4799E54-E5F6-441F-A200-70F142CF17B2",
+					"WFControlFlowMode": 2
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+				"WFWorkflowActionParameters": {
+					"UUID": "4B2A52A2-3534-41B5-B61E-D37A618C1E23",
+					"GroupingIdentifier": "19C58059-82B4-406F-8CD6-4BAF0F94A715",
+					"WFControlFlowMode": 2
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.repeat.each",
+				"WFWorkflowActionParameters": {
+					"UUID": "C531E4BB-055B-461B-800C-D3D7828E7850",
+					"GroupingIdentifier": "6CAADD71-418A-4330-9B77-394D651238A5",
+					"WFControlFlowMode": 2
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.getvariable",
+				"WFWorkflowActionParameters": {
+					"WFVariable": {
+						"Value": {
+							"VariableName": "Music",
+							"Type": "Variable"
+						},
+						"WFSerializationType": "WFTextTokenAttachment"
+					}
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.count",
+				"WFWorkflowActionParameters": {
+					"WFCountType": "Items",
+					"UUID": "0D249926-18AF-4E1E-AB92-E8350456B534"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+				"WFWorkflowActionParameters": {
+					"WFControlFlowMode": 0,
+					"WFConditionalActionString": "0",
+					"GroupingIdentifier": "874736D4-E106-4704-B30D-1368C2C9BC6F",
+					"WFCondition": "Equals"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.alert",
+				"WFWorkflowActionParameters": {
+					"WFAlertActionMessage": "We were unable to download any music ☹️",
+					"WFAlertActionTitle": "Oops!",
+					"WFAlertActionCancelButtonShown": false
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+				"WFWorkflowActionParameters": {
+					"GroupingIdentifier": "874736D4-E106-4704-B30D-1368C2C9BC6F",
+					"WFControlFlowMode": 1
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.getvariable",
+				"WFWorkflowActionParameters": {
+					"WFVariable": {
+						"Value": {
+							"VariableName": "SaveTo",
+							"Type": "Variable"
+						},
+						"WFSerializationType": "WFTextTokenAttachment"
+					}
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+				"WFWorkflowActionParameters": {
+					"WFCondition": "Contains",
+					"WFControlFlowMode": 0,
+					"WFConditionalActionString": "Browser",
+					"WFNumberValue": 0,
+					"GroupingIdentifier": "36408FF7-EA5A-4541-8E30-30FC3AFC69D3"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.getvariable",
+				"WFWorkflowActionParameters": {
+					"WFVariable": {
+						"Value": {
+							"VariableName": "PlaylistTitle",
+							"Type": "Variable"
+						},
+						"WFSerializationType": "WFTextTokenAttachment"
+					}
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+				"WFWorkflowActionParameters": {
+					"WFCondition": "Contains",
+					"WFControlFlowMode": 0,
+					"WFConditionalActionString": {
+						"Value": {
+							"string": "￼",
+							"attachmentsByRange": {
+								"{0, 1}": {
+									"VariableName": "PlaylistTitle",
+									"Type": "Variable"
+								}
+							}
+						},
+						"WFSerializationType": "WFTextTokenString"
+					},
+					"WFNumberValue": 2,
+					"GroupingIdentifier": "18D1D7E0-21F9-4899-A01D-70A3DF4C6246"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.getvariable",
+				"WFWorkflowActionParameters": {
+					"WFVariable": {
+						"Value": {
+							"VariableName": "Music",
+							"Type": "Variable"
+						},
+						"WFSerializationType": "WFTextTokenAttachment"
+					}
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.makezip",
+				"WFWorkflowActionParameters": {
+					"WFZIPName": {
+						"Value": {
+							"string": "￼",
+							"attachmentsByRange": {
+								"{0, 1}": {
+									"VariableName": "PlaylistTitle",
+									"Type": "Variable"
+								}
+							}
+						},
+						"WFSerializationType": "WFTextTokenString"
+					},
+					"UUID": "3F07DAD1-3A34-47DC-9C40-522131EC0763"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+				"WFWorkflowActionParameters": {
+					"GroupingIdentifier": "18D1D7E0-21F9-4899-A01D-70A3DF4C6246",
+					"WFControlFlowMode": 1
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.getvariable",
+				"WFWorkflowActionParameters": {
+					"WFVariable": {
+						"Value": {
+							"VariableName": "Music",
+							"Type": "Variable"
+						},
+						"WFSerializationType": "WFTextTokenAttachment"
+					}
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.count",
+				"WFWorkflowActionParameters": {
+					"WFCountType": "Items",
+					"UUID": "80878E27-57C9-410B-A3CE-5F5CE97A1EEA"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+				"WFWorkflowActionParameters": {
+					"WFCondition": "Is Greater Than",
+					"WFControlFlowMode": 0,
+					"WFNumberValue": 1,
+					"GroupingIdentifier": "36C580C5-4F08-4D2A-A197-CF6C2B95AC09"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.getvariable",
+				"WFWorkflowActionParameters": {
+					"WFVariable": {
+						"Value": {
+							"VariableName": "Music",
+							"Type": "Variable"
+						},
+						"WFSerializationType": "WFTextTokenAttachment"
+					}
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.makezip",
+				"WFWorkflowActionParameters": {
+					"WFZIPName": {
+						"Value": {
+							"string": "Deezer - ￼ ",
+							"attachmentsByRange": {
+								"{9, 1}": {
+									"Type": "CurrentDate"
+								}
+							}
+						},
+						"WFSerializationType": "WFTextTokenString"
+					},
+					"UUID": "8309E661-D003-4AD9-9961-66A591D228A9"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+				"WFWorkflowActionParameters": {
+					"GroupingIdentifier": "36C580C5-4F08-4D2A-A197-CF6C2B95AC09",
+					"WFControlFlowMode": 1
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.getvariable",
+				"WFWorkflowActionParameters": {
+					"WFVariable": {
+						"Value": {
+							"VariableName": "Music",
+							"Type": "Variable"
+						},
+						"WFSerializationType": "WFTextTokenAttachment"
+					}
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+				"WFWorkflowActionParameters": {
+					"GroupingIdentifier": "36C580C5-4F08-4D2A-A197-CF6C2B95AC09",
+					"WFControlFlowMode": 2
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+				"WFWorkflowActionParameters": {
+					"UUID": "B96F9D87-3054-418B-AEC5-83D3CC1B7DD0",
+					"GroupingIdentifier": "18D1D7E0-21F9-4899-A01D-70A3DF4C6246",
+					"WFControlFlowMode": 2
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.openin",
+				"WFWorkflowActionParameters": {
+					"WFOpenInAskWhenRun": false,
+					"WFOpenInAppIdentifier": "com.eilvera.idwl"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.notification",
+				"WFWorkflowActionParameters": {
+					"WFNotificationActionBody": "Music from Deezer downloaded to Browser app. Open Inbox folder for data.",
+					"WFNotificationActionTitle": "Downloaded"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+				"WFWorkflowActionParameters": {
+					"GroupingIdentifier": "36408FF7-EA5A-4541-8E30-30FC3AFC69D3",
+					"WFControlFlowMode": 1
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.notification",
+				"WFWorkflowActionParameters": {
+					"WFNotificationActionBody": "Music from Deezer downloaded to iCloud. Open Files app to view contents.",
+					"WFNotificationActionTitle": "Deezer++"
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+				"WFWorkflowActionParameters": {
+					"UUID": "1B1FDE7D-4A0A-4546-A7A5-E3591AF40F69",
+					"GroupingIdentifier": "36408FF7-EA5A-4541-8E30-30FC3AFC69D3",
+					"WFControlFlowMode": 2
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+				"WFWorkflowActionParameters": {
+					"GroupingIdentifier": "874736D4-E106-4704-B30D-1368C2C9BC6F",
+					"WFControlFlowMode": 2
+				}
+			},
+			{
+				"WFWorkflowActionIdentifier": "is.workflow.actions.comment",
+				"WFWorkflowActionParameters": {
+					"WFCommentActionText": "If you experience any kind of error, report on our telegram group with error context, timestamp, time zone, track link, your country code and first part of your ip."
+				}
+			}
+		]
+	}
+]

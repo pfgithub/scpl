@@ -1,0 +1,57 @@
+@Icon // no name
+@Glyph "hovering man in buisness suit"
+@Color
+@Color "blurple"
+
+@!ShouldEqual --------------------------------
+
+Output Warnings:
+Array [
+  [Error: Error from 1,1 to 1,17: Please provide a glyph name.],
+  [Error: Error from 2,1 to 2,39: Invalid glyph name. Must be one of: car,bus,motorbike,ambulance,airplane,boat,home,church,city,cart,bag,shop,utensils,fuel,thermometer,sun,moon,snow,cloud,rain,umbrella,tree,flower,flame,steps,sign,binocalars,compass,globe,mountain,image,video,film,camera,videocam,microphone,recordvideo,youtube,clipboard,calendar,chatbubble,chatbubbles,chatbox,mail,mailopen,paperplane,briefcase,folder,card,watch,call,phone,laptop,keyboard,keyboardoutline,calculator,stats,print,hdd,server,database,databasenetwork,filing,cube,tv,gamepad,puzzle,headphones,music,speaker,books,book,bookbookmark,glasses,sunglasses,mask,ticket,masks,dice,baseball,basketball,football,tennisball,americanfootball,lifering,telescope,microscope,horse,time,alarm,timer,sound,bell,conciergebell,heart,star,trophy,bulb,bolt,flag,tag,key,hourglass,lock,unlock,battery,wand,wandstar,brush,pencil,attach,cut,zoom,link,pipette,mallet,wrench,hammerwrench,gears,hammer,screwdriver,hand,stop,trash,water,mug,soup,apple,carrot,fish,cake,bottle,cocktail,hanger,washer,oven,shirt,bathtub,shower,pill,pills,medicine,plaster,inhaler,stethoscope,syringe,atom,flask,cat,dog,paw,like,school,gift,alien,bed,stairs,rocket,girl,boy,face,man,woman,disabled,person,people,crowd,body,podium,student,dancing,weightlifting,skiing,snowboarding,swimming,hiking,running,walking,elderly,warning,undo,redo,bookmark,barcode,qrcode,box,boxoutline,braille,circleleft,circleright,circlebottom,circleup,circledown,circletop,circleplay,circlerewind,circlepower,circlestop,circlefastforward,circlequestion,circlecheckmark,circleplus,circlecross,circledollar,circleeuro,circlepound,circleyen,circlebitcoin,circlepi,circleinfo,smiley,css,dollar,euro,pound,yen,bitcoin,medical,document,documentoutline,note,paper,news,apps,more,list,collection,share,infinite,recycle,loading,loadingdots,playvideo,target,podcast,bullseye,locationarrow,locationmarker,parking,crop,compress,minimize,move,repeat,sync,play,shuffle,sliders,rss,connection,wifi,quote,peace,filter,font,cloudservice,bike,train],
+  [Error: Error from 3,1 to 3,7: Please provide a color name.],
+  [Error: Error from 4,1 to 4,17: Invalid color name. Must be one of: red,darkorange,orange,yellow,green,teal,lightblue,blue,darkblue,darkpurple,lightpurple,pink,darkgray,gray,bluegray],
+]
+
+Because there were warnings, no inversion test will be run!!
+
+Shortcut Full JSON:
+Array [
+  Object {
+    "WFWorkflowActions": Array [],
+    "WFWorkflowClientRelease": "2.1.2",
+    "WFWorkflowClientVersion": "754",
+    "WFWorkflowIcon": Object {
+      "WFWorkflowIconGlyphNumber": 59511,
+      "WFWorkflowIconImageData": Object {
+        "data": Array [],
+        "type": "Buffer",
+      },
+      "WFWorkflowIconStartColor": 2071128575,
+    },
+    "WFWorkflowInputContentItemClasses": Array [
+      "WFAppStoreAppContentItem",
+      "WFArticleContentItem",
+      "WFContactContentItem",
+      "WFDateContentItem",
+      "WFEmailAddressContentItem",
+      "WFGenericFileContentItem",
+      "WFImageContentItem",
+      "WFiTunesProductContentItem",
+      "WFLocationContentItem",
+      "WFDCMapsLinkContentItem",
+      "WFAVAssetContentItem",
+      "WFPDFContentItem",
+      "WFPhoneNumberContentItem",
+      "WFRichTextContentItem",
+      "WFSafariWebPageContentItem",
+      "WFStringContentItem",
+      "WFURLContentItem",
+    ],
+    "WFWorkflowMinimumClientVersion": 411,
+    "WFWorkflowTypes": Array [
+      "NCWidget",
+      "WatchKit",
+    ],
+  },
+]

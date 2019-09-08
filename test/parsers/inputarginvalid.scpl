@@ -1,0 +1,6 @@
+calculate ^"not valid"
+
+@!ShouldEqual --------------------------------
+
+Output Error:
+[Error: Error from 1,11 to 101,1: Parsing error around here]

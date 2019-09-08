@@ -1,0 +1,48 @@
+identifier                =  /^[A-Za-z@_][A-Za-z0-9@_]*/
+newline                   =  space ( space ( "\n" | ";" ) )+ space
+multilineComment          =  ( /^--\[\[[\s\S]+?--\]\]/ | /^\/\*[\s\S]+?\*\// )
+eolComment                =  ( /^\/\/.*/ | /^--.*/ | /^#.*/ )
+spaceonly                 =  /^[ ,\r\t]*/
+space                     =  spaceonly ( multilineComment ){0..1} spaceonly ( eolComment ){0..1}
+optionalNewline           =  ( ( newline | space ) )*
+number                    =  /^-?(?:[0-9]*\.[0-9]+|[0-9]+)/
+escape                    =  "\\" ( parenthesis | "\"" | "'" | "```" | "`" | "\\" | "”" | "n" | /.?/ )
+char                      =  ( escape | /^[^\\\n]+/ )
+chars                     =  ( char )*
+dquotedStringChar         =  ( escape | /^[^"\\\n]+/ )
+squotedStringChar         =  ( escape | /^[^'\\\n]+/ )
+smartQuotedStringChar     =  ( escape | /^[^”\\\n]+/ )
+backtickQuotedStringChar  =  ( escape | /^[^`\\]+/ )
+dquotedString             =  "\"" ( dquotedStringChar )* "\""
+squotedString             =  "'" ( squotedStringChar )* "'"
+smartQuotedString         =  "“" ( smartQuotedStringChar )* "”"
+backtickQuotedString      =  "`" ( backtickQuotedStringChar )* "`"
+string                    =  ( dquotedString | squotedString | smartQuotedString | backtickQuotedString )
+barlistitem               =  newline space "|" space chars
+barlist                   =  ( barlistitem )+
+extendedarg               =  newline space ">" space argument
+argflagarrow              =  ( "->" | "=>" )
+argflag                   =  argflagarrow space variable
+namedargument             =  identifier space "=" space value
+errorparse                =  /^\?\?(.+?)\?\?/
+argument                  =  ( arglist | namedargument | value | inputarg | barlist | argflag | arglistparenthesis | extendedarg | errorparse )
+macroBlock                =  "@{" actions "}"
+action                    =  ( flaggedaction | variable | onlyaction )
+arglistparenthesis        =  "(" ( optionalNewline keyvaluepair optionalNewline )* ")"
+arglist                   =  "a{" ( space keyvaluepair space )* "}"
+inputarg                  =  "^" ( parenthesis | variable )
+flaggedaction             =  variable space "=" space onlyaction
+onlyaction                =  ( identifier | ":raw" space string ) space args
+args                      =  ( argument space )*
+value                     =  ( variable | string | number | macroBlock | identifier | parenthesis | dictionary | list | filter | rawvalue )
+rawvalue                  =  ":raw" space ( dictionary | string | "true" | "false" | /^-?(?:[0-9]*\.[0-9]+|[0-9]+)/ )
+dictionary                =  "{" optionalNewline ( optionalNewline ( "<" identifier ">" ){0..1} keyvaluepair )* optionalNewline "}"
+list                      =  "[" optionalNewline ( value optionalNewline )* "]"
+filter                    =  ( filterand | filteror )
+filterand                 =  ":filter{" optionalNewline ( optionalNewline filteritem optionalNewline ( "&" | ":and:" ) optionalNewline )* filteritem optionalNewline "}"
+filteror                  =  ":filter{" optionalNewline ( optionalNewline filteritem optionalNewline ( "|" | ":or:" ) optionalNewline )* filteritem optionalNewline "}"
+filteritem                =  ( value optionalNewline value optionalNewline value optionalNewline value | value optionalNewline value optionalNewline value )
+keyvaluepair              =  optionalNewline ( string | identifier ) optionalNewline ( "=" | ":" ) optionalNewline value optionalNewline
+variable                  =  identifier ":" ( identifier | string | errorparse ) ( ( ":" | "." ) ( identifier | string ) ){0..1} ( dictionary ){0..1}
+parenthesis               =  "(" optionalNewline ( action | variable ) optionalNewline ")"
+actions                   =  optionalNewline ( optionalNewline action newline )* ( optionalNewline action ){0..1} optionalNewline

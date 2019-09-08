@@ -1,32 +1,4 @@
-export type CoercionTypeClass =
-	| "WFContentItem"
-	| "WFAppStoreAppContentItem"
-	| "WFArticleContentItem"
-	| "WFBooleanContentItem"
-	| "WFContactContentItem"
-	| "WFDateContentItem"
-	| "WFTimeLengthContentItem"
-	| "WFTimeContentItem"
-	| "WFDictionaryContentItem"
-	| "WFEmailAddressContentItem"
-	| "WFGenericFileContentItem"
-	| "WFImageContentItem"
-	| "WFMPMediaContentItem"
-	| "WFiTunesProductContentItem"
-	| "WFLocationContentItem"
-	| "WFDCMapsLinkContentItem"
-	| "WFAVAssetContentItem"
-	| "WFNumberContentItem"
-	| "WFPDFContentItem"
-	| "WFPhoneNumberContentItem"
-	| "WFPhotoMediaContentItem"
-	| "WFMKMapItemContentItem"
-	| "WFRichTextContentItem"
-	| "WFSafariWebPageContentItem"
-	| "WFStringContentItem"
-	| "WFURLContentItem"
-	| "WFVCardContentItem"
-	| "WFEnumerationContentItem";
+export type CoercionTypeClass = keyof typeof coercionTypesMap;
 
 const coercionTypesMap = {
 	WFContentItem: true,
@@ -56,7 +28,8 @@ const coercionTypesMap = {
 	WFStringContentItem: true,
 	WFURLContentItem: true,
 	WFVCardContentItem: true,
-	WFEnumerationContentItem: true
+	WFEnumerationContentItem: true,
+	WFCalendarEventContentItem: true
 };
 
 export function isCoercionTypeClass(name: string): name is CoercionTypeClass {
@@ -85,7 +58,6 @@ export type AggrandizementPropertyRawName =
 	| "Release Notes"
 	| "Artwork"
 	| "Artwork URL"
-	| "[object Object]"
 	| "Name"
 	| "Rating (This Version)"
 	| "Is Universal"
@@ -170,115 +142,25 @@ export type AggrandizementPropertyRawName =
 	| "ZIP Code"
 	| "Page Contents"
 	| "Page URL"
-	| "Page Selection";
+	| "Page Selection"
+	| "Attendees"
+	| "Calendar"
+	| "Creation Date"
+	| "Duration"
+	| "File Extension"
+	| "File Size"
+	| "Has Alarms"
+	| "Is All Day"
+	| "Last Modified Date"
+	| "Location"
+	| "Name"
+	| "Notes"
+	| "Organizer"
+	| "Start Date"
+	| "Title"
+	| "URL";
 
-export type AggrandizementPropertyName =
-	| "ofratingsthisversion"
-	| "ofratings"
-	| "albumartist"
-	| "albumartwork"
-	| "albumtrack"
-	| "album"
-	| "altitude"
-	| "artist"
-	| "artworkurl"
-	| "artwork"
-	| "author"
-	| "birthday"
-	| "cameramake"
-	| "cameramodel"
-	| "category"
-	| "city"
-	| "comments"
-	| "company"
-	| "composer"
-	| "contactphoto"
-	| "contentrating"
-	| "country"
-	| "creationdate"
-	| "currencycode"
-	| "dateadded"
-	| "datetaken"
-	| "department"
-	| "description"
-	| "disc"
-	| "downloadsize"
-	| "duration"
-	| "emailaddress"
-	| "excerpt"
-	| "fileextension"
-	| "filesize"
-	| "firstname"
-	| "formattedprice"
-	| "framerate"
-	| "genre"
-	| "group"
-	| "hasalbumartwork"
-	| "hasphoto"
-	| "height"
-	| "ipadscreenshoturls"
-	| "isascreenshot"
-	| "isclouditem"
-	| "isexplicit"
-	| "isfavorite"
-	| "ishidden"
-	| "isuniversal"
-	| "jobtitle"
-	| "keys"
-	| "lastmodifieddate"
-	| "lastname"
-	| "lastplayeddate"
-	| "lastupdated"
-	| "latitude"
-	| "location"
-	| "longitude"
-	| "lyrics"
-	| "mainimageurl"
-	| "mediakind"
-	| "mediatype"
-	| "metadatadictionary"
-	| "middlename"
-	| "minimumosversion"
-	| "name"
-	| "nickname"
-	| "notes"
-	| "numberofwords"
-	| "orientation"
-	| "pagecontents"
-	| "pageselection"
-	| "pageurl"
-	| "phonenumber"
-	| "phoneticfirstname"
-	| "phoneticlastname"
-	| "phoneticmiddlename"
-	| "phototype"
-	| "playcount"
-	| "prefix"
-	| "price"
-	| "publisheddate"
-	| "ratingthisversion"
-	| "rating"
-	| "releasedate"
-	| "releasenotes"
-	| "screenshoturls"
-	| "skipcount"
-	| "state"
-	| "storeid"
-	| "storeurl"
-	| "streamable"
-	| "streetaddress"
-	| "street"
-	| "suffix"
-	| "supporteddevices"
-	| "supportedlanguages"
-	| "supportsgamecenter"
-	| "timetaken"
-	| "title"
-	| "url"
-	| "values"
-	| "version"
-	| "width"
-	| "zipcode";
+export type AggrandizementPropertyName = keyof typeof propertyNameMap;
 
 export const propertyNameMap = {
 	ofratingsthisversion: true,
@@ -386,7 +268,13 @@ export const propertyNameMap = {
 	values: true,
 	version: true,
 	width: true,
-	zipcode: true
+	zipcode: true,
+	attendees: true,
+	calendar: true,
+	hasalarms: true,
+	isallday: true,
+	organizer: true,
+	startdate: true
 };
 
 export function isAggrandizementPropertyName(

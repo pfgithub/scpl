@@ -1,0 +1,71 @@
+@def myname [argument] // Missing body
+@def arguments=[arg1] // Missing name|body
+@def // Missing all
+@def [listname] [args] @{} // Name must be string
+@def mymacro @{} @{} // Args must be argname[]
+@def mymacro [] "great result" // Body must be (action) | @{actions}
+
+@def takesthisarg [thisarg] @{
+	ShowResult "Thisarg is \(@:thisarg)"
+}
+@takesthisarg // var not defined
+@takesthisarg someotherarg="hmm"
+@takesthisarg ^(text "not an input arg!")
+
+@!ShouldEqual --------------------------------
+
+Output Warnings:
+Array [
+  [Error: Error from 1,1 to 1,39: @def must have 3 arguments: name, [args...], @{body}],
+  [Error: Error from 2,1 to 2,43: @def must have 3 arguments: name, [args...], @{body}],
+  [Error: Error from 3,1 to 3,20: @def must have 3 arguments: name, [args...], @{body}],
+  [Error: Error from 4,6 to 4,16: Name must be a @string],
+  [Error: Error from 5,16 to 5,16: Args must be an array of [argname]],
+  [Error: Error from 6,14 to 6,16: Cb must be an (action) or @{ of actions }],
+  [Error: Warning from 9,27 to 9,36: Parser Variable @:thisarg is not defined.],
+  [Error: Error from 12,28 to 12,33: No argument exists with the name `someotherarg`. Arguments are: thisarg],
+  [Error: Error from 13,17 to 13,41: InputArgs are not yet supported here.],
+]
+
+Because there were warnings, no inversion test will be run!!
+
+Shortcut Full JSON:
+Array [
+  Object {
+    "WFWorkflowActions": Array [],
+    "WFWorkflowClientRelease": "2.1.2",
+    "WFWorkflowClientVersion": "754",
+    "WFWorkflowIcon": Object {
+      "WFWorkflowIconGlyphNumber": 59511,
+      "WFWorkflowIconImageData": Object {
+        "data": Array [],
+        "type": "Buffer",
+      },
+      "WFWorkflowIconStartColor": 2071128575,
+    },
+    "WFWorkflowInputContentItemClasses": Array [
+      "WFAppStoreAppContentItem",
+      "WFArticleContentItem",
+      "WFContactContentItem",
+      "WFDateContentItem",
+      "WFEmailAddressContentItem",
+      "WFGenericFileContentItem",
+      "WFImageContentItem",
+      "WFiTunesProductContentItem",
+      "WFLocationContentItem",
+      "WFDCMapsLinkContentItem",
+      "WFAVAssetContentItem",
+      "WFPDFContentItem",
+      "WFPhoneNumberContentItem",
+      "WFRichTextContentItem",
+      "WFSafariWebPageContentItem",
+      "WFStringContentItem",
+      "WFURLContentItem",
+    ],
+    "WFWorkflowMinimumClientVersion": 411,
+    "WFWorkflowTypes": Array [
+      "NCWidget",
+      "WatchKit",
+    ],
+  },
+]

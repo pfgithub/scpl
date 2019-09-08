@@ -23,7 +23,7 @@ List [list, items]
 
 ---
 
-### items: WFParameter [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#list-field)
+### items: List [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#list-field)
 **Default Value**: ```
 		["One","Two"]
 		```

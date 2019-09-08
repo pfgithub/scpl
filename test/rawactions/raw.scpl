@@ -1,0 +1,171 @@
+:raw "dev.scpl.action.test"
+:raw "dev.scpl.action.test" SPMyParameter=:raw{"raw": "value"}
+:raw "dev.scpl.actions.invalid" SPInvalidValueName=:raw"Icon List V2"
+EmailAddress WFEmailAddress=:raw{"Value":{"WFContactFieldValues":["email@example.com", {test: "subdict"}]},"WFSerializationType":"WFContactFieldValue"}
+Text QNonexistantField=:raw"Something isn't right..."
+
+@!ShouldEqual --------------------------------
+
+Output Warnings:
+Array []
+
+Shortcut Full Inverted:
+:raw "dev.scpl.action.test"  // Warning: This action contains some parameters that are not supported. Editing them may cause errors.
+:raw "dev.scpl.action.test" SPMyParameter=:raw{
+	"raw": "value"
+} // Warning: This action contains some parameters that are not supported. Editing them may cause errors.
+:raw "dev.scpl.actions.invalid" SPInvalidValueName=:raw"Icon List V2" // Warning: This action contains some parameters that are not supported. Editing them may cause errors.
+EmailAddress :raw{
+	"Value": {
+		"WFContactFieldValues": [
+			"email@example.com",
+			{
+				"test": "subdict"
+			}
+		]
+	},
+	"WFSerializationType": "WFContactFieldValue"
+}
+Text QNonexistantField=:raw"Something isn't right..." // Warning: This action contains some parameters that are not supported. Editing them may cause errors.
+
+Shortcut Full JSON:
+Array [
+  Object {
+    "WFWorkflowActions": Array [
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              1,
+              28,
+            ],
+            "start": Array [
+              1,
+              1,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "dev.scpl.action.test",
+        "WFWorkflowActionParameters": Object {},
+      },
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              2,
+              63,
+            ],
+            "start": Array [
+              2,
+              1,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "dev.scpl.action.test",
+        "WFWorkflowActionParameters": Object {
+          "SPMyParameter": Object {
+            "raw": "value",
+          },
+        },
+      },
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              3,
+              70,
+            ],
+            "start": Array [
+              3,
+              1,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "dev.scpl.actions.invalid",
+        "WFWorkflowActionParameters": Object {
+          "SPInvalidValueName": "Icon List V2",
+        },
+      },
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              4,
+              152,
+            ],
+            "start": Array [
+              4,
+              1,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.email",
+        "WFWorkflowActionParameters": Object {
+          "WFEmailAddress": Object {
+            "Value": Object {
+              "WFContactFieldValues": Array [
+                "email@example.com",
+                Object {
+                  "test": "subdict",
+                },
+              ],
+            },
+            "WFSerializationType": "WFContactFieldValue",
+          },
+        },
+      },
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              5,
+              54,
+            ],
+            "start": Array [
+              5,
+              1,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
+        "WFWorkflowActionParameters": Object {
+          "QNonexistantField": "Something isn't right...",
+        },
+      },
+    ],
+    "WFWorkflowClientRelease": "2.1.2",
+    "WFWorkflowClientVersion": "754",
+    "WFWorkflowIcon": Object {
+      "WFWorkflowIconGlyphNumber": 59511,
+      "WFWorkflowIconImageData": Object {
+        "data": Array [],
+        "type": "Buffer",
+      },
+      "WFWorkflowIconStartColor": 2071128575,
+    },
+    "WFWorkflowInputContentItemClasses": Array [
+      "WFAppStoreAppContentItem",
+      "WFArticleContentItem",
+      "WFContactContentItem",
+      "WFDateContentItem",
+      "WFEmailAddressContentItem",
+      "WFGenericFileContentItem",
+      "WFImageContentItem",
+      "WFiTunesProductContentItem",
+      "WFLocationContentItem",
+      "WFDCMapsLinkContentItem",
+      "WFAVAssetContentItem",
+      "WFPDFContentItem",
+      "WFPhoneNumberContentItem",
+      "WFRichTextContentItem",
+      "WFSafariWebPageContentItem",
+      "WFStringContentItem",
+      "WFURLContentItem",
+    ],
+    "WFWorkflowMinimumClientVersion": 411,
+    "WFWorkflowTypes": Array [
+      "NCWidget",
+      "WatchKit",
+    ],
+  },
+]

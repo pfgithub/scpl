@@ -5,14 +5,38 @@
 
 ### usage
 ```
-GetDetailsofCalendarEvents 
+GetDetailsofCalendarEvents ("Attendees" | "Calendar" | "Creation Date" | "Duration" | "File Extension" | "File Size" | "Has Alarms" | "Is All Day" | "Last Modified Date" | "Location" | "Name" | "Notes" | "Organizer" | "Start Date" | "Title" | "URL")
 ```
 
 ### arguments
 
 ---
 
+### get: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+**Allows Variables**: true
 
+
+
+Accepts a string 
+or variable
+containing one of the options:
+
+- `Attendees`
+- `Calendar`
+- `Creation Date`
+- `Duration`
+- `File Extension`
+- `File Size`
+- `Has Alarms`
+- `Is All Day`
+- `Last Modified Date`
+- `Location`
+- `Name`
+- `Notes`
+- `Organizer`
+- `Start Date`
+- `Title`
+- `URL`
 
 ---
 
@@ -28,6 +52,30 @@ GetDetailsofCalendarEvents
 	"ResidentCompatible": true,
 	"Subcategory": "Calendar",
 	"WFContentItemClass": "WFCalendarEventContentItem",
-	"Parameters": []
+	"Parameters": [
+		{
+			"Class": "WFEnumerationParameter",
+			"Key": "WFContentItemPropertyName",
+			"Label": "Get",
+			"Items": [
+				"Attendees",
+				"Calendar",
+				"Creation Date",
+				"Duration",
+				"File Extension",
+				"File Size",
+				"Has Alarms",
+				"Is All Day",
+				"Last Modified Date",
+				"Location",
+				"Name",
+				"Notes",
+				"Organizer",
+				"Start Date",
+				"Title",
+				"URL"
+			]
+		}
+	]
 }
 ```

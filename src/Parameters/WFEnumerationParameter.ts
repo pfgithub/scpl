@@ -1,5 +1,6 @@
 import { ConvertingContext } from "../Converter";
 import { AsAble } from "../ParserData";
+import {nearestString} from "../nearestString";
 
 import { WFParameter } from "./WFParameter";
 
@@ -58,8 +59,9 @@ containing one of the options:
 			return res;
 		} else if (parse.canBeString(cc)) {
 			const res = parse.asString(cc); // asString returns a string like ""
-			if (this.options.indexOf(res) > -1) {
-				return res;
+			const fuzzyMatch = nearestString<string>(res, this.options);
+			if (fuzzyMatch) {
+				return fuzzyMatch;
 			}
 			throw parse.error(
 				cc,

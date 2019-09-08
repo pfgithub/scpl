@@ -49,9 +49,7 @@ class WFWorkflowTypeResource extends WFResource {
 		return true;
 	}
 	genDocs() {
-		return `Workflow type is \`${
-			this._data.WFWorkflowType
-		}\`. This action is always enabled inside Shortcutslang.`;
+		return `Workflow type is \`${this._data.WFWorkflowType}\`. This action is always enabled inside Shortcutslang.`;
 	}
 }
 resourceTypes.WFWorkflowTypeResource = WFWorkflowTypeResource;
@@ -95,9 +93,7 @@ class WFParameterRelationResource extends WFResource {
 		};
 		if (!relations[this.relation]) {
 			throw new Error(
-				`RelationResource relation type ${
-					this.relation
-				} is not implemented.`
+				`RelationResource relation type ${this.relation} is not implemented.`
 			);
 		}
 	}
@@ -149,9 +145,7 @@ class WFParameterRelationResource extends WFResource {
 				return action.parameters.has(this.argInternalName);
 			default:
 				throw new Error(
-					`RelationResource relation type ${
-						this.relation
-					} is not implemented.`
+					`RelationResource relation type ${this.relation} is not implemented.`
 				);
 		}
 	}

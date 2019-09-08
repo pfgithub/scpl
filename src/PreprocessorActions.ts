@@ -5,6 +5,11 @@ import { getActionFromID } from "./ActionData";
 
 import { glyphs, colors } from "./Data/ShortcutMeta";
 import { ArgParser, simpleParse } from "./ArgParser";
+import {
+	extensionInputNameToContentItemClass,
+	ScPLNameContentItemClass
+} from "./Data/TypeClasses";
+import { nearestString } from "./nearestString";
 
 export type PreprocessorAction = (
 	this: AsAble,
@@ -49,7 +54,7 @@ const preprocessorActions: {
 			);
 		}
 		// sets a variable with name name to value value
-		let name: string | undefined;
+		let name;
 		if (!namea.canBePreprocessorVariableName(cc)) {
 			if (!namea.canBeString(cc)) {
 				throw namea.error(
@@ -62,10 +67,7 @@ const preprocessorActions: {
 		} else {
 			name = namea.asPreprocessorVariableName(cc);
 		}
-		if (!name) {
-			throw namea.error(cc, "This should never happen.");
-		}
-		cc.setParserVariable(name, value);
+		cc.setParserVariable(name, value.getDeepestRealValue(cc));
 	},
 	"@foreach": function(this, cc, ...args: AsAble[]) {
 		const pres = simpleParse(cc, ["list", "method"], args);
@@ -210,6 +212,39 @@ const preprocessorActions: {
 		}
 		cc.shortcut.color = color;
 	},
+	"@showinsharesheet": function(this, cc, ...args: AsAble[]) {
+		const pres = simpleParse(cc, ["when"], args);
+		const when = pres.when;
+		if (!when) {
+			throw this.error(
+				cc,
+				"when is required containing a list of times to show in the sharesheet"
+			);
+		}
+		if (!when.canBeAbleArray(cc)) {
+			throw when.error(cc, "Must be array of when");
+		}
+		cc.shortcut.showinsharesheet = when.asAbleArray(cc).map(item => {
+			if (!item.canBeString(cc)) {
+				throw item.error(cc, "Must be string");
+			}
+			const itemStr = item.asString(cc);
+			const itemScPLClass = nearestString(itemStr, Object.keys(
+				extensionInputNameToContentItemClass
+			) as ScPLNameContentItemClass[]);
+			if (!itemScPLClass) {
+				throw item.error(
+					cc,
+					`Must be one of ${Object.keys(
+						extensionInputNameToContentItemClass
+					).join(", ")}`
+				);
+			}
+			const itemClass =
+				extensionInputNameToContentItemClass[itemScPLClass];
+			return itemClass;
+		});
+	},
 	"@showinwidget": function(this, cc, ...args: AsAble[]) {
 		const pres = simpleParse(cc, ["value"], args);
 		const setTo = pres.value;
@@ -221,11 +256,68 @@ const preprocessorActions: {
 		}
 		cc.shortcut.showInWidget = setTo.asBoolean(cc);
 	},
+	"@importquestion": function(this, cc, ...args: AsAble[]) {
+		const pres = simpleParse(
+			cc,
+			["variable", "question", "defaultvalue"],
+			args
+		);
+		const variable = pres.variable;
+		const question = pres.question;
+		const defaultValue = pres.defaultvalue;
+		if (!variable) {
+			throw this.error(
+				cc,
+				"Variable is required (for example variable=q:myimportquestion)"
+			);
+		}
+		if (!question) {
+			throw this.error(
+				cc,
+				"Question is required (for example question='Pick a number')"
+			);
+		}
+		let varname: string;
+		if (variable.canBeNameType(cc)) {
+			const nameType = variable.asNameType(cc);
+			if (nameType.type !== "q") {
+				throw variable.error(
+					cc,
+					`Variable must be a q:variable (not a ${nameType.type}:variable)`
+				);
+			}
+			varname = nameType.name;
+		} else if (variable.canBeString(cc)) {
+			varname = variable.asString(cc);
+		} else {
+			throw variable.error(cc, "Must be q:questionname or questionname");
+		}
+		if (!question.canBeString(cc)) {
+			throw question.error(cc, "Must be string");
+		}
+		if (defaultValue && !defaultValue.canBeString(cc)) {
+			throw defaultValue.error(cc, "Must be string");
+		}
+
+		const result = cc.addImportQuestion(
+			varname,
+			question.asString(cc),
+			defaultValue ? defaultValue.asString(cc) : undefined
+		);
+		if (!result) {
+			throw variable.error(
+				cc,
+				`Import question named ${varname} already exists and has not been used.`
+			);
+		}
+	},
 	"@elseif": function(this, cc, ...args) {
 		const ifAction = cc.peekControlFlow();
 		if (!ifAction) {
 			throw this.error(cc, "The @elseif macro requires an if.");
 		}
+		// this should never happen shouldn't be testable
+		/* istanbul ignore if */
 		if (!ifAction[ifAction.length - 1]) {
 			throw this.error(
 				cc,
@@ -247,6 +339,8 @@ const preprocessorActions: {
 		cc.add(otherwiseAction);
 		// create if action
 		const newIfAction = getActionFromID("is.workflow.actions.conditional");
+		// this should never happen shouldn't be testable
+		/* istanbul ignore if */
 		if (!newIfAction) {
 			throw this.error(
 				cc,
@@ -255,6 +349,8 @@ const preprocessorActions: {
 		}
 		newIfAction.build(cc, this, undefined, ...args);
 		const added = cc.endControlFlow();
+		// this should never happen shouldn't be testable
+		/* istanbul ignore if */
 		if (!added) {
 			throw this.error(
 				cc,

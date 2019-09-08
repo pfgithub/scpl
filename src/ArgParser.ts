@@ -7,11 +7,11 @@ import { genShortName } from "./ActionData";
 
 type ArgData<T> = { name: string; data: T };
 
-export function simpleParse(
+export function simpleParse<NamesArray extends string>(
 	cc: ConvertingContext,
-	names: string[],
+	names: NamesArray[],
 	args: AsAble[]
-): { [key: string]: AsAble | undefined } {
+): { [key in NamesArray]: AsAble | undefined } {
 	const res: { [key: string]: AsAble | undefined } = {};
 	ArgParser<undefined>(
 		names.map(n => ({ name: n, data: undefined })),
@@ -26,16 +26,60 @@ export function simpleParse(
 		},
 		{ args, cc }
 	);
-	return res;
+	return res as any;
 }
-
+export function ArgParser(
+	argnames: "any",
+	cb: (arg: ArgData<string>, value: AsAble) => void,
+	inputarg: (value: AsAble) => void,
+	shouldEnable: (arg: ArgData<string>, value: AsAble) => boolean,
+	data: { args: AsAble[]; cc: ConvertingContext },
+	handlers?: {
+		noArgumentExistsHandler?: (
+			realKey: string,
+			value: AsAble,
+			paramList: string[]
+		) => void;
+	}
+): void;
 export function ArgParser<T>(
 	argnames: ArgData<T>[],
 	cb: (arg: ArgData<T>, value: AsAble) => void,
 	inputarg: (value: AsAble) => void,
 	shouldEnable: (arg: ArgData<T>, value: AsAble) => boolean,
-	data: { args: AsAble[]; cc: ConvertingContext }
+	data: { args: AsAble[]; cc: ConvertingContext },
+	handlers?: {
+		noArgumentExistsHandler?: (
+			realKey: string,
+			value: AsAble,
+			paramList: string[]
+		) => void;
+	}
+): void;
+export function ArgParser<T>(
+	argnames: ArgData<T>[] | "any",
+	cb: (arg: ArgData<T> | ArgData<string>, value: AsAble) => void,
+	inputarg: (value: AsAble) => void,
+	shouldEnable: (arg: ArgData<T> | ArgData<string>, value: AsAble) => boolean,
+	data: { args: AsAble[]; cc: ConvertingContext },
+	handlers: {
+		noArgumentExistsHandler?: (
+			realKey: string,
+			value: AsAble,
+			paramList: string[]
+		) => void;
+	} = {}
 ) {
+	if (!handlers.noArgumentExistsHandler) {
+		handlers.noArgumentExistsHandler = (key, value, paramList) => {
+			throw value.error(
+				cc,
+				`No argument exists with the name \`${key}\`. Arguments are: ${paramList.join(
+					", "
+				)}`
+			);
+		};
+	}
 	const cc = data.cc;
 	let parami = 0;
 	const setArgs: string[] = [];
@@ -61,14 +105,20 @@ export function ArgParser<T>(
 			Object.keys(dictionary).forEach(key_ => {
 				const key = genShortName(key_);
 				const value = dictionary[key_];
-				const foundData = argnames.find(an => an.name === key);
+				const foundData =
+					argnames === "any"
+						? { name: key_, data: key_ }
+						: argnames.find(an => an.name === key);
 				if (!foundData) {
-					throw value.error(
-						cc,
-						`No argument exists with the name \`${key}\`. Arguments are: ${argnames
-							.map(an => an.name)
-							.join(`, `)}`
-					);
+					handlers.noArgumentExistsHandler &&
+						handlers.noArgumentExistsHandler(
+							key_,
+							value,
+							argnames === "any"
+								? ["anything"]
+								: argnames.map(an => an.name)
+						);
+					return;
 				}
 				if (setArgs.indexOf(key) > -1) {
 					throw value.error(
@@ -80,6 +130,13 @@ export function ArgParser<T>(
 				cb(foundData, value);
 			});
 			return;
+		}
+
+		if (argnames === "any") {
+			throw param.error(
+				cc,
+				"Labels are required on functions with variable numbers of arguments."
+			);
 		}
 
 		let paramname;

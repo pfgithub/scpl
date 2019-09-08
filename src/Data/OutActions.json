@@ -3708,7 +3708,85 @@
 		"SuggestedAsInitialAction": false,
 		"WFContentItemClass": "WFCalendarEventContentItem",
 		"WFContentItemDefaultProperty": "Calendar",
-		"Parameters": []
+		"Parameters": [
+			{
+				"Class": "WFFilterParameter",
+				"Key": "WFContentItemFilter",
+				"Label": "Filter",
+				"ContentItemClass": "WFCalendarEventContentItem"
+			},
+			{
+				"Class": "WFEnumerationParameter",
+				"Key": "WFContentItemSortProperty",
+				"Label": "Sort by",
+				"Items": [
+					"Attendees",
+					"Calendar",
+					"Creation Date",
+					"Duration",
+					"File Extension",
+					"File Size",
+					"Has Alarms",
+					"Is All Day",
+					"Last Modified Date",
+					"Location",
+					"Name",
+					"Notes",
+					"Organizer",
+					"Start Date",
+					"Title",
+					"URL",
+					"Random"
+				]
+			},
+			{
+				"Class": "WFEnumerationParameter",
+				"Key": "WFContentItemSortOrder",
+				"Label": "Order",
+				"Items": [
+					"Oldest First",
+					"Newest First",
+					"Latest First",
+					"Smallest First",
+					"Biggest First",
+					"Ascending",
+					"Descending",
+					"Shortest First",
+					"Longest First",
+					"A to Z",
+					"Z to A"
+				],
+				"RequiredResources": [
+					{
+						"WFParameterKey": "WFContentItemSortProperty",
+						"WFParameterValues": [
+							"Random"
+						],
+						"WFResourceClass": "WFParameterRelationResource",
+						"WFParameterRelation": "!="
+					}
+				]
+			},
+			{
+				"Class": "WFSwitchParameter",
+				"Key": "WFContentItemLimitEnabled",
+				"Label": "Limit"
+			},
+			{
+				"Class": "WFStepperParameter",
+				"Key": "WFContentItemLimitNumber",
+				"Label": "Get Items",
+				"RequiredResources": [
+					{
+						"WFParameterKey": "WFSwitchParameter",
+						"WFParameterValues": [
+							true
+						],
+						"WFResourceClass": "WFParameterRelationResource"
+					}
+				]
+			}
+		]
 	},
 	"is.workflow.actions.filter.contacts": {
 		"ActionClass": "WFContentItemFilterAction",
@@ -9547,7 +9625,31 @@
 		"ResidentCompatible": true,
 		"Subcategory": "Calendar",
 		"WFContentItemClass": "WFCalendarEventContentItem",
-		"Parameters": []
+		"Parameters": [
+			{
+				"Class": "WFEnumerationParameter",
+				"Key": "WFContentItemPropertyName",
+				"Label": "Get",
+				"Items": [
+					"Attendees",
+					"Calendar",
+					"Creation Date",
+					"Duration",
+					"File Extension",
+					"File Size",
+					"Has Alarms",
+					"Is All Day",
+					"Last Modified Date",
+					"Location",
+					"Name",
+					"Notes",
+					"Organizer",
+					"Start Date",
+					"Title",
+					"URL"
+				]
+			}
+		]
 	},
 	"is.workflow.actions.properties.contacts": {
 		"ActionClass": "WFContentItemPropertiesAction",
@@ -9602,7 +9704,12 @@
 		"Name": "Get Details of Event Attendees",
 		"Subcategory": "Event Attendees",
 		"WFContentItemClass": "WFEKParticipantContentItem",
-		"Parameters": []
+		"Parameters": [
+			{
+				"Class": "_UndefinedCoercionClass",
+				"Key": "_UndefinedCoercion"
+			}
+		]
 	},
 	"is.workflow.actions.properties.files": {
 		"ActionClass": "WFContentItemPropertiesAction",
@@ -9640,7 +9747,12 @@
 		"Name": "Get Details of Health Sample",
 		"Subcategory": "Get",
 		"WFContentItemClass": "WFHKSampleContentItem",
-		"Parameters": []
+		"Parameters": [
+			{
+				"Class": "_UndefinedCoercionClass",
+				"Key": "_UndefinedCoercion"
+			}
+		]
 	},
 	"is.workflow.actions.properties.images": {
 		"ActionClass": "WFContentItemPropertiesAction",
@@ -9700,7 +9812,12 @@
 		"Name": "Get Details of iTunes Artist",
 		"ResidentCompatible": true,
 		"WFContentItemClass": "WFiTunesArtistContentItem",
-		"Parameters": []
+		"Parameters": [
+			{
+				"Class": "_UndefinedCoercionClass",
+				"Key": "_UndefinedCoercion"
+			}
+		]
 	},
 	"is.workflow.actions.properties.itunesstore": {
 		"ActionClass": "WFContentItemPropertiesAction",
@@ -9825,7 +9942,12 @@
 		"Subcategory": "Reminders",
 		"WFContentItemClass": "WFReminderContentItem",
 		"WFContentItemDefaultProperty": "List",
-		"Parameters": []
+		"Parameters": [
+			{
+				"Class": "_UndefinedCoercionClass",
+				"Key": "_UndefinedCoercion"
+			}
+		]
 	},
 	"is.workflow.actions.properties.safariwebpage": {
 		"ActionClass": "WFContentItemPropertiesAction",
@@ -9864,7 +9986,12 @@
 		"Name": "Get Details of Trello Item",
 		"RequiredResources": ["WFTrelloAccessResource"],
 		"WFContentItemClass": "WFTrelloItemContentItem",
-		"Parameters": []
+		"Parameters": [
+			{
+				"Class": "_UndefinedCoercionClass",
+				"Key": "_UndefinedCoercion"
+			}
+		]
 	},
 	"is.workflow.actions.properties.ulysses.sheet": {
 		"ActionClass": "WFContentItemPropertiesAction",
@@ -9878,7 +10005,12 @@
 		},
 		"Name": "Get Details of Ulysses Sheet",
 		"WFContentItemClass": "WFUlyssesSheetContentItem",
-		"Parameters": []
+		"Parameters": [
+			{
+				"Class": "_UndefinedCoercionClass",
+				"Key": "_UndefinedCoercion"
+			}
+		]
 	},
 	"is.workflow.actions.properties.weather.conditions": {
 		"ActionClass": "WFContentItemPropertiesAction",
@@ -9890,7 +10022,12 @@
 		"ResidentCompatible": true,
 		"Subcategory": "Weather",
 		"WFContentItemClass": "WFWeatherDataContentItem",
-		"Parameters": []
+		"Parameters": [
+			{
+				"Class": "_UndefinedCoercionClass",
+				"Key": "_UndefinedCoercion"
+			}
+		]
 	},
 	"is.workflow.actions.readinglist": {
 		"ActionClass": "WFAddToReadingListAction",

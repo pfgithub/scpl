@@ -1,0 +1,313 @@
+Text "this is my text"
+Text "it contains \(Text "subtext")"
+@Set parservar "parser text"
+Text "it contains \(@:parservar)" -> v:itisavariable
+Comment "even comments contain \(@:parservar)"
+Text v:itisavariable
+Text "it contains \newlines and \"scapes"
+Text 'it contains single quotes'
+Text `
+
+
+it contains
+backtick quotes
+  that keep
+spacing\nand escapes       `
+
+@!ShouldEqual --------------------------------
+
+Output Warnings:
+Array []
+
+Shortcut Full Inverted:
+Text "this is my text" -> mv:Text
+Text subtext -> mv:Text1
+GetVariable mv:Text
+Text "it contains \(mv:Text1)"
+Text "it contains parser text"
+SetVariable itisavariable
+Comment "even comments contain parser text"
+Text v:itisavariable
+Text "it contains \newlines and \"scapes"
+Text "it contains single quotes"
+Text "\n\n\nit contains\nbacktick quotes\n  that keep\nspacing\nand escapes       "
+
+Shortcut Full JSON:
+Array [
+  Object {
+    "WFWorkflowActions": Array [
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              1,
+              23,
+            ],
+            "start": Array [
+              1,
+              1,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
+        "WFWorkflowActionParameters": Object {
+          "UUID": "<uuid1>",
+          "WFTextActionText": "this is my text",
+        },
+      },
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              2,
+              35,
+            ],
+            "start": Array [
+              2,
+              21,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
+        "WFWorkflowActionParameters": Object {
+          "UUID": "<uuid2>",
+          "WFTextActionText": "subtext",
+        },
+      },
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              1,
+              23,
+            ],
+            "start": Array [
+              1,
+              1,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.getvariable",
+        "WFWorkflowActionParameters": Object {
+          "WFVariable": Object {
+            "Value": Object {
+              "OutputName": "Text",
+              "OutputUUID": "<uuid1>",
+              "Type": "ActionOutput",
+            },
+            "WFSerializationType": "WFTextTokenAttachment",
+          },
+        },
+      },
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              2,
+              37,
+            ],
+            "start": Array [
+              2,
+              1,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
+        "WFWorkflowActionParameters": Object {
+          "WFTextActionText": Object {
+            "Value": Object {
+              "attachmentsByRange": Object {
+                "{12, 1}": Object {
+                  "OutputName": "Text",
+                  "OutputUUID": "<uuid2>",
+                  "Type": "ActionOutput",
+                },
+              },
+              "string": "it contains [attachment]",
+            },
+            "WFSerializationType": "WFTextTokenString",
+          },
+        },
+      },
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              4,
+              53,
+            ],
+            "start": Array [
+              4,
+              1,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
+        "WFWorkflowActionParameters": Object {
+          "WFTextActionText": "it contains parser text",
+        },
+      },
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              4,
+              53,
+            ],
+            "start": Array [
+              4,
+              38,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.setvariable",
+        "WFWorkflowActionParameters": Object {
+          "WFVariableName": "itisavariable",
+        },
+      },
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              5,
+              47,
+            ],
+            "start": Array [
+              5,
+              1,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.comment",
+        "WFWorkflowActionParameters": Object {
+          "WFCommentActionText": "even comments contain parser text",
+        },
+      },
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              6,
+              21,
+            ],
+            "start": Array [
+              6,
+              1,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
+        "WFWorkflowActionParameters": Object {
+          "WFTextActionText": Object {
+            "Value": Object {
+              "attachmentsByRange": Object {
+                "{0, 1}": Object {
+                  "Type": "Variable",
+                  "VariableName": "itisavariable",
+                },
+              },
+              "string": "[attachment]",
+            },
+            "WFSerializationType": "WFTextTokenString",
+          },
+        },
+      },
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              7,
+              42,
+            ],
+            "start": Array [
+              7,
+              1,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
+        "WFWorkflowActionParameters": Object {
+          "WFTextActionText": "it contains 
+ewlines and \"scapes",
+        },
+      },
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              8,
+              33,
+            ],
+            "start": Array [
+              8,
+              1,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
+        "WFWorkflowActionParameters": Object {
+          "WFTextActionText": "it contains single quotes",
+        },
+      },
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              15,
+              71,
+            ],
+            "start": Array [
+              9,
+              1,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
+        "WFWorkflowActionParameters": Object {
+          "WFTextActionText": "
+
+
+it contains
+backtick quotes
+  that keep
+spacing
+and escapes       ",
+        },
+      },
+    ],
+    "WFWorkflowClientRelease": "2.1.2",
+    "WFWorkflowClientVersion": "754",
+    "WFWorkflowIcon": Object {
+      "WFWorkflowIconGlyphNumber": 59511,
+      "WFWorkflowIconImageData": Object {
+        "data": Array [],
+        "type": "Buffer",
+      },
+      "WFWorkflowIconStartColor": 2071128575,
+    },
+    "WFWorkflowInputContentItemClasses": Array [
+      "WFAppStoreAppContentItem",
+      "WFArticleContentItem",
+      "WFContactContentItem",
+      "WFDateContentItem",
+      "WFEmailAddressContentItem",
+      "WFGenericFileContentItem",
+      "WFImageContentItem",
+      "WFiTunesProductContentItem",
+      "WFLocationContentItem",
+      "WFDCMapsLinkContentItem",
+      "WFAVAssetContentItem",
+      "WFPDFContentItem",
+      "WFPhoneNumberContentItem",
+      "WFRichTextContentItem",
+      "WFSafariWebPageContentItem",
+      "WFStringContentItem",
+      "WFURLContentItem",
+    ],
+    "WFWorkflowMinimumClientVersion": 411,
+    "WFWorkflowTypes": Array [
+      "NCWidget",
+      "WatchKit",
+    ],
+  },
+]

@@ -10,6 +10,13 @@ import { PositionedError } from "./PositionedError";
 export class ConvertingContext {
 	namedVariables: { [key: string]: boolean };
 	magicVariables: { [key: string]: { action: Action } };
+	importQuestions: {
+		[key: string]: {
+			question: string;
+			defaultValue: string | undefined;
+			used: boolean;
+		};
+	};
 	shortcut: Shortcut;
 	lastVariableAction?: Action;
 	controlFlowStack: { uuid: string; number: number; wfaction: WFAction }[][];
@@ -26,6 +33,7 @@ export class ConvertingContext {
 		this.magicVariables = {};
 		this.parserVariables = {};
 		this.parserActions = {};
+		this.importQuestions = {};
 
 		this.shortcut = new Shortcut("My Great Shortcut");
 		this.lastVariableAction = undefined;
@@ -37,6 +45,44 @@ export class ConvertingContext {
 		this.above = above;
 	}
 
+	addImportQuestion(
+		name: string,
+		question: string,
+		defaultValue: string | undefined
+	): boolean {
+		if (this.above) {
+			return this.above.addImportQuestion(name, question, defaultValue);
+		}
+		if (this.importQuestions[name] && !this.importQuestions[name].used) {
+			return false;
+		}
+		this.importQuestions[name] = { question, defaultValue, used: false };
+		return true;
+	}
+	useImportQuestion(
+		name: string,
+		parameterKey: string,
+		actionUUID: string
+	): true | "already used" | "not defined" {
+		if (this.above) {
+			return this.above.useImportQuestion(name, parameterKey, actionUUID);
+		}
+		// use an import question and return true
+		if (!this.importQuestions[name]) {
+			return "not defined";
+		}
+		if (this.importQuestions[name].used) {
+			return "already used";
+		}
+		this.shortcut.importquestions.push({
+			ActionUUID: actionUUID,
+			Category: "Parameter",
+			DefaultValue: this.importQuestions[name].defaultValue,
+			ParameterKey: parameterKey,
+			Text: this.importQuestions[name].question
+		});
+		return true;
+	}
 	getNamedVariable(name: string): boolean | undefined {
 		// if this doesn't have it try this.above
 		if (this.namedVariables[name]) {

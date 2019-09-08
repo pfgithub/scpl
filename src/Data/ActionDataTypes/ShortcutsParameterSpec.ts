@@ -237,6 +237,8 @@ export type ShortcutsAppPickerParameterSpec = ShortcutsDynamicEnumerationParamet
 export type ShortcutsPhoneNumberFieldParameterSpec = ShortcutsTextInputParameterSpec;
 export type ShortcutsTimeIntervalParameterSpec = ShortcutsTextInputParameterSpec;
 
+export type ShortcutsUndefinedCoercionParameterSpec = ShortcutsBaseParameterSpec;
+
 export type ShortcutsHomePickerParameterSpec = ShortcutsDynamicEnumerationParameterSpec;
 export type ShortcutsHomeScenePickerParameterSpec = ShortcutsDynamicEnumerationParameterSpec;
 export type ShortcutsWorkflowPickerParameterSpec = ShortcutsDynamicEnumerationParameterSpec;
@@ -301,6 +303,97 @@ export type ShortcutsAccountPickerParameterSpec = ShortcutsDynamicEnumerationPar
 
 type _pc<N extends string> = { Class: N };
 
+export type ShortcutsParameterSpecMap = {
+	WFIntentAppPickerParameter: ShortcutsIntentAppPickerParameterSpec;
+	WFEnumerationParameter: ShortcutsEnumerationParameterSpec;
+	WFSwitchParameter: ShortcutsSwitchParameterSpec;
+	WFUberProductPickerParameter: ShortcutsUberProductPickerParameterSpec;
+	WFUberSeatCountPickerParameter: ShortcutsUberSeatCountPickerParameterSpec;
+	WFVariablePickerParameter: ShortcutsVariablePickerParameterSpec;
+	WFNumberFieldParameter: ShortcutsNumberFieldParameterSpec;
+	WFTextInputParameter: ShortcutsTextInputParameterSpec;
+	WFDateFieldParameter: ShortcutsDateFieldParameterSpec;
+	WFCalendarPickerParameter: ShortcutsCalendarPickerParameterSpec;
+	WFExpandingParameter: ShortcutsExpandingParameterSpec;
+	WFCountryFieldParameter: ShortcutsCountryFieldParameterSpec;
+	WFPlaylistPickerParameter: ShortcutsPlaylistPickerParameterSpec;
+	WFTimeOffsetParameter: ShortcutsTimeOffsetParameterSpec;
+	_UndefinedCoercionClass: ShortcutsUndefinedCoercionParameterSpec;
+	WFDynamicEnumerationParameter: ShortcutsDynamicEnumerationParameterSpec;
+	WFVariableFieldParameter: ShortcutsVariableFieldParameterSpec;
+	WFArrayParameter: ShortcutsArrayParameterSpec;
+	WFContactFieldParameter: ShortcutsContactFieldParameterSpec;
+	WFDictionaryParameter: ShortcutsDictionaryParameterSpec;
+	WFDictateTextLanguagePickerParameter: ShortcutsDictateTextLanguagePickerSpec;
+	WFStepperParameter: ShortcutsStepperParameterSpec;
+	WFStorageServicePickerParameter: ShortcutsStorageServicePickerParameterSpec;
+	WFEmailAddressFieldParameter: ShortcutsEmailAddressFieldParameterSpec;
+	WFEvernoteNotebookPickerParameter: ShortcutsEvernoteNotebookPickerParameterSpec;
+	WFEvernoteTagsTagFieldParameter: ShortcutsEvernoteTagsTagFieldParameterSpec;
+	WFFilterParameter: ShortcutsFilterParameterSpec;
+	WFSliderParameter: ShortcutsSliderParameterSpec;
+	WFCustomDateFormatParameter: ShortcutsCustomDateFormatParameterSpec;
+	WFMapsAppPickerParameter: ShortcutsMapsAppPickerParameterSpec;
+	WFGetDistanceUnitPickerParameter: ShortcutsGetDistanceUnitPickerParameterSpec;
+	WFNetworkPickerParameter: ShortcutsNetworkPickerParameterSpec;
+	WFQuantityTypePickerParameter: ShortcutsQuantityTypePickerParameterSpec;
+	WFHealthQuantityFieldParameter: ShortcutsHealthQuantityFieldParameterSpec;
+	WFHealthQuantityAdditionalFieldParameter: ShortcutsHealthQuantityAdditionalFieldParameterSpec;
+	WFHealthQuantityAdditionalPickerParameter: ShortcutsHealthQuantityAdditionalPickerParameterSpec;
+	WFHealthCategoryPickerParameter: ShortcutsHealthCategoryPickerParameterSpec;
+	WFHealthCategoryAdditionalPickerParameter: ShortcutsHealthCategoryAdditionalPickerParameterSpec;
+	WFHealthCategoryStartDateFieldParameter: ShortcutsHealthCategoryStartDateFieldParameterSpec;
+	WFHealthCategoryEndDateFieldParameter: ShortcutsHealthCategoryEndDateFieldParameterSpec;
+	WFWorkoutTypePickerParameter: ShortcutsWorkoutTypePickerParameterSpec;
+	WFDurationQuantityFieldParameter: ShortcutsDurationQuantityFieldParameterSpec; // 9
+	WFIFTTTTriggerNameParameter: ShortcutsIFTTTTriggerNameParameterSpec;
+	WFIFTTTAddRecipeParameter: ShortcutsIFTTTAddRecipeParameterSpec;
+	WFImageConvertFormatPickerParameter: ShortcutsImageFormatPickerParameterSpec;
+	WFLightroomPresetPickerParameter: ShortcutsLightroomPresetPickerParameterSpec;
+	WFContentArrayParameter: ShortcutsContentArrayParameterSpec;
+	WFArchiveFormatParameter: ShortcutsArchiveFormatParameterSpec;
+	WFUnitTypePickerParameter: ShortcutsUnitTypePickerParameterSpec;
+	WFMeasurementUnitPickerParameter: ShortcutsMeasurementUnitPickerParameterSpec;
+	WFAppPickerParameter: ShortcutsAppPickerParameterSpec;
+	WFPhoneNumberFieldParameter: ShortcutsPhoneNumberFieldParameterSpec;
+	WFTimeIntervalParameter: ShortcutsTimeIntervalParameterSpec;
+	WFWorkflowPickerParameter: ShortcutsWorkflowPickerParameterSpec;
+	WFPhotoAlbumPickerParameter: ShortcutsPhotoAlbumPickerParameterSpec;
+	WFiTunesStoreCountryPickerParameter: ShortcutsiTunesStoreCountryPickerParameterSpec;
+	WFEmailAccountPickerParameter: ShortcutsEmailAccountPickerParameterSpec;
+	WFContactHandleFieldParameter: ShortcutsContactHandleFieldParameterSpec;
+	WFAccountPickerParameter: ShortcutsAccountPickerParameterSpec;
+	WFSlackChannelPickerParameter: ShortcutsSlackChannelPickerParameterSpec;
+	WFSpeakTextVoicePickerParameter: ShortcutsSpeakTextVoicePickerParameterSpec;
+	WFSpeakTextRateParameter: ShortcutsSpeakTextRatePickerParameterSpec;
+	WFSpeakTextLanguagePickerParameter: ShortcutsSpeakTextLanguagePickerParameterSpec;
+	WFTranslateTextLanguagePickerParameter: ShortcutsTranslateTextLanguagePickerParameterSpec;
+	WFTodoistProjectPickerParameter: ShortcutsTodoistProjectPickerParameterSpec;
+	WFTrelloBoardPickerParameter: ShortcutsTrelloBoardPickerParameterSpec;
+	WFTrelloListPickerParameter: ShortcutsTrelloListPickerParameterSpec;
+	WFTumblrComposeInAppParameter: ShortcutsTumblrComposeInAppParameterSpec;
+	WFTumblrBlogPickerParameter: ShortcutsTumblrBlogPickerParameterSpec;
+	WFDynamicTagFieldParameter: ShortcutsDynamicTagFieldParameterSpec;
+	WFWunderlistListPickerParameter: ShortcutsWunderlistListPickerParameterSpec;
+	WFFaceTimeTypePickerParameter: ShortcutsFaceTimePickerParameterSpec;
+	WFNoteGroupPickerParameter: ShortcutsNoteGroupPickerParameterSpec;
+	WFMediaPickerParameter: ShortcutsMediaPickerParameterSpec;
+	WFUnitQuantityFieldParameter: ShortcutsUnitQuantityFieldParameterSpec;
+	WFLocationParameter: ShortcutsLocationParameterSpec;
+	WFConditionalSubjectParameter: ShortcutsConditionalSubjectParameterSpec;
+	WFConditionalOperatorParameter: ShortcutsConditionalOperatorParameterSpec;
+	WFDatePickerParameter: ShortcutsDatePickerParameterSpec;
+	WFNumericDynamicEnumerationParameter: ShortcutsNumericDynamicEnumerationParameterSpec;
+	WFFileSizePickerParameter: ShortcutsFileFormatSizePickerParameterSpec;
+	WFHomeServicePickerParameter: ShortcutsHomeServicePickerParameterSpec;
+	WFHomeCharacteristicPickerParameter: ShortcutsHomeCharacteristicPickerParameterSpec;
+	WFHomeAccessoryPickerParameter: ShortcutsHomeAccessoryPickerParameterSpec;
+	WFFlipImageDirectionPickerParameter: ShortcutsFlipImageDirectionPickerParameterSpec;
+	WFMediaRoutePickerParameter: ShortcutsMediaRoutePickerParameterSpec;
+	WFPodcastPickerParameter: ShortcutsPodcastPickerParameterSpec;
+};
+// ^generate with .replace(/\|\ \((Shortcuts.+?Spec) &[\s\S]+?_pc<"(.+?)">\)/g, "$2: $1,"))
+
 export type ShortcutsParameterSpec =
 	| (ShortcutsIntentAppPickerParameterSpec &
 			_pc<"WFIntentAppPickerParameter">)
@@ -318,6 +411,8 @@ export type ShortcutsParameterSpec =
 	| (ShortcutsExpandingParameterSpec & _pc<"WFExpandingParameter">)
 	| (ShortcutsCountryFieldParameterSpec & _pc<"WFCountryFieldParameter">)
 	| (ShortcutsPlaylistPickerParameterSpec & _pc<"WFPlaylistPickerParameter">)
+	| (ShortcutsTimeOffsetParameterSpec & _pc<"WFTimeOffsetParameter">)
+	| (ShortcutsUndefinedCoercionParameterSpec & _pc<"_UndefinedCoercionClass">)
 	| (ShortcutsDynamicEnumerationParameterSpec &
 			_pc<"WFDynamicEnumerationParameter">)
 	| (ShortcutsVariableFieldParameterSpec & _pc<"WFVariableFieldParameter">)

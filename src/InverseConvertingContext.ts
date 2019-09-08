@@ -13,11 +13,14 @@ import {
 	Aggrandizements,
 	inverseCoercionTypes,
 	ErrorParameter,
-	AdjustOffset
+	AdjustOffset,
+	RawParameter,
+	TemporaryImportQuestion
 } from "./OutputData";
-import { getActionFromID } from "./ActionData";
+import { getActionFromID, WFParameter } from "./ActionData";
 
 import { inverseGlyphs, inverseColors } from "./Data/ShortcutMeta";
+import { contentItemClassToExtensionInputName } from "./Data/TypeClasses";
 
 const NUMBER = /^-?(?:[0-9]*\.[0-9]+|[0-9]+)$/;
 const IDENTIFIER = /^[A-Za-z@_][A-Za-z0-9@_]*$/;
@@ -30,7 +33,7 @@ const ESCAPESQUOTEDSTRING = (value: string) =>
 	value
 		.replace(/(['\\\n])/g, d => (d === "\n" ? "\\n" : `\\${d}`))
 		.replace(/\r/g, "");
-const SQUOTEDSTRING = (value: string) => `"${ESCAPESQUOTEDSTRING(value)}"`;
+const SQUOTEDSTRING = (value: string) => `'${ESCAPESQUOTEDSTRING(value)}'`;
 
 // FOR NOW:
 // put argument labels on all arguments
@@ -40,6 +43,10 @@ const SQUOTEDSTRING = (value: string) => `"${ESCAPESQUOTEDSTRING(value)}"`;
 export class InverseConvertingContext {
 	magicVariablesByUUID: { [key: string]: string };
 	magicVariablesByName: { [key: string]: string };
+	importQuestionsByActionUUID: {
+		[key: string]: TemporaryImportQuestion & { VariableName: string };
+	};
+	importQuestionCount: number;
 	quotes: '"' | "'";
 	indent: string;
 	_indentLevel: number;
@@ -48,6 +55,8 @@ export class InverseConvertingContext {
 	) {
 		this.magicVariablesByName = {};
 		this.magicVariablesByUUID = {};
+		this.importQuestionsByActionUUID = {};
+		this.importQuestionCount = 0;
 		this.quotes = options.quotes || '"';
 		if (typeof options.indent === "number") {
 			options.indent = " ".repeat(options.indent);
@@ -57,15 +66,53 @@ export class InverseConvertingContext {
 	}
 
 	createActionsAble(value: Shortcut) {
-		const res = value.actions.map(action => {
-			const createdAction = this.createActionAble(action);
-			return `${createdAction}`;
-		});
+		const res: string[] = [];
+		if (value.importquestions) {
+			value.importquestions.forEach(importquestion => {
+				const questionName = `Question${++this.importQuestionCount}`;
+				res.unshift(
+					`@ImportQuestion q:${this.createStringAble(
+						questionName
+					)} question=${this.createStringAble(importquestion.Text)}${
+						importquestion.DefaultValue
+							? ` defaultValue=${this.createStringAble(
+									importquestion.DefaultValue
+							  )}`
+							: ""
+					}`
+				);
+				this.importQuestionsByActionUUID[importquestion.ActionUUID] = {
+					...importquestion,
+					VariableName: questionName
+				};
+			});
+		}
+		res.push(
+			...value.actions.map(action => {
+				const createdAction = this.createActionAble(action);
+				return `${createdAction}`;
+			})
+		);
 		if (value.color) {
 			res.unshift(`@Color ${inverseColors[value.color]}`);
 		}
 		if (value.glyph) {
 			res.unshift(`@Icon ${inverseGlyphs[value.glyph]}`);
+		}
+		if (!value.showInWidget) {
+			// default is true
+			res.unshift(`@ShowInWidget ${value.showInWidget}`);
+		}
+		if (value.showinsharesheet) {
+			res.unshift(
+				`@ShowInShareSheet [${value.showinsharesheet
+					.map(q =>
+						this.createStringAble(
+							contentItemClassToExtensionInputName[q]
+						)
+					)
+					.join(" ")}]`
+			);
 		}
 		return res.join("\n");
 	}
@@ -73,21 +120,89 @@ export class InverseConvertingContext {
 		const result: string[] = [];
 
 		// get action data
-		const actionData = getActionFromID(value.id);
+		let actionData:
+			| {
+					name?: string;
+					readableName?: string;
+					internalName?: string;
+					getParameterOrder: () => ReadonlyArray<
+						WFParameter | string
+					>;
+					_data: { BlockInfo?: {} };
+			  }
+			| undefined = getActionFromID(value.id);
+		let rawWarning = false;
 
 		if (!actionData) {
-			return `??unknown action with id ${value.id.replace(
-				/[^A-Za-z0-9.]/g,
-				""
-			)}??`;
+			// create raw action
+			rawWarning = true;
+			actionData = {
+				readableName: `:raw ${this.createStringAble(value.id)}`,
+				getParameterOrder: () => [],
+				_data: {
+					BlockInfo:
+						Object.keys(value.parameters.values).indexOf(
+							"GroupingIdentifier"
+						) > -1
+				}
+			};
 		}
 
 		// let parameters = actionData.getParameters();
-		const order = actionData.getParameterOrder(); // TODO future
+		const order = actionData.getParameterOrder().slice(0); // TODO future
+		Object.keys(value.parameters.values).forEach(paramName => {
+			if (
+				paramName === "GroupingIdentifier" ||
+				paramName === "WFControlFlowMode" ||
+				paramName === "UUID" ||
+				paramName === "CustomOutputName"
+			) {
+				return;
+			}
+			if (
+				!order.find(it =>
+					it instanceof WFParameter
+						? it.internalName === paramName
+						: it === paramName
+				)
+			) {
+				order.push(paramName);
+			}
+		});
 		order.forEach(param => {
+			const importQuestion = this.importQuestionsByActionUUID[
+				value.parameters.get("UUID")
+			];
 			if (typeof param === "string") {
+				// :raw{json data}
+				const paramName = param;
+				rawWarning = true;
+				if (importQuestion && param === importQuestion.ParameterKey) {
+					return result.push(
+						`${param}=${this.createImportQuestionAble(
+							importQuestion
+						)}`
+					);
+				}
 				return result.push(
-					`??${param.replace(/[^A-Za-z0-9 ]/g, "")}??`
+					`${param}=${this.createRawAble(
+						value.parameters.get(paramName)
+					)}`
+				);
+			}
+			if (
+				importQuestion &&
+				param.internalName === importQuestion.ParameterKey
+			) {
+				if (order.length === 1) {
+					return result.push(
+						`${this.createImportQuestionAble(importQuestion)}`
+					);
+				}
+				return result.push(
+					`${param.readableName}=${this.createImportQuestionAble(
+						importQuestion
+					)}`
 				);
 			}
 
@@ -96,12 +211,18 @@ export class InverseConvertingContext {
 				return;
 			}
 			if (order.length === 1) {
-				return result.push(this.handleArgument(toParam(paramValue)));
+				const madeParam = toParam(paramValue);
+				if (madeParam === undefined) {
+					return;
+				}
+				return result.push(this.handleArgument(madeParam));
+			}
+			const madeParam = toParam(paramValue);
+			if (madeParam === undefined) {
+				return;
 			}
 			result.push(
-				`${param.readableName}=${this.handleArgument(
-					toParam(paramValue)
-				)}`
+				`${param.readableName}=${this.handleArgument(madeParam)}`
 			);
 		});
 
@@ -159,7 +280,11 @@ export class InverseConvertingContext {
 
 		return (
 			this.indent.repeat(indentLevel) +
-			`${actionName} ${paramResult}`.trim()
+			`${actionName} ${paramResult} ${
+				rawWarning
+					? "// Warning: This action contains some parameters that are not supported. Editing them may cause errors."
+					: ""
+			}`.trim()
 		);
 	}
 
@@ -191,10 +316,14 @@ export class InverseConvertingContext {
 		if (thing instanceof ErrorParameter) {
 			return `??error: ${thing.text.replace(/[^A-Za-z0-9 :]/g, "")}??`;
 		}
+		if (thing instanceof RawParameter) {
+			return this.createRawAble(thing.build());
+		}
 		return "??this argument type is not supported yet??";
 	}
 
-	createStringAble(value: string): string {
+	createStringAble(value_: string | number): string {
+		const value = `${value_}`;
 		// One of: "string", ident, -1.5, \n|barlist (ifend)
 		if (value.match(NUMBER)) {
 			return value;
@@ -282,6 +411,11 @@ export class InverseConvertingContext {
 		}
 		return res;
 	}
+	createImportQuestionAble(
+		value: TemporaryImportQuestion & { VariableName: string }
+	) {
+		return `q:${this.createStringAble(value.VariableName)}`;
+	}
 	createVariableAble(value: Attachment): string {
 		// createVariAble
 		if (value instanceof NamedVariable) {
@@ -368,6 +502,13 @@ export class InverseConvertingContext {
 				.join(" ")}]`;
 		}
 		return `[${this.createStringAble(value.opts.mode)}]`;
+	}
+	createRawAble(val: {}) {
+		const indentLevel = this._indentLevel;
+		return `:raw${JSON.stringify(val, null, this.indent)
+			.split("\n")
+			.map((q, i) => (i === 0 ? q : this.indent.repeat(indentLevel) + q))
+			.join("\n")}`;
 	}
 	quoteAndEscape(val: string): string {
 		if (this.quotes === "'") {

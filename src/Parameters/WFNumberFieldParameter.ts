@@ -4,6 +4,7 @@ import { AsAble } from "../ParserData";
 import { WFParameter } from "./WFParameter";
 
 import { ShortcutsNumberFieldParameterSpec } from "../Data/ActionDataTypes/ShortcutsParameterSpec";
+import { Action } from "../OutputData";
 
 export class WFNumberFieldParameter extends WFParameter {
 	_data: ShortcutsNumberFieldParameterSpec;
@@ -32,7 +33,10 @@ export class WFNumberFieldParameter extends WFParameter {
 	genDocsDefaultValue(value: string) {
 		return `\`${value}\``;
 	}
-	build(cc: ConvertingContext, parse: AsAble) {
+	build(cc: ConvertingContext, parse: AsAble, action: Action) {
+		if (parse.canBeImportQuestion(cc)) {
+			return parse.asImportQuestion(cc, this._data.Key, action.uuid);
+		}
 		if (parse.canBeVariable(cc)) {
 			const res = parse.asVariable(cc);
 			if (!this.allowsVariables) {
@@ -43,12 +47,10 @@ export class WFNumberFieldParameter extends WFParameter {
 			}
 			return res;
 		} else if (parse.canBeNumber(cc)) {
-			const num = parse.asNumber(cc); // asString returns a string like "" <-- that's a string
+			const num = parse.asNumber(cc);
 			return num;
 		}
-		throw parse.error(
-			cc,
-			"Number fields only accept numbers and variables."
-		);
+		parse.warn(cc, "Number fields only accept numbers and variables.");
+		return 0;
 	}
 }

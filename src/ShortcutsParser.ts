@@ -15,20 +15,11 @@ import {
 	Parse,
 	FilterItemParse,
 	FilterParse,
-	PositionedError
+	RawParse
 } from "./ParserData";
 
-import {
-	p,
-	regex,
-	star,
-	plus,
-	optional,
-	or,
-	c,
-	o,
-	error
-} from "./ParserHelper";
+import { p, regex, star, plus, optional, or, c, o } from "./ParserHelper";
+import { ImportQuestionParse } from "./ParserData/ImportQuestionParse";
 
 o.identifier = regex(/^[A-Za-z@_][A-Za-z0-9@_]*/).scb(
 	([fullmatch], start, end) => new IdentifierParse(start, end, fullmatch)
@@ -75,12 +66,13 @@ o.escape = p(
 		c`\\`,
 		c`”`,
 		c`n`.scb(_ => "\n"),
-		error(
-			regex(/.?/),
-			v =>
-				`Did you mean \`\\\\\`? The character \`${
-					v[0]
-				}\` is not a valid escape sequence. See the docs page on string escapes for more info.`
+		regex(/.?/).scb(
+			(v, start, end) =>
+				new ErrorParse(
+					start,
+					end,
+					`Did you mean \`\\\\\`? The character \`${v[0]}\` is not a valid escape sequence. See the docs page on string escapes for more info.`
+				)
 		)
 	)
 ).scb(([, val]) => val);
@@ -191,56 +183,51 @@ o.inputarg = p(c`^`, or(o.parenthesis, o.variable)).scb(([, paren]) => {
 });
 o.flaggedaction = p(o.variable, _, c`=`, _, o.onlyaction).scb(
 	([variable, , , , action], start, end) => {
-		if (action.variable) {
-			throw new PositionedError(
-				"Actions cannot output to multiple variables",
-				start,
-				end
-			);
-		}
 		action.variable = variable;
 		return action;
 	}
 );
-o.onlyaction = p(o.identifier, _, o.args).scb(
-	([actionIdentifier, _, args], start, end) => {
-		const flags: any = [];
-		args = args.filter((arg: any) =>
-			arg && arg instanceof VariableFlagParse
-				? flags.push(arg) && false
-				: true
-		);
-		if (flags.length > 1) {
-			throw new PositionedError(
-				"Actions cannot output to multiple variables",
-				start,
-				end
-			);
-		}
-		const res: {
-			type: string;
-			action: Parse;
-			args: Parse[];
-			variable?: Parse;
-		} = {
-			type: "action",
-			action: actionIdentifier,
-			args: args
-		};
-		if (flags[0]) {
-			res.variable = flags[0].variable;
-		}
-		// @ts-ignore
-		const actionParse = new ActionParse(
+o.onlyaction = p(
+	or(o.identifier, p(c`:raw`, _, o.string).scb(([, , v]) => v)),
+	_,
+	o.args
+).scb(([actionIdentifier, _, args], start, end) => {
+	const flags: any = [];
+	args = args.filter((arg: any) =>
+		arg && arg instanceof VariableFlagParse
+			? flags.push(arg) && false
+			: true
+	);
+	if (flags.length > 1) {
+		return new ErrorParse(
 			start,
 			end,
-			res.action,
-			res.args,
-			res.variable
+			"Actions cannot output to multiple variables"
 		);
-		return actionParse;
 	}
-);
+	const res: {
+		type: string;
+		action: Parse;
+		args: Parse[];
+		variable?: Parse;
+	} = {
+		type: "action",
+		action: actionIdentifier,
+		args: args
+	};
+	if (flags[0]) {
+		res.variable = flags[0].variable;
+	}
+	// @ts-ignore
+	const actionParse = new ActionParse(
+		start,
+		end,
+		res.action,
+		res.args,
+		res.variable
+	);
+	return actionParse;
+});
 
 o.args = star(p(o.argument, _).scb(data => data[0]));
 
@@ -253,8 +240,21 @@ o.value = or(
 	o.parenthesis,
 	o.dictionary,
 	o.list,
-	o.filter
+	o.filter,
+	o.rawvalue
 );
+o.rawvalue = p(
+	c`:raw`,
+	_,
+	or(
+		o.dictionary,
+		o.string,
+		c`true`.scb(() => true),
+		c`false`.scb(_ => false),
+		regex(/^-?(?:[0-9]*\.[0-9]+|[0-9]+)/).scb(([v]) => +v)
+		// o.array
+	)
+).scb(([, , dict], start, end) => new RawParse(start, end, dict));
 
 o.dictionary = p(
 	c`{`,
@@ -345,6 +345,9 @@ o.variable = p(
 ).scb(([type, , name, forkey, options], start, end) => {
 	if (type.value === "@") {
 		return new ConvertVariableParse(start, end, name, options);
+	}
+	if (type.value === "q") {
+		return new ImportQuestionParse(start, end, name, options);
 	}
 	return new VariableParse(start, end, type, name, forkey, options);
 });

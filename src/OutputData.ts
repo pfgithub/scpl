@@ -35,6 +35,7 @@ import getTypes, {
 } from "./Data/GetTypes";
 
 import { GlyphCodepoint, ColorCode, glyphs, colors } from "./Data/ShortcutMeta";
+import { ExtensionInputContentItemClass } from "./Data/TypeClasses";
 
 const coercionTypes: { [name: string]: CoercionTypeClass } = {
 	// remove name:string and make it typed too
@@ -62,7 +63,8 @@ const coercionTypes: { [name: string]: CoercionTypeClass } = {
 	safariwebpage: "WFSafariWebPageContentItem",
 	text: "WFStringContentItem",
 	url: "WFURLContentItem",
-	vcard: "WFVCardContentItem"
+	vcard: "WFVCardContentItem",
+	calendarevent: "WFCalendarEventContentItem"
 };
 export const inverseCoercionTypes: { [name in CoercionTypeClass]: string } = {
 	WFContentItem: "anything",
@@ -92,7 +94,8 @@ export const inverseCoercionTypes: { [name in CoercionTypeClass]: string } = {
 	WFStringContentItem: "text",
 	WFURLContentItem: "url",
 	WFVCardContentItem: "vcard",
-	WFEnumerationContentItem: "enumeration"
+	WFEnumerationContentItem: "enumeration",
+	WFCalendarEventContentItem: "calendarevent"
 };
 
 type WFAggrandizements = (
@@ -416,9 +419,7 @@ export class ContentItemFilter extends Parameter {
 		if (!expectedType) {
 			return {
 				error: true,
-				message: `The type \`${
-					propertyData.type
-				}\` is probably not implemented yet.`
+				message: `The type \`${propertyData.type}\` is probably not implemented yet.`
 			};
 		}
 		return {
@@ -445,9 +446,7 @@ export class ContentItemFilter extends Parameter {
 			}
 			const enumoptions = propertyData.filterEnumValues;
 			if (!enumoptions) {
-				return `This enum was set up wrong. ${
-					propertyData.name
-				}. Report an issue.`;
+				return `This enum was set up wrong. ${propertyData.name}. Report an issue.`;
 			}
 			if (enumoptions.indexOf(value) > -1) {
 				this.data.push({ Enumeration: value, ...baseData });
@@ -761,10 +760,13 @@ export class Attachment extends Parameter {
 		return result;
 	}
 	build(): WFAttachmentParameter {
+		const aggrandizementsArr = this.aggrandizements.build();
 		return {
 			Value: {
 				Type: this.type,
-				Aggrandizements: this.aggrandizements.build()
+				...(aggrandizementsArr.length > 0
+					? { Aggrandizements: aggrandizementsArr }
+					: {})
 			},
 			WFSerializationType: "WFTextTokenAttachment"
 		};
@@ -792,10 +794,13 @@ export class NamedVariable extends Variable {
 		return new NamedVariable(data.Value.VariableName);
 	}
 	build(): WFAttachmentParameter {
+		const aggrandizementsArr = this.aggrandizements.build();
 		return {
 			Value: {
 				Type: "Variable",
-				Aggrandizements: this.aggrandizements.build(),
+				...(aggrandizementsArr.length > 0
+					? { Aggrandizements: aggrandizementsArr }
+					: {}),
 				VariableName: this.varname
 			},
 			WFSerializationType: "WFTextTokenAttachment"
@@ -823,10 +828,13 @@ export class MagicVariable extends Variable {
 		return new MagicVariable(data.Value.OutputName, data.Value.OutputUUID);
 	}
 	build(): WFAttachmentParameter {
+		const aggrandizementsArr = this.aggrandizements.build();
 		return {
 			Value: {
 				Type: "ActionOutput",
-				Aggrandizements: this.aggrandizements.build(),
+				...(aggrandizementsArr.length > 0
+					? { Aggrandizements: aggrandizementsArr }
+					: {}),
 				OutputName: this.varname,
 				OutputUUID: this.uuid
 			},
@@ -1166,12 +1174,33 @@ export class ErrorParameter extends Parameter {
 	}
 }
 
+type WFRawParameter = {
+	WFSerializationType: "This does not actually exist. There is no way to tell if a built value is a raw parameter.";
+};
+
+export class RawParameter extends Parameter {
+	value: {};
+	constructor(value: {}) {
+		super();
+		this.value = value;
+	}
+	build(): WFRawParameter {
+		return <WFRawParameter>this.value;
+	}
+	static inverse(value: {}) {
+		return new RawParameter(value);
+	}
+}
+
 type WFErrorParameter = {
 	WFSerializationType: "WFErrorParameter";
 	Value: { Text: string };
 };
 
-export function toParam(value: WFParameter): ParameterType {
+export function toParam(value: WFParameter): ParameterType | undefined {
+	if (value === "") {
+		return undefined; // same thing
+	}
 	if (typeof value === "string") {
 		return value;
 	}
@@ -1206,11 +1235,7 @@ export function toParam(value: WFParameter): ParameterType {
 			`This parameter is an error: ${value.Value.Text}`
 		);
 	}
-	return new ErrorParameter(
-		`Inversion for this parameter type ${
-			value.WFSerializationType
-		} is not implemented yet.`
-	);
+	return new RawParameter(value);
 }
 
 export type ParameterType =
@@ -1231,6 +1256,7 @@ export type WFParameter =
 	| WFContentItemFilter
 	| WFNotNeverParameter
 	| WFTimeOffsetValue
+	| WFRawParameter
 	| string
 	| boolean
 	| number;
@@ -1247,7 +1273,11 @@ export class Parameters {
 	static inverse(data: WFParameters): Parameters {
 		const parameters = new Parameters();
 		Object.keys(data).forEach(paramkey => {
-			parameters.set(paramkey, toParam(data[paramkey])); // why is it being converted just to be unconverted again
+			const paramValue = toParam(data[paramkey]);
+			if (paramValue === undefined) {
+				return;
+			}
+			parameters.set(paramkey, paramValue); // why is it being converted just to be unconverted again
 		});
 		return parameters;
 	}
@@ -1257,6 +1287,8 @@ export class Parameters {
 	has(internalName: string) {
 		return !!this.values[internalName];
 	}
+	get(internalName: "UUID"): string;
+	get(internalName: string): WFParameter;
 	get(internalName: string): WFParameter {
 		return this.buildValue(internalName);
 	}
@@ -1328,11 +1360,11 @@ export class Action {
 		return action;
 	}
 	get uuid(): string {
-		if (this.parameters.has("UUID")) {
-			return <string>this.parameters.get("UUID");
+		let uuid = this.parameters.get("UUID");
+		if (!uuid) {
+			this.parameters.set("UUID", (uuid = uuidv4()));
 		}
-		this.parameters.set("UUID", uuidv4());
-		return <string>this.parameters.get("UUID");
+		return uuid;
 	}
 	build(): WFAction {
 		if (this.magicvarname) {
@@ -1349,29 +1381,27 @@ export class Action {
 	}
 }
 
-type ExtensionInputContentItemClass =
-	| "WFAppStoreAppContentItem"
-	| "WFArticleContentItem"
-	| "WFContactContentItem"
-	| "WFDateContentItem"
-	| "WFEmailAddressContentItem"
-	| "WFGenericFileContentItem"
-	| "WFImageContentItem"
-	| "WFiTunesProductContentItem"
-	| "WFLocationContentItem"
-	| "WFDCMapsLinkContentItem"
-	| "WFAVAssetContentItem"
-	| "WFPDFContentItem"
-	| "WFPhoneNumberContentItem"
-	| "WFRichTextContentItem"
-	| "WFSafariWebPageContentItem"
-	| "WFStringContentItem"
-	| "WFURLContentItem";
-type WorkflowTypes = "NCWidget" | "WatchKit";
+export type WFImportQuestion = {
+	ActionIndex: number;
+	Category: "Parameter";
+	DefaultValue?: string;
+	ParameterKey: string;
+	Text: string;
+};
+
+export type TemporaryImportQuestion = {
+	ActionUUID: string;
+	Category: "Parameter";
+	DefaultValue?: string;
+	ParameterKey: string;
+	Text: string;
+};
+
+type WorkflowTypes = "NCWidget" | "WatchKit" | "ActionExtension";
 export type WFShortcut = [
 	{
 		WFWorkflowClientVersion: string;
-		WFWorkflowClientRelese: string;
+		WFWorkflowClientRelease: string;
 		WFWorkflowMinimumClientVersion: number;
 		WFWorkflowIcon: {
 			WFWorkflowIconStartColor: ColorCode;
@@ -1381,6 +1411,7 @@ export type WFShortcut = [
 		WFWorkflowTypes: WorkflowTypes[];
 		WFWorkflowInputContentItemClasses: ExtensionInputContentItemClass[];
 		WFWorkflowActions: WFAction[];
+		WFWorkflowImportQuestions?: WFImportQuestion[];
 	}
 ];
 
@@ -1390,10 +1421,13 @@ export class Shortcut {
 	glyph?: GlyphCodepoint;
 	color?: ColorCode;
 	showInWidget: boolean;
+	showinsharesheet?: ExtensionInputContentItemClass[];
+	importquestions: TemporaryImportQuestion[];
 	constructor(name: string) {
 		this.name = name;
 		this.actions = [];
 		this.showInWidget = true;
+		this.importquestions = [];
 	}
 	add(action: Action) {
 		this.actions.push(action);
@@ -1418,13 +1452,52 @@ export class Shortcut {
 				shortcut.color = undefined;
 			}
 		}
+		const workflowTypes = data[0].WFWorkflowTypes;
+		if (workflowTypes) {
+			shortcut.showInWidget = workflowTypes.indexOf("NCWidget") > -1;
+		}
+		const sharesheet = data[0].WFWorkflowInputContentItemClasses;
+		if (
+			sharesheet &&
+			data[0].WFWorkflowTypes.indexOf("ActionExtension") > -1
+		) {
+			shortcut.showinsharesheet = sharesheet;
+		}
+		const importQuestions = data[0].WFWorkflowImportQuestions;
+		if (importQuestions) {
+			importQuestions.forEach(importQuestion => {
+				shortcut.importquestions.push({
+					...importQuestion,
+					ActionUUID:
+						shortcut.actions[importQuestion.ActionIndex].uuid
+				});
+			});
+		}
 		return shortcut;
 	}
 	build(): WFShortcut {
+		const shortcutActions = this.actions.map(action => action.build());
+		const realImportQuestions: WFImportQuestion[] = [];
+		shortcutActions.forEach((action, i) => {
+			const params = action.WFWorkflowActionParameters || {};
+			const uuid = params.UUID;
+			if (!uuid) {
+				return;
+			}
+			const iq = this.importquestions.find(
+				question => question.ActionUUID === uuid
+			);
+			if (iq) {
+				const res = { ...iq, ActionIndex: i };
+				delete res.ActionUUID;
+				realImportQuestions.push(res);
+			}
+		});
+
 		return [
 			{
 				WFWorkflowClientVersion: "754",
-				WFWorkflowClientRelese: "2.1.2",
+				WFWorkflowClientRelease: "2.1.2",
 				WFWorkflowMinimumClientVersion: 411,
 				WFWorkflowIcon: {
 					WFWorkflowIconGlyphNumber: this.glyph || glyphs.wand,
@@ -1432,12 +1505,16 @@ export class Shortcut {
 					WFWorkflowIconStartColor: this.color || colors.darkpurple
 				},
 				WFWorkflowTypes: [
-					...(this.showInWidget
-						? (["NCWidget"] as ["NCWidget"])
-						: []),
-					"WatchKit"
+					...(this.showInWidget ? ["NCWidget" as const] : []),
+					"WatchKit",
+					...(this.showinsharesheet
+						? ["ActionExtension" as const]
+						: [])
 				],
-				WFWorkflowInputContentItemClasses: [
+				...(realImportQuestions.length === 0
+					? {}
+					: { WFWorkflowImportQuestions: realImportQuestions }),
+				WFWorkflowInputContentItemClasses: this.showinsharesheet || [
 					"WFAppStoreAppContentItem",
 					"WFArticleContentItem",
 					"WFContactContentItem",
@@ -1456,7 +1533,7 @@ export class Shortcut {
 					"WFStringContentItem",
 					"WFURLContentItem"
 				],
-				WFWorkflowActions: this.actions.map(action => action.build())
+				WFWorkflowActions: shortcutActions
 			}
 		];
 	}

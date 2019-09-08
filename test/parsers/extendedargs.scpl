@@ -1,0 +1,140 @@
+getfile errorifnotfound=false showdocumentpicker=false filepath="label"
+getfile (errorifnotfound=false showdocumentpicker:false filepath="parenthesis arglist")
+getfile a{errorifnotfound=false showdocumentpicker:false filepath="a{ arglist"}
+getfile
+> errorifnotfound=false
+> showdocumentpicker=false
+> filepath="extendedarg"
+
+@!ShouldEqual --------------------------------
+
+Output Warnings:
+Array []
+
+Shortcut Full Inverted:
+GetFile showDocumentPicker=false filePath=label errorIfNotFound=false
+GetFile showDocumentPicker=false filePath="parenthesis arglist" errorIfNotFound=false
+GetFile showDocumentPicker=false filePath="a{ arglist" errorIfNotFound=false
+GetFile showDocumentPicker=false filePath=extendedarg errorIfNotFound=false
+
+Shortcut Full JSON:
+Array [
+  Object {
+    "WFWorkflowActions": Array [
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              1,
+              72,
+            ],
+            "start": Array [
+              1,
+              1,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.documentpicker.open",
+        "WFWorkflowActionParameters": Object {
+          "WFFileErrorIfNotFound": false,
+          "WFGetFilePath": "label",
+          "WFShowFilePicker": false,
+        },
+      },
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              2,
+              88,
+            ],
+            "start": Array [
+              2,
+              1,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.documentpicker.open",
+        "WFWorkflowActionParameters": Object {
+          "WFFileErrorIfNotFound": false,
+          "WFGetFilePath": "parenthesis arglist",
+          "WFShowFilePicker": false,
+        },
+      },
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              3,
+              80,
+            ],
+            "start": Array [
+              3,
+              1,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.documentpicker.open",
+        "WFWorkflowActionParameters": Object {
+          "WFFileErrorIfNotFound": false,
+          "WFGetFilePath": "a{ arglist",
+          "WFShowFilePicker": false,
+        },
+      },
+      Object {
+        "SCPLData": Object {
+          "Position": Object {
+            "end": Array [
+              7,
+              25,
+            ],
+            "start": Array [
+              4,
+              1,
+            ],
+          },
+        },
+        "WFWorkflowActionIdentifier": "is.workflow.actions.documentpicker.open",
+        "WFWorkflowActionParameters": Object {
+          "WFFileErrorIfNotFound": false,
+          "WFGetFilePath": "extendedarg",
+          "WFShowFilePicker": false,
+        },
+      },
+    ],
+    "WFWorkflowClientRelease": "2.1.2",
+    "WFWorkflowClientVersion": "754",
+    "WFWorkflowIcon": Object {
+      "WFWorkflowIconGlyphNumber": 59511,
+      "WFWorkflowIconImageData": Object {
+        "data": Array [],
+        "type": "Buffer",
+      },
+      "WFWorkflowIconStartColor": 2071128575,
+    },
+    "WFWorkflowInputContentItemClasses": Array [
+      "WFAppStoreAppContentItem",
+      "WFArticleContentItem",
+      "WFContactContentItem",
+      "WFDateContentItem",
+      "WFEmailAddressContentItem",
+      "WFGenericFileContentItem",
+      "WFImageContentItem",
+      "WFiTunesProductContentItem",
+      "WFLocationContentItem",
+      "WFDCMapsLinkContentItem",
+      "WFAVAssetContentItem",
+      "WFPDFContentItem",
+      "WFPhoneNumberContentItem",
+      "WFRichTextContentItem",
+      "WFSafariWebPageContentItem",
+      "WFStringContentItem",
+      "WFURLContentItem",
+    ],
+    "WFWorkflowMinimumClientVersion": 411,
+    "WFWorkflowTypes": Array [
+      "NCWidget",
+      "WatchKit",
+    ],
+  },
+]
