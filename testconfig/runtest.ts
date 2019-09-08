@@ -15,6 +15,7 @@ export function noUUID(
 		flattenUselessStringSerialization?: boolean;
 		ignoreMenuItemTitles?: boolean;
 		ignoreEmptyString?: boolean;
+		ignoreWorkflowTypesOrder?: boolean;
 	} = {}
 ) {
 	const fullString = JSON.stringify(obj, null);
@@ -30,6 +31,13 @@ export function noUUID(
 			}
 			if (options.ignoreEmptyString && value === "") {
 				return undefined;
+			}
+			if (options.ignoreWorkflowTypesOrder && key === "WFWorkflowTypes") {
+				const obj: { [key: string]: boolean } = {};
+				const valuearr = value as string[];
+				valuearr.forEach(item => (obj[item] = true));
+				delete obj.WatchKit;
+				return obj;
 			}
 			if (
 				options.noWorkflowVersion &&
@@ -119,7 +127,8 @@ function runShortcutTest(dirname: string, infile: string) {
 				noWorkflowVersion: true,
 				ignoreOutputName: true,
 				flattenUselessStringSerialization: true,
-				ignoreMenuItemTitles: true
+				ignoreMenuItemTitles: true,
+				ignoreWorkflowTypesOrder: true
 			})
 		).toStrictEqual(
 			noUUID(jsonvalue, {
@@ -129,7 +138,8 @@ function runShortcutTest(dirname: string, infile: string) {
 				noUnusedUUID: true,
 				flattenUselessStringSerialization: true,
 				ignoreMenuItemTitles: true,
-				ignoreEmptyString: true
+				ignoreEmptyString: true,
+				ignoreWorkflowTypesOrder: true
 			})
 		);
 	});
