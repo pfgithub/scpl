@@ -19,6 +19,7 @@ import {
 import { getActionFromID, WFParameter } from "./ActionData";
 
 import { inverseGlyphs, inverseColors } from "./Data/ShortcutMeta";
+import { contentItemClassToExtensionInputName } from "./Data/TypeClasses";
 
 const NUMBER = /^-?(?:[0-9]*\.[0-9]+|[0-9]+)$/;
 const IDENTIFIER = /^[A-Za-z@_][A-Za-z0-9@_]*$/;
@@ -71,6 +72,13 @@ export class InverseConvertingContext {
 		if (!value.showInWidget) {
 			// default is true
 			res.unshift(`@ShowInWidget ${value.showInWidget}`);
+		}
+		if (value.showinsharesheet) {
+			res.unshift(
+				`@ShowInShareSheet [${value.showinsharesheet
+					.map(q => contentItemClassToExtensionInputName[q])
+					.join(" ")}]`
+			);
 		}
 		return res.join("\n");
 	}

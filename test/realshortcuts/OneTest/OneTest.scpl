@@ -1,3 +1,4 @@
+@ShowInShareSheet [richtext string url]
 @Icon headphones
 @Color darkgray
 Comment "Deezer music 🎵 downloader.\nRipped from source directly.\n\nV: 2.1.0, Made by /u/74Y3M"

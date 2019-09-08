@@ -5,6 +5,11 @@ import { getActionFromID } from "./ActionData";
 
 import { glyphs, colors } from "./Data/ShortcutMeta";
 import { ArgParser, simpleParse } from "./ArgParser";
+import {
+	extensionInputNameToContentItemClass,
+	ScPLNameContentItemClass
+} from "./Data/TypeClasses";
+import { nearestString } from "./nearestString";
 
 export type PreprocessorAction = (
 	this: AsAble,
@@ -206,6 +211,39 @@ const preprocessorActions: {
 			);
 		}
 		cc.shortcut.color = color;
+	},
+	"@showinsharesheet": function(this, cc, ...args: AsAble[]) {
+		const pres = simpleParse(cc, ["when"], args);
+		const when = pres.when;
+		if (!when) {
+			throw this.error(
+				cc,
+				"when is required containing a list of times to show in the sharesheet"
+			);
+		}
+		if (!when.canBeAbleArray(cc)) {
+			throw when.error(cc, "Must be array of when");
+		}
+		cc.shortcut.showinsharesheet = when.asAbleArray(cc).map(item => {
+			if (!item.canBeString(cc)) {
+				throw item.error(cc, "Must be string");
+			}
+			const itemStr = item.asString(cc);
+			const itemScPLClass = nearestString(itemStr, Object.keys(
+				extensionInputNameToContentItemClass
+			) as ScPLNameContentItemClass[]);
+			if (!itemScPLClass) {
+				throw item.error(
+					cc,
+					`Must be one of ${Object.keys(
+						extensionInputNameToContentItemClass
+					).join(", ")}`
+				);
+			}
+			const itemClass =
+				extensionInputNameToContentItemClass[itemScPLClass];
+			return itemClass;
+		});
 	},
 	"@showinwidget": function(this, cc, ...args: AsAble[]) {
 		const pres = simpleParse(cc, ["value"], args);

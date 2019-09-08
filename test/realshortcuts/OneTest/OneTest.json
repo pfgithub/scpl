@@ -34,10 +34,7 @@
 				"DefaultValue": "Browser"
 			}
 		],
-		"WFWorkflowTypes": [
-			"ActionExtension",
-			"NCWidget"
-		],
+		"WFWorkflowTypes": ["ActionExtension", "NCWidget"],
 		"WFWorkflowInputContentItemClasses": [
 			"WFRichTextContentItem",
 			"WFStringContentItem",
@@ -151,10 +148,7 @@
 						"WFSerializationType": "WFTextTokenString"
 					},
 					"WFControlFlowMode": 0,
-					"WFMenuItems": [
-						"Yes",
-						"No"
-					],
+					"WFMenuItems": ["Yes", "No"],
 					"GroupingIdentifier": "20727C27-7196-460A-97F0-A7CD6D88204A"
 				}
 			},

@@ -35,6 +35,7 @@ import getTypes, {
 } from "./Data/GetTypes";
 
 import { GlyphCodepoint, ColorCode, glyphs, colors } from "./Data/ShortcutMeta";
+import { ExtensionInputContentItemClass } from "./Data/TypeClasses";
 
 const coercionTypes: { [name: string]: CoercionTypeClass } = {
 	// remove name:string and make it typed too
@@ -1378,25 +1379,7 @@ export class Action {
 	}
 }
 
-type ExtensionInputContentItemClass =
-	| "WFAppStoreAppContentItem"
-	| "WFArticleContentItem"
-	| "WFContactContentItem"
-	| "WFDateContentItem"
-	| "WFEmailAddressContentItem"
-	| "WFGenericFileContentItem"
-	| "WFImageContentItem"
-	| "WFiTunesProductContentItem"
-	| "WFLocationContentItem"
-	| "WFDCMapsLinkContentItem"
-	| "WFAVAssetContentItem"
-	| "WFPDFContentItem"
-	| "WFPhoneNumberContentItem"
-	| "WFRichTextContentItem"
-	| "WFSafariWebPageContentItem"
-	| "WFStringContentItem"
-	| "WFURLContentItem";
-type WorkflowTypes = "NCWidget" | "WatchKit";
+type WorkflowTypes = "NCWidget" | "WatchKit" | "ActionExtension";
 export type WFShortcut = [
 	{
 		WFWorkflowClientVersion: string;
@@ -1419,6 +1402,7 @@ export class Shortcut {
 	glyph?: GlyphCodepoint;
 	color?: ColorCode;
 	showInWidget: boolean;
+	showinsharesheet?: ExtensionInputContentItemClass[];
 	constructor(name: string) {
 		this.name = name;
 		this.actions = [];
@@ -1451,6 +1435,13 @@ export class Shortcut {
 		if (workflowTypes) {
 			shortcut.showInWidget = workflowTypes.indexOf("NCWidget") > -1;
 		}
+		const sharesheet = data[0].WFWorkflowInputContentItemClasses;
+		if (
+			sharesheet &&
+			data[0].WFWorkflowTypes.indexOf("ActionExtension") > -1
+		) {
+			shortcut.showinsharesheet = sharesheet;
+		}
 		return shortcut;
 	}
 	build(): WFShortcut {
@@ -1465,12 +1456,13 @@ export class Shortcut {
 					WFWorkflowIconStartColor: this.color || colors.darkpurple
 				},
 				WFWorkflowTypes: [
-					...(this.showInWidget
-						? (["NCWidget"] as ["NCWidget"])
-						: []),
-					"WatchKit"
+					...(this.showInWidget ? ["NCWidget" as const] : []),
+					"WatchKit",
+					...(this.showinsharesheet
+						? ["ActionExtension" as const]
+						: [])
 				],
-				WFWorkflowInputContentItemClasses: [
+				WFWorkflowInputContentItemClasses: this.showinsharesheet || [
 					"WFAppStoreAppContentItem",
 					"WFArticleContentItem",
 					"WFContactContentItem",

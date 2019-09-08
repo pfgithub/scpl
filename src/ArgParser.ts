@@ -7,11 +7,11 @@ import { genShortName } from "./ActionData";
 
 type ArgData<T> = { name: string; data: T };
 
-export function simpleParse(
+export function simpleParse<NamesArray extends string>(
 	cc: ConvertingContext,
-	names: string[],
+	names: NamesArray[],
 	args: AsAble[]
-): { [key: string]: AsAble | undefined } {
+): { [key in NamesArray]: AsAble | undefined } {
 	const res: { [key: string]: AsAble | undefined } = {};
 	ArgParser<undefined>(
 		names.map(n => ({ name: n, data: undefined })),
@@ -26,7 +26,7 @@ export function simpleParse(
 		},
 		{ args, cc }
 	);
-	return res;
+	return res as any;
 }
 export function ArgParser(
 	argnames: "any",
