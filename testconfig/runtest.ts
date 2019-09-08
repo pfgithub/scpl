@@ -1,6 +1,7 @@
 import * as fs from "fs";
 import * as path from "path";
 import * as prettyFormat from "pretty-format";
+import * as bplistp from "bplist-parser";
 
 import { parse, inverse } from "..";
 
@@ -39,9 +40,46 @@ export function noUUID(
 	);
 }
 
+function runShortcutTest(dirname: string, infile: string) {
+	test(infile, () => {
+		const infilepath = path.join(dirname, infile);
+		const outputfolderpath = path.join(
+			dirname,
+			infile.replace(/\.shortcut$/, "")
+		);
+		try {
+			fs.mkdirSync(outputfolderpath);
+		} catch (e) {}
+		const inversionoutputpath = path.join(
+			outputfolderpath,
+			infile.replace(/\.shortcut$/, ".scploutput")
+		);
+		const jsonvaluepath = path.join(
+			outputfolderpath,
+			infile.replace(/\.shortcut$/, ".json")
+		);
+		const shortcut = fs.readFileSync(infilepath);
+		const jsonvalue = bplistp.parseBuffer(shortcut);
+		fs.writeFileSync(
+			jsonvaluepath,
+			JSON.stringify(jsonvalue, null, "\t"),
+			"utf-8"
+		);
+		// invert
+		const inverted = inverse(shortcut);
+		fs.writeFileSync(inversionoutputpath, inverted, "utf-8");
+		// re-parse and ensure equal
+		const { shortcutjson } = parse(inverted, { make: ["shortcutjson"] });
+		expect(jsonvalue).toStrictEqual(shortcutjson);
+	});
+}
+
 export function runTest(dirname: string) {
 	const infiles = fs.readdirSync(dirname);
 	infiles.forEach(infile => {
+		if (infile.endsWith(".shortcut")) {
+			runShortcutTest(dirname, infile);
+		}
 		if (!infile.endsWith(".scpl")) {
 			return;
 		}
