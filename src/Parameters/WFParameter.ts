@@ -12,7 +12,7 @@ import { genShortName } from "../ActionData";
 import { ShortcutsBaseParameterSpec } from "../Data/ActionDataTypes/ShortcutsParameterSpec";
 import { ShortcutsResourceSpec } from "../Data/ActionDataTypes/ShortcutsResourceSpec";
 
-export class WFParameter {
+export abstract class WFParameter {
 	_data: ShortcutsBaseParameterSpec;
 	requiredResources: Array<WFResource>;
 	allowsVariables: boolean;
@@ -93,9 +93,7 @@ export class WFParameter {
 		}`;
 	}
 	genDocs() {
-		let docs = `### ${this.readableName}: ${this.typeName} [(Docs)](${
-			this.docs
-		})\n`;
+		let docs = `### ${this.readableName}: ${this.typeName} [(Docs)](${this.docs})\n`;
 		if ((<{ Placeholder: string }>(<unknown>this._data)).Placeholder) {
 			docs += `**Placeholder**: ${this.genDocsDefaultValue(
 				(<{ Placeholder: string }>(<unknown>this._data)).Placeholder
@@ -116,10 +114,9 @@ export class WFParameter {
 			.join("\n\n")}`;
 		return docs;
 	}
-	build(cc: ConvertingContext, parse: AsAble): ParameterType {
-		throw parse.error(
-			cc,
-			"This parameter was implemented wrong in ScPL. build() should be overridden by subclasses of WFParameter."
-		);
-	}
+	abstract build(
+		cc: ConvertingContext,
+		parse: AsAble,
+		action: Action
+	): ParameterType;
 }

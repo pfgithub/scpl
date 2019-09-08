@@ -4,6 +4,7 @@ import { AsAble } from "../ParserData";
 import { WFNumberFieldParameter } from "./WFNumberFieldParameter";
 
 import { ShortcutsSpeakTextRatePickerParameterSpec } from "../Data/ActionDataTypes/ShortcutsParameterSpec";
+import { Action } from "../OutputData";
 
 export class WFSpeakTextRateParameter extends WFNumberFieldParameter {
 	_data: ShortcutsSpeakTextRatePickerParameterSpec;
@@ -15,8 +16,8 @@ export class WFSpeakTextRateParameter extends WFNumberFieldParameter {
 		super(data, name, docs);
 		this._data = data;
 	}
-	build(cc: ConvertingContext, parse: AsAble) {
-		const val = super.build(cc, parse);
+	build(cc: ConvertingContext, parse: AsAble, action: Action) {
+		const val = super.build(cc, parse, action);
 		if (typeof val === "number") {
 			if (val < 0 || val > 2) {
 				throw parse.error(

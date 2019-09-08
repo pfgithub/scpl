@@ -256,6 +256,61 @@ const preprocessorActions: {
 		}
 		cc.shortcut.showInWidget = setTo.asBoolean(cc);
 	},
+	"@importquestion": function(this, cc, ...args: AsAble[]) {
+		const pres = simpleParse(
+			cc,
+			["variable", "question", "defaultvalue"],
+			args
+		);
+		const variable = pres.variable;
+		const question = pres.question;
+		const defaultValue = pres.defaultvalue;
+		if (!variable) {
+			throw this.error(
+				cc,
+				"Variable is required (for example variable=q:myimportquestion)"
+			);
+		}
+		if (!question) {
+			throw this.error(
+				cc,
+				"Question is required (for example question='Pick a number')"
+			);
+		}
+		let varname: string;
+		if (variable.canBeNameType(cc)) {
+			const nameType = variable.asNameType(cc);
+			if (nameType.type !== "q") {
+				throw variable.error(
+					cc,
+					`Variable must be a q:variable (not a ${nameType.type}:variable)`
+				);
+			}
+			varname = nameType.name;
+		} else if (variable.canBeString(cc)) {
+			varname = variable.asString(cc);
+		} else {
+			throw variable.error(cc, "Must be q:questionname or questionname");
+		}
+		if (!question.canBeString(cc)) {
+			throw question.error(cc, "Must be string");
+		}
+		if (defaultValue && !defaultValue.canBeString(cc)) {
+			throw defaultValue.error(cc, "Must be string");
+		}
+
+		const result = cc.addImportQuestion(
+			varname,
+			question.asString(cc),
+			defaultValue ? defaultValue.asString(cc) : undefined
+		);
+		if (!result) {
+			throw variable.error(
+				cc,
+				`Import question named ${varname} already exists and has not been used.`
+			);
+		}
+	},
 	"@elseif": function(this, cc, ...args) {
 		const ifAction = cc.peekControlFlow();
 		if (!ifAction) {

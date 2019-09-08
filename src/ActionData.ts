@@ -15,7 +15,8 @@ import {
 	ShortcutsCustomDateFormatParameterSpec,
 	ShortcutsCountryFieldParameterSpec,
 	ShortcutsDateFieldParameterSpec,
-	ShortcutsLocationFieldParameterSpec
+	ShortcutsLocationFieldParameterSpec,
+	ShortcutsParameterSpecMap
 } from "./Data/ActionDataTypes/ShortcutsParameterSpec";
 
 export function genShortName(
@@ -36,12 +37,19 @@ export function genShortName(
 import { WFParameter } from "./Parameters/WFParameter";
 export { WFParameter } from "./Parameters/WFParameter";
 
-type InstanceOfParameterType = typeof WFParameter;
+type InstanceOfParameterType<
+	Key extends keyof ShortcutsParameterSpecMap = keyof ShortcutsParameterSpecMap
+> = {
+	new (
+		data: ShortcutsParameterSpecMap[Key],
+		typeName?: string,
+		docs?: string
+	): WFParameter;
+};
 
 const types: {
-	[key: string]: InstanceOfParameterType;
+	[key in keyof ShortcutsParameterSpecMap]?: InstanceOfParameterType<key>;
 } = {};
-types.WFParameter = WFParameter;
 
 import { WFEnumerationParameter } from "./Parameters/WFEnumerationParameter";
 types.WFEnumerationParameter = WFEnumerationParameter;
@@ -66,8 +74,8 @@ types.WFSpeakTextRateParameter = WFSpeakTextRateParameter;
 
 import { WFContentArrayParameter } from "./Parameters/WFContentArrayParameter";
 types.WFContentArrayParameter = WFContentArrayParameter;
-
-types.WFArrayParameter = class extends WFContentArrayParameter {}; // not sure what the difference is
+//@ts-ignore
+types.WFArrayParameter = class extends WFContentArrayParameter {}; // good enough
 
 import { WFVariablePickerParameter } from "./Parameters/WFVariablePickerParameter";
 types.WFVariablePickerParameter = WFVariablePickerParameter;
@@ -145,6 +153,7 @@ function addStaticEnum(
 	visibleName: string,
 	options: string[]
 ) {
+	//@ts-ignore
 	types[internalName] = class extends WFEnumerationParameter {
 		constructor(
 			data: ShortcutsEnumerationParameterSpec,
@@ -158,6 +167,7 @@ function addStaticEnum(
 	};
 }
 function addDynamicEnum(internalName: string, visibleName: string) {
+	//@ts-ignore
 	types[internalName] = class extends WFDynamicEnumerationParameter {
 		constructor(
 			data: ShortcutsDynamicEnumerationParameterSpec,
@@ -310,8 +320,9 @@ export class WFAction {
 					// 	return;
 					// }
 					if (types[param.Class]) {
-						const type: InstanceOfParameterType =
-							types[param.Class];
+						const type: InstanceOfParameterType<any> = types[
+							param.Class
+						]!;
 						const paramVal: WFParameter = new type(param); // false. it has a consistent call structure.
 						if (parameterNames[paramVal.shortName]) {
 							// console.warn(`IN: ${this.internalName}: Two parameters named ${paramVal.shortName} exist.`);
@@ -597,7 +608,7 @@ ${JSON.stringify(this._data, null, "\t")}
 				}
 				action.parameters.set(
 					name.data.internalName,
-					name.data.build(cc, param)
+					name.data.build(cc, param, action)
 				);
 			},
 			(param: AsAble) => {

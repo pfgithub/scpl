@@ -1,6 +1,9 @@
 @ShowInShareSheet [richtext string url]
 @Icon headphones
 @Color darkgray
+@ImportQuestion q:Question3 question="Please choose default location to save music. Accepted values are: iCloud/Browser or both (Case sensitive)\n\n‘iCloud’ saves on iCloud and ‘Browser’ saves on Browser app while “iCloud and Browser” saves on both." defaultValue=Browser
+@ImportQuestion q:Question2 question="Add track numbers to filename?\nAccepted values are: 0/1\n\n0 - Disable\n1 - Enable" defaultValue=1
+@ImportQuestion q:Question1 question="Please enter default quality to download. Accepted values are: 128/320/1411\n\n  128 - 128 kbps mp3\n 320 - 320 kbps mp3\n1411 - 1411 kbps flac" defaultValue=320
 Comment "Deezer music 🎵 downloader.\nRipped from source directly.\n\nV: 2.1.0, Made by /u/74Y3M"
 Comment "When sharing from deezer, input is messed up hence we split and combine them for getting the actual urls."
 SplitText separator=Spaces -> mv:"Split Text"
@@ -20,7 +23,7 @@ Otherwise
 End -> mv:If
 SetVariable Input
 Comment "Enter quality to download.\n    128/320/1411\n\n128 - 128 kbps mp3\n320 - 320 kbps mp3\n1411 - 1411 kbps flac"
-Number 128 -> mv:Number
+Number q:Question1 -> mv:Number
 SetVariable Quality
 GetVariable v:Input
 If value="lnk.to"
@@ -130,7 +133,7 @@ RepeatwithEach
 	GetVariable v:"Repeat Item"
 	GetDictionaryValue key=artist -> mv:"Get Dictionary Value5"
 	Comment "Set this number to 0 to disable track numbering and set it to 1 to enable numbering."
-	Number 1
+	Number q:Question2 -> mv:Number3
 	If input="Is Greater Than" number=0
 		Text "00\(v:"Repeat Item".track_position)"
 		If input="Is Less Than" number=1
@@ -162,7 +165,7 @@ If input="Is Greater Than" number=2
 	SetVariable "Song Data"
 End
 Comment "Set this to iCloud to save files on iCloud and Browser for saving on Browser app. You can also use \"iCloud and Browser\" to save on both of 'em 😉"
-Text "iCloud and Browser" -> mv:Text5
+Text q:Question3 -> mv:Text5
 SetVariable SaveTo
 Comment "Here will be the actual processing for downloads. We will repeat with each tracks and get the song from the backend server."
 GetVariable v:"Song Data"

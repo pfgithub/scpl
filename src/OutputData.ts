@@ -1287,6 +1287,8 @@ export class Parameters {
 	has(internalName: string) {
 		return !!this.values[internalName];
 	}
+	get(internalName: "UUID"): string;
+	get(internalName: string): WFParameter;
 	get(internalName: string): WFParameter {
 		return this.buildValue(internalName);
 	}
@@ -1358,11 +1360,11 @@ export class Action {
 		return action;
 	}
 	get uuid(): string {
-		if (this.parameters.has("UUID")) {
-			return <string>this.parameters.get("UUID");
+		let uuid = this.parameters.get("UUID");
+		if (!uuid) {
+			this.parameters.set("UUID", (uuid = uuidv4()));
 		}
-		this.parameters.set("UUID", uuidv4());
-		return <string>this.parameters.get("UUID");
+		return uuid;
 	}
 	build(): WFAction {
 		if (this.magicvarname) {
@@ -1379,6 +1381,22 @@ export class Action {
 	}
 }
 
+export type WFImportQuestion = {
+	ActionIndex: number;
+	Category: "Parameter";
+	DefaultValue?: string;
+	ParameterKey: string;
+	Text: string;
+};
+
+export type TemporaryImportQuestion = {
+	ActionUUID: string;
+	Category: "Parameter";
+	DefaultValue?: string;
+	ParameterKey: string;
+	Text: string;
+};
+
 type WorkflowTypes = "NCWidget" | "WatchKit" | "ActionExtension";
 export type WFShortcut = [
 	{
@@ -1393,6 +1411,7 @@ export type WFShortcut = [
 		WFWorkflowTypes: WorkflowTypes[];
 		WFWorkflowInputContentItemClasses: ExtensionInputContentItemClass[];
 		WFWorkflowActions: WFAction[];
+		WFWorkflowImportQuestions?: WFImportQuestion[];
 	}
 ];
 
@@ -1403,10 +1422,12 @@ export class Shortcut {
 	color?: ColorCode;
 	showInWidget: boolean;
 	showinsharesheet?: ExtensionInputContentItemClass[];
+	importquestions: TemporaryImportQuestion[];
 	constructor(name: string) {
 		this.name = name;
 		this.actions = [];
 		this.showInWidget = true;
+		this.importquestions = [];
 	}
 	add(action: Action) {
 		this.actions.push(action);
@@ -1442,9 +1463,37 @@ export class Shortcut {
 		) {
 			shortcut.showinsharesheet = sharesheet;
 		}
+		const importQuestions = data[0].WFWorkflowImportQuestions;
+		if (importQuestions) {
+			importQuestions.forEach(importQuestion => {
+				shortcut.importquestions.push({
+					...importQuestion,
+					ActionUUID:
+						shortcut.actions[importQuestion.ActionIndex].uuid
+				});
+			});
+		}
 		return shortcut;
 	}
 	build(): WFShortcut {
+		const shortcutActions = this.actions.map(action => action.build());
+		const realImportQuestions: WFImportQuestion[] = [];
+		shortcutActions.forEach((action, i) => {
+			const params = action.WFWorkflowActionParameters || {};
+			const uuid = params.UUID;
+			if (!uuid) {
+				return;
+			}
+			const iq = this.importquestions.find(
+				question => question.ActionUUID === uuid
+			);
+			if (iq) {
+				const res = { ...iq, ActionIndex: i };
+				delete res.ActionUUID;
+				realImportQuestions.push(res);
+			}
+		});
+
 		return [
 			{
 				WFWorkflowClientVersion: "754",
@@ -1462,6 +1511,9 @@ export class Shortcut {
 						? ["ActionExtension" as const]
 						: [])
 				],
+				...(realImportQuestions.length === 0
+					? {}
+					: { WFWorkflowImportQuestions: realImportQuestions }),
 				WFWorkflowInputContentItemClasses: this.showinsharesheet || [
 					"WFAppStoreAppContentItem",
 					"WFArticleContentItem",
@@ -1481,7 +1533,7 @@ export class Shortcut {
 					"WFStringContentItem",
 					"WFURLContentItem"
 				],
-				WFWorkflowActions: this.actions.map(action => action.build())
+				WFWorkflowActions: shortcutActions
 			}
 		];
 	}

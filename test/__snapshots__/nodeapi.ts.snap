@@ -27,6 +27,7 @@ Shortcut {
       ],
     },
   ],
+  "importquestions": Array [],
   "name": "My Great Shortcut",
   "showInWidget": true,
 }
@@ -38,6 +39,7 @@ exports[`make output data 1`] = `
 Object {
   "outputdata": Shortcut {
     "actions": Array [],
+    "importquestions": Array [],
     "name": "My Great Shortcut",
     "showInWidget": true,
   },

@@ -16,6 +16,8 @@ export function noUUID(
 		ignoreMenuItemTitles?: boolean;
 		ignoreEmptyString?: boolean;
 		ignoreWorkflowTypesOrder?: boolean;
+		defaultValueAlwaysString?: boolean;
+		importQuestionMatcher?: boolean;
 	} = {}
 ) {
 	const fullString = JSON.stringify(obj, null);
@@ -28,6 +30,13 @@ export function noUUID(
 			}
 			if (options.ignoreMenuItemTitles && key === "WFMenuItemTitle") {
 				return undefined;
+			}
+			if (
+				options.defaultValueAlwaysString &&
+				key === "DefaultValue" &&
+				typeof value === "number"
+			) {
+				return `${value}`;
 			}
 			if (options.ignoreEmptyString && value === "") {
 				return undefined;
@@ -87,7 +96,13 @@ export function noUUID(
 				return value.split("\uFFFC").join("[attachment]");
 			}
 			return value;
-		})
+		}),
+		(key, value: unknown) => {
+			if (options.importQuestionMatcher && value === "import question") {
+				return { asymmetricMatch: () => true };
+			}
+			return value;
+		}
 	);
 }
 
@@ -128,7 +143,9 @@ function runShortcutTest(dirname: string, infile: string) {
 				ignoreOutputName: true,
 				flattenUselessStringSerialization: true,
 				ignoreMenuItemTitles: true,
-				ignoreWorkflowTypesOrder: true
+				noUnusedUUID: true,
+				ignoreWorkflowTypesOrder: true,
+				importQuestionMatcher: true
 			})
 		).toStrictEqual(
 			noUUID(jsonvalue, {
@@ -139,7 +156,8 @@ function runShortcutTest(dirname: string, infile: string) {
 				flattenUselessStringSerialization: true,
 				ignoreMenuItemTitles: true,
 				ignoreEmptyString: true,
-				ignoreWorkflowTypesOrder: true
+				ignoreWorkflowTypesOrder: true,
+				defaultValueAlwaysString: true
 			})
 		);
 	});

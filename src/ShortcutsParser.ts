@@ -19,6 +19,7 @@ import {
 } from "./ParserData";
 
 import { p, regex, star, plus, optional, or, c, o } from "./ParserHelper";
+import { ImportQuestionParse } from "./ParserData/ImportQuestionParse";
 
 o.identifier = regex(/^[A-Za-z@_][A-Za-z0-9@_]*/).scb(
 	([fullmatch], start, end) => new IdentifierParse(start, end, fullmatch)
@@ -344,6 +345,9 @@ o.variable = p(
 ).scb(([type, , name, forkey, options], start, end) => {
 	if (type.value === "@") {
 		return new ConvertVariableParse(start, end, name, options);
+	}
+	if (type.value === "q") {
+		return new ImportQuestionParse(start, end, name, options);
 	}
 	return new VariableParse(start, end, type, name, forkey, options);
 });

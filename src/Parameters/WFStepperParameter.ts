@@ -4,6 +4,7 @@ import { AsAble } from "../ParserData";
 import { WFNumberFieldParameter } from "./WFNumberFieldParameter";
 
 import { ShortcutsStepperParameterSpec } from "../Data/ActionDataTypes/ShortcutsParameterSpec";
+import { Action } from "../OutputData";
 
 export class WFStepperParameter extends WFNumberFieldParameter {
 	_data: ShortcutsStepperParameterSpec;
@@ -15,8 +16,8 @@ export class WFStepperParameter extends WFNumberFieldParameter {
 		super(data, name, docs);
 		this._data = data;
 	}
-	build(cc: ConvertingContext, parse: AsAble) {
-		const val = super.build(cc, parse);
+	build(cc: ConvertingContext, parse: AsAble, action: Action) {
+		const val = super.build(cc, parse, action);
 		if (typeof val === "number") {
 			if (!Number.isInteger(val) || val < 0) {
 				throw parse.error(

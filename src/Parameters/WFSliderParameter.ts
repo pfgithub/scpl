@@ -4,6 +4,7 @@ import { AsAble } from "../ParserData";
 import { WFNumberFieldParameter } from "./WFNumberFieldParameter";
 
 import { ShortcutsSliderParameterSpec } from "../Data/ActionDataTypes/ShortcutsParameterSpec";
+import { Action } from "../OutputData";
 
 export class WFSliderParameter extends WFNumberFieldParameter {
 	_data: ShortcutsSliderParameterSpec;
@@ -15,8 +16,8 @@ export class WFSliderParameter extends WFNumberFieldParameter {
 		super(data, name, docs);
 		this._data = data;
 	}
-	build(cc: ConvertingContext, parse: AsAble) {
-		const val = super.build(cc, parse);
+	build(cc: ConvertingContext, parse: AsAble, action: Action) {
+		const val = super.build(cc, parse, action);
 		if (typeof val === "number") {
 			if (val < 0 || val > 1) {
 				cc.warn(

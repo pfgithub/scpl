@@ -99,6 +99,9 @@ export class Parse {
 	canBeRaw(_cc: ConvertingContext): this is AsRaw {
 		return false;
 	}
+	canBeImportQuestion(_cc: ConvertingContext): this is AsImportQuestion {
+		return false;
+	}
 	getDeepestRealValue(_cc: ConvertingContext): Parse {
 		return this;
 	}
@@ -206,6 +209,15 @@ export interface AsRaw extends Parse {
 	asRaw(cc: ConvertingContext): RawParameter;
 }
 
+export interface AsImportQuestion extends Parse {
+	canBeImportQuestion(cc: ConvertingContext): true;
+	asImportQuestion(
+		cc: ConvertingContext,
+		parameterKey: string,
+		actionUUID: string
+	): string;
+}
+
 export const parseTypeList = [
 	"String",
 	"Boolean",
@@ -224,7 +236,8 @@ export const parseTypeList = [
 	"Filter",
 	"FilterItem",
 	"TimeOffsetParameter",
-	"Raw"
+	"Raw",
+	"ImportQuestion"
 	// not PreprocessorVariableName
 ];
 

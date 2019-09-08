@@ -2,6 +2,7 @@ import { ConvertingContext } from "../Converter";
 import { AsAble } from "../ParserData";
 
 import { WFParameter } from "./WFParameter";
+import { Action, Text } from "../OutputData";
 
 import { ShortcutsTextInputParameterSpec } from "../Data/ActionDataTypes/ShortcutsParameterSpec";
 
@@ -36,7 +37,10 @@ with the text. ${
 	genDocsDefaultValue(value: string) {
 		return `\`"${value}"\``;
 	}
-	build(cc: ConvertingContext, parse: AsAble) {
+	build(cc: ConvertingContext, parse: AsAble, action: Action) {
+		if (parse.canBeImportQuestion(cc)) {
+			return parse.asImportQuestion(cc, this._data.Key, action.uuid);
+		}
 		if (!this.allowsVariables) {
 			if (!parse.canBeString(cc)) {
 				throw parse.error(

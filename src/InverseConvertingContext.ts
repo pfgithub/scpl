@@ -14,7 +14,8 @@ import {
 	inverseCoercionTypes,
 	ErrorParameter,
 	AdjustOffset,
-	RawParameter
+	RawParameter,
+	TemporaryImportQuestion
 } from "./OutputData";
 import { getActionFromID, WFParameter } from "./ActionData";
 
@@ -42,6 +43,10 @@ const SQUOTEDSTRING = (value: string) => `'${ESCAPESQUOTEDSTRING(value)}'`;
 export class InverseConvertingContext {
 	magicVariablesByUUID: { [key: string]: string };
 	magicVariablesByName: { [key: string]: string };
+	importQuestionsByActionUUID: {
+		[key: string]: TemporaryImportQuestion & { VariableName: string };
+	};
+	importQuestionCount: number;
 	quotes: '"' | "'";
 	indent: string;
 	_indentLevel: number;
@@ -50,6 +55,8 @@ export class InverseConvertingContext {
 	) {
 		this.magicVariablesByName = {};
 		this.magicVariablesByUUID = {};
+		this.importQuestionsByActionUUID = {};
+		this.importQuestionCount = 0;
 		this.quotes = options.quotes || '"';
 		if (typeof options.indent === "number") {
 			options.indent = " ".repeat(options.indent);
@@ -59,10 +66,33 @@ export class InverseConvertingContext {
 	}
 
 	createActionsAble(value: Shortcut) {
-		const res = value.actions.map(action => {
-			const createdAction = this.createActionAble(action);
-			return `${createdAction}`;
-		});
+		const res: string[] = [];
+		if (value.importquestions) {
+			value.importquestions.forEach(importquestion => {
+				const questionName = `Question${++this.importQuestionCount}`;
+				res.unshift(
+					`@ImportQuestion q:${this.createStringAble(
+						questionName
+					)} question=${this.createStringAble(importquestion.Text)}${
+						importquestion.DefaultValue
+							? ` defaultValue=${this.createStringAble(
+									importquestion.DefaultValue
+							  )}`
+							: ""
+					}`
+				);
+				this.importQuestionsByActionUUID[importquestion.ActionUUID] = {
+					...importquestion,
+					VariableName: questionName
+				};
+			});
+		}
+		res.push(
+			...value.actions.map(action => {
+				const createdAction = this.createActionAble(action);
+				return `${createdAction}`;
+			})
+		);
 		if (value.color) {
 			res.unshift(`@Color ${inverseColors[value.color]}`);
 		}
@@ -76,7 +106,11 @@ export class InverseConvertingContext {
 		if (value.showinsharesheet) {
 			res.unshift(
 				`@ShowInShareSheet [${value.showinsharesheet
-					.map(q => contentItemClassToExtensionInputName[q])
+					.map(q =>
+						this.createStringAble(
+							contentItemClassToExtensionInputName[q]
+						)
+					)
 					.join(" ")}]`
 			);
 		}
@@ -132,28 +166,42 @@ export class InverseConvertingContext {
 						: it === paramName
 				)
 			) {
-				if (paramName === "WFMenuItems") {
-					console.log(
-						"!!ADDING WFMenuItems as a raw parameter because parameters internalnames are ",
-						order.map(it =>
-							it instanceof WFParameter
-								? `wfparam_${it.internalName}`
-								: `raw_${it}`
-						)
-					);
-				}
 				order.push(paramName);
 			}
 		});
-		// TODO check if unlisted parameters are present
 		order.forEach(param => {
+			const importQuestion = this.importQuestionsByActionUUID[
+				value.parameters.get("UUID")
+			];
 			if (typeof param === "string") {
 				// :raw{json data}
 				const paramName = param;
 				rawWarning = true;
+				if (importQuestion && param === importQuestion.ParameterKey) {
+					return result.push(
+						`${param}=${this.createImportQuestionAble(
+							importQuestion
+						)}`
+					);
+				}
 				return result.push(
 					`${param}=${this.createRawAble(
 						value.parameters.get(paramName)
+					)}`
+				);
+			}
+			if (
+				importQuestion &&
+				param.internalName === importQuestion.ParameterKey
+			) {
+				if (order.length === 1) {
+					return result.push(
+						`${this.createImportQuestionAble(importQuestion)}`
+					);
+				}
+				return result.push(
+					`${param.readableName}=${this.createImportQuestionAble(
+						importQuestion
 					)}`
 				);
 			}
@@ -274,7 +322,8 @@ export class InverseConvertingContext {
 		return "??this argument type is not supported yet??";
 	}
 
-	createStringAble(value: string): string {
+	createStringAble(value_: string | number): string {
+		const value = `${value_}`;
 		// One of: "string", ident, -1.5, \n|barlist (ifend)
 		if (value.match(NUMBER)) {
 			return value;
@@ -361,6 +410,11 @@ export class InverseConvertingContext {
 			res += `{${aggrandizements.join(", ")}}`;
 		}
 		return res;
+	}
+	createImportQuestionAble(
+		value: TemporaryImportQuestion & { VariableName: string }
+	) {
+		return `q:${this.createStringAble(value.VariableName)}`;
 	}
 	createVariableAble(value: Attachment): string {
 		// createVariAble
