@@ -99,7 +99,7 @@ export const inverseCoercionTypes: { [name in CoercionTypeClass]: string } = {
 	WFCalendarEventContentItem: "calendarevent"
 };
 
-type WFAggrandizements = (
+export type WFAggrandizements = (
 	| {
 			Type: "WFCoercionVariableAggrandizement";
 			CoercionItemClass: CoercionTypeClass;
@@ -235,7 +235,7 @@ export class Aggrandizements {
 // // // // // //
 //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //
 
-class Parameter {
+export class Parameter {
 	// cannot be abstract because inverse is static
 	constructor() {}
 	build(): WFParameter {
@@ -243,7 +243,7 @@ class Parameter {
 	}
 }
 
-type DictionaryFieldValueItem =
+export type DictionaryFieldValueItem =
 	| {
 			WFItemType: 1;
 			WFKey: WFTextParameter;
@@ -287,14 +287,14 @@ type DictionaryFieldValueItem =
 				WFSerializationType: "WFTokenAttachmentParameterState";
 			};
 	  };
-type WFDictionaryParameter = {
+export type WFDictionaryParameter = {
 	Value: {
 		WFDictionaryFieldValueItems: DictionaryFieldValueItem[];
 	};
 	WFSerializationType: "WFDictionaryFieldValue";
 };
 
-type WFContentItemFilter = {
+export type WFContentItemFilter = {
 	// might need {Value: {}} ?
 	Value: {
 		WFActionParameterFilterPrefix: 0 | 1;
@@ -304,7 +304,7 @@ type WFContentItemFilter = {
 	WFSerializationType: "WFContentPredicateTableTemplate";
 };
 
-type WFContentItemFilterItemBase = {
+export type WFContentItemFilterItemBase = {
 	Operator: ComparisonWFValue;
 	Property: AggrandizementPropertyRawName;
 	Removable: true;
@@ -312,28 +312,28 @@ type WFContentItemFilterItemBase = {
 	VariableOverrides: {};
 };
 
-interface WFContentItemFilterItemBaseString
+export interface WFContentItemFilterItemBaseString
 	extends WFContentItemFilterItemBase {
 	String: string;
 }
 
-interface WFContentItemFilterItemBaseText extends WFContentItemFilterItemBase {
+export interface WFContentItemFilterItemBaseText extends WFContentItemFilterItemBase {
 	VariableOverrides: { stringValue: WFTextParameter };
 }
 
-interface WFContentItemFilterItemNumber extends WFContentItemFilterItemBase {
+export interface WFContentItemFilterItemNumber extends WFContentItemFilterItemBase {
 	Number: number;
 }
 
-interface WFContentItemFilterItemBool extends WFContentItemFilterItemBase {
+export interface WFContentItemFilterItemBool extends WFContentItemFilterItemBase {
 	Bool: boolean;
 }
 
-interface WFContentItemFilterItemEnum extends WFContentItemFilterItemBase {
+export interface WFContentItemFilterItemEnum extends WFContentItemFilterItemBase {
 	Enumeration: string;
 }
 
-type WFContentItemFilterItem =
+export type WFContentItemFilterItem =
 	| WFContentItemFilterItemBaseString
 	| WFContentItemFilterItemBaseText
 	| WFContentItemFilterItemNumber
@@ -704,19 +704,19 @@ export class Dictionary extends Parameter {
 		};
 	}
 }
-type WFVariableAttachmentData = {
+export type WFVariableAttachmentData = {
 	Type: "Variable";
 	Aggrandizements?: WFAggrandizements;
 	VariableName: string;
 };
-type WFMagicVariableAttachmentData = {
+export type WFMagicVariableAttachmentData = {
 	Type: "ActionOutput";
 	Aggrandizements?: WFAggrandizements;
 	OutputName: string;
 	OutputUUID: string;
 };
 
-type WFAttachmentData =
+export type WFAttachmentData =
 	| {
 			Type: AttachmentType;
 			Aggrandizements?: WFAggrandizements;
@@ -724,15 +724,15 @@ type WFAttachmentData =
 	| WFVariableAttachmentData
 	| WFMagicVariableAttachmentData;
 
-type WFAttachmentParameter = {
+export type WFAttachmentParameter = {
 	Value: WFAttachmentData;
 	WFSerializationType: "WFTextTokenAttachment";
 };
-type WFVariableAttachmentParameter = {
+export type WFVariableAttachmentParameter = {
 	Value: WFVariableAttachmentData;
 	WFSerializationType: "WFTextTokenAttachment";
 };
-type WFMagicVariableAttachmentParameter = {
+export type WFMagicVariableAttachmentParameter = {
 	Value: WFMagicVariableAttachmentData;
 	WFSerializationType: "WFTextTokenAttachment";
 };
@@ -787,7 +787,7 @@ export class Attachment extends Parameter {
 	}
 }
 
-type VariableType = "Variable" | "ActionOutput";
+export type VariableType = "Variable" | "ActionOutput";
 export class Variable extends Attachment {
 	constructor(type: VariableType) {
 		super(type);
@@ -970,7 +970,7 @@ export class AdjustOffset extends Parameter {
 	}
 }
 
-type WFListParameterItem =
+export type WFListParameterItem =
 	| string
 	| { WFItemType: 0; WFValue: WFTextParameter }
 	| { WFItemType: 1; WFValue: WFDictionaryParameter }
@@ -983,7 +983,7 @@ type WFListParameterItem =
 				WFSerializationType: "WFNumberSubstitutableState";
 			};
 	  };
-type WFListParameter = Array<WFListParameterItem>;
+export type WFListParameter = Array<WFListParameterItem>;
 
 export class List extends Parameter {
 	_list: Array<string | Text | Dictionary | List | boolean>;
@@ -1057,15 +1057,15 @@ export class List extends Parameter {
 	}
 }
 
-type WFTextValue = {
+export type WFTextValue = {
 	attachmentsByRange: { [key: string]: WFAttachmentData };
 	string: string;
 };
-type WFTextWithAttachments = {
+export type WFTextWithAttachments = {
 	Value: WFTextValue;
 	WFSerializationType: "WFTextTokenString";
 };
-type WFTextParameter = string | WFTextWithAttachments;
+export type WFTextParameter = string | WFTextWithAttachments;
 
 export class Text extends Parameter {
 	_components: Array<Attachment | string>;
@@ -1188,7 +1188,7 @@ export class ErrorParameter extends Parameter {
 	}
 }
 
-type WFRawParameter = {
+export type WFRawParameter = {
 	WFSerializationType: "This does not actually exist. There is no way to tell if a built value is a raw parameter.";
 };
 
@@ -1206,7 +1206,7 @@ export class RawParameter extends Parameter {
 	}
 }
 
-type WFErrorParameter = {
+export type WFErrorParameter = {
 	WFSerializationType: "WFErrorParameter";
 	Value: { Text: string };
 };
@@ -1257,7 +1257,7 @@ export type ParameterType =
 	| Array<string>
 	| boolean;
 
-type WFParameters = { [key: string]: WFParameter };
+export type WFParameters = { [key: string]: WFParameter };
 
 export type WFParameter =
 	| WFDictionaryParameter
@@ -1323,7 +1323,7 @@ export class Parameters {
 	}
 }
 
-type WFAction = {
+export type WFAction = {
 	WFWorkflowActionIdentifier: string;
 	WFWorkflowActionParameters?: WFParameters;
 	SCPLData?: { Position: { start: [number, number]; end: [number, number] } };
@@ -1409,7 +1409,7 @@ export type TemporaryImportQuestion = {
 	Text: string;
 };
 
-type WorkflowTypes = "NCWidget" | "WatchKit" | "ActionExtension";
+export type WorkflowTypes = "NCWidget" | "WatchKit" | "ActionExtension";
 export type WFShortcut = [
 	{
 		WFWorkflowClientVersion: string;
