@@ -21,6 +21,7 @@ import { getActionFromID, WFParameter } from "./ActionData";
 
 import { inverseGlyphs, inverseColors } from "./Data/ShortcutMeta";
 import { contentItemClassToExtensionInputName } from "./Data/TypeClasses";
+import { ShortcutsParameterSpec } from "./Data/ActionDataTypes/ShortcutsParameterSpec";
 
 const NUMBER = /^-?(?:[0-9]*\.[0-9]+|[0-9]+)$/;
 const IDENTIFIER = /^[A-Za-z@_][A-Za-z0-9@_]*$/;
@@ -126,7 +127,8 @@ export class InverseConvertingContext {
 					readableName?: string;
 					internalName?: string;
 					getParameterOrder: () => ReadonlyArray<
-						WFParameter | string
+						| { __type: "raw"; data: ShortcutsParameterSpec }
+						| WFParameter
 					>;
 					_data: { BlockInfo?: {} };
 			  }
@@ -149,7 +151,15 @@ export class InverseConvertingContext {
 		}
 
 		// let parameters = actionData.getParameters();
-		const order = actionData.getParameterOrder().slice(0); // TODO future
+		const order: Array<
+			| {
+					__type: "raw";
+					data:
+						| ShortcutsParameterSpec
+						| { __type: "keyonly"; Key: string };
+			  }
+			| WFParameter
+		> = actionData.getParameterOrder().slice(0); // TODO future
 		Object.keys(value.parameters.values).forEach(paramName => {
 			if (
 				paramName === "GroupingIdentifier" ||
@@ -163,30 +173,39 @@ export class InverseConvertingContext {
 				!order.find(it =>
 					it instanceof WFParameter
 						? it.internalName === paramName
-						: it === paramName
+						: it.data.Key === paramName
 				)
 			) {
-				order.push(paramName);
+				order.push({
+					__type: "raw",
+					data: { __type: "keyonly", Key: paramName }
+				});
 			}
 		});
 		order.forEach(param => {
 			const importQuestion = this.importQuestionsByActionUUID[
 				value.parameters.get("UUID")
 			];
-			if (typeof param === "string") {
+			if ("__type" in param) {
 				// :raw{json data}
 				const paramName = param;
-				rawWarning = true;
-				if (importQuestion && param === importQuestion.ParameterKey) {
+				if (
+					importQuestion &&
+					param.data.Key === importQuestion.ParameterKey
+				) {
 					return result.push(
-						`${param}=${this.createImportQuestionAble(
+						`${param.data.Key}=${this.createImportQuestionAble(
 							importQuestion
 						)}`
 					);
 				}
+				if (!value.parameters.has(paramName.data.Key)) {
+					return;
+				}
+				rawWarning = true;
 				return result.push(
-					`${param}=${this.createRawAble(
-						value.parameters.get(paramName)
+					`${param.data.Key}=${this.createRawAble(
+						value.parameters.get(paramName.data.Key)
 					)}`
 				);
 			}

@@ -18,6 +18,8 @@ export function noUUID(
 		ignoreWorkflowTypesOrder?: boolean;
 		defaultValueAlwaysString?: boolean;
 		importQuestionMatcher?: boolean;
+		equivalentNumberMatcher?: boolean;
+		ignoreEmptyImportQuestions?: boolean;
 	} = {}
 ) {
 	const fullString = JSON.stringify(obj, null);
@@ -29,6 +31,13 @@ export function noUUID(
 				return undefined;
 			}
 			if (options.ignoreMenuItemTitles && key === "WFMenuItemTitle") {
+				return undefined;
+			}
+			if (
+				options.ignoreEmptyImportQuestions &&
+				key === "WFWorkflowImportQuestions" &&
+				(value as any).length === 0
+			) {
 				return undefined;
 			}
 			if (
@@ -101,6 +110,18 @@ export function noUUID(
 			if (options.importQuestionMatcher && value === "import question") {
 				return { asymmetricMatch: () => true };
 			}
+			if (
+				options.equivalentNumberMatcher &&
+				typeof value === "number" &&
+				(value >= 2147483647 || value < 0)
+			) {
+				return {
+					$$typeof: Symbol.for("jest.asymmetricMatcher"),
+					asymmetricMatch: (actual: any) =>
+						actual >>> 0 === value >>> 0, // this doesn't actually work for some reason...
+					toAsymmetricMatcher: () => `${value >>> 0}`
+				};
+			}
 			return value;
 		}
 	);
@@ -157,7 +178,9 @@ function runShortcutTest(dirname: string, infile: string) {
 				ignoreMenuItemTitles: true,
 				ignoreEmptyString: true,
 				ignoreWorkflowTypesOrder: true,
-				defaultValueAlwaysString: true
+				defaultValueAlwaysString: true,
+				equivalentNumberMatcher: true,
+				ignoreEmptyImportQuestions: true
 			})
 		);
 	});

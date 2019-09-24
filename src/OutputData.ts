@@ -24,7 +24,8 @@ import {
 	CoercionTypeClass,
 	isAggrandizementPropertyName,
 	AggrandizementPropertyRawName,
-	AggrandizementPropertyName
+	AggrandizementPropertyName,
+	coercionTypesMap
 } from "./WFTypes/Types";
 
 import getTypes, {
@@ -175,18 +176,31 @@ export class Aggrandizements {
 	setProperty(getType: string): string | void {
 		// if !this.coercionType throw error(to get a property must have coercion type. fix this by adding as:)
 		getType = getType.toLowerCase().replace(/[^A-Za-z]/g, "");
-		if (!this.coercionType) {
-			return "To get a property of a variable, you must have a coercion type set. Fix this by adding `as:` to your aggrandizements dictionary.";
-		}
+		// if (!this.coercionType) {
+		// 	return "To get a property of a variable, you must have a coercion type set. Fix this by adding `as:` to your aggrandizements dictionary.";
+		// }
 		if (!isAggrandizementPropertyName(getType)) {
 			return `${getType} is not a valid aggrandizement get type. Valid are: ${Object.keys(
-				getTypes[this.coercionType]
+				this.coercionType
+					? getTypes[this.coercionType]
+					: "not known. Add as: to get a list."
 			)}.`;
 		}
-		const typeValue = getTypes[this.coercionType].properties[getType];
+		let typeValue: GetTypeInfoProperty | undefined;
+		if (this.coercionType) {
+			typeValue = getTypes[this.coercionType].properties[getType];
+		} else {
+			for (const gettype of Object.keys(coercionTypesMap)) {
+				typeValue =
+					typeValue ||
+					getTypes[gettype as CoercionTypeClass].properties[getType]; // works most of the time
+			}
+		}
 		if (!typeValue) {
 			return `${getType} is not a valid aggrandizement get type for this as. Valid are: ${Object.keys(
-				getTypes[this.coercionType]
+				this.coercionType
+					? getTypes[this.coercionType]
+					: "not known. Add as: to get a list."
 			)}.`;
 		}
 		this.getProperty = typeValue;
@@ -1226,9 +1240,7 @@ export function toParam(value: WFParameter): ParameterType | undefined {
 		return AdjustOffset.inverse(value);
 	}
 	if (value.WFSerializationType === "WFContentPredicateTableTemplate") {
-		return new ErrorParameter(
-			"Inversion for filters is not implemented yet."
-		);
+		return new RawParameter(value);
 	}
 	if (value.WFSerializationType === "WFErrorParameter") {
 		return new ErrorParameter(
@@ -1285,7 +1297,7 @@ export class Parameters {
 		this.values[internalName] = value;
 	}
 	has(internalName: string) {
-		return !!this.values[internalName];
+		return this.values[internalName] !== undefined;
 	}
 	get(internalName: "UUID"): string;
 	get(internalName: string): WFParameter;

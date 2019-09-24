@@ -228,37 +228,6 @@ test("invert newlines", () => {
 	).toEqual('Text "Text with\\nNewlines."');
 });
 
-test("invert an incomplete action", () => {
-	const icc = new InverseConvertingContext();
-	expect(
-		icc.createActionAble(
-			Action.inverse({
-				WFWorkflowActionIdentifier: "is.workflow.actions.filter.files",
-				WFWorkflowActionParameters: {
-					WFContentItemFilter: {
-						Value: {
-							WFActionParameterFilterPrefix: 1,
-							WFContentPredicateBoundedDate: false,
-							WFActionParameterFilterTemplates: [
-								{
-									Property: "Name",
-									Operator: 4,
-									VariableOverrides: {},
-									Unit: 4,
-									String: "My File Name",
-									Removable: true
-								}
-							]
-						},
-						WFSerializationType: "WFContentPredicateTableTemplate"
-					}
-				}
-			})
-		)
-	).toEqual(
-		`FilterFiles filter=??error: This parameter is an error: Inversion for filters is not implemented yet??`
-	);
-});
 test("dictionary number values", () => {
 	const icc = new InverseConvertingContext();
 	expect(

@@ -18,7 +18,17 @@ import {
 	RawParse
 } from "./ParserData";
 
-import { p, regex, star, plus, optional, or, c, o } from "./ParserHelper";
+import {
+	p,
+	regex,
+	star,
+	plus,
+	optional,
+	or,
+	c,
+	o,
+	required
+} from "./ParserHelper";
 import { ImportQuestionParse } from "./ParserData/ImportQuestionParse";
 
 o.identifier = regex(/^[A-Za-z@_][A-Za-z0-9@_]*/).scb(
@@ -339,7 +349,7 @@ o.variable = p(
 	c`:`,
 	or(o.identifier, o.string, o.errorparse),
 	optional(
-		p(or(c`:`, c`.`), or(o.identifier, o.string)).scb(([, val]) => val)
+		p(or(c`:`, c`.`), or(o.identifier, o.string, o.number)).scb(([, val]) => val)
 	).scb(([val]) => val),
 	optional(o.dictionary).scb(([dict]) => dict)
 ).scb(([type, , name, forkey, options], start, end) => {
@@ -352,9 +362,13 @@ o.variable = p(
 	return new VariableParse(start, end, type, name, forkey, options);
 });
 
-o.parenthesis = p(c`(`, _n, or(o.action, o.variable), _n, c`)`).scb(
-	([, , actionOrVariable]) => actionOrVariable
-);
+o.parenthesis = p(
+	c`(`,
+	_n,
+	or(o.action, o.variable),
+	_n,
+	c`)`
+).scb(([, , actionOrVariable]) => actionOrVariable);
 
 o.actions = p(
 	_n,

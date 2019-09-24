@@ -7,7 +7,8 @@ import {
 	OrProduction,
 	ProductionResolveable,
 	PositionedError,
-	ProductionResolveableIn
+	ProductionResolveableIn,
+	RequiredProduction
 } from "./Production";
 
 export const p = (...args: Array<ProductionResolveableIn>): Production =>
@@ -31,6 +32,8 @@ export const error = (
 	p(a).scb((aval, start, end) => {
 		throw new PositionedError(message(aval), start, end);
 	});
+export const required = (a: ProductionResolveableIn, message?: string) =>
+	new RequiredProduction(a, message);
 
 const _realo: { [name: string]: Production } = {}; // todon't make this a proxy such that accessing o.a returns a {getProd:} might be interesting maybe
 

@@ -1,6 +1,6 @@
 export type CoercionTypeClass = keyof typeof coercionTypesMap;
 
-const coercionTypesMap = {
+export const coercionTypesMap = {
 	WFContentItem: true,
 	WFAppStoreAppContentItem: true,
 	WFArticleContentItem: true,

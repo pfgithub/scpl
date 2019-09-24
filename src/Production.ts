@@ -299,3 +299,44 @@ export class ManyProduction extends Production {
 		return `${item}{${this.start}..${this.end}}`;
 	}
 }
+
+export class RequiredProduction extends Production {
+	prod: ProductionResolveable;
+	message?: string;
+	constructor(thing: ProductionResolveableIn, message?: string) {
+		// range = 0.. 1.. 0..1 ..1 or something
+		super();
+		this.prod = resolveIn(thing);
+		this.message = message;
+	}
+
+	parse(string: string, position: Position): ParseResult {
+		super.parse(string, position);
+		const succeeding = true;
+		const startpos = <Position>position.slice();
+
+		const result = resolve(this.prod).parse(string, <Position>(
+			position.slice()
+		));
+		if (!result.success) {
+			throw new PositionedError(
+				this.message || resolve(this.prod).toString(),
+				startpos,
+				startpos
+			);
+		}
+		position = result.pos;
+
+		return {
+			data: this.cb(result.data, startpos, position),
+			remainingStr: string,
+			success: true,
+			pos: position
+		};
+	}
+	toString() {
+		return `( ${resolve(this.prod).nameOrTostring()} )!${
+			this.message ? JSON.stringify(this.message) : ""
+		}`;
+	}
+}

@@ -273,7 +273,9 @@ export class WFAction {
 	_data: ShortcutsActionSpec;
 	id: string;
 	isComplete: boolean;
-	_parameters: Array<WFParameter | string>;
+	_parameters: Array<
+		WFParameter | { __type: "raw"; data: ShortcutsParameterSpec }
+	>;
 	internalName: string;
 	shortName: string;
 	name: string;
@@ -333,7 +335,7 @@ export class WFAction {
 						_debugMissingTypes[param.Class] !== undefined
 							? _debugMissingTypes[param.Class] + 1
 							: 1;
-					return `${param.Class}`;
+					return { __type: "raw", data: param };
 				}
 			);
 		}
@@ -350,7 +352,7 @@ export class WFAction {
 	}
 	genDocsParams() {
 		return this._parameters.map(param => {
-			if (typeof param === "string") {
+			if ("__type" in param) {
 				return { argType: `NotImplemented` };
 			}
 			return {
@@ -508,7 +510,7 @@ ${this.genDocsUsage()}
 ---
 
 ${this._parameters.map(param =>
-	typeof param === "string"
+	"__type" in param
 		? `#### This parameter is not implemented yet.
 
 The parameter type is ${param}. If you need to use this parameter, you may
@@ -534,14 +536,16 @@ ${JSON.stringify(this._data, null, "\t")}
 	getParameters(): { [key: string]: WFParameter } {
 		const res: { [key: string]: WFParameter } = {};
 		this._parameters.forEach(param => {
-			if (typeof param === "string") {
+			if ("__type" in param) {
 				return;
 			}
 			res[param.shortName] = param;
 		});
 		return res;
 	}
-	getParameterOrder(): ReadonlyArray<string | WFParameter> {
+	getParameterOrder(): ReadonlyArray<
+		{ __type: "raw"; data: ShortcutsParameterSpec } | WFParameter
+	> {
 		return this._parameters;
 	}
 	build(
@@ -575,19 +579,23 @@ ${JSON.stringify(this._data, null, "\t")}
 			action.parameters.set("GroupingIdentifier", uuid);
 		}
 		let vi = 0;
-		ArgParser<string | WFParameter>(
+		ArgParser<
+			{ __type: "raw"; data: ShortcutsParameterSpec } | WFParameter
+		>(
 			this._parameters.map(param => ({
-				name:
-					typeof param === "string"
-						? `undefined${vi++}`
-						: param.shortName,
+				name: "__type" in param ? `undefined${vi++}` : param.shortName,
 				data: param
 			})),
 			(
-				name: { name: string; data: string | WFParameter },
+				name: {
+					name: string;
+					data:
+						| { __type: "raw"; data: ShortcutsParameterSpec }
+						| WFParameter;
+				},
 				param: AsAble
 			) => {
-				if (typeof name.data === "string") {
+				if ("__type" in name.data) {
 					throw param.error(
 						cc,
 						"Data is string. This should have been caught earlier. This should never happen."
@@ -614,8 +622,15 @@ ${JSON.stringify(this._data, null, "\t")}
 				actionAbove = param.asAction(cc);
 				return;
 			},
-			(name: { data: string | WFParameter }, param: AsAble) => {
-				if (typeof name.data === "string") {
+			(
+				name: {
+					data:
+						| { __type: "raw"; data: ShortcutsParameterSpec }
+						| WFParameter;
+				},
+				param: AsAble
+			) => {
+				if ("__type" in name.data) {
 					throw param.error(
 						cc,
 						`This field is not supported yet. If you need this field, submit an issue or pull request on github requesting it. Reason: ${name.data}`
@@ -686,7 +701,6 @@ class RawAction {
 			this.id,
 			this.id
 		);
-		const vi = 0;
 		ArgParser(
 			"any",
 			(name: { name: string; data: string }, param: AsAble) => {
