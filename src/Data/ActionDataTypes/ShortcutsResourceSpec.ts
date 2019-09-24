@@ -1,7 +1,7 @@
 import { ShortcutsResourceClass } from "./Strings/ShortcutsResourceClass";
 import { ShortcutsAppIdentifier } from "./Strings/ShortcutsAppIdentifier";
 
-type Relation = "==" | "!=" | ">=" | "<=" | ">" | "<";
+export type ShortcutsParameterRelationResourceRelationSpec = "==" | "!=" | ">=" | "<=" | ">" | "<";
 
 export type ShortcutsBaseResourceSpec = {
 	WFResourceClass: ShortcutsResourceClass;
@@ -15,12 +15,12 @@ export type ShortcutsParameterRelationResourceSpec = ShortcutsBaseResourceSpec &
 		| {
 				WFParameterKey: string;
 				WFParameterValue: string | number | boolean | object;
-				WFParameterRelation?: Relation;
+				WFParameterRelation?: ShortcutsParameterRelationResourceRelationSpec;
 		  }
 		| {
 				WFParameterKey: string;
 				WFParameterValues: (string | number | boolean | object)[];
-				WFParameterRelation?: Relation;
+				WFParameterRelation?: ShortcutsParameterRelationResourceRelationSpec;
 		  }
 		| {
 				WFParameterKey: string;
@@ -43,7 +43,7 @@ export type ShortcutsDeviceAttributesResourceSpec = ShortcutsBaseResourceSpec & 
 	WFDeviceAttributes: {
 		WFDeviceAttributeSystemVersion?: {
 			WFSystemVersion: string;
-			WFSystemVersionRelation?: Relation;
+			WFSystemVersionRelation?: ShortcutsParameterRelationResourceRelationSpec;
 		};
 		WFDeviceAttributeIdiom?: "Phone" | "Pad";
 		WFDeviceAttributeCapabilities?: "Vibration"[];
