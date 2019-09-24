@@ -1,14 +1,14 @@
 export type ShortcutsActionCategory =
-	| "Contacts"
-	| "Text"
-	| "Location"
-	| "Photos & Video"
-	| "Media"
+	| "Apps"
 	| "Calendar"
-	| "Sharing"
-	| "Scripting"
-	| "Web"
+	| "Contacts"
 	| "Documents"
 	| "Health"
 	| "Home"
-	| "Apps";
+	| "Location"
+	| "Media"
+	| "Photos & Video"
+	| "Scripting"
+	| "Sharing"
+	| "Text"
+	| "Web";

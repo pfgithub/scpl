@@ -536,4 +536,3 @@ export type ShortcutsParameterSpec =
 	| (ShortcutsMediaRoutePickerParameterSpec &
 			_pc<"WFMediaRoutePickerParameter">)
 	| (ShortcutsPodcastPickerParameterSpec & _pc<"WFPodcastPickerParameter">);
-
