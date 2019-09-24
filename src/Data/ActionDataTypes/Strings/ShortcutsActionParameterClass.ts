@@ -65,6 +65,8 @@ export type ShortcutsActionParameterClass =
 	| "WFMediaRoutePickerParameter"
 	| "WFPhoneNumberFieldParameter"
 	| "WFPodcastPickerParameter"
+	| "WFTimeOffsetParameter"
+	| "_UndefinedCoercionClass"
 	| "WFTimeIntervalParameter"
 	| "WFWorkflowPickerParameter"
 	| "WFPhotoAlbumPickerParameter"
