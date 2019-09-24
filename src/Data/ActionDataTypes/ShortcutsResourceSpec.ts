@@ -93,7 +93,6 @@ type _rc<N extends string> = { WFResourceClass: N };
 
 export type ShortcutsResourceSpec =
 	| ShortcutsResourceClass
-	| ShortcutsBaseResourceSpec
 	| (ShortcutsUserInteractionResourceSpec & _rc<"WFUserInteractionResource">)
 	| (ShortcutsParameterRelationResourceSpec &
 			_rc<"WFParameterRelationResource">)
