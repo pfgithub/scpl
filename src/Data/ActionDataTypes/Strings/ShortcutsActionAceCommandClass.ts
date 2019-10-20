@@ -1,4 +1,6 @@
-export type ShortcutsActionAceCommandClass = 
+// $.*.ACECommandClass
+
+export type ShortcutsActionAceCommandClass =
 	| "SASettingSetAirplaneMode"
 	| "SASettingSetBluetooth"
 	| "SASettingSetBrightness"

@@ -1,3 +1,5 @@
+// $..AppIdentifier
+
 export type ShortcutsAppIdentifier =
 	| "com.6wunderkinder.wunderlistmobile"
 	| "com.adobe.lrmobile"
@@ -13,7 +15,6 @@ export type ShortcutsAppIdentifier =
 	| "com.apple.calculator"
 	| "com.apple.camera"
 	| "com.apple.facetime"
-	| "com.apple.measure"
 	| "com.apple.mobilecal"
 	| "com.apple.mobilemail"
 	| "com.apple.mobilenotes"
@@ -23,6 +24,7 @@ export type ShortcutsAppIdentifier =
 	| "com.apple.mobiletimer"
 	| "com.apple.podcasts"
 	| "com.apple.reminders"
+	| "com.apple.shortcuts"
 	| "com.apple.weather"
 	| "com.atebits.Tweetie2"
 	| "com.deskconnect.ios"
@@ -31,9 +33,7 @@ export type ShortcutsAppIdentifier =
 	| "com.facebook.Messenger"
 	| "com.fogcreek.trello"
 	| "com.goodiware.goodreader4"
-	| "com.google.Maps"
 	| "com.ideashower.ReadItLaterPro"
-	| "com.ifttt.ifttt"
 	| "com.marcoarment.instapaperpro"
 	| "com.mipsoft.blindsquare"
 	| "com.soulmen.ulysses.pad"
@@ -42,5 +42,4 @@ export type ShortcutsAppIdentifier =
 	| "com.tumblr.tumblr"
 	| "com.ubercab.UberClient"
 	| "imgurmobile"
-	| "is.workflow.my.app"
 	| "org.wordpress";

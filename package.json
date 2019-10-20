@@ -69,6 +69,7 @@
 		"codecov": "^3.5.0",
 		"eslint": "^5.14.1",
 		"jest": "^24.8.0",
+		"jsonpath-plus": "^1.1.0",
 		"prettier": "^1.16.4",
 		"ts-jest": "^24.0.2",
 		"ts-node": "^8.0.3",

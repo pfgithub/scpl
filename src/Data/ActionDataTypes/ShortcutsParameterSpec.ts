@@ -17,6 +17,7 @@ export type ShortcutsBaseParameterSpec = {
 	IntentSlotName?: string;
 	DoNotLocalizeValues?: boolean;
 	Placeholder?: number | string;
+	SupportsImportQuestions?: boolean;
 };
 
 export type ShortcutsIntentAppPickerParameterSpec = ShortcutsBaseParameterSpec & {
@@ -91,6 +92,7 @@ export type ShortcutsTextInputParameterSpec = ShortcutsInputParameterSpec & {
 	Multiline?: boolean;
 	TextContentType?: ShortcutsParameterTextContentType;
 	Prefix?: string;
+	ProcessIntoContentItems?: boolean;
 };
 
 /*
@@ -117,6 +119,7 @@ export type ShortcutsNumberFieldParameterSpec = ShortcutsInputParameterSpec & {
 	TextAlignment?: "Left" | "Right";
 	DefaultValue?: number;
 	AllowsDecimalNumbers?: boolean;
+	AllowsNegativeNumbers?: boolean;
 };
 
 export type ShortcutsPlaylistPickerParameterSpec = ShortcutsBaseParameterSpec & {

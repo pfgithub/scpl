@@ -1,23 +1,23 @@
-jsonpath (plus) for:
+## Getting an updated Actions plist
 
--   ShortcutsActionAceCommandClass: `$.*.ACECommandClass`
--   ShortcutsActionCategory: `$.*.Category`
--   ShortcutsActionClass: `$.*.ActionClass`
--   ShortcutsActionEnvironments `$.*.UnsupportedEnvironments[*]`
--   ShortcutsActionIconName: `$.*.IconName`
--   ShortcutsActionIdentifier: `$.*~`
--   ShortcutsActionIODataType `$.*[Input,Output].Types[*]`
--   ShortcutsActionParameterClass `$.*.Parameters[*].Class`
--   ShortcutsActionSubcategory: `$.*.Subcategory`
--   ShortcutsActionSupportedUserInterface: `$.*.UserInterfaces[*]`
--   ShortcutsAppIdentifier: `$..AppIdentifier`
--   ShortcutsParameterTextContentType: `$.*.Parameters[*].TextContentType`
--   ShortcutsResourceClass `$..RequiredResources[*][WFResourceClass,@string()]`
+(mac only, I haven't figured out how to mount an apfs dmg on linux)
 
-Deduplicate and ts format with:
-`console.log([...new Set( )].sort().map(c => JSON.stringify(c)).join(" | "))`
+-   Aquire an ipsw file for the latest iOS
+-   Extract (by renaming to .zip) (you may need to use the unzip command if
+    Archive Utility fails)
+-   Mount the largest dmg
+-   Open a terminal and cd to the mounted volume
+-   Copy
+    `./System/Library/PrivateFrameworks/WorkflowKit.framework/WFActions.plist`
+
+---
+
+## Update thse types
+
+Run `node gen.js` (cwd does not matter)
 
 Recommendations for updating types:
 
--   Add `const a: {[key: string]: ShortcutsActionSpec} = ...json data here...`
+-   Add
+    `const a: {[key in ShortcutsActionIdentifier]: ShortcutsActionSpec} = ...json data here...`
     and work through errors one by one.

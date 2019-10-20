@@ -1,5 +1,6 @@
+// $.*.Category
+
 export type ShortcutsActionCategory =
-	| "Apps"
 	| "Calendar"
 	| "Contacts"
 	| "Documents"
@@ -7,7 +8,6 @@ export type ShortcutsActionCategory =
 	| "Home"
 	| "Location"
 	| "Media"
-	| "Photos & Video"
 	| "Scripting"
 	| "Sharing"
 	| "Text"

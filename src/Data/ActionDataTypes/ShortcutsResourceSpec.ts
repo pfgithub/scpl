@@ -89,6 +89,8 @@ export type ShortcutsAccountAccessResourceSpec = ShortcutsBaseResourceSpec & {
 		| "WFWunderlistAccount";
 };
 
+export type ShortcutsLocationAccessResourceSpec =ShortcutsBaseResourceSpec;
+
 type _rc<N extends string> = { WFResourceClass: N };
 
 export type ShortcutsResourceSpec =
@@ -102,4 +104,5 @@ export type ShortcutsResourceSpec =
 	| (ShortcutsWorkflowTypeResourceSpec & _rc<"WFWorkflowTypeResource">)
 	| (ShortcutsHealthKitAccessResourceSpec & _rc<"WFHealthKitAccessResource">)
 	| (ShortcutsAppInstalledResourceSpec & _rc<"WFAppInstalledResource">)
-	| (ShortcutsAccountAccessResourceSpec & _rc<"WFAccountAccessResource">);
+	| (ShortcutsAccountAccessResourceSpec & _rc<"WFAccountAccessResource">)
+	| (ShortcutsLocationAccessResourceSpec & _rc<"WFLocationAccessResource">);

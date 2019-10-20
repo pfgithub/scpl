@@ -1,5 +1,6 @@
-export type ShortcutsActionEnvironments = 
-	| "Background"
+// $.*.UnsupportedEnvironments[*]
+
+export type ShortcutsActionEnvironments =
 	| "Extension"
 	| "MemoryConstrained"
-	| "WatchOS"
+	| "WatchOS";

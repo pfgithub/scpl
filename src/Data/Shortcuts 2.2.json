@@ -66,12 +66,13 @@
 					"Label": "Call Type"
 				},
 				{
-					"AllowsMultipleValues": true,
+					"AllowsMultipleValues": false,
 					"Class": "WFContactFieldParameter",
 					"Key": "WFFaceTimeContact",
 					"Label": "Contact"
 				}
 			],
+			"RequiredResources": ["WFStartCallAccessResource"],
 			"Subcategory": "Phone",
 			"WFStartCallActionType": "FaceTime"
 		},
@@ -79,7 +80,7 @@
 			"ActionClass": "WFCreateNoteAction",
 			"ActionKeywords": ["apple"],
 			"AppIdentifier": "com.apple.mobilenotes",
-			"Category": "Text",
+			"Category": "Documents",
 			"Description": {
 				"DescriptionSummary": "Creates a note using the content passed as input."
 			},
@@ -95,7 +96,10 @@
 				"Multiple": false,
 				"Types": ["INNote"]
 			},
-			"ParameterSummary": "Create ${WFCreateNoteInput} in ${WFNoteGroup}",
+			"ParameterSummary": {
+				"WFCreateNoteInput,ShowWhenRun(1)": "Create note with ${WFCreateNoteInput}",
+				"WFCreateNoteInput,WFNoteGroup,ShowWhenRun(0)": "Create note with ${WFCreateNoteInput} in ${WFNoteGroup}"
+			},
 			"Parameters": [
 				{
 					"Class": "WFIntentAppPickerParameter",
@@ -129,7 +133,8 @@
 				{
 					"Class": "WFTextInputParameter",
 					"Key": "WFCreateNoteInput",
-					"Label": "Note"
+					"Label": "Body",
+					"ProcessIntoContentItems": true
 				}
 			],
 			"RequiredResources": [
@@ -142,8 +147,10 @@
 						}
 					],
 					"WFResourceClass": "WFUserInteractionResource"
-				}
+				},
+				"WFNotesAccessResource"
 			],
+			"Subcategory": "Notes",
 			"UserInterfaces": ["UIKit", "Siri"]
 		},
 		"com.apple.mobilephone.call": {
@@ -187,8 +194,16 @@
 					"Label": "Contact"
 				}
 			],
+			"RequiredResources": ["WFStartCallAccessResource"],
 			"Subcategory": "Phone",
 			"WFStartCallActionType": "Phone"
+		},
+		"com.apple.mobiletimer-framework.MobileTimerIntents.MTGetAlarmsIntent": {
+			"ActionClass": "WFHandleCustomIntentAction",
+			"AppIdentifier": "com.apple.mobiletimer",
+			"IntentIdentifier": "sirikit.intents.custom.com.apple.mobiletimer-framework.MobileTimerIntents.MTGetAlarmsIntent",
+			"IntentName": "MTGetAlarmsIntent",
+			"SkipSiriExecution": true
 		},
 		"com.ubercab.UberClient.requestuber": {
 			"ActionClass": "WFRequestUberAction",
@@ -266,7 +281,7 @@
 		"is.workflow.actions.addframetogif": {
 			"ActionClass": "WFAddFrameToGIFAction",
 			"ActionKeywords": ["animate", "make", "generate", "gif"],
-			"Category": "Photos & Video",
+			"Category": "Media",
 			"CreationDate": "2016-03-08T06:00:00.000Z",
 			"Description": {
 				"DescriptionInput": "An existing animated GIF, if desired.",
@@ -544,7 +559,8 @@
 			],
 			"RequiredResources": ["WFCalendarAccessResource"],
 			"ShortName": "Add Event",
-			"Subcategory": "Calendar"
+			"Subcategory": "Calendar",
+			"WatchCompatible": true
 		},
 		"is.workflow.actions.addnewreminder": {
 			"ActionClass": "WFAddNewReminderAction",
@@ -696,7 +712,8 @@
 				}
 			],
 			"ShortName": "Add Reminder",
-			"Subcategory": "Reminders"
+			"Subcategory": "Reminders",
+			"WatchCompatible": true
 		},
 		"is.workflow.actions.address": {
 			"ActionClass": "WFAddressAction",
@@ -768,7 +785,9 @@
 					"Label": "Region",
 					"Placeholder": "United States"
 				}
-			]
+			],
+			"ResidentCompatible": true,
+			"Subcategory": "Addresses"
 		},
 		"is.workflow.actions.addtoplaylist": {
 			"ActionClass": "WFAddToPlaylistAction",
@@ -894,6 +913,7 @@
 						"Get Start of Minute",
 						"Get Start of Hour",
 						"Get Start of Day",
+						"Get Start of Week",
 						"Get Start of Month",
 						"Get Start of Year"
 					],
@@ -997,7 +1017,7 @@
 				}
 			],
 			"RequiredResources": ["WFSiriAccessResource"],
-			"Subcategory": "Device",
+			"Subcategory": "Network",
 			"UnsupportedEnvironments": ["WatchOS"]
 		},
 		"is.workflow.actions.alert": {
@@ -1046,11 +1066,23 @@
 			"RequiredResources": ["WFUserInteractionResource"],
 			"Subcategory": "Notification"
 		},
+		"is.workflow.actions.appearance": {
+			"ActionClass": "WFHandleCustomIntentAction",
+			"ActionKeywords": ["style", "mode", "dark", "appearance"],
+			"Attribution": "Appearance",
+			"Category": "Scripting",
+			"IconName": "Brightness.png",
+			"InProcess": true,
+			"IntentIdentifier": "sirikit.intents.custom.com.apple.WorkflowKit.ShortcutsIntents.WFSetAppearanceIntent",
+			"LastModifiedDate": "2019-05-22T19:35:00.000Z",
+			"ResidentCompatible": false,
+			"Subcategory": "Device"
+		},
 		"is.workflow.actions.appendnote": {
 			"ActionClass": "WFAppendToNoteAction",
 			"ActionKeywords": ["apple"],
 			"AppIdentifier": "com.apple.mobilenotes",
-			"Category": "Text",
+			"Category": "Documents",
 			"Description": {
 				"DescriptionResult": "The updated note",
 				"DescriptionSummary": "Appends the text passed as input to the specified note."
@@ -1065,6 +1097,7 @@
 			"Name": "Append to Note",
 			"Output": {
 				"Multiple": false,
+				"OutputName": "Appended Note",
 				"Types": ["INNote"]
 			},
 			"ParameterSummary": "Append ${WFInput} to ${WFNote}",
@@ -1081,7 +1114,8 @@
 					"Class": "WFVariablePickerParameter",
 					"Description": "The note to append to",
 					"Key": "WFNote",
-					"Label": "Note"
+					"Label": "Note",
+					"Placeholder": "Note"
 				},
 				{
 					"Class": "WFTextInputParameter",
@@ -1089,7 +1123,8 @@
 					"Label": "Text"
 				}
 			],
-			"RequiredResources": []
+			"RequiredResources": ["WFNotesAccessResource"],
+			"Subcategory": "Notes"
 		},
 		"is.workflow.actions.appendvariable": {
 			"ActionClass": "WFAppendVariableAction",
@@ -1157,31 +1192,41 @@
 			"LastModifiedDate": "2015-08-20T07:00:00.000Z",
 			"Output": {
 				"Multiple": false,
-				"OutputName": "Ask for Input",
+				"OutputName": "Provided Input",
 				"Types": ["NSString", "NSDecimalNumber", "NSURL", "NSDate"]
 			},
 			"ParameterOverrides": {
 				"dateAndTimeAnswer": {
-					"DisallowedVariableTypes": ["Ask"]
+					"DisallowedVariableTypes": ["Ask"],
+					"Key": "WFAskActionDefaultAnswerDateAndTime"
 				},
 				"dateAnswer": {
 					"DisallowedVariableTypes": ["Ask"],
 					"Key": "WFAskActionDefaultAnswerDate"
 				},
+				"defaultURLAnswer": {
+					"DisallowedVariableTypes": ["Ask"],
+					"Key": "WFAskActionDefaultAnswerURL",
+					"KeyboardType": "URL"
+				},
 				"numberAnswer": {
-					"DisallowedVariableTypes": ["Ask"]
+					"DisallowedVariableTypes": ["Ask"],
+					"Key": "WFAskActionDefaultAnswerNumber"
 				},
 				"question": {
 					"Key": "WFAskActionPrompt"
 				},
 				"stringAnswer": {
 					"DisallowedVariableTypes": ["Ask"],
-					"Key": "WFAskActionDefaultAnswer"
+					"Key": "WFAskActionDefaultAnswer",
+					"Label": "Default Answer"
 				},
 				"timeAnswer": {
-					"DisallowedVariableTypes": ["Ask"]
+					"DisallowedVariableTypes": ["Ask"],
+					"Key": "WFAskActionDefaultAnswerTime"
 				},
 				"type": {
+					"DisallowedVariableTypes": ["Ask"],
 					"IntentEnumOverrides": {
 						"date": "Date",
 						"dateAndTime": "Date and Time",
@@ -1193,9 +1238,10 @@
 					"Key": "WFInputType"
 				},
 				"urlAnswer": {
-					"DisallowedVariableTypes": ["Ask"]
+					"Hidden": true
 				}
 			},
+			"ParameterSummary": "Ask ${WFAskActionPrompt}",
 			"RequiredResources": ["WFUserInteractionResource"],
 			"Subcategory": "Notification",
 			"UserInterfaces": ["UIKit", "UIKitWidget", "WatchKit", "Siri"]
@@ -1214,7 +1260,7 @@
 				"draw",
 				"document"
 			],
-			"Categories": ["Documents", "Photos & Video"],
+			"Categories": ["Documents", "Media"],
 			"CreationDate": "2014-01-20T06:00:00.000Z",
 			"Description": {
 				"DescriptionResult": "The edited content",
@@ -1298,7 +1344,8 @@
 				{
 					"Class": "WFVariablePickerParameter",
 					"Key": "WFInput",
-					"Label": "Input"
+					"Label": "Input",
+					"Placeholder": "Input"
 				}
 			],
 			"ResidentCompatible": true,
@@ -1327,7 +1374,7 @@
 				}
 			],
 			"RequiredResources": ["WFSiriAccessResource"],
-			"Subcategory": "Device",
+			"Subcategory": "Network",
 			"UnsupportedEnvironments": ["WatchOS"]
 		},
 		"is.workflow.actions.cellulardata.set": {
@@ -1352,7 +1399,7 @@
 				}
 			],
 			"RequiredResources": ["WFSiriAccessResource"],
-			"Subcategory": "Device",
+			"Subcategory": "Network",
 			"UnsupportedEnvironments": ["WatchOS"]
 		},
 		"is.workflow.actions.choosefromlist": {
@@ -1435,7 +1482,8 @@
 			],
 			"RequiredResources": ["WFUserInteractionResource"],
 			"Subcategory": "Lists",
-			"UserInterfaces": ["WatchKit", "UIKit", "UIKitWidget", "Siri"]
+			"UserInterfaces": ["WatchKit", "UIKit", "UIKitWidget", "Siri"],
+			"WatchCompatible": true
 		},
 		"is.workflow.actions.choosefrommenu": {
 			"ActionClass": "WFChooseFromMenuAction",
@@ -1468,14 +1516,16 @@
 					"Class": "WFArrayParameter",
 					"DefaultValue": ["One", "Two"],
 					"Key": "WFMenuItems",
-					"Label": "Items"
+					"Label": "Items",
+					"SupportsImportQuestions": false
 				}
 			],
 			"RequiredResources": ["WFUserInteractionResource"],
 			"ShortName": "Menu",
 			"SnappingPassthrough": true,
 			"Subcategory": "Control Flow",
-			"SuggestedAsInitialAction": true
+			"SuggestedAsInitialAction": true,
+			"WatchCompatible": true
 		},
 		"is.workflow.actions.clearupnext": {
 			"ActionClass": "WFClearUpNextAction",
@@ -1516,7 +1566,7 @@
 		"is.workflow.actions.cloudapp.upload": {
 			"ActionClass": "WFCloudAppUploadAction",
 			"AppSection": "CloudApp",
-			"Category": "Web",
+			"Category": "Sharing",
 			"CreationDate": "2015-01-11T06:00:00.000Z",
 			"Description": {
 				"DescriptionResult": "CloudApp URL",
@@ -1548,7 +1598,8 @@
 				{
 					"Class": "WFVariablePickerParameter",
 					"Key": "WFInput",
-					"Label": "Content"
+					"Label": "Content",
+					"Placeholder": "Content"
 				}
 			],
 			"RequiredResources": ["WFCloudAppAccessResource"],
@@ -1575,7 +1626,9 @@
 					"Placeholder": "Enter comment..."
 				}
 			],
+			"ResidentCompatible": true,
 			"SnappingPassthrough": true,
+			"Subcategory": "No-ops",
 			"SuggestedNever": true
 		},
 		"is.workflow.actions.conditional": {
@@ -1663,11 +1716,13 @@
 					"ShowsDatePicker": true
 				},
 				{
+					"AllowsNegativeNumbers": true,
 					"Class": "WFUnitQuantityFieldParameter",
 					"Key": "WFMeasurement",
 					"Label": "Number"
 				},
 				{
+					"AllowsNegativeNumbers": true,
 					"Class": "WFUnitQuantityFieldParameter",
 					"Key": "WFAnotherMeasurement",
 					"Label": "Number"
@@ -1736,7 +1791,7 @@
 				"correct",
 				"autocorrect"
 			],
-			"Category": "Text",
+			"Category": "Documents",
 			"IconName": "Text.png",
 			"InProcess": true,
 			"IntentIdentifier": "sirikit.intents.custom.com.apple.WorkflowKit.ShortcutsIntents.WFCorrectSpellingIntent",
@@ -1747,12 +1802,13 @@
 		"is.workflow.actions.count": {
 			"ActionClass": "WFCountAction",
 			"ActionKeywords": ["get", "number", "length", "list"],
+			"AppIdentifier": "com.apple.calculator",
+			"Attribution": "Scripting",
 			"Category": "Scripting",
 			"Description": {
 				"DescriptionNote": "This is just like the Count in Sesame Street, but instead of a vampire, it's a Shortcuts action.",
 				"DescriptionSummary": "Counts the number of items, characters, words, sentences, or lines passed as input."
 			},
-			"IconName": "Calculator.png",
 			"Input": {
 				"Multiple": true,
 				"ParameterKey": "Input",
@@ -1788,7 +1844,7 @@
 				}
 			],
 			"ResidentCompatible": true,
-			"Subcategory": "Content"
+			"Subcategory": "Items"
 		},
 		"is.workflow.actions.createplaylist": {
 			"ActionClass": "WFCreatePlaylistAction",
@@ -1873,7 +1929,8 @@
 				"pass date",
 				"time",
 				"current",
-				"now"
+				"now",
+				"get"
 			],
 			"Category": "Calendar",
 			"Constructor": true,
@@ -1933,7 +1990,6 @@
 					"Class": "WFStepperParameter",
 					"DefaultValue": 1,
 					"Key": "WFDelayTime",
-					"Placeholder": 0,
 					"StepperDescription": "Number of Seconds",
 					"StepperNoun": "Second",
 					"StepperPluralNoun": "Seconds"
@@ -1949,7 +2005,7 @@
 			"ActionKeywords": ["remove", "trash", "picture"],
 			"AppIdentifier": "com.apple.mobileslideshow",
 			"BlocksOutput": true,
-			"Category": "Photos & Video",
+			"Category": "Media",
 			"Description": {
 				"DescriptionSummary": "Deletes the photos passed as input from the device's photo library. This action asks for confirmation before performing the deletion."
 			},
@@ -2043,12 +2099,13 @@
 				{
 					"Class": "WFVariablePickerParameter",
 					"Key": "WFInput",
-					"Label": "Input"
+					"Label": "Input",
+					"Placeholder": "Input"
 				}
 			],
 			"ResidentCompatible": true,
 			"ShortName": "Get Addresses",
-			"Subcategory": "Location"
+			"Subcategory": "Addresses"
 		},
 		"is.workflow.actions.detect.contacts": {
 			"ActionClass": "WFCoercionAction",
@@ -2221,7 +2278,7 @@
 				"e-mail",
 				"emails"
 			],
-			"Category": "Photos & Video",
+			"Category": "Media",
 			"CoercionItemClass": "WFImageContentItem",
 			"Description": {
 				"DescriptionSummary": "Gets images from the result of the previous action.\n\nFor example, this action can get the album art of a song, or all the images on a webpage."
@@ -2244,7 +2301,8 @@
 				{
 					"Class": "WFVariablePickerParameter",
 					"Key": "WFInput",
-					"Label": "Input"
+					"Label": "Input",
+					"Placeholder": "Input"
 				}
 			],
 			"ResidentCompatible": true,
@@ -2294,14 +2352,16 @@
 				"extract",
 				"scan"
 			],
+			"AppIdentifier": "com.apple.calculator",
+			"Attribution": "Scripting",
 			"Category": "Scripting",
 			"CoercionItemClass": "WFNumberContentItem",
 			"Description": {
 				"DescriptionSummary": "Returns numbers from the previous action's output."
 			},
-			"IconName": "Calculator.png",
 			"Input": {
 				"Multiple": true,
+				"ParameterKey": "WFInput",
 				"Required": true,
 				"Types": ["NSNumber"]
 			},
@@ -2311,9 +2371,18 @@
 				"OutputName": "Numbers",
 				"Types": ["WFNumberContentItem"]
 			},
+			"ParameterSummary": "Get numbers from ${WFInput}",
+			"Parameters": [
+				{
+					"AllowsDecimalNumbers": true,
+					"Class": "WFNumberFieldParameter",
+					"Key": "WFInput",
+					"Label": "Input"
+				}
+			],
 			"ResidentCompatible": true,
 			"ShortName": "Get Numbers",
-			"Subcategory": "Math"
+			"Subcategory": "Numbers"
 		},
 		"is.workflow.actions.detect.phonenumber": {
 			"ActionClass": "WFCoercionAction",
@@ -2358,7 +2427,7 @@
 				"e-mail",
 				"emails"
 			],
-			"Category": "Text",
+			"Category": "Documents",
 			"CoercionItemClass": "WFStringContentItem",
 			"Description": {
 				"DescriptionSummary": "Returns text from the previous action's output.\n\nFor example, this action can get the name of a photo or song, or the text of a webpage."
@@ -2386,13 +2455,14 @@
 				}
 			],
 			"ResidentCompatible": true,
-			"ShortName": "Get Text"
+			"ShortName": "Get Text",
+			"Subcategory": "Text"
 		},
 		"is.workflow.actions.detectlanguage": {
 			"ActionClass": "WFDetectLanguageAction",
 			"ActionKeywords": ["Translate", "Get", "Text"],
 			"Attribution": "Microsoft Cognitive Services",
-			"Category": "Text",
+			"Category": "Documents",
 			"CreationDate": "2015-08-29T17:26:33.000Z",
 			"Description": {
 				"DescriptionNote": "Powered by Microsoft Cognitive Services (microsoft.com/cognitive-services)",
@@ -2418,7 +2488,9 @@
 					"Key": "WFInput",
 					"Label": "Text"
 				}
-			]
+			],
+			"ResidentCompatible": true,
+			"Subcategory": "Translation"
 		},
 		"is.workflow.actions.dictatetext": {
 			"ActionClass": "WFDictateTextAction",
@@ -2435,7 +2507,7 @@
 				"transcription",
 				"siri"
 			],
-			"Category": "Text",
+			"Category": "Documents",
 			"CreationDate": "2016-09-09T07:00:00.000Z",
 			"Description": {
 				"DescriptionSummary": "Transcribes what you say aloud into text and passes the result to the next action."
@@ -2477,8 +2549,9 @@
 				"WFSpeechRecognitionAccessResource",
 				"WFMicrophoneAccessResource"
 			],
-			"RunningUIComponentClass": "WFDictateTextActionComponent",
-			"UserInterfaces": ["UIKit", "UIKitWidget"]
+			"RunningViewClass": "WFDictateTextActionView",
+			"Subcategory": "Text",
+			"UserInterfaces": ["UIKit", "UIKitWidget", "Siri"]
 		},
 		"is.workflow.actions.dictionary": {
 			"ActionClass": "WFDictionaryAction",
@@ -2538,6 +2611,7 @@
 				{
 					"Class": "WFEnumerationParameter",
 					"DefaultValue": "Turned Off",
+					"DisallowedVariableTypes": ["Variable"],
 					"Items": ["Turned Off", "Time", "I Leave", "Event Ends"],
 					"Key": "AssertionType",
 					"Label": "Until",
@@ -2592,6 +2666,7 @@
 					"TextAlignment": "Right"
 				}
 			],
+			"SkipSiriExecution": true,
 			"Subcategory": "Device"
 		},
 		"is.workflow.actions.documentpicker.open": {
@@ -2720,6 +2795,7 @@
 			"IconName": "Documents.png",
 			"Input": {
 				"Multiple": true,
+				"ParameterKey": "WFInput",
 				"Required": true,
 				"Types": ["public.data"]
 			},
@@ -2730,6 +2806,8 @@
 				"OutputName": "Saved File",
 				"Types": ["public.data"]
 			},
+			"ParameterCollapsingBehavior": "Never",
+			"ParameterSummary": "Save ${WFInput}",
 			"Parameters": [
 				{
 					"AlwaysShowsButton": true,
@@ -2770,6 +2848,12 @@
 							"WFResourceClass": "WFParameterRelationResource"
 						}
 					]
+				},
+				{
+					"Class": "WFVariablePickerParameter",
+					"Key": "WFInput",
+					"Label": "File",
+					"Placeholder": "File"
 				}
 			],
 			"RequiredResources": [
@@ -2928,6 +3012,7 @@
 					"Class": "WFVariablePickerParameter",
 					"Key": "WFRequestVariable",
 					"Label": "File",
+					"Placeholder": "Choose Variable",
 					"RequiredResources": [
 						{
 							"WFParameterKey": "WFHTTPBodyType",
@@ -2946,7 +3031,7 @@
 			"RequiredResources": ["WFRemoteServerAccessResource"],
 			"ResidentCompatible": true,
 			"ShortName": "Download URL",
-			"Subcategory": "URLs"
+			"Subcategory": "Web Requests"
 		},
 		"is.workflow.actions.email": {
 			"ActionClass": "WFEmailAddressAction",
@@ -2971,6 +3056,7 @@
 					"Placeholder": "Type in an email address"
 				}
 			],
+			"ResidentCompatible": true,
 			"Subcategory": "Email"
 		},
 		"is.workflow.actions.encodemedia": {
@@ -2985,7 +3071,7 @@
 				"id3",
 				"video"
 			],
-			"Category": "Photos & Video",
+			"Category": "Media",
 			"Description": {
 				"DescriptionSummary": "Re-encodes the media passed as input at the specified size, optionally converting to audio."
 			},
@@ -3156,6 +3242,7 @@
 					"Class": "WFVariablePickerParameter",
 					"Key": "WFMetadataArtwork",
 					"Label": "Artwork",
+					"Placeholder": "Choose Variable",
 					"RequiredResources": [
 						{
 							"WFParameterKey": "Metadata",
@@ -3254,7 +3341,8 @@
 				{
 					"Class": "WFVariablePickerParameter",
 					"Key": "WFInput",
-					"Label": "Notes"
+					"Label": "Notes",
+					"Placeholder": "Notes"
 				}
 			],
 			"RequiredResources": ["WFEvernoteAccessResource"]
@@ -3406,12 +3494,21 @@
 			"IconName": "Scripting.png",
 			"Input": {
 				"Multiple": true,
+				"ParameterKey": "WFResult",
 				"Required": false,
 				"Types": ["WFContentItem"]
 			},
 			"LastModifiedDate": "2015-08-20T07:00:00.000Z",
 			"Name": "Exit Shortcut",
-			"ParameterSummary": "Exit shortcut",
+			"ParameterSummary": "Exit shortcut with ${WFResult}",
+			"Parameters": [
+				{
+					"Class": "WFVariablePickerParameter",
+					"Key": "WFResult",
+					"Label": "Result",
+					"Placeholder": "Result"
+				}
+			],
 			"RequiredResources": ["WFMainThreadResource"],
 			"ResidentCompatible": true,
 			"Subcategory": "Control Flow",
@@ -3445,7 +3542,7 @@
 				"WFAppleMusicAccessResource",
 				"WFUserInteractionResource"
 			],
-			"Subcategory": "Media",
+			"Subcategory": "Music",
 			"UserInterfaces": ["UIKit"]
 		},
 		"is.workflow.actions.facebook.messenger.send": {
@@ -3500,15 +3597,18 @@
 			"IconName": "Documents.png",
 			"Input": {
 				"Multiple": false,
+				"ParameterKey": "WFInput",
 				"Required": true,
 				"Types": ["WFStringContentItem"]
 			},
 			"Name": "Append to File",
 			"Output": {
 				"Multiple": false,
-				"OutputName": "Append to File",
+				"OutputName": "Appended File",
 				"Types": ["public.data"]
 			},
+			"ParameterCollapsingBehavior": "Never",
+			"ParameterSummary": "${WFAppendFileWriteMode} ${WFInput}",
 			"Parameters": [
 				{
 					"AlwaysRequiresServiceResource": true,
@@ -3541,6 +3641,11 @@
 					"DefaultValue": true,
 					"Key": "WFAppendOnNewLine",
 					"Label": "Make New Line"
+				},
+				{
+					"Class": "WFTextInputParameter",
+					"Key": "WFInput",
+					"Label": "Text"
 				}
 			],
 			"ShortName": "Append to File",
@@ -3648,6 +3753,7 @@
 		"is.workflow.actions.filter.articles": {
 			"ActionClass": "WFContentItemFilterAction",
 			"AppIdentifier": "com.apple.mobilesafari",
+			"Attribution": "Safari",
 			"Category": "Web",
 			"CreationDate": "2015-02-13T08:00:00.000Z",
 			"Name": "Filter Articles",
@@ -3657,6 +3763,7 @@
 		"is.workflow.actions.filter.calendarevents": {
 			"ActionClass": "WFContentItemFilterAction",
 			"AppIdentifier": "com.apple.mobilecal",
+			"Attribution": "Calendar",
 			"Category": "Calendar",
 			"CreationDate": "2015-01-22T08:00:00.000Z",
 			"Name": "Find Calendar Events",
@@ -3665,11 +3772,13 @@
 			"Subcategory": "Calendar",
 			"SuggestedAsInitialAction": false,
 			"WFContentItemClass": "WFCalendarEventContentItem",
-			"WFContentItemDefaultProperty": "Calendar"
+			"WFContentItemDefaultProperty": "Calendar",
+			"WatchCompatible": true
 		},
 		"is.workflow.actions.filter.contacts": {
 			"ActionClass": "WFContentItemFilterAction",
 			"AppIdentifier": "com.apple.MobileAddressBook",
+			"Attribution": "Contacts",
 			"Category": "Contacts",
 			"CreationDate": "2015-01-22T08:00:00.000Z",
 			"LastModifiedDate": "2015-12-14T08:00:00.000Z",
@@ -3682,15 +3791,18 @@
 		"is.workflow.actions.filter.eventattendees": {
 			"ActionClass": "WFContentItemFilterAction",
 			"AppIdentifier": "com.apple.mobilecal",
+			"Attribution": "Calendar",
 			"Category": "Calendar",
 			"CreationDate": "2015-01-22T08:00:00.000Z",
 			"Name": "Filter Event Attendees",
 			"ShortName": "Filter Attendees",
 			"Subcategory": "Event Attendees",
-			"WFContentItemClass": "WFEKParticipantContentItem"
+			"WFContentItemClass": "WFEKParticipantContentItem",
+			"WatchCompatible": true
 		},
 		"is.workflow.actions.filter.files": {
 			"ActionClass": "WFContentItemFilterAction",
+			"Attribution": "Files",
 			"Category": "Documents",
 			"CreationDate": "2015-01-22T08:00:00.000Z",
 			"IconName": "Documents.png",
@@ -3705,6 +3817,7 @@
 		"is.workflow.actions.filter.health.quantity": {
 			"ActionClass": "WFFindHealthSamplesAction",
 			"AppIdentifier": "com.apple.Health",
+			"Attribution": "Health",
 			"Category": "Health",
 			"CreationDate": "2015-07-03T07:00:00.000Z",
 			"Description": {
@@ -3733,7 +3846,8 @@
 		},
 		"is.workflow.actions.filter.images": {
 			"ActionClass": "WFContentItemFilterAction",
-			"Category": "Photos & Video",
+			"Attribution": "Images",
+			"Category": "Media",
 			"CreationDate": "2015-01-22T08:00:00.000Z",
 			"IconName": "Image.png",
 			"Input": {
@@ -3750,15 +3864,18 @@
 		},
 		"is.workflow.actions.filter.locations": {
 			"ActionClass": "WFContentItemFilterAction",
+			"Attribution": "Location",
 			"Category": "Location",
 			"CreationDate": "2015-01-22T08:00:00.000Z",
 			"IconName": "Location.png",
 			"Name": "Filter Locations",
+			"ResidentCompatible": true,
 			"WFContentItemClass": "WFLocationContentItem"
 		},
 		"is.workflow.actions.filter.music": {
 			"ActionClass": "WFContentItemFilterAction",
 			"AppIdentifier": "com.apple.Music",
+			"Attribution": "Music",
 			"Category": "Media",
 			"CreationDate": "2015-01-22T08:00:00.000Z",
 			"Input": {
@@ -3770,21 +3887,21 @@
 			},
 			"Name": "Find Music",
 			"RequiredResources": ["WFAppleMusicAccessResource"],
-			"ResidentCompatible": true,
-			"Subcategory": "Media",
+			"Subcategory": "Music",
 			"WFContentItemClass": "WFMPMediaContentItem",
 			"WFContentItemDefaultProperty": "Artist"
 		},
 		"is.workflow.actions.filter.notes": {
 			"ActionClass": "WFContentItemFilterAction",
 			"AppIdentifier": "com.apple.mobilenotes",
-			"Category": "Text",
+			"Category": "Documents",
 			"CreationDate": "2018-12-26T08:00:00.000Z",
 			"Input": {
 				"Required": false,
 				"Types": ["WFNoteContentItem"]
 			},
 			"Name": "Find Notes",
+			"RequiredResources": ["WFNotesAccessResource"],
 			"Subcategory": "Notes",
 			"SuggestedAsInitialAction": false,
 			"WFContentItemClass": "WFNoteContentItem",
@@ -3793,7 +3910,8 @@
 		"is.workflow.actions.filter.photos": {
 			"ActionClass": "WFContentItemFilterAction",
 			"AppIdentifier": "com.apple.mobileslideshow",
-			"Category": "Photos & Video",
+			"Attribution": "Photos",
+			"Category": "Media",
 			"CreationDate": "2015-01-22T08:00:00.000Z",
 			"Input": {
 				"Types": [
@@ -3814,6 +3932,7 @@
 		"is.workflow.actions.filter.reminders": {
 			"ActionClass": "WFContentItemFilterAction",
 			"AppIdentifier": "com.apple.reminders",
+			"Attribution": "Reminders",
 			"Category": "Calendar",
 			"CreationDate": "2015-01-22T08:00:00.000Z",
 			"Name": "Find Reminders",
@@ -3821,7 +3940,8 @@
 			"Subcategory": "Reminders",
 			"SuggestedAsInitialAction": false,
 			"WFContentItemClass": "WFReminderContentItem",
-			"WFContentItemDefaultProperty": "List"
+			"WFContentItemDefaultProperty": "List",
+			"WatchCompatible": true
 		},
 		"is.workflow.actions.flashlight": {
 			"ACECommandClass": "SASettingSetFlashlight",
@@ -3863,7 +3983,6 @@
 		"is.workflow.actions.format.date": {
 			"ActionClass": "WFFormatDateAction",
 			"ActionKeywords": ["date", "time", "formatter"],
-			"AppIdentifier": "com.apple.mobilecal",
 			"Category": "Calendar",
 			"Description": {
 				"DescriptionNote": "Custom format strings use the format patterns from Unicode Technical Standard #35 (unicode.org/reports/tr35/tr35-31/tr35-dates.html#Date_Format_Patterns).",
@@ -3992,14 +4111,13 @@
 			],
 			"AppIdentifier": "com.apple.calculator",
 			"Attribution": "Math",
-			"Category": "Documents",
+			"Category": "Scripting",
 			"CreationDate": "2016-03-15T07:00:00.000Z",
 			"Description": {
 				"DescriptionInput": "A file size from another action, or a number of bytes",
 				"DescriptionNote": "1000 bytes are shown as 1 KB.",
 				"DescriptionSummary": "Formats a file size into text."
 			},
-			"IconName": "Calculator.png",
 			"Input": {
 				"Multiple": true,
 				"ParameterKey": "WFFileSize",
@@ -4053,16 +4171,17 @@
 					"Placeholder": "File Size"
 				}
 			],
-			"Subcategory": "Files"
+			"Subcategory": "Numbers"
 		},
 		"is.workflow.actions.format.number": {
 			"ActionClass": "WFFormatNumberAction",
 			"ActionKeywords": ["digits", "decimal"],
+			"AppIdentifier": "com.apple.calculator",
+			"Attribution": "Math",
 			"Category": "Scripting",
 			"Description": {
 				"DescriptionSummary": "Formats a number into text."
 			},
-			"IconName": "Calculator.png",
 			"Input": {
 				"Multiple": true,
 				"ParameterKey": "WFNumber",
@@ -4094,11 +4213,11 @@
 				}
 			],
 			"ResidentCompatible": true,
-			"Subcategory": "Math"
+			"Subcategory": "Numbers"
 		},
 		"is.workflow.actions.generatebarcode": {
 			"ActionClass": "WFGenerateMachineReadableCodeAction",
-			"Category": "Text",
+			"Category": "Documents",
 			"Description": {
 				"DescriptionSummary": "Generates a QR code from the input text."
 			},
@@ -4133,7 +4252,8 @@
 				}
 			],
 			"ResidentCompatible": true,
-			"ShortName": "Generate QR"
+			"ShortName": "Generate QR",
+			"Subcategory": "QR Codes"
 		},
 		"is.workflow.actions.get.playlist": {
 			"ActionClass": "WFGetPlaylistAction",
@@ -4204,7 +4324,6 @@
 					"Label": "URL"
 				}
 			],
-			"ResidentCompatible": true,
 			"ShortName": "Get Article",
 			"Subcategory": "Articles"
 		},
@@ -4343,7 +4462,7 @@
 				"WFMainThreadResource",
 				"WFAppleMusicAccessResource"
 			],
-			"Subcategory": "Media"
+			"Subcategory": "Music"
 		},
 		"is.workflow.actions.getdevicedetails": {
 			"ActionClass": "WFGetDeviceDetailsAction",
@@ -4473,7 +4592,8 @@
 			],
 			"RequiredResources": ["WFURLOpenResource"],
 			"Subcategory": "Maps",
-			"UserInterfaces": ["WatchKit", "UIKit", "UIKitWidget"]
+			"UserInterfaces": ["WatchKit", "UIKit", "UIKitWidget"],
+			"WatchCompatible": true
 		},
 		"is.workflow.actions.getdistance": {
 			"ActionClass": "WFGetDistanceAction",
@@ -4558,7 +4678,7 @@
 				}
 			],
 			"ResidentCompatible": true,
-			"Subcategory": "Maps"
+			"Subcategory": "Routing"
 		},
 		"is.workflow.actions.getepisodesforpodcast": {
 			"ActionClass": "WFGetEpisodesForPodcastAction",
@@ -4569,15 +4689,25 @@
 			},
 			"Input": {
 				"Multiple": false,
+				"ParameterKey": "WFInput",
 				"Required": true,
 				"Types": ["WFiTunesProductContentItem"]
 			},
-			"Name": "Get Episodes for Podcast",
+			"Name": "Get Episodes of Podcast",
 			"Output": {
 				"Multiple": true,
 				"OutputName": "Episodes",
 				"Types": ["WFPodcastEpisodeContentItem"]
-			}
+			},
+			"ParameterSummary": "Get episodes of ${WFInput}",
+			"Parameters": [
+				{
+					"Class": "WFPodcastPickerParameter",
+					"Key": "WFInput",
+					"Label": "Podcast",
+					"Placeholder": "Podcast"
+				}
+			]
 		},
 		"is.workflow.actions.getframesfromimage": {
 			"ActionClass": "WFGetFramesFromImageAction",
@@ -4590,7 +4720,7 @@
 				"explode",
 				"separate"
 			],
-			"Category": "Photos & Video",
+			"Category": "Media",
 			"CreationDate": "2015-12-08T08:00:00.000Z",
 			"Description": {
 				"DescriptionInput": "An animated GIF or photo burst",
@@ -4638,6 +4768,7 @@
 				"OutputName": "Halfway Point",
 				"Types": ["CLLocation"]
 			},
+			"ParameterSummary": "Get halfway point between ${WFGetHalfwayPointFirstLocation} and ${WFGetHalfwayPointSecondLocation}",
 			"Parameters": [
 				{
 					"AllowTextOnly": true,
@@ -4679,6 +4810,7 @@
 				}
 			],
 			"ResidentCompatible": true,
+			"Subcategory": "Routing",
 			"SuggestedNever": true
 		},
 		"is.workflow.actions.gethomeaccessorystate": {
@@ -4720,12 +4852,13 @@
 				}
 			],
 			"RequiredResources": ["WFHomeKitAccessResource"],
-			"ResidentCompatible": true
+			"ResidentCompatible": true,
+			"WatchCompatible": true
 		},
 		"is.workflow.actions.gethtmlfromrichtext": {
 			"ActionClass": "WFHTMLFromRichTextAction",
 			"ActionKeywords": ["page", "source", "web", "get"],
-			"Category": "Text",
+			"Category": "Documents",
 			"Description": {
 				"DescriptionResult": "HTML",
 				"DescriptionSummary": "Converts the rich text passed as input to HTML text."
@@ -4802,7 +4935,7 @@
 				}
 			],
 			"ResidentCompatible": true,
-			"Subcategory": "Device",
+			"Subcategory": "Network",
 			"SuggestedNever": true
 		},
 		"is.workflow.actions.getitemfromlist": {
@@ -4930,7 +5063,7 @@
 				}
 			],
 			"ResidentCompatible": true,
-			"Subcategory": "Content"
+			"Subcategory": "Items"
 		},
 		"is.workflow.actions.getitemtype": {
 			"ActionClass": "WFGetItemTypeAction",
@@ -4962,16 +5095,16 @@
 				}
 			],
 			"ResidentCompatible": true,
-			"Subcategory": "Content",
+			"Subcategory": "Items",
 			"SuggestedNever": true
 		},
 		"is.workflow.actions.getlastphoto": {
 			"ActionClass": "WFGetLatestPhotosAction",
 			"ActionKeywords": ["camera", "roll", "picture", "last"],
 			"AppIdentifier": "com.apple.mobileslideshow",
-			"Category": "Photos & Video",
+			"Category": "Media",
 			"Description": {
-				"DescriptionSummary": "Gets the most recent photos from the camera roll."
+				"DescriptionSummary": "Gets the most recent photos from the photo library."
 			},
 			"Name": "Get Latest Photos",
 			"Output": {
@@ -5005,9 +5138,9 @@
 			"ActionClass": "WFGetLatestPhotosAction",
 			"ActionKeywords": ["camera", "roll", "picture", "photo", "screen"],
 			"AppIdentifier": "com.apple.mobileslideshow",
-			"Category": "Photos & Video",
+			"Category": "Media",
 			"Description": {
-				"DescriptionSummary": "Gets the most recent screenshots from the camera roll."
+				"DescriptionSummary": "Gets the most recent screenshots from the photo library."
 			},
 			"Name": "Get Latest Screenshots",
 			"Output": {
@@ -5035,9 +5168,9 @@
 			"ActionClass": "WFGetLatestPhotosAction",
 			"ActionKeywords": ["video", "camera", "roll", "movie"],
 			"AppIdentifier": "com.apple.mobileslideshow",
-			"Category": "Photos & Video",
+			"Category": "Media",
 			"Description": {
-				"DescriptionSummary": "Gets the most recent videos from the camera roll."
+				"DescriptionSummary": "Gets the most recent videos from the photo library."
 			},
 			"Name": "Get Latest Videos",
 			"Output": {
@@ -5058,7 +5191,7 @@
 			],
 			"RequiredResources": ["WFPhotoAccessResource"],
 			"ShortName": "Get Videos",
-			"Subcategory": "Video",
+			"Subcategory": "Photos",
 			"WFGetLatestPhotosActionType": "Video"
 		},
 		"is.workflow.actions.getlatestbursts": {
@@ -5071,10 +5204,10 @@
 				"animated"
 			],
 			"AppIdentifier": "com.apple.mobileslideshow",
-			"Category": "Photos & Video",
+			"Category": "Media",
 			"CreationDate": "2015-12-08T08:00:00.000Z",
 			"Description": {
-				"DescriptionSummary": "Gets the most recent burst photos from the camera roll."
+				"DescriptionSummary": "Gets the most recent burst photos from the photo library."
 			},
 			"Name": "Get Latest Bursts",
 			"Output": {
@@ -5108,10 +5241,10 @@
 				"animated"
 			],
 			"AppIdentifier": "com.apple.mobileslideshow",
-			"Category": "Photos & Video",
+			"Category": "Media",
 			"CreationDate": "2015-12-08T08:00:00.000Z",
 			"Description": {
-				"DescriptionSummary": "Gets the most recent Live Photos from the camera roll."
+				"DescriptionSummary": "Gets the most recent Live Photos from the photo library."
 			},
 			"Name": "Get Latest Live Photos",
 			"Output": {
@@ -5149,7 +5282,7 @@
 				"usb"
 			],
 			"AppIdentifier": "com.apple.mobileslideshow",
-			"Category": "Photos & Video",
+			"Category": "Media",
 			"CreationDate": "2018-09-28T07:00:00.000Z",
 			"Description": {
 				"DescriptionSummary": "Gets the most recent photo import from the Photos app."
@@ -5193,13 +5326,12 @@
 					"Label": "Location",
 					"Placeholder": "Location"
 				}
-			],
-			"Subcategory": "Maps"
+			]
 		},
 		"is.workflow.actions.getmarkdownfromrichtext": {
 			"ActionClass": "WFMarkdownFromRichTextAction",
 			"ActionKeywords": ["html2text", "source"],
-			"Category": "Text",
+			"Category": "Documents",
 			"CreationDate": "2016-03-07T08:00:00.000Z",
 			"Description": {
 				"DescriptionResult": "Markdown",
@@ -5234,7 +5366,7 @@
 		"is.workflow.actions.getmyworkflows": {
 			"ActionClass": "WFGetMyWorkflowsAction",
 			"ActionKeywords": ["installed", "downloaded", "workflow"],
-			"AppIdentifier": "is.workflow.my.app",
+			"AppIdentifier": "com.apple.shortcuts",
 			"Category": "Scripting",
 			"CreationDate": "2015-08-16T05:00:00.000Z",
 			"Description": {
@@ -5244,7 +5376,7 @@
 			"Output": {
 				"Multiple": true,
 				"OutputName": "My Shortcuts",
-				"Types": ["WFWorkflow"]
+				"Types": ["WFWorkflowRecord"]
 			},
 			"ParameterSummary": "Get my shortcuts",
 			"Subcategory": "Shortcuts",
@@ -5252,7 +5384,7 @@
 		},
 		"is.workflow.actions.getnameofemoji": {
 			"ActionClass": "WFGetEmojiNameAction",
-			"Category": "Text",
+			"Category": "Documents",
 			"CreationDate": "2015-03-07T08:00:00.000Z",
 			"Description": {
 				"DescriptionSummary": "Gets the names of emoji passed into the action."
@@ -5281,6 +5413,7 @@
 			],
 			"ResidentCompatible": true,
 			"ShortName": "Get Emoji Name",
+			"Subcategory": "Text",
 			"SuggestedNever": true
 		},
 		"is.workflow.actions.getpodcastsfromlibrary": {
@@ -5294,14 +5427,16 @@
 			"Name": "Get Podcasts from Library",
 			"Output": {
 				"Multiple": true,
-				"OutputName": "Podcast",
+				"OutputName": "Podcasts",
 				"Types": ["WFiTunesProductContentItem"]
-			}
+			},
+			"Required": "",
+			"RequiredResources": ["WFPodcastsAccessResource"]
 		},
 		"is.workflow.actions.getrichtextfromhtml": {
 			"ActionClass": "WFRichTextFromHTMLAction",
 			"ActionKeywords": ["page", "source", "web", "get"],
-			"Category": "Text",
+			"Category": "Documents",
 			"Description": {
 				"DescriptionInput": "HTML",
 				"DescriptionSummary": "Takes the inputted HTML and turns it into rich text, which can then be converted to other formats."
@@ -5336,7 +5471,7 @@
 		"is.workflow.actions.getrichtextfrommarkdown": {
 			"ActionClass": "WFRichTextFromMarkdownAction",
 			"ActionKeywords": ["html", "get"],
-			"Category": "Text",
+			"Category": "Documents",
 			"Description": {
 				"DescriptionInput": "Markdown",
 				"DescriptionSummary": "Takes the inputted Markdown and turns it into rich text, which can then be converted to other formats."
@@ -5359,7 +5494,8 @@
 				{
 					"Class": "WFVariablePickerParameter",
 					"Key": "WFInput",
-					"Label": "Markdown Text"
+					"Label": "Markdown Text",
+					"Placeholder": "Markdown Text"
 				}
 			],
 			"ResidentCompatible": true,
@@ -5377,7 +5513,7 @@
 				"so wow",
 				"string"
 			],
-			"Category": "Text",
+			"Category": "Documents",
 			"Constructor": true,
 			"Description": {
 				"DescriptionSummary": "Passes the specified text to the next action."
@@ -5397,7 +5533,8 @@
 					"Multiline": true,
 					"Placeholder": "Text"
 				}
-			]
+			],
+			"Subcategory": "Text"
 		},
 		"is.workflow.actions.gettimebetweendates": {
 			"ActionClass": "WFTimeUntilDateAction",
@@ -5423,6 +5560,7 @@
 			},
 			"IconName": "Date.png",
 			"Input": {
+				"ParameterKey": "WFInput",
 				"Required": true,
 				"Types": ["NSDate"]
 			},
@@ -5432,29 +5570,17 @@
 				"OutputName": "Time Between Dates",
 				"Types": ["NSNumber"]
 			},
+			"ParameterSummary": "Get time between ${WFTimeUntilFromDate} and ${WFInput} in ${WFTimeUntilUnit}",
 			"Parameters": [
 				{
-					"Class": "WFEnumerationParameter",
-					"DefaultValue": "Right Now",
-					"DisallowedVariableTypes": ["Ask", "Variable"],
-					"Items": ["Right Now", "Other"],
-					"Key": "WFTimeUntilReferenceDate",
-					"Label": "Get Time From",
-					"Placeholder": "First Date"
+					"Class": "WFDateFieldParameter",
+					"Key": "WFTimeUntilFromDate",
+					"Label": "First Date"
 				},
 				{
 					"Class": "WFDateFieldParameter",
-					"Key": "WFTimeUntilCustomDate",
-					"Label": "Second Date",
-					"Placeholder": "Second Date",
-					"RequiredResources": [
-						{
-							"WFParameterKey": "WFTimeUntilReferenceDate",
-							"WFParameterValue": "Other",
-							"WFResourceClass": "WFParameterRelationResource"
-						}
-					],
-					"TextAlignment": "Right"
+					"Key": "WFInput",
+					"Label": "Second Date"
 				},
 				{
 					"Class": "WFEnumerationParameter",
@@ -5536,7 +5662,7 @@
 				"WFLocationAccessResource"
 			],
 			"ResidentCompatible": true,
-			"Subcategory": "Maps"
+			"Subcategory": "Routing"
 		},
 		"is.workflow.actions.gettypeaction": {
 			"ActionClass": "WFGetTypeAction",
@@ -5558,7 +5684,7 @@
 				"OutputName": "File of Type",
 				"Types": ["public.data"]
 			},
-			"ParameterSummary": "Get file of ${WFFileType} from ${WFInput}",
+			"ParameterSummary": "Get file of type ${WFFileType} from ${WFInput}",
 			"Parameters": [
 				{
 					"AutocapitalizationType": "None",
@@ -5644,7 +5770,8 @@
 			"RequiredResources": ["WFCalendarAccessResource"],
 			"ShortName": "Get Events",
 			"Subcategory": "Calendar",
-			"WFGetUpcomingItemType": 0
+			"WFGetUpcomingItemType": 0,
+			"WatchCompatible": true
 		},
 		"is.workflow.actions.getupcomingreminders": {
 			"ActionClass": "WFGetUpcomingCalendarItemsAction",
@@ -5683,7 +5810,8 @@
 			"RequiredResources": ["WFReminderAccessResource"],
 			"ShortName": "Get Reminders",
 			"Subcategory": "Reminders",
-			"WFGetUpcomingItemType": 1
+			"WFGetUpcomingItemType": 1,
+			"WatchCompatible": true
 		},
 		"is.workflow.actions.geturlcomponent": {
 			"ActionClass": "WFURLGetComponentAction",
@@ -5876,15 +6004,19 @@
 			"ParameterSummary": "Get contents of webpage at ${WFInput}",
 			"Parameters": [
 				{
-					"Class": "WFVariablePickerParameter",
+					"AutocapitalizationType": "None",
+					"Class": "WFTextInputParameter",
+					"DisableAutocorrection": true,
 					"Key": "WFInput",
-					"Label": "URL"
+					"KeyboardType": "URL",
+					"Label": "URL",
+					"TextContentType": "URL"
 				}
 			],
 			"RequiredResources": ["WFRemoteServerAccessResource"],
 			"ResidentCompatible": true,
 			"ShortName": "Get Webpage",
-			"Subcategory": "Web",
+			"Subcategory": "Web Requests",
 			"UnsupportedEnvironments": ["MemoryConstrained"]
 		},
 		"is.workflow.actions.getwifi": {
@@ -5959,7 +6091,7 @@
 				}
 			],
 			"ResidentCompatible": true,
-			"Subcategory": "Device",
+			"Subcategory": "Network",
 			"SuggestedNever": true
 		},
 		"is.workflow.actions.giphy": {
@@ -6060,7 +6192,8 @@
 				{
 					"Class": "WFVariablePickerParameter",
 					"Key": "WFInput",
-					"Label": "File"
+					"Label": "File",
+					"Placeholder": "File"
 				}
 			],
 			"RequiredResources": [
@@ -6091,10 +6224,49 @@
 			},
 			"IconName": "HandoffAction.png",
 			"InputPassthrough": true,
-			"Name": "Continue Shortcut in App",
-			"ParameterSummary": "Continue shortcut in app",
+			"Name": "Continue in Shortcuts App",
+			"ParameterSummary": "Continue in Shortcuts app",
 			"RequiredResources": ["WFUserInteractionResource"],
 			"Subcategory": "Control Flow"
+		},
+		"is.workflow.actions.handoffplayback": {
+			"ActionClass": "WFHandOffPlaybackAction",
+			"ActionKeywords": [
+				"device",
+				"airplay",
+				"playback",
+				"audio",
+				"route"
+			],
+			"Attribution": "Now Playing",
+			"Category": "Media",
+			"Description": {
+				"DescriptionSummary": "Hands off Music or Podcasts playback between two devices."
+			},
+			"Discontinued": true,
+			"IconName": "HandoffMusic.png",
+			"Name": "Hand Off Playback",
+			"ParameterSummary": "Hand off playback from ${WFSourceMediaRoute} to ${WFDestinationMediaRoute}",
+			"Parameters": [
+				{
+					"Class": "WFMediaRoutePickerParameter",
+					"Description": "The device to hand off playback from.",
+					"DisallowedVariableTypes": ["Variable"],
+					"Key": "WFSourceMediaRoute",
+					"Label": "Source",
+					"RouteType": "HandoffEndpoint"
+				},
+				{
+					"Class": "WFMediaRoutePickerParameter",
+					"Description": "The device to hand off playback to.",
+					"DisallowedVariableTypes": ["Variable"],
+					"Key": "WFDestinationMediaRoute",
+					"Label": "Destination",
+					"RouteType": "HandoffEndpoint"
+				}
+			],
+			"RequiredResources": ["WFUnavailableResource"],
+			"Subcategory": "Playback"
 		},
 		"is.workflow.actions.hash": {
 			"ActionClass": "WFGenerateHashAction",
@@ -6204,7 +6376,7 @@
 					"Label": "Value"
 				},
 				{
-					"Class": "WFHealthCategoryStartDateFieldParameter",
+					"Class": "WFHealthActionStartDateFieldParameter",
 					"Description": "The date and time of the data point. The current date will be used if you don't provide a date.",
 					"Key": "WFQuantitySampleDate",
 					"Label": "Date",
@@ -6212,7 +6384,7 @@
 					"TextAlignment": "Right"
 				},
 				{
-					"Class": "WFHealthCategoryEndDateFieldParameter",
+					"Class": "WFHealthActionEndDateFieldParameter",
 					"Description": "The date and time for the end of the data point. The current date will be used if you don't provide a date.",
 					"Key": "WFSampleEndDate",
 					"Label": "End Date",
@@ -6229,7 +6401,8 @@
 					"WFResourceClass": "WFHealthKitAccessResource"
 				}
 			],
-			"Subcategory": "Log"
+			"Subcategory": "Log",
+			"WatchCompatible": true
 		},
 		"is.workflow.actions.health.workout.log": {
 			"ActionClass": "WFLogWorkoutAction",
@@ -6319,7 +6492,8 @@
 					"WFResourceClass": "WFHealthKitAccessResource"
 				}
 			],
-			"Subcategory": "Log"
+			"Subcategory": "Log",
+			"WatchCompatible": true
 		},
 		"is.workflow.actions.homeaccessory": {
 			"ActionClass": "WFHomeAccessoryAction",
@@ -6333,7 +6507,7 @@
 			],
 			"AppIdentifier": "com.apple.Home",
 			"Category": "Home",
-			"ConfigurationUIComponentClass": "WFHomeAccessoryActionComponent",
+			"ConfigurationViewClass": "WFHomeAccessoryActionView",
 			"CreationDate": "2018-12-07T08:00:00.000Z",
 			"Description": {
 				"DescriptionSummary": "Sets a Home accessory."
@@ -6349,202 +6523,8 @@
 				}
 			],
 			"RequiredResources": ["WFHomeKitAccessResource"],
-			"ResidentCompatible": true
-		},
-		"is.workflow.actions.ifttt": {
-			"ActionClass": "WFIFTTTAction",
-			"ActionKeywords": ["automation", "if", "do", "hue", "home"],
-			"AppIdentifier": "com.ifttt.ifttt",
-			"Category": "Web",
-			"CreationDate": "2016-04-28T07:00:00.000Z",
-			"Description": {
-				"DescriptionSummary": "Triggers an IFTTT applet. Configure which applet in the IFTTT app."
-			},
-			"Discontinued": true,
-			"Input": {
-				"Multiple": false,
-				"Required": true,
-				"Types": ["WFStringContentItem", "WFGenericFileContentItem"]
-			},
-			"InputPassthrough": true,
-			"Name": "Trigger IFTTT Applet",
-			"Parameters": [
-				{
-					"Class": "WFIFTTTTriggerNameParameter",
-					"DisallowedVariableTypes": ["Variable", "Ask"],
-					"Key": "IFTTTTriggerName",
-					"Label": "Trigger Name",
-					"Placeholder": "Log to Google Sheets",
-					"TextAlignment": "Right"
-				},
-				{
-					"Class": "WFStepperParameter",
-					"DefaultValue": 0,
-					"DisallowedVariableTypes": ["Ask", "Variable"],
-					"Key": "WFIFTTTExtraIngredients",
-					"MaximumValue": 10,
-					"MinimumValue": 0,
-					"StepperDescription": "Extra Ingredients",
-					"StepperNoun": "Extra Ingredient",
-					"StepperPluralNoun": "Extra Ingredients"
-				},
-				{
-					"Class": "WFTextInputParameter",
-					"Key": "WFIFTTTExtraIngredient1",
-					"Label": "Ingredient 1",
-					"Placeholder": "optional",
-					"RequiredResources": [
-						{
-							"WFParameterKey": "WFIFTTTExtraIngredients",
-							"WFParameterRelation": ">=",
-							"WFParameterValue": 1,
-							"WFResourceClass": "WFParameterRelationResource"
-						}
-					],
-					"TextAlignment": "Right"
-				},
-				{
-					"Class": "WFTextInputParameter",
-					"Key": "WFIFTTTExtraIngredient2",
-					"Label": "Ingredient 2",
-					"Placeholder": "optional",
-					"RequiredResources": [
-						{
-							"WFParameterKey": "WFIFTTTExtraIngredients",
-							"WFParameterRelation": ">=",
-							"WFParameterValue": 2,
-							"WFResourceClass": "WFParameterRelationResource"
-						}
-					],
-					"TextAlignment": "Right"
-				},
-				{
-					"Class": "WFTextInputParameter",
-					"Key": "WFIFTTTExtraIngredient3",
-					"Label": "Ingredient 3",
-					"Placeholder": "optional",
-					"RequiredResources": [
-						{
-							"WFParameterKey": "WFIFTTTExtraIngredients",
-							"WFParameterRelation": ">=",
-							"WFParameterValue": 3,
-							"WFResourceClass": "WFParameterRelationResource"
-						}
-					],
-					"TextAlignment": "Right"
-				},
-				{
-					"Class": "WFTextInputParameter",
-					"Key": "WFIFTTTExtraIngredient4",
-					"Label": "Ingredient 4",
-					"Placeholder": "optional",
-					"RequiredResources": [
-						{
-							"WFParameterKey": "WFIFTTTExtraIngredients",
-							"WFParameterRelation": ">=",
-							"WFParameterValue": 4,
-							"WFResourceClass": "WFParameterRelationResource"
-						}
-					],
-					"TextAlignment": "Right"
-				},
-				{
-					"Class": "WFTextInputParameter",
-					"Key": "WFIFTTTExtraIngredient5",
-					"Label": "Ingredient 5",
-					"Placeholder": "optional",
-					"RequiredResources": [
-						{
-							"WFParameterKey": "WFIFTTTExtraIngredients",
-							"WFParameterRelation": ">=",
-							"WFParameterValue": 5,
-							"WFResourceClass": "WFParameterRelationResource"
-						}
-					],
-					"TextAlignment": "Right"
-				},
-				{
-					"Class": "WFTextInputParameter",
-					"Key": "WFIFTTTExtraIngredient6",
-					"Label": "Ingredient 6",
-					"Placeholder": "optional",
-					"RequiredResources": [
-						{
-							"WFParameterKey": "WFIFTTTExtraIngredients",
-							"WFParameterRelation": ">=",
-							"WFParameterValue": 6,
-							"WFResourceClass": "WFParameterRelationResource"
-						}
-					],
-					"TextAlignment": "Right"
-				},
-				{
-					"Class": "WFTextInputParameter",
-					"Key": "WFIFTTTExtraIngredient7",
-					"Label": "Ingredient 7",
-					"Placeholder": "optional",
-					"RequiredResources": [
-						{
-							"WFParameterKey": "WFIFTTTExtraIngredients",
-							"WFParameterRelation": ">=",
-							"WFParameterValue": 7,
-							"WFResourceClass": "WFParameterRelationResource"
-						}
-					],
-					"TextAlignment": "Right"
-				},
-				{
-					"Class": "WFTextInputParameter",
-					"Key": "WFIFTTTExtraIngredient8",
-					"Label": "Ingredient 8",
-					"Placeholder": "optional",
-					"RequiredResources": [
-						{
-							"WFParameterKey": "WFIFTTTExtraIngredients",
-							"WFParameterRelation": ">=",
-							"WFParameterValue": 8,
-							"WFResourceClass": "WFParameterRelationResource"
-						}
-					],
-					"TextAlignment": "Right"
-				},
-				{
-					"Class": "WFTextInputParameter",
-					"Key": "WFIFTTTExtraIngredient9",
-					"Label": "Ingredient 9",
-					"Placeholder": "optional",
-					"RequiredResources": [
-						{
-							"WFParameterKey": "WFIFTTTExtraIngredients",
-							"WFParameterRelation": ">=",
-							"WFParameterValue": 9,
-							"WFResourceClass": "WFParameterRelationResource"
-						}
-					],
-					"TextAlignment": "Right"
-				},
-				{
-					"Class": "WFTextInputParameter",
-					"Key": "WFIFTTTExtraIngredient10",
-					"Label": "Ingredient 10",
-					"Placeholder": "optional",
-					"RequiredResources": [
-						{
-							"WFParameterKey": "WFIFTTTExtraIngredients",
-							"WFParameterRelation": ">=",
-							"WFParameterValue": 10,
-							"WFResourceClass": "WFParameterRelationResource"
-						}
-					],
-					"TextAlignment": "Right"
-				},
-				{
-					"Class": "WFIFTTTAddRecipeParameter",
-					"Key": "IFTTTAddRecipe",
-					"TriggerNameKey": "IFTTTTriggerName"
-				}
-			],
-			"RequiredResources": ["WFUnavailableResource"]
+			"ResidentCompatible": true,
+			"WatchCompatible": true
 		},
 		"is.workflow.actions.image.combine": {
 			"ActionClass": "WFImageCombineAction",
@@ -6556,7 +6536,7 @@
 				"montage",
 				"photos"
 			],
-			"Category": "Photos & Video",
+			"Category": "Media",
 			"CreationDate": "2015-01-11T06:00:00.000Z",
 			"Description": {
 				"DescriptionSummary": "Combines the images passed into the action horizontally, vertically, or in a grid."
@@ -6564,6 +6544,7 @@
 			"IconName": "Image.png",
 			"Input": {
 				"Multiple": true,
+				"ParameterKey": "WFInput",
 				"Required": true,
 				"Types": ["UIImage"]
 			},
@@ -6575,28 +6556,14 @@
 				"OutputName": "Combined Image",
 				"Types": ["UIImage"]
 			},
+			"ParameterSummary": "Combine ${WFInput} ${WFImageCombineMode}",
 			"Parameters": [
 				{
 					"Class": "WFEnumerationParameter",
-					"DefaultValue": "Side-by-Side",
-					"Items": ["Side-by-Side", "Grid"],
+					"DefaultValue": "Horizontally",
+					"Items": ["Horizontally", "Vertically", "In a Grid"],
 					"Key": "WFImageCombineMode",
 					"Label": "Mode"
-				},
-				{
-					"Class": "WFEnumerationParameter",
-					"DefaultValue": "Horizontal",
-					"Description": "When horizontal, images are connected together from left to right. When vertical, images are connected from top to bottom.",
-					"Items": ["Horizontal", "Vertical"],
-					"Key": "WFImageCombineDirection",
-					"Label": "Direction",
-					"RequiredResources": [
-						{
-							"WFParameterKey": "WFImageCombineMode",
-							"WFParameterValue": "Side-by-Side",
-							"WFResourceClass": "WFParameterRelationResource"
-						}
-					]
 				},
 				{
 					"AllowsDecimalNumbers": true,
@@ -6607,10 +6574,17 @@
 					"Label": "Spacing",
 					"Placeholder": "0",
 					"TextAlignment": "Right"
+				},
+				{
+					"AllowsMultipleValues": true,
+					"Class": "WFVariablePickerParameter",
+					"Key": "WFInput",
+					"Label": "Images",
+					"Placeholder": "Images"
 				}
 			],
 			"ResidentCompatible": true,
-			"Subcategory": "Editing"
+			"Subcategory": "Image Editing"
 		},
 		"is.workflow.actions.image.convert": {
 			"ActionClass": "WFImageConvertAction",
@@ -6625,7 +6599,7 @@
 				"preserve",
 				"metadata"
 			],
-			"Category": "Photos & Video",
+			"Category": "Media",
 			"CreationDate": "2015-01-11T06:00:00.000Z",
 			"Description": {
 				"DescriptionSummary": "Converts the images passed into the action to the specified image format."
@@ -6707,7 +6681,7 @@
 				"clip",
 				"canvas"
 			],
-			"Category": "Photos & Video",
+			"Category": "Media",
 			"CreationDate": "2015-01-11T06:00:00.000Z",
 			"Description": {
 				"DescriptionSummary": "Crops images to a smaller rectangle."
@@ -6796,7 +6770,7 @@
 				}
 			],
 			"ResidentCompatible": true,
-			"Subcategory": "Editing",
+			"Subcategory": "Image Editing",
 			"SuggestedNever": true
 		},
 		"is.workflow.actions.image.flip": {
@@ -6807,7 +6781,7 @@
 				"horizontal",
 				"vertical"
 			],
-			"Category": "Photos & Video",
+			"Category": "Media",
 			"Description": {
 				"DescriptionSummary": "Reverses the direction of images either horizontally or vertically."
 			},
@@ -6843,7 +6817,7 @@
 				}
 			],
 			"ResidentCompatible": true,
-			"Subcategory": "Editing",
+			"Subcategory": "Image Editing",
 			"SuggestedNever": true
 		},
 		"is.workflow.actions.image.mask": {
@@ -6856,7 +6830,7 @@
 				"corner",
 				"radius"
 			],
-			"Category": "Photos & Video",
+			"Category": "Media",
 			"CreationDate": "2018-02-02T08:00:00.000Z",
 			"Description": {
 				"DescriptionInput": "Images to mask",
@@ -6922,6 +6896,7 @@
 					"Description": "An alpha mask to apply to the source image, where darker colors become transparent and lighter colors remain opaque. If the mask is sized differently than the source image, the mask is resized to match the dimensions of the source image.",
 					"Key": "WFCustomMaskImage",
 					"Label": "Custom Image",
+					"Placeholder": "Image",
 					"RequiredResources": [
 						{
 							"WFParameterKey": "WFMaskType",
@@ -6932,7 +6907,7 @@
 				}
 			],
 			"ResidentCompatible": true,
-			"Subcategory": "Editing"
+			"Subcategory": "Image Editing"
 		},
 		"is.workflow.actions.image.resize": {
 			"ActionClass": "WFImageResizeAction",
@@ -6945,7 +6920,7 @@
 				"width",
 				"height"
 			],
-			"Category": "Photos & Video",
+			"Category": "Media",
 			"Description": {
 				"DescriptionNote": "If the width or height is not set, that dimension is automatically calculated to maintain the original image's aspect ratio.",
 				"DescriptionSummary": "Scales images to a particular width and height."
@@ -6990,7 +6965,7 @@
 				}
 			],
 			"ResidentCompatible": true,
-			"Subcategory": "Editing"
+			"Subcategory": "Image Editing"
 		},
 		"is.workflow.actions.image.rotate": {
 			"ActionClass": "WFImageRotateAction",
@@ -7001,7 +6976,7 @@
 				"rotation",
 				"orientation"
 			],
-			"Category": "Photos & Video",
+			"Category": "Media",
 			"Description": {
 				"DescriptionSummary": "Turns an image clockwise by a particular number of degrees."
 			},
@@ -7039,14 +7014,14 @@
 				}
 			],
 			"ResidentCompatible": true,
-			"Subcategory": "Editing",
+			"Subcategory": "Image Editing",
 			"SuggestedNever": true
 		},
 		"is.workflow.actions.imgur.upload": {
 			"ActionClass": "WFImgurUploadAction",
 			"ActionKeywords": ["image", "reddit", "album", "photo"],
 			"AppIdentifier": "imgurmobile",
-			"Category": "Photos & Video",
+			"Category": "Media",
 			"CreationDate": "2015-05-03T05:00:00.000Z",
 			"Description": {
 				"DescriptionNote": "Powered by Imgur (imgur.com)",
@@ -7239,7 +7214,7 @@
 			"ActionClass": "WFImportToLightroomAction",
 			"ActionKeywords": [],
 			"AppIdentifier": "com.adobe.lrmobile",
-			"Category": "Photos & Video",
+			"Category": "Media",
 			"Description": {
 				"DescriptionSummary": "Imports the photos passed as input into Lightroom"
 			},
@@ -7337,6 +7312,7 @@
 					"Label": "Items"
 				}
 			],
+			"ResidentCompatible": true,
 			"Subcategory": "Lists",
 			"SuggestedNever": true
 		},
@@ -7384,7 +7360,8 @@
 					],
 					"WFResourceClass": "WFLocationAccessResource"
 				}
-			]
+			],
+			"ResidentCompatible": true
 		},
 		"is.workflow.actions.lowpowermode.set": {
 			"ACECommandClass": "SASettingSetPowerSavingMode",
@@ -7422,7 +7399,7 @@
 		"is.workflow.actions.makegif": {
 			"ActionClass": "WFMakeGIFAction",
 			"ActionKeywords": ["animate", "make", "generate", "gif"],
-			"Category": "Photos & Video",
+			"Category": "Media",
 			"Description": {
 				"DescriptionResult": "An animated GIF",
 				"DescriptionSummary": "Creates an animated GIF from the images or video passed into the action."
@@ -7613,7 +7590,7 @@
 		"is.workflow.actions.makevideofromgif": {
 			"ActionClass": "WFMakeVideoFromGIFAction",
 			"ActionKeywords": ["video", "gif", "convert", "make"],
-			"Category": "Photos & Video",
+			"Category": "Media",
 			"CreationDate": "2015-02-03T08:00:00.000Z",
 			"Description": {
 				"DescriptionInput": "An animated GIF",
@@ -7663,7 +7640,7 @@
 			"Category": "Documents",
 			"Description": {
 				"DescriptionResult": "Archive",
-				"DescriptionSummary": "Makes an archive out of the files passed as input. Supports creating zip, tar.gz, tar.bz2, tar, gzip, cpio, or iso archives."
+				"DescriptionSummary": "Makes an archive out of the files passed as input. Supports creating zip, tar.gz, tar.bz2, tar.xz, tar, gzip, cpio, or iso archives."
 			},
 			"IconName": "Documents.png",
 			"Input": {
@@ -7742,12 +7719,12 @@
 				"value",
 				"factorial"
 			],
+			"AppIdentifier": "com.apple.calculator",
 			"Attribution": "Math",
 			"Category": "Scripting",
 			"Description": {
 				"DescriptionSummary": "Performs a number operation on the input and returns the result."
 			},
-			"IconName": "Calculator.png",
 			"Input": {
 				"Multiple": false,
 				"ParameterKey": "WFInput",
@@ -7860,14 +7837,13 @@
 				"speed",
 				"weather"
 			],
-			"AppIdentifier": "com.apple.measure",
+			"AppIdentifier": "com.apple.calculator",
 			"Attribution": "Measurement",
 			"Category": "Scripting",
 			"CreationDate": "2018-09-22T05:00:00.000Z",
 			"Description": {
 				"DescriptionSummary": "Converts the measurements passed into the action to the specified unit."
 			},
-			"IconName": "Calculator.png",
 			"Input": {
 				"Multiple": false,
 				"ParameterKey": "WFInput",
@@ -7915,7 +7891,7 @@
 				}
 			],
 			"ResidentCompatible": true,
-			"Subcategory": "Math"
+			"Subcategory": "Measurements"
 		},
 		"is.workflow.actions.measurement.create": {
 			"ActionClass": "WFMeasurementCreateAction",
@@ -7927,7 +7903,7 @@
 				"speed",
 				"weather"
 			],
-			"AppIdentifier": "com.apple.measure",
+			"AppIdentifier": "com.apple.calculator",
 			"Attribution": "Measurement",
 			"Category": "Scripting",
 			"Constructor": true,
@@ -7935,7 +7911,6 @@
 			"Description": {
 				"DescriptionSummary": "Passes the specified measurement (including number and unit) to the next action."
 			},
-			"IconName": "Calculator.png",
 			"InputPassthrough": false,
 			"Name": "Measurement",
 			"Output": {
@@ -7953,6 +7928,7 @@
 					"Label": "Type"
 				},
 				{
+					"AllowsNegativeNumbers": true,
 					"Class": "WFUnitQuantityFieldParameter",
 					"Key": "WFMeasurementUnit",
 					"KeyboardType": "DecimalPad",
@@ -7968,7 +7944,7 @@
 				}
 			],
 			"ResidentCompatible": true,
-			"Subcategory": "Math"
+			"Subcategory": "Measurements"
 		},
 		"is.workflow.actions.nothing": {
 			"ActionClass": "WFNothingAction",
@@ -7983,7 +7959,8 @@
 			"InputPassthrough": false,
 			"Name": "Nothing",
 			"ParameterSummary": "Nothing",
-			"Subcategory": "Content"
+			"ResidentCompatible": true,
+			"Subcategory": "No-ops"
 		},
 		"is.workflow.actions.notification": {
 			"ActionClass": "WFNotificationAction",
@@ -8038,11 +8015,11 @@
 				{
 					"Class": "WFVariablePickerParameter",
 					"Key": "WFInput",
-					"Label": "Attachment"
+					"Label": "Attachment",
+					"Placeholder": "Choose Variable"
 				}
 			],
 			"RequiredResources": [
-				"WFUserInteractionResource",
 				"WFMainThreadResource",
 				"WFLocalNotificationAccessResource"
 			],
@@ -8052,12 +8029,12 @@
 		"is.workflow.actions.number": {
 			"ActionClass": "WFNumberAction",
 			"ActionKeywords": ["decimal", "math"],
+			"AppIdentifier": "com.apple.calculator",
 			"Category": "Scripting",
 			"Constructor": true,
 			"Description": {
 				"DescriptionSummary": "Passes a number to the next action."
 			},
-			"IconName": "Calculator.png",
 			"Name": "Number",
 			"Output": {
 				"Multiple": false,
@@ -8075,18 +8052,20 @@
 					"TextAlignment": "Right"
 				}
 			],
-			"Subcategory": "Math",
+			"ResidentCompatible": true,
+			"Subcategory": "Numbers",
 			"SuggestedNever": true
 		},
 		"is.workflow.actions.number.random": {
 			"ActionClass": "WFRandomNumberAction",
 			"ActionKeywords": ["decimal", "math", "generate", "generator"],
+			"AppIdentifier": "com.apple.calculator",
+			"Attribution": "Math",
 			"Category": "Scripting",
 			"CreationDate": "2015-01-11T06:00:00.000Z",
 			"Description": {
 				"DescriptionSummary": "Passes a random number between the given minimum and maximum to the next action. The minimum and maximum numbers are included as possible results."
 			},
-			"IconName": "Calculator.png",
 			"Name": "Random Number",
 			"Output": {
 				"Multiple": false,
@@ -8113,13 +8092,13 @@
 				}
 			],
 			"ResidentCompatible": true,
-			"Subcategory": "Math",
+			"Subcategory": "Numbers",
 			"SuggestedNever": true
 		},
 		"is.workflow.actions.openapp": {
 			"ActionClass": "WFOpenAppAction",
 			"ActionKeywords": ["launch", "run", "switch"],
-			"Category": "Apps",
+			"Category": "Scripting",
 			"Description": {
 				"DescriptionSummary": "Opens the specified app."
 			},
@@ -8141,6 +8120,7 @@
 				}
 			],
 			"RequiredResources": ["WFURLOpenResource"],
+			"Subcategory": "Apps",
 			"SuggestedNever": true
 		},
 		"is.workflow.actions.openin": {
@@ -8161,11 +8141,17 @@
 			"IconName": "Apps.png",
 			"Input": {
 				"Multiple": false,
+				"ParameterKey": "WFInput",
 				"Required": true,
 				"Types": ["public.data"]
 			},
 			"InputPassthrough": true,
 			"Name": "Open In...",
+			"ParameterCollapsingBehavior": "Never",
+			"ParameterSummary": {
+				"WFInput,WFOpenInAskWhenRun(0),WFOpenInAppIdentifier": "Open ${WFInput} in ${WFOpenInAppIdentifier}",
+				"WFInput,WFOpenInAskWhenRun(1)": "Open ${WFInput}"
+			},
 			"Parameters": [
 				{
 					"Class": "WFSwitchParameter",
@@ -8190,6 +8176,12 @@
 					"Class": "WFTextInputParameter",
 					"Hidden": true,
 					"Key": "WFAppName"
+				},
+				{
+					"Class": "WFVariablePickerParameter",
+					"Key": "WFInput",
+					"Label": "File",
+					"Placeholder": "File"
 				}
 			],
 			"RequiredResources": ["WFUserInteractionResource"],
@@ -8232,7 +8224,6 @@
 					"Key": "WFInput",
 					"KeyboardType": "URL",
 					"Label": "URL",
-					"Placeholder": "URLs",
 					"TextContentType": "URL"
 				}
 			],
@@ -8351,7 +8342,7 @@
 		"is.workflow.actions.overlayimageonimage": {
 			"ActionClass": "WFOverlayImageAction",
 			"ActionKeywords": ["picture", "edit", "editor"],
-			"Category": "Photos & Video",
+			"Category": "Media",
 			"CreationDate": "2016-03-07T08:00:00.000Z",
 			"Description": {
 				"DescriptionInput": "Background images",
@@ -8377,12 +8368,14 @@
 				{
 					"Class": "WFVariablePickerParameter",
 					"Key": "WFImage",
-					"Label": "Image"
+					"Label": "Image",
+					"Placeholder": "Image"
 				},
 				{
 					"Class": "WFVariablePickerParameter",
 					"Key": "WFInput",
-					"Label": "Image"
+					"Label": "Image",
+					"Placeholder": "Image"
 				},
 				{
 					"Class": "WFSwitchParameter",
@@ -8523,7 +8516,7 @@
 					"WFResourceClass": "WFUserInteractionResource"
 				}
 			],
-			"Subcategory": "Editing",
+			"Subcategory": "Image Editing",
 			"UnsupportedEnvironments": ["MemoryConstrained"],
 			"UserInterfaces": ["UIKit", "UIKitWidget"]
 		},
@@ -8557,6 +8550,7 @@
 				},
 				{
 					"Class": "WFMediaRoutePickerParameter",
+					"DefaultValue": "Local",
 					"DisallowedVariableTypes": ["Variable"],
 					"Key": "WFMediaRoute",
 					"Label": "Device",
@@ -8597,6 +8591,7 @@
 					"Placeholder": "Type in a phone number"
 				}
 			],
+			"ResidentCompatible": true,
 			"Subcategory": "Phone"
 		},
 		"is.workflow.actions.pinboard.add": {
@@ -8753,7 +8748,7 @@
 				"WFAppleMusicAccessResource",
 				"WFMainThreadResource"
 			],
-			"Subcategory": "Playback"
+			"Subcategory": "Music"
 		},
 		"is.workflow.actions.playpodcast": {
 			"ActionClass": "WFPlayPodcastAction",
@@ -8781,7 +8776,8 @@
 					"Key": "WFPodcastShow",
 					"Label": "Podcast"
 				}
-			]
+			],
+			"RequiredResources": ["WFPodcastsAccessResource"]
 		},
 		"is.workflow.actions.playsound": {
 			"ActionClass": "WFPlaySoundAction",
@@ -8805,7 +8801,8 @@
 				{
 					"Class": "WFVariablePickerParameter",
 					"Key": "WFInput",
-					"Label": "Sound File"
+					"Label": "Sound File",
+					"Placeholder": "Choose Variable"
 				}
 			],
 			"Subcategory": "Notification"
@@ -8906,12 +8903,26 @@
 			},
 			"Input": {
 				"Multiple": true,
+				"ParameterKey": "WFInput",
 				"Required": true,
 				"Types": ["WFURLContentItem", "WFiTunesProductContentItem"]
 			},
 			"InputPassthrough": true,
 			"Name": "Subscribe to Podcast",
-			"RequiredResources": []
+			"ParameterSummary": "Subscribe to ${WFInput}",
+			"Parameters": [
+				{
+					"AllowsMultipleValues": true,
+					"AutocapitalizationType": "None",
+					"Class": "WFTextInputParameter",
+					"DisableAutocorrection": true,
+					"Key": "WFInput",
+					"KeyboardType": "URL",
+					"Label": "Podcast URL",
+					"TextContentType": "URL"
+				}
+			],
+			"RequiredResources": ["WFPodcastsAccessResource"]
 		},
 		"is.workflow.actions.postonfacebook": {
 			"ActionClass": "WFSocialAction",
@@ -9001,7 +9012,7 @@
 		"is.workflow.actions.properties.appstore": {
 			"ActionClass": "WFContentItemPropertiesAction",
 			"AppIdentifier": "com.apple.AppStore",
-			"Category": "Apps",
+			"Category": "Media",
 			"CreationDate": "2016-03-15T07:00:00.000Z",
 			"Name": "Get Details of App Store App",
 			"ResidentCompatible": true,
@@ -9013,7 +9024,6 @@
 			"Category": "Web",
 			"CreationDate": "2015-02-13T08:00:00.000Z",
 			"Name": "Get Details of Article",
-			"ResidentCompatible": true,
 			"Subcategory": "Articles",
 			"WFContentItemClass": "WFArticleContentItem"
 		},
@@ -9044,7 +9054,8 @@
 			"CreationDate": "2015-01-22T08:00:00.000Z",
 			"Name": "Get Details of Event Attendees",
 			"Subcategory": "Event Attendees",
-			"WFContentItemClass": "WFEKParticipantContentItem"
+			"WFContentItemClass": "WFEKParticipantContentItem",
+			"WatchCompatible": true
 		},
 		"is.workflow.actions.properties.files": {
 			"ActionClass": "WFContentItemPropertiesAction",
@@ -9072,7 +9083,7 @@
 		"is.workflow.actions.properties.images": {
 			"ActionClass": "WFContentItemPropertiesAction",
 			"ActionKeywords": ["photo", "video", "media"],
-			"Category": "Photos & Video",
+			"Category": "Media",
 			"CreationDate": "2015-01-22T08:00:00.000Z",
 			"IconName": "Image.png",
 			"Input": {
@@ -9126,10 +9137,26 @@
 			},
 			"LastModifiedDate": "2016-05-23T07:00:00.000Z",
 			"Name": "Get Details of Music",
-			"ResidentCompatible": true,
-			"Subcategory": "Media",
+			"Subcategory": "Music",
 			"WFContentItemClass": "WFMPMediaContentItem",
 			"WFContentItemDefaultProperty": "Artist"
+		},
+		"is.workflow.actions.properties.note": {
+			"ActionClass": "WFContentItemPropertiesAction",
+			"AppIdentifier": "com.apple.mobilenotes",
+			"Category": "Documents",
+			"CreationDate": "Aug 10, 2019 at 12:00:00 AM",
+			"Discoverable": "NO",
+			"Name": "Get Details of Note",
+			"WFContentItemClass": "WFNoteContentItem"
+		},
+		"is.workflow.actions.properties.podcast": {
+			"ActionClass": "WFContentItemPropertiesAction",
+			"AppIdentifier": "com.apple.podcasts",
+			"Category": "Media",
+			"CreationDate": "Aug 9, 2019 at 12:00:00 AM",
+			"Name": "Get Details of Podcast",
+			"WFContentItemClass": "WFPodcastEpisodeContentItem"
 		},
 		"is.workflow.actions.properties.reminders": {
 			"ActionClass": "WFContentItemPropertiesAction",
@@ -9140,7 +9167,8 @@
 			"Name": "Get Details of Reminders",
 			"Subcategory": "Reminders",
 			"WFContentItemClass": "WFReminderContentItem",
-			"WFContentItemDefaultProperty": "List"
+			"WFContentItemDefaultProperty": "List",
+			"WatchCompatible": true
 		},
 		"is.workflow.actions.properties.safariwebpage": {
 			"ActionClass": "WFContentItemPropertiesAction",
@@ -9233,14 +9261,14 @@
 					"TextContentType": "URL"
 				}
 			],
-			"RequiredResources": [],
+			"RequiredResources": ["WFAddToReadingListAccessResource"],
 			"ShortName": "Read Later",
 			"Subcategory": "Safari"
 		},
 		"is.workflow.actions.recordaudio": {
 			"ActionClass": "WFRecordAudioAction",
 			"ActionKeywords": ["camera", "clip", "record"],
-			"Category": "Photos & Video",
+			"Category": "Media",
 			"CreationDate": "2015-01-11T06:00:00.000Z",
 			"Description": {
 				"DescriptionSummary": "Uses the microphone to record audio."
@@ -9361,7 +9389,8 @@
 				"WFUserInteractionResource"
 			],
 			"Subcategory": "Calendar",
-			"WFCalendarItemEntityType": "Event"
+			"WFCalendarItemEntityType": "Event",
+			"WatchCompatible": true
 		},
 		"is.workflow.actions.removereminders": {
 			"ActionClass": "WFRemoveCalendarItemsAction",
@@ -9396,7 +9425,8 @@
 				"WFUserInteractionResource"
 			],
 			"Subcategory": "Reminders",
-			"WFCalendarItemEntityType": "Reminder"
+			"WFCalendarItemEntityType": "Reminder",
+			"WatchCompatible": true
 		},
 		"is.workflow.actions.repeat.count": {
 			"ActionClass": "WFFiniteRepeatAction",
@@ -9461,7 +9491,8 @@
 				{
 					"Class": "WFVariablePickerParameter",
 					"Key": "WFInput",
-					"Label": "Items"
+					"Label": "Items",
+					"Placeholder": "Items"
 				}
 			],
 			"ResidentCompatible": true,
@@ -9476,14 +9507,16 @@
 				"ceiling",
 				"floor"
 			],
+			"AppIdentifier": "com.apple.calculator",
+			"Attribution": "Math",
 			"Category": "Scripting",
 			"CreationDate": "2015-01-11T06:00:00.000Z",
 			"Description": {
 				"DescriptionSummary": "Rounds the number(s) passed into the action."
 			},
-			"IconName": "Calculator.png",
 			"Input": {
 				"Multiple": true,
+				"ParameterKey": "WFInput",
 				"Required": true,
 				"Types": ["WFNumberContentItem"]
 			},
@@ -9493,13 +9526,43 @@
 				"OutputName": "Rounded Number",
 				"Types": ["NSDecimalNumber"]
 			},
+			"ParameterSummary": {
+				"WFInput,WFRoundTo(10 ^),WFRoundMode,TenToThePowerOf": "Round ${WFInput} to ${WFRoundTo} ${TenToThePowerOf}",
+				"WFInput,WFRoundTo,WFRoundMode": "Round ${WFInput} to ${WFRoundTo}"
+			},
 			"Parameters": [
 				{
+					"AllowsDecimalNumbers": true,
+					"Class": "WFNumberFieldParameter",
+					"Key": "WFInput",
+					"Label": "Number",
+					"Placeholder": "Number"
+				},
+				{
 					"Class": "WFEnumerationParameter",
-					"DefaultValue": "Left of Decimal",
-					"Items": ["Left of Decimal", "Right of Decimal"],
-					"Key": "WFRoundType",
-					"Label": "Round"
+					"DefaultValue": "Ones Place",
+					"Items": [
+						"Millions",
+						"Hundred Thousands",
+						"Ten Thousands",
+						"Thousands",
+						"Hundreds Place",
+						"Tens Place",
+						"Ones Place",
+						"Tenths",
+						"Hundredths",
+						"Thousandths",
+						"Ten Thousandths",
+						"Hundred Thousandths",
+						"Millionths",
+						"Ten Millionths",
+						"Hundred Millionths",
+						"Billionths",
+						"10 ^"
+					],
+					"Key": "WFRoundTo",
+					"Label": "Value",
+					"Placeholder": "Value"
 				},
 				{
 					"Class": "WFEnumerationParameter",
@@ -9509,13 +9572,17 @@
 					"Label": "Mode"
 				},
 				{
-					"Class": "WFStepperParameter",
+					"Class": "WFNumberFieldParameter",
 					"DefaultValue": 0,
-					"Key": "WFRoundDecimalPlaces",
+					"Key": "TenToThePowerOf",
 					"MinimumValue": 0,
-					"StepperDescription": "Decimal Places",
-					"StepperNoun": "Decimal Place",
-					"StepperPluralNoun": "Decimal Places"
+					"RequiredResources": [
+						{
+							"WFParameterKey": "WFRoundTo",
+							"WFParameterValue": "10 ^",
+							"WFResourceClass": "WFParameterRelationResource"
+						}
+					]
 				}
 			],
 			"ResidentCompatible": true,
@@ -9568,7 +9635,7 @@
 			],
 			"ResidentCompatible": true,
 			"ShortName": "Get RSS Items",
-			"Subcategory": "URLs"
+			"Subcategory": "RSS"
 		},
 		"is.workflow.actions.rss.extract": {
 			"ActionClass": "WFRSSFeedExtractAction",
@@ -9608,7 +9675,7 @@
 			"RequiredResources": ["WFRemoteServerAccessResource"],
 			"ResidentCompatible": true,
 			"ShortName": "Get RSS Feeds",
-			"Subcategory": "URLs"
+			"Subcategory": "RSS"
 		},
 		"is.workflow.actions.runextension": {
 			"ActionClass": "WFRunExtensionAction",
@@ -9689,6 +9756,7 @@
 					"WFNumberContentItem"
 				]
 			},
+			"ParameterCollapsingBehavior": "DefaultBeginExpanded",
 			"ParameterSummary": "Run JavaScript on ${WFInput}",
 			"Parameters": [
 				{
@@ -9754,7 +9822,7 @@
 			"Name": "Run Script Over SSH",
 			"Output": {
 				"Multiple": false,
-				"OutputName": "Run Script Over SSH",
+				"OutputName": "Shell Script Result",
 				"Types": ["public.data"]
 			},
 			"ParameterSummary": "Run script over SSH",
@@ -9767,6 +9835,7 @@
 					"KeyboardType": "URL",
 					"Label": "Host",
 					"Placeholder": "192.168.1.100",
+					"TextAlignment": "Right",
 					"TextContentType": "URL"
 				},
 				{
@@ -9775,7 +9844,8 @@
 					"Key": "WFSSHPort",
 					"KeyboardType": "NumberPad",
 					"Label": "Port",
-					"Placeholder": "22"
+					"Placeholder": "22",
+					"TextAlignment": "Right"
 				},
 				{
 					"AutocapitalizationType": "None",
@@ -9785,20 +9855,62 @@
 					"Key": "WFSSHUser",
 					"Label": "User",
 					"Placeholder": "root",
+					"TextAlignment": "Right",
 					"TextContentType": "Username"
+				},
+				{
+					"Class": "WFEnumerationParameter",
+					"DefaultValue": "Password",
+					"DisallowedVariableTypes": ["Ask", "Variable"],
+					"Items": ["Password", "SSH Key"],
+					"Key": "WFSSHAuthenticationType",
+					"Label": "Authentication",
+					"RequiredResources": [
+						{
+							"WFRelation": "!=",
+							"WFResourceClass": "WFWorkflowEnvironmentResource",
+							"WFWorkflowEnvironment": "HomeResident"
+						}
+					]
 				},
 				{
 					"Class": "WFTextInputParameter",
 					"Key": "WFSSHPassword",
 					"Label": "Password",
 					"Placeholder": "••••••••",
+					"RequiredResources": [
+						{
+							"WFParameterKey": "WFSSHAuthenticationType",
+							"WFParameterValue": "Password",
+							"WFResourceClass": "WFParameterRelationResource"
+						}
+					],
 					"SecureTextInput": true,
+					"TextAlignment": "Right",
 					"TextContentType": "Password"
+				},
+				{
+					"Class": "WFSSHKeyParameter",
+					"Key": "WFSSHKey",
+					"Label": "SSH Key",
+					"RequiredResources": [
+						{
+							"WFParameterKey": "WFSSHAuthenticationType",
+							"WFParameterValue": "SSH Key",
+							"WFResourceClass": "WFParameterRelationResource"
+						},
+						{
+							"WFRelation": "!=",
+							"WFResourceClass": "WFWorkflowEnvironmentResource",
+							"WFWorkflowEnvironment": "HomeResident"
+						}
+					]
 				},
 				{
 					"Class": "WFVariablePickerParameter",
 					"Key": "WFInput",
-					"Label": "Input"
+					"Label": "Input",
+					"Placeholder": "Choose Variable"
 				},
 				{
 					"AutocapitalizationType": "None",
@@ -9818,7 +9930,7 @@
 		"is.workflow.actions.runworkflow": {
 			"ActionClass": "WFRunWorkflowAction",
 			"ActionKeywords": ["action", "workflow", "shortcuts"],
-			"AppIdentifier": "is.workflow.my.app",
+			"AppIdentifier": "com.apple.shortcuts",
 			"Category": "Scripting",
 			"CreationDate": "2017-02-15T06:00:00.000Z",
 			"Description": {
@@ -9835,7 +9947,7 @@
 			"Name": "Run Shortcut",
 			"Output": {
 				"Multiple": true,
-				"OutputName": "Run Shortcut",
+				"OutputName": "Shortcut Result",
 				"Types": ["WFContentItem"]
 			},
 			"ParameterSummary": "Run ${WFWorkflowName}",
@@ -9849,7 +9961,8 @@
 				{
 					"Class": "WFVariablePickerParameter",
 					"Key": "WFInput",
-					"Label": "Input"
+					"Label": "Input",
+					"Placeholder": "Choose Variable"
 				},
 				{
 					"Class": "WFSwitchParameter",
@@ -9887,7 +10000,7 @@
 				"roll"
 			],
 			"AppIdentifier": "com.apple.mobileslideshow",
-			"Category": "Photos & Video",
+			"Category": "Media",
 			"Description": {
 				"DescriptionInput": "Photos, videos, or audio to save",
 				"DescriptionNote": "If a photo passed as input is already in the specified album, the photo will be duplicated.",
@@ -9926,11 +10039,11 @@
 			],
 			"RequiredResources": ["WFPhotoAccessResource"],
 			"ShortName": "Save to Photos",
-			"Subcategory": "Camera"
+			"Subcategory": "Photos"
 		},
 		"is.workflow.actions.scanbarcode": {
 			"ActionClass": "WFScanMachineReadableCodeAction",
-			"Category": "Text",
+			"Category": "Documents",
 			"Description": {
 				"DescriptionSummary": "Scans a QR code or bar code using the camera, and returns the text/URL that is found."
 			},
@@ -9948,6 +10061,7 @@
 				"WFCameraAccessResource"
 			],
 			"ShortName": "Scan Bar Code",
+			"Subcategory": "QR Codes",
 			"UnsupportedEnvironments": ["Extension"],
 			"UserInterfaces": ["UIKit"]
 		},
@@ -9965,7 +10079,7 @@
 				"store"
 			],
 			"AppIdentifier": "com.apple.AppStore",
-			"Category": "Apps",
+			"Category": "Media",
 			"CreationDate": "2016-03-15T07:00:00.000Z",
 			"Description": {
 				"DescriptionSummary": "Searches the App Store, returning the apps that match the specified search terms. You can get more details about the results using the Get Details of App Store App action."
@@ -10136,14 +10250,11 @@
 					"TextAlignment": "Right"
 				},
 				{
-					"AllowsDecimalNumbers": true,
-					"Class": "WFNumberFieldParameter",
-					"DefaultValue": 1.5,
-					"Description": "Maximum distance in kilometers from the source location to find businesses.",
+					"Class": "WFSearchLocalBusinessesRadiusParameter",
 					"Key": "WFSearchRadius",
-					"Label": "Radius (km)",
-					"Placeholder": "1.5",
-					"TextAlignment": "Right"
+					"Label": "Radius",
+					"TextAlignment": "Right",
+					"WFUnitType": "Length"
 				}
 			],
 			"RequiredResources": [
@@ -10152,7 +10263,7 @@
 			],
 			"ResidentCompatible": true,
 			"ShortName": "Search Maps",
-			"Subcategory": "Location"
+			"Subcategory": "Routing"
 		},
 		"is.workflow.actions.searchmaps": {
 			"ActionClass": "WFSearchMapsAction",
@@ -10321,7 +10432,7 @@
 				}
 			],
 			"RequiredResources": ["WFURLOpenResource"],
-			"Subcategory": "Web"
+			"Subcategory": "Safari"
 		},
 		"is.workflow.actions.selectcontacts": {
 			"ActionClass": "WFSelectContactsAction",
@@ -10417,7 +10528,7 @@
 			"ActionClass": "WFSelectPhotoAction",
 			"ActionKeywords": ["select", "photo", "from", "library", "picture"],
 			"AppIdentifier": "com.apple.mobileslideshow",
-			"Category": "Photos & Video",
+			"Category": "Media",
 			"Description": {
 				"DescriptionResult": "The selected photos/videos",
 				"DescriptionSummary": "Prompts to choose photos and videos from your photo library."
@@ -10468,9 +10579,10 @@
 				"Types": ["NSString", "WFContentItem"]
 			},
 			"InputPassthrough": true,
+			"IntentIdentifier": "sirikit.intents.custom.com.apple.mobilemail.MSSendMailIntent",
 			"LastModifiedDate": "2015-11-24T06:00:00.000Z",
 			"Name": "Send Email",
-			"ParameterSummary": "Send ${WFSendEmailActionInputAttachments} to ${WFSendEmailActionToRecipients} with subject ${WFSendEmailActionSubject}",
+			"ParameterSummary": "Send ${WFSendEmailActionInputAttachments} to ${WFSendEmailActionToRecipients} as ${WFSendEmailActionSubject}",
 			"Parameters": [
 				{
 					"Class": "WFSwitchParameter",
@@ -10479,8 +10591,8 @@
 					"Label": "Show Compose Sheet"
 				},
 				{
-					"AlwaysShowsButton": true,
-					"Class": "WFEmailAccountPickerParameter",
+					"Class": "WFCustomIntentDynamicEnumerationParameter",
+					"IntentSlotName": "sender",
 					"Key": "WFEmailAccountActionSelectedAccount",
 					"Label": "From",
 					"RequiredResources": [
@@ -10521,13 +10633,15 @@
 				{
 					"AllowsMultipleValues": true,
 					"Class": "WFEmailAddressFieldParameter",
+					"IntentSlotName": "to",
 					"Key": "WFSendEmailActionToRecipients",
 					"Label": "To",
-					"Placeholder": "Email addresses"
+					"Placeholder": "Recipients"
 				},
 				{
 					"AllowsMultipleValues": true,
 					"Class": "WFEmailAddressFieldParameter",
+					"IntentSlotName": "cc",
 					"Key": "WFSendEmailActionCcRecipients",
 					"Label": "Cc",
 					"Placeholder": "Email addresses"
@@ -10535,33 +10649,41 @@
 				{
 					"AllowsMultipleValues": true,
 					"Class": "WFEmailAddressFieldParameter",
+					"IntentSlotName": "bcc",
 					"Key": "WFSendEmailActionBccRecipients",
 					"Label": "Bcc",
 					"Placeholder": "Email addresses"
 				},
 				{
 					"Class": "WFTextInputParameter",
+					"IntentSlotName": "subject",
 					"Key": "WFSendEmailActionSubject",
 					"Label": "Subject",
-					"Placeholder": "optional"
+					"Placeholder": "Subject"
 				},
 				{
-					"Class": "WFVariablePickerParameter",
+					"Class": "WFTextInputParameter",
 					"Key": "WFSendEmailActionInputAttachments",
-					"Label": "Content",
-					"Placeholder": "Content"
+					"Label": "Message",
+					"Placeholder": "Message",
+					"ProcessIntoContentItems": true
+				},
+				{
+					"Class": "WFSwitchParameter",
+					"IntentSlotName": "isDraft",
+					"Key": "WFSendEmailActionSaveAsDraft",
+					"Label": "Save as Draft",
+					"Placeholder": "Save as Draft",
+					"RequiredResources": [
+						{
+							"WFParameterKey": "WFSendEmailActionShowComposeSheet",
+							"WFParameterValue": false,
+							"WFResourceClass": "WFParameterRelationResource"
+						}
+					]
 				}
 			],
 			"RequiredResources": [
-				{
-					"RequiredResources": [
-						{
-							"WFResourceClass": "WFWorkflowTypeResource",
-							"WFWorkflowType": "WatchKit"
-						}
-					],
-					"WFResourceClass": "WFEmailAccessResource"
-				},
 				{
 					"RequiredResources": [
 						{
@@ -10580,13 +10702,9 @@
 							"WFResourceClass": "WFParameterRelationResource"
 						}
 					],
-					"WFResourceClass": "WFEmailAccessResource"
+					"WFResourceClass": "WFSendEmailAccessResource"
 				}
 			],
-			"SettingsUI": {
-				"ShowWhenResourcesUnavailable": true,
-				"ViewControllerClass": "WFEmailAccountListViewController"
-			},
 			"Subcategory": "Messaging",
 			"SuggestedAsInitialAction": true,
 			"UserInterfaces": ["UIKit", "WatchKit", "UIKitWidget"]
@@ -10637,7 +10755,8 @@
 					"IntentSlotName": "content",
 					"Key": "WFSendMessageContent",
 					"Multiline": true,
-					"Placeholder": "Message"
+					"Placeholder": "Message",
+					"ProcessIntoContentItems": true
 				},
 				{
 					"Class": "WFTextInputParameter",
@@ -10768,7 +10887,7 @@
 			"Name": "Set Name",
 			"Output": {
 				"Multiple": false,
-				"OutputName": "Set Name",
+				"OutputName": "Renamed Item",
 				"Types": ["WFContentItem"]
 			},
 			"ParameterSummary": "Set name of ${WFInput} to ${WFName}",
@@ -10793,7 +10912,7 @@
 				}
 			],
 			"ResidentCompatible": true,
-			"Subcategory": "Content"
+			"Subcategory": "Items"
 		},
 		"is.workflow.actions.setplaybackdestination": {
 			"ActionClass": "WFSetPlaybackDestinationAction",
@@ -10805,7 +10924,7 @@
 				"route"
 			],
 			"Attribution": "AirPlay",
-			"Category": "Scripting",
+			"Categories": ["Scripting", "Media"],
 			"Description": {
 				"DescriptionSummary": "Sets playback destination to a device."
 			},
@@ -10816,13 +10935,16 @@
 				{
 					"AlwaysShowsButton": true,
 					"Class": "WFMediaRoutePickerParameter",
+					"DefaultValue": "Local",
 					"Description": "The device to set playback destination to.",
 					"DisallowedVariableTypes": ["Variable"],
 					"Key": "WFMediaRoute",
 					"Label": "Device",
 					"RouteType": "OutputDevice"
 				}
-			]
+			],
+			"Subcategory": "Device",
+			"WatchCompatible": true
 		},
 		"is.workflow.actions.setvalueforkey": {
 			"ActionClass": "WFSetDictionaryValueAction",
@@ -10918,6 +11040,7 @@
 					"TextAlignment": "Right"
 				}
 			],
+			"ResidentCompatible": true,
 			"Subcategory": "Variables"
 		},
 		"is.workflow.actions.setvolume": {
@@ -10980,7 +11103,7 @@
 				"lookup",
 				"term"
 			],
-			"Category": "Text",
+			"Category": "Documents",
 			"CreationDate": "2015-01-11T06:00:00.000Z",
 			"Description": {
 				"DescriptionSummary": "Shows the definition of the word passed into the action."
@@ -11004,6 +11127,7 @@
 				}
 			],
 			"RequiredResources": ["WFUserInteractionResource"],
+			"Subcategory": "Text",
 			"UserInterfaces": ["UIKit", "AppKit"]
 		},
 		"is.workflow.actions.showinblindsquare": {
@@ -11084,7 +11208,8 @@
 				{
 					"Class": "WFVariablePickerParameter",
 					"Key": "WFEvent",
-					"Label": "Event"
+					"Label": "Event",
+					"Placeholder": "Event"
 				}
 			],
 			"RequiredResources": ["WFURLOpenResource"],
@@ -11136,7 +11261,7 @@
 			"ActionClass": "WFShowNoteAction",
 			"ActionKeywords": ["apple"],
 			"AppIdentifier": "com.apple.mobilenotes",
-			"Category": "Text",
+			"Category": "Documents",
 			"Description": {
 				"DescriptionSummary": "Opens the note passed in as input."
 			},
@@ -11153,10 +11278,11 @@
 				{
 					"Class": "WFVariablePickerParameter",
 					"Key": "WFInput",
-					"Label": "Note"
+					"Label": "Note",
+					"Placeholder": "Note"
 				}
 			],
-			"RequiredResources": []
+			"RequiredResources": ["WFNotesAccessResource"]
 		},
 		"is.workflow.actions.showresult": {
 			"ActionClass": "WFShowResultAction",
@@ -11173,6 +11299,12 @@
 				"DescriptionSummary": "Shows the specified text in Siri or in an alert."
 			},
 			"IconName": "Scripting",
+			"Input": {
+				"Multiple": true,
+				"ParameterKey": "Text",
+				"Required": true,
+				"Types": ["WFStringContentItem"]
+			},
 			"InputPassthrough": true,
 			"Name": "Show Result",
 			"ParameterSummary": "Show ${Text}",
@@ -11185,7 +11317,9 @@
 					"Placeholder": "Result"
 				}
 			],
-			"RequiredResources": ["WFMainThreadResource"]
+			"RequiredResources": ["WFMainThreadResource"],
+			"Subcategory": "Notification",
+			"WatchCompatible": true
 		},
 		"is.workflow.actions.showwebpage": {
 			"ActionClass": "WFShowWebPageAction",
@@ -11234,7 +11368,7 @@
 				}
 			],
 			"RequiredResources": ["WFUserInteractionResource"],
-			"Subcategory": "Web",
+			"Subcategory": "Safari",
 			"UserInterfaces": ["UIKit"]
 		},
 		"is.workflow.actions.sirikit.donation.handle": {
@@ -11273,6 +11407,7 @@
 				},
 				{
 					"Class": "WFMediaRoutePickerParameter",
+					"DefaultValue": "Local",
 					"DisallowedVariableTypes": ["Variable"],
 					"Key": "WFMediaRoute",
 					"Label": "Device",
@@ -11294,10 +11429,11 @@
 			"IconName": "FastForward.png",
 			"InputPassthrough": true,
 			"Name": "Skip Forward",
-			"ParameterSummary": "Skip forward",
+			"ParameterSummary": "Skip forward on ${WFMediaRoute}",
 			"Parameters": [
 				{
 					"Class": "WFMediaRoutePickerParameter",
+					"DefaultValue": "Local",
 					"DisallowedVariableTypes": ["Variable"],
 					"Key": "WFMediaRoute",
 					"Label": "Device",
@@ -11371,7 +11507,7 @@
 				"out",
 				"loud"
 			],
-			"Category": "Text",
+			"Category": "Documents",
 			"CreationDate": "2014-01-20T06:00:00.000Z",
 			"Description": {
 				"DescriptionSummary": "Speaks the inputted text aloud."
@@ -11434,7 +11570,9 @@
 					"Key": "WFText",
 					"Label": "Text"
 				}
-			]
+			],
+			"Subcategory": "Text",
+			"WatchCompatible": true
 		},
 		"is.workflow.actions.statistics": {
 			"ActionClass": "WFCalculateStatisticsAction",
@@ -11449,12 +11587,13 @@
 				"sum",
 				"minimum"
 			],
+			"AppIdentifier": "com.apple.calculator",
+			"Attribution": "Math",
 			"Category": "Scripting",
 			"CreationDate": "2015-06-16T07:00:00.000Z",
 			"Description": {
 				"DescriptionSummary": "Calculates statistics on the numbers that are provided as input."
 			},
-			"IconName": "Calculator.png",
 			"Input": {
 				"Multiple": true,
 				"ParameterKey": "Input",
@@ -11488,51 +11627,17 @@
 				{
 					"Class": "WFVariablePickerParameter",
 					"Key": "Input",
-					"Label": "Input"
+					"Label": "Input",
+					"Placeholder": "Input"
 				}
 			],
 			"Subcategory": "Math"
-		},
-		"is.workflow.actions.streetview.image": {
-			"ActionClass": "WFStreetViewImageAction",
-			"ActionKeywords": [
-				"google",
-				"maps",
-				"picture",
-				"photo",
-				"location",
-				"business"
-			],
-			"AppIdentifier": "com.google.Maps",
-			"Category": "Location",
-			"Description": {
-				"DescriptionSummary": "Gets photos of the locations passed as input, using Google Street View."
-			},
-			"Discontinued": true,
-			"Input": {
-				"Multiple": true,
-				"Required": true,
-				"Types": ["WFStreetAddress"]
-			},
-			"Name": "Get Street View Image",
-			"Output": {
-				"Multiple": true,
-				"OutputName": "Street View Image",
-				"Types": ["WFImageContentItem"]
-			},
-			"RequiredResources": [
-				{
-					"WFResourceClass": "WFUnavailableResource",
-					"WFUnavailableResourceReason": "Shortcuts is no longer able to support Get Street View Image."
-				}
-			],
-			"ShortName": "Get Street View"
 		},
 		"is.workflow.actions.takephoto": {
 			"ActionClass": "WFTakePhotoAction",
 			"ActionKeywords": ["camera", "take", "photo"],
 			"AppIdentifier": "com.apple.camera",
-			"Category": "Photos & Video",
+			"Category": "Media",
 			"Description": {
 				"DescriptionResult": "Photo from the camera.",
 				"DescriptionSummary": "Uses the camera to take photos."
@@ -11593,7 +11698,7 @@
 			"ActionClass": "WFTakeVideoAction",
 			"ActionKeywords": ["camera", "clip", "record"],
 			"AppIdentifier": "com.apple.camera",
-			"Category": "Photos & Video",
+			"Category": "Media",
 			"Description": {
 				"DescriptionResult": "Video from the camera.",
 				"DescriptionSummary": "Uses the camera to take a video clip."
@@ -11647,7 +11752,7 @@
 				"capitalize"
 			],
 			"Attribution": "Text",
-			"Category": "Text",
+			"Category": "Documents",
 			"CreationDate": "2015-01-11T06:00:00.000Z",
 			"IconName": "Text.png",
 			"InProcess": true,
@@ -11674,7 +11779,7 @@
 			"ActionClass": "WFTextComponentsAction",
 			"ActionKeywords": ["separate", "delimiter"],
 			"Attribution": "Text",
-			"Category": "Text",
+			"Category": "Documents",
 			"IconName": "Text.png",
 			"InProcess": true,
 			"IntentIdentifier": "sirikit.intents.custom.com.apple.WorkflowKit.ShortcutsIntents.WFCombineTextIntent",
@@ -11706,7 +11811,7 @@
 				"regexp"
 			],
 			"Attribution": "Text",
-			"Category": "Text",
+			"Category": "Documents",
 			"Description": {
 				"DescriptionResult": "A list of text items that matched the regular expression"
 			},
@@ -11736,7 +11841,7 @@
 				"regexp"
 			],
 			"Attribution": "Text",
-			"Category": "Text",
+			"Category": "Documents",
 			"CreationDate": "2016-05-23T07:00:00.000Z",
 			"IconName": "Text.png",
 			"InProcess": true,
@@ -11766,7 +11871,7 @@
 				"expression",
 				"regexp"
 			],
-			"Category": "Text",
+			"Category": "Documents",
 			"Description": {
 				"DescriptionSummary": "Replaces some text passed into the action with other text."
 			},
@@ -11781,7 +11886,7 @@
 			"Name": "Replace Text",
 			"Output": {
 				"Multiple": true,
-				"OutputName": "Replace Text",
+				"OutputName": "Updated Text",
 				"Types": ["NSString"]
 			},
 			"ParameterSummary": "Replace ${WFReplaceTextFind} with ${WFReplaceTextReplace} in ${WFInput}",
@@ -11827,7 +11932,7 @@
 			"ActionClass": "WFTextComponentsAction",
 			"ActionKeywords": ["separate", "delimiter"],
 			"Attribution": "Text",
-			"Category": "Text",
+			"Category": "Documents",
 			"IconName": "Text.png",
 			"InProcess": true,
 			"IntentIdentifier": "sirikit.intents.custom.com.apple.WorkflowKit.ShortcutsIntents.WFSplitTextIntent",
@@ -11854,7 +11959,7 @@
 			"ActionClass": "WFTranslateTextAction",
 			"ActionKeywords": ["microsoft", "bing", "translation", "language"],
 			"Attribution": "Microsoft Cognitive Services",
-			"Category": "Text",
+			"Category": "Documents",
 			"CreationDate": "2015-02-19T08:00:00.000Z",
 			"Description": {
 				"DescriptionNote": "Powered by Microsoft Cognitive Services (microsoft.com/cognitive-services). Your text input will be sent to Microsoft to translate your request.",
@@ -11893,7 +11998,8 @@
 					"Label": "Text"
 				}
 			],
-			"ResidentCompatible": true
+			"ResidentCompatible": true,
+			"Subcategory": "Translation"
 		},
 		"is.workflow.actions.timer.start": {
 			"ActionClass": "WFStartTimerAction",
@@ -12003,7 +12109,8 @@
 				{
 					"Class": "WFVariablePickerParameter",
 					"Key": "WFTodoistFile",
-					"Label": "Files"
+					"Label": "Files",
+					"Placeholder": "Choose Variable"
 				}
 			],
 			"RequiredResources": [
@@ -12097,7 +12204,8 @@
 					"Class": "WFVariablePickerParameter",
 					"Description": "A list of items to be attached to the new card as files.",
 					"Key": "WFTrelloAttachments",
-					"Label": "Attachments"
+					"Label": "Attachments",
+					"Placeholder": "Choose Variable"
 				},
 				{
 					"Class": "WFTextInputParameter",
@@ -12203,7 +12311,7 @@
 		"is.workflow.actions.trimvideo": {
 			"ActionClass": "WFTrimVideoAction",
 			"ActionKeywords": ["clip", "editor", "audio", "video", "movie"],
-			"Category": "Photos & Video",
+			"Category": "Media",
 			"Description": {
 				"DescriptionInput": "The audio or video file to edit.",
 				"DescriptionResult": "The trimmed media.",
@@ -12476,16 +12584,13 @@
 			"ParameterSummary": "${WFURLActionURL}",
 			"Parameters": [
 				{
-					"AutocapitalizationType": "None",
-					"Class": "WFTextInputParameter",
-					"DisableAutocorrection": true,
+					"Class": "WFURLParameter",
 					"Key": "WFURLActionURL",
-					"KeyboardType": "URL",
 					"Label": "URL",
-					"Placeholder": "apple.com",
-					"TextContentType": "URL"
+					"Placeholder": "apple.com"
 				}
 			],
+			"ResidentCompatible": true,
 			"Subcategory": "URLs"
 		},
 		"is.workflow.actions.url.expand": {
@@ -12568,7 +12673,7 @@
 			"RequiredResources": ["WFRemoteServerAccessResource"],
 			"ResidentCompatible": true,
 			"ShortName": "Get Headers",
-			"Subcategory": "URLs",
+			"Subcategory": "Web Requests",
 			"SuggestedNever": true
 		},
 		"is.workflow.actions.urlencode": {
@@ -12850,12 +12955,13 @@
 				{
 					"Class": "WFVariablePickerParameter",
 					"Key": "WFInput",
-					"Label": "Input"
+					"Label": "Input",
+					"Placeholder": "Input"
 				}
 			],
 			"RequiredResources": ["WFUserInteractionResource"],
 			"ShortName": "Content Graph",
-			"Subcategory": "Content",
+			"Subcategory": "Items",
 			"UserInterfaces": ["UIKit"]
 		},
 		"is.workflow.actions.waittoreturn": {
@@ -12871,39 +12977,6 @@
 			"ParameterSummary": "Wait to return",
 			"RequiredResources": ["WFMainThreadResource"],
 			"Subcategory": "Control Flow"
-		},
-		"is.workflow.actions.wallpaper.set": {
-			"ActionClass": "WFSetWallpaperAction",
-			"ActionKeywords": [
-				"wallpaper",
-				"home",
-				"lock",
-				"screen",
-				"background"
-			],
-			"Category": "Photos & Video",
-			"CreationDate": "2018-10-26T07:00:00.000Z",
-			"Description": {
-				"DescriptionSummary": "Sets the wallpaper to the image passed as input. The wallpaper can be set on the Home Screen, the Lock Screen, or both."
-			},
-			"IconName": "Wallpaper",
-			"Input": {
-				"Multiple": false,
-				"Required": true,
-				"Types": ["UIImage"]
-			},
-			"InputPassthrough": true,
-			"Name": "Set Wallpaper",
-			"Parameters": [
-				{
-					"Class": "WFEnumerationParameter",
-					"DefaultValue": "Both",
-					"Items": ["Lock Screen", "Home Screen", "Both"],
-					"Key": "WFWallpaperLocation",
-					"Label": "Location"
-				}
-			],
-			"Subcategory": "Wallpaper"
 		},
 		"is.workflow.actions.weather.currentconditions": {
 			"ActionClass": "WFGetCurrentWeatherConditionsAction",
@@ -13042,7 +13115,6 @@
 			"IconName": "Wi-Fi.png",
 			"InputPassthrough": true,
 			"Name": "Set Wi-Fi",
-			"ParameterSummary": "Turn Wi-Fi ${OnValue}",
 			"Parameters": [
 				{
 					"Class": "WFSwitchParameter",
@@ -13052,7 +13124,7 @@
 				}
 			],
 			"RequiredResources": ["WFSiriAccessResource"],
-			"Subcategory": "Device",
+			"Subcategory": "Network",
 			"UnsupportedEnvironments": ["WatchOS"]
 		},
 		"is.workflow.actions.wordpress.post": {
@@ -13066,6 +13138,7 @@
 			},
 			"Input": {
 				"Multiple": true,
+				"ParameterKey": "WFInput",
 				"Required": true,
 				"Types": [
 					"WFRichTextContentItem",
@@ -13080,6 +13153,7 @@
 				"OutputName": "WordPress Post URL",
 				"Types": ["NSURL"]
 			},
+			"ParameterSummary": "Post ${WFInput} as ${Title}",
 			"Parameters": [
 				{
 					"AccountClass": "WFWordPressAccount",
@@ -13098,7 +13172,7 @@
 					"Class": "WFTextInputParameter",
 					"Key": "Title",
 					"Label": "Title",
-					"Placeholder": "Quarterly Results",
+					"Placeholder": "Title",
 					"TextAlignment": "Right"
 				},
 				{
@@ -13205,6 +13279,7 @@
 					"Class": "WFVariablePickerParameter",
 					"Key": "ThumbnailImage",
 					"Label": "Featured Image",
+					"Placeholder": "Choose Variable",
 					"RequiredResources": [
 						{
 							"WFParameterKey": "Advanced",
@@ -13241,6 +13316,12 @@
 							"WFResourceClass": "WFParameterRelationResource"
 						}
 					]
+				},
+				{
+					"Class": "WFVariablePickerParameter",
+					"Key": "WFInput",
+					"Label": "Content",
+					"Placeholder": "Content"
 				}
 			],
 			"RequiredResources": [
@@ -13315,7 +13396,8 @@
 				{
 					"Class": "WFVariablePickerParameter",
 					"Key": "WFWunderlistFile",
-					"Label": "File"
+					"Label": "File",
+					"Placeholder": "Choose Variable"
 				}
 			],
 			"RequiredResources": [

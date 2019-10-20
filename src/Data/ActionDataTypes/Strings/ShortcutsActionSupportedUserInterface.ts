@@ -1,3 +1,5 @@
+// $.*.UserInterfaces[*]
+
 export type ShortcutsActionSupportedUserInterface =
 	| "AppKit"
 	| "Siri"

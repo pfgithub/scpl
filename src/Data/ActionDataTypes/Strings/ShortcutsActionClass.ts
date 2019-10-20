@@ -1,3 +1,5 @@
+// $.*.ActionClass
+
 export type ShortcutsActionClass =
 	| "WFACESetSettingAction"
 	| "WFACESetWiFiAction"
@@ -95,12 +97,12 @@ export type ShortcutsActionClass =
 	| "WFGetWebPageAction"
 	| "WFGiphyAction"
 	| "WFHTMLFromRichTextAction"
+	| "WFHandOffPlaybackAction"
 	| "WFHandleCustomIntentAction"
 	| "WFHandleDonatedIntentAction"
 	| "WFHandlePaymentIntentAction"
 	| "WFHandoffAction"
 	| "WFHomeAccessoryAction"
-	| "WFIFTTTAction"
 	| "WFImageCombineAction"
 	| "WFImageConvertAction"
 	| "WFImageCropAction"
@@ -180,7 +182,6 @@ export type ShortcutsActionClass =
 	| "WFSetPlaybackDestinationAction"
 	| "WFSetVariableAction"
 	| "WFSetVolumeAction"
-	| "WFSetWallpaperAction"
 	| "WFShareAction"
 	| "WFShowDefinitionAction"
 	| "WFShowInBlindSquareAction"
@@ -196,7 +197,6 @@ export type ShortcutsActionClass =
 	| "WFSpeakTextAction"
 	| "WFStartCallAction"
 	| "WFStartTimerAction"
-	| "WFStreetViewImageAction"
 	| "WFSubscribeToPodcastAction"
 	| "WFTakePhotoAction"
 	| "WFTakeVideoAction"

@@ -1,3 +1,5 @@
+// $.*.IconName
+
 export type ShortcutsActionIconName =
 	| "AirDrop.png"
 	| "AirPlayAudio.png"
@@ -6,7 +8,6 @@ export type ShortcutsActionIconName =
 	| "Battery.png"
 	| "Bluetooth.png"
 	| "Brightness.png"
-	| "Calculator.png"
 	| "CellularData.png"
 	| "Clipboard.png"
 	| "CloudApp.png"
@@ -22,6 +23,7 @@ export type ShortcutsActionIconName =
 	| "Giphy"
 	| "Graph.png"
 	| "HandoffAction.png"
+	| "HandoffMusic.png"
 	| "Image.png"
 	| "Location"
 	| "Location.png"
@@ -54,6 +56,5 @@ export type ShortcutsActionIconName =
 	| "Translate.png"
 	| "URL.png"
 	| "Variable.png"
-	| "Wallpaper"
 	| "Weather.png"
 	| "Wi-Fi.png";

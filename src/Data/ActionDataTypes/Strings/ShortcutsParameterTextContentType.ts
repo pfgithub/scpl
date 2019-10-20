@@ -1,3 +1,5 @@
+// $.*.Parameters[*].TextContentType
+
 export type ShortcutsParameterTextContentType =
 	| "AddressCity"
 	| "AddressState"

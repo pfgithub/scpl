@@ -1,3 +1,5 @@
+// $.*[Input,Output].Types[*]
+
 export type ShortcutsActionIODataType =
 	| "AVAsset"
 	| "AVMetadataMachineReadableCodeObject"
@@ -63,7 +65,7 @@ export type ShortcutsActionIODataType =
 	| "WFURLContentItem"
 	| "WFUlyssesSheetContentItem"
 	| "WFWeatherData"
-	| "WFWorkflow"
+	| "WFWorkflowRecord"
 	| "WFiTunesProductContentItem"
 	| "com.adobe.pdf"
 	| "com.apple.m4a-audio"

@@ -29,7 +29,10 @@ export const coercionTypesMap = {
 	WFURLContentItem: true,
 	WFVCardContentItem: true,
 	WFEnumerationContentItem: true,
-	WFCalendarEventContentItem: true
+	WFCalendarEventContentItem: true,
+	WFEKParticipantContentItem: true,
+	WFHKSampleContentItem: true,
+	WFNoteContentItem: true
 };
 
 export function isCoercionTypeClass(name: string): name is CoercionTypeClass {
