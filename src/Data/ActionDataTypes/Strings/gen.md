@@ -10,6 +10,7 @@
 -   Copy
     `./System/Library/PrivateFrameworks/WorkflowKit.framework/WFActions.plist`
     `./System/Library/PrivateFrameworks/WorkflowKit.framework/WorkflowGlyphs.ttf`
+    `./System/Library/PrivateFrameworks/WorkflowKit.framework/Assets.car`
 
 ---
 
