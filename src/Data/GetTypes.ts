@@ -1084,6 +1084,43 @@ const data: GetTypesData = {
 			title: { name: "Title" },
 			url: { name: "URL" }
 		}
+	},
+	WFEKParticipantContentItem: {
+		// this data is supposedly available in description files now
+		comparisonMethods: {}, // shortcuts might have on
+		properties: {}
+	},
+	WFHKSampleContentItem: {
+		comparisonMethods: {},
+		properties: {}
+	},
+	WFNoteContentItem: {
+		comparisonMethods: {},
+		properties: {}
+	},
+	WFReminderContentItem: {
+		comparisonMethods: {},
+		properties: {}
+	},
+	WFiTunesArtistContentItem: {
+		comparisonMethods: {},
+		properties: {}
+	},
+	WFPodcastEpisodeContentItem: {
+		comparisonMethods: {},
+		properties: {}
+	},
+	WFTrelloItemContentItem: {
+		comparisonMethods: {},
+		properties: {}
+	},
+	WFUlyssesSheetContentItem: {
+		comparisonMethods: {},
+		properties: {}
+	},
+	WFWeatherDataContentItem: {
+		comparisonMethods: {},
+		properties: {}
 	}
 };
 

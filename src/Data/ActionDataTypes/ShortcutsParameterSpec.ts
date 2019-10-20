@@ -18,6 +18,7 @@ export type ShortcutsBaseParameterSpec = {
 	DoNotLocalizeValues?: boolean;
 	Placeholder?: number | string;
 	SupportsImportQuestions?: boolean;
+	AllowsMultipleValues?: boolean;
 };
 
 export type ShortcutsIntentAppPickerParameterSpec = ShortcutsBaseParameterSpec & {
@@ -272,7 +273,7 @@ export type ShortcutsHomeAccessoryPickerParameterSpec = ShortcutsDynamicEnumerat
 export type ShortcutsPodcastPickerParameterSpec = ShortcutsDynamicEnumerationParameterSpec;
 
 export type ShortcutsMediaRoutePickerParameterSpec = ShortcutsDynamicEnumerationParameterSpec & {
-	RouteType: "Endpoint" | "OutputDevice";
+	RouteType: "Endpoint" | "OutputDevice" | "HandoffEndpoint";
 };
 
 export type ShortcutsDatePickerParameterSpec = ShortcutsDynamicEnumerationParameterSpec & {
@@ -303,6 +304,20 @@ export type ShortcutsSlackChannelPickerParameterSpec = ShortcutsDynamicEnumerati
 export type ShortcutsAccountPickerParameterSpec = ShortcutsDynamicEnumerationParameterSpec & {
 	AccountClass: "WFSlackAccount" | "WFWordPressAccount";
 };
+
+export type ShortcutsHealthActionStartDateFieldParameterSpec = ShortcutsTextInputParameterSpec;
+
+export type ShortcutsHealthActionEndDateFieldParameterSpec = ShortcutsTextInputParameterSpec;
+
+export type ShortcutsSSHKeyParameterSpec = ShortcutsBaseParameterSpec;
+
+export type ShortcutsSearchLocalBuisnessesRadiusParameterSpec = ShortcutsUnitQuantityFieldParameterSpec;
+
+export type ShortcutsCustomIntentDynamicEnumerationParameterSpec = ShortcutsDynamicEnumerationParameterSpec & {
+	IntentSlotName: string;
+};
+
+export type ShortcutsURLParameterSpec = ShortcutsTextInputParameterSpec;
 
 type _pc<N extends string> = { Class: N };
 
@@ -394,6 +409,12 @@ export type ShortcutsParameterSpecMap = {
 	WFFlipImageDirectionPickerParameter: ShortcutsFlipImageDirectionPickerParameterSpec;
 	WFMediaRoutePickerParameter: ShortcutsMediaRoutePickerParameterSpec;
 	WFPodcastPickerParameter: ShortcutsPodcastPickerParameterSpec;
+	WFHealthActionStartDateFieldParameter: ShortcutsHealthActionStartDateFieldParameterSpec;
+	WFHealthActionEndDateFieldParameter: ShortcutsHealthActionEndDateFieldParameterSpec;
+	WFSSHKeyParameter: ShortcutsSSHKeyParameterSpec;
+	WFSearchLocalBusinessesRadiusParameter: ShortcutsSearchLocalBuisnessesRadiusParameterSpec;
+	WFCustomIntentDynamicEnumerationParameter: ShortcutsCustomIntentDynamicEnumerationParameterSpec;
+	WFURLParameter: ShortcutsURLParameterSpec;
 };
 // ^generate with .replace(/\|\ \((Shortcuts.+?Spec) &[\s\S]+?_pc<"(.+?)">\)/g, "$2: $1,"))
 
@@ -538,4 +559,14 @@ export type ShortcutsParameterSpec =
 			_pc<"WFFlipImageDirectionPickerParameter">)
 	| (ShortcutsMediaRoutePickerParameterSpec &
 			_pc<"WFMediaRoutePickerParameter">)
-	| (ShortcutsPodcastPickerParameterSpec & _pc<"WFPodcastPickerParameter">);
+	| (ShortcutsPodcastPickerParameterSpec & _pc<"WFPodcastPickerParameter">)
+	| (ShortcutsHealthActionStartDateFieldParameterSpec &
+			_pc<"WFHealthActionStartDateFieldParameter">)
+	| (ShortcutsHealthActionEndDateFieldParameterSpec &
+			_pc<"WFHealthActionEndDateFieldParameter">)
+	| (ShortcutsSSHKeyParameterSpec & _pc<"WFSSHKeyParameter">)
+	| (ShortcutsSearchLocalBuisnessesRadiusParameterSpec &
+			_pc<"WFSearchLocalBusinessesRadiusParameter">)
+	| (ShortcutsCustomIntentDynamicEnumerationParameterSpec &
+			_pc<"WFCustomIntentDynamicEnumerationParameter">)
+	| (ShortcutsURLParameterSpec & _pc<"WFURLParameter">);

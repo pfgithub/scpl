@@ -9,6 +9,7 @@
 -   Open a terminal and cd to the mounted volume
 -   Copy
     `./System/Library/PrivateFrameworks/WorkflowKit.framework/WFActions.plist`
+    `./System/Library/PrivateFrameworks/WorkflowKit.framework/WorkflowGlyphs.ttf`
 
 ---
 

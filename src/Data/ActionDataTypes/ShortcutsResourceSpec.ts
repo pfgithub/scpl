@@ -1,7 +1,13 @@
 import { ShortcutsResourceClass } from "./Strings/ShortcutsResourceClass";
 import { ShortcutsAppIdentifier } from "./Strings/ShortcutsAppIdentifier";
 
-export type ShortcutsParameterRelationResourceRelationSpec = "==" | "!=" | ">=" | "<=" | ">" | "<";
+export type ShortcutsParameterRelationResourceRelationSpec =
+	| "=="
+	| "!="
+	| ">="
+	| "<="
+	| ">"
+	| "<";
 
 export type ShortcutsBaseResourceSpec = {
 	WFResourceClass: ShortcutsResourceClass;
@@ -89,7 +95,20 @@ export type ShortcutsAccountAccessResourceSpec = ShortcutsBaseResourceSpec & {
 		| "WFWunderlistAccount";
 };
 
-export type ShortcutsLocationAccessResourceSpec =ShortcutsBaseResourceSpec;
+export type ShortcutsShortcutsWorkflowEnvironmentResourceSpec = ShortcutsBaseResourceSpec & {
+	WFRelation: "!=";
+	WFWorkflowEnvironment: "HomeResident";
+};
+
+export type ShortcutsLocationAccessResourceSpec = ShortcutsBaseResourceSpec;
+
+export type ShortcutsSendEmailAccessResourceSpec = ShortcutsBaseResourceSpec;
+
+export type ShortcutsMessagesAccessResourceSpec = ShortcutsBaseResourceSpec;
+
+export type ShortcutsTumblrAccessResourceSpec = ShortcutsBaseResourceSpec;
+
+export type ShortcutsRequestPaymentAccessResourceSpec = ShortcutsBaseResourceSpec;
 
 type _rc<N extends string> = { WFResourceClass: N };
 
@@ -105,4 +124,11 @@ export type ShortcutsResourceSpec =
 	| (ShortcutsHealthKitAccessResourceSpec & _rc<"WFHealthKitAccessResource">)
 	| (ShortcutsAppInstalledResourceSpec & _rc<"WFAppInstalledResource">)
 	| (ShortcutsAccountAccessResourceSpec & _rc<"WFAccountAccessResource">)
-	| (ShortcutsLocationAccessResourceSpec & _rc<"WFLocationAccessResource">);
+	| (ShortcutsShortcutsWorkflowEnvironmentResourceSpec &
+			_rc<"WFWorkflowEnvironmentResource">)
+	| (ShortcutsLocationAccessResourceSpec & _rc<"WFLocationAccessResource">)
+	| (ShortcutsSendEmailAccessResourceSpec & _rc<"WFSendEmailAccessResource">)
+	| (ShortcutsMessagesAccessResourceSpec & _rc<"WFMessagesAccessResource">)
+	| (ShortcutsTumblrAccessResourceSpec & _rc<"WFTumblrAccessResource">)
+	| (ShortcutsRequestPaymentAccessResourceSpec &
+			_rc<"WFRequestPaymentAccessResource">);
