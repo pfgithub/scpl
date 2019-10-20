@@ -47,7 +47,7 @@ or a variable.
 		"picture"
 	],
 	"AppIdentifier": "com.apple.mobileslideshow",
-	"Category": "Photos & Video",
+	"Category": "Media",
 	"Description": {
 		"DescriptionResult": "The selected photos/videos",
 		"DescriptionSummary": "Prompts to choose photos and videos from your photo library."

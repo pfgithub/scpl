@@ -64,6 +64,7 @@ the values you want in this parameter.
 			"Placeholder": "Type in a phone number"
 		}
 	],
+	"ResidentCompatible": true,
 	"Subcategory": "Phone"
 }
 ```

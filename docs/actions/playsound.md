@@ -19,6 +19,9 @@ PlaySound (v:myvar | mv:myvar | s:myvar)
 ---
 
 ### soundFile: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		Choose Variable
+		```
 **Allows Variables**: true
 
 
@@ -58,7 +61,8 @@ Accepts a variable.
 		{
 			"Class": "WFVariablePickerParameter",
 			"Key": "WFInput",
-			"Label": "Sound File"
+			"Label": "Sound File",
+			"Placeholder": "Choose Variable"
 		}
 	],
 	"Subcategory": "Notification"

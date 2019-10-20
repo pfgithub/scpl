@@ -139,7 +139,7 @@ with the text. Allows newlines.
 		"photo"
 	],
 	"AppIdentifier": "imgurmobile",
-	"Category": "Photos & Video",
+	"Category": "Media",
 	"CreationDate": "2015-05-03T05:00:00.000Z",
 	"Description": {
 		"DescriptionNote": "Powered by Imgur (imgur.com)",

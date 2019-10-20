@@ -6,7 +6,7 @@
 
 ### summary
 
-Makes an archive out of the files passed as input. Supports creating zip, tar.gz, tar.bz2, tar, gzip, cpio, or iso archives.
+Makes an archive out of the files passed as input. Supports creating zip, tar.gz, tar.bz2, tar.xz, tar, gzip, cpio, or iso archives.
 
 
 ### output
@@ -79,7 +79,7 @@ Accepts a variable.
 	"Category": "Documents",
 	"Description": {
 		"DescriptionResult": "Archive",
-		"DescriptionSummary": "Makes an archive out of the files passed as input. Supports creating zip, tar.gz, tar.bz2, tar, gzip, cpio, or iso archives."
+		"DescriptionSummary": "Makes an archive out of the files passed as input. Supports creating zip, tar.gz, tar.bz2, tar.xz, tar, gzip, cpio, or iso archives."
 	},
 	"IconName": "Documents.png",
 	"Input": {

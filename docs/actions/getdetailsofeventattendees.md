@@ -33,6 +33,7 @@ the values you want in this parameter.
 	"Name": "Get Details of Event Attendees",
 	"Subcategory": "Event Attendees",
 	"WFContentItemClass": "WFEKParticipantContentItem",
+	"WatchCompatible": true,
 	"Parameters": [
 		{
 			"Class": "_UndefinedCoercionClass",

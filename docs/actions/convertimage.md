@@ -92,7 +92,7 @@ Accepts a variable.
 		"preserve",
 		"metadata"
 	],
-	"Category": "Photos & Video",
+	"Category": "Media",
 	"CreationDate": "2015-01-11T06:00:00.000Z",
 	"Description": {
 		"DescriptionSummary": "Converts the images passed into the action to the specified image format."

@@ -134,7 +134,8 @@ with the text. Does not allow newlines.
 			"IntentSlotName": "content",
 			"Key": "WFSendMessageContent",
 			"Multiline": true,
-			"Placeholder": "Message"
+			"Placeholder": "Message",
+			"ProcessIntoContentItems": true
 		},
 		{
 			"Class": "WFTextInputParameter",

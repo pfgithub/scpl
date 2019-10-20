@@ -24,6 +24,7 @@ FindReminders
 {
 	"ActionClass": "WFContentItemFilterAction",
 	"AppIdentifier": "com.apple.reminders",
+	"Attribution": "Reminders",
 	"Category": "Calendar",
 	"CreationDate": "2015-01-22T08:00:00.000Z",
 	"Name": "Find Reminders",
@@ -34,6 +35,7 @@ FindReminders
 	"SuggestedAsInitialAction": false,
 	"WFContentItemClass": "WFReminderContentItem",
 	"WFContentItemDefaultProperty": "List",
+	"WatchCompatible": true,
 	"Parameters": []
 }
 ```

@@ -299,6 +299,7 @@ with the text. Allows newlines.
 		"WFCalendarAccessResource"
 	],
 	"ShortName": "Add Event",
-	"Subcategory": "Calendar"
+	"Subcategory": "Calendar",
+	"WatchCompatible": true
 }
 ```

@@ -32,7 +32,7 @@ isworkflowactionstextmatchgetgroup
 		"regexp"
 	],
 	"Attribution": "Text",
-	"Category": "Text",
+	"Category": "Documents",
 	"CreationDate": "2016-05-23T07:00:00.000Z",
 	"IconName": "Text.png",
 	"InProcess": true,

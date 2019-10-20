@@ -30,6 +30,7 @@ FindHealthSamples
 {
 	"ActionClass": "WFFindHealthSamplesAction",
 	"AppIdentifier": "com.apple.Health",
+	"Attribution": "Health",
 	"Category": "Health",
 	"CreationDate": "2015-07-03T07:00:00.000Z",
 	"Description": {

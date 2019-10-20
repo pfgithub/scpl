@@ -97,7 +97,7 @@ with the text. Does not allow newlines.
 	"RequiredResources": [
 		"WFUserInteractionResource"
 	],
-	"Subcategory": "Web",
+	"Subcategory": "Safari",
 	"UserInterfaces": [
 		"UIKit"
 	]

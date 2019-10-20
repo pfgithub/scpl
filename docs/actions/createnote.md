@@ -3,7 +3,7 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
-> This action requires that Shortcuts has permission to use [object Object].
+> This action requires that Shortcuts has permission to use [object Object],WFNotesAccessResource.
 
 
 ## description
@@ -15,7 +15,7 @@ Creates a note using the content passed as input.
 
 ### usage
 ```
-CreateNote app=("string" | variable)] showComposeSheet=(true | false | variable) undefined=NotImplemented note="string"
+CreateNote app=("string" | variable)] showComposeSheet=(true | false | variable) undefined=NotImplemented body="string"
 ```
 
 ### arguments
@@ -47,11 +47,15 @@ or a variable.
 
 ---
 
-#### This paramtype is not implemented. WFNoteGroupPickerParameter
+#### This parameter is not implemented yet.
+
+The parameter type is WFNoteGroupPickerParameter. If you need to use this parameter, you may
+be able to use a raw value. Try converting a .shortcut to a .scpl containing
+the values you want in this parameter.
 
 ---
 
-### note: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### body: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Allows Variables**: true
 
 
@@ -71,7 +75,7 @@ with the text. Does not allow newlines.
 		"apple"
 	],
 	"AppIdentifier": "com.apple.mobilenotes",
-	"Category": "Text",
+	"Category": "Documents",
 	"Description": {
 		"DescriptionSummary": "Creates a note using the content passed as input."
 	},
@@ -91,7 +95,10 @@ with the text. Does not allow newlines.
 			"INNote"
 		]
 	},
-	"ParameterSummary": "Create ${WFCreateNoteInput} in ${WFNoteGroup}",
+	"ParameterSummary": {
+		"WFCreateNoteInput,ShowWhenRun(1)": "Create note with ${WFCreateNoteInput}",
+		"WFCreateNoteInput,WFNoteGroup,ShowWhenRun(0)": "Create note with ${WFCreateNoteInput} in ${WFNoteGroup}"
+	},
 	"Parameters": [
 		{
 			"Class": "WFIntentAppPickerParameter",
@@ -125,7 +132,8 @@ with the text. Does not allow newlines.
 		{
 			"Class": "WFTextInputParameter",
 			"Key": "WFCreateNoteInput",
-			"Label": "Note"
+			"Label": "Body",
+			"ProcessIntoContentItems": true
 		}
 	],
 	"RequiredResources": [
@@ -138,8 +146,10 @@ with the text. Does not allow newlines.
 				}
 			],
 			"WFResourceClass": "WFUserInteractionResource"
-		}
+		},
+		"WFNotesAccessResource"
 	],
+	"Subcategory": "Notes",
 	"UserInterfaces": [
 		"UIKit",
 		"Siri"

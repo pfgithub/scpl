@@ -30,6 +30,9 @@ OverlayImage image=(v:myvar | mv:myvar | s:myvar) image2=(v:myvar | mv:myvar | s
 ---
 
 ### image: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		Image
+		```
 **Allows Variables**: true
 
 
@@ -39,6 +42,9 @@ Accepts a variable.
 ---
 
 ### image2: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		Image
+		```
 **Allows Variables**: true
 
 
@@ -166,7 +172,7 @@ containing one of the options:
 		"edit",
 		"editor"
 	],
-	"Category": "Photos & Video",
+	"Category": "Media",
 	"CreationDate": "2016-03-07T08:00:00.000Z",
 	"Description": {
 		"DescriptionInput": "Background images",
@@ -196,12 +202,14 @@ containing one of the options:
 		{
 			"Class": "WFVariablePickerParameter",
 			"Key": "WFImage",
-			"Label": "Image"
+			"Label": "Image",
+			"Placeholder": "Image"
 		},
 		{
 			"Class": "WFVariablePickerParameter",
 			"Key": "WFInput",
-			"Label": "Image"
+			"Label": "Image",
+			"Placeholder": "Image"
 		},
 		{
 			"Class": "WFSwitchParameter",
@@ -342,7 +350,7 @@ containing one of the options:
 			"WFResourceClass": "WFUserInteractionResource"
 		}
 	],
-	"Subcategory": "Editing",
+	"Subcategory": "Image Editing",
 	"UnsupportedEnvironments": [
 		"MemoryConstrained"
 	],

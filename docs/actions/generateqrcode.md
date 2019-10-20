@@ -52,7 +52,7 @@ with the text. Does not allow newlines.
 ```json
 {
 	"ActionClass": "WFGenerateMachineReadableCodeAction",
-	"Category": "Text",
+	"Category": "Documents",
 	"Description": {
 		"DescriptionSummary": "Generates a QR code from the input text."
 	},
@@ -96,6 +96,7 @@ with the text. Does not allow newlines.
 		}
 	],
 	"ResidentCompatible": true,
-	"ShortName": "Generate QR"
+	"ShortName": "Generate QR",
+	"Subcategory": "QR Codes"
 }
 ```

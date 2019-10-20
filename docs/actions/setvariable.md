@@ -86,6 +86,7 @@ or a named variable (v:) that you want to set.
 			"TextAlignment": "Right"
 		}
 	],
+	"ResidentCompatible": true,
 	"Subcategory": "Variables"
 }
 ```

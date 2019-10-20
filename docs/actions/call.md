@@ -3,6 +3,8 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
+> This action requires that Shortcuts has permission to use WFStartCallAccessResource.
+
 
 ## description
 
@@ -32,7 +34,11 @@ Call app=("string" | variable)] undefined=NotImplemented
 
 ---
 
-#### This paramtype is not implemented. WFContactFieldParameter
+#### This parameter is not implemented yet.
+
+The parameter type is WFContactFieldParameter. If you need to use this parameter, you may
+be able to use a raw value. Try converting a .shortcut to a .scpl containing
+the values you want in this parameter.
 
 ---
 
@@ -82,6 +88,9 @@ Call app=("string" | variable)] undefined=NotImplemented
 			"Key": "WFCallContact",
 			"Label": "Contact"
 		}
+	],
+	"RequiredResources": [
+		"WFStartCallAccessResource"
 	],
 	"Subcategory": "Phone",
 	"WFStartCallActionType": "Phone"

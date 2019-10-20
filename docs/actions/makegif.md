@@ -119,7 +119,7 @@ Accepts a variable.
 		"generate",
 		"gif"
 	],
-	"Category": "Photos & Video",
+	"Category": "Media",
 	"Description": {
 		"DescriptionResult": "An animated GIF",
 		"DescriptionSummary": "Creates an animated GIF from the images or video passed into the action."

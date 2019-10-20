@@ -11,7 +11,7 @@ Combines the images passed into the action horizontally, vertically, or in a gri
 
 ### usage
 ```
-CombineImages mode=("Side-by-Side" | "Grid") direction=("Horizontal" | "Vertical") spacing=number
+CombineImages mode=("Horizontally" | "Vertically" | "In a Grid") spacing=number images=(v:myvar | mv:myvar | s:myvar)
 ```
 
 ### arguments
@@ -19,7 +19,7 @@ CombineImages mode=("Side-by-Side" | "Grid") direction=("Horizontal" | "Vertical
 ---
 
 ### mode: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-**Default Value**: `"Side-by-Side"`
+**Default Value**: `"Horizontally"`
 **Allows Variables**: true
 
 
@@ -28,23 +28,9 @@ Accepts a string
 or variable
 containing one of the options:
 
-- `Side-by-Side`
-- `Grid`
-
----
-
-### direction: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-**Default Value**: `"Horizontal"`
-**Allows Variables**: true
-
-**Only enabled if**: argument WFImageCombineMode == `Side-by-Side`
-
-Accepts a string 
-or variable
-containing one of the options:
-
-- `Horizontal`
-- `Vertical`
+- `Horizontally`
+- `Vertically`
+- `In a Grid`
 
 ---
 
@@ -57,6 +43,18 @@ containing one of the options:
 		Accepts a number 
 		or variable
 		with a number.
+
+---
+
+### images: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		Images
+		```
+**Allows Variables**: true
+
+
+
+Accepts a variable.
 
 ---
 
@@ -73,7 +71,7 @@ containing one of the options:
 		"montage",
 		"photos"
 	],
-	"Category": "Photos & Video",
+	"Category": "Media",
 	"CreationDate": "2015-01-11T06:00:00.000Z",
 	"Description": {
 		"DescriptionSummary": "Combines the images passed into the action horizontally, vertically, or in a grid."
@@ -81,6 +79,7 @@ containing one of the options:
 	"IconName": "Image.png",
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFInput",
 		"Required": true,
 		"Types": [
 			"UIImage"
@@ -96,34 +95,18 @@ containing one of the options:
 			"UIImage"
 		]
 	},
+	"ParameterSummary": "Combine ${WFInput} ${WFImageCombineMode}",
 	"Parameters": [
 		{
 			"Class": "WFEnumerationParameter",
-			"DefaultValue": "Side-by-Side",
+			"DefaultValue": "Horizontally",
 			"Items": [
-				"Side-by-Side",
-				"Grid"
+				"Horizontally",
+				"Vertically",
+				"In a Grid"
 			],
 			"Key": "WFImageCombineMode",
 			"Label": "Mode"
-		},
-		{
-			"Class": "WFEnumerationParameter",
-			"DefaultValue": "Horizontal",
-			"Description": "When horizontal, images are connected together from left to right. When vertical, images are connected from top to bottom.",
-			"Items": [
-				"Horizontal",
-				"Vertical"
-			],
-			"Key": "WFImageCombineDirection",
-			"Label": "Direction",
-			"RequiredResources": [
-				{
-					"WFParameterKey": "WFImageCombineMode",
-					"WFParameterValue": "Side-by-Side",
-					"WFResourceClass": "WFParameterRelationResource"
-				}
-			]
 		},
 		{
 			"AllowsDecimalNumbers": true,
@@ -134,9 +117,16 @@ containing one of the options:
 			"Label": "Spacing",
 			"Placeholder": "0",
 			"TextAlignment": "Right"
+		},
+		{
+			"AllowsMultipleValues": true,
+			"Class": "WFVariablePickerParameter",
+			"Key": "WFInput",
+			"Label": "Images",
+			"Placeholder": "Images"
 		}
 	],
 	"ResidentCompatible": true,
-	"Subcategory": "Editing"
+	"Subcategory": "Image Editing"
 }
 ```

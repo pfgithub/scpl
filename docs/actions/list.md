@@ -69,6 +69,7 @@ Accepts a list.
 			"Label": "Items"
 		}
 	],
+	"ResidentCompatible": true,
 	"Subcategory": "Lists",
 	"SuggestedNever": true
 }

@@ -77,11 +77,19 @@ containing one of the options:
 
 ---
 
-#### This paramtype is not implemented. WFLocationParameter
+#### This parameter is not implemented yet.
+
+The parameter type is WFLocationParameter. If you need to use this parameter, you may
+be able to use a raw value. Try converting a .shortcut to a .scpl containing
+the values you want in this parameter.
 
 ---
 
-#### This paramtype is not implemented. WFUnitQuantityFieldParameter
+#### This parameter is not implemented yet.
+
+The parameter type is WFUnitQuantityFieldParameter. If you need to use this parameter, you may
+be able to use a raw value. Try converting a .shortcut to a .scpl containing
+the values you want in this parameter.
 
 ---
 
@@ -278,6 +286,7 @@ with the text. Allows newlines.
 		}
 	],
 	"ShortName": "Add Reminder",
-	"Subcategory": "Reminders"
+	"Subcategory": "Reminders",
+	"WatchCompatible": true
 }
 ```

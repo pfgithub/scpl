@@ -45,7 +45,7 @@ Accepts a variable.
 		"e-mail",
 		"emails"
 	],
-	"Category": "Text",
+	"Category": "Documents",
 	"CoercionItemClass": "WFStringContentItem",
 	"Description": {
 		"DescriptionSummary": "Returns text from the previous action's output.\n\nFor example, this action can get the name of a photo or song, or the text of a webpage."
@@ -77,6 +77,7 @@ Accepts a variable.
 		}
 	],
 	"ResidentCompatible": true,
-	"ShortName": "Get Text"
+	"ShortName": "Get Text",
+	"Subcategory": "Text"
 }
 ```

@@ -78,7 +78,7 @@ Accepts a variable.
 	"ActionClass": "WFImportToLightroomAction",
 	"ActionKeywords": [],
 	"AppIdentifier": "com.adobe.lrmobile",
-	"Category": "Photos & Video",
+	"Category": "Media",
 	"Description": {
 		"DescriptionSummary": "Imports the photos passed as input into Lightroom"
 	},

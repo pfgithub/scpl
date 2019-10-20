@@ -50,6 +50,14 @@ with the text. Allows newlines.
 		"DescriptionSummary": "Shows the specified text in Siri or in an alert."
 	},
 	"IconName": "Scripting",
+	"Input": {
+		"Multiple": true,
+		"ParameterKey": "Text",
+		"Required": true,
+		"Types": [
+			"WFStringContentItem"
+		]
+	},
 	"InputPassthrough": true,
 	"Name": "Show Result",
 	"ParameterSummary": "Show ${Text}",
@@ -64,6 +72,8 @@ with the text. Allows newlines.
 	],
 	"RequiredResources": [
 		"WFMainThreadResource"
-	]
+	],
+	"Subcategory": "Notification",
+	"WatchCompatible": true
 }
 ```

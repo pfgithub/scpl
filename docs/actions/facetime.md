@@ -3,6 +3,8 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
+> This action requires that Shortcuts has permission to use WFStartCallAccessResource.
+
 
 ## description
 
@@ -32,11 +34,19 @@ FaceTime app=("string" | variable)] undefined=NotImplemented undefined=NotImplem
 
 ---
 
-#### This paramtype is not implemented. WFFaceTimeTypePickerParameter
+#### This parameter is not implemented yet.
+
+The parameter type is WFFaceTimeTypePickerParameter. If you need to use this parameter, you may
+be able to use a raw value. Try converting a .shortcut to a .scpl containing
+the values you want in this parameter.
 
 ---
 
-#### This paramtype is not implemented. WFContactFieldParameter
+#### This parameter is not implemented yet.
+
+The parameter type is WFContactFieldParameter. If you need to use this parameter, you may
+be able to use a raw value. Try converting a .shortcut to a .scpl containing
+the values you want in this parameter.
 
 ---
 
@@ -90,11 +100,14 @@ FaceTime app=("string" | variable)] undefined=NotImplemented undefined=NotImplem
 			"Label": "Call Type"
 		},
 		{
-			"AllowsMultipleValues": true,
+			"AllowsMultipleValues": false,
 			"Class": "WFContactFieldParameter",
 			"Key": "WFFaceTimeContact",
 			"Label": "Contact"
 		}
+	],
+	"RequiredResources": [
+		"WFStartCallAccessResource"
 	],
 	"Subcategory": "Phone",
 	"WFStartCallActionType": "FaceTime"

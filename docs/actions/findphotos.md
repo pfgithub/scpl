@@ -133,7 +133,8 @@ or a variable.
 {
 	"ActionClass": "WFContentItemFilterAction",
 	"AppIdentifier": "com.apple.mobileslideshow",
-	"Category": "Photos & Video",
+	"Attribution": "Photos",
+	"Category": "Media",
 	"CreationDate": "2015-01-22T08:00:00.000Z",
 	"Input": {
 		"Types": [

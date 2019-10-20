@@ -84,7 +84,6 @@ with the text. Does not allow newlines.
 			"Label": "URL"
 		}
 	],
-	"ResidentCompatible": true,
 	"ShortName": "Get Article",
 	"Subcategory": "Articles"
 }

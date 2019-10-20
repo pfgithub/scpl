@@ -90,7 +90,8 @@ Accepts a list.
 				"Two"
 			],
 			"Key": "WFMenuItems",
-			"Label": "Items"
+			"Label": "Items",
+			"SupportsImportQuestions": false
 		}
 	],
 	"RequiredResources": [
@@ -100,6 +101,7 @@ Accepts a list.
 	"SnappingPassthrough": true,
 	"Subcategory": "Control Flow",
 	"SuggestedAsInitialAction": true,
+	"WatchCompatible": true,
 	"BlockInfo": {
 		"Example": "\ncase\n  ...\ncase\n  ...\nend",
 		"Completion": "\ncase\n\t$0\nend"

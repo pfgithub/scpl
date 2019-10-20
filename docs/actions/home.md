@@ -22,11 +22,19 @@ Home undefined=NotImplemented undefined=NotImplemented
 
 ---
 
-#### This paramtype is not implemented. WFHomeServicePickerParameter
+#### This parameter is not implemented yet.
+
+The parameter type is WFHomeServicePickerParameter. If you need to use this parameter, you may
+be able to use a raw value. Try converting a .shortcut to a .scpl containing
+the values you want in this parameter.
 
 ---
 
-#### This paramtype is not implemented. WFHomeCharacteristicPickerParameter
+#### This parameter is not implemented yet.
+
+The parameter type is WFHomeCharacteristicPickerParameter. If you need to use this parameter, you may
+be able to use a raw value. Try converting a .shortcut to a .scpl containing
+the values you want in this parameter.
 
 ---
 
@@ -78,6 +86,7 @@ Home undefined=NotImplemented undefined=NotImplemented
 	"RequiredResources": [
 		"WFHomeKitAccessResource"
 	],
-	"ResidentCompatible": true
+	"ResidentCompatible": true,
+	"WatchCompatible": true
 }
 ```

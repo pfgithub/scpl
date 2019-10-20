@@ -37,7 +37,7 @@ isworkflowactionstextmatch
 		"regexp"
 	],
 	"Attribution": "Text",
-	"Category": "Text",
+	"Category": "Documents",
 	"Description": {
 		"DescriptionResult": "A list of text items that matched the regular expression"
 	},

@@ -44,6 +44,7 @@ Nothing
 	"InputPassthrough": false,
 	"Name": "Nothing",
 	"ParameterSummary": "Nothing",
-	"Subcategory": "Content"
+	"ResidentCompatible": true,
+	"Subcategory": "No-ops"
 }
 ```

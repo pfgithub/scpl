@@ -11,15 +11,28 @@ Rounds the number(s) passed into the action.
 
 ### usage
 ```
-RoundNumber round=("Left of Decimal" | "Right of Decimal") mode=("Normal" | "Always Round Up" | "Always Round Down") WFRoundDecimalPlaces=number
+RoundNumber number=number value=("Millions" | "Hundred Thousands" | "Ten Thousands" | "Thousands" | "Hundreds Place" | "Tens Place" | "Ones Place" | "Tenths" | "Hundredths" | "Thousandths" | "Ten Thousandths" | "Hundred Thousandths" | "Millionths" | "Ten Millionths" | "Hundred Millionths" | "Billionths" | "10 ^") mode=("Normal" | "Always Round Up" | "Always Round Down") tenToThePowerOf=number
 ```
 
 ### arguments
 
 ---
 
-### round: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-**Default Value**: `"Left of Decimal"`
+### number: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+**Placeholder**: `Number`
+**Allows Variables**: true
+
+
+
+		Accepts a number 
+		or variable
+		with a number.
+
+---
+
+### value: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+**Placeholder**: `"Value"`
+**Default Value**: `"Ones Place"`
 **Allows Variables**: true
 
 
@@ -28,8 +41,23 @@ Accepts a string
 or variable
 containing one of the options:
 
-- `Left of Decimal`
-- `Right of Decimal`
+- `Millions`
+- `Hundred Thousands`
+- `Ten Thousands`
+- `Thousands`
+- `Hundreds Place`
+- `Tens Place`
+- `Ones Place`
+- `Tenths`
+- `Hundredths`
+- `Thousandths`
+- `Ten Thousandths`
+- `Hundred Thousandths`
+- `Millionths`
+- `Ten Millionths`
+- `Hundred Millionths`
+- `Billionths`
+- `10 ^`
 
 ---
 
@@ -49,10 +77,10 @@ containing one of the options:
 
 ---
 
-### WFRoundDecimalPlaces: Stepper Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#stepper-number-fields)
+### tenToThePowerOf: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFRoundTo == `10 ^`
 
 		Accepts a number 
 		or variable
@@ -72,14 +100,16 @@ containing one of the options:
 		"ceiling",
 		"floor"
 	],
+	"AppIdentifier": "com.apple.calculator",
+	"Attribution": "Math",
 	"Category": "Scripting",
 	"CreationDate": "2015-01-11T06:00:00.000Z",
 	"Description": {
 		"DescriptionSummary": "Rounds the number(s) passed into the action."
 	},
-	"IconName": "Calculator.png",
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFInput",
 		"Required": true,
 		"Types": [
 			"WFNumberContentItem"
@@ -93,16 +123,43 @@ containing one of the options:
 			"NSDecimalNumber"
 		]
 	},
+	"ParameterSummary": {
+		"WFInput,WFRoundTo(10 ^),WFRoundMode,TenToThePowerOf": "Round ${WFInput} to ${WFRoundTo} ${TenToThePowerOf}",
+		"WFInput,WFRoundTo,WFRoundMode": "Round ${WFInput} to ${WFRoundTo}"
+	},
 	"Parameters": [
 		{
+			"AllowsDecimalNumbers": true,
+			"Class": "WFNumberFieldParameter",
+			"Key": "WFInput",
+			"Label": "Number",
+			"Placeholder": "Number"
+		},
+		{
 			"Class": "WFEnumerationParameter",
-			"DefaultValue": "Left of Decimal",
+			"DefaultValue": "Ones Place",
 			"Items": [
-				"Left of Decimal",
-				"Right of Decimal"
+				"Millions",
+				"Hundred Thousands",
+				"Ten Thousands",
+				"Thousands",
+				"Hundreds Place",
+				"Tens Place",
+				"Ones Place",
+				"Tenths",
+				"Hundredths",
+				"Thousandths",
+				"Ten Thousandths",
+				"Hundred Thousandths",
+				"Millionths",
+				"Ten Millionths",
+				"Hundred Millionths",
+				"Billionths",
+				"10 ^"
 			],
-			"Key": "WFRoundType",
-			"Label": "Round"
+			"Key": "WFRoundTo",
+			"Label": "Value",
+			"Placeholder": "Value"
 		},
 		{
 			"Class": "WFEnumerationParameter",
@@ -116,13 +173,17 @@ containing one of the options:
 			"Label": "Mode"
 		},
 		{
-			"Class": "WFStepperParameter",
+			"Class": "WFNumberFieldParameter",
 			"DefaultValue": 0,
-			"Key": "WFRoundDecimalPlaces",
+			"Key": "TenToThePowerOf",
 			"MinimumValue": 0,
-			"StepperDescription": "Decimal Places",
-			"StepperNoun": "Decimal Place",
-			"StepperPluralNoun": "Decimal Places"
+			"RequiredResources": [
+				{
+					"WFParameterKey": "WFRoundTo",
+					"WFParameterValue": "10 ^",
+					"WFResourceClass": "WFParameterRelationResource"
+				}
+			]
 		}
 	],
 	"ResidentCompatible": true,

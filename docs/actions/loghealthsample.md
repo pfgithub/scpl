@@ -72,7 +72,7 @@ the values you want in this parameter.
 
 #### This parameter is not implemented yet.
 
-The parameter type is WFHealthCategoryStartDateFieldParameter. If you need to use this parameter, you may
+The parameter type is WFHealthActionStartDateFieldParameter. If you need to use this parameter, you may
 be able to use a raw value. Try converting a .shortcut to a .scpl containing
 the values you want in this parameter.
 
@@ -80,7 +80,7 @@ the values you want in this parameter.
 
 #### This parameter is not implemented yet.
 
-The parameter type is WFHealthCategoryEndDateFieldParameter. If you need to use this parameter, you may
+The parameter type is WFHealthActionEndDateFieldParameter. If you need to use this parameter, you may
 be able to use a raw value. Try converting a .shortcut to a .scpl containing
 the values you want in this parameter.
 
@@ -167,7 +167,7 @@ the values you want in this parameter.
 			"Label": "Value"
 		},
 		{
-			"Class": "WFHealthCategoryStartDateFieldParameter",
+			"Class": "WFHealthActionStartDateFieldParameter",
 			"Description": "The date and time of the data point. The current date will be used if you don't provide a date.",
 			"Key": "WFQuantitySampleDate",
 			"Label": "Date",
@@ -175,7 +175,7 @@ the values you want in this parameter.
 			"TextAlignment": "Right"
 		},
 		{
-			"Class": "WFHealthCategoryEndDateFieldParameter",
+			"Class": "WFHealthActionEndDateFieldParameter",
 			"Description": "The date and time for the end of the data point. The current date will be used if you don't provide a date.",
 			"Key": "WFSampleEndDate",
 			"Label": "End Date",
@@ -192,6 +192,7 @@ the values you want in this parameter.
 			"WFResourceClass": "WFHealthKitAccessResource"
 		}
 	],
-	"Subcategory": "Log"
+	"Subcategory": "Log",
+	"WatchCompatible": true
 }
 ```

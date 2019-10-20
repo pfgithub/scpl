@@ -121,6 +121,7 @@ or a variable.
 {
 	"ActionClass": "WFContentItemFilterAction",
 	"AppIdentifier": "com.apple.mobilecal",
+	"Attribution": "Calendar",
 	"Category": "Calendar",
 	"CreationDate": "2015-01-22T08:00:00.000Z",
 	"Name": "Find Calendar Events",
@@ -132,6 +133,7 @@ or a variable.
 	"SuggestedAsInitialAction": false,
 	"WFContentItemClass": "WFCalendarEventContentItem",
 	"WFContentItemDefaultProperty": "Calendar",
+	"WatchCompatible": true,
 	"Parameters": [
 		{
 			"Class": "WFFilterParameter",

@@ -56,7 +56,8 @@ with the text. Does not allow newlines.
 		"pass date",
 		"time",
 		"current",
-		"now"
+		"now",
+		"get"
 	],
 	"Category": "Calendar",
 	"Constructor": true,

@@ -117,6 +117,7 @@ Accepts a variable.
 			"WFNumberContentItem"
 		]
 	},
+	"ParameterCollapsingBehavior": "DefaultBeginExpanded",
 	"ParameterSummary": "Run JavaScript on ${WFInput}",
 	"Parameters": [
 		{

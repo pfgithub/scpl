@@ -55,7 +55,7 @@ Accepts a variable.
 		"rotation",
 		"orientation"
 	],
-	"Category": "Photos & Video",
+	"Category": "Media",
 	"Description": {
 		"DescriptionSummary": "Turns an image clockwise by a particular number of degrees."
 	},
@@ -97,7 +97,7 @@ Accepts a variable.
 		}
 	],
 	"ResidentCompatible": true,
-	"Subcategory": "Editing",
+	"Subcategory": "Image Editing",
 	"SuggestedNever": true
 }
 ```

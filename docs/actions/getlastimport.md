@@ -41,7 +41,7 @@ GetLastImport
 		"usb"
 	],
 	"AppIdentifier": "com.apple.mobileslideshow",
-	"Category": "Photos & Video",
+	"Category": "Media",
 	"CreationDate": "2018-09-28T07:00:00.000Z",
 	"Description": {
 		"DescriptionSummary": "Gets the most recent photo import from the Photos app."

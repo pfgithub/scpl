@@ -73,7 +73,7 @@ Accepts a variable.
 		"roll"
 	],
 	"AppIdentifier": "com.apple.mobileslideshow",
-	"Category": "Photos & Video",
+	"Category": "Media",
 	"Description": {
 		"DescriptionInput": "Photos, videos, or audio to save",
 		"DescriptionNote": "If a photo passed as input is already in the specified album, the photo will be duplicated.",
@@ -120,6 +120,6 @@ Accepts a variable.
 		"WFPhotoAccessResource"
 	],
 	"ShortName": "Save to Photos",
-	"Subcategory": "Camera"
+	"Subcategory": "Photos"
 }
 ```

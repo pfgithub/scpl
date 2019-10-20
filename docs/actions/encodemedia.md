@@ -177,6 +177,9 @@ with the text. Does not allow newlines.
 ---
 
 ### artwork: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		Choose Variable
+		```
 **Allows Variables**: true
 
 **Only enabled if**: argument Metadata == `true`
@@ -200,7 +203,7 @@ Accepts a variable.
 		"id3",
 		"video"
 	],
-	"Category": "Photos & Video",
+	"Category": "Media",
 	"Description": {
 		"DescriptionSummary": "Re-encodes the media passed as input at the specified size, optionally converting to audio."
 	},
@@ -383,6 +386,7 @@ Accepts a variable.
 			"Class": "WFVariablePickerParameter",
 			"Key": "WFMetadataArtwork",
 			"Label": "Artwork",
+			"Placeholder": "Choose Variable",
 			"RequiredResources": [
 				{
 					"WFParameterKey": "Metadata",

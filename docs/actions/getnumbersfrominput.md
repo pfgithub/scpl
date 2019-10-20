@@ -11,14 +11,21 @@ Returns numbers from the previous action's output.
 
 ### usage
 ```
-GetNumbersfromInput 
+GetNumbersfromInput number
 ```
 
 ### arguments
 
 ---
 
+### input: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
+**Allows Variables**: true
 
+
+
+		Accepts a number 
+		or variable
+		with a number.
 
 ---
 
@@ -34,14 +41,16 @@ GetNumbersfromInput
 		"extract",
 		"scan"
 	],
+	"AppIdentifier": "com.apple.calculator",
+	"Attribution": "Scripting",
 	"Category": "Scripting",
 	"CoercionItemClass": "WFNumberContentItem",
 	"Description": {
 		"DescriptionSummary": "Returns numbers from the previous action's output."
 	},
-	"IconName": "Calculator.png",
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFInput",
 		"Required": true,
 		"Types": [
 			"NSNumber"
@@ -55,8 +64,17 @@ GetNumbersfromInput
 			"WFNumberContentItem"
 		]
 	},
+	"ParameterSummary": "Get numbers from ${WFInput}",
+	"Parameters": [
+		{
+			"AllowsDecimalNumbers": true,
+			"Class": "WFNumberFieldParameter",
+			"Key": "WFInput",
+			"Label": "Input"
+		}
+	],
 	"ResidentCompatible": true,
 	"ShortName": "Get Numbers",
-	"Subcategory": "Math"
+	"Subcategory": "Numbers"
 }
 ```

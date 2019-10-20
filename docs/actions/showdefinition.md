@@ -44,7 +44,7 @@ with the text. Does not allow newlines.
 		"lookup",
 		"term"
 	],
-	"Category": "Text",
+	"Category": "Documents",
 	"CreationDate": "2015-01-11T06:00:00.000Z",
 	"Description": {
 		"DescriptionSummary": "Shows the definition of the word passed into the action."
@@ -72,6 +72,7 @@ with the text. Does not allow newlines.
 	"RequiredResources": [
 		"WFUserInteractionResource"
 	],
+	"Subcategory": "Text",
 	"UserInterfaces": [
 		"UIKit",
 		"AppKit"

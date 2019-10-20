@@ -62,7 +62,7 @@ Accepts a variable.
 		"convert",
 		"make"
 	],
-	"Category": "Photos & Video",
+	"Category": "Media",
 	"CreationDate": "2015-02-03T08:00:00.000Z",
 	"Description": {
 		"DescriptionInput": "An animated GIF",

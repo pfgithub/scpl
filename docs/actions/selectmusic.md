@@ -69,7 +69,7 @@ or a variable.
 		"WFAppleMusicAccessResource",
 		"WFUserInteractionResource"
 	],
-	"Subcategory": "Media",
+	"Subcategory": "Music",
 	"UserInterfaces": [
 		"UIKit"
 	]

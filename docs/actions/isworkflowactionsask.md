@@ -51,7 +51,7 @@ isworkflowactionsask
 	"LastModifiedDate": "2015-08-20T07:00:00.000Z",
 	"Output": {
 		"Multiple": false,
-		"OutputName": "Ask for Input",
+		"OutputName": "Provided Input",
 		"Types": [
 			"NSString",
 			"NSDecimalNumber",
@@ -63,7 +63,8 @@ isworkflowactionsask
 		"dateAndTimeAnswer": {
 			"DisallowedVariableTypes": [
 				"Ask"
-			]
+			],
+			"Key": "WFAskActionDefaultAnswerDateAndTime"
 		},
 		"dateAnswer": {
 			"DisallowedVariableTypes": [
@@ -71,10 +72,18 @@ isworkflowactionsask
 			],
 			"Key": "WFAskActionDefaultAnswerDate"
 		},
+		"defaultURLAnswer": {
+			"DisallowedVariableTypes": [
+				"Ask"
+			],
+			"Key": "WFAskActionDefaultAnswerURL",
+			"KeyboardType": "URL"
+		},
 		"numberAnswer": {
 			"DisallowedVariableTypes": [
 				"Ask"
-			]
+			],
+			"Key": "WFAskActionDefaultAnswerNumber"
 		},
 		"question": {
 			"Key": "WFAskActionPrompt"
@@ -83,14 +92,19 @@ isworkflowactionsask
 			"DisallowedVariableTypes": [
 				"Ask"
 			],
-			"Key": "WFAskActionDefaultAnswer"
+			"Key": "WFAskActionDefaultAnswer",
+			"Label": "Default Answer"
 		},
 		"timeAnswer": {
 			"DisallowedVariableTypes": [
 				"Ask"
-			]
+			],
+			"Key": "WFAskActionDefaultAnswerTime"
 		},
 		"type": {
+			"DisallowedVariableTypes": [
+				"Ask"
+			],
 			"IntentEnumOverrides": {
 				"date": "Date",
 				"dateAndTime": "Date and Time",
@@ -102,11 +116,10 @@ isworkflowactionsask
 			"Key": "WFInputType"
 		},
 		"urlAnswer": {
-			"DisallowedVariableTypes": [
-				"Ask"
-			]
+			"Hidden": true
 		}
 	},
+	"ParameterSummary": "Ask ${WFAskActionPrompt}",
 	"RequiredResources": [
 		"WFUserInteractionResource"
 	],

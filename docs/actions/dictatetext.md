@@ -63,7 +63,7 @@ containing one of the options:
 		"transcription",
 		"siri"
 	],
-	"Category": "Text",
+	"Category": "Documents",
 	"CreationDate": "2016-09-09T07:00:00.000Z",
 	"Description": {
 		"DescriptionSummary": "Transcribes what you say aloud into text and passes the result to the next action."
@@ -111,10 +111,12 @@ containing one of the options:
 		"WFSpeechRecognitionAccessResource",
 		"WFMicrophoneAccessResource"
 	],
-	"RunningUIComponentClass": "WFDictateTextActionComponent",
+	"RunningViewClass": "WFDictateTextActionView",
+	"Subcategory": "Text",
 	"UserInterfaces": [
 		"UIKit",
-		"UIKitWidget"
+		"UIKitWidget",
+		"Siri"
 	]
 }
 ```

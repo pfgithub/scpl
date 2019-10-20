@@ -130,7 +130,8 @@ or a variable.
 ```json
 {
 	"ActionClass": "WFContentItemFilterAction",
-	"Category": "Photos & Video",
+	"Attribution": "Images",
+	"Category": "Media",
 	"CreationDate": "2015-01-22T08:00:00.000Z",
 	"IconName": "Image.png",
 	"Input": {

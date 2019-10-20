@@ -104,7 +104,7 @@ with the text. Does not allow newlines.
 		"out",
 		"loud"
 	],
-	"Category": "Text",
+	"Category": "Documents",
 	"CreationDate": "2014-01-20T06:00:00.000Z",
 	"Description": {
 		"DescriptionSummary": "Speaks the inputted text aloud."
@@ -171,6 +171,8 @@ with the text. Does not allow newlines.
 			"Key": "WFText",
 			"Label": "Text"
 		}
-	]
+	],
+	"Subcategory": "Text",
+	"WatchCompatible": true
 }
 ```

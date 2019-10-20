@@ -8,7 +8,7 @@
 
 ### summary
 
-Gets the most recent photos from the camera roll.
+Gets the most recent photos from the photo library.
 
 
 ### usage
@@ -57,9 +57,9 @@ or a variable.
 		"last"
 	],
 	"AppIdentifier": "com.apple.mobileslideshow",
-	"Category": "Photos & Video",
+	"Category": "Media",
 	"Description": {
-		"DescriptionSummary": "Gets the most recent photos from the camera roll."
+		"DescriptionSummary": "Gets the most recent photos from the photo library."
 	},
 	"Name": "Get Latest Photos",
 	"Output": {

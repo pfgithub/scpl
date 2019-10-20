@@ -39,12 +39,12 @@ Number number
 		"decimal",
 		"math"
 	],
+	"AppIdentifier": "com.apple.calculator",
 	"Category": "Scripting",
 	"Constructor": true,
 	"Description": {
 		"DescriptionSummary": "Passes a number to the next action."
 	},
-	"IconName": "Calculator.png",
 	"Name": "Number",
 	"Output": {
 		"Multiple": false,
@@ -64,7 +64,8 @@ Number number
 			"TextAlignment": "Right"
 		}
 	],
-	"Subcategory": "Math",
+	"ResidentCompatible": true,
+	"Subcategory": "Numbers",
 	"SuggestedNever": true
 }
 ```

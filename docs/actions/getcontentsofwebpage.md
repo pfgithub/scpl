@@ -13,19 +13,21 @@ Extracts the contents of the webpages passed into the action.
 
 ### usage
 ```
-GetContentsofWebpage (v:myvar | mv:myvar | s:myvar)
+GetContentsofWebpage "string"
 ```
 
 ### arguments
 
 ---
 
-### uRL: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+### uRL: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Allows Variables**: true
 
 
 
-Accepts a variable.
+Accepts a string 
+or text
+with the text. Does not allow newlines.
 
 ---
 
@@ -58,9 +60,13 @@ Accepts a variable.
 	"ParameterSummary": "Get contents of webpage at ${WFInput}",
 	"Parameters": [
 		{
-			"Class": "WFVariablePickerParameter",
+			"AutocapitalizationType": "None",
+			"Class": "WFTextInputParameter",
+			"DisableAutocorrection": true,
 			"Key": "WFInput",
-			"Label": "URL"
+			"KeyboardType": "URL",
+			"Label": "URL",
+			"TextContentType": "URL"
 		}
 	],
 	"RequiredResources": [
@@ -68,7 +74,7 @@ Accepts a variable.
 	],
 	"ResidentCompatible": true,
 	"ShortName": "Get Webpage",
-	"Subcategory": "Web",
+	"Subcategory": "Web Requests",
 	"UnsupportedEnvironments": [
 		"MemoryConstrained"
 	]

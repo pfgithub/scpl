@@ -78,6 +78,7 @@ Accepts a variable.
 		"WFUserInteractionResource"
 	],
 	"Subcategory": "Reminders",
-	"WFCalendarItemEntityType": "Reminder"
+	"WFCalendarItemEntityType": "Reminder",
+	"WatchCompatible": true
 }
 ```

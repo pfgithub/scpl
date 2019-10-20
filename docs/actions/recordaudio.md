@@ -85,7 +85,7 @@ the values you want in this parameter.
 		"clip",
 		"record"
 	],
-	"Category": "Photos & Video",
+	"Category": "Media",
 	"CreationDate": "2015-01-11T06:00:00.000Z",
 	"Description": {
 		"DescriptionSummary": "Uses the microphone to record audio."

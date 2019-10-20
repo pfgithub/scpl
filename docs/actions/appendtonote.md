@@ -1,7 +1,7 @@
 
 ## Append to Note / AppendtoNote (internally `is.workflow.actions.appendnote`)
 
-> This action requires that Shortcuts has permission to use .
+> This action requires that Shortcuts has permission to use WFNotesAccessResource.
 
 
 ## description
@@ -37,6 +37,9 @@ AppendtoNote app=("string" | variable)] note=(v:myvar | mv:myvar | s:myvar) text
 ---
 
 ### note: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		Note
+		```
 **Allows Variables**: true
 
 
@@ -65,7 +68,7 @@ with the text. Does not allow newlines.
 		"apple"
 	],
 	"AppIdentifier": "com.apple.mobilenotes",
-	"Category": "Text",
+	"Category": "Documents",
 	"Description": {
 		"DescriptionResult": "The updated note",
 		"DescriptionSummary": "Appends the text passed as input to the specified note."
@@ -82,6 +85,7 @@ with the text. Does not allow newlines.
 	"Name": "Append to Note",
 	"Output": {
 		"Multiple": false,
+		"OutputName": "Appended Note",
 		"Types": [
 			"INNote"
 		]
@@ -100,7 +104,8 @@ with the text. Does not allow newlines.
 			"Class": "WFVariablePickerParameter",
 			"Description": "The note to append to",
 			"Key": "WFNote",
-			"Label": "Note"
+			"Label": "Note",
+			"Placeholder": "Note"
 		},
 		{
 			"Class": "WFTextInputParameter",
@@ -108,6 +113,9 @@ with the text. Does not allow newlines.
 			"Label": "Text"
 		}
 	],
-	"RequiredResources": []
+	"RequiredResources": [
+		"WFNotesAccessResource"
+	],
+	"Subcategory": "Notes"
 }
 ```

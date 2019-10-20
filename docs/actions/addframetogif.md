@@ -112,7 +112,7 @@ or a variable.
 		"generate",
 		"gif"
 	],
-	"Category": "Photos & Video",
+	"Category": "Media",
 	"CreationDate": "2016-03-08T06:00:00.000Z",
 	"Description": {
 		"DescriptionInput": "An existing animated GIF, if desired.",

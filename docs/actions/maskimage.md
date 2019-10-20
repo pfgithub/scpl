@@ -66,6 +66,9 @@ containing one of the options:
 ---
 
 ### customImage: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		Image
+		```
 **Allows Variables**: true
 
 **Only enabled if**: argument WFMaskType == `Custom Image`
@@ -87,7 +90,7 @@ Accepts a variable.
 		"corner",
 		"radius"
 	],
-	"Category": "Photos & Video",
+	"Category": "Media",
 	"CreationDate": "2018-02-02T08:00:00.000Z",
 	"Description": {
 		"DescriptionInput": "Images to mask",
@@ -160,6 +163,7 @@ Accepts a variable.
 			"Description": "An alpha mask to apply to the source image, where darker colors become transparent and lighter colors remain opaque. If the mask is sized differently than the source image, the mask is resized to match the dimensions of the source image.",
 			"Key": "WFCustomMaskImage",
 			"Label": "Custom Image",
+			"Placeholder": "Image",
 			"RequiredResources": [
 				{
 					"WFParameterKey": "WFMaskType",
@@ -170,6 +174,6 @@ Accepts a variable.
 		}
 	],
 	"ResidentCompatible": true,
-	"Subcategory": "Editing"
+	"Subcategory": "Image Editing"
 }
 ```

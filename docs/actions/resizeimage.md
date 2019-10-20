@@ -74,7 +74,7 @@ Accepts a variable.
 		"width",
 		"height"
 	],
-	"Category": "Photos & Video",
+	"Category": "Media",
 	"Description": {
 		"DescriptionNote": "If the width or height is not set, that dimension is automatically calculated to maintain the original image's aspect ratio.",
 		"DescriptionSummary": "Scales images to a particular width and height."
@@ -123,6 +123,6 @@ Accepts a variable.
 		}
 	],
 	"ResidentCompatible": true,
-	"Subcategory": "Editing"
+	"Subcategory": "Image Editing"
 }
 ```

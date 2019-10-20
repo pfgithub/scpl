@@ -30,7 +30,11 @@ FormatFileSize undefined=NotImplemented includeUnits=(true | false | variable) f
 
 ---
 
-#### This paramtype is not implemented. WFFileSizePickerParameter
+#### This parameter is not implemented yet.
+
+The parameter type is WFFileSizePickerParameter. If you need to use this parameter, you may
+be able to use a raw value. Try converting a .shortcut to a .scpl containing
+the values you want in this parameter.
 
 ---
 
@@ -73,14 +77,13 @@ or a variable.
 	],
 	"AppIdentifier": "com.apple.calculator",
 	"Attribution": "Math",
-	"Category": "Documents",
+	"Category": "Scripting",
 	"CreationDate": "2016-03-15T07:00:00.000Z",
 	"Description": {
 		"DescriptionInput": "A file size from another action, or a number of bytes",
 		"DescriptionNote": "1000 bytes are shown as 1 KB.",
 		"DescriptionSummary": "Formats a file size into text."
 	},
-	"IconName": "Calculator.png",
 	"Input": {
 		"Multiple": true,
 		"ParameterKey": "WFFileSize",
@@ -139,6 +142,6 @@ or a variable.
 			"Placeholder": "File Size"
 		}
 	],
-	"Subcategory": "Files"
+	"Subcategory": "Numbers"
 }
 ```

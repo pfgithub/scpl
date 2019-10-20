@@ -66,8 +66,7 @@ containing one of the options:
 	},
 	"LastModifiedDate": "2016-05-23T07:00:00.000Z",
 	"Name": "Get Details of Music",
-	"ResidentCompatible": true,
-	"Subcategory": "Media",
+	"Subcategory": "Music",
 	"WFContentItemClass": "WFMPMediaContentItem",
 	"WFContentItemDefaultProperty": "Artist",
 	"Parameters": [

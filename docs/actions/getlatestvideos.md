@@ -8,7 +8,7 @@
 
 ### summary
 
-Gets the most recent videos from the camera roll.
+Gets the most recent videos from the photo library.
 
 
 ### usage
@@ -44,9 +44,9 @@ GetLatestVideos number
 		"movie"
 	],
 	"AppIdentifier": "com.apple.mobileslideshow",
-	"Category": "Photos & Video",
+	"Category": "Media",
 	"Description": {
-		"DescriptionSummary": "Gets the most recent videos from the camera roll."
+		"DescriptionSummary": "Gets the most recent videos from the photo library."
 	},
 	"Name": "Get Latest Videos",
 	"Output": {
@@ -71,7 +71,7 @@ GetLatestVideos number
 		"WFPhotoAccessResource"
 	],
 	"ShortName": "Get Videos",
-	"Subcategory": "Video",
+	"Subcategory": "Photos",
 	"WFGetLatestPhotosActionType": "Video"
 }
 ```

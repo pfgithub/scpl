@@ -95,6 +95,7 @@ Accepts a variable.
 		"WFUserInteractionResource"
 	],
 	"Subcategory": "Calendar",
-	"WFCalendarItemEntityType": "Event"
+	"WFCalendarItemEntityType": "Event",
+	"WatchCompatible": true
 }
 ```

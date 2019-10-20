@@ -44,7 +44,7 @@ Accepts a variable.
 	],
 	"AppIdentifier": "com.apple.mobileslideshow",
 	"BlocksOutput": true,
-	"Category": "Photos & Video",
+	"Category": "Media",
 	"Description": {
 		"DescriptionSummary": "Deletes the photos passed as input from the device's photo library. This action asks for confirmation before performing the deletion."
 	},

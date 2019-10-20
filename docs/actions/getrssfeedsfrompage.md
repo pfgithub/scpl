@@ -85,6 +85,6 @@ with the text. Does not allow newlines.
 	],
 	"ResidentCompatible": true,
 	"ShortName": "Get RSS Feeds",
-	"Subcategory": "URLs"
+	"Subcategory": "RSS"
 }
 ```

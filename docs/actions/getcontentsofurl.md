@@ -116,6 +116,9 @@ Accepts a dictionary.
 ---
 
 ### file: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		Choose Variable
+		```
 **Allows Variables**: true
 
 **Only enabled if**: argument WFHTTPBodyType == `File`
@@ -302,6 +305,7 @@ Accepts a variable.
 			"Class": "WFVariablePickerParameter",
 			"Key": "WFRequestVariable",
 			"Label": "File",
+			"Placeholder": "Choose Variable",
 			"RequiredResources": [
 				{
 					"WFParameterKey": "WFHTTPBodyType",
@@ -324,6 +328,6 @@ Accepts a variable.
 	],
 	"ResidentCompatible": true,
 	"ShortName": "Download URL",
-	"Subcategory": "URLs"
+	"Subcategory": "Web Requests"
 }
 ```

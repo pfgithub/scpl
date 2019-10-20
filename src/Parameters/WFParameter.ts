@@ -10,7 +10,7 @@ import {
 import { genShortName } from "../ActionData";
 
 import { ShortcutsBaseParameterSpec } from "../Data/ActionDataTypes/ShortcutsParameterSpec";
-import { ShortcutsResourceSpec } from "../Data/ActionDataTypes/ShortcutsResourceSpec";
+import { ShortcutsResourceSpec, ShortcutsBaseResourceSpec } from "../Data/ActionDataTypes/ShortcutsResourceSpec";
 
 export abstract class WFParameter {
 	_data: ShortcutsBaseParameterSpec;
@@ -52,15 +52,19 @@ export abstract class WFParameter {
 				total: WFResource[],
 				resource: ShortcutsResourceSpec
 			): WFResource[] => {
+				let resourceName: string;
 				if (typeof resource === "string") {
-					return total;
+					resourceName = resource;
+				}else{
+					resourceName = resource.WFResourceClass;
 				}
-				const type = resource.WFResourceClass;
+				const type = resourceName;
 				const resourceClass = resourceTypes[type];
 				if (!resourceClass) {
-					throw new Error(`${type} is not a defined resource class.`);
+					console.log(`${type} is not a defined resource class.`);
+					return total;
 				}
-				total.push(new resourceClass(resource));
+				total.push(new resourceClass(resource as ShortcutsBaseResourceSpec));
 				return total;
 			},
 			[] as WFResource[]

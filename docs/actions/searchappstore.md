@@ -86,7 +86,7 @@ with the text. Does not allow newlines.
 		"store"
 	],
 	"AppIdentifier": "com.apple.AppStore",
-	"Category": "Apps",
+	"Category": "Media",
 	"CreationDate": "2016-03-15T07:00:00.000Z",
 	"Description": {
 		"DescriptionSummary": "Searches the App Store, returning the apps that match the specified search terms. You can get more details about the results using the Get Details of App Store App action."

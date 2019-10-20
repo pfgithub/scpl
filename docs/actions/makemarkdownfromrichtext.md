@@ -43,7 +43,7 @@ Accepts a variable.
 		"html2text",
 		"source"
 	],
-	"Category": "Text",
+	"Category": "Documents",
 	"CreationDate": "2016-03-07T08:00:00.000Z",
 	"Description": {
 		"DescriptionResult": "Markdown",

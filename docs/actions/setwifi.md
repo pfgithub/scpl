@@ -57,7 +57,6 @@ or a variable.
 	"IconName": "Wi-Fi.png",
 	"InputPassthrough": true,
 	"Name": "Set Wi-Fi",
-	"ParameterSummary": "Turn Wi-Fi ${OnValue}",
 	"Parameters": [
 		{
 			"Class": "WFSwitchParameter",
@@ -69,7 +68,7 @@ or a variable.
 	"RequiredResources": [
 		"WFSiriAccessResource"
 	],
-	"Subcategory": "Device",
+	"Subcategory": "Network",
 	"UnsupportedEnvironments": [
 		"WatchOS"
 	]

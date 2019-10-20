@@ -53,7 +53,7 @@ Accepts a variable.
 		"explode",
 		"separate"
 	],
-	"Category": "Photos & Video",
+	"Category": "Media",
 	"CreationDate": "2015-12-08T08:00:00.000Z",
 	"Description": {
 		"DescriptionInput": "An animated GIF or photo burst",

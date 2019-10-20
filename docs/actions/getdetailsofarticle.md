@@ -41,7 +41,6 @@ containing one of the options:
 	"Category": "Web",
 	"CreationDate": "2015-02-13T08:00:00.000Z",
 	"Name": "Get Details of Article",
-	"ResidentCompatible": true,
 	"Subcategory": "Articles",
 	"WFContentItemClass": "WFArticleContentItem",
 	"Parameters": [

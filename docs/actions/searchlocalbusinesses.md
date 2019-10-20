@@ -20,14 +20,18 @@ A location to search near.
 
 ### usage
 ```
-SearchLocalBusinesses undefined=NotImplemented search="string" radiuskm=number
+SearchLocalBusinesses undefined=NotImplemented search="string" undefined=NotImplemented
 ```
 
 ### arguments
 
 ---
 
-#### This paramtype is not implemented. WFLocationParameter
+#### This parameter is not implemented yet.
+
+The parameter type is WFLocationParameter. If you need to use this parameter, you may
+be able to use a raw value. Try converting a .shortcut to a .scpl containing
+the values you want in this parameter.
 
 ---
 
@@ -43,16 +47,11 @@ with the text. Does not allow newlines.
 
 ---
 
-### radiuskm: Number [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#number-field)
-**Placeholder**: `1.5`
-**Default Value**: `1.5`
-**Allows Variables**: true
+#### This parameter is not implemented yet.
 
-
-
-		Accepts a number 
-		or variable
-		with a number.
+The parameter type is WFSearchLocalBusinessesRadiusParameter. If you need to use this parameter, you may
+be able to use a raw value. Try converting a .shortcut to a .scpl containing
+the values you want in this parameter.
 
 ---
 
@@ -112,14 +111,11 @@ with the text. Does not allow newlines.
 			"TextAlignment": "Right"
 		},
 		{
-			"AllowsDecimalNumbers": true,
-			"Class": "WFNumberFieldParameter",
-			"DefaultValue": 1.5,
-			"Description": "Maximum distance in kilometers from the source location to find businesses.",
+			"Class": "WFSearchLocalBusinessesRadiusParameter",
 			"Key": "WFSearchRadius",
-			"Label": "Radius (km)",
-			"Placeholder": "1.5",
-			"TextAlignment": "Right"
+			"Label": "Radius",
+			"TextAlignment": "Right",
+			"WFUnitType": "Length"
 		}
 	],
 	"RequiredResources": [
@@ -128,6 +124,6 @@ with the text. Does not allow newlines.
 	],
 	"ResidentCompatible": true,
 	"ShortName": "Search Maps",
-	"Subcategory": "Location"
+	"Subcategory": "Routing"
 }
 ```

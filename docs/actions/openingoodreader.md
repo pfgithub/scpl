@@ -21,6 +21,9 @@ OpeninGoodReader (v:myvar | mv:myvar | s:myvar)
 ---
 
 ### file: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		File
+		```
 **Allows Variables**: true
 
 
@@ -60,7 +63,8 @@ Accepts a variable.
 		{
 			"Class": "WFVariablePickerParameter",
 			"Key": "WFInput",
-			"Label": "File"
+			"Label": "File",
+			"Placeholder": "File"
 		}
 	],
 	"RequiredResources": [

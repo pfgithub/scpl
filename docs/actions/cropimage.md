@@ -113,7 +113,7 @@ containing one of the options:
 		"clip",
 		"canvas"
 	],
-	"Category": "Photos & Video",
+	"Category": "Media",
 	"CreationDate": "2015-01-11T06:00:00.000Z",
 	"Description": {
 		"DescriptionSummary": "Crops images to a smaller rectangle."
@@ -206,7 +206,7 @@ containing one of the options:
 		}
 	],
 	"ResidentCompatible": true,
-	"Subcategory": "Editing",
+	"Subcategory": "Image Editing",
 	"SuggestedNever": true
 }
 ```

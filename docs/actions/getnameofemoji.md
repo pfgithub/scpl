@@ -35,7 +35,7 @@ with the text. Does not allow newlines.
 ```json
 {
 	"ActionClass": "WFGetEmojiNameAction",
-	"Category": "Text",
+	"Category": "Documents",
 	"CreationDate": "2015-03-07T08:00:00.000Z",
 	"Description": {
 		"DescriptionSummary": "Gets the names of emoji passed into the action."
@@ -68,6 +68,7 @@ with the text. Does not allow newlines.
 	],
 	"ResidentCompatible": true,
 	"ShortName": "Get Emoji Name",
+	"Subcategory": "Text",
 	"SuggestedNever": true
 }
 ```

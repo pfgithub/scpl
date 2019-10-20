@@ -78,7 +78,7 @@ Accepts a variable.
 	"Name": "Set Name",
 	"Output": {
 		"Multiple": false,
-		"OutputName": "Set Name",
+		"OutputName": "Renamed Item",
 		"Types": [
 			"WFContentItem"
 		]
@@ -105,6 +105,6 @@ Accepts a variable.
 		}
 	],
 	"ResidentCompatible": true,
-	"Subcategory": "Content"
+	"Subcategory": "Items"
 }
 ```

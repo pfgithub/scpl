@@ -81,7 +81,7 @@ containing one of the options:
 		"record"
 	],
 	"AppIdentifier": "com.apple.camera",
-	"Category": "Photos & Video",
+	"Category": "Media",
 	"Description": {
 		"DescriptionResult": "Video from the camera.",
 		"DescriptionSummary": "Uses the camera to take a video clip."

@@ -103,6 +103,7 @@ or a variable.
 {
 	"ActionClass": "WFContentItemFilterAction",
 	"AppIdentifier": "com.apple.mobilesafari",
+	"Attribution": "Safari",
 	"Category": "Web",
 	"CreationDate": "2015-02-13T08:00:00.000Z",
 	"Name": "Filter Articles",

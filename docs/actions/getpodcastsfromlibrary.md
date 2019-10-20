@@ -1,6 +1,8 @@
 
 ## Get Podcasts from Library / GetPodcastsfromLibrary (internally `is.workflow.actions.getpodcastsfromlibrary`)
 
+> This action requires that Shortcuts has permission to use WFPodcastsAccessResource.
+
 
 ## description
 
@@ -40,10 +42,14 @@ GetPodcastsfromLibrary
 	"Name": "Get Podcasts from Library",
 	"Output": {
 		"Multiple": true,
-		"OutputName": "Podcast",
+		"OutputName": "Podcasts",
 		"Types": [
 			"WFiTunesProductContentItem"
 		]
-	}
+	},
+	"Required": "",
+	"RequiredResources": [
+		"WFPodcastsAccessResource"
+	]
 }
 ```

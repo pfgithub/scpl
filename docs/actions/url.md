@@ -1,6 +1,8 @@
 
 ## URL / URL (internally `is.workflow.actions.url`)
 
+> This action is not yet complete. Some arguments may be missing.
+
 
 ## description
 
@@ -11,22 +13,18 @@ Passes the specified URL to the next action.
 
 ### usage
 ```
-URL "string"
+URL NotImplemented
 ```
 
 ### arguments
 
 ---
 
-### uRL: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**: `"apple.com"`
-**Allows Variables**: true
+#### This parameter is not implemented yet.
 
-
-
-Accepts a string 
-or text
-with the text. Does not allow newlines.
+The parameter type is WFURLParameter. If you need to use this parameter, you may
+be able to use a raw value. Try converting a .shortcut to a .scpl containing
+the values you want in this parameter.
 
 ---
 
@@ -59,16 +57,13 @@ with the text. Does not allow newlines.
 	"ParameterSummary": "${WFURLActionURL}",
 	"Parameters": [
 		{
-			"AutocapitalizationType": "None",
-			"Class": "WFTextInputParameter",
-			"DisableAutocorrection": true,
+			"Class": "WFURLParameter",
 			"Key": "WFURLActionURL",
-			"KeyboardType": "URL",
 			"Label": "URL",
-			"Placeholder": "apple.com",
-			"TextContentType": "URL"
+			"Placeholder": "apple.com"
 		}
 	],
+	"ResidentCompatible": true,
 	"Subcategory": "URLs"
 }
 ```

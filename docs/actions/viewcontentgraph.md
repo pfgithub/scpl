@@ -21,6 +21,9 @@ ViewContentGraph (v:myvar | mv:myvar | s:myvar)
 ---
 
 ### input: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		Input
+		```
 **Allows Variables**: true
 
 
@@ -54,14 +57,15 @@ Accepts a variable.
 		{
 			"Class": "WFVariablePickerParameter",
 			"Key": "WFInput",
-			"Label": "Input"
+			"Label": "Input",
+			"Placeholder": "Input"
 		}
 	],
 	"RequiredResources": [
 		"WFUserInteractionResource"
 	],
 	"ShortName": "Content Graph",
-	"Subcategory": "Content",
+	"Subcategory": "Items",
 	"UserInterfaces": [
 		"UIKit"
 	]

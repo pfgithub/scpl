@@ -29,7 +29,7 @@ ScanQRBarCode
 ```json
 {
 	"ActionClass": "WFScanMachineReadableCodeAction",
-	"Category": "Text",
+	"Category": "Documents",
 	"Description": {
 		"DescriptionSummary": "Scans a QR code or bar code using the camera, and returns the text/URL that is found."
 	},
@@ -49,6 +49,7 @@ ScanQRBarCode
 		"WFCameraAccessResource"
 	],
 	"ShortName": "Scan Bar Code",
+	"Subcategory": "QR Codes",
 	"UnsupportedEnvironments": [
 		"Extension"
 	],

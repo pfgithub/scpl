@@ -109,6 +109,9 @@ with the text. Does not allow newlines.
 		{
 			"Class": "WFEnumerationParameter",
 			"DefaultValue": "Turned Off",
+			"DisallowedVariableTypes": [
+				"Variable"
+			],
 			"Items": [
 				"Turned Off",
 				"Time",
@@ -168,6 +171,7 @@ with the text. Does not allow newlines.
 			"TextAlignment": "Right"
 		}
 	],
+	"SkipSiriExecution": true,
 	"Subcategory": "Device"
 }
 ```

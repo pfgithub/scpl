@@ -62,6 +62,7 @@ Accepts a string or string array or variable of email addresses.
 			"Placeholder": "Type in an email address"
 		}
 	],
+	"ResidentCompatible": true,
 	"Subcategory": "Email"
 }
 ```

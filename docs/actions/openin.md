@@ -13,7 +13,7 @@ Opens the input as a file in the specified app.
 
 ### usage
 ```
-OpenIn showOpenInMenu=(true | false | variable) app=("app name" | "com.identifier.for.app")] WFAppName="string"
+OpenIn showOpenInMenu=(true | false | variable) app=("app name" | "com.identifier.for.app")] WFAppName="string" file=(v:myvar | mv:myvar | s:myvar)
 ```
 
 ### arguments
@@ -61,6 +61,18 @@ with the text. Does not allow newlines.
 
 ---
 
+### file: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		File
+		```
+**Allows Variables**: true
+
+
+
+Accepts a variable.
+
+---
+
 ### source json (for developers)
 
 ```json
@@ -82,6 +94,7 @@ with the text. Does not allow newlines.
 	"IconName": "Apps.png",
 	"Input": {
 		"Multiple": false,
+		"ParameterKey": "WFInput",
 		"Required": true,
 		"Types": [
 			"public.data"
@@ -89,6 +102,11 @@ with the text. Does not allow newlines.
 	},
 	"InputPassthrough": true,
 	"Name": "Open In...",
+	"ParameterCollapsingBehavior": "Never",
+	"ParameterSummary": {
+		"WFInput,WFOpenInAskWhenRun(0),WFOpenInAppIdentifier": "Open ${WFInput} in ${WFOpenInAppIdentifier}",
+		"WFInput,WFOpenInAskWhenRun(1)": "Open ${WFInput}"
+	},
 	"Parameters": [
 		{
 			"Class": "WFSwitchParameter",
@@ -113,6 +131,12 @@ with the text. Does not allow newlines.
 			"Class": "WFTextInputParameter",
 			"Hidden": true,
 			"Key": "WFAppName"
+		},
+		{
+			"Class": "WFVariablePickerParameter",
+			"Key": "WFInput",
+			"Label": "File",
+			"Placeholder": "File"
 		}
 	],
 	"RequiredResources": [

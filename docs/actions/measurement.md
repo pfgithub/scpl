@@ -32,7 +32,11 @@ Measurement type=("string" | variable)] undefined=NotImplemented
 
 ---
 
-#### This paramtype is not implemented. WFUnitQuantityFieldParameter
+#### This parameter is not implemented yet.
+
+The parameter type is WFUnitQuantityFieldParameter. If you need to use this parameter, you may
+be able to use a raw value. Try converting a .shortcut to a .scpl containing
+the values you want in this parameter.
 
 ---
 
@@ -49,7 +53,7 @@ Measurement type=("string" | variable)] undefined=NotImplemented
 		"speed",
 		"weather"
 	],
-	"AppIdentifier": "com.apple.measure",
+	"AppIdentifier": "com.apple.calculator",
 	"Attribution": "Measurement",
 	"Category": "Scripting",
 	"Constructor": true,
@@ -57,7 +61,6 @@ Measurement type=("string" | variable)] undefined=NotImplemented
 	"Description": {
 		"DescriptionSummary": "Passes the specified measurement (including number and unit) to the next action."
 	},
-	"IconName": "Calculator.png",
 	"InputPassthrough": false,
 	"Name": "Measurement",
 	"Output": {
@@ -79,6 +82,7 @@ Measurement type=("string" | variable)] undefined=NotImplemented
 			"Label": "Type"
 		},
 		{
+			"AllowsNegativeNumbers": true,
 			"Class": "WFUnitQuantityFieldParameter",
 			"Key": "WFMeasurementUnit",
 			"KeyboardType": "DecimalPad",
@@ -94,6 +98,6 @@ Measurement type=("string" | variable)] undefined=NotImplemented
 		}
 	],
 	"ResidentCompatible": true,
-	"Subcategory": "Math"
+	"Subcategory": "Measurements"
 }
 ```

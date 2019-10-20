@@ -1,7 +1,7 @@
 
 ## Show Notification / ShowNotification (internally `is.workflow.actions.notification`)
 
-> This action requires that Shortcuts has permission to use WFUserInteractionResource,WFMainThreadResource,WFLocalNotificationAccessResource.
+> This action requires that Shortcuts has permission to use WFMainThreadResource,WFLocalNotificationAccessResource.
 
 
 ## description
@@ -64,6 +64,9 @@ or a variable.
 ---
 
 ### attachment: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		Choose Variable
+		```
 **Allows Variables**: true
 
 
@@ -135,11 +138,11 @@ Accepts a variable.
 		{
 			"Class": "WFVariablePickerParameter",
 			"Key": "WFInput",
-			"Label": "Attachment"
+			"Label": "Attachment",
+			"Placeholder": "Choose Variable"
 		}
 	],
 	"RequiredResources": [
-		"WFUserInteractionResource",
 		"WFMainThreadResource",
 		"WFLocalNotificationAccessResource"
 	],

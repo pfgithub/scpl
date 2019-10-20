@@ -96,6 +96,6 @@ with the text. Does not allow newlines.
 	],
 	"ResidentCompatible": true,
 	"ShortName": "Get RSS Items",
-	"Subcategory": "URLs"
+	"Subcategory": "RSS"
 }
 ```

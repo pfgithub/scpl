@@ -1,7 +1,7 @@
 
 ## Add to Reading List / AddtoReadingList (internally `is.workflow.actions.readinglist`)
 
-> This action requires that Shortcuts has permission to use .
+> This action requires that Shortcuts has permission to use WFAddToReadingListAccessResource.
 
 
 ## description
@@ -74,7 +74,9 @@ with the text. Does not allow newlines.
 			"TextContentType": "URL"
 		}
 	],
-	"RequiredResources": [],
+	"RequiredResources": [
+		"WFAddToReadingListAccessResource"
+	],
 	"ShortName": "Read Later",
 	"Subcategory": "Safari"
 }

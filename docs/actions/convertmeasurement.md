@@ -65,14 +65,13 @@ Accepts a variable.
 		"speed",
 		"weather"
 	],
-	"AppIdentifier": "com.apple.measure",
+	"AppIdentifier": "com.apple.calculator",
 	"Attribution": "Measurement",
 	"Category": "Scripting",
 	"CreationDate": "2018-09-22T05:00:00.000Z",
 	"Description": {
 		"DescriptionSummary": "Converts the measurements passed into the action to the specified unit."
 	},
-	"IconName": "Calculator.png",
 	"Input": {
 		"Multiple": false,
 		"ParameterKey": "WFInput",
@@ -126,6 +125,6 @@ Accepts a variable.
 		}
 	],
 	"ResidentCompatible": true,
-	"Subcategory": "Math"
+	"Subcategory": "Measurements"
 }
 ```

@@ -56,7 +56,7 @@ containing one of the options:
 		"video",
 		"media"
 	],
-	"Category": "Photos & Video",
+	"Category": "Media",
 	"CreationDate": "2015-01-22T08:00:00.000Z",
 	"IconName": "Image.png",
 	"Input": {

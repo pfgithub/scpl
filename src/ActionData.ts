@@ -513,7 +513,7 @@ ${this._parameters.map(param =>
 	"__type" in param
 		? `#### This parameter is not implemented yet.
 
-The parameter type is ${param}. If you need to use this parameter, you may
+The parameter type is ${param.data.Class}. If you need to use this parameter, you may
 be able to use a raw value. Try converting a .shortcut to a .scpl containing
 the values you want in this parameter.`
 		: param.genDocs()

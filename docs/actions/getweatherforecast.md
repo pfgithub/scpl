@@ -22,7 +22,11 @@ GetWeatherForecast undefined=NotImplemented type=("Hourly" | "Daily")
 
 ---
 
-#### This paramtype is not implemented. WFLocationParameter
+#### This parameter is not implemented yet.
+
+The parameter type is WFLocationParameter. If you need to use this parameter, you may
+be able to use a raw value. Try converting a .shortcut to a .scpl containing
+the values you want in this parameter.
 
 ---
 

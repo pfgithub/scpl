@@ -71,7 +71,7 @@ Accepts a variable.
 		}
 	],
 	"ResidentCompatible": true,
-	"Subcategory": "Content",
+	"Subcategory": "Items",
 	"SuggestedNever": true
 }
 ```

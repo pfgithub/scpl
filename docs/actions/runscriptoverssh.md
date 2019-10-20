@@ -1,6 +1,8 @@
 
 ## Run Script Over SSH / RunScriptOverSSH (internally `is.workflow.actions.runsshscript`)
 
+> This action is not yet complete. Some arguments may be missing.
+
 
 ## description
 
@@ -20,7 +22,7 @@ The output from the shell script (stdout)
 
 ### usage
 ```
-RunScriptOverSSH host="string" port="string" user="string" password="string" input=(v:myvar | mv:myvar | s:myvar) script="string"
+RunScriptOverSSH host="string" port="string" user="string" authentication=("Password" | "SSH Key" | variable) password="string" undefined=NotImplemented input=(v:myvar | mv:myvar | s:myvar) script="string"
 ```
 
 ### arguments
@@ -64,11 +66,23 @@ with the text. Does not allow newlines.
 
 ---
 
+### authentication: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
+**Default Value**: `"Password"`
+
+
+Accepts a string 
+containing one of the options:
+
+- `Password`
+- `SSH Key`
+
+---
+
 ### password: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"••••••••"`
 **Allows Variables**: true
 
-
+**Only enabled if**: argument WFSSHAuthenticationType == `Password`
 
 Accepts a string 
 or text
@@ -76,7 +90,18 @@ with the text. Does not allow newlines.
 
 ---
 
+#### This parameter is not implemented yet.
+
+The parameter type is WFSSHKeyParameter. If you need to use this parameter, you may
+be able to use a raw value. Try converting a .shortcut to a .scpl containing
+the values you want in this parameter.
+
+---
+
 ### input: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		Choose Variable
+		```
 **Allows Variables**: true
 
 
@@ -130,7 +155,7 @@ with the text. Allows newlines.
 	"Name": "Run Script Over SSH",
 	"Output": {
 		"Multiple": false,
-		"OutputName": "Run Script Over SSH",
+		"OutputName": "Shell Script Result",
 		"Types": [
 			"public.data"
 		]
@@ -145,6 +170,7 @@ with the text. Allows newlines.
 			"KeyboardType": "URL",
 			"Label": "Host",
 			"Placeholder": "192.168.1.100",
+			"TextAlignment": "Right",
 			"TextContentType": "URL"
 		},
 		{
@@ -153,7 +179,8 @@ with the text. Allows newlines.
 			"Key": "WFSSHPort",
 			"KeyboardType": "NumberPad",
 			"Label": "Port",
-			"Placeholder": "22"
+			"Placeholder": "22",
+			"TextAlignment": "Right"
 		},
 		{
 			"AutocapitalizationType": "None",
@@ -163,20 +190,68 @@ with the text. Allows newlines.
 			"Key": "WFSSHUser",
 			"Label": "User",
 			"Placeholder": "root",
+			"TextAlignment": "Right",
 			"TextContentType": "Username"
+		},
+		{
+			"Class": "WFEnumerationParameter",
+			"DefaultValue": "Password",
+			"DisallowedVariableTypes": [
+				"Ask",
+				"Variable"
+			],
+			"Items": [
+				"Password",
+				"SSH Key"
+			],
+			"Key": "WFSSHAuthenticationType",
+			"Label": "Authentication",
+			"RequiredResources": [
+				{
+					"WFRelation": "!=",
+					"WFResourceClass": "WFWorkflowEnvironmentResource",
+					"WFWorkflowEnvironment": "HomeResident"
+				}
+			]
 		},
 		{
 			"Class": "WFTextInputParameter",
 			"Key": "WFSSHPassword",
 			"Label": "Password",
 			"Placeholder": "••••••••",
+			"RequiredResources": [
+				{
+					"WFParameterKey": "WFSSHAuthenticationType",
+					"WFParameterValue": "Password",
+					"WFResourceClass": "WFParameterRelationResource"
+				}
+			],
 			"SecureTextInput": true,
+			"TextAlignment": "Right",
 			"TextContentType": "Password"
+		},
+		{
+			"Class": "WFSSHKeyParameter",
+			"Key": "WFSSHKey",
+			"Label": "SSH Key",
+			"RequiredResources": [
+				{
+					"WFParameterKey": "WFSSHAuthenticationType",
+					"WFParameterValue": "SSH Key",
+					"WFResourceClass": "WFParameterRelationResource"
+				},
+				{
+					"WFRelation": "!=",
+					"WFResourceClass": "WFWorkflowEnvironmentResource",
+					"WFWorkflowEnvironment": "HomeResident"
+				}
+			]
 		},
 		{
 			"Class": "WFVariablePickerParameter",
 			"Key": "WFInput",
-			"Label": "Input"
+			"Label": "Input",
+			"Placeholder": "Choose Variable"
 		},
 		{
 			"AutocapitalizationType": "None",

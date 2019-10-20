@@ -21,6 +21,9 @@ GetImagesfromInput (v:myvar | mv:myvar | s:myvar)
 ---
 
 ### input: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		Input
+		```
 **Allows Variables**: true
 
 
@@ -42,7 +45,7 @@ Accepts a variable.
 		"e-mail",
 		"emails"
 	],
-	"Category": "Photos & Video",
+	"Category": "Media",
 	"CoercionItemClass": "WFImageContentItem",
 	"Description": {
 		"DescriptionSummary": "Gets images from the result of the previous action.\n\nFor example, this action can get the album art of a song, or all the images on a webpage."
@@ -69,7 +72,8 @@ Accepts a variable.
 		{
 			"Class": "WFVariablePickerParameter",
 			"Key": "WFInput",
-			"Label": "Input"
+			"Label": "Input",
+			"Placeholder": "Input"
 		}
 	],
 	"ResidentCompatible": true,

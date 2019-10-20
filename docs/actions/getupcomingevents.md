@@ -147,6 +147,7 @@ with the text. Does not allow newlines.
 	],
 	"ShortName": "Get Events",
 	"Subcategory": "Calendar",
-	"WFGetUpcomingItemType": 0
+	"WFGetUpcomingItemType": 0,
+	"WatchCompatible": true
 }
 ```

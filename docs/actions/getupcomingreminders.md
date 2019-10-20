@@ -90,6 +90,7 @@ GetUpcomingReminders list=("string" | variable)] WFGetUpcomingItemCount=number
 	],
 	"ShortName": "Get Reminders",
 	"Subcategory": "Reminders",
-	"WFGetUpcomingItemType": 1
+	"WFGetUpcomingItemType": 1,
+	"WatchCompatible": true
 }
 ```

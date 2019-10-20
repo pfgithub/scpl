@@ -164,6 +164,8 @@ with the text. Does not allow newlines.
 			"Label": "Region",
 			"Placeholder": "United States"
 		}
-	]
+	],
+	"ResidentCompatible": true,
+	"Subcategory": "Addresses"
 }
 ```

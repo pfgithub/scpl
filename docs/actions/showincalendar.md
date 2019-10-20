@@ -21,6 +21,9 @@ ShowinCalendar (v:myvar | mv:myvar | s:myvar)
 ---
 
 ### event: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		Event
+		```
 **Allows Variables**: true
 
 
@@ -63,7 +66,8 @@ Accepts a variable.
 		{
 			"Class": "WFVariablePickerParameter",
 			"Key": "WFEvent",
-			"Label": "Event"
+			"Label": "Event",
+			"Placeholder": "Event"
 		}
 	],
 	"RequiredResources": [

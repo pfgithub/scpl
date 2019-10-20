@@ -71,7 +71,6 @@ Accepts a variable.
 			"Label": "Location",
 			"Placeholder": "Location"
 		}
-	],
-	"Subcategory": "Maps"
+	]
 }
 ```

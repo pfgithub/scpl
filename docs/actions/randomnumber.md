@@ -53,12 +53,13 @@ RandomNumber minimum=number maximum=number
 		"generate",
 		"generator"
 	],
+	"AppIdentifier": "com.apple.calculator",
+	"Attribution": "Math",
 	"Category": "Scripting",
 	"CreationDate": "2015-01-11T06:00:00.000Z",
 	"Description": {
 		"DescriptionSummary": "Passes a random number between the given minimum and maximum to the next action. The minimum and maximum numbers are included as possible results."
 	},
-	"IconName": "Calculator.png",
 	"Name": "Random Number",
 	"Output": {
 		"Multiple": false,
@@ -87,7 +88,7 @@ RandomNumber minimum=number maximum=number
 		}
 	],
 	"ResidentCompatible": true,
-	"Subcategory": "Math",
+	"Subcategory": "Numbers",
 	"SuggestedNever": true
 }
 ```

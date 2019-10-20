@@ -38,7 +38,11 @@ containing one of the options:
 
 ---
 
-#### This paramtype is not implemented. WFMediaRoutePickerParameter
+#### This parameter is not implemented yet.
+
+The parameter type is WFMediaRoutePickerParameter. If you need to use this parameter, you may
+be able to use a raw value. Try converting a .shortcut to a .scpl containing
+the values you want in this parameter.
 
 ---
 
@@ -79,6 +83,7 @@ containing one of the options:
 		},
 		{
 			"Class": "WFMediaRoutePickerParameter",
+			"DefaultValue": "Local",
 			"DisallowedVariableTypes": [
 				"Variable"
 			],

@@ -42,6 +42,9 @@ RunShortcut shortcut=("string" | variable)] input=(v:myvar | mv:myvar | s:myvar)
 ---
 
 ### input: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		Choose Variable
+		```
 **Allows Variables**: true
 
 
@@ -73,7 +76,7 @@ or a variable.
 		"workflow",
 		"shortcuts"
 	],
-	"AppIdentifier": "is.workflow.my.app",
+	"AppIdentifier": "com.apple.shortcuts",
 	"Category": "Scripting",
 	"CreationDate": "2017-02-15T06:00:00.000Z",
 	"Description": {
@@ -92,7 +95,7 @@ or a variable.
 	"Name": "Run Shortcut",
 	"Output": {
 		"Multiple": true,
-		"OutputName": "Run Shortcut",
+		"OutputName": "Shortcut Result",
 		"Types": [
 			"WFContentItem"
 		]
@@ -108,7 +111,8 @@ or a variable.
 		{
 			"Class": "WFVariablePickerParameter",
 			"Key": "WFInput",
-			"Label": "Input"
+			"Label": "Input",
+			"Placeholder": "Choose Variable"
 		},
 		{
 			"Class": "WFSwitchParameter",

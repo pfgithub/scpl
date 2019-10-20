@@ -57,7 +57,9 @@ with the text. Allows newlines.
 			"Placeholder": "Enter comment..."
 		}
 	],
+	"ResidentCompatible": true,
 	"SnappingPassthrough": true,
+	"Subcategory": "No-ops",
 	"SuggestedNever": true
 }
 ```

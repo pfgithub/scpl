@@ -96,6 +96,9 @@ with the text. Allows newlines.
 ---
 
 ### file: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		Choose Variable
+		```
 **Allows Variables**: true
 
 
@@ -182,7 +185,8 @@ Accepts a variable.
 		{
 			"Class": "WFVariablePickerParameter",
 			"Key": "WFWunderlistFile",
-			"Label": "File"
+			"Label": "File",
+			"Placeholder": "Choose Variable"
 		}
 	],
 	"RequiredResources": [

@@ -21,7 +21,6 @@ OpenURLs "string"
 ---
 
 ### uRL: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**: `"URLs"`
 **Allows Variables**: true
 
 
@@ -73,7 +72,6 @@ with the text. Does not allow newlines.
 			"Key": "WFInput",
 			"KeyboardType": "URL",
 			"Label": "URL",
-			"Placeholder": "URLs",
 			"TextContentType": "URL"
 		}
 	],

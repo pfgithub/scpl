@@ -158,6 +158,7 @@ or a variable.
 		"UIKit",
 		"UIKitWidget",
 		"Siri"
-	]
+	],
+	"WatchCompatible": true
 }
 ```

@@ -40,6 +40,9 @@ containing one of the options:
 ---
 
 ### content: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		Content
+		```
 **Allows Variables**: true
 
 
@@ -54,7 +57,7 @@ Accepts a variable.
 {
 	"ActionClass": "WFCloudAppUploadAction",
 	"AppSection": "CloudApp",
-	"Category": "Web",
+	"Category": "Sharing",
 	"CreationDate": "2015-01-11T06:00:00.000Z",
 	"Description": {
 		"DescriptionResult": "CloudApp URL",
@@ -94,7 +97,8 @@ Accepts a variable.
 		{
 			"Class": "WFVariablePickerParameter",
 			"Key": "WFInput",
-			"Label": "Content"
+			"Label": "Content",
+			"Placeholder": "Content"
 		}
 	],
 	"RequiredResources": [

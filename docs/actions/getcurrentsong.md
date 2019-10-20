@@ -59,6 +59,6 @@ GetCurrentSong
 		"WFMainThreadResource",
 		"WFAppleMusicAccessResource"
 	],
-	"Subcategory": "Media"
+	"Subcategory": "Music"
 }
 ```

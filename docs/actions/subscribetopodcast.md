@@ -1,7 +1,7 @@
 
 ## Subscribe to Podcast / SubscribetoPodcast (internally `is.workflow.actions.podcasts.subscribe`)
 
-> This action requires that Shortcuts has permission to use .
+> This action requires that Shortcuts has permission to use WFPodcastsAccessResource.
 
 
 ## description
@@ -13,14 +13,21 @@ Subscribes to podcasts or podcast feed URLs passed into the action.
 
 ### usage
 ```
-SubscribetoPodcast 
+SubscribetoPodcast "string"
 ```
 
 ### arguments
 
 ---
 
+### podcastURL: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Allows Variables**: true
 
+
+
+Accepts a string 
+or text
+with the text. Does not allow newlines.
 
 ---
 
@@ -41,6 +48,7 @@ SubscribetoPodcast
 	},
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFInput",
 		"Required": true,
 		"Types": [
 			"WFURLContentItem",
@@ -49,6 +57,21 @@ SubscribetoPodcast
 	},
 	"InputPassthrough": true,
 	"Name": "Subscribe to Podcast",
-	"RequiredResources": []
+	"ParameterSummary": "Subscribe to ${WFInput}",
+	"Parameters": [
+		{
+			"AllowsMultipleValues": true,
+			"AutocapitalizationType": "None",
+			"Class": "WFTextInputParameter",
+			"DisableAutocorrection": true,
+			"Key": "WFInput",
+			"KeyboardType": "URL",
+			"Label": "Podcast URL",
+			"TextContentType": "URL"
+		}
+	],
+	"RequiredResources": [
+		"WFPodcastsAccessResource"
+	]
 }
 ```

@@ -67,7 +67,7 @@ or a variable.
 	"RequiredResources": [
 		"WFSiriAccessResource"
 	],
-	"Subcategory": "Device",
+	"Subcategory": "Network",
 	"UnsupportedEnvironments": [
 		"WatchOS"
 	]

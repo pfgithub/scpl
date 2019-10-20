@@ -32,7 +32,7 @@ isworkflowactionstextchangecase
 		"capitalize"
 	],
 	"Attribution": "Text",
-	"Category": "Text",
+	"Category": "Documents",
 	"CreationDate": "2015-01-11T06:00:00.000Z",
 	"IconName": "Text.png",
 	"InProcess": true,

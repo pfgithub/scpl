@@ -57,7 +57,6 @@ Wait number
 			"Class": "WFStepperParameter",
 			"DefaultValue": 1,
 			"Key": "WFDelayTime",
-			"Placeholder": 0,
 			"StepperDescription": "Number of Seconds",
 			"StepperNoun": "Second",
 			"StepperPluralNoun": "Seconds"

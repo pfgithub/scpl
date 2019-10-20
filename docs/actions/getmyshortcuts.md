@@ -32,7 +32,7 @@ GetMyShortcuts
 		"downloaded",
 		"workflow"
 	],
-	"AppIdentifier": "is.workflow.my.app",
+	"AppIdentifier": "com.apple.shortcuts",
 	"Category": "Scripting",
 	"CreationDate": "2015-08-16T05:00:00.000Z",
 	"Description": {
@@ -43,7 +43,7 @@ GetMyShortcuts
 		"Multiple": true,
 		"OutputName": "My Shortcuts",
 		"Types": [
-			"WFWorkflow"
+			"WFWorkflowRecord"
 		]
 	},
 	"ParameterSummary": "Get my shortcuts",

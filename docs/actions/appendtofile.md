@@ -20,7 +20,7 @@ The file that was appended to
 
 ### usage
 ```
-AppendtoFile service=("iCloud Drive" | "Dropbox") filePath="string" mode=("Append" | "Prepend") makeNewLine=(true | false | variable)
+AppendtoFile service=("iCloud Drive" | "Dropbox") filePath="string" mode=("Append" | "Prepend") makeNewLine=(true | false | variable) text="string"
 ```
 
 ### arguments
@@ -81,6 +81,17 @@ or a variable.
 
 ---
 
+### text: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Allows Variables**: true
+
+
+
+Accepts a string 
+or text
+with the text. Does not allow newlines.
+
+---
+
 ### source json (for developers)
 
 ```json
@@ -101,6 +112,7 @@ or a variable.
 	"IconName": "Documents.png",
 	"Input": {
 		"Multiple": false,
+		"ParameterKey": "WFInput",
 		"Required": true,
 		"Types": [
 			"WFStringContentItem"
@@ -109,11 +121,13 @@ or a variable.
 	"Name": "Append to File",
 	"Output": {
 		"Multiple": false,
-		"OutputName": "Append to File",
+		"OutputName": "Appended File",
 		"Types": [
 			"public.data"
 		]
 	},
+	"ParameterCollapsingBehavior": "Never",
+	"ParameterSummary": "${WFAppendFileWriteMode} ${WFInput}",
 	"Parameters": [
 		{
 			"AlwaysRequiresServiceResource": true,
@@ -149,6 +163,11 @@ or a variable.
 			"DefaultValue": true,
 			"Key": "WFAppendOnNewLine",
 			"Label": "Make New Line"
+		},
+		{
+			"Class": "WFTextInputParameter",
+			"Key": "WFInput",
+			"Label": "Text"
 		}
 	],
 	"ShortName": "Append to File",

@@ -43,7 +43,7 @@ with the text. Allows newlines.
 		"so wow",
 		"string"
 	],
-	"Category": "Text",
+	"Category": "Documents",
 	"Constructor": true,
 	"Description": {
 		"DescriptionSummary": "Passes the specified text to the next action."
@@ -65,6 +65,7 @@ with the text. Allows newlines.
 			"Multiline": true,
 			"Placeholder": "Text"
 		}
-	]
+	],
+	"Subcategory": "Text"
 }
 ```

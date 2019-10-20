@@ -30,7 +30,7 @@ isworkflowactionscorrectspelling
 		"correct",
 		"autocorrect"
 	],
-	"Category": "Text",
+	"Category": "Documents",
 	"IconName": "Text.png",
 	"InProcess": true,
 	"IntentIdentifier": "sirikit.intents.custom.com.apple.WorkflowKit.ShortcutsIntents.WFCorrectSpellingIntent",

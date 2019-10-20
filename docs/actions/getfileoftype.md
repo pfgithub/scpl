@@ -70,7 +70,7 @@ Accepts a variable.
 			"public.data"
 		]
 	},
-	"ParameterSummary": "Get file of ${WFFileType} from ${WFInput}",
+	"ParameterSummary": "Get file of type ${WFFileType} from ${WFInput}",
 	"Parameters": [
 		{
 			"AutocapitalizationType": "None",

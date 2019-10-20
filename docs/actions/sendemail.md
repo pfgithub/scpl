@@ -1,7 +1,9 @@
 
 ## Send Email / SendEmail (internally `is.workflow.actions.sendemail`)
 
-> This action requires that Shortcuts has permission to use [object Object],[object Object],[object Object].
+> This action is not yet complete. Some arguments may be missing.
+
+> This action requires that Shortcuts has permission to use [object Object],[object Object].
 
 
 ## description
@@ -13,7 +15,7 @@ Presents an email composer. Pass text into the action to set the email body. Oth
 
 ### usage
 ```
-SendEmail showComposeSheet=(true | false | variable) from=("string" | variable)] from2="string" to=("string" | [list, of, strings] | variable) cc=("string" | [list, of, strings] | variable) bcc=("string" | [list, of, strings] | variable) subject="string" content=(v:myvar | mv:myvar | s:myvar)
+SendEmail showComposeSheet=(true | false | variable) undefined=NotImplemented from="string" to=("string" | [list, of, strings] | variable) cc=("string" | [list, of, strings] | variable) bcc=("string" | [list, of, strings] | variable) subject="string" message="string" saveasDraft=(true | false | variable)
 ```
 
 ### arguments
@@ -33,16 +35,15 @@ or a variable.
 
 ---
 
-### from: Email Account Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
-**Allows Variables**: true
+#### This parameter is not implemented yet.
 
-**Only enabled if**: argument WFSendEmailActionShowComposeSheet == `false`
-
-		Accepts a string or variable containing the option. Check the shortcuts app for a list of available options. 
+The parameter type is WFCustomIntentDynamicEnumerationParameter. If you need to use this parameter, you may
+be able to use a raw value. Try converting a .shortcut to a .scpl containing
+the values you want in this parameter.
 
 ---
 
-### from2: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+### from: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
 **Placeholder**: `"optional"`
 **Allows Variables**: true
 
@@ -58,7 +59,7 @@ with the text. Does not allow newlines.
 
 ### to: Email [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#other-fields)
 **Placeholder**: ```
-		Email addresses
+		Recipients
 		```
 **Allows Variables**: true
 
@@ -93,7 +94,7 @@ Accepts a string or string array or variable of email addresses.
 ---
 
 ### subject: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**: `"optional"`
+**Placeholder**: `"Subject"`
 **Allows Variables**: true
 
 
@@ -104,15 +105,28 @@ with the text. Does not allow newlines.
 
 ---
 
-### content: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
-**Placeholder**: ```
-		Content
-		```
+### message: Text [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Placeholder**: `"Message"`
 **Allows Variables**: true
 
 
 
-Accepts a variable.
+Accepts a string 
+or text
+with the text. Does not allow newlines.
+
+---
+
+### saveasDraft: Switch [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#switch-or-expanding-or-boolean-fields)
+**Placeholder**: ```
+		Save as Draft
+		```
+**Allows Variables**: true
+
+**Only enabled if**: argument WFSendEmailActionShowComposeSheet == `false`
+
+Accepts a boolean
+or a variable.
 
 ---
 
@@ -147,9 +161,10 @@ Accepts a variable.
 		]
 	},
 	"InputPassthrough": true,
+	"IntentIdentifier": "sirikit.intents.custom.com.apple.mobilemail.MSSendMailIntent",
 	"LastModifiedDate": "2015-11-24T06:00:00.000Z",
 	"Name": "Send Email",
-	"ParameterSummary": "Send ${WFSendEmailActionInputAttachments} to ${WFSendEmailActionToRecipients} with subject ${WFSendEmailActionSubject}",
+	"ParameterSummary": "Send ${WFSendEmailActionInputAttachments} to ${WFSendEmailActionToRecipients} as ${WFSendEmailActionSubject}",
 	"Parameters": [
 		{
 			"Class": "WFSwitchParameter",
@@ -158,8 +173,8 @@ Accepts a variable.
 			"Label": "Show Compose Sheet"
 		},
 		{
-			"AlwaysShowsButton": true,
-			"Class": "WFEmailAccountPickerParameter",
+			"Class": "WFCustomIntentDynamicEnumerationParameter",
+			"IntentSlotName": "sender",
 			"Key": "WFEmailAccountActionSelectedAccount",
 			"Label": "From",
 			"RequiredResources": [
@@ -200,13 +215,15 @@ Accepts a variable.
 		{
 			"AllowsMultipleValues": true,
 			"Class": "WFEmailAddressFieldParameter",
+			"IntentSlotName": "to",
 			"Key": "WFSendEmailActionToRecipients",
 			"Label": "To",
-			"Placeholder": "Email addresses"
+			"Placeholder": "Recipients"
 		},
 		{
 			"AllowsMultipleValues": true,
 			"Class": "WFEmailAddressFieldParameter",
+			"IntentSlotName": "cc",
 			"Key": "WFSendEmailActionCcRecipients",
 			"Label": "Cc",
 			"Placeholder": "Email addresses"
@@ -214,33 +231,41 @@ Accepts a variable.
 		{
 			"AllowsMultipleValues": true,
 			"Class": "WFEmailAddressFieldParameter",
+			"IntentSlotName": "bcc",
 			"Key": "WFSendEmailActionBccRecipients",
 			"Label": "Bcc",
 			"Placeholder": "Email addresses"
 		},
 		{
 			"Class": "WFTextInputParameter",
+			"IntentSlotName": "subject",
 			"Key": "WFSendEmailActionSubject",
 			"Label": "Subject",
-			"Placeholder": "optional"
+			"Placeholder": "Subject"
 		},
 		{
-			"Class": "WFVariablePickerParameter",
+			"Class": "WFTextInputParameter",
 			"Key": "WFSendEmailActionInputAttachments",
-			"Label": "Content",
-			"Placeholder": "Content"
+			"Label": "Message",
+			"Placeholder": "Message",
+			"ProcessIntoContentItems": true
+		},
+		{
+			"Class": "WFSwitchParameter",
+			"IntentSlotName": "isDraft",
+			"Key": "WFSendEmailActionSaveAsDraft",
+			"Label": "Save as Draft",
+			"Placeholder": "Save as Draft",
+			"RequiredResources": [
+				{
+					"WFParameterKey": "WFSendEmailActionShowComposeSheet",
+					"WFParameterValue": false,
+					"WFResourceClass": "WFParameterRelationResource"
+				}
+			]
 		}
 	],
 	"RequiredResources": [
-		{
-			"RequiredResources": [
-				{
-					"WFResourceClass": "WFWorkflowTypeResource",
-					"WFWorkflowType": "WatchKit"
-				}
-			],
-			"WFResourceClass": "WFEmailAccessResource"
-		},
 		{
 			"RequiredResources": [
 				{
@@ -259,13 +284,9 @@ Accepts a variable.
 					"WFResourceClass": "WFParameterRelationResource"
 				}
 			],
-			"WFResourceClass": "WFEmailAccessResource"
+			"WFResourceClass": "WFSendEmailAccessResource"
 		}
 	],
-	"SettingsUI": {
-		"ShowWhenResourcesUnavailable": true,
-		"ViewControllerClass": "WFEmailAccountListViewController"
-	},
 	"Subcategory": "Messaging",
 	"SuggestedAsInitialAction": true,
 	"UserInterfaces": [

@@ -40,6 +40,9 @@ containing one of the options:
 ---
 
 ### input: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		Input
+		```
 **Allows Variables**: true
 
 
@@ -64,12 +67,13 @@ Accepts a variable.
 		"sum",
 		"minimum"
 	],
+	"AppIdentifier": "com.apple.calculator",
+	"Attribution": "Math",
 	"Category": "Scripting",
 	"CreationDate": "2015-06-16T07:00:00.000Z",
 	"Description": {
 		"DescriptionSummary": "Calculates statistics on the numbers that are provided as input."
 	},
-	"IconName": "Calculator.png",
 	"Input": {
 		"Multiple": true,
 		"ParameterKey": "Input",
@@ -107,7 +111,8 @@ Accepts a variable.
 		{
 			"Class": "WFVariablePickerParameter",
 			"Key": "Input",
-			"Label": "Input"
+			"Label": "Input",
+			"Placeholder": "Input"
 		}
 	],
 	"Subcategory": "Math"

@@ -85,7 +85,7 @@ with the text. Does not allow newlines.
 	],
 	"ResidentCompatible": true,
 	"ShortName": "Get Headers",
-	"Subcategory": "URLs",
+	"Subcategory": "Web Requests",
 	"SuggestedNever": true
 }
 ```

@@ -64,7 +64,7 @@ with the text. Does not allow newlines.
 		"language"
 	],
 	"Attribution": "Microsoft Cognitive Services",
-	"Category": "Text",
+	"Category": "Documents",
 	"CreationDate": "2015-02-19T08:00:00.000Z",
 	"Description": {
 		"DescriptionNote": "Powered by Microsoft Cognitive Services (microsoft.com/cognitive-services). Your text input will be sent to Microsoft to translate your request.",
@@ -107,6 +107,7 @@ with the text. Does not allow newlines.
 			"Label": "Text"
 		}
 	],
-	"ResidentCompatible": true
+	"ResidentCompatible": true,
+	"Subcategory": "Translation"
 }
 ```

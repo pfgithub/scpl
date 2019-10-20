@@ -32,6 +32,9 @@ end
 ---
 
 ### items: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		Items
+		```
 **Allows Variables**: true
 
 
@@ -79,7 +82,8 @@ Accepts a variable.
 		{
 			"Class": "WFVariablePickerParameter",
 			"Key": "WFInput",
-			"Label": "Items"
+			"Label": "Items",
+			"Placeholder": "Items"
 		}
 	],
 	"ResidentCompatible": true,

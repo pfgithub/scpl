@@ -108,10 +108,12 @@ or a variable.
 ```json
 {
 	"ActionClass": "WFContentItemFilterAction",
+	"Attribution": "Location",
 	"Category": "Location",
 	"CreationDate": "2015-01-22T08:00:00.000Z",
 	"IconName": "Location.png",
 	"Name": "Filter Locations",
+	"ResidentCompatible": true,
 	"WFContentItemClass": "WFLocationContentItem",
 	"Parameters": [
 		{

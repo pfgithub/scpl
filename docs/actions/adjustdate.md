@@ -20,7 +20,7 @@ This action supports decimal numbers when adding or subtracting seconds, minutes
 
 ### usage
 ```
-AdjustDate date="string" operation=("Add" | "Subtract" | "Get Start of Minute" | "Get Start of Hour" | "Get Start of Day" | "Get Start of Month" | "Get Start of Year" | variable) undefined=NotImplemented
+AdjustDate date="string" operation=("Add" | "Subtract" | "Get Start of Minute" | "Get Start of Hour" | "Get Start of Day" | "Get Start of Week" | "Get Start of Month" | "Get Start of Year" | variable) undefined=NotImplemented
 ```
 
 ### arguments
@@ -50,12 +50,17 @@ containing one of the options:
 - `Get Start of Minute`
 - `Get Start of Hour`
 - `Get Start of Day`
+- `Get Start of Week`
 - `Get Start of Month`
 - `Get Start of Year`
 
 ---
 
-#### This paramtype is not implemented. WFDurationQuantityFieldParameter
+#### This parameter is not implemented yet.
+
+The parameter type is WFDurationQuantityFieldParameter. If you need to use this parameter, you may
+be able to use a raw value. Try converting a .shortcut to a .scpl containing
+the values you want in this parameter.
 
 ---
 
@@ -130,6 +135,7 @@ containing one of the options:
 				"Get Start of Minute",
 				"Get Start of Hour",
 				"Get Start of Day",
+				"Get Start of Week",
 				"Get Start of Month",
 				"Get Start of Year"
 			],

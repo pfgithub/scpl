@@ -64,12 +64,13 @@ Accepts a variable.
 		"length",
 		"list"
 	],
+	"AppIdentifier": "com.apple.calculator",
+	"Attribution": "Scripting",
 	"Category": "Scripting",
 	"Description": {
 		"DescriptionNote": "This is just like the Count in Sesame Street, but instead of a vampire, it's a Shortcuts action.",
 		"DescriptionSummary": "Counts the number of items, characters, words, sentences, or lines passed as input."
 	},
-	"IconName": "Calculator.png",
 	"Input": {
 		"Multiple": true,
 		"ParameterKey": "Input",
@@ -110,6 +111,6 @@ Accepts a variable.
 		}
 	],
 	"ResidentCompatible": true,
-	"Subcategory": "Content"
+	"Subcategory": "Items"
 }
 ```

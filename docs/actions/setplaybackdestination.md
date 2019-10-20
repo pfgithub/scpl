@@ -20,7 +20,11 @@ SetPlaybackDestination NotImplemented
 
 ---
 
-#### This paramtype is not implemented. WFMediaRoutePickerParameter
+#### This parameter is not implemented yet.
+
+The parameter type is WFMediaRoutePickerParameter. If you need to use this parameter, you may
+be able to use a raw value. Try converting a .shortcut to a .scpl containing
+the values you want in this parameter.
 
 ---
 
@@ -37,7 +41,10 @@ SetPlaybackDestination NotImplemented
 		"route"
 	],
 	"Attribution": "AirPlay",
-	"Category": "Scripting",
+	"Categories": [
+		"Scripting",
+		"Media"
+	],
 	"Description": {
 		"DescriptionSummary": "Sets playback destination to a device."
 	},
@@ -48,6 +55,7 @@ SetPlaybackDestination NotImplemented
 		{
 			"AlwaysShowsButton": true,
 			"Class": "WFMediaRoutePickerParameter",
+			"DefaultValue": "Local",
 			"Description": "The device to set playback destination to.",
 			"DisallowedVariableTypes": [
 				"Variable"
@@ -56,6 +64,8 @@ SetPlaybackDestination NotImplemented
 			"Label": "Device",
 			"RouteType": "OutputDevice"
 		}
-	]
+	],
+	"Subcategory": "Device",
+	"WatchCompatible": true
 }
 ```

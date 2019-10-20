@@ -16,31 +16,28 @@ This action outputs a negative number if the input date takes place before the s
 
 ### usage
 ```
-GetTimeBetweenDates getTimeFrom=("Right Now" | "Other" | variable) secondDate="string" in=("Total Time" | "Seconds" | "Minutes" | "Hours" | "Days" | "Weeks" | "Months" | "Years")
+GetTimeBetweenDates firstDate="string" secondDate="string" in=("Total Time" | "Seconds" | "Minutes" | "Hours" | "Days" | "Weeks" | "Months" | "Years")
 ```
 
 ### arguments
 
 ---
 
-### getTimeFrom: Enumeration [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#enum-select-field)
-**Placeholder**: `"First Date"`
-**Default Value**: `"Right Now"`
+### firstDate: Date [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
+**Allows Variables**: true
+
 
 
 Accepts a string 
-containing one of the options:
-
-- `Right Now`
-- `Other`
+or text
+with the text. Does not allow newlines.
 
 ---
 
 ### secondDate: Date [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#text-field)
-**Placeholder**: `"Second Date"`
 **Allows Variables**: true
 
-**Only enabled if**: argument WFTimeUntilReferenceDate == `Other`
+
 
 Accepts a string 
 or text
@@ -96,6 +93,7 @@ containing one of the options:
 	},
 	"IconName": "Date.png",
 	"Input": {
+		"ParameterKey": "WFInput",
 		"Required": true,
 		"Types": [
 			"NSDate"
@@ -109,35 +107,17 @@ containing one of the options:
 			"NSNumber"
 		]
 	},
+	"ParameterSummary": "Get time between ${WFTimeUntilFromDate} and ${WFInput} in ${WFTimeUntilUnit}",
 	"Parameters": [
 		{
-			"Class": "WFEnumerationParameter",
-			"DefaultValue": "Right Now",
-			"DisallowedVariableTypes": [
-				"Ask",
-				"Variable"
-			],
-			"Items": [
-				"Right Now",
-				"Other"
-			],
-			"Key": "WFTimeUntilReferenceDate",
-			"Label": "Get Time From",
-			"Placeholder": "First Date"
+			"Class": "WFDateFieldParameter",
+			"Key": "WFTimeUntilFromDate",
+			"Label": "First Date"
 		},
 		{
 			"Class": "WFDateFieldParameter",
-			"Key": "WFTimeUntilCustomDate",
-			"Label": "Second Date",
-			"Placeholder": "Second Date",
-			"RequiredResources": [
-				{
-					"WFParameterKey": "WFTimeUntilReferenceDate",
-					"WFParameterValue": "Other",
-					"WFResourceClass": "WFParameterRelationResource"
-				}
-			],
-			"TextAlignment": "Right"
+			"Key": "WFInput",
+			"Label": "Second Date"
 		},
 		{
 			"Class": "WFEnumerationParameter",

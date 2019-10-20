@@ -141,6 +141,7 @@ or a variable.
 {
 	"ActionClass": "WFContentItemFilterAction",
 	"AppIdentifier": "com.apple.Music",
+	"Attribution": "Music",
 	"Category": "Media",
 	"CreationDate": "2015-01-22T08:00:00.000Z",
 	"Input": {
@@ -154,8 +155,7 @@ or a variable.
 	"RequiredResources": [
 		"WFAppleMusicAccessResource"
 	],
-	"ResidentCompatible": true,
-	"Subcategory": "Media",
+	"Subcategory": "Music",
 	"WFContentItemClass": "WFMPMediaContentItem",
 	"WFContentItemDefaultProperty": "Artist",
 	"Parameters": [

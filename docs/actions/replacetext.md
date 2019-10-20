@@ -89,7 +89,7 @@ with the text. Does not allow newlines.
 		"expression",
 		"regexp"
 	],
-	"Category": "Text",
+	"Category": "Documents",
 	"Description": {
 		"DescriptionSummary": "Replaces some text passed into the action with other text."
 	},
@@ -106,7 +106,7 @@ with the text. Does not allow newlines.
 	"Name": "Replace Text",
 	"Output": {
 		"Multiple": true,
-		"OutputName": "Replace Text",
+		"OutputName": "Updated Text",
 		"Types": [
 			"NSString"
 		]

@@ -143,7 +143,7 @@ containing one of the options:
 		}
 	],
 	"ResidentCompatible": true,
-	"Subcategory": "Device",
+	"Subcategory": "Network",
 	"SuggestedNever": true
 }
 ```

@@ -55,7 +55,7 @@ Accepts a variable.
 		"web",
 		"get"
 	],
-	"Category": "Text",
+	"Category": "Documents",
 	"Description": {
 		"DescriptionResult": "HTML",
 		"DescriptionSummary": "Converts the rich text passed as input to HTML text."

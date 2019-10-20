@@ -24,6 +24,9 @@ MakeRichTextfromMarkdown (v:myvar | mv:myvar | s:myvar)
 ---
 
 ### markdownText: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		Markdown Text
+		```
 **Allows Variables**: true
 
 
@@ -41,7 +44,7 @@ Accepts a variable.
 		"html",
 		"get"
 	],
-	"Category": "Text",
+	"Category": "Documents",
 	"Description": {
 		"DescriptionInput": "Markdown",
 		"DescriptionSummary": "Takes the inputted Markdown and turns it into rich text, which can then be converted to other formats."
@@ -68,7 +71,8 @@ Accepts a variable.
 		{
 			"Class": "WFVariablePickerParameter",
 			"Key": "WFInput",
-			"Label": "Markdown Text"
+			"Label": "Markdown Text",
+			"Placeholder": "Markdown Text"
 		}
 	],
 	"ResidentCompatible": true,

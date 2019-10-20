@@ -75,7 +75,7 @@ containing one of the options:
 		"photo"
 	],
 	"AppIdentifier": "com.apple.camera",
-	"Category": "Photos & Video",
+	"Category": "Media",
 	"Description": {
 		"DescriptionResult": "Photo from the camera.",
 		"DescriptionSummary": "Uses the camera to take photos."

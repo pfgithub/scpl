@@ -3,6 +3,8 @@
 
 > This action is not yet complete. Some arguments may be missing.
 
+> This action requires that Shortcuts has permission to use WFPodcastsAccessResource.
+
 
 ## description
 
@@ -25,7 +27,11 @@ PlayPodcast NotImplemented
 
 ---
 
-#### This paramtype is not implemented. WFPodcastPickerParameter
+#### This parameter is not implemented yet.
+
+The parameter type is WFPodcastPickerParameter. If you need to use this parameter, you may
+be able to use a raw value. Try converting a .shortcut to a .scpl containing
+the values you want in this parameter.
 
 ---
 
@@ -63,6 +69,9 @@ PlayPodcast NotImplemented
 			"Key": "WFPodcastShow",
 			"Label": "Podcast"
 		}
+	],
+	"RequiredResources": [
+		"WFPodcastsAccessResource"
 	]
 }
 ```

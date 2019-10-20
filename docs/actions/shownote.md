@@ -1,7 +1,7 @@
 
 ## Show Note / ShowNote (internally `is.workflow.actions.shownote`)
 
-> This action requires that Shortcuts has permission to use .
+> This action requires that Shortcuts has permission to use WFNotesAccessResource.
 
 
 ## description
@@ -21,6 +21,9 @@ ShowNote (v:myvar | mv:myvar | s:myvar)
 ---
 
 ### note: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		Note
+		```
 **Allows Variables**: true
 
 
@@ -38,7 +41,7 @@ Accepts a variable.
 		"apple"
 	],
 	"AppIdentifier": "com.apple.mobilenotes",
-	"Category": "Text",
+	"Category": "Documents",
 	"Description": {
 		"DescriptionSummary": "Opens the note passed in as input."
 	},
@@ -57,9 +60,12 @@ Accepts a variable.
 		{
 			"Class": "WFVariablePickerParameter",
 			"Key": "WFInput",
-			"Label": "Note"
+			"Label": "Note",
+			"Placeholder": "Note"
 		}
 	],
-	"RequiredResources": []
+	"RequiredResources": [
+		"WFNotesAccessResource"
+	]
 }
 ```

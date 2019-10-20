@@ -77,6 +77,9 @@ containing one of the options:
 ---
 
 ### attachments: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		Choose Variable
+		```
 **Allows Variables**: true
 
 
@@ -156,7 +159,8 @@ with the text. Allows newlines.
 			"Class": "WFVariablePickerParameter",
 			"Description": "A list of items to be attached to the new card as files.",
 			"Key": "WFTrelloAttachments",
-			"Label": "Attachments"
+			"Label": "Attachments",
+			"Placeholder": "Choose Variable"
 		},
 		{
 			"Class": "WFTextInputParameter",

@@ -121,7 +121,6 @@ with the text. Does not allow newlines.
 		"time",
 		"formatter"
 	],
-	"AppIdentifier": "com.apple.mobilecal",
 	"Category": "Calendar",
 	"Description": {
 		"DescriptionNote": "Custom format strings use the format patterns from Unicode Technical Standard #35 (unicode.org/reports/tr35/tr35-31/tr35-dates.html#Date_Format_Patterns).",

@@ -26,11 +26,19 @@ end
 
 ---
 
-#### This paramtype is not implemented. WFConditionalSubjectParameter
+#### This parameter is not implemented yet.
+
+The parameter type is WFConditionalSubjectParameter. If you need to use this parameter, you may
+be able to use a raw value. Try converting a .shortcut to a .scpl containing
+the values you want in this parameter.
 
 ---
 
-#### This paramtype is not implemented. WFConditionalOperatorParameter
+#### This parameter is not implemented yet.
+
+The parameter type is WFConditionalOperatorParameter. If you need to use this parameter, you may
+be able to use a raw value. Try converting a .shortcut to a .scpl containing
+the values you want in this parameter.
 
 ---
 
@@ -89,27 +97,51 @@ with the text. Does not allow newlines.
 
 ---
 
-#### This paramtype is not implemented. WFDatePickerParameter
+#### This parameter is not implemented yet.
+
+The parameter type is WFDatePickerParameter. If you need to use this parameter, you may
+be able to use a raw value. Try converting a .shortcut to a .scpl containing
+the values you want in this parameter.
 
 ---
 
-#### This paramtype is not implemented. WFDatePickerParameter
+#### This parameter is not implemented yet.
+
+The parameter type is WFDatePickerParameter. If you need to use this parameter, you may
+be able to use a raw value. Try converting a .shortcut to a .scpl containing
+the values you want in this parameter.
 
 ---
 
-#### This paramtype is not implemented. WFUnitQuantityFieldParameter
+#### This parameter is not implemented yet.
+
+The parameter type is WFUnitQuantityFieldParameter. If you need to use this parameter, you may
+be able to use a raw value. Try converting a .shortcut to a .scpl containing
+the values you want in this parameter.
 
 ---
 
-#### This paramtype is not implemented. WFUnitQuantityFieldParameter
+#### This parameter is not implemented yet.
+
+The parameter type is WFUnitQuantityFieldParameter. If you need to use this parameter, you may
+be able to use a raw value. Try converting a .shortcut to a .scpl containing
+the values you want in this parameter.
 
 ---
 
-#### This paramtype is not implemented. WFDurationQuantityFieldParameter
+#### This parameter is not implemented yet.
+
+The parameter type is WFDurationQuantityFieldParameter. If you need to use this parameter, you may
+be able to use a raw value. Try converting a .shortcut to a .scpl containing
+the values you want in this parameter.
 
 ---
 
-#### This paramtype is not implemented. WFDurationQuantityFieldParameter
+#### This parameter is not implemented yet.
+
+The parameter type is WFDurationQuantityFieldParameter. If you need to use this parameter, you may
+be able to use a raw value. Try converting a .shortcut to a .scpl containing
+the values you want in this parameter.
 
 ---
 
@@ -125,7 +157,11 @@ with the text. Does not allow newlines.
 
 ---
 
-#### This paramtype is not implemented. WFNumericDynamicEnumerationParameter
+#### This parameter is not implemented yet.
+
+The parameter type is WFNumericDynamicEnumerationParameter. If you need to use this parameter, you may
+be able to use a raw value. Try converting a .shortcut to a .scpl containing
+the values you want in this parameter.
 
 ---
 
@@ -225,11 +261,13 @@ with the text. Does not allow newlines.
 			"ShowsDatePicker": true
 		},
 		{
+			"AllowsNegativeNumbers": true,
 			"Class": "WFUnitQuantityFieldParameter",
 			"Key": "WFMeasurement",
 			"Label": "Number"
 		},
 		{
+			"AllowsNegativeNumbers": true,
 			"Class": "WFUnitQuantityFieldParameter",
 			"Key": "WFAnotherMeasurement",
 			"Label": "Number"

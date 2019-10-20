@@ -8,7 +8,7 @@
 
 ### summary
 
-Gets the most recent burst photos from the camera roll.
+Gets the most recent burst photos from the photo library.
 
 
 ### usage
@@ -45,10 +45,10 @@ GetLatestBursts number
 		"animated"
 	],
 	"AppIdentifier": "com.apple.mobileslideshow",
-	"Category": "Photos & Video",
+	"Category": "Media",
 	"CreationDate": "2015-12-08T08:00:00.000Z",
 	"Description": {
-		"DescriptionSummary": "Gets the most recent burst photos from the camera roll."
+		"DescriptionSummary": "Gets the most recent burst photos from the photo library."
 	},
 	"Name": "Get Latest Bursts",
 	"Output": {

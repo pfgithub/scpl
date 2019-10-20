@@ -35,6 +35,7 @@ the values you want in this parameter.
 	"Subcategory": "Reminders",
 	"WFContentItemClass": "WFReminderContentItem",
 	"WFContentItemDefaultProperty": "List",
+	"WatchCompatible": true,
 	"Parameters": [
 		{
 			"Class": "_UndefinedCoercionClass",

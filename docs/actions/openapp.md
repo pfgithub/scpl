@@ -58,7 +58,7 @@ with the text. Does not allow newlines.
 		"run",
 		"switch"
 	],
-	"Category": "Apps",
+	"Category": "Scripting",
 	"Description": {
 		"DescriptionSummary": "Opens the specified app."
 	},
@@ -82,6 +82,7 @@ with the text. Does not allow newlines.
 	"RequiredResources": [
 		"WFURLOpenResource"
 	],
+	"Subcategory": "Apps",
 	"SuggestedNever": true
 }
 ```

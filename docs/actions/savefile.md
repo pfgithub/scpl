@@ -22,7 +22,7 @@ The saved files
 
 ### usage
 ```
-SaveFile service=("iCloud Drive" | "Dropbox") askWheretoSave=(true | false | variable) destinationPath="string" overwriteIfFileExists=(true | false | variable)
+SaveFile service=("iCloud Drive" | "Dropbox") askWheretoSave=(true | false | variable) destinationPath="string" overwriteIfFileExists=(true | false | variable) file=(v:myvar | mv:myvar | s:myvar)
 ```
 
 ### arguments
@@ -77,6 +77,18 @@ or a variable.
 
 ---
 
+### file: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		File
+		```
+**Allows Variables**: true
+
+
+
+Accepts a variable.
+
+---
+
 ### source json (for developers)
 
 ```json
@@ -99,6 +111,7 @@ or a variable.
 	"IconName": "Documents.png",
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFInput",
 		"Required": true,
 		"Types": [
 			"public.data"
@@ -113,6 +126,8 @@ or a variable.
 			"public.data"
 		]
 	},
+	"ParameterCollapsingBehavior": "Never",
+	"ParameterSummary": "Save ${WFInput}",
 	"Parameters": [
 		{
 			"AlwaysShowsButton": true,
@@ -153,6 +168,12 @@ or a variable.
 					"WFResourceClass": "WFParameterRelationResource"
 				}
 			]
+		},
+		{
+			"Class": "WFVariablePickerParameter",
+			"Key": "WFInput",
+			"Label": "File",
+			"Placeholder": "File"
 		}
 	],
 	"RequiredResources": [

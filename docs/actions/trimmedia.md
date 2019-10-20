@@ -53,7 +53,7 @@ Accepts a variable.
 		"video",
 		"movie"
 	],
-	"Category": "Photos & Video",
+	"Category": "Media",
 	"Description": {
 		"DescriptionInput": "The audio or video file to edit.",
 		"DescriptionResult": "The trimmed media.",

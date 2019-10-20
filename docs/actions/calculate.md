@@ -143,12 +143,12 @@ containing one of the options:
 		"value",
 		"factorial"
 	],
+	"AppIdentifier": "com.apple.calculator",
 	"Attribution": "Math",
 	"Category": "Scripting",
 	"Description": {
 		"DescriptionSummary": "Performs a number operation on the input and returns the result."
 	},
-	"IconName": "Calculator.png",
 	"Input": {
 		"Multiple": false,
 		"ParameterKey": "WFInput",

@@ -119,6 +119,6 @@ with the text. Does not allow newlines.
 	"RequiredResources": [
 		"WFURLOpenResource"
 	],
-	"Subcategory": "Web"
+	"Subcategory": "Safari"
 }
 ```

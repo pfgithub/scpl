@@ -45,7 +45,7 @@ with the text. Does not allow newlines.
 		"Text"
 	],
 	"Attribution": "Microsoft Cognitive Services",
-	"Category": "Text",
+	"Category": "Documents",
 	"CreationDate": "2015-08-29T17:26:33.000Z",
 	"Description": {
 		"DescriptionNote": "Powered by Microsoft Cognitive Services (microsoft.com/cognitive-services)",
@@ -75,6 +75,8 @@ with the text. Does not allow newlines.
 			"Key": "WFInput",
 			"Label": "Text"
 		}
-	]
+	],
+	"ResidentCompatible": true,
+	"Subcategory": "Translation"
 }
 ```

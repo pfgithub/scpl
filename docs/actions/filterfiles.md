@@ -96,6 +96,7 @@ or a variable.
 ```json
 {
 	"ActionClass": "WFContentItemFilterAction",
+	"Attribution": "Files",
 	"Category": "Documents",
 	"CreationDate": "2015-01-22T08:00:00.000Z",
 	"IconName": "Documents.png",

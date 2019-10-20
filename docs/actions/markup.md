@@ -55,7 +55,7 @@ Accepts a variable.
 	],
 	"Categories": [
 		"Documents",
-		"Photos & Video"
+		"Media"
 	],
 	"CreationDate": "2014-01-20T06:00:00.000Z",
 	"Description": {

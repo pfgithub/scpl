@@ -13,14 +13,22 @@ Stops execution of the current shortcut and dismisses the shortcut on screen. No
 
 ### usage
 ```
-ExitShortcut 
+ExitShortcut (v:myvar | mv:myvar | s:myvar)
 ```
 
 ### arguments
 
 ---
 
+### result: Variable Picker [(Docs)](https://pfgithub.github.io/shortcutslang/gettingstarted#variable-picker-fields)
+**Placeholder**: ```
+		Result
+		```
+**Allows Variables**: true
 
+
+
+Accepts a variable.
 
 ---
 
@@ -41,6 +49,7 @@ ExitShortcut
 	"IconName": "Scripting.png",
 	"Input": {
 		"Multiple": true,
+		"ParameterKey": "WFResult",
 		"Required": false,
 		"Types": [
 			"WFContentItem"
@@ -48,7 +57,15 @@ ExitShortcut
 	},
 	"LastModifiedDate": "2015-08-20T07:00:00.000Z",
 	"Name": "Exit Shortcut",
-	"ParameterSummary": "Exit shortcut",
+	"ParameterSummary": "Exit shortcut with ${WFResult}",
+	"Parameters": [
+		{
+			"Class": "WFVariablePickerParameter",
+			"Key": "WFResult",
+			"Label": "Result",
+			"Placeholder": "Result"
+		}
+	],
 	"RequiredResources": [
 		"WFMainThreadResource"
 	],

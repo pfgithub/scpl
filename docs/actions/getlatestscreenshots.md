@@ -8,7 +8,7 @@
 
 ### summary
 
-Gets the most recent screenshots from the camera roll.
+Gets the most recent screenshots from the photo library.
 
 
 ### usage
@@ -45,9 +45,9 @@ GetLatestScreenshots number
 		"screen"
 	],
 	"AppIdentifier": "com.apple.mobileslideshow",
-	"Category": "Photos & Video",
+	"Category": "Media",
 	"Description": {
-		"DescriptionSummary": "Gets the most recent screenshots from the camera roll."
+		"DescriptionSummary": "Gets the most recent screenshots from the photo library."
 	},
 	"Name": "Get Latest Screenshots",
 	"Output": {

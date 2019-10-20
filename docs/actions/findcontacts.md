@@ -141,6 +141,7 @@ or a variable.
 {
 	"ActionClass": "WFContentItemFilterAction",
 	"AppIdentifier": "com.apple.MobileAddressBook",
+	"Attribution": "Contacts",
 	"Category": "Contacts",
 	"CreationDate": "2015-01-22T08:00:00.000Z",
 	"LastModifiedDate": "2015-12-14T08:00:00.000Z",

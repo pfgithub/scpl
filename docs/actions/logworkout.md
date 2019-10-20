@@ -163,6 +163,7 @@ the values you want in this parameter.
 			"WFResourceClass": "WFHealthKitAccessResource"
 		}
 	],
-	"Subcategory": "Log"
+	"Subcategory": "Log",
+	"WatchCompatible": true
 }
 ```

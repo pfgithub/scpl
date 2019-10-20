@@ -50,11 +50,12 @@ FormatNumber number=number WFNumberFormatDecimalPlaces=number
 		"digits",
 		"decimal"
 	],
+	"AppIdentifier": "com.apple.calculator",
+	"Attribution": "Math",
 	"Category": "Scripting",
 	"Description": {
 		"DescriptionSummary": "Formats a number into text."
 	},
-	"IconName": "Calculator.png",
 	"Input": {
 		"Multiple": true,
 		"ParameterKey": "WFNumber",
@@ -91,6 +92,6 @@ FormatNumber number=number WFNumberFormatDecimalPlaces=number
 		}
 	],
 	"ResidentCompatible": true,
-	"Subcategory": "Math"
+	"Subcategory": "Numbers"
 }
 ```
