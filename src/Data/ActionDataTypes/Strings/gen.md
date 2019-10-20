@@ -22,3 +22,14 @@ Recommendations for updating types:
 -   Add
     `const a: {[key in ShortcutsActionIdentifier]: ShortcutsActionSpec} = ...json data here...`
     and work through errors one by one.
+
+Check in ShortcutsParameterSpec that
+
+```ts
+declare const test: ShortcutsParameterSpec;
+if(test.Class === "Valulfasln") {
+test.__value;
+} 
+```
+
+works. (You also have to add Valulfasln as |(base & {__value: string})), "Valulfasln"> in the type and add it to parameters thing. If it doesn't work, remove any unused parameter types.

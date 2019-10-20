@@ -435,7 +435,6 @@ export type ShortcutsParameterSpec =
 	| (ShortcutsExpandingParameterSpec & _pc<"WFExpandingParameter">)
 	| (ShortcutsCountryFieldParameterSpec & _pc<"WFCountryFieldParameter">)
 	| (ShortcutsPlaylistPickerParameterSpec & _pc<"WFPlaylistPickerParameter">)
-	| (ShortcutsTimeOffsetParameterSpec & _pc<"WFTimeOffsetParameter">)
 	| (ShortcutsUndefinedCoercionParameterSpec & _pc<"_UndefinedCoercionClass">)
 	| (ShortcutsDynamicEnumerationParameterSpec &
 			_pc<"WFDynamicEnumerationParameter">)
@@ -474,17 +473,10 @@ export type ShortcutsParameterSpec =
 			_pc<"WFHealthCategoryPickerParameter">)
 	| (ShortcutsHealthCategoryAdditionalPickerParameterSpec &
 			_pc<"WFHealthCategoryAdditionalPickerParameter">)
-	| (ShortcutsHealthCategoryStartDateFieldParameterSpec &
-			_pc<"WFHealthCategoryStartDateFieldParameter">)
-	| (ShortcutsHealthCategoryEndDateFieldParameterSpec & // there are 7 of these
-			_pc<"WFHealthCategoryEndDateFieldParameter">)
 	| (ShortcutsWorkoutTypePickerParameterSpec &
 			_pc<"WFWorkoutTypePickerParameter">)
 	| (ShortcutsDurationQuantityFieldParameterSpec &
 			_pc<"WFDurationQuantityFieldParameter">) // 9
-	| (ShortcutsIFTTTTriggerNameParameterSpec &
-			_pc<"WFIFTTTTriggerNameParameter">)
-	| (ShortcutsIFTTTAddRecipeParameterSpec & _pc<"WFIFTTTAddRecipeParameter">)
 	| (ShortcutsImageFormatPickerParameterSpec &
 			_pc<"WFImageConvertFormatPickerParameter">)
 	| (ShortcutsLightroomPresetPickerParameterSpec &
@@ -501,10 +493,6 @@ export type ShortcutsParameterSpec =
 	| (ShortcutsWorkflowPickerParameterSpec & _pc<"WFWorkflowPickerParameter">)
 	| (ShortcutsPhotoAlbumPickerParameterSpec &
 			_pc<"WFPhotoAlbumPickerParameter">)
-	| (ShortcutsiTunesStoreCountryPickerParameterSpec &
-			_pc<"WFiTunesStoreCountryPickerParameter">)
-	| (ShortcutsEmailAccountPickerParameterSpec &
-			_pc<"WFEmailAccountPickerParameter">)
 	| (ShortcutsContactHandleFieldParameterSpec &
 			_pc<"WFContactHandleFieldParameter">)
 	| (ShortcutsAccountPickerParameterSpec & _pc<"WFAccountPickerParameter">)
