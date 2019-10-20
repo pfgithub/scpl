@@ -40,4 +40,5 @@ export type ShortcutsResourceClass =
 	| "WFUserInteractionResource"
 	| "WFWeatherAttributionAccessResource"
 	| "WFWorkflowEnvironmentResource"
-	| "WFWorkflowTypeResource";
+	| "WFWorkflowTypeResource"
+	| "WFWorkflowHiddenResource";

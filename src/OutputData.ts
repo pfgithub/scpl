@@ -65,7 +65,16 @@ const coercionTypes: { [name: string]: CoercionTypeClass } = {
 	text: "WFStringContentItem",
 	url: "WFURLContentItem",
 	vcard: "WFVCardContentItem",
-	calendarevent: "WFCalendarEventContentItem"
+	calendarevent: "WFCalendarEventContentItem",
+	ekparticipant: "WFEKParticipantContentItem",
+	hksample: "WFHKSampleContentItem",
+	note: "WFNoteContentItem",
+	reminder: "WFReminderContentItem",
+	itunesartist: "WFiTunesArtistContentItem",
+	podcastepisode: "WFPodcastEpisodeContentItem",
+	trelloitem: "WFTrelloItemContentItem",
+	ulyssessheet: "WFUlyssesSheetContentItem",
+	weatherdata: "WFWeatherDataContentItem"
 };
 export const inverseCoercionTypes: { [name in CoercionTypeClass]: string } = {
 	WFContentItem: "anything",
@@ -96,7 +105,16 @@ export const inverseCoercionTypes: { [name in CoercionTypeClass]: string } = {
 	WFURLContentItem: "url",
 	WFVCardContentItem: "vcard",
 	WFEnumerationContentItem: "enumeration",
-	WFCalendarEventContentItem: "calendarevent"
+	WFCalendarEventContentItem: "calendarevent",
+	WFEKParticipantContentItem: "ekparticipant",
+	WFHKSampleContentItem: "hksample",
+	WFNoteContentItem: "note",
+	WFReminderContentItem: "reminder",
+	WFiTunesArtistContentItem: "itunesartist",
+	WFPodcastEpisodeContentItem: "podcastepisode",
+	WFTrelloItemContentItem: "trelloitem",
+	WFUlyssesSheetContentItem: "ulyssessheet",
+	WFWeatherDataContentItem: "weatherdata"
 };
 
 export type WFAggrandizements = (
