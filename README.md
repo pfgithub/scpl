@@ -17,11 +17,57 @@
     <br> 
 </p>
 
-## About <a name="about"></a>
-ScPL is a programming language that generates Shortcuts , allowing you to write long complex shortcuts in text instead of dragging and dropping blocks. ScPL lets you work with large shortcuts easily by letting you copy and paste actions, view long shortcuts without scrolling, and type actions instead of dragging them in.
+<p>
+    ScPL is a programming language for Shortcuts that allows you
+    to write shortcuts in text instead of dragging and dropping
+    blocks. ScPL lets you work with large shortcuts easily by
+    letting you copy and paste actions, view long shortcuts without
+    scrolling, and type actions instead of dragging them in.
+    <a href="https://docs.scpl.dev/gettingstarted">Get Started</a>
+</p>
 
-## Getting Started
-Get Started using ScPL to write shortcuts on the [getting started page](https://docs.scpl.dev/gettingstarted).
+<pre><code class="scpleditor language-scpleditor">ShowResult "Hello ScPL"
+ChooseFromMenu prompt="ScPL" items=["Getting Started", "View Documentation"]
+Case "Getting Started"
+    URL "https://docs.scpl.dev/gettingstarted"
+Case "View Documentation"
+    URL "https://docs.scpl.dev/"
+End Menu
+OpenURLs</code></pre>
+
+<p>See what your shortcut looks like in ScPL by uploading it in the <a href="https://editor.scpl.dev/">ScPL Editor</a>.</p>
+
+<h1 id="whatisscpl">What is ScPL</h1>
+
+<p>
+    ScPL lets you write shortcuts in text. Instead of dragging actions
+    around on a small screen in a slow app, you can write text like
+    <code>ShowResult "My shortcut"</code> to build long and complex
+    shortcuts.
+</p>
+
+<h1 id="editors">Editors</h1>
+
+<h2 id="webeditor">Web Editor</h2>
+
+<p>
+    The ScPL Web Editor (<a href="https://editor.scpl.dev">editor.scpl.dev</a>)
+    is the easiest way to write ScPL.
+</p>
+
+<h2 id="visualstudiocode">Visual Studio Code</h2>
+
+<p>
+    ScPL has a plugin for Visual Studio Code with autocompletion, error messages,
+    and hover documentation.
+    <a href="https://marketplace.visualstudio.com/items?itemname=pfg.vscode-shortcutslang-extension">VSCode Extension</a>.
+</p>
+
+<p>
+    To compile your ScPL code you can use the scpl-cli npm package.
+    <code>npm install --global scpl-cli</code>. Then you can run
+    <code>scpl &lt;filename.scpl&gt; -o &lt;outputfile.shortcut&gt;</code>
+</p>
 
 ## Usage (in other Javascript projects) <a name="usage"></a>
 
