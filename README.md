@@ -1,3 +1,5 @@
+ Note that ScPL has not been updated to support the new iOS 13/14+ actions. If you are looking for a text shortcuts language, consider Jellycuts. 
+
 <p align="center">
   <a href="" rel="noopener">
  <img height=200px src="https://i.imgur.com/vIVZPVg.png" alt="Project logo"></a>
