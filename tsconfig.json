@@ -10,7 +10,7 @@
 		"resolveJsonModule": true,
 		"declaration": true,
 		"strict": true,
-		"types": ["jest"]
+		"types": ["jest", "node"]
 	},
 	"include": ["src/**/*", "bin/**/*", "index.ts"],
 	"exclude": ["src/**/*.spec.ts"]
