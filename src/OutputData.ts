@@ -1434,7 +1434,7 @@ export class Shortcut {
 	}
 	static inverse(data: WFShortcut): Shortcut {
 		const shortcut = new Shortcut("inverse");
-		if(data.WFWorkflowMinimumClientVersion >= 900) {
+		if(data[0].WFWorkflowMinimumClientVersion >= 900) {
 			throw new Error("This shortcut was made for iOS13+, which unfortunately ScPL does not support.");
 		}
 		data[0].WFWorkflowActions.forEach(action => {
